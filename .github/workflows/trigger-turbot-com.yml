@@ -1,4 +1,4 @@
-name: Trigger the preview build in turbot.com
+name: Trigger the guardrails preview build in turbot.com
 
 on:
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
         with:
           token: ${{ secrets.G_PERSONAL_ACCESS_TOKEN }}
           repository: turbot/turbot.com
-          event-type: build-preview
+          event-type: build-guardrails-preview
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "ref_name": "${{ github.ref_name }}"}'
 
   comment-link:
