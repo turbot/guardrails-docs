@@ -1,0 +1,506 @@
+[
+  {
+    "type": "category",
+    "link": "/",
+    "id": "index",
+    "items": []
+  },
+  {
+    "type": "category",
+    "id": "getting-started",
+    "link": "getting-started",
+    "items": [
+      "getting-started/imports-and-reports",
+      "getting-started/search-and-visualize",
+      "getting-started/policy-management",
+      "getting-started/activity-exceptions",
+      "getting-started/next",
+      "getting-started/terraform-for-everything",
+      "getting-started/faq"
+    ]
+  },
+  {
+    "type": "category",
+    "id": "concepts",
+    "link": "concepts",
+    "items": [
+      "concepts/activities",
+      "concepts/controls",
+      {
+        "type": "category",
+        "id": "guardrails",
+        "link": "concepts/guardrails",
+        "items": [
+          "concepts/guardrails/access-logging",
+          "concepts/guardrails/active",
+          "concepts/guardrails/approved",
+          "concepts/guardrails/audit-logging",
+          "concepts/guardrails/budget",
+          "concepts/guardrails/cmdb",
+          "concepts/guardrails/discovery",
+          "concepts/guardrails/encryption-at-rest",
+          "concepts/guardrails/encryption-in-transit",
+          "concepts/guardrails/public-access",
+          "concepts/guardrails/scheduling",
+          "concepts/guardrails/configured",
+          {
+            "type": "category",
+            "id": "guardrails/tagging",
+            "link": "concepts/guardrails/tagging",
+            "items": [
+              "concepts/guardrails/tagging/dynamic-tags",
+              "concepts/guardrails/tagging/require-keys",
+              "concepts/guardrails/tagging/tag-casing",
+              "concepts/guardrails/tagging/tagging-helpers"
+            ]
+          },
+          "concepts/guardrails/trusted-access",
+          "concepts/guardrails/usage"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "iam",
+        "link": "concepts/iam",
+        "items": [
+          "concepts/iam/authentication",
+          "concepts/iam/identity",
+          "concepts/iam/permissions"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "policies",
+        "link": "concepts/policies",
+        "items": [
+          "concepts/policies/hierarchy",
+          "concepts/policies/types-categories",
+          "concepts/policies/values-settings",
+          "concepts/policies/taxonomy",
+          "concepts/policies/calculated-faq"
+        ]
+      },
+      "concepts/processes",
+      {
+        "type": "category",
+        "id": "resources",
+        "link": "concepts/resources",
+        "items": [
+          "concepts/resources/hierarchy",
+          "concepts/resources/smart-folders",
+          "concepts/resources/types-categories",
+          "concepts/resources/discovery"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "id": "guides",
+    "link": "guides",
+    "items": [
+      "guides/account-imports",
+      "guides/change-window",
+      {
+        "type": "category",
+        "id": "console",
+        "link": "guides/console",
+        "items": ["guides/console/reports", "guides/console/detail-pages"]
+      },
+      {
+        "type": "category",
+        "id": "directories",
+        "link": "guides/directories",
+        "items": [
+          "guides/directories/aws-sso",
+          "guides/directories/azure-ad",
+          "guides/directories/google",
+          "guides/directories/okta",
+          "guides/directories/onelogin",
+          "guides/directories/ldap-ldaps",
+          "guides/directories/local",
+          "guides/directories/pingid"
+        ]
+      },
+      "guides/files",
+      {
+        "type": "category",
+        "id": "firehose",
+        "link": "guides/firehose",
+        "items": ["guides/firehose/pipelines"]
+      },
+      "guides/graphql",
+      {
+        "type": "category",
+        "id": "iam",
+        "link": "guides/iam",
+        "items": [
+          "guides/iam/administrators",
+          "guides/iam/user-mgt",
+          "guides/iam/access-keys",
+          "guides/iam/permission-assignment",
+          "guides/iam/advanced"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "managing-policies",
+        "link": "guides/managing-policies",
+        "items": [
+          "guides/managing-policies/config-examples",
+          "guides/managing-policies/OCL",
+          "guides/managing-policies/YAML"
+        ]
+      },
+      "guides/network-stack",
+      {
+        "type": "category",
+        "id": "notifications",
+        "link": "guides/notifications",
+        "items": [
+          "guides/notifications/filter-rules",
+          "guides/notifications/templates"
+        ]
+      },
+      "guides/nunjucks",
+      "guides/quick-actions",
+      "guides/regions",
+      "guides/searching-filtering",
+      {
+        "type": "category",
+        "id": "guides/working-with-folders",
+        "link": "guides/working-with-folders",
+        "items": [
+          "guides/working-with-folders/create",
+          "guides/working-with-folders/delete",
+          "guides/working-with-folders/renaming",
+          "guides/working-with-folders/smart"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "id": "integrations",
+    "link": "integrations",
+    "items": [
+      {
+        "type": "category",
+        "id": "aws",
+        "link": "integrations/aws",
+        "items": [
+          {
+            "type": "category",
+            "id": "import-aws-account",
+            "link": "integrations/aws/import-aws-account",
+            "items": ["integrations/aws/import-aws-account/gov-cloud"]
+          },
+          {
+            "type": "category",
+            "id": "event-handlers",
+            "link": "integrations/aws/event-handlers",
+            "items": ["integrations/aws/event-handlers/poller"]
+          },
+          "integrations/aws/services",
+          {
+            "type": "category",
+            "id": "permissions",
+            "link": "integrations/aws/permissions",
+            "items": ["integrations/aws/permissions/user-mode"]
+          },
+          "integrations/aws/security-hub",
+          "integrations/aws/decommission"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "azure",
+        "link": "integrations/azure",
+        "items": [
+          {
+            "type": "category",
+            "id": "import",
+            "link": "integrations/azure/import",
+            "items": [
+              "integrations/azure/import/tenant",
+              "integrations/azure/import/active-directory",
+              "integrations/azure/import/management-group",
+              "integrations/azure/import/subscription"
+            ]
+          },
+          {
+            "type": "category",
+            "id": "real-time-events",
+            "link": "integrations/azure/real-time-events",
+            "items": [
+              "integrations/azure/real-time-events/ad-event-pollers",
+              "integrations/azure/real-time-events/event-pollers",
+              "integrations/azure/real-time-events/mgmt-event-pollers",
+              "integrations/azure/real-time-events/event-handlers"
+            ]
+          },
+          "integrations/azure/services",
+          "integrations/azure/permissions",
+          "integrations/azure/decommission"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "gcp",
+        "link": "integrations/gcp",
+        "items": [
+          {
+            "type": "category",
+            "id": "import",
+            "link": "integrations/gcp/import-gcp-project",
+            "items": ["integrations/gcp/import-gcp-project/service-accounts"]
+          },
+          "integrations/gcp/services",
+          "integrations/gcp/permissions",
+          "integrations/gcp/decommission",
+          {
+            "type": "category",
+            "id": "real-time-events",
+            "link": "integrations/gcp/real-time-events",
+            "items": ["integrations/gcp/real-time-events/event-pollers"]
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "id": "kubernetes",
+        "link": "integrations/kubernetes",
+        "items": [
+          "integrations/kubernetes/import-kubernetes-cluster",
+          "integrations/kubernetes/configure-queries",
+          "integrations/kubernetes/decommission"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "servicenow",
+        "link": "integrations/servicenow",
+        "items": [
+          "integrations/servicenow/import-servicenow-instance",
+          "integrations/servicenow/servicenow-to-guardrails-sync",
+          "integrations/servicenow/guardrails-to-servicenow-sync"
+        ]
+      },
+      "integrations/best-practice"
+    ]
+  },
+  {
+    "type": "category",
+    "id": "mods",
+    "link": "mods",
+    "items": [
+      {
+        "type": "category",
+        "id": "mods/guide",
+        "link": "mods/guide",
+        "items": [
+          "mods/guide/install",
+          "mods/guide/uninstall",
+          "mods/guide/update",
+          "mods/guide/troubleshooting"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "id": "7-minute-labs",
+    "link": "7-minute-labs",
+    "items": [
+      "7-minute-labs/set-policy",
+      "7-minute-labs/calc-policy",
+      "7-minute-labs/cli",
+      "7-minute-labs/custom-mod",
+      "7-minute-labs/graphql",
+      "7-minute-labs/terraform"
+    ]
+  },
+  {
+    "type": "category",
+    "id": "faq",
+    "link": "faq",
+    "items": [
+      "faq/aws-faq",
+      "faq/azure-faq",
+      "faq/gcp-faq",
+      "faq/terraform-faq",
+      "faq/general-faq",
+      {
+        "type": "category",
+        "id": "faq/workspace-faq",
+        "link": "faq/workspace-faq",
+        "items": ["faq/workspace-faq/key_rotation"]
+      },
+      "faq/guardrails-and-aws-scps"
+    ]
+  },
+  {
+    "type": "category",
+    "id": "reference",
+    "link": "reference",
+    "items": [
+      {
+        "type": "category",
+        "id": "reference/cli",
+        "link": "reference/cli",
+        "items": [
+          "reference/cli/installation",
+          "reference/cli/updating",
+          {
+            "type": "category",
+            "id": "reference/cli/commands",
+            "link": "reference/cli/commands",
+            "items": [
+              "reference/cli/commands/aws",
+              "reference/cli/commands/completion",
+              "reference/cli/commands/compose",
+              "reference/cli/commands/configure",
+              "reference/cli/commands/download",
+              "reference/cli/commands/file",
+              "reference/cli/commands/graphql",
+              "reference/cli/commands/inspect",
+              "reference/cli/commands/install",
+              "reference/cli/commands/login",
+              "reference/cli/commands/pack",
+              "reference/cli/commands/publish",
+              "reference/cli/commands/registry",
+              "reference/cli/commands/template",
+              "reference/cli/commands/test",
+              "reference/cli/commands/up",
+              "reference/cli/commands/vcr",
+              "reference/cli/commands/workspace"
+            ]
+          }
+        ]
+      },
+      "reference/guardrails-samples-repo",
+      {
+        "type": "category",
+        "id": "reference/terraform",
+        "link": "reference/terraform",
+        "items": ["reference/terraform/setup"]
+      },
+      {
+        "type": "category",
+        "id": "reference/filter",
+        "link": "reference/filter",
+        "items": [
+          "reference/filter/resources",
+          "reference/filter/policies",
+          "reference/filter/controls",
+          "reference/filter/notifications"
+        ]
+      },
+      "reference/ocl",
+      {
+        "type": "category",
+        "id": "reference/graphql",
+        "link": "reference/graphql",
+        "items": []
+      },
+      "reference/glossary"
+    ]
+  },
+  {
+    "type": "category",
+    "id": "releases",
+    "link": "releases",
+    "items": []
+  },
+  {
+    "type": "category",
+    "id": "turbot.com",
+    "link": "turbot.com",
+    "items": [
+      {
+        "type": "category",
+        "id": "user",
+        "link": "turbot.com/user",
+        "items": ["turbot.com/user/sign-up", "turbot.com/user/profile"]
+      },
+      {
+        "type": "category",
+        "id": "organizations",
+        "link": "turbot.com/organizations",
+        "items": [
+          "turbot.com/organizations/setup",
+          "turbot.com/organizations/team",
+          "turbot.com/organizations/profile"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "id": "enterprise",
+    "link": "enterprise",
+    "items": [
+      "enterprise/architecture",
+      {
+        "type": "category",
+        "id": "installation",
+        "link": "enterprise/installation",
+        "items": [
+          {
+            "type": "category",
+            "id": "pre-installation",
+            "link": "enterprise/installation/pre-installation",
+            "items": ["enterprise/installation/pre-installation/external-role"]
+          },
+          "enterprise/installation/tef-installation",
+          "enterprise/installation/ted-installation",
+          "enterprise/installation/te-installation",
+          "enterprise/installation/workspace-manager",
+          "enterprise/installation/post-installation"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "updating-stacks",
+        "link": "enterprise/updating-stacks",
+        "items": [
+          "enterprise/updating-stacks/update-tef",
+          "enterprise/updating-stacks/ted-update",
+          "enterprise/updating-stacks/update-workspace"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "restore",
+        "link": "enterprise/restore",
+        "items": ["enterprise/restore/disaster-recovery-exercise"]
+      },
+      "enterprise/mod-cleanup",
+      {
+        "type": "category",
+        "id": "faq",
+        "link": "enterprise/FAQ",
+        "items": [
+          "enterprise/FAQ/admin-permissions",
+          "enterprise/FAQ/cost-estimate",
+          "enterprise/FAQ/general-purpose-gp3",
+          "enterprise/FAQ/monitoring-alarms",
+          "enterprise/FAQ/pause-events",
+          "enterprise/FAQ/redis-caching",
+          "enterprise/FAQ/disaster-recovery",
+          "enterprise/FAQ/domain-update"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "troubleshooting",
+        "link": "enterprise/troubleshooting",
+        "items": [
+          "enterprise/troubleshooting/troubleshooting-event-handlers-aws-console",
+          "enterprise/troubleshooting/troubleshooting-event-handlers-guardrails-console",
+          "enterprise/troubleshooting/event-flood"
+        ]
+      }
+    ]
+  }
+]
