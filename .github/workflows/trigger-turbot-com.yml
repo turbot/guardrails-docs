@@ -11,7 +11,7 @@ on:
   #   types: [opened]
 
 env:
-  PREVIEW_LINK: turbot-com-git-docs
+  PREVIEW_LINK: turbot-com-git-docs-guardrails
   PREVIEW_DOMAIN: turbot.vercel.app
 
 jobs:
@@ -22,9 +22,9 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.G_PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
           repository: turbot/turbot.com
-          event-type: build-guardrails-preview
+          event-type: build-guardrails-docs-preview
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "ref_name": "${{ github.ref_name }}"}'
 
   comment-link:
