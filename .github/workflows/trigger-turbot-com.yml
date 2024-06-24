@@ -3,12 +3,12 @@ name: Trigger the guardrails preview build in turbot.com
 on:
   workflow_dispatch:
 
-  # push:
-  #   branches-ignore: 
-  #     - "main"
+  push:
+    branches-ignore: 
+      - "main"
 
-  # pull_request:
-  #   types: [opened]
+  pull_request:
+    types: [opened]
 
 env:
   PREVIEW_LINK: turbot-com-git-docs-guardrails
@@ -47,5 +47,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Preview link: [https://${{ env.PREVIEW_LINK }}-${{ steps.sanitize_branch.outputs.sanitized_branch }}-${{ env.PREVIEW_DOMAIN }}](https://${{ env.PREVIEW_LINK }}-${{ steps.sanitize_branch.outputs.sanitized_branch }}-${{ env.PREVIEW_DOMAIN }}/)'
+              body: 'Preview link: [https://${{ env.PREVIEW_LINK }}${{ steps.sanitize_branch.outputs.sanitized_branch }}-${{ env.PREVIEW_DOMAIN }}](https://${{ env.PREVIEW_LINK }}${{ steps.sanitize_branch.outputs.sanitized_branch }}-${{ env.PREVIEW_DOMAIN }}/)'
             })
