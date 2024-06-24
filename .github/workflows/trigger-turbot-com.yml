@@ -47,5 +47,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Preview link: [https://${{ env.PREVIEW_LINK }}-${{ steps.sanitize_branch.outputs.sanitized_branch }}-${{ env.PREVIEW_DOMAIN }}](https://${{ env.PREVIEW_LINK }}-${{ steps.sanitize_branch.outputs.sanitized_branch }}-${{ env.PREVIEW_DOMAIN }}/)'
+              body: 'Preview link: [https://${{ env.PREVIEW_LINK }}${{ steps.sanitize_branch.outputs.sanitized_branch }}-${{ env.PREVIEW_DOMAIN }}](https://${{ env.PREVIEW_LINK }}${{ steps.sanitize_branch.outputs.sanitized_branch }}-${{ env.PREVIEW_DOMAIN }}/)'
             })
