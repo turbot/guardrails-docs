@@ -212,7 +212,16 @@ Note: the status column should be defined in the `AWS > S3 > Bucket > ServiceNow
 
 ## Import sets
 
-Guardrails can also sync cloud resource data by creating and sending [import sets](https://docs.servicenow.com/csh?topicname=c_ImportSetsKeyConcepts.html&version=latest) to import set tables, which then transform and map the data into ServiceNow tables.
+Guardrails can also sync cloud resource data by creating and sending [import sets](https://docs.servicenow.com/csh?topicname=c_ImportSetsKeyConcepts.html&version=latest) to import set tables, which then transform and map the data into other tables.
+
+While Guardrails does send import sets with resource data, it does **not**:
+- Create import set tables
+- Set coalesce fields
+- Manage data sources
+- Create transform maps
+- Cleanup processed import sets
+
+All of the items above need to be configured in your ServiceNow instance outside of Guardrails.
 
 ### Import set policies
 
@@ -223,14 +232,14 @@ The following policy structure manages how import sets are sent:
   * This policy has no no default value.
 * `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Import Set`
   * Sets whether import sets will be sent with the resource's data.
-  * By default the policy is set to `Skip`, can be set to `Enforce: Sync` or `Enforce: Sync, archive on delete`.
+  * Defaults to `Skip`, can be set to `Enforce: Sync` or `Enforce: Sync, archive on delete`.
+* `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Import Set > Table Name`
+  * Staging table name to send data to.
+  * Defaults to `ServiceNow > Import Set > Table Name [Default]` policy value (which is empty by default).
 * `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Import Set > Record`
   * Defines how records are identified, e.g., `tags` column data comes from `$.bucket.tags` data in the Guardrails CMDB.
   * Defaults to common metadata from each cloud resource type in AWS, Azure and GCP.
   * Can adjust data based on your requirements.
-* `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Import Set > Table Name`
-  * This is where the import sets will be sent to.
-  * Defaults to `ServiceNow > Import Set > Table Name [Default]` policy value (which is empty by default).
 * `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Import Set > Archive Columns`
   * Defines which record data is sent in an import set if the primary policy is set to `Enforce: Sync, archive on delete`.
 
