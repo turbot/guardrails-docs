@@ -13,6 +13,7 @@ nav:
 Before you get started, if you have not already completed, follow the [Importing a ServiceNow instance into Guardrails](/guardrails/docs/integrations/import-servicenow-instance) integration guide to associate your ServiceNow instance to Turbot Guardrails.
 
 ### Install Turbot Guardrails ServiceNow Cloud Mods
+
 Beyond the `@turbot/servicenow` mod already installed as part of the ServiceNow instance import above, there are other [ServiceNow mods](/guardrails/docs/mods/servicenow) which need to be installed in your Guardrails workspace. These mods enable the policies and controls for the applicable cloud resources you would like to sync into your ServiceNow CMDB.
 
 Example of related cloud mods:
@@ -29,12 +30,13 @@ Example of related cloud mods:
   * `@turbot/servicenow-gcp-storage`
   * ...
 
-Note: each Mod will have dependencies to other mods. For example, the `@turbot/servicenow-aws-s3` mod depends on the other Turbot Guardrails mod related to aws-s3, `@turbot/aws-s3`.
+Note: Each mod will have dependencies to other mods. For example, the `@turbot/servicenow-aws-s3` mod depends on the other Turbot Guardrails mod related to aws-s3, `@turbot/aws-s3`.
 
 Install the mods that align to the cloud resources Turbot Guardrails is already managing, that you would like to sync to ServiceNow.
 
 ### Setup Guardrails Watches for deletions and archiving
-No action is needed as the default policy is `Enforce: Enabled` on the Watches controls. 
+
+No action is needed as the default policy is `Enforce: Enabled` on the Watches controls.
 
 In rare use cases you may need to adjust along with your Customer Success SME. For background about the policy and control:
 
@@ -45,22 +47,26 @@ Policies that are already set are:
 * `ServiceNow > Turbot > Watches > Azure`
 * `ServiceNow > Turbot > Watches > GCP`
 
-## Table and Configuration Item sync policies
+## Tables and Configuration Items
+
+Guardrails can directly manage tables and records in your ServiceNow instance to sync cloud resource data.
+
+### Table and Configuration Item sync policies
 
 Once you have the applicable mods installed, new policies and controls will be added to the associated cloud resource type in Turbot Guardrails, `AWS > S3 > Bucket`.
 
 The primary function of the sync control is to ensure that cloud resources discovered and continously updated from AWS, Azure, and GCP in the Guardrail's CMDB is also extended to the ServiceNow system and CMDB tables. This synchronization is automatic and occurs whenever the data in the Guardrail CMDB is updated.
 
-## Table management
+### Table management
 
 The sync depends on defining a ServiceNow table to sync the records to. Each cloud resource type (AWS S3 Buckets, Azure Compute Instances, etc) are associated to their own table in the ServiceNow CMDB. Syncing can occur on:
 * New tables managed by Guardrails, e.g. `cmdb_ci_guardrails`
 * Extension tables managed by Guardrails, e.g. `cmdb_ci_aws_s3_bucket` extends global table `cmdb_ci_cloud_storage_account`.
 * Existing tables in SNOW, managed by Guardrails, e.g. `cloud_ci`
 
-### Creating or modifying tables
+#### Creating or modifying tables
 
-The Table management policy types follow a similar policy construct to the Configuration Item policies below: 
+The Table management policy types follow a similar policy construct to the Configuration Item policies below:
 
 * `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Table`
 * `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Table > Definition`
@@ -87,10 +93,11 @@ Working with tables from Guardrails or in ServiceNow:
   * Size: ServiceNow permits increasing the size of a column, but reducing it below the size of the largest existing data entry is not allowed. The Guardrails policy only supports increasing the column size and does not allow for a size reduction.
   * Name: Changing a column's name in the Guardrails policy configuration leads to adding a new column with the new name in the ServiceNow table. The original column remains unchanged. If the column name is changed in ServiceNow, it is treated as a new column and needs to be remapped in the Guardrails policy.
 
-## Configuration Items syncing
+### Configuration Items syncing
+
 Once the table in ServiceNow is set up, the next step is to configure the Configuration Item (CI) sync control. The purpose of this control is to handle the actual process of synchronizing data from Guardrail's CMDB to the ServiceNow table per the cloud resource type in scope.
 
-The CI sync control is managed through a specific policy format in Guardrails. This policy directs how data from various cloud resource types is synced to ServiceNow. The following is the structure for the CI sync policies: 
+The CI sync control is managed through a specific policy format in Guardrails. This policy directs how data from various cloud resource types is synced to ServiceNow. The following is the structure for the CI sync policies:
 
 * `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Configuration Item`
 * `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Configuration Item > Record`
@@ -104,11 +111,11 @@ Examples include AWS S3 buckets, Azure Compute instances, GCP SQL instance, etc,
 * `AWS > S3 > Bucket > ServiceNow > Configuration Item > Record`
   * Defines how records are identified, e.g `tags` column data comes from `$.bucket.tags` data in the Guardrails CMDB.
   * Defaults to common data inputs and matches the column definition defaulted in `AWS > S3 > Bucket > ServiceNow > Table > Definition`. Further details on adjusting the inputs for different source data, and alignment to new or changed columns from the Table Definition.
-*` AWS > S3 > Bucket > ServiceNow > Configuration Item > Table Definition`
+* `AWS > S3 > Bucket > ServiceNow > Configuration Item > Table Definition`
   * Defines where the table definition configurations are located. Can be updated for advanced use cases to adjust application scope, tables to sync to, etc.
   * Defaults are set for most use cases and would not be required to adjust at least for when getting started. Although it defaults to the name defined in `AWS > S3 > Bucket > ServiceNow > Table > Definition`, you have the option to direct the data to an existing table of your choice.
 
-### Further details about the CI sync controls
+#### Further details about the CI sync controls
 
 To illustrate the setup process of sync control, let's use the example of synchronizing an AWS S3 Bucket:
 
@@ -121,7 +128,7 @@ To illustrate the setup process of sync control, let's use the example of synchr
   * **"Enforce: Archived":** This action archives the record in the ServiceNow table.
   * **"Enforce: Deleted":** This action deletes the record in the ServiceNow table.
   * **"Enforce: Sync":** Ensures data synchronization. Data will be removed from the ServiceNow table once it is deleted from the Guardrails CMDB.
-  * **"Enforce: Sync, Archive on Delete":** This policy enforces data synchronization and dictates that data should be archived in ServiceNow when it is deleted from the Guardrails CMDB.
+  * **"Enforce: Sync, archive on Delete":** This policy enforces data synchronization and dictates that data should be archived in ServiceNow when it is deleted from the Guardrails CMDB.
 
 2. Data Mapping:
 
@@ -148,7 +155,7 @@ In `AWS > S3 > Bucket > ServiceNow > Configuration Item > Table Definition`, you
 ```yaml
 table:
   name: cmdb_aws_s3_bucket
-  label: AWS > S3 > Bucket 
+  label: AWS > S3 > Bucket
   extendsTable: cmdb_ci_cloud_storage_account
 ```
 
@@ -169,11 +176,11 @@ columns:
 ```
 
 4. Archiving records in ServiceNow
-Archiving is a strategic process to retain records that are not actively used but are still valuable for historical or compliance purposes. 
+Archiving is a strategic process to retain records that are not actively used but are still valuable for historical or compliance purposes.
 
 When `AWS > S3 > Bucket > ServiceNow > Configuration Item` is set to `Enforce: Sync`, data will be removed from the ServiceNow table once it is deleted from the Guardrails CMDB (when the cloud resource is deleted).
 
-When `AWS > S3 > Bucket > ServiceNow > Configuration Item` is set to `Enforce: Enforce: Sync, Archive on Delete`, data will NOT be removed from the ServiceNow table, it will be archived. Archival is a specific attribute or column, such as `status` which is updated to indicate archival.
+When `AWS > S3 > Bucket > ServiceNow > Configuration Item` is set to `Enforce: Enforce: Sync, archive on Delete`, data will NOT be removed from the ServiceNow table, it will be archived. Archival is a specific attribute or column, such as `status` which is updated to indicate archival.
 
 For instance, in a table like `aws_s3_bucket`, if the record `bucket1` is to be archived, its status would be updated as follows:
 
@@ -202,6 +209,46 @@ archiveColumns:
 ```
 
 Note: the status column should be defined in the `AWS > S3 > Bucket > ServiceNow > Configuration Item > Table Definition` as well.
+
+## Import sets
+
+Guardrails can also sync cloud resource data by creating and sending [import sets](https://docs.servicenow.com/csh?topicname=c_ImportSetsKeyConcepts.html&version=latest) to import set tables, which then transform and map the data into ServiceNow tables.
+
+### Import set policies
+
+The following policy structure manages how import sets are sent:
+
+* `ServiceNow > Import Set > Table Name [Default]`
+  * Default staging table name for all resource types.
+  * This policy has no no default value.
+* `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Import Set`
+  * Sets whether import sets will be sent with the resource's data.
+  * By default the policy is set to `Skip`, can be set to `Enforce: Sync` or `Enforce: Sync, archive on delete`.
+* `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Import Set > Record`
+  * Defines how records are identified, e.g., `tags` column data comes from `$.bucket.tags` data in the Guardrails CMDB.
+  * Defaults to common metadata from each cloud resource type in AWS, Azure and GCP.
+  * Can adjust data based on your requirements.
+* `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Import Set > Table Name`
+  * This is where the import sets will be sent to.
+  * Defaults to `ServiceNow > Import Set > Table Name [Default]` policy value (which is empty by default).
+* `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Import Set > Archive Columns`
+  * Defines which record data is sent in an import set if the primary policy is set to `Enforce: Sync, archive on delete`.
+
+### Archiving records
+
+After resources are deleted from Guardrails CMDB, the import set controls cannot delete records directly in ServiceNow tables. However, you can use the controls to archive records in ServiceNow. Archiving is a strategic process to retain records that are not actively used but are still valuable for historical or compliance purposes.
+
+For instance, if the `AWS > S3 > Bucket > ServiceNow > Import Set` policy is set to `Enforce: Sync, archive on delete`, you can then set archive column mappings to the `AWS > S3 > Bucket > ServiceNow > Import Set > Archive Columns` policy:
+
+```json
+{
+  bucket_name: {{ $.resource.data.Name }}
+  resource_type_uri: "tmod:@turbot/aws-s3#/resource/types/bucket"
+  status: "archived"
+}
+```
+
+An import set will be then be created that contains the data above so the `status` column can be updated. Any coalesce fields for that record type should be included in the policy value to ensure the correct record is updated.
 
 ## Next Steps
 
