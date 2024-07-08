@@ -108,9 +108,9 @@ aim is to restore this (almost) empty schema with the data from backup.
    database match those of the original database.
 4. Once the temp DB is created from the snapshot, note the endpoint.
 5. Launch a
-   [Turbot Bastion Host](https://github.com/turbot/guardrails-samples/tree/master/installation/turbot_bastion_host).
+   [Turbot Bastion Host](https://github.com/turbot/guardrails-tools/tree/master/installation/turbot_bastion_host).
 6. Run the
-   [migration script](https://github.com/turbot/guardrails-samples/tree/master/migration/turbot-schema-migration)
+   [migration script](https://github.com/turbot/guardrails-tools/tree/master/migration/turbot-schema-migration)
    which will copy the DB schema from the restored database to the actual
    database.
 

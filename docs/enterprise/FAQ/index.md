@@ -559,7 +559,7 @@ Guardrails will automatically copy the tags applied to the Service Catalog Turbo
 7. When the TEF stack has finished updating, switch over to the Guardrails console.
 8. The Type Installed controls are responsible for deploying the SNS topics and Lambda functions that execute each control. They are also responsible for copying the tags from the TEF stack.
 9. Run all the `Turbot > Mod > Installed` controls at 5 minute intervals. This will download the zip file that holds the Lambda code.  The zip file must be present in order to run the Type Installed controls.  Running a `Turbot > Mod > Installed` control automatically reruns the `Turbot > Type Installed` controls for that mod.
-   - The easiest way to run all the Turbot > Mod > Installed controls is with the run_controls_batches script found in the [Guardrails-Samples Repo](https://github.com/turbot/guardrails-samples/tree/master/api_examples/graphql/clients/python/run_controls_batches).
+   - The easiest way to run all the Turbot > Mod > Installed controls is with the run_controls_batches script found in the [Guardrails-Samples Repo](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients/python/run_controls_batches).
    - `python run_controls_batches.py -b 1 -d 300 --filter "controlTypeId:'tmod:@turbot/turbot#/control/types/modInstalled'"`
 10. Some `Turbot > Type Installed` controls may be in an `error` state with an error message like "Rate Exceeded". Rerun those Type Installed controls.
     - `python run_controls_batches.py -b 10 -d 60 --filter "controlTypeId:'tmod:@turbot/turbot#/control/types/controlInstalled' state:error"`

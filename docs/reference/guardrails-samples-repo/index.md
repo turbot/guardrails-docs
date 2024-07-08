@@ -8,10 +8,10 @@ nav:
 # Guardrails Samples Repo
 The Turbot [Guardrails Samples Repo](https://github.com/turbot/guardrails-samples/) contains code examples for various tasks with Turbot.  
 
-- [Code Examples](https://github.com/turbot/guardrails-samples/tree/master/api_examples/graphql/clients) in Python, NodeJs and Shell
-- [GraphQL](https://github.com/turbot/guardrails-samples/tree/master/api_examples/graphql/queries)
+- [Code Examples](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients) in Python, NodeJs and Shell
+- [GraphQL](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/queries)
 - [Getting Started Baseline Policies](https://github.com/turbot/guardrails-samples/tree/master/baselines/getting_started)
 - [Calculated Policies](https://github.com/turbot/guardrails-samples/tree/master/calculated_policies)
-- [Workspace Usage](https://github.com/turbot/guardrails-samples/tree/master/workspace_usage)
+- [Workspace Usage](https://github.com/turbot/guardrails-tools/tree/master/workspace_usage)
 
 If you'd like to make contributions to the Guardrails Samples Repo, please follow the [contribution guidelines](https://github.com/turbot/guardrails-samples/wiki#contribution-guide).
