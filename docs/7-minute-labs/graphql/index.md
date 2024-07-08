@@ -349,5 +349,5 @@ smart folder.
 
 - [Turbot GraphQL API Reference](reference/graphql)
 - [Turbot Filter Language Reference](reference/filter)
-- [Turbot Guardrails GraphQL Examples in Samples Repo](https://github.com/turbot/guardrails-samples/tree/master/api_examples/graphql/queries)
+- [Turbot Guardrails GraphQL Examples in Samples Repo](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/queries)
 - [Introduction to GraphQL](https://graphql.org/learn/)
