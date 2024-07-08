@@ -30,6 +30,29 @@ In the event of the accidental deletion of the TED stack, a new stack can be
 created with the added specification of a DB Snapshot and the KMS key used (if
 not using the AWS default).
 
+## Common Scenarios
+
+DR plans addresses scenarios where some or all operating components of the Guardrails application fail or are
+destroyed.  
+Here is a list of common scenarios:
+
+- **AWS Region**:  Depends on if this is a temporary or permanent loss. The organization will need to decide on the
+  boundary between temporary outage and permanent loss.
+- **Single AZ**: Most of the parts of Guardrails that are specific to an AZ are also capable of being Multi-AZ. Single
+  AZ outages generally don't matter in that case.
+- **AWS Service Outage**:  Depending on the outage and duration, the resolution may be wait for the outage to be over.
+- **SSO Authentication**: You'd need break-glass identities in all your workspaces.
+- **Route53 Outage**: Wait for it to end, or shift to OnPrem DNS/
+- **Workspace accidentally deleted**: Restore from backup.
+
+## Temporary vs Permanent Outage
+
+Most of the scenarios above depend on whether the loss is considered "temporary" or "permanent". In most scenarios, recovering from an outage requires nothing more than waiting and resyncing Guardrails to the environment afterward.
+
+The complexity and expense of Guardrails DR prep depends completely on the organization's RTO and RPO objectives. 
+
+## Additional Assistance
+
 Turbot Support is happy to consult with Enterprise customers to help
 determine a strategy to manage these scenarios. Contact us at
 [help@turbot.com](mailto:help@turbot.com).
