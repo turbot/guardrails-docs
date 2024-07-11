@@ -12,7 +12,7 @@ The alarms related to TE are forwarded to the SNS Topic `{prefix}_alarms` (examp
 
 Below are the list of supported alarms for Turbot Guardrails Enterprise.
 
-* [ELB 5xx errors](te/elb-5xx-errors)
-* [Events Queue Backlog](te/events-queue-backlog)
-* [Guardrails Response Time](te/turbot-response-time)
-* [Worker Lambda duration](te/worker-lambda-duration)
+* [ELB 5xx errors](enterprise/FAQ/monitoring-alarms/te/elb-5xx-errors)
+* [Events Queue Backlog](enterprise/FAQ/monitoring-alarms/te/events-queue-backlog)
+* [Guardrails Response Time](enterprise/FAQ/monitoring-alarms/te/turbot-response-time)
+* [Worker Lambda duration](enterprise/FAQ/monitoring-alarms/te/worker-lambda-duration)
