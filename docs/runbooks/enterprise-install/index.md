@@ -1,6 +1,6 @@
 ---
-title: Runbooks
-sidebar_label: Runbooks
+title: Enterprise Install
+sidebar_label: Enterprise Install
 ---
 # Mods
 
