@@ -414,6 +414,24 @@
   },
   {
     "type": "category",
+    "id": "runbooks",
+    "link": "runbooks",
+    "items": [
+      {
+        "type": "category",
+        "id": "runbooks/enterprise-install",
+        "link": "runbooks/enterprise-install",
+        "items": [
+          "runbooks/enterprise-install/installing_te",
+          "runbooks/enterprise-install/mod_installation",
+          "runbooks/enterprise-install/updating_ted",
+          "runbooks/enterprise-install/updating_tef"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "category",
     "id": "turbot.com",
     "link": "turbot.com",
     "items": [
