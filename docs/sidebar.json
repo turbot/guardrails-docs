@@ -412,14 +412,40 @@
     "link": "releases",
     "items": []
   },
+  // {
+  //   "type": "category",
+  //   "id": "runbooks",
+  //   "link": "runbooks",
+  //   "items": [
+  //     {
+  //       "type": "category",
+  //       "id": "runbooks/enterprise-install",
+  //       "link": "runbooks/enterprise-install",
+  //       "items": [
+  //         "runbooks/enterprise-install/installing_te",
+  //         "runbooks/enterprise-install/mod_installation",
+  //         "runbooks/enterprise-install/updating_ted",
+  //         "runbooks/enterprise-install/updating_tef"
+  //       ]
+  //     }
+  //   ]
+  // },
+
   {
     "type": "category",
     "id": "runbooks",
     "link": "runbooks",
     "items": [
+      "runbooks/aws-getting-started",
+      "runbooks/azure-getting-started",
+      "runbooks/configuring-guardrails",
+      "runbooks/enterprise-install",
+      "runbooks/enterprise-monitoring",
+      "runbooks/gcp-getting-started",
+      "runbooks/troubleshooting",
       {
         "type": "category",
-        "id": "runbooks/enterprise-install",
+        "id": "enterprise-install",
         "link": "runbooks/enterprise-install",
         "items": [
           "runbooks/enterprise-install/installing_te",
@@ -430,6 +456,7 @@
       }
     ]
   },
+
   {
     "type": "category",
     "id": "turbot.com",

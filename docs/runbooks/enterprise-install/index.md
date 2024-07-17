@@ -2,7 +2,7 @@
 title: Enterprise Install
 sidebar_label: Enterprise Install
 ---
-# Mods
+# Enterprise Install
 
 ## Overview
 
