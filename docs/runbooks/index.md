@@ -10,14 +10,16 @@ TODO
 
 
 
-**List of Runbooks**
+**List of Categories**
 
 (To be updated)
 
 |                                                         |
 | ------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [Guardrails FAQ](faq/general-faq)                       | FAQ regarding the Turbot Guardrails application and company.                            |
-| [Guardrails Enterprise](enterprise/FAQ)                 | Questions about Turbot Guardrails Enterprise, the standalone installation of Guardrails |
-| [Guardrails Workspace](faq/workspace-faq)               | Questions about Turbot Guardrails Enterprise, the standalone installation of Guardrails |
-| [Calculated Policies](concepts/policies/calculated-faq) | An introduction to Calculated Policies.                                                 |
-| [Terraform FAQ](faq/terraform-faq)                      | Common Terraform questions.                                                             |
+| [Enterprise Install](runbooks/enterprise-install/installing-te)                      | Guardrails Enterprise Installation                                                          |
+| [Configuring Guardrails](concepts/policies/calculated-faq) | TO DO                                                 |
+| [AWS Getting Started](faq/general-faq)                       | TO DO                            |
+| [Azure Getting Started](enterprise/FAQ)                 | TO DO |
+| [GCP Getting Started](faq/workspace-faq)               | TO DO |
+| [Troubleshooting](faq/terraform-faq)                      | Common Enterprise troubleshooting                                                             |
+| [Enterprise Monitoring](faq/terraform-faq)                      | Understanding Enterprise Monitoring                                                          |
