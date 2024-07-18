@@ -5,7 +5,7 @@ sidebar_label: Policy Packs
 
 # Policy Packs
 
-Policy Packs (previously name Policy Packs) allow administrators to create a set of policies and then attach them to specific resources, such as an AWS account, existing folder, or an individual resource.
+Policy Packs (previously name Smart Folders) allow administrators to create a set of policies and then attach them to specific resources, such as an AWS account, existing folder, or an individual resource. 
 
 <!--
 Policy Packs allow resources from across the hierarchy to be organized
