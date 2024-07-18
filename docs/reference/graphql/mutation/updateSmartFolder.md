@@ -1,18 +1,16 @@
 ---
-title: 'updateSmartFolder'
+title: 'updatePolicyPack'
 template: Documentation
-sidebar_label: updateSmartFolder
+sidebar_label: updatePolicyPack
 deprecated: false
 nav:
-  title: 'updateSmartFolder'
+  title: 'updatePolicyPack'
   order: 10
 ---
 
-# updateSmartFolder
+# updatePolicyPack
 
-<div className="pb-4 font-roboto-slab text-lg"><span className="font-bold">updateSmartFolder</span> <span style={{'fontWeight':400,'fontSize':'0.85em'}}>(input: <a href="/guardrails/docs/reference/graphql/input/UpdateSmartFolderInput">UpdateSmartFolderInput</a>!) &rarr; <a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span>
+<div className="pb-4 font-roboto-slab text-lg"><span className="font-bold">updatePolicyPack</span> <span style={{'fontWeight':400,'fontSize':'0.85em'}}>(input: <a href="/guardrails/docs/reference/graphql/input/UpdatePolicyPackInput">UpdatePolicyPackInput</a>!) &rarr; <a href="/guardrails/docs/reference/graphql/object/PolicyPackr">PolicyPack</a></span>
 </div>
 
-
-
-Update a smart folder with the given `id`.
+Update a policy pack with the given `id`.

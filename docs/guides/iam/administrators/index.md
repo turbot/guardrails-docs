@@ -78,15 +78,15 @@ By default, Guardrails API keys do not expire. Passwords for users in the Guardr
 
 1. Use the "Aging Turbot Access Keys" report to get an idea of which keys this policy will deactivate.  API keys in this report show all keys over 90 days of age, regardless of "Active" or "Inactive" status.
 2. In the Terraform below, adjust the regex to match the break glass user(s). Make additional changes to the calc policy as required.
-3. Execute the Terraform to create the smart folder and policies.
+3. Execute the Terraform to create the policy pack and policies.
 4. Attach to required directories in the workspace:
-   1. Terraform option: Use [smartfolder_attachments](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/smart_folder_attachment) to attach the smart folder to the required directories.
-   2. Manual Option: In the Turbot console, attach the smart folder to each required directories.
+   1. Terraform option: Use [policypacks_attachments](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/smart_folder_attachment) to attach the policy pack to the required directories.
+   2. Manual Option: In the Turbot console, attach the policy pack to each required directories.
 ```terraform
 resource "turbot_smart_folder" "breakglass_user_exceptions" {
   parent      = "tmod:@turbot/turbot#/"
   title       = "Breakglass User Exceptions"
-  description = "A set of policies to make sure that breakglass users stay viable. Directions: Attach this smart folder to each directory that holds breakglass users. "
+  description = "A set of policies to make sure that breakglass users stay viable. Directions: Attach this policy pack to each directory that holds breakglass users. "
 }
 resource "turbot_policy_setting" "turbot_iam_access_key_expiration" {
   resource       = turbot_smart_folder.breakglass_user_exceptions.id

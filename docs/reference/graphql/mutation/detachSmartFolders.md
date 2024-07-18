@@ -15,4 +15,4 @@ nav:
 
 
 
-Detach the smart folder ids from the given resource.
+Detach the policy pack ids from the given resource.

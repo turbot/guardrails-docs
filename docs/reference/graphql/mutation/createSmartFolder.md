@@ -15,4 +15,4 @@ nav:
 
 
 
-Create a smart folder for the given parent and with the given `data`.
+Create a policy pack for the given parent and with the given `data`.

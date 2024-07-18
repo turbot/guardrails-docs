@@ -18,7 +18,7 @@ infrastructure as a code to manage the full life cycle of Turbot Guardrails reso
 create new resources, manage existing ones, and destroy those no longer needed.
 
 In this exercise, you will use the Turbot Guardrails Terraform provider to create a new
-[Smart Folder](concepts/resources/policy-packs) and set
+[Policy Pack](concepts/resources/policy-packs) and set
 [Policies](concepts/policies).
 
 By the end of this lab, you will be able to create, modify, and delete Turbot Guardrails
@@ -53,7 +53,7 @@ cd terraform-demo
 touch demo.tf
 ```
 
-### Create a Smart Folder
+### Create a Policy Pack
 
 1. Add the following snippet to the `demo.tf` file that you created in the
    previous step.
@@ -142,7 +142,7 @@ can't guarantee that exactly these actions will be performed if
 
 The `terraform plan` command provides a preview of the actions that Terraform
 will take in order to configure resources per the configuration file. In this
-case, a single Smart Folder resource will be added.
+case, a single Policy Pack resource will be added.
 
 4. Having reviewed the changes, apply the configuration to implement them.
    Before applying the change, Terraform will show you the planned changes and
@@ -181,17 +181,17 @@ turbot_smart_folder.encryption: Creation complete after 1s [id=178050816325133]
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-After Terraform completes, a new Smart Folder named **Encryption @ ACME** will
+After Terraform completes, a new Policy Pack named **Encryption @ ACME** will
 be created in your workspace.
 
 ### Add Encryption Policy Settings
 
-Now that you have created a Smart Folder, you will add Policy Settings to it.
+Now that you have created a Policy Pack, you will add Policy Settings to it.
 
 1. Add the highlighted code snippet to the configuration file (demo.tf), to set
    the `AWS > S3 > Bucket > Encryption at Rest` and
    `AWS > S3 > Bucket > Encryption in Transit` policies to the
-   `Encryption @ ACME` Smart Folder:
+   `Encryption @ ACME` Policy Pack:
 
 ```hcl
 resource "turbot_smart_folder" "encryption" {
@@ -222,14 +222,14 @@ resource "turbot_policy_setting" "s3_encryption_in_transit" {
 terraform plan
 ```
 
-3. Apply the configuration to add the policies to the Smart Folder.
+3. Apply the configuration to add the policies to the Policy Pack.
 
 ```bash
 terraform apply
 ```
 
 The `Encryption at Rest` and `Encryption in Transit` policy settings will be
-created. View the Smart Folder in the Turbot Console to confirm.
+created. View the Policy Pack in the Guardrails Console to confirm.
 
 ## Updating the configuration
 
@@ -296,8 +296,8 @@ terraform destroy
 ```
 
 This command will remove the resources that you created using Terraform from
-your Turbot Workspace. You can confirm that the Smart Folder and associated
-Policy Settings have been deleted in the Turbot Console.
+your Turbot Workspace. You can confirm that the Policy Packs and associated
+Policy Settings have been deleted in the Guardrails Console.
 
 ## Importing existing resources to a Terraform config file
 

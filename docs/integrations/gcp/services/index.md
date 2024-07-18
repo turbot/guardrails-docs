@@ -33,7 +33,7 @@ enabled.
 ```hcl
 # GCP > Storage > Enabled
 resource "turbot_policy_setting" "gcp_storage_enabled" {
-  resource    = "id of account or parent folder/smart folder"   //highlight-line
+  resource    = "id of account or parent folder/policy pack"   //highlight-line
   type        = "tmod:@turbot/gcp-storage#/policy/types/storageEnabled"
   value       = "Enabled"
 }
@@ -61,7 +61,7 @@ should be set to "Enforce: Enabled if Compute Engine > Enabled".
 
 # GCP > Storage > API Enabled
 resource "turbot_policy_setting" "gcp_storage_api_enabled" {
-  resource    = "id of account or parent folder/smart folder"   //highlight-line
+  resource    = "id of account or parent folder/policy pack"   //highlight-line
   type        = "tmod:@turbot/gcp-storage#/policy/types/storageApiEnabled"
   value       = "Enforce: Enabled if Storage > Enabled"
 }

@@ -343,7 +343,7 @@ The `id` returned is the Turbot Id for the mod resource.
 
 Mutations can also be used to create, change, or delete policy settings, update
 local user passwords, as well as creating various Turbot resources such as a
-smart folder.
+policy pack.
 
 ## Further Reading
 

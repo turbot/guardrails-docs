@@ -429,7 +429,7 @@ resource "turbot_file" "tag_rules" {
 
 ## Example Calculated Policy
 
-The example creates a Smart Folder, sets the `AWS > S3 > Bucket > Tags` guardrail to `Enforce: Set tags`, and creates our calculated policy that reads the rules from the Guardrails File specified in the previous section.
+The example creates a Policy Pack, sets the `AWS > S3 > Bucket > Tags` guardrail to `Enforce: Set tags`, and creates our calculated policy that reads the rules from the Guardrails File specified in the previous section.
 
 ```hcl
 resource "turbot_smart_folder" "tag_transform_example" {

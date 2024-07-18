@@ -28,7 +28,7 @@ To set this policy via Terraform:
 
 ```hcl
 resource "turbot_policy_setting" "aws_permissions" {
-  resource = "id of account or parent folder or smart folder"   //highlight-line
+  resource = "id of account or parent folder or policy pack"   //highlight-line
   type     = "tmod:@turbot/aws-iam#/policy/types/permissions"
   value    = "Enforce: Role Mode"
 }
@@ -185,7 +185,7 @@ Alternatively, you can set the policy with Terraform:
 
 ```hcl
 resource "turbot_policy_setting" "aws_permissions_modifiers" {
-  resource = "id of account or parent folder or smart folder"   //highlight-line
+  resource = "id of account or parent folder or policy pack"   //highlight-line
   type     = "tmod:@turbot/aws-iam#/policy/types/permissionsLevelsModifiers"
   value    = jsonencode([
     { "s3:PutObject" : "admin" },
@@ -371,7 +371,7 @@ A Terraform example:
 
 ```hcl
     resource "turbot_policy_setting" "aws_iam_permissions_custom_group_levels_account" {
-  resource = "id of account or parent folder or smart folder"   //highlight-line
+  resource = "id of account or parent folder or policy pack"   //highlight-line
   type     = "tmod:@turbot/aws-iam#/policy/types/permissionsCustomGroupLevelsAccount"
   value    = <<EOT
     - data_oxford

@@ -28,7 +28,7 @@ The **Values** tab provides a view of the effective policy values for the resour
 
 ### Resource Details
 
-The **Resource Detail** page provides a view of the resource as it appears in the Guardrails CMDB. On the right, you can see the tags, AKAs and Smart Folders for this resource. In the **Controls** tab, you can see the primary controls for this resource and policy type are displayed in the **Policies** tab. In the **Activity** tab it shows the notifications related to this resource.
+The **Resource Detail** page provides a view of the resource as it appears in the Guardrails CMDB. On the right, you can see the tags, AKAs and Policy Packs for this resource. In the **Controls** tab, you can see the primary controls for this resource and policy type are displayed in the **Policies** tab. In the **Activity** tab it shows the notifications related to this resource.
 
 In **Reports** tab, you can see `Top Resource Types`, `Control alerts by descendant`, `Controls by Resource Type`, and `Oldest alerts` etc. **Developer** tab shows information about Terraform, GraphQL, CLI, and resource AKA/ID etc.
 ![resource detail](/images/docs/guardrails/resource-details.png)

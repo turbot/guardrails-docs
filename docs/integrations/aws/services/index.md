@@ -35,21 +35,21 @@ enabled.
 ```hcl
 # AWS > IAM > Enabled
 resource "turbot_policy_setting" "aws_iam_enabled" {
-  resource    = "id of account or parent folder/smart folder"   //highlight-line
+  resource    = "id of account or parent folder/policy pack"   //highlight-line
   type        = "tmod:@turbot/aws-iam#/policy/types/iamEnabled"
   value       = "Enabled"
 }
 
 # AWS > EC2 > Enabled
 resource "turbot_policy_setting" "aws_ec2_enabled" {
-  resource    = "id of account or parent folder/smart folder"   //highlight-line
+  resource    = "id of account or parent folder/policy pack"   //highlight-line
   type        = "tmod:@turbot/aws-ec2#/policy/types/ec2Enabled"
   value       = "Enabled"
 }
 
 # AWS > S3 > Enabled
 resource "turbot_policy_setting" "aws_s3_enabled" {
-  resource    = "id of account or parent folder/smart folder"   //highlight-line
+  resource    = "id of account or parent folder/policy pack"   //highlight-line
   type        = "tmod:@turbot/aws-s3#/policy/types/s3Enabled"
   value       = "Enabled"
 }

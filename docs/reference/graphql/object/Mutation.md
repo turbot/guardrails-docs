@@ -19,7 +19,7 @@ nav:
 | | | |
 | -- | -- | -- |
 | `activateGrant` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/ActiveGrant">ActiveGrant</a></span> | Activate a `grant` at the given `resource`. Optionally provide `note`, `validFromTimestamp` and `validToTimestamp` |
-| `attachSmartFolders` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span> | Attach the smart folder ids for the given resource. |
+| `attachSmartFolders` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span> | Attach the policy pack ids for the given resource. |
 | `createFavorite` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Favorite">Favorite</a></span> | Create a favorite for the given `resource`. Optionally provide `resources`, `level` and `notificationTypes` |
 | `createGoogleDirectory` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a>!</span> | Create a Google directory for searching in Turbot. |
 | `createGrant` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Grant">Grant</a></span> | Create a grant for the given `type`, `level`, `resource` and `identity`. Optionally provide `note`, `validFromTimestamp` and `validToTimestamp` |
@@ -34,7 +34,7 @@ nav:
 | `createProfileSshKey` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/ProfileSshKey">ProfileSshKey</a>!</span> | save SSH public key`. |
 | `createResource` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a></span> | Create a resource for the given `parent` and `type` and with the given `data`. Optionally provide custom `metadata`, `tags` and `akas` |
 | `createSamlDirectory` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a>!</span> | Create a SAML directory for authentication in Turbot. |
-| `createSmartFolder` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span> | Create a smart folder for the given parent and with the given `data`. |
+| `createSmartFolder` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span> | Create a policy pack for the given parent and with the given `data`. |
 | `createTurbotDirectory` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a>!</span> | Create a Turbot directory for authentication in Turbot. |
 | `createWatch` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Watch">Watch</a></span> | Create a watch for the given `resource`. Optionally provide `action` and `favorite` |
 | `createWatchRule` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/WatchRule">WatchRule</a></span> | Create a watch rule for the given `watch`. Optionally provide `resource`, `level` and `notificationTypes` |
@@ -52,14 +52,14 @@ nav:
 | `deleteProfileSshKey` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/ProfileSshKey">ProfileSshKey</a>!</span> | Delete an SSH key by `id`. |
 | `deleteResource` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a></span> | Delete the resource with the given `id` |
 | `deleteSamlDirectory` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a>!</span> | Delete a SAML directory. |
-| `deleteSmartFolder` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a></span> | Delete the smart folder with the given `id` |
+| `deleteSmartFolder` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a></span> | Delete the policy pack with the given `id` |
 | `deleteTurbotDirectory` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a>!</span> | Delete a Turbot directory. |
 | `deleteWatch` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Watch">Watch</a></span> | Delete a watch by `id`. |
 | `deleteWatchRule` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/WatchRule">WatchRule</a></span> | Delete a watch rule by `id`. |
-| `detachSmartFolders` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span> | Detach the smart folder ids from the given resource. |
+| `detachSmartFolders` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span> | Detach the policy pack ids from the given resource. |
 | `installMod` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Mod">Mod</a></span> | Install the `mod` for the given `org` and `version`, at the given `parent` |
 | `putResource` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a></span> | Put the resource with the given `id`. Optionally provide new `data`, custom `metadata`, `tags` or `akas` |
-| `putSmartFolderAttachments` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span> | Put the smart folder ids for the given resource. |
+| `putSmartFolderAttachments` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span> | Put the policy pack ids for the given resource. |
 | `runAction` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Process">Process</a></span> | Run the action with the given `actionTypeId` and `resourceTypeId` |
 | `runControl` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Process">Process</a></span> | Run the control with the given `id` |
 | `runPolicy` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Process">Process</a></span> | Run the policy with the given `id` |
@@ -78,7 +78,7 @@ nav:
 | `updateProfileSshKey` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/ProfileSshKey">ProfileSshKey</a>!</span> | Update an SSH key's `status` by `id`. |
 | `updateResource` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a></span> | Update the resource with the given `id`. Optionally provide a new `parent`, provide `data` updates, or update custom `metadata`, `tags` and `akas` |
 | `updateSamlDirectory` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a>!</span> | Update a SAML directory. |
-| `updateSmartFolder` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span> | Update a smart folder with the given `id`. |
+| `updateSmartFolder` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/SmartFolder">SmartFolder</a></span> | Update a policy pack with the given `id`. |
 | `updateTurbotDirectory` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a>!</span> | Update a Turbot directory. |
 | `updateWatch` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Watch">Watch</a></span> | Update a watch by `id`. Optionally provide `action` and `favorite` |
 | `updateWatchRule` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/WatchRule">WatchRule</a></span> | Update a watch rule by `id`. Optionally provide `resource`, `level` and `notificationTypes`", |

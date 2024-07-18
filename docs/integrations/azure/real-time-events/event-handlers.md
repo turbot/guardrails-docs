@@ -69,7 +69,7 @@ policy:
 # Create Event through Event Handler
 # Azure > Turbot > Event Handlers
 resource "turbot_policy_setting" "eventHandlers" {
-  resource    = "id of parent folder or smart folder"   //highlight-line
+  resource    = "id of parent folder or policy pack"   //highlight-line
   type            = "tmod:@turbot/azure#/policy/types/eventHandlers"
   value           = "Enforce: Configured"
 }

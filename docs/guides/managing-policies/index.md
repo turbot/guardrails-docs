@@ -18,7 +18,7 @@ administration, along with managing exceptions.
   [Policy Hierarchy](concepts/policies/hierarchy).
   - Create policy settings as high as possible in the hierarchy and manage
     exceptions below.
-  - Use [Smart Folders](concepts/resources/policy-packs) to apply a group of
+  - Use [Policy Packs](concepts/resources/policy-packs) to apply a group of
     policies to a resource.
 - Review and set ALL sub-policies before enabling a control. Many controls such
   as `Active`, `Approved`, and `Tags` use multiple policies to determine their
