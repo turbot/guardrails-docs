@@ -374,7 +374,7 @@ So far, we have mapped Azure services to Guardrails policy URI, defined a list o
 required tags, and defined a terraform block that will create the necessary
 policies, including a calculated policy. The final step is then to create a
 "home" for all of the policies.
-[Guardrails Policy Packs](guides/working-with-folders/policy-pack) allow admins to create
+[Guardrails Policy Packs](guides/working-with-folders/policy-packs) allow admins to create
 a large set of policies that can be applied to various resources on the fly.
 Like everything else in this guide, a policy pack can be defined within a
 terraform file. Along with this definition, we will also add a variable called

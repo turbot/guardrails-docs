@@ -16,4 +16,4 @@ permissions management.
 | [Creating a folder](guides/working-with-folders/create)   |
 | [Renaming a folder](guides/working-with-folders/renaming) |
 | [Deleting a folder](guides/working-with-folders/delete)   |
-| [Policy Packs](guides/working-with-folders/policy-pack)        |
+| [Policy Packs](guides/working-with-folders/policy-packs)        |
