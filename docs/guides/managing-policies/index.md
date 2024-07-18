@@ -183,7 +183,7 @@ important. Note the `EOT` encapsulating both the template and template_input!
 ```hcl
 # AWS > S3 > Bucket > Versioning
 resource "turbot_policy_setting" "s3_bucket_versioning" {
-  resource   = turbot_smart_folder.baseline.id
+  resource   = turbot_policy_pack.baseline.id
   type       = "tmod:@turbot/aws-s3#/policy/types/bucketVersioning"
   template_input = <<EOT
     {

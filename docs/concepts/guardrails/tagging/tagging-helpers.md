@@ -432,19 +432,19 @@ resource "turbot_file" "tag_rules" {
 The example creates a Policy Pack, sets the `AWS > S3 > Bucket > Tags` guardrail to `Enforce: Set tags`, and creates our calculated policy that reads the rules from the Guardrails File specified in the previous section.
 
 ```hcl
-resource "turbot_smart_folder" "tag_transform_example" {
+resource "turbot_policy_pack" "tag_transform_example" {
   parent = "tmod:@turbot/turbot#/"
   title  = "Tagging Transformation Example"
 }
 
 resource "turbot_policy_setting" "aws_s3_bucket_tags" {
-  resource = turbot_smart_folder.tag_transform_example.id
+  resource = turbot_policy_pack.tag_transform_example.id
   type     = "tmod:@turbot/aws-s3#/policy/types/bucketTags"
   value    = "Enforce: Set tags"
 }
 
 resource "turbot_policy_setting" "aws_s3_bucket_tags_template" {
-  resource = turbot_smart_folder.tag_transform_example.id
+  resource = turbot_policy_pack.tag_transform_example.id
   type           = "tmod:@turbot/aws-s3#/policy/types/bucketTagsTemplate"
   template_input = <<-EOT
     {

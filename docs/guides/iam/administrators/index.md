@@ -83,13 +83,13 @@ By default, Guardrails API keys do not expire. Passwords for users in the Guardr
    1. Terraform option: Use [policypacks_attachments](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/smart_folder_attachment) to attach the policy pack to the required directories.
    2. Manual Option: In the Turbot console, attach the policy pack to each required directories.
 ```terraform
-resource "turbot_smart_folder" "breakglass_user_exceptions" {
+resource "turbot_policy_pack" "breakglass_user_exceptions" {
   parent      = "tmod:@turbot/turbot#/"
   title       = "Breakglass User Exceptions"
   description = "A set of policies to make sure that breakglass users stay viable. Directions: Attach this policy pack to each directory that holds breakglass users. "
 }
 resource "turbot_policy_setting" "turbot_iam_access_key_expiration" {
-  resource       = turbot_smart_folder.breakglass_user_exceptions.id
+  resource       = turbot_policy_pack.breakglass_user_exceptions.id
   type           = "tmod:@turbot/turbot-iam#/policy/types/accessKeyExpiration"
   template_input = <<EOT
 {
@@ -114,7 +114,7 @@ You must specify the regex for the breakglass users emails. This policy is a gua
 EOT
 }
 resource "turbot_policy_setting" "turbot_iam_access_key_expiration_period" {
-  resource = turbot_smart_folder.breakglass_user_exceptions.id
+  resource = turbot_policy_pack.breakglass_user_exceptions.id
   type     = "tmod:@turbot/turbot-iam#/policy/types/accessKeyExpirationDays"
   value    = "90"
 }

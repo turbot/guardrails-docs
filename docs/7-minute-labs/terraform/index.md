@@ -59,7 +59,7 @@ touch demo.tf
    previous step.
 
 ```hcl
-resource "turbot_smart_folder" "encryption" {
+resource "turbot_policy_pack" "encryption" {
   title          = "Encryption @ ACME"
   description    = "Enforce encryption on a range of resource types per ACME policies."
   parent         = "tmod:@turbot/turbot#/"
@@ -121,8 +121,8 @@ Resource actions are indicated with the following symbols:
 
 Terraform will perform the following actions:
 
-  # turbot_smart_folder.encryption will be created
-  + resource "turbot_smart_folder" "encryption" {
+  # turbot_policy_pack.encryption will be created
+  + resource "turbot_policy_pack" "encryption" {
       + description = "Enforce encryption on a range of resource types per ACME policies."
       + id          = (known after apply)
       + parent      = "tmod:@turbot/turbot#/"
@@ -158,8 +158,8 @@ Resource actions are indicated with the following symbols:
 
 Terraform will perform the following actions:
 
-  # turbot_smart_folder.encryption will be created
-  + resource "turbot_smart_folder" "encryption" {
+  # turbot_policy_pack.encryption will be created
+  + resource "turbot_policy_pack" "encryption" {
       + description = "Enforce encryption on a range of resource types per ACME policies."
       + id          = (known after apply)
       + parent      = "tmod:@turbot/turbot#/"
@@ -175,8 +175,8 @@ Do you want to perform these actions?
 
   Enter a value: yes
 
-turbot_smart_folder.encryption: Creating...
-turbot_smart_folder.encryption: Creation complete after 1s [id=178050816325133]
+turbot_policy_pack.encryption: Creating...
+turbot_policy_pack.encryption: Creation complete after 1s [id=178050816325133]
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
@@ -194,7 +194,7 @@ Now that you have created a Policy Pack, you will add Policy Settings to it.
    `Encryption @ ACME` Policy Pack:
 
 ```hcl
-resource "turbot_smart_folder" "encryption" {
+resource "turbot_policy_pack" "encryption" {
   title          = "Encryption @ ACME"
   description    = "Enforce encryption on a range of resource types per ACME policies."
   parent         = "tmod:@turbot/turbot#/"
@@ -202,13 +202,13 @@ resource "turbot_smart_folder" "encryption" {
 
 // highlight-start
 resource "turbot_policy_setting" "s3_encryption_at_rest" {
-  resource        = turbot_smart_folder.encryption.id
+  resource        = turbot_policy_pack.encryption.id
   type            = "tmod:@turbot/aws-s3#/policy/types/bucketEncryptionAtRest"
   value           = "Check: AWS SSE"
 }
 
 resource "turbot_policy_setting" "s3_encryption_in_transit" {
-  resource        = turbot_smart_folder.encryption.id
+  resource        = turbot_policy_pack.encryption.id
   type            = "tmod:@turbot/aws-s3#/policy/types/encryptionInTransit"
   value           = "Check: Enabled"
 }
@@ -242,20 +242,20 @@ enforce SSL.
     `Encryption at Rest` policy from `Check: Enabled` to `Enforce: Enabled`.
 
 ```hcl
-resource "turbot_smart_folder" "encryption" {
+resource "turbot_policy_pack" "encryption" {
   title          = "Encryption @ ACME"
   description    = "Enforce encryption on a range of resource types per ACME policies."
   parent         = "tmod:@turbot/turbot#/"
 }
 
 resource "turbot_policy_setting" "s3_encryption_at_rest" {
-  resource        = turbot_smart_folder.encryption.id
+  resource        = turbot_policy_pack.encryption.id
   type            = "tmod:@turbot/aws-s3#/policy/types/bucketEncryptionAtRest"
   value           = "Check: AWS SSE"
 }
 
 resource "turbot_policy_setting" "s3_encryption_in_transit" {
-  resource        = turbot_smart_folder.encryption.id
+  resource        = turbot_policy_pack.encryption.id
   type            = "tmod:@turbot/aws-s3#/policy/types/encryptionInTransit"
   // highlight-start
   value           = "Enforce: Enabled"
