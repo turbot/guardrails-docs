@@ -5,7 +5,7 @@ sidebar_label: Policy Packs
 
 # Policy Packs
 
-Policy Packs (previously name Smart Folders) allow administrators to create a set of policies and then attach them to specific resources, such as an AWS account, existing folder, or an individual resource. 
+Policy Packs (previously name Smart Folders) allow administrators to create a set of policies and then attach them to specific resources, such as an AWS account, existing folder, or an individual resource.
 
 <!--
 Policy Packs allow resources from across the hierarchy to be organized
@@ -16,7 +16,7 @@ VPCs in the us-west-2 region into a single collection.
 **Policy Packs** are a flexible container for
 [Policy settings](concepts/policies/values-settings#policy-settings). Policies
 can be set on policy packs, making it easy to apply collections of policies to
-resources across the [Resource Hierarchy](hierarchy).
+resources across the [Resource Hierarchy](concepts/policies/hierarchy).
 
 **Tip**: An unattached policy pack is inert, making it a safe place to practice
 applying policies and ensuring that the policy Terraform is working properly.
