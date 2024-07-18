@@ -87,7 +87,7 @@
         "link": "concepts/resources",
         "items": [
           "concepts/resources/hierarchy",
-          "concepts/resources/smart-folders",
+          "concepts/resources/policy-packs",
           "concepts/resources/types-categories",
           "concepts/resources/discovery"
         ]
@@ -174,7 +174,7 @@
           "guides/working-with-folders/create",
           "guides/working-with-folders/delete",
           "guides/working-with-folders/renaming",
-          "guides/working-with-folders/smart"
+          "guides/working-with-folders/policy-pack"
         ]
       }
     ]

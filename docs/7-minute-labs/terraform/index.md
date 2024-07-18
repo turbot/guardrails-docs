@@ -18,7 +18,7 @@ infrastructure as a code to manage the full life cycle of Turbot Guardrails reso
 create new resources, manage existing ones, and destroy those no longer needed.
 
 In this exercise, you will use the Turbot Guardrails Terraform provider to create a new
-[Smart Folder](concepts/resources/smart-folders) and set
+[Smart Folder](concepts/resources/policy-packs) and set
 [Policies](concepts/policies).
 
 By the end of this lab, you will be able to create, modify, and delete Turbot Guardrails

@@ -58,7 +58,7 @@ Here is an example of what an exception looks like in the policy hierarchy. Noti
 
 ## What's Next?
 
-At this point, we have covered fundamental components of Guardrails, including Resources, Controls, Policies, Reports, and Activities. There are many other concepts to learn about from the 7000+ other OOTB policies to set and governance topics ranging from advanced policy management, [Turbot Guardrails Stacks](guides/network-stack), [Turbot Guardrails File](guides/files), [Folders](concepts/resources/hierarchy), [Smart Folders](concepts/resources/smart-folders), [Budget Guardrails](concepts/guardrails/budget), and so much more!
+At this point, we have covered fundamental components of Guardrails, including Resources, Controls, Policies, Reports, and Activities. There are many other concepts to learn about from the 7000+ other OOTB policies to set and governance topics ranging from advanced policy management, [Turbot Guardrails Stacks](guides/network-stack), [Turbot Guardrails File](guides/files), [Folders](concepts/resources/hierarchy), [Smart Folders](concepts/resources/policy-packs), [Budget Guardrails](concepts/guardrails/budget), and so much more!
 
 If you have any questions regarding Guardrails, including use cases, reach out to our [Sales team](mailto:sales+poc@turbot.com) for Free Trial users, or our [Support channel](mailto:help@turbot.com) for assistance if you are already a customer.
 
@@ -94,8 +94,8 @@ This concludes the guided tour of Guardrails! We highly recommend reviewing addi
   - [Resource Hierarchy Concepts](concepts/resources/hierarchy)
   - [Folder Guide](guides/working-with-folders)
 - Turbot Guardrails Smart Folders:
-  - [Smart Folder Concepts](concepts/resources/smart-folders)
-  - [Smart Folder Guide](guides/working-with-folders/smart)
+  - [Smart Folder Concepts](concepts/resources/policy-packs)
+  - [Policy Pack Guide](guides/working-with-folders/policy-pack)
 - Turbot Guardrails Permissions (RBAC):
   - [Permissions Concepts](concepts/iam/permissions)
   - [Managing AWS Permissions](integrations/aws/permissions)

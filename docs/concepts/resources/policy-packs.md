@@ -1,50 +1,52 @@
 ---
-title: Smart Folders
-sidebar_label: Smart Folders
+title: Policy Packs
+sidebar_label: Policy Packs
 ---
 
-# Smart Folders
+# Policy Packs
+
+Policy Packs (previously name Smart Folders) allow administrators to create a set of policies and then attach them to specific resources, such as an AWS account, existing folder, or an individual resource.
 
 <!--
-Smart Folders allow resources from across the hierarchy to be organized
-together as a group. For example, a Smart Folder can be used to group all AWS
+Policy Packs allow resources from across the hierarchy to be organized
+together as a group. For example, a Policy Pack can be used to group all AWS
 VPCs in the us-west-2 region into a single collection.
 -->
 
-**Smart Folders** are a flexible container for
+**Policy Packs** are a flexible container for
 [Policy settings](concepts/policies/values-settings#policy-settings). Policies
-can be set on smart folders, making it easy to apply collections of policies to
+can be set on policy packs, making it easy to apply collections of policies to
 resources across the [Resource Hierarchy](hierarchy).
 
-**Tip**: An unattached smart folder is inert, making it a safe place to practice
+**Tip**: An unattached policy pack is inert, making it a safe place to practice
 applying policies and ensuring that the policy Terraform is working properly.
 
-This example shows an example hierarchy with two smart folders created at the
+This example shows an example hierarchy with two policy packs created at the
 Turbot level.
 
 ```
 Turbot
-  Enforcement Policies (Smart Folder)
-  Check Policies (Smart Folder)
+  Enforcement Policies (Policy Pack)
+  Check Policies (Policy Pack)
   {Top Level Folder} (Folder)
     {Cloud Account} (Cloud Account)
 
 ```
 
-## Smart Folder Attachments
+## Policy Pack Attachments
 
-Attaching smart folders to folders and resources "activates" the policies
-contained in the smart folder. Notice that the ordering of smart folder
+Attaching policy packs to folders and resources "activates" the policies
+contained in the policy pack. Notice that the ordering of policy pack
 attachment matters a great deal. When evaluating policies, Guardrails starts at the
 resource then ascends the resource hierarchy looking for an applicable policy. A
 check-mode policy above the same policy in enforce-mode will have no effect. The
 enforce-mode policy is closer to the resource, so it wins. Remember, "the
 closest policy wins".
 
-Along with the concept of attaching a smart folder to resources, if a smart
-folder is attached to any resource, it becomes the **Parent** of that resource
-and as such the smart folder _cannot be deleted until all resources have been
-detached_.
+Along with the concept of attaching a policy pack to resources, if a policy
+pack is attached to any resource, it becomes the **Parent** of that resource
+and as such the policy pack cannot be deleted until all resources have been
+detached.
 
 ## Use Case
 
@@ -62,8 +64,8 @@ accounts, so they exist in different branches of the hierarchy:
 In this case, the resource hierarchy is insufficient and would require
 duplication of policy settings to every individual region or VPC.
 
-Instead, we define a smart folder `US Network` with US specific settings, and a
-second smart folder `EU Network` with EU specific settings. For example:
+Instead, we define a policy pack `US Network` with US specific settings, and a
+second policy pack `EU Network` with EU specific settings. For example:
 
     US Network:
       AWS > VPC > DNS Servers = 1.1.1.1
@@ -73,7 +75,7 @@ second smart folder `EU Network` with EU specific settings. For example:
       AWS > VPC > DNS Servers = 5.5.5.5
       AWS > VPC > NTP Servers = 5.6.7.8
 
-Smart folders are then attached to the region resources:
+Policy packs are then attached to the region resources:
 
     Folder A
       AWS 1111
@@ -90,11 +92,11 @@ administrators can maintain those policy settings in a single location.
 
 ### Further Reading
 
-- [Working with Smart Folders](guides/working-with-folders/smart) - Learn how to
-  attach and detach a smart folder.
+- [Working with Policy Packs](guides/working-with-folders/policy-pack) - Learn how to
+  attach and detach a policy pack.
 - [Guardrails Samples Repo Calculated Policies](https://github.com/turbot/guardrails-samples/tree/master/calculated_policies) -
-  Each set of policies is deployed via Terraform within a customizable Smart
-  folder.
+  Each set of policies is deployed via Terraform within a customizable Policy
+  pack.
 - [Guardrails Samples Repo Common Control Objectives](https://github.com/turbot/guardrails-samples/tree/master/control_objectives) -
-  Common control objectives deployed via Terraform within a customizable Smart
-  folder.
+  Common control objectives deployed via Terraform within a customizable Policy
+  pack.
