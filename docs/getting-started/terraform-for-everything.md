@@ -97,7 +97,7 @@ Turbot
 
 ### Policy Pack Attachments
 
-[Attaching policy packs](https://www.terraform.io/docs/providers/turbot/r/smart_folder_attachment.html) to folders and resources "activates" the policies contained in the policy pack. Notice that the ordering of policy pack attachment matters a great deal. When evaluating policies, Guardrails starts at the resource then ascends the resource hierarchy looking for an applicable policy. A check-mode policy above the same policy in enforce-mode will have no effect. The enforce-mode policy is closer to the resource, so it wins. Remember, "the closest policy wins".
+[Attaching policy packs](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/policy_pack_attachment) to folders and resources "activates" the policies contained in the policy pack. Notice that the ordering of policy pack attachment matters a great deal. When evaluating policies, Guardrails starts at the resource then ascends the resource hierarchy looking for an applicable policy. A check-mode policy above the same policy in enforce-mode will have no effect. The enforce-mode policy is closer to the resource, so it wins. Remember, "the closest policy wins".
 
 If no policies are set, then the default policy value is used. The "Enterprise Enforcements" and "Enterprise Checks" policy packs are intentionally indented to indicate their presence in the folder hierarchy. The check-mod policies in "Enterprise Checks" are set lower because we are not yet ready for enforcements.
 
