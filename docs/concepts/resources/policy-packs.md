@@ -92,7 +92,7 @@ administrators can maintain those policy settings in a single location.
 
 ### Further Reading
 
-- [Working with Policy Packs](guides/working-with-folders/policy-packs) - Learn how to
+- [Working with Policy Packs](guides/policy-packs) - Learn how to
   attach and detach a policy pack.
 - [Guardrails Samples Repo Calculated Policies](https://github.com/turbot/guardrails-samples/tree/master/calculated_policies) -
   Each set of policies is deployed via Terraform within a customizable Policy

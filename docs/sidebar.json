@@ -123,6 +123,7 @@
         ]
       },
       "guides/files",
+      "guides/policy-packs",
       {
         "type": "category",
         "id": "firehose",
@@ -173,8 +174,7 @@
         "items": [
           "guides/working-with-folders/create",
           "guides/working-with-folders/delete",
-          "guides/working-with-folders/renaming",
-          "guides/working-with-folders/policy-packs"
+          "guides/working-with-folders/renaming"
         ]
       }
     ]

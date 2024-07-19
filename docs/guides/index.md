@@ -19,6 +19,7 @@ This section provides how-to guides for common tasks.
 | [Managing Policies](guides/managing-policies) | Create, modify, and delete policy settings and exceptions
 | [Network Stacks](guides/network-stack) | Use Guardrails Stacks to deploy network configurations
 | [Nunjucks](guides/nunjucks) | Tips and tricks for using Nunjucks, including troubleshooting
+| [Policy Packs](guides/policy-packs) | Group and manage cloud resources based on predefined Guardrails policies for streamlined governance and compliance
 | [Quick Actions](guides/quick-actions) | Configuration options for Quick Actions
 | [Regions](guides/regions) | Guardrails and cloud provider regions
 | [Searching and Filtering](guides/searching-filtering) |  Getting started with Filters in Guardrails

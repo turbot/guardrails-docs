@@ -40,7 +40,7 @@ resource "turbot_policy_setting" "s3_encryption_at_rest" {
 For a quick introduction, check out our
 [Getting started with Terraform in 7 minutes](7-minute-labs/terraform) lab. The
 example walks through setting up a
-[Policy Pack](guides/working-with-folders/policy-packs), creating a
+[Policy Pack](guides/policy-packs), creating a
 [policy](concepts/policies), then applying and subsequently deleting the
 Terraform plan.
 

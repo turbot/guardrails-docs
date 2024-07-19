@@ -95,7 +95,7 @@ This concludes the guided tour of Guardrails! We highly recommend reviewing addi
   - [Folder Guide](guides/working-with-folders)
 - Turbot Guardrails Policy Packs:
   - [Policy Pack Concepts](concepts/resources/policy-packs)
-  - [Policy Pack Guide](guides/working-with-folders/policy-packs)
+  - [Policy Pack Guide](guides/policy-packs)
 - Turbot Guardrails Permissions (RBAC):
   - [Permissions Concepts](concepts/iam/permissions)
   - [Managing AWS Permissions](integrations/aws/permissions)
