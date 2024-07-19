@@ -80,7 +80,7 @@ By default, Guardrails API keys do not expire. Passwords for users in the Guardr
 2. In the Terraform below, adjust the regex to match the break glass user(s). Make additional changes to the calc policy as required.
 3. Execute the Terraform to create the policy pack and policies.
 4. Attach to required directories in the workspace:
-   1. Terraform option: Use [policypacks_attachments](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/smart_folder_attachment) to attach the policy pack to the required directories.
+   1. Terraform option: Use [policypacks_attachments](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/policy_pack_attachment) to attach the policy pack to the required directories.
    2. Manual Option: In the Turbot console, attach the policy pack to each required directories.
 ```terraform
 resource "turbot_policy_pack" "breakglass_user_exceptions" {

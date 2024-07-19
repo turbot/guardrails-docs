@@ -457,6 +457,6 @@ level in the UI.
 It is possible to attach the policy pack to various resources within the Guardrails
 UI, but attachment can also be defined within the Terraform file using the
 resource
-[turbot_smart_folder_attachment](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/smart_folder_attachment).
+[turbot_policy_pack_attachment](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/policy_pack_attachment).
 Simply add that resource to the main.tf file to automatically attach the newly
 created policy pack to various resources.
