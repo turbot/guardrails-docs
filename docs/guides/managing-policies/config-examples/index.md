@@ -40,4 +40,4 @@ then format the tags to match the defined template.
 
 - [Apply consistent tags across an Azure environment](concepts/guardrails/tagging)
 
-- [Tag S3 buckets while ignoring casing on key:value pair](concepts/guardrails/tagging)
+- [Tag S3 buckets while ignoring casing on key:value pair](concepts/guardrails/tagging/tag-casing)
