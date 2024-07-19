@@ -7,7 +7,7 @@ sidebar_label: Hierarchy
 
 The **Policy Hierarchy** is a superset of the
 [Resource Hierarchy](concepts/resources/hierarchy), expanding it with
-[Policy Packs](resources/smart-folders) and Guardrails defaults.
+[Policy Packs](concepts/resources/policy-packs) and Guardrails defaults.
 
 All policy and permission evaluations are based on the policy hierarchy.
 
