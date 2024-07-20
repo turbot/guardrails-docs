@@ -22,6 +22,7 @@ jobs:
       - name: Repository Dispatch commit
         uses: peter-evans/repository-dispatch@v2
         with:
+          token: ${{ secrets.GH_PAT }}
           repository: turbot/turbot.com
           event-type: build-guardrails-docs-preview
           client-payload: '{"ref": "${{ github.ref }}", "commit_ref": "${{ github.sha }}", "ref_name": "${{ github.ref_name }}", "commit": true}'
@@ -33,6 +34,7 @@ jobs:
       - name: Repository Dispatch PR
         uses: peter-evans/repository-dispatch@v2
         with:
+          token: ${{ secrets.GH_PAT }}
           repository: turbot/turbot.com
           event-type: build-guardrails-docs-preview
           client-payload: '{"ref": "${{ github.ref }}", "commit_ref": "${{ github.event.pull_request.head.number }}", "ref_name": "${{ github.ref_name }}", "pull_request": true}'
