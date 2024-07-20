@@ -19,33 +19,20 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' }}
     steps:
-      - name: Repository Dispatch
+      - name: Repository Dispatch commit
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.GH_PAT }}
           repository: turbot/turbot.com
           event-type: build-guardrails-docs-preview
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "ref_name": "${{ github.ref_name }}"}'
+          client-payload: '{"ref": "${{ github.ref }}", "commit_ref": "${{ github.sha }}", "ref_name": "${{ github.ref_name }}", "commit": true}'
 
   comment-link:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
     steps:
-
-      - name: Convert head branch special characters to hyphens
-        id: sanitize_branch
-        run: |
-          sanitized_branch=$(echo "${{ github.event.pull_request.head.ref }}" | sed 's/[^a-zA-Z0-9]/-/g')
-          echo "Sanitized head branch: $sanitized_branch"
-          echo "::set-output name=sanitized_branch::$sanitized_branch"
-
-      - uses: actions/github-script@v7
+      - name: Repository Dispatch PR
+        uses: peter-evans/repository-dispatch@v2
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Preview link: [https://${{ env.PREVIEW_LINK }}${{ steps.sanitize_branch.outputs.sanitized_branch }}-${{ env.PREVIEW_DOMAIN }}](https://${{ env.PREVIEW_LINK }}${{ steps.sanitize_branch.outputs.sanitized_branch }}-${{ env.PREVIEW_DOMAIN }}/)'
-            })
+          repository: turbot/turbot.com
+          event-type: build-guardrails-docs-preview
+          client-payload: '{"ref": "${{ github.ref }}", "commit_ref": "${{ github.event.pull_request.head.number }}", "ref_name": "${{ github.ref_name }}", "pull_request": true}'
