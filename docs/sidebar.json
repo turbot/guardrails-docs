@@ -304,6 +304,42 @@
           "mods/guide/update",
           "mods/guide/troubleshooting"
         ]
+      },
+      {
+        "type": "product",
+        "id": "mods/aws",
+        "link": "mods/aws",
+        "label": "AWS"
+      },
+      {
+        "type": "product",
+        "id": "mods/azure",
+        "link": "mods/azure",
+        "label": "Azure"
+      },
+      {
+        "type": "product",
+        "id": "mods/gcp",
+        "link": "mods/gcp",
+        "label": "GCP"
+      },
+      {
+        "type": "product",
+        "id": "mods/kubernetes",
+        "link": "mods/kubernetes",
+        "label": "Kubernetes"
+      },
+      {
+        "type": "product",
+        "id": "mods/servicenow",
+        "link": "mods/servicenow",
+        "label": "ServiceNow"
+      },
+      {
+        "type": "product",
+        "id": "mods/turbot",
+        "link": "mods/turbot",
+        "label": "Turbot"
       }
     ]
   },
