@@ -62,5 +62,3 @@ If you'd like to contribute, but don't have a project in mind, look at the [open
 ## Open Source & Contributing
 
 This repository is published under the [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/) license. Please see our [code of conduct](https://github.com/turbot/.github/blob/main/CODE_OF_CONDUCT.md). Contributors must sign our [Contributor License Agreement](https://turbot.com/open-source#cla) as part of their first pull request. We look forward to collaborating with you!
-
-[Guardrails](https://turbot.com/guardrails) is a product produced from this open source software, exclusively by [Turbot HQ, Inc](https://turbot.com). It is distributed under our commercial terms. Others are allowed to make their own distribution of the software, but they cannot use any of the Turbot trademarks, cloud services, etc. You can learn more in our [Open Source FAQ](https://turbot.com/open-source).
