@@ -105,7 +105,10 @@
         "type": "category",
         "id": "console",
         "link": "guides/console",
-        "items": ["guides/console/reports", "guides/console/detail-pages"]
+        "items": [
+          "guides/console/reports",
+          "guides/console/detail-pages"
+        ]
       },
       {
         "type": "category",
@@ -128,7 +131,9 @@
         "type": "category",
         "id": "firehose",
         "link": "guides/firehose",
-        "items": ["guides/firehose/pipelines"]
+        "items": [
+          "guides/firehose/pipelines"
+        ]
       },
       "guides/graphql",
       {
@@ -193,20 +198,26 @@
             "type": "category",
             "id": "import-aws-account",
             "link": "integrations/aws/import-aws-account",
-            "items": ["integrations/aws/import-aws-account/gov-cloud"]
+            "items": [
+              "integrations/aws/import-aws-account/gov-cloud"
+            ]
           },
           {
             "type": "category",
             "id": "event-handlers",
             "link": "integrations/aws/event-handlers",
-            "items": ["integrations/aws/event-handlers/poller"]
+            "items": [
+              "integrations/aws/event-handlers/poller"
+            ]
           },
           "integrations/aws/services",
           {
             "type": "category",
             "id": "permissions",
             "link": "integrations/aws/permissions",
-            "items": ["integrations/aws/permissions/user-mode"]
+            "items": [
+              "integrations/aws/permissions/user-mode"
+            ]
           },
           "integrations/aws/security-hub",
           "integrations/aws/decommission"
@@ -253,7 +264,9 @@
             "type": "category",
             "id": "import",
             "link": "integrations/gcp/import-gcp-project",
-            "items": ["integrations/gcp/import-gcp-project/service-accounts"]
+            "items": [
+              "integrations/gcp/import-gcp-project/service-accounts"
+            ]
           },
           "integrations/gcp/services",
           "integrations/gcp/permissions",
@@ -262,7 +275,9 @@
             "type": "category",
             "id": "real-time-events",
             "link": "integrations/gcp/real-time-events",
-            "items": ["integrations/gcp/real-time-events/event-pollers"]
+            "items": [
+              "integrations/gcp/real-time-events/event-pollers"
+            ]
           }
         ]
       },
@@ -307,38 +322,38 @@
       },
       {
         "type": "product",
-        "id": "mods/aws",
-        "link": "mods/aws",
+        "id": "mods/aws/mods",
+        "link": "mods/aws/mods",
         "label": "AWS"
       },
       {
         "type": "product",
-        "id": "mods/azure",
-        "link": "mods/azure",
+        "id": "mods/azure/mods",
+        "link": "mods/azure/mods",
         "label": "Azure"
       },
       {
         "type": "product",
-        "id": "mods/gcp",
-        "link": "mods/gcp",
+        "id": "mods/gcp/mods",
+        "link": "mods/gcp/mods",
         "label": "GCP"
       },
       {
         "type": "product",
-        "id": "mods/kubernetes",
-        "link": "mods/kubernetes",
+        "id": "mods/kubernetes/mods",
+        "link": "mods/kubernetes/mods",
         "label": "Kubernetes"
       },
       {
         "type": "product",
-        "id": "mods/servicenow",
-        "link": "mods/servicenow",
+        "id": "mods/servicenow/mods",
+        "link": "mods/servicenow/mods",
         "label": "ServiceNow"
       },
       {
         "type": "product",
-        "id": "mods/turbot",
-        "link": "mods/turbot",
+        "id": "mods/turbot/mods",
+        "link": "mods/turbot/mods",
         "label": "Turbot"
       }
     ]
@@ -370,7 +385,9 @@
         "type": "category",
         "id": "faq/workspace-faq",
         "link": "faq/workspace-faq",
-        "items": ["faq/workspace-faq/key_rotation"]
+        "items": [
+          "faq/workspace-faq/key_rotation"
+        ]
       },
       "faq/guardrails-and-aws-scps"
     ]
@@ -419,7 +436,9 @@
         "type": "category",
         "id": "reference/terraform",
         "link": "reference/terraform",
-        "items": ["reference/terraform/setup"]
+        "items": [
+          "reference/terraform/setup"
+        ]
       },
       {
         "type": "category",
@@ -457,7 +476,10 @@
         "type": "category",
         "id": "user",
         "link": "turbot.com/user",
-        "items": ["turbot.com/user/sign-up", "turbot.com/user/profile"]
+        "items": [
+          "turbot.com/user/sign-up",
+          "turbot.com/user/profile"
+        ]
       },
       {
         "type": "category",
@@ -486,7 +508,9 @@
             "type": "category",
             "id": "pre-installation",
             "link": "enterprise/installation/pre-installation",
-            "items": ["enterprise/installation/pre-installation/external-role"]
+            "items": [
+              "enterprise/installation/pre-installation/external-role"
+            ]
           },
           "enterprise/installation/tef-installation",
           "enterprise/installation/ted-installation",
@@ -509,7 +533,9 @@
         "type": "category",
         "id": "restore",
         "link": "enterprise/restore",
-        "items": ["enterprise/restore/disaster-recovery-exercise"]
+        "items": [
+          "enterprise/restore/disaster-recovery-exercise"
+        ]
       },
       "enterprise/mod-cleanup",
       {
