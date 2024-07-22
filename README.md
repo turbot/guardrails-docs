@@ -1,4 +1,4 @@
-![image](https://turbot.com/images/pipes_og_graphic.png)
+![image](https://turbot.com/images/guardrails_og_graphic.png)
 
 <!-- # Guardrails docs format & structure -->
 
