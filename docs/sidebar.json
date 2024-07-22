@@ -80,6 +80,7 @@
           "concepts/policies/calculated-faq"
         ]
       },
+      "concepts/policy-packs",
       "concepts/processes",
       {
         "type": "category",
@@ -87,7 +88,6 @@
         "link": "concepts/resources",
         "items": [
           "concepts/resources/hierarchy",
-          "concepts/resources/policy-packs",
           "concepts/resources/types-categories",
           "concepts/resources/discovery"
         ]

@@ -7,12 +7,6 @@ sidebar_label: Policy Packs
 
 Policy Packs (previously name Smart Folders) allow administrators to create a set of policies and then attach them to specific resources, such as an AWS account, existing folder, or an individual resource.
 
-<!--
-Policy Packs allow resources from across the hierarchy to be organized
-together as a group. For example, a Policy Pack can be used to group all AWS
-VPCs in the us-west-2 region into a single collection.
--->
-
 **Policy Packs** are a flexible container for
 [Policy settings](concepts/policies/values-settings#policy-settings). Policies
 can be set on policy packs, making it easy to apply collections of policies to
@@ -59,7 +53,7 @@ But consider a situation where we wish to have specific policy settings for VPCs
 based on their region (e.g. local DNS servers). VPCs are based in different
 accounts, so they exist in different branches of the hierarchy:
 
-![](/images/docs/guardrails/smart-folders-none.png)
+![](/images/docs/guardrails/policy-packs-none.png)
 
 In this case, the resource hierarchy is insufficient and would require
 duplication of policy settings to every individual region or VPC.
@@ -88,15 +82,11 @@ Policy packs are then attached to the region resources:
 VPCs in each region will now have their region specific policies, while
 administrators can maintain those policy settings in a single location.
 
-![](/images/docs/guardrails/smart-folders-updated.png)
+![](/images/docs/guardrails/policy-packs-updated.png)
 
 ### Further Reading
 
 - [Working with Policy Packs](guides/policy-packs) - Learn how to
   attach and detach a policy pack.
-- [Guardrails Samples Repo Calculated Policies](https://github.com/turbot/guardrails-samples/tree/master/calculated_policies) -
-  Each set of policies is deployed via Terraform within a customizable Policy
-  pack.
-- [Guardrails Samples Repo Common Control Objectives](https://github.com/turbot/guardrails-samples/tree/master/control_objectives) -
-  Common control objectives deployed via Terraform within a customizable Policy
+- [Guardrails Hub](https://hub.guardrails.turbot.com) - A catalog of example policy packs for common control objectives. Each set of policies is deployed via Terraform.
   pack.

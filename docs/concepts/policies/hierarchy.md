@@ -107,11 +107,11 @@ wins.
 
 #### Policy Packs create automated collections of resources using search
 
-![policy packs](/images/docs/guardrails/smart-folder.png)
+![policy packs](/images/docs/guardrails/policy-pack.png)
 
 #### Policies set on Policy Packs are injected into the hierarchy
 
-![policy packs](/images/docs/guardrails/smart-folder-2.png)
+![policy packs](/images/docs/guardrails/policy-pack-2.png)
 
 ## Permissions and Policy Management
 
