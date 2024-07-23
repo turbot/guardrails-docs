@@ -412,6 +412,24 @@
     "link": "releases",
     "items": []
   },
+
+  {
+    "type": "category",
+    "id": "runbooks",
+    "link": "runbooks",
+    "items": [
+      {
+        "type": "category",
+        "id": "enterprise-install",
+        "link": "runbooks/enterprise-install",
+        "items": [
+          "runbooks/enterprise-install/installing-te"
+        ]
+      }
+
+    ]
+  },
+
   {
     "type": "category",
     "id": "turbot.com",
