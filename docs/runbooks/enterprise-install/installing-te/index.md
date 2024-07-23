@@ -30,55 +30,57 @@ a new TE version.
 
 Open the AWS Console and navigate to the Service Catalog service in the region to deploy TE.
 
-
-<!-- ![AWS Console Home Page](/docs/runbooks/enterprise-install/installing-te/aws-console.png) -->
 ![AWS Console Home Page](/images/docs/guardrails/aws-console.png)
 
-### Step 2: Navigate to Products
+### Step 2: Navigate to Products & Identify the TE Product
 
 Select the hamburger menu in the top left and click on `Products`.
 
-<!-- ![Navigation Menu](screenshot_navigation_menu.png) -->
-
-### Step 3: Identify the TE Product
-
 Select `Turbot Guardrails Enterprise` from the products list and click `Launch Product`.
 
-<!-- ![Service Catalog Products List](screenshot_service_catalog_products_list.png) -->
+![Launch Product ](/images/docs/guardrails/aws-service-catalog-launch-product.png)
 
-### Step 4: Name the TE Product
+
+### Step 3: Launch & Name the TE Product
 
 Select the desired version and name the provisioned product with the version number prefixed with `te`.
 
-<!-- ![Provisioned Product Naming](screenshot_provisioned_product_naming.png) -->
+![Provisioned Product Naming](/images/docs/guardrails/provisioned_product_naming.png)
 
-### Step 5: Verify Parameters
+### Step 4: Verify Parameters
 
 Ensure all parameters are correct. Generally, these can be left as default.
 
 <!-- ![Parameters Verification Page](screenshot_parameters_verification.png) -->
 
-### Step 6: Launch Product
+### Step 5: Launch Product
 
 Verify the parameters again and select `Launch product`.
 
-<!-- ![Update Confirmation Page](screenshot_update_confirmation.png) -->
+99.9% of All TE installations do not need to change any parameters.  The parameters for the TE stack are designed by default to pick up their values from the TEF configuration, with no options necessary to change on installation.
+
+### Step 6: Launch Product
+
+Verify the parameters again and select Launch product.
+
+![Launch Product](/images/docs/guardrails/aws-service-catalog-launch-action.png)
+
 
 ### Step 7: Monitor Installation
 
-The installed TE version should appear in `Provisioned products` with the status `Under change` and a new CloudFormation stack should be created with the status `CREATING`.
-
-<!-- ![Verification Page](screenshot_verification_page.png) -->
+The installed TE version should appear in Provisioned products with the status Under change and a new CloudFormation stack should be created with the status CREATING.
 
 ## Validation
 
 The TE provisioned product status should change to `Available` and the CloudFormation stack status should be `CREATE_COMPLETE` to ensure the installation completed successfully.
 
-<!-- ![CloudFormation Stack Update Status](screenshot_stack_update_status.png) -->
+![Verification Page](/images/docs/guardrails/aws-service-catalog-verification-page.png)
+
 
 ## Troubleshooting
 
 **Common Issues**:
+
 1. **Installation fails or takes too long**:
     - Solution: Check the CloudFormation events tab for errors or issues.
 2. **Parameters need adjustment**:
