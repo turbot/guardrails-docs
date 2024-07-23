@@ -10,9 +10,11 @@ Balancing agility with controls requires a clear and simple set of beliefs guidi
 
 |                                                      |
 | ---------------------------------------------------- | ------------------------------------------------------------------------------|
+| [Activities](concepts/activities)                    | Activity provides visibility into the changes that are occurring in your environment                                            |
 | [Controls](concepts/controls)                        | Controls enforce policies                                                     |
 | [Guardrails](concepts/guardrails)                    | Standard guardrails provide a consistent set of controls and policies         |
 | [Identity and Access Management (IAM)](concepts/iam) | Guardrails provides a flexible IAM model for authentication and authorization |
 | [Policies](concepts/policies)                        | Policies manage configuration settings                                        |
+| [Policy Packs](concepts/policy-packs)                | The new and improved way to group resources and policies                      |
 | [Processes](concepts/processes)                      | Processes perform work                                                        |
 | [Resources](concepts/resources)                      | Resources represent objects that are managed by Guardrails                    |
