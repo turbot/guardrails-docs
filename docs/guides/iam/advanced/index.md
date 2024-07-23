@@ -170,7 +170,7 @@ The customer has a set of teams to manage various cloud resources. Each team has
 a specific set of resources they manage. All teams have access to the Guardrails
 console and API with `Turbot/Operator`. Guardrails Administrators have
 `Turbot/Owner`. All policies and workspace changes must be reviewed before
-deployment. Creating or altering smart folders, creating new folders, importing
+deployment. Creating or altering policy packs, creating new folders, importing
 accounts and other high risk activities are reserved for the Guardrails Admins.
 
 Their environment included:
@@ -180,12 +180,12 @@ Their environment included:
 - A number of AWS accounts spread across several production workspaces.
 - A CodeDeploy pipeline per team per workspace. Each pipeline has a Guardrails user
   with `Turbot/Admin`.
-- A collection of smart folders per team per workspace to provide flexibility in
+- A collection of policy packs per team per workspace to provide flexibility in
   scoping policy assignment.
 
 To enforce least privilege, all CodeDeploy pipelines were consolidated into a
 single pipeline per workspace. Pre-deploy checks ensured that team members only
-created policies in their assigned smart folders and only on their assigned
+created policies in their assigned policy packs and only on their assigned
 resource types.
 
 Policy Checks on Resource Team:
@@ -193,7 +193,7 @@ Policy Checks on Resource Team:
 - Reject any commit that performs operations other than creating/updating
   policies.
 - Reject any commit that enables or alters policies outside each team's assigned
-  smart folders.
+  policy packs.
 - Reject any commit that sets policies for services and resources outside each
   team's assigned set.
 - Reject any commit that fails to pass terraform linting rules.

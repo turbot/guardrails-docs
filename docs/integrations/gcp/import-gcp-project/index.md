@@ -327,10 +327,10 @@ may be a large number of Discovery controls in `error`. These can be resolved in
 one of two ways. First, simply delete the project and reimport it with proper
 credentials. Second, keep the project imported but rerun each control in `error`
 using the run_controls scripts in the Guardrails Samples Repo available in
-[Python](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients/python/run_controls),
-[Javascript](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients/node/run-controls)
+[Python](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls),
+[Javascript](https://github.com/turbot/guardrails-samples/tree/master/api_examples/node/run-controls)
 or
-[shell](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients/shell/run-controls).
+[shell](https://github.com/turbot/guardrails-samples/tree/master/api_examples/shell/run-controls).
 The filter of `state:error` to rerun all controls in `error`.
 
 ### GCP Service API Enabled policies aren't set

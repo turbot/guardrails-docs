@@ -26,7 +26,7 @@ Mode":
 
 ```hcl
 resource "turbot_policy_setting" "gcp_permissions" {
-  resource        = "id of project or parent folder or smart folder"   //highlight-line
+  resource        = "id of project or parent folder or policy pack"   //highlight-line
   type            = "tmod:@turbot/gcp-iam#/policy/types/permissions"
   value           = "Enforce: Role Mode"
 }

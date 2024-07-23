@@ -48,7 +48,7 @@ credentials file. The default profile is used when you run the `turbot` command
 without explicitly specifying a `--profile` .
 
 The default location for the credentials file is referenced by the Turbot Guardrails CLI, the Turbot Guardrails Terraform
-provider and the Python scripts in the [Guardrails Samples Repo](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients/python).
+provider and the Python scripts in the [Guardrails Samples Repo](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python).
 
 ### Named Profiles
 

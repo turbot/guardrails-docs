@@ -100,7 +100,7 @@ sure to keep an eye out for new mod versions!
 Install `firehose-aws-sns` mod on your workspace and a service user for the
 email. Refer to the [Guardrails Firehose](guides/firehose) guide for more
 information. A full configuration script can be found in the
-[Guardrails Samples](https://github.com/turbot/guardrails-tools/tree/master/mod_examples/firehose-aws-sns/setup/terraform).
+[Guardrails Samples](https://github.com/turbot/guardrails-samples/tree/master/mod_examples/firehose-aws-sns/setup/terraform).
 
 ## Is there a way to create a Guardrails File in the console?
 
@@ -226,7 +226,7 @@ Yes! This can be accomplished by a GraphQL query or
 and [AwsCredentials](reference/graphql/object/AwsCredentials) information,
 Guardrails will respond with an access and secret access key. This can be done via a
 preferred scripting language - you can find additional scripting examples on our
-[Guardrails Samples](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients).
+[Guardrails Samples](https://github.com/turbot/guardrails-samples/tree/master/api_examples).
 
 Refer to
 [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html)
@@ -366,7 +366,7 @@ In rare circumstances, attempting to delete an AWS account can result in a
 timeout. This is usually due to a large amount of resources within an account.
 To delete large accounts, a delete account script lives in the Guardrails Samples Repo.
 
-- [Guardrails AWS account delete script](https://github.com/turbot/guardrails-tools/tree/master/aws_account_delete)
+- [Guardrails AWS account delete script](https://github.com/turbot/guardrails-samples/tree/master/guardrails-utilities/python-utils/remove_aws_account)
 
 Be sure to change the Guardrails data resource `deleteThisAwsAccount` id value to
 the arn of the account that must be deleted.

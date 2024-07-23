@@ -67,7 +67,7 @@ These policies can also be set using Terraform:
 # Sets the policy Enable for API Enabled in Pub/Sub
 # GCP > Pub/Sub > API Enabled
 resource "turbot_policy_setting" "pubsubApiEnabled" {
-  resource = "id of parent folder or smart folder"   //highlight-line
+  resource = "id of parent folder or policy pack"   //highlight-line
   type     = "tmod:@turbot/gcp-pubsub#/policy/types/pubsubApiEnabled"
   value    = "Enforce: Enabled"
 }
@@ -75,7 +75,7 @@ resource "turbot_policy_setting" "pubsubApiEnabled" {
 # Sets the policy Enable for API Enabled in Logging
 # GCP > Logging > API Enabled
 resource "turbot_policy_setting" "loggingApiEnabled" {
-  resource = "id of parent folder or smart folder"   //highlight-line
+  resource = "id of parent folder or policy pack"   //highlight-line
   type     = "tmod:@turbot/gcp-logging#/policy/types/loggingApiEnabled"
   value    = "Enforce: Enabled"
 }
@@ -162,14 +162,14 @@ These policies can also be set using Terraform:
 # Sets the policy for Pub/Sub
 # GCP > Turbot > Event Handlers > Pub/Sub
 resource "turbot_policy_setting" "eventHandlersPubSub" {
-  resource = "id of parent folder or smart folder"   //highlight-line
+  resource = "id of parent folder or policy pack"   //highlight-line
   type     = "tmod:@turbot/gcp#/policy/types/eventHandlersPubSub"
   value    = "Enforce: Configured"
 }
 # Sets the policy for Logging
 # GCP > Turbot > Event Handlers > Logging
 resource "turbot_policy_setting" "eventHandlersLogging" {
-  resource = "id of parent folder or smart folder"   //highlight-line
+  resource = "id of parent folder or policy pack"   //highlight-line
   type     = "tmod:@turbot/gcp#/policy/types/eventHandlersLogging"
   value    = "Enforce: Configured"
 }

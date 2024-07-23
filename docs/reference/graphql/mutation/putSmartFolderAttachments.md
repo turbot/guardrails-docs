@@ -15,4 +15,4 @@ nav:
 
 
 
-Put the smart folder ids for the given resource.
+Put the policy pack ids for the given resource.

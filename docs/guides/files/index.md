@@ -177,7 +177,7 @@ tags match:
 
 ```hcl
 resource "turbot_policy_setting" "security_group_ingress_rules_approved_rules" {
-  resource   = turbot_smart_folder.test_smart_folder.id
+  resource   = turbot_policy_pack.test_smart_folder.id
   type = "tmod:@turbot/aws-vpc-security#/policy/types/securityGroupIngressRulesApprovedRules"
 template_input = <<QUERY
     {

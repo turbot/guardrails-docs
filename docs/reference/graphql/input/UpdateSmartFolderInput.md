@@ -14,13 +14,13 @@ nav:
 
 
 
-Update a smart folder with the given `id` Optionally provide  `title`, `description` and `filter`
+Update a policy pack with the given `id` Optionally provide  `title`, `description` and `filter`
 
 | | | |
 | -- | -- | -- |
 | `akas` | <span style={{'fontFamily':'monospace'}}>[<a href="/guardrails/docs/reference/graphql/scalar/String">String</a>!]</span> | Optional `akas` for the resource to upsert |
-| `color` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/String">String</a></span> | Optional `color` of the smart folder to update, that will be used to highlight the Smart Folder in the Turbot console, in 3 or 6-character hexadecimal format e.g. #1CB640. |
-| `description` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/String">String</a></span> | Optional `description` of the smart folder to update |
-| `filter` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/String">String</a></span> | Optional `filter` of the smart folder to update, used for auto-attachment |
-| `id` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/ID">ID</a>!</span> | The `id` of the smart folder to update |
-| `title` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/String">String</a></span> | Optional `title` of the smart folder to update |
+| `color` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/String">String</a></span> | Optional `color` of the policy pack to update, that will be used to highlight the Policy Pack in the Guardrails console, in 3 or 6-character hexadecimal format e.g. #1CB640. |
+| `description` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/String">String</a></span> | Optional `description` of the policy pack to update |
+| `filter` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/String">String</a></span> | Optional `filter` of the policy pack to update, used for auto-attachment |
+| `id` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/ID">ID</a>!</span> | The `id` of the policy pack to update |
+| `title` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/String">String</a></span> | Optional `title` of the policy pack to update |

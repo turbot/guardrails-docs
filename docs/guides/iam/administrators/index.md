@@ -74,22 +74,22 @@ Guardrails allows administrators to set a custom minimum password length for loc
 
 ## Setting Guardrails API Keys to expire
 
-By default, Guardrails API keys do not expire. Passwords for users in the Guardrails Local directory expire by default at 365 days. Usually, the API keys for the break glass described above are method of last resort to get back into a workspace in the event of an emergency.  The [Password Reset](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/queries/password_reset) queries in the Guardrails Samples Repo require API keys. These instructions describe a method for expiring all Guardrails API keys except the break glass user(s).  A benefit of this approach is that it makes it easy to apply to one directory but not others.
+By default, Guardrails API keys do not expire. Passwords for users in the Guardrails Local directory expire by default at 365 days. Usually, the API keys for the break glass described above are method of last resort to get back into a workspace in the event of an emergency.  The [Password Reset](https://github.com/turbot/guardrails-samples/tree/main/queries/password_reset) queries in the Guardrails Samples Repo require API keys. These instructions describe a method for expiring all Guardrails API keys except the break glass user(s).  A benefit of this approach is that it makes it easy to apply to one directory but not others.
 
 1. Use the "Aging Turbot Access Keys" report to get an idea of which keys this policy will deactivate.  API keys in this report show all keys over 90 days of age, regardless of "Active" or "Inactive" status.
 2. In the Terraform below, adjust the regex to match the break glass user(s). Make additional changes to the calc policy as required.
-3. Execute the Terraform to create the smart folder and policies.
+3. Execute the Terraform to create the policy pack and policies.
 4. Attach to required directories in the workspace:
-   1. Terraform option: Use [smartfolder_attachments](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/smart_folder_attachment) to attach the smart folder to the required directories.
-   2. Manual Option: In the Turbot console, attach the smart folder to each required directories.
+   1. Terraform option: Use [policypacks_attachments](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/policy_pack_attachment) to attach the policy pack to the required directories.
+   2. Manual Option: In the Turbot console, attach the policy pack to each required directories.
 ```terraform
-resource "turbot_smart_folder" "breakglass_user_exceptions" {
+resource "turbot_policy_pack" "breakglass_user_exceptions" {
   parent      = "tmod:@turbot/turbot#/"
   title       = "Breakglass User Exceptions"
-  description = "A set of policies to make sure that breakglass users stay viable. Directions: Attach this smart folder to each directory that holds breakglass users. "
+  description = "A set of policies to make sure that breakglass users stay viable. Directions: Attach this policy pack to each directory that holds breakglass users. "
 }
 resource "turbot_policy_setting" "turbot_iam_access_key_expiration" {
-  resource       = turbot_smart_folder.breakglass_user_exceptions.id
+  resource       = turbot_policy_pack.breakglass_user_exceptions.id
   type           = "tmod:@turbot/turbot-iam#/policy/types/accessKeyExpiration"
   template_input = <<EOT
 {
@@ -114,7 +114,7 @@ You must specify the regex for the breakglass users emails. This policy is a gua
 EOT
 }
 resource "turbot_policy_setting" "turbot_iam_access_key_expiration_period" {
-  resource = turbot_smart_folder.breakglass_user_exceptions.id
+  resource = turbot_policy_pack.breakglass_user_exceptions.id
   type     = "tmod:@turbot/turbot-iam#/policy/types/accessKeyExpirationDays"
   value    = "90"
 }

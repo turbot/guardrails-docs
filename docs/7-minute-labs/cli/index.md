@@ -54,7 +54,7 @@ Written profile 'default' to '/Users/TestUser/.config/turbot/credentials.yml'
 
 This command will generate a `default` profile and add it to your Turbot Guardrails
 credentials file. The Turbot Guardrails Terraform provider and
-[scripts in the Guardrails Samples Repo](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients)
+[scripts in the Guardrails Samples Repo](https://github.com/turbot/guardrails-samples/tree/master/api_examples)
 can use the Turbot Guardrails CLI credentials file.
 
 ### Login

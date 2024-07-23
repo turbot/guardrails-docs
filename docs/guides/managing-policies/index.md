@@ -18,7 +18,7 @@ administration, along with managing exceptions.
   [Policy Hierarchy](concepts/policies/hierarchy).
   - Create policy settings as high as possible in the hierarchy and manage
     exceptions below.
-  - Use [Smart Folders](concepts/resources/smart-folders) to apply a group of
+  - Use [Policy Packs](concepts/resources/policy-packs) to apply a group of
     policies to a resource.
 - Review and set ALL sub-policies before enabling a control. Many controls such
   as `Active`, `Approved`, and `Tags` use multiple policies to determine their
@@ -183,7 +183,7 @@ important. Note the `EOT` encapsulating both the template and template_input!
 ```hcl
 # AWS > S3 > Bucket > Versioning
 resource "turbot_policy_setting" "s3_bucket_versioning" {
-  resource   = turbot_smart_folder.baseline.id
+  resource   = turbot_policy_pack.baseline.id
   type       = "tmod:@turbot/aws-s3#/policy/types/bucketVersioning"
   template_input = <<EOT
     {

@@ -90,15 +90,15 @@ GraphQL, or a scripting language.
 ### Policies Dashboard
 
 The Policies tab dashboard provides visibility into the policy settings, policy
-types and smart folders. The text field can be used to manipulated using
+types and policy packs. The text field can be used to manipulated using
 [filters](reference/filters/policies) to return specific information. The
-`Smart Folder` and `Policy Settings` cards can be used to easily navigate to
+`Policy Packs` and `Policy Settings` cards can be used to easily navigate to
 those pages.
 
 ![policies](/images/docs/guardrails/turbot_example_company_policies.png)
 
 **Note**: When navigating to the policies page, the right side will also include
-a list of smart folders if there are any in the environment.
+a list of policy packs if there are any in the environment.
 
 Policies make assertions about how a particular resource should be configured.
 
@@ -112,7 +112,7 @@ type.
 The **Controls** dashboard provides visibility into the status of all controls
 related to the resources. The cards provides a visual representation of the
 state of all the related controls, with flexible sorting and grouping. The
-**Policy Settings** and **Smart Folder** cards can be used to easily navigate to
+**Policy Settings** and **Policy Pack** cards can be used to easily navigate to
 those pages.
 
 ![controls](/images/docs/guardrails/turbot_example_company_controls.png)
