@@ -343,11 +343,11 @@ The `id` returned is the Turbot Id for the mod resource.
 
 Mutations can also be used to create, change, or delete policy settings, update
 local user passwords, as well as creating various Turbot resources such as a
-smart folder.
+policy pack.
 
 ## Further Reading
 
 - [Turbot GraphQL API Reference](reference/graphql)
 - [Turbot Filter Language Reference](reference/filter)
-- [Turbot Guardrails GraphQL Examples in Samples Repo](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/queries)
+- [Turbot Guardrails GraphQL Examples in Samples Repo](https://github.com/turbot/guardrails-samples/tree/main/queries)
 - [Introduction to GraphQL](https://graphql.org/learn/)

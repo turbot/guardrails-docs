@@ -7,21 +7,21 @@ sidebar_label: Hierarchy
 
 The **Policy Hierarchy** is a superset of the
 [Resource Hierarchy](concepts/resources/hierarchy), expanding it with
-[Smart Folders](resources/smart-folders) and Guardrails defaults.
+[Policy Packs](concepts/resources/policy-packs) and Guardrails defaults.
 
 All policy and permission evaluations are based on the policy hierarchy.
 
-## Smart Folders are injected into the Resource Hierarchy
+## Policy Packs are injected into the Resource Hierarchy
 
-Each resource may have zero or more smart folders attached in a defined order.
-Smart folders are injected (in order) into the resource hierarchy, forming a
+Each resource may have zero or more policy packs attached in a defined order.
+Policy packs are injected (in order) into the resource hierarchy, forming a
 policy hierarchy.
 
 Consider an S3 bucket `my-bucket` in the resource hierarchy for ACME:
 
 `Turbot > Folder A > AWS 1111 > us-east-1 > my-bucket`
 
-which has two smart folders `X` and `Y` attached to it (in that order).
+which has two policy packs `X` and `Y` attached to it (in that order).
 
 ![](/images/docs/guardrails/sf-inject.png)
 
@@ -105,13 +105,13 @@ wins.
 
 ![](/images/docs/guardrails/inherit-5.png)
 
-#### Smart Folders create automated collections of resources using search
+#### Policy Packs create automated collections of resources using search
 
-![smart folders](/images/docs/guardrails/smart-folder.png)
+![policy packs](/images/docs/guardrails/policy-pack.png)
 
-#### Policies set on Smart Folders are injected into the hierarchy
+#### Policies set on Policy Packs are injected into the hierarchy
 
-![smart folders](/images/docs/guardrails/smart-folder-2.png)
+![policy packs](/images/docs/guardrails/policy-pack-2.png)
 
 ## Permissions and Policy Management
 

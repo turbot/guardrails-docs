@@ -77,7 +77,7 @@ policy to **Enforce: Configured**.
 # Create AWS logging buckets
 # AWS > Turbot > Logging > Bucket
 resource "turbot_policy_setting" "loggingBucket" {
-  resource    = "id of parent folder or smart folder"   //highlight-line
+  resource    = "id of parent folder or policy pack"   //highlight-line
   type        = "tmod:@turbot/aws#/policy/types/loggingBucket"
   value       = "Enforce: Configured"
 }
@@ -107,7 +107,7 @@ Trail** stack:
 ```hcl
 # AWS > Turbot > Audit Trail
 resource "turbot_policy_setting" "auditTrail" {
-  resource    = "id of parent folder or smart folder"   //highlight-line
+  resource    = "id of parent folder or policy pack"   //highlight-line
   type        = "tmod:@turbot/aws#/policy/types/auditTrail"
   value       = "Enforce: Configured"
 }
@@ -189,7 +189,7 @@ Configured**. The below Terraform can also be used.
 ```hcl
 # AWS > Turbot > Event Handlers
 resource "turbot_policy_setting" "eventHandlers" {
-  resource = "id of parent folder or smart folder"   //highlight-line
+  resource = "id of parent folder or policy pack"   //highlight-line
   type     = "tmod:@turbot/aws#/policy/types/eventHandlers"
   value    = "Enforce: Configured"
 }

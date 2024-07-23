@@ -25,7 +25,7 @@ nav:
 | `isCalculated` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/Boolean">Boolean</a></span> | If `true` this setting contains calculated inputs e.g. `templateInput` and `template`. |
 | `note` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/String">String</a></span> | Optional `note` annotating this setting. |
 | `orphan` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/Int">Int</a></span> | The number of settings that this setting is orphaned by. |
-| `policyHierarchy` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/PolicyHierarchy">PolicyHierarchy</a></span> | The resource `policyHierarchy` for this setting, including attached smart folders. |
+| `policyHierarchy` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/PolicyHierarchy">PolicyHierarchy</a></span> | The resource `policyHierarchy` for this setting, including attached policy packs. |
 | `policyValues` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/PolicyValues">PolicyValues</a></span> | Returns any `policyValues` for this `PolicySetting` that you have permission to get, subject to the optional `filter` and `paging` arguments. |
 | `precedence` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/enum/PolicySettingPrecedence">PolicySettingPrecedence</a>!</span> | The `precedence` for this setting. |
 | `resource` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/object/Resource">Resource</a></span> | The `resource` this setting is set on. |

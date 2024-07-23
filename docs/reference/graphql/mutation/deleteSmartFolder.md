@@ -15,4 +15,4 @@ nav:
 
 
 
-Delete the smart folder with the given `id`
+Delete the policy pack with the given `id`

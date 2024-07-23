@@ -252,7 +252,7 @@ so:
 ## Sets tagging policy for each resource type in the resource_tags map.
 resource "turbot_policy_setting" "set_resource_tag_policies" {
   for_each = var.resource_tags
-  resource = turbot_smart_folder.azure_tagging.id
+  resource = turbot_policy_pack.azure_tagging.id
   type     = var.policy_map[each.key]
   value    = each.value
 }
@@ -276,7 +276,7 @@ code:
 ```hcl
 resource "turbot_policy_setting" "default_tag_template" {
   for_each = var.resource_tags
-  resource = turbot_smart_folder.azure_tagging.id
+  resource = turbot_policy_pack.azure_tagging.id
   type     = var.policy_map_template[each.key]
 ```
 
@@ -374,9 +374,9 @@ So far, we have mapped Azure services to Guardrails policy URI, defined a list o
 required tags, and defined a terraform block that will create the necessary
 policies, including a calculated policy. The final step is then to create a
 "home" for all of the policies.
-[Turbot Smart Folders](guides/working-with-folders/smart) allow admins to create
+[Guardrails Policy Packs](guides/policy-packs) allow admins to create
 a large set of policies that can be applied to various resources on the fly.
-Like everything else in this guide, a smart folder can be defined within a
+Like everything else in this guide, a policy pack can be defined within a
 terraform file. Along with this definition, we will also add a variable called
 `turbot_profile` that can be used to define the appropriate profile to
 authenticate to the workspace, a definition for the Terraform Turbot Guardrails provider,
@@ -394,8 +394,8 @@ provider "turbot" {
   profile = var.turbot_profile
 }
 
-# Create Smart Folder at the Turbot level
-resource "turbot_smart_folder" "azure_tagging" {
+# Create Policy Pack at the Turbot level
+resource "turbot_policy_pack" "azure_tagging" {
   parent = "tmod:@turbot/turbot#/"
   title  = "SF - Azure Tagging Policies"
 }
@@ -450,13 +450,13 @@ Once the initialization is complete, type `terraform plan`. This will generate
 an output of the expected resource creation and changes. Review the changes to
 ensure everything is correct, then continue with a `terraform apply`. Type `yes`
 when prompted, and watch as 50+ unique policies (depending on the number of
-services defined in the mapping) are created within a smart folder at the Turbot
-resource level. Verify that the smart folder exists by navigating to the Turbot
+services defined in the mapping) are created within a policy pack at the Turbot
+resource level. Verify that the policy pack exists by navigating to the Turbot
 level in the UI.
 
-It is possible to attach the smart folder to various resources within the Guardrails
+It is possible to attach the policy pack to various resources within the Guardrails
 UI, but attachment can also be defined within the Terraform file using the
 resource
-[turbot_smart_folder_attachment](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/smart_folder_attachment).
+[turbot_policy_pack_attachment](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/policy_pack_attachment).
 Simply add that resource to the main.tf file to automatically attach the newly
-created smart folder to various resources.
+created policy pack to various resources.

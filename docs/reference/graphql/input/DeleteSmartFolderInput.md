@@ -14,8 +14,8 @@ nav:
 
 
 
-Delete an existing smart folder by `id`
+Delete an existing policy pack by `id`
 
 | | | |
 | -- | -- | -- |
-| `id` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/ID">ID</a>!</span> | The `id` of smart folder to delete, either as an id, or an AKA |
+| `id` | <span style={{'fontFamily':'monospace'}}><a href="/guardrails/docs/reference/graphql/scalar/ID">ID</a>!</span> | The `id` of policy pack to delete, either as an id, or an AKA |

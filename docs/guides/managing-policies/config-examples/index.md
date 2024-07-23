@@ -38,6 +38,6 @@ then format the tags to match the defined template.
 
 ### Tagging Specific
 
-- [Apply consistent tags across an Azure environment](config-examples/tags/azure-tags)
+- [Apply consistent tags across an Azure environment](concepts/guardrails/tagging)
 
-- [Tag S3 buckets while ignoring casing on key:value pair](config-examples/tags/tag-casing)
+- [Tag S3 buckets while ignoring casing on key:value pair](concepts/guardrails/tagging/tag-casing)

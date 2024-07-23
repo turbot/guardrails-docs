@@ -44,7 +44,7 @@ Make sure you can run Terraform in your pipeline with your Guardrails API keys. 
 
 Use [folders](https://www.terraform.io/docs/providers/turbot/r/folder.html) to build a hierarchy. This hierarchy is how your resources, permission grants, and policies will be organized. Develop a hierarchy that makes sense in your environment. There are any number of ways to slice and dice, so there's plenty opportunity to make this fit your needs. If you have questions, contact [Guardrails Customer Support](mailto:help@turbot.com) for guidance.
 
-Build your folder hierarchy in Terraform. At the top should be a single folder representing your entire enterprise. This is recommended since the highest that any smart folder can be created is as a child of the Turbot level. Smart folders can only be assigned to folders and resources lower than themselves in the hierarchy. Steps later in this guide will omit the second {Top Level Folder}.
+Build your folder hierarchy in Terraform. At the top should be a single folder representing your entire enterprise. This is recommended since the highest that any policy pack can be created is as a child of the Turbot level. Policy packs can only be assigned to folders and resources lower than themselves in the hierarchy. Steps later in this guide will omit the second {Top Level Folder}.
 
 ```
 Turbot
@@ -57,16 +57,16 @@ Turbot
       {Intermediate Folder} (Folder)
 ```
 
-### Smart Folders
+### Policy Packs
 
-[Smart folders](https://www.terraform.io/docs/providers/turbot/r/smart_folder.html) are containers that exclusively hold policies. They are the primary method of grouping together related policies and attaching these policies in the resource hierarchy (We'll cover smart folder attachment later). An unattached smart folder is inert, thus making it a safe place to practice applying policies and ensuring that the policy Terraform is working properly.
+[Policy packs](https://www.terraform.io/docs/providers/turbot/r/policy_pack.html) are containers that exclusively hold policies. They are the primary method of grouping together related policies and attaching these policies in the resource hierarchy (We'll cover policy pack attachment later). An unattached policy pack is inert, thus making it a safe place to practice applying policies and ensuring that the policy Terraform is working properly.
 
-This example shows a smart folder created at the Turbot level.
+This example shows a policy pack created at the Turbot level.
 
 ```
 Turbot
-  Enterprise Enforcements (Smart Folder)
-  Enterprise Checks (Smart Folder)
+  Enterprise Enforcements (Policy Packs)
+  Enterprise Checks (Policy Packs)
   {Company} (Folder)
     {Top Level Folder} (Folder)
       {Intermediate Folder} (Folder)
@@ -81,13 +81,13 @@ Given the breadth of prepackaged policies that Guardrails offers, it is very eas
 
 "Pick one thing; pick one control; roll that out; have that be successful. And then if that's automated, you don't have to think about that anymore." [-David Boeke](https://turbot.com/guardrails/blog/2020/06/screaminginthecloud)
 
-We can see that policies have been added to the Enterprise Enforcements smart folder. These policies have no effect because the smart folder is unattached.
+We can see that policies have been added to the Enterprise Enforcements policy pack. These policies have no effect because the policy pack is unattached.
 
 ```
 Turbot
-  Enterprise Enforcements (Smart Folder)
+  Enterprise Enforcements (Policy Packs)
     [Policies]
-  Enterprise Checks (Smart Folder)
+  Enterprise Checks (Policy Packs)
     [Policies]
   {Company} (Folder)
     {Top Level Folder} (Folder)
@@ -95,41 +95,41 @@ Turbot
       {Intermediate Folder} (Folder)
 ```
 
-### Smart Folder Attachments
+### Policy Pack Attachments
 
-[Attaching smart folders](https://www.terraform.io/docs/providers/turbot/r/smart_folder_attachment.html) to folders and resources "activates" the policies contained in the smart folder. Notice that the ordering of smart folder attachment matters a great deal. When evaluating policies, Guardrails starts at the resource then ascends the resource hierarchy looking for an applicable policy. A check-mode policy above the same policy in enforce-mode will have no effect. The enforce-mode policy is closer to the resource, so it wins. Remember, "the closest policy wins".
+[Attaching policy packs](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/policy_pack_attachment) to folders and resources "activates" the policies contained in the policy pack. Notice that the ordering of policy pack attachment matters a great deal. When evaluating policies, Guardrails starts at the resource then ascends the resource hierarchy looking for an applicable policy. A check-mode policy above the same policy in enforce-mode will have no effect. The enforce-mode policy is closer to the resource, so it wins. Remember, "the closest policy wins".
 
-If no policies are set, then the default policy value is used. The "Enterprise Enforcements" and "Enterprise Checks" smart folders are intentionally indented to indicate their presence in the folder hierarchy. The check-mod policies in "Enterprise Checks" are set lower because we are not yet ready for enforcements.
+If no policies are set, then the default policy value is used. The "Enterprise Enforcements" and "Enterprise Checks" policy packs are intentionally indented to indicate their presence in the folder hierarchy. The check-mod policies in "Enterprise Checks" are set lower because we are not yet ready for enforcements.
 
 ```
 Turbot
-  Enterprise Enforcements (Smart Folder)
+  Enterprise Enforcements (Policy Pack)
     [Policies]
-  Enterprise Checks (Smart Folder)
+  Enterprise Checks (Policy Pack)
     [Policies]
   {Company} (Folder)
-    Enterprise Enforcements (Smart Folder Attachment)
-      Enterprise Checks (Smart Folder Attachment)
+    Enterprise Enforcements (Policy Pack Attachment)
+      Enterprise Checks (Policy Pack Attachment)
         {Top Level Folder} (Folder)
           {Intermediate Folder} (Folder)
 ```
 
 ### Account Import
 
-Now that Guardrails is configured with a folder hierarchy, smart folders and policies, we are ready for [account imports](https://www.terraform.io/docs/providers/turbot/r/resource.html).
+Now that Guardrails is configured with a folder hierarchy, policy packs and policies, we are ready for [account imports](https://www.terraform.io/docs/providers/turbot/r/resource.html).
 Examples can be found in the Guardrails Samples Repo for [AWS](https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_account_import), [Azure](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_sub_import), and [GCP](https://github.com/turbot/guardrails-samples/tree/master/baselines/gcp/gcp_project_import). Be sure to set the parent for each new account/subscription/project to the appropriate destination folder. If the cloud account is imported into the incorrect folder, simply update your Terraform and Guardrails will move it to the right place.
 
 Be deliberate with your first few imports. Ensure that the proper permissions are in place. Hunt down outstanding errors. Try to get and keep an All-Green environment.
 
 ```
 Turbot
-  Enterprise Enforcements (Smart Folder)
+  Enterprise Enforcements (Policy Pack)
     [Policies]
-  Enterprise Checks (Smart Folder)
+  Enterprise Checks (Policy Pack)
     [Policies]
   {Company} (Folder)
-    Enterprise Enforcements (Smart Folder Attachment)
-    Enterprise Checks (Smart Folder Attachment)
+    Enterprise Enforcements (Policy Pack Attachment)
+    Enterprise Checks (Policy Pack Attachment)
     {Top Level Folder} (Folder)
       {Intermediate Folder} (Folder)
         [Accounts, Subscriptions, Projects]

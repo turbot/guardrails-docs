@@ -498,17 +498,17 @@ integrating Guardrails into account onboarding pipelines.
 - **Account Import Terraform**:
   [account_import Terraform](https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_account_import)
 - **Policies Stuck in TBD**: Use the
-  [run_policies](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients/python/run_policies)
+  [run_policies](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_policies)
   script with this filter to rerun policy values in `tbd`:
   `--filter "resourceId:'<ARNofAccount>' state:tbd"`
 - **Controls Stuck in TBD**: Use the
-  [run_controls](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients/python/run_controls)
+  [run_controls](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls)
   or
-  [run_controls_batches](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients/python/run_controls_batches)
+  [run_controls_batches](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls_batches)
   scripts with this filter to rerun controls in `tbd`:
   `--filter "resourceId:'<ARNofAccount>' state:tbd"`
 - **Event Handler Controls not in OK**: Use the Guardrails Samples
-  [run_controls_batches](https://github.com/turbot/guardrails-tools/tree/master/api_examples/graphql/clients/python/run_controls_batches)
+  [run_controls_batches](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls_batches)
   script with this filter:
   `--filter "resourceId:'<ARNofAccount>' controlTypeId:'tmod:@turbot/aws#/control/types/eventHandlers','tmod:@turbot/aws-sns#/control/types/topicConfigured','tmod:@turbot/aws-sns#/control/types/subscriptionConfigured','tmod:@turbot/aws-event#s/control/types/targetConfigured','tmod:@turbot/aws-events#/control/types/ruleConfigured' state:tbd,error,invalid"`
 

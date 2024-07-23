@@ -49,15 +49,15 @@ Turbot
 - Folders can be renamed and moved. Use names that make sense within the
   organization structure.
 - Folders are limited to single inheritance only, consider
-  [Smart Folders](smart-folders) for cross-hierarchy organization.
+  [Policy Packs](policy-packs) for cross-hierarchy organization.
 - Folder structure is best configured in such a way that matches control,
   business, and permission requirements!
 - Folders can be created an destroyed using the [Turbot Guardrails Terraform
   Provider](https://registry.terraform.io/providers/turbot/turbot/latest/docs/resources/folder).
 
-## Smart Folders
+## Policy Packs
 
-[Smart Folders](smart-folders) are a collection of
+[Policy Packs](policy-packs) are a collection of
 [Policy Settings](concepts/policies/values-settings#policy-settings) that can be
 attached to folders. They do not affect the resource hierarchy described above,
 but are part of the [Policy Hierarchy](concepts/policies/hierarchy).
