@@ -22,7 +22,7 @@ is above it in the Guardrails hierarchy.
 1. Give the pack a name, description and a unique aka (if desired).
 1. Finish by clicking the green "Create" button
 
-![](/images/docs/guardrails/policy-page.png)
+![](/images/docs/guardrails/policies-page.png)
 
 **Tip**: It is most useful to create policy packs (and other Guardrails configuration) 
 as code. It is simple and easy to create a policy pack using the 
