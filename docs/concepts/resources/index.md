@@ -14,7 +14,6 @@ configuration of resources (or sets of resources).
 | Concept                                                   | Definition                                                     |
 | --------------------------------------------------------- | -------------------------------------------------------------- |
 | [Hierarchy](concepts/resources/hierarchy)                 | Information on resource hierarchy in Guardrails                |
-| [Policy Packs](concepts/resources/policy-packs)           | The new and improved way to group resources and policies       |
 | [Types & Categories](concepts/resources/types-categories) | Information on properties and categorization of resource types |
 | [Discovery](concepts/resources/discovery)                 | Guardrails and resource discovery                              |
 
