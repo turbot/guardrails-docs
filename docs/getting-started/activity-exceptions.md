@@ -89,7 +89,7 @@ This concludes the guided tour of Guardrails! We highly recommend reviewing addi
 - Turbot Guardrails Firehose (Watch):
   - [Firehose Guide](guides/firehose)
   - [Building Notifications Pipelines](guides/firehose/pipelines)
-  - [Setting up Firehose Using Terraform](https://github.com/turbot/guardrails-tools/tree/master/mod_examples/firehose-aws-sns/setup/terraform)
+  - [Setting up Firehose Using Terraform](https://github.com/turbot/guardrails-samples/tree/master/mod_examples/firehose-aws-sns/setup/terraform)
 - Turbot Guardrails Hierarchy and Folders:
   - [Resource Hierarchy Concepts](concepts/resources/hierarchy)
   - [Folder Guide](guides/working-with-folders)
@@ -104,7 +104,7 @@ This concludes the guided tour of Guardrails! We highly recommend reviewing addi
 
 ### Developer Focused
 
-- [Additional Guardrails Samples](https://github.com/turbot/guardrails-tools/tree/master/api_examples)
+- [Additional Guardrails Samples](https://github.com/turbot/guardrails-samples/tree/master/api_examples)
 - [Turbot Guardrails Terraform in 7 Minutes](7-minute-labs/terraform)
 - [Turbot Guardrails CLI](reference/cli)
   - [GraphQL with Turbot Guardrails CLI](7-minute-labs/cli#query-turbot-with-turbot-graphql)
