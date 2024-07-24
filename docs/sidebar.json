@@ -480,8 +480,12 @@
         "items": [
           "runbooks/enterprise-install/installing-te"
         ]
-      }
-
+      },
+      "runbooks/aws-getting-started",
+      "runbooks/azure-getting-started",
+      "runbooks/gcp-getting-started",
+      "runbooks/enterprise-monitoring",
+      "runbooks/troubleshooting"
     ]
   },
 
