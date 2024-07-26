@@ -9,15 +9,15 @@ nav:
 # Import Azure Subscription into Turbot
 
 [Proper setup in the Azure tenant](integrations/azure/import) is required for
-import of an Azure Subscription into Turbot.
+import of an Azure Subscription into a Guardrails workspace.
 
 While you can import an Azure Subscription at the Turbot level, it is
-recommended that you import accounts into Turbot Folders, as it provides greater
+recommended that you import accounts into Guardrails Folders, as it provides greater
 flexibility and ease of management. Define a Folder hierarchy prior to import.
 
-## Import Azure Subscription via Turbot Console (UI)
+## Import Azure Subscription via Guardrails Console
 
-1. At the main Turbot screen after logging in with `Turbot/Admin` permissions,
+1. On the Guardrails landing page after logging in with `Turbot/Admin` permissions,
    click the **IMPORT** card in the top right.
 2. Select **Azure Subscription** on the left.
 3. Use the **Parent Resource** dropdown menu to select where the Azure
@@ -36,19 +36,19 @@ background.
 ## Import Subscription via Terraform
 
 Administrators can easily import subscriptions using Terraform. If your
-Terraform environment has not been setup, head on over to the
+Terraform environment has not been set up, head on over to the
 [Terraform Setup Page](reference/terraform/setup).
 
-The Turbot Development Kit is a public repository that contains the necessary
+The Guardrails-Samples Repo is a public repository that contains the necessary
 Terraform files to import an Azure Subscription into Turbot:
 
-- [Azure Subscription Import Baseline](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_sub_import)
+- [Azure Subscription Import Baseline](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_import)
 
 Note that the linked baseline is for existing Azure subscriptions, but there are
 also baselines available that:
 
-- [Create an Azure subscription and import into Turbot](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_sub_create_then_import)
-- [Create an Azure subscription and import into Turbot with Read Only rights](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_sub_create_then_import_ro)
+- [Create an Azure subscription and import into Turbot](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_create_then_import)
+- [Create an Azure subscription and import into Turbot with Read Only rights](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_create_then_import_ro)
 
 ```hcl
 # Create the Azure > Subscription resource in Turbot
@@ -57,12 +57,12 @@ resource "turbot_resource" "subscription_resource" {
   type   = "tmod:@turbot/azure#/resource/types/subscription"
   metadata = jsonencode({
     "azure" : {
-      "subscriptionId" : "your subscription id", //highlight-line
-      "tenantId" : "your tenant id" //highlight-line
+      "subscriptionId" : "{your subscription id}", //highlight-line
+      "tenantId" : "{your tenant id}" //highlight-line
     }
   })
   data = jsonencode({
-    "subscriptionId" : "your subscription id" //highlight-line
+    "subscriptionId" : "{your subscription id}" //highlight-line
   })
 }
 
@@ -71,24 +71,25 @@ resource "turbot_resource" "subscription_resource" {
 resource "turbot_policy_setting" "environment" {
   resource = turbot_resource.subscription_resource.id
   type     = "tmod:@turbot/azure#/policy/types/environment"
-  value    = "Global Cloud" or "US Government" //highlight-line
+  value    = "Global Cloud"
+  # value    = "US Government" 
 }
 # Azure > Client Key
 resource "turbot_policy_setting" "clientKey" {
   resource = turbot_resource.subscription_resource.id
   type     = "tmod:@turbot/azure#/policy/types/clientKey"
-  value    = "turbot application client key" //highlight-line
+  value    = "{turbot application client key}" 
 }
 # Azure > Client ID
 resource "turbot_policy_setting" "clientId" {
   resource = turbot_resource.subscription_resource.id
   type     = "tmod:@turbot/azure#/policy/types/clientId"
-  value    = "turbot application client id" //highlight-line
+  value    = "{turbot application client id}" 
 }
 # Azure > Tenant ID
 resource "turbot_policy_setting" "tenantId" {
   resource = turbot_resource.subscription_resource.id
   type     = "tmod:@turbot/azure#/policy/types/tenantId"
-  value    = "your tenant id" //highlight-line
+  value    = "{your tenant id}" //highlight-line
 }
 ```
