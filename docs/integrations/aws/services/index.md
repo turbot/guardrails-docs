@@ -6,10 +6,10 @@ nav:
   order: 30
 ---
 
-# Enabling AWS Services in Guardrails 
+# Enabling AWS Services in Guardrails
 
 <div className="alert alert-warning">
-This section details the steps required to enable services for an AWS Account. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_services">aws_services</a> baseline which automates this process.
+This section details the steps required to enable services for an AWS Account. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/main/baselines/aws">aws</a> baseline which automates this process.
 </div>
 
 All supported services have an Enabled policy.

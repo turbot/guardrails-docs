@@ -74,7 +74,7 @@ Guardrails offers a fully functional trial. However, Guardrails is a large platf
 
 ## Are there any default or pre-configured settings in the environment?
 
-As part of your onboarding form we ask which regions, cloud services, and cloud providers you will be starting with. Guardrails pre-configures the workspace with the appropriate Guardrails mods (for various services) and regions for the event handlers (Guardrails' mechanism for receiving real time events from the cloud). Guardrails also onboards the [getting started policy baselines](https://github.com/turbot/guardrails-samples/tree/master/baselines/getting_started) in check mode. These can be adjusted as needed during the free trial.
+As part of your onboarding form we ask which regions, cloud services, and cloud providers you will be starting with. Guardrails pre-configures the workspace with the appropriate Guardrails mods (for various services) and regions for the event handlers (Guardrails' mechanism for receiving real time events from the cloud). Guardrails also onboards the [getting started policy baselines](https://github.com/turbot/guardrails-samples/tree/main/baselines/getting_started) in check mode. These can be adjusted as needed during the free trial.
 
 ## Can I extend my free trial?
 

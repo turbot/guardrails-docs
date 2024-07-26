@@ -10,14 +10,14 @@ Use this guide to verify that the configuration for AWS Event Handling is correc
 
 ## Are event handlers working right now?
 As a first pass to see if event handlers are working correctly.
-1. Log into the Guardrails console. 
+1. Log into the Guardrails console.
 2. Go to the problem account then select a region.
 3. Go to the Activity tab for that region.
 4. Set filter to "Descendant".
 5. Change the Type filter to only show "Resources".
-6. How long ago was the most recent resource\_\[created,updated,deleted\] event?  
-7. In the AWS console, create a resource in this region with a unique, easily searchable name.  
-8. Go back to the Guardrails Console. Check the regional activity tab for references to the new resource.  
+6. How long ago was the most recent resource\_\[created,updated,deleted\] event?
+7. In the AWS console, create a resource in this region with a unique, easily searchable name.
+8. Go back to the Guardrails Console. Check the regional activity tab for references to the new resource.
 9. If the resource appears within a few minutes, then event handling is functional for this region.
    a. Generally, AWS event handling is very fast but because of variable system load, can sometimes take a minute or so to process.
 
@@ -25,7 +25,7 @@ As a first pass to see if event handlers are working correctly.
 1. Check that `AWS > Turbot > Event Handlers` policy is set to `Enforce: Configured`.
    1. If not set to `Enforce: Configured` then Guardrails will not create event handler resources.
    2. A common practice is to set the Event Handler policy at the top most folder of the AWS resource hierarchy (or at the turbot level) so that the policy setting applies to all AWS accounts in the workspace.
-2. Check for exceptions on the Event Handler policy 
+2. Check for exceptions on the Event Handler policy
    1. Look for `AWS > Turbot > Event Handler policy` settings of `Skip` or `Enforce: Not configured`.  If there are exceptions, then Guardrails is behaving as configured.  It could be that the region of concern has Event Handlers skipped or not configured.
 3. Check that `AWS > Turbot > Event Pollers` are not set (or disabled)
    1. By default the Event Pollers are disabled when Event Handling is enabled.  Explicitly enabling Event Pollers induces unnecessary load on Guardrails.
@@ -41,9 +41,9 @@ As a first pass to see if event handlers are working correctly.
    1. Even with Event Handlers enabled and the appropriate mod installed, Guardrails will not track resources if that resource type’s CMDB policy has been set to `Skip` or `Enforce: Disabled`.
    2. For example, if the `AWS > S3 > Bucket > CMDB` policy has been set to `Skip` or `Enforce: Disabled` then Guardrails will not track any changes to S3 buckets, regardless of event handler configuration.
 8. Check that all Event Handler controls are in an `OK` state.
-   1. "Access Denied" error? This will prevent Guardrails from deploying or updating event handler resources.  
+   1. "Access Denied" error? This will prevent Guardrails from deploying or updating event handler resources.
       1. Check the permissions for the Turbot Guardrails IAM role against the minimum required.
-      2. Service Control Policies are commonly used by organizations to lock out unapproved regions or otherwise limit access to accounts. 
+      2. Service Control Policies are commonly used by organizations to lock out unapproved regions or otherwise limit access to accounts.
       3. By default, Guardrails attempts to deploy event handlers in all regions.  Change the `AWS > Account > Regions` policy to match up with the  regions allowed by your organization's SCP.
       4. Ensure other SCPs do not limit Guardrails' access to create SNS and Events resources.
    2. If the control logs show a different error, record the debug output of the control to reference with Guardrails Support if necessary.
@@ -54,7 +54,7 @@ If you have changed/corrected any of the above settings, wait ~15 min for the ev
 
 If all of the above settings are verified, and events are still not being received by Guardrails, it is possible that the internal representation of the event handler infrastructure is out of sync with current state.
 
-You can use a [script](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls) from the [Guardrails Samples Repo](https://github.com/turbot/guardrails-samples) to get your environment back in-sync.  Running this script will catch any new, altered or destroyed Event Handler resources across the entire workspace. Clone the repo locally and follow the readme for how to set up your environment.  Once setup you can use the following filter to synchronize Guardrails' CMDB with the current state of resources in AWS:
+You can use a [script](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches) from the [Guardrails Samples Repo](https://github.com/turbot/guardrails-samples) to get your environment back in-sync.  Running this script will catch any new, altered or destroyed Event Handler resources across the entire workspace. Clone the repo locally and follow the readme for how to set up your environment.  Once setup you can use the following filter to synchronize Guardrails' CMDB with the current state of resources in AWS:
 ```shell
 python3 run_controls.py --profile {workspace_profile} --filter "sort:-stateChangeTimestamp controlCategoryId:'tmod:@turbot/turbot#/control/categories/cmdb' resourceTypeId:'tmod:@turbot/aws-sns#/resource/types/topic','tmod:@turbot/aws-sns#/resource/types/subscription','tmod:@turbot/aws-events#/resource/types/rule','tmod:@turbot/aws-events#/resource/types/target'" --execute
 ```

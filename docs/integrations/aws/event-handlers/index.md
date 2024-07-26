@@ -9,7 +9,7 @@ nav:
 # Configuring Real-Time events
 
 <div className="alert alert-warning">
-This section details the steps required to set up AWS Event Handlers. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_setup">aws_setup baseline</a> which automates this process.
+This section details the steps required to set up AWS Event Handlers. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/main/baselines/aws/aws">aws baseline</a> which automates this process.
 </div>
 
 The Guardrails **Event Handlers** are responsible for conveying events from AWS

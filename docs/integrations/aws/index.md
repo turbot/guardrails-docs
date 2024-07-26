@@ -43,5 +43,5 @@ about Guardrails controls for their account.
 
 - Explore [AWS Mods](/mods/)
 - Set up Guardrails AWS policies with
-  [Terraform Control Objectives](https://github.com/turbot/guardrails-samples/tree/master/control_objectives)
+  [Terraform Policy Packs](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
 - Learn more about [permissions in Guardrails](concepts/iam/permissions)

@@ -127,5 +127,5 @@ Refer to the Cloudwatch logs for `/aws/lambda/turbot-turbotfirehoseawssnssender-
 
 ## Reference
 - [Firehose Installation Instructions](/guardrails/docs/mods/turbot/firehose-aws-sns#setup): Basic overview and capabilities
-- [Firehose Terraform Bootstrap](https://github.com/turbot/guardrails-samples/tree/master/mod_examples/firehose-aws-sns/setup/terraform): Terraform for setting up the SNS topic then configuring the appropriate Guardrails policies.  Requires AWS and Guardrails credentials to execute.
-- [Firehose Notification Templates](/guardrails/docs/mods/turbot/firehose-aws-sns/policy#turbot--firehose--aws-sns--notification-template): Each Notification type has a template.  These can be altered to include or exclude required information. These templates exclusively alter the formatting and included info that is sent to the Firehose SNS topic. Be conservative with changes here.
+- [Firehose Terraform Bootstrap](https://github.com/turbot/guardrails-samples/tree/main/mod_examples/firehose-aws-sns/setup/terraform): Terraform for setting up the SNS topic then configuring the appropriate Guardrails policies.  Requires AWS and Guardrails credentials to execute.
+- [Firehose Notification Templates](https://github.com/turbot/guardrails-samples/tree/main/mod_examples/firehose-aws-sns/setup/terraform): Each Notification type has a template.  These can be altered to include or exclude required information. These templates exclusively alter the formatting and included info that is sent to the Firehose SNS topic. Be conservative with changes here.

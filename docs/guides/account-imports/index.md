@@ -80,7 +80,7 @@ and simply copy the code and paste into a configuration file, replacing the
 necessary values.
 
 <div className="alert alert-info">
-Check out our <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_account_import">AWS Account Import Baseline</a> on the Guardrails Samples Repo.
+Check out our <a href="https://github.com/turbot/guardrails-samples/tree/main/baselines/aws/aws_account_import">AWS Account Import Baseline</a> on the Guardrails Samples Repo.
 </div>
 
 ### Azure
