@@ -30,7 +30,7 @@ a new TE version.
 
 Open the AWS Console and navigate to the Service Catalog service in the region to deploy TE.
 
-![AWS Console Home Page](/images/docs/guardrails/aws-console.png)
+![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-console.png)
 
 ### Step 2: Navigate to Products & Identify the TE Product
 
@@ -38,14 +38,14 @@ Select the hamburger menu in the top left and click on `Products`.
 
 Select `Turbot Guardrails Enterprise` from the products list and click `Launch Product`.
 
-![Launch Product ](/images/docs/guardrails/aws-service-catalog-launch-product.png)
+![Launch Product ](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-launch-product.png)
 
 
 ### Step 3: Launch & Name the TE Product
 
 Select the desired version and name the provisioned product with the version number prefixed with `te`.
 
-![Provisioned Product Naming](/images/docs/guardrails/provisioned_product_naming.png)
+![Provisioned Product Naming](/images/docs/guardrails/runbooks/enterprise-install/installing-te/provisioned_product_naming.png)
 
 ### Step 4: Verify Parameters
 
@@ -63,7 +63,7 @@ Verify the parameters again and select `Launch product`.
 
 Verify the parameters again and select Launch product.
 
-![Launch Product](/images/docs/guardrails/aws-service-catalog-launch-action.png)
+![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-launch-action.png)
 
 
 ### Step 7: Monitor Installation
@@ -74,7 +74,7 @@ The installed TE version should appear in Provisioned products with the status U
 
 The TE provisioned product status should change to `Available` and the CloudFormation stack status should be `CREATE_COMPLETE` to ensure the installation completed successfully.
 
-![Verification Page](/images/docs/guardrails/aws-service-catalog-verification-page.png)
+![Verification Page](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-verification-page.png)
 
 
 ## Troubleshooting
