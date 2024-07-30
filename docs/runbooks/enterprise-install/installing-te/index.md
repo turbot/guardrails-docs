@@ -27,13 +27,13 @@ Open the AWS Console and navigate to the Service Catalog service in the region t
 
 ## Step 2: Navigate to Products & Identify the TE Product
 
-Select the hamburger menu in the top left and click on `Products`.
+Select the hamburger menu in the top left and choose **Products**.
 
-Select `Turbot Guardrails Enterprise` from the products list.
+Select **Turbot Guardrails Enterprise** from the products list.
 
 ![Product Selection](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-product-selection.png)
 
-Click `Launch Product`.
+Select **Launch Product**.
 
 ![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-launch-product.png)
 
@@ -54,7 +54,7 @@ Ensure all parameters are correct. Generally, these can be left as default.
 
 Verify the parameters again and select `Launch product`.
 
-*99.9% of All TE installations do not need to change any parameters. The parameters for the TE stack are designed by default to pick up their values from the TEF configuration, with no options necessary to change on installation.*
+99.9% of all TE installations do not need to change any parameters. The parameters for the TE stack are designed by default to pick up their values from the TEF configuration, with no options necessary to change on installation.
 
 ![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-te-launch-action.png)
 
@@ -79,8 +79,10 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
-### **Installation fails or takes too long**:
-    - Solution: Check the CloudFormation events tab for errors or issues.
+### Installation Fails or Takes Too Long
 
-### **Parameters need adjustment**:
-    - Solution: Review the parameters and consult the product documentation for correct values.
+Check the CloudFormation events tab for errors or issues.
+
+### Parameters Need Adjustment
+
+Review the parameters and consult the product documentation for correct values.
