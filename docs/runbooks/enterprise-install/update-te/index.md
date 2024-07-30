@@ -1,0 +1,84 @@
+---
+title: Update Workspace TE
+sidebar_label: Update Workspace TE
+---
+
+# Update Turbot Guardrails Enterprise (TE) version in Workspace
+
+In this runbook, you will:
+- Use Guardrails AWS master account
+- Learn how to update Workspace TE version
+
+Turbot Guardrails Enterprise (TE) provides automated configuration and management of Turbot infrastructure to be used when running the Turbot software application. For example, TE provides the setup of load balancers, SQS queues, ECS, etc., while Turbot provides the software to run in the container.
+
+TE deploys a new version of the Turbot software -- Every Turbot release requires a new TE version. Once the version is installed, Workspaces should be updated to the new TE version.
+
+
+Table of contents:
+- [Prerequisites](#prerequisites)
+- [Step 1: Access AWS Console](#step-1-access-aws-console)
+- [Step 2: Update CloudFormation Stack](#step-2-update-cloudformation-stack)
+- [Step 3: Modify Workspace TE Version](#step-3-modify-workspace-te-version)
+
+## Prerequisites
+- Access to the Guardrails master account.
+- Administrator privileges.
+- Familiarity with AWS Console, Service Catalog, and CloudFormation services.
+
+
+## Step 1: Access AWS Console
+
+Open the AWS Console and navigate to AWS CloudFormation to select the Guardrails workspace stack.
+
+Mac Window
+![AWS Console CloudFormation Page](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-14inch-mac-monitor.png)
+
+27 Inch Monitor
+![AWS Console CloudFormation Page](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-mac-27inch-monitor.png)
+
+
+## Step 2: Update CloudFormation Stack
+
+Once you select the respective stack click `Update`. Select `Use the existing template` and click `Next`.
+
+Mac Window
+![Update CloudFormation Stack](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update-14inch-mac-monitor.png)
+
+### Step 3: Modify Workspace TE Version
+
+Modify the stack parameter `Version` to match the desired new TE version in `Turbot Workspaces` section. It will be in the form 5.xx.x. Then click `Next`.
+
+Mac Monitor
+![Modify TE Version](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update-te-version-14inch-mac.png)
+
+
+27 Inch Monitor
+![Modify TE Version](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update-te-version-27inch-monitor.png)
+
+
+Retain all default values in `Configure stack options`, `Stack failure options` and `Advanced options` then click `Next`
+
+### Step 4: Review Parameters in CloudFormation Changeset Preview
+
+![Submit Change Set](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update-te-version-final-step.png)
+
+## Step 5: Review
+
+- []The CloudFormation stack status should reflect `UPDATE_COMPLETE`.
+
+- []Open the Guardrails console admin panel to verify the reflected TE version. You should have Guardrails console Administrator privilege assigned.
+
+![Workspace TE Version](/images/docs/guardrails/runbooks/enterprise-install/update-te/workspace-te-version.png)
+
+## Next Steps
+
+Please see the following resources to learn more about Turbot Guardrails Enterprise:
+
+- Learn about [Installing TE stacks](https://turbot.com/guardrails/docs/enterprise/updating-stacks).
+- Learn more about [TE architecture](https://turbot.com/guardrails/docs/enterprise/architecture).
+
+## Troubleshooting
+
+### Stack update errors
+Review CloudFormation events for errors and resolve any issues before retrying the update.
+
