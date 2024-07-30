@@ -68,7 +68,7 @@ You have successfully installed the TE Service Catalog product. Now you can moni
 
 - [ ] The TE provisioned product status should change to `Available` and the CloudFormation stack status should be `CREATE_COMPLETE` to ensure the installation completed successfully.
 
-![Installation Complete verification](/images/docs/runbooks/enterprise-install/installing-te/aws-service-catalog-installation-complete.png)
+![Installation Complete verification](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-installation-complete.png)
 
 ## Next Steps
 
