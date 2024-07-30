@@ -34,7 +34,7 @@ Table of contents:
 
 Open the AWS Console and navigate to the Service Catalog service in the region to deploy TE.
 
-![AWS Console Home Page](/docs/runbooks/enterprise-install/installing-te/aws-console-1.png)
+![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-console-1.png)
 
 ### Step 2: Navigate to Products & Identify the TE Product
 
@@ -42,24 +42,24 @@ Select the hamburger menu in the top left and click on `Products`.
 
 Select `Turbot Guardrails Enterprise` from the products list.
 
-![Product Selection](/docs/runbooks/enterprise-install/installing-te/aws-service-catalog-product-selection.png)
+![Product Selection](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-product-selection.png)
 
 Click `Launch Product`.
 
-![Launch Product](/docs/runbooks/enterprise-install/installing-te/aws-service-catalog-launch-product.png)
+![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-launch-product.png)
 
 ### Step 3: Launch & Name the TE Product
 
 Select the desired version and name the provisioned product with the version number prefixed with `te`.
 
-![Provisioned Product Naming](/docs/runbooks/enterprise-install/installing-te/aws-service-catalog-product-naming.png)
+![Provisioned Product Naming](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-product-naming.png)
 
 ### Step 4: Verify Parameters
 
 Ensure all parameters are correct. Generally, these can be left as default.
 
 <!-- ![Parameters Verification Page](screenshot_parameters_verification.png) -->
-![Parameters Verification](/docs/runbooks/enterprise-install/installing-te/aws-service-catalog-parameters-verify.png)
+![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-parameters-verify.png)
 
 ### Step 5: Launch Product
 
@@ -67,7 +67,7 @@ Verify the parameters again and select `Launch product`.
 
 *99.9% of All TE installations do not need to change any parameters. The parameters for the TE stack are designed by default to pick up their values from the TEF configuration, with no options necessary to change on installation.*
 
-![Launch Product](/docs/runbooks/enterprise-install/installing-te/aws-service-catalog-te-launch-action.png)
+![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-te-launch-action.png)
 
 ## Step 6: Review
 
@@ -75,7 +75,7 @@ You have successfully installed the TE Service Catalog product. Now you can moni
 
 - [ ] The installed TE version should appear in Provisioned products with the status `Under change` and a new CloudFormation stack should be created with the status CREATING.
 
-![Verify Status](/docs/runbooks/enterprise-install/installing-te/aws-service-catalog-install-verification.png)
+![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-install-verification.png)
 
 - [ ] The TE provisioned product status should change to `Available` and the CloudFormation stack status should be `CREATE_COMPLETE` to ensure the installation completed successfully.
 
