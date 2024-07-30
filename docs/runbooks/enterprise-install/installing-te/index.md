@@ -13,30 +13,19 @@ In this runbook, you will:
 
 TE deploys a new version of the Turbot software -- Every Turbot release requires a new TE version.
 
-Table of contents:
-- [Prerequisites](#prerequisites)
-- [Step 1: Access AWS Console](#access-aws-console)
-- [Step 2: Navigate to Products & Identify the TE Product](#navigate-to-products-identify-the-te-product)
-- [Step 3: Launch & Name the TE Product](#launch-name-the-te-product)
-- [Step 4: Verify Parameters](#verify-parameters)
-- [Step 5: Launch Product](#launch-product)
-- [Step 6: Review](#next-steps)
-- [Next Steps](#next-steps)
-- [Troubleshooting](#monitor-installation)
-
 ## Prerequisites
 
 - Access to the Guardrails master account.
 - Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
-### Step 1: Access AWS Console
+## Step 1: Access AWS Console
 
 Open the AWS Console and navigate to the Service Catalog service in the region to deploy TE.
 
 ![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-console-1.png)
 
-### Step 2: Navigate to Products & Identify the TE Product
+## Step 2: Navigate to Products & Identify the TE Product
 
 Select the hamburger menu in the top left and click on `Products`.
 
@@ -48,20 +37,20 @@ Click `Launch Product`.
 
 ![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-launch-product.png)
 
-### Step 3: Launch & Name the TE Product
+## Step 3: Launch & Name the TE Product
 
 Select the desired version and name the provisioned product with the version number prefixed with `te`.
 
 ![Provisioned Product Naming](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-product-naming.png)
 
-### Step 4: Verify Parameters
+## Step 4: Verify Parameters
 
 Ensure all parameters are correct. Generally, these can be left as default.
 
 <!-- ![Parameters Verification Page](screenshot_parameters_verification.png) -->
 ![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/installing-te/aws-service-catalog-parameters-verify.png)
 
-### Step 5: Launch Product
+## Step 5: Launch Product
 
 Verify the parameters again and select `Launch product`.
 
@@ -95,9 +84,3 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ### **Parameters need adjustment**:
     - Solution: Review the parameters and consult the product documentation for correct values.
-
-## Conclusion
-
-**Summary**: You have successfully installed the TE Service Catalog product.
-
-If you encounter any issues completing the TE installation, please document the steps taken, include relevant screenshots, and submit a support request for assistance.
