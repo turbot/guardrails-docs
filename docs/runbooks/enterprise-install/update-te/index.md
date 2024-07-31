@@ -13,13 +13,6 @@ Turbot Guardrails Enterprise (TE) provides automated configuration and managemen
 
 TE deploys a new version of the Turbot software -- Every Turbot release requires a new TE version. Once the version is installed, Workspaces should be updated to the new TE version.
 
-
-Table of contents:
-- [Prerequisites](#prerequisites)
-- [Step 1: Access AWS Console](#step-1-access-aws-console)
-- [Step 2: Update CloudFormation Stack](#step-2-update-cloudformation-stack)
-- [Step 3: Modify Workspace TE Version](#step-3-modify-workspace-te-version)
-
 ## Prerequisites
 - Access to the Guardrails master account.
 - Administrator privileges.
@@ -30,45 +23,35 @@ Table of contents:
 
 Open the AWS Console and navigate to AWS CloudFormation to select the Guardrails workspace stack.
 
-Mac Window
-![AWS Console CloudFormation Page](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-14inch-mac-monitor.png)
-
-27 Inch Monitor
-![AWS Console CloudFormation Page](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-mac-27inch-monitor.png)
-
+![AWS Console CloudFormation Page](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set.png)
 
 ## Step 2: Update CloudFormation Stack
 
-Once you select the respective stack click `Update`. Select `Use the existing template` and click `Next`.
+Once you select the respective stack select **Update**. Choose `Use the existing template` as default selection and select **Next**.
 
-Mac Window
-![Update CloudFormation Stack](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update-14inch-mac-monitor.png)
+![Update CloudFormation Stack](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update.png)
 
-### Step 3: Modify Workspace TE Version
+## Step 3: Modify Workspace TE Version
 
-Modify the stack parameter `Version` to match the desired new TE version in `Turbot Workspaces` section. It will be in the form 5.xx.x. Then click `Next`.
+Modify the stack parameter `Version` to match the desired new TE version in `Turbot Workspaces` section. It will be in the form 5.xx.x. Then select **Next**.
 
-Mac Monitor
-![Modify TE Version](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update-te-version-14inch-mac.png)
+![Modify TE Version](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update-te-version.png)
 
+Retain all default values in `Configure stack options`, `Permissions - optional`, `Stack failure options` and `Advanced options` then select **Next**
 
-27 Inch Monitor
-![Modify TE Version](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update-te-version-27inch-monitor.png)
+## Step 4: Review Parameters in CloudFormation Changeset Preview
 
+Preview the final set of suggested parameter changes on the desired workspace. Select **Submit**
 
-Retain all default values in `Configure stack options`, `Stack failure options` and `Advanced options` then click `Next`
-
-### Step 4: Review Parameters in CloudFormation Changeset Preview
-
-![Submit Change Set](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update-te-version-final-step.png)
+![Submit Change Set](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-change-set-preview.png)
 
 ## Step 5: Review
 
-- []The CloudFormation stack status should reflect `UPDATE_COMPLETE`.
+- [ ] The CloudFormation stack status should reflect `UPDATE_COMPLETE`.
 
-- []Open the Guardrails console admin panel to verify the reflected TE version. You should have Guardrails console Administrator privilege assigned.
+- [ ] Open the Guardrails console, navigate to `Admin` tab to check Workspace Admin indicating updated TE version. You should have Guardrails console Administrator privilege assigned.
 
-![Workspace TE Version](/images/docs/guardrails/runbooks/enterprise-install/update-te/workspace-te-version.png)
+![Workspace TE Version](/images/docs/guardrails/runbooks/enterprise-install/update-te/guardrails-workspace-te-version.png)
 
 ## Next Steps
 
