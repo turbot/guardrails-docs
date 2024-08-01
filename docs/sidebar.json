@@ -501,7 +501,8 @@
         "link": "runbooks/enterprise-install",
         "items": [
           "runbooks/enterprise-install/installing-te",
-          "runbooks/enterprise-install/update-te"
+          "runbooks/enterprise-install/update-te",
+          "runbooks/enterprise-install/update-ted"
         ]
       },
       "runbooks/aws-getting-started",
