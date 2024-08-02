@@ -26,13 +26,13 @@ Open the AWS Console and navigate to the Service Catalog service in the region w
 
 ![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-aws-console.png)
 
-## Step 2: Navigate to provisioned products
+## Step 2: Navigate To Provisioned Products
 
 Select the hamburger menu in the top left and choose **Provisioned Products**.
 
 ![Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-service-catalog.png)
 
-## Step 2: Find TED Provisioned Product
+## Step 3: Find TED Provisioned Product
 
 The TED provisioned product is identifiable by a postfix that matches the database hive name.
 
@@ -42,19 +42,19 @@ Select **Actions** then select **Update**.
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-actions-update.png)
 
-## Step 3: Select TED Version
+## Step 4: Select TED Version
 
 Select the desired TED version under `Product Versions`.
 
 ![Select TED Version](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-select-version.png)
 
-## Step 4: Verify Parameters
+## Step 5: Verify Parameters
 
 Ensure all parameters are correct. Generally, these can be left as default.
 
 ![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-verify-parameters.png)
 
-## Step 5: Update TED
+## Step 6: Update TED
 
 Verify the parameters again and select **Update**.
 
@@ -62,7 +62,7 @@ Verify the parameters again and select **Update**.
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-select-update.png)
 
-## Step 6: Review
+## Step 7: Review
 
 You have successfully updated TED. Now you can monitor the product for any issues post-update and document any anomalies.
 
