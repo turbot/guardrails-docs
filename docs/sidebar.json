@@ -483,6 +483,14 @@
       },
       {
         "type": "category",
+        "id": "configuring-guardrails",
+        "link": "runbooks/configuring-guardrails",
+        "items": [
+          "runbooks/configuring-guardrails/auto-mod-update"
+        ]
+      },
+      {
+        "type": "category",
         "id": "getting-started-aws",
         "link": "runbooks/getting-started-aws",
         "items": [
