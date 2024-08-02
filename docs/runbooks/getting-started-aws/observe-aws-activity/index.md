@@ -1,6 +1,6 @@
 ---
-title: Observe AWS resource activity
-sidebar_label: Observe AWS resource activity
+title: Observe AWS Resource Activity
+sidebar_label: Observe AWS Resource Activity
 ---
 
 
@@ -8,7 +8,7 @@ sidebar_label: Observe AWS resource activity
 
 **Prerequisites**: 
 
-- [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
+- [Connect an AWS Account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 
 
  
@@ -17,7 +17,7 @@ Now that you’ve connected an AWS account, you can explore your resource invent
 
 The following steps will show how to observe AWS resource activity in real-time.
 
-## Create an S3 bucket
+## Step 1: Create an S3 bucket
 
 We’ll use the name `bucket-example-01`, choose your own name.  
 <p><img alt="aws_start_2_create_bucket_name" src="/images/docs/guardrails/runbooks/getting-started-aws/observe-aws-activity/aws-start-2-create-bucket-name.png"/></p><br/>  
@@ -26,7 +26,7 @@ We’ll use the name `bucket-example-01`, choose your own name.
 Accept the defaults, including this one for bucket versioning which will be the focus of this series of runbooks.
 <p><img alt="aws_start_2_create_bucket_versioning" src="/images/docs/guardrails/runbooks/getting-started-aws/observe-aws-activity/aws-start-2-create-bucket-versioning.png"/></p><br/>
 
-## See Guardrails discover the new bucket
+## Step 2: See Guardrails discover the new bucket
 
   
 Select `Reports` and search in the page for `Resource Activities`.
@@ -38,7 +38,7 @@ In the `Resource Activities` report, open the `Resource Type` filter, search for
 Guardrails reports two notifications related to the bucket creation. `RESOURCE CREATED` indicates discovery of the bucket. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
 <p><img alt="aws_start_2_resource_activities_initial_notifications" src="/images/docs/guardrails/runbooks/getting-started-aws/observe-aws-activity/aws-start-2-resource-activities-initial-notifications.png"/></p><br/>
 
-## See Guardrails react to a bucket change
+## Step 3: See Guardrails react to a bucket change
 
    
 Now visit your bucket in the AWS console, choose the `Properties` tab, and enable versioning.
@@ -57,18 +57,18 @@ Next we’ll explore [how to set a policy](/guardrails/docs/runbooks/getting-sta
 
 ## Progress tracker
 
-1. [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
+1. [Connect an AWS Account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 
-2. **Observe AWS resource activity**
+2. **Observe AWS Resource Activity**
 
-3. [Attach a Guardrails policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
+3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
 
-4. [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
+4. [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
 
-5. [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
 
-6. [Send an alert to email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
 
 7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-aws/apply-quick-action/)
 
-8. [Enable automatic enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)

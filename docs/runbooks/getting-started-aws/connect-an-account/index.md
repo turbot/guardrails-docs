@@ -1,17 +1,17 @@
 ---
-title: Connect an AWS account to Guardrails
-sidebar_label: Connect an AWS account to Guardrails
+title: Connect an AWS Account to Guardrails
+sidebar_label: Connect an AWS Account to Guardrails
 ---
 
 
-# Connect an AWS account to Guardrails
+# Connect an AWS Account to Guardrails
 
   
 **Prerequisites**:
 
 A Turbot account with admin privilege, and a top-level `Sandbox` folder.
 
-## Create an AWS IAM role for Guardrails
+## Step 1: Create an AWS IAM role for Guardrails
 
 You’ll need a role that grants Turbot minimal permissions to discover resources in your AWS account and monitor changes. Use this CloudFormation stack. When prompted for `TurbotExternalId`, provide a random guid and save it for step 2.  
 
@@ -129,7 +129,7 @@ The `Permissions` tab of the resulting `turbot-service-readonly` role:
   
 Copy the role ARN and proceed to step 2.
 
-## Connect the AWS Account
+## Step 2: Connect the AWS Account
 
 Login to Guardrails
 
@@ -156,7 +156,7 @@ Wait for the progress bar to complete.
 This process takes a while, and you’ll see the bars fluctuate. Note that error messages, like "Try again later: error in handling command", are not uncommon and should resolve as the process iterates to completion.  
 
 
-## Validate the import
+## Step 3: Validate the import
 
 When the process completes, navigate to `Turbot > Sandbox > YOUR_ACCOUNT`
 
@@ -171,18 +171,18 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/observe-aws-
 
 ## Progress tracker
 
-1. **Connect an AWS account to Guardrails**
+1. **Connect an AWS Account to Guardrails**
 
-2. [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
+2. [Observe AWS Resource Activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
 
-3. [Attach a Guardrails policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
+3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
 
-4. [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
+4. [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
 
-5. [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
 
-6. [Send an alert to email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
 
 7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-aws/apply-quick-action/)
 
-8. [Enable automatic enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)

@@ -1,27 +1,27 @@
 ---
-title: Enable automatic enforcement
-sidebar_label: Enable automatic enforcement
+title: Enable Automatic Enforcement
+sidebar_label: Enable Automatic Enforcement
 ---
 
   
 
 
-# Enable automatic enforcement
+# Enable Automatic Enforcement
 
 **Prerequisites**:  
   
-- [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
-- [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
-- [Attach a Guardrails policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
-- [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
-- [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
-- [Send an alert to email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
+- [Connect an AWS Account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
+- [Observe AWS Resource Activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
+- [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
+- [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
+- [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
+- [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
 - [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-aws/apply-quick-action/)
 
 
 In the [previous runbook](/guardrails/docs/runbooks/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
 
-Suspend versioning in AWS
+Step 1: Suspend versioning in AWS
 
 In the AWS console, suspend versioning for your test bucket.  
 <p><img alt="aws_start_8_suspend_versioning" src="/images/docs/guardrails/runbooks/getting-started-aws/enable-enforcement/aws-start-8-suspend-versioning.png"/></p><br/>
@@ -32,12 +32,12 @@ The notification flow we saw in the [previous runbook](/guardrails/docs/runbooks
   
 
 
-## Find the versioning policy for the bucket
+## Step 2: Find the versioning policy for the bucket
 
 Search for your original test bucket (ours was `bucket-example-01` whose bucket versioning policy we set to `Skip` in  [Create a static  exception](/guardrails/docs/runbooks/getting-started-aws/create-static-exception)   
 <p><img alt="aws_start_8_find_bucket_versioning_policy_setting" src="/images/docs/guardrails/runbooks/getting-started-aws/enable-enforcement/aws-start-8-find-bucket-versioning-policy-setting.png"/></p><br/>
 
-## Update the policy setting
+## Step 3: Update the policy setting
 
 Click into the Policy Setting, click `Edit`, and 
 
@@ -66,18 +66,18 @@ This Getting Started series just scratches the surface.  Try installing more [p
 
 ## Progress tracker
 
-1. [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
+1. [Connect an AWS Account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 
-2. [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
+2. [Observe AWS Resource Activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
 
-3. [Attach a Guardrails policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
+3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
 
-4. [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
+4. [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
 
-5. [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
 
-6. [Send an alert to email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
 
 7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-aws/apply-quick-action/)
 
-8. **Enable automatic enforcement**
+8. **Enable Automatic Enforcement**

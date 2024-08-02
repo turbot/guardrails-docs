@@ -1,25 +1,25 @@
 ---
-title: Attach a Guardrails policy
-sidebar_label: Attach a Guardrails policy
+title: Attach a Guardrails Policy
+sidebar_label: Attach a Guardrails Policy
 ---
 
 
-# Attach a Guardrails policy
+# Attach a Guardrails Policy
 
 **Prerequisites**: 
 
-- [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
-- [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
+- [Connect an AWS Account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
+- [Observe AWS Resource Activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
 
 
 Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired configuration. 
 
-## Review bucket properties
+## Step 1: Review bucket properties
 
 Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/integrations/aws/getting-started-aws/observe-aws-dactivity). In that runbook you switched bucket versioning from the default (`Suspended`) to `Enabled`.
 <p><img alt="aws_start_3_review_bucket_versioning" src="/images/docs/guardrails/runbooks/getting-started-aws/attach-a-policy/aws-start-3-review-bucket-versioning.png"/></p><br/>
 
-## Find and view the AWS > S3 > Bucket > Versioning policy type and controls
+## Step 2: Find and view the AWS > S3 > Bucket > Versioning policy type and controls
 
 Do a top-level search for `aws s3 bucket versioning`.
 <p><img alt="aws_start_3_search_bucket_versioning" src="/images/docs/guardrails/runbooks/getting-started-aws/attach-a-policy/aws-start-3-search-bucket-versioning.png"/></p><br/>
@@ -29,7 +29,7 @@ The `controls` section reports that all buckets are in the `skipped` state. By d
 
 There’s a policy type, `AWS > S3 > Bucket > Versioning`, but as yet there are no policy settings. The default value for the setting is `Skip`.
 
-## Attach a policy
+## Step 3: Attach a policy
 
 Your Guardrails workspace already has the pre-installed policy pack [Enforce Versioning Is Enabled for AWS S3 Buckets](https://hub.guardrails.turbot.com/policy-packs/aws_s3_enforce_versioning_is_enabled_for_buckets).
 
@@ -55,7 +55,7 @@ There is one policy setting. Click `1 setting` or `Switch to settings tab` to vi
 
 Here you can see the result of the policy pack you just attached: the setting for S3 bucket versioning now overrides the default and has become `Check: Enabled`. 
 
-## Observe a policy-driven alarm
+## Step 4: Observe a policy-driven alarm
 
 Do a top-level search for the name of your bucket, switch to the `Controls` tab, and search for `bucket versioning`. The control, which was formerly in the `Skipped` state, is now `OK` because you have enabled versioning for it.
 <p><img alt="aws_start_3_observe_bucket_ok" src="/images/docs/guardrails/runbooks/getting-started-aws/attach-a-policy/aws-start-3-observe-bucket-ok.png"/></p><br/>  
@@ -73,18 +73,18 @@ You can override policies at any level. In the [next runbook](/guardrails/docs/r
 
 ## Progress tracker
 
-1. [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
+1. [Connect an AWS Account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 
-2. [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
+2. [Observe AWS Resource Activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
 
-3. **Attach a Guardrails policy**
+3. **Attach a Guardrails Policy**
 
-4. [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
+4. [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
 
-5. [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
 
-6. [Send an alert to email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
 
 7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-aws/apply-quick-action/)
 
-8. [Enable automatic enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)

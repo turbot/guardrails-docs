@@ -1,23 +1,23 @@
 ---
-title: Send an alert to email
-sidebar_label: Send an alert to email
+title: Send an Alert to Email
+sidebar_label: Send an Alert to Email
 ---
 
 
-# Send an alert to email
+# Send an Alert to Email
 
 **Prerequisites**: 
 
-- [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
-- [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
-- [Attach a Guardrails policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
-- [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
-- [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
+- [Connect an AWS Account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
+- [Observe AWS Resource Activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
+- [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
+- [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
+- [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
 
 
 In [the previous runbook](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
 
-## Enable your workspace for notifications
+## Step 1: Enable your workspace for notifications
 
   
 To enable notifications for your workspace, search top-level `Policies` for `turbot notifications` and click into the `Turbot > Notifications` policy type.  
@@ -27,7 +27,7 @@ To enable notifications for your workspace, search top-level `Policies` for `tu
 Open the `Settings`, click into the `Turbot > Notifications` setting, click `Edit`, switch to `Enabled`, and click `Update`.  
 <p><img alt="aws_start_6_update_turbot_notifications_setting" src="/images/docs/guardrails/runbooks/getting-started-aws/send-alert-to-email/aws-start-6-update-turbot-notifications-setting.png"/></p><br/>
 
-## Create a notification rule
+## Step 2: Create a notification rule
 
 Search top-level `Policies` for `rule-based routing`, click into the policy type `Turbot > Notifications > Rule-Based Routing`, and click `New Policy Setting`.  
   
@@ -48,7 +48,7 @@ Click `Update`.
 
 The rule will send an alert to the configured email address when any control enters the `Alarm` state.
 
-## Trigger the notification rule
+## Step 3: Trigger the notification rule
 
 At the end of [Create a calculated exception](/guardrails/docs/integrations/aws/getting-started-aws/create_calculated_exception), your test bucket – the one you tagged with `environment:development` – was in a `Skipped` state for versioning. To verify, do a top-level search for the bucket, click into the resource, choose the `Controls` tab, and search for `aws s3 versioning`.
 <p><img alt="aws_start_6_refind_bucket_versioning_control" src="/images/docs/guardrails/runbooks/getting-started-aws/send-alert-to-email/aws-start-6-refind-bucket-versioning-control.png"/></p><br/>
@@ -57,7 +57,7 @@ Now, in the AWS console, remove the `environment:development` tag. The calculate
 <p><img alt="aws_start_6_observe_bucket_in_alarm" src="/images/docs/guardrails/runbooks/getting-started-aws/send-alert-to-email/aws-start-6-observe-bucket-in-alarm.png"/></p><br/>  
 
 
-## Check email
+## Step 4: Check email
 
   
 Now check your email.
@@ -73,18 +73,18 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/apply-quick-
 
 ## Progress tracker
 
-1. [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
+1. [Connect an AWS Account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 
-2. [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
+2. [Observe AWS Resource Activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
 
-3. [Attach a Guardrails policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
+3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
 
-4. [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
+4. [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
 
-5. [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
 
-6. **Send an alert to email**
+6. **Send an Alert to Email**
 
 7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-aws/apply-quick-action/)
 
-8. [Enable automatic enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)
