@@ -8,12 +8,12 @@ sidebar_label: Apply a Quick Action
 
 **Prerequisites**: 
 
-- [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
-- [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
-- [Attach a Guardrails policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
-- [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
-- [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
-- [Send an alert to email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
+- [Connect an AWS Account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
+- [Observe AWS Resource Activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
+- [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
+- [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
+- [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
+- [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
 
 
 Until now we’ve operated Guardrails in read-only mode, with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this runbook we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
@@ -56,7 +56,7 @@ Outputs:
     Value: !Ref RoleName
 ```
 
-## Enable Quick Actions
+## Step 2: Enable Quick Actions
 
 Do a top-level search for `quick actions` and click into the `Turbot > Quick Actions > Enabled` setting.
 <p><img alt="aws_start_7_find_quick_actions_policies" src="/images/docs/guardrails/runbooks/getting-started-aws/apply-quick-action/aws-start-7-find-quick-actions-policies.png"/></p><br/>
@@ -64,7 +64,7 @@ Do a top-level search for `quick actions` and click into the `Turbot > Quick Act
 It’s disabled by default. On its Policy Type page, click `New Policy Setting`, choose your Sandbox as the target resource, choose `Enabled`, and click `Create`.  
 <p><img alt="aws_start_7_ready_to_enable_quick_actions" src="/images/docs/guardrails/runbooks/getting-started-aws/apply-quick-action/aws-start-7-ready-to-enable-quick-actions.png"/></p><br/>
 
-## Find a bucket in Alarm for versioning
+## Step 3: Find a bucket in Alarm for versioning
 
   
 In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-aws/send-alert-to-email) we left your test bucket in the `Alarm` state.  
@@ -80,7 +80,7 @@ Click into the resource, switch to the `Controls` tab, and search for `s3 bucket
 Click into the control and expand the `Actions` dropdown.  
 <p><img alt="aws_start_7_versioning_quick_action_dropdown" src="/images/docs/guardrails/runbooks/getting-started-aws/apply-quick-action/aws-start-7-versioning-quick-action-dropdown.png"/></p><br/>
 
-## Take a Quick Action to enable versioning  on a bucket
+## Step 4: Take a Quick Action to enable versioning  on a bucket
 
 Choose `Enable Versioning`.  
 
@@ -111,18 +111,18 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/enable-enfor
 
 ## Progress tracker
 
-1. [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
+1. [Connect an AWS Account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 
-2. [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
+2. [Observe AWS Resource Activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
 
-3. [Attach a Guardrails policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
+3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
 
-4. [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
+4. [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
 
-5. [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
 
-6. [Send an alert to email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
 
 7. **Apply a Quick Action**
 
-8. [Enable automatic enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)
