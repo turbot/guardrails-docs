@@ -169,7 +169,7 @@ When the control is green, Turbot has successfully connected to your account.
 In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches your account and reacts to resource changes.
 
 
-## You are here
+## Progress tracker
 
 1. **Connect an AWS account to Guardrails**
 

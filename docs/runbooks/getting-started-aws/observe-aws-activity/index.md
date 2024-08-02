@@ -17,7 +17,7 @@ Now that you’ve connected an AWS account, you can explore your resource invent
 
 The following steps will show how to observe AWS resource activity in real-time.
 
-## Step 1: Create an S3 bucket
+## Create an S3 bucket
 
 We’ll use the name `bucket-example-01`, choose your own name.  
 <p><img alt="aws_start_2_create_bucket_name" src="/images/docs/guardrails/runbooks/getting-started-aws/observe-aws-activity/aws-start-2-create-bucket-name.png"/></p><br/>  
@@ -55,7 +55,7 @@ We’ve now seen how Guardrails detects the creation of a new resource in a conn
 Next we’ll explore [how to set a policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy) that requires buckets to enable versioning.
 
 
-## You are here
+## Progress tracker
 
 1. [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 
