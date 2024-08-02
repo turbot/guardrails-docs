@@ -1,8 +1,6 @@
 ---
-title: "Connect an AWS account to Guardrails"
-template: Documentation
-nav:
-  title: Connect an AWS account to Guardrails"
+title: Connect an AWS account to Guardrails
+sidebar_label: Connect an AWS account to Guardrails
 ---
 
 
@@ -13,7 +11,7 @@ nav:
 
 A Turbot account with admin privilege, and a top-level `Sandbox` folder.
 
-## Step 1: Create an AWS IAM role for Guardrails
+## Create an AWS IAM role for Guardrails
 
 You’ll need a role that grants Turbot minimal permissions to discover resources in your AWS account and monitor changes. Use this CloudFormation stack. When prompted for `TurbotExternalId`, provide a random guid and save it for step 2.  
 
@@ -127,16 +125,16 @@ Resources:
 
   
 The `Permissions` tab of the resulting `turbot-service-readonly` role:
-<p><img alt="aws_start_1_turbot_service_readonly_permissions" src="/images/docs/guardrails/runbooks/getting-started-aws/aws_start_1_turbot_service_readonly_permissions.png"/></p><br/>  
+<p><img alt="aws_start_1_turbot_service_readonly_permissions" src="/images/docs/guardrails/runbooks/getting-started-aws/connect-an-account/aws-start-1-turbot-service-readonly-permissions.png"/></p><br/>  
   
 Copy the role ARN and proceed to step 2.
 
-## Step 2: Connect the AWS Account
+## Connect the AWS Account
 
 Login to Guardrails
 
 Click the top-level `Connect`
-<p><img alt="aws_start_1_top_level_connect" src="/images/docs/guardrails/runbooks/getting-started-aws/aws_start_1_top_level_connect.png"/></p><br/>
+<p><img alt="aws_start_1_top_level_connect" src="/images/docs/guardrails/runbooks/getting-started-aws/connect-an-account/aws-start-1-top-level-connect.png"/></p><br/>
 
 Click `AWS Account`  
   
@@ -147,44 +145,44 @@ Enter the AWS Account ID for the account you are importing.
 Copy the IAM Role ARN created earlier and paste it into the field.
 
 Provide the [External ID](https://turbot.com/guardrails/docs/faq/general-faq#how-does-guardrails-protect-my-aws-account-from-the-confused-deputy-problem) you created in Step 1.
-<p><img alt="aws_start_1_ready_to_import" src="/images/docs/guardrails/runbooks/getting-started-aws/aws_start_1_ready_to_import.png"/></p><br/>
+<p><img alt="aws_start_1_ready_to_import" src="/images/docs/guardrails/runbooks/getting-started-aws/connect-an-account/aws-start-1-ready-to-import.png"/></p><br/>
 
 Click `Import`.  
 
 
 Wait for the progress bar to complete.
-<p><img alt="aws_start_1_aws_progress_bar" src="/images/docs/guardrails/runbooks/getting-started-aws/aws_start_1_aws_progress_bar.png"/></p><br/>
+<p><img alt="aws_start_1_aws_progress_bar" src="/images/docs/guardrails/runbooks/getting-started-aws/connect-an-account/aws-start-1-aws-progress-bar.png"/></p><br/>
 
 This process takes a while, and you’ll see the bars fluctuate. Note that error messages, like "Try again later: error in handling command", are not uncommon and should resolve as the process iterates to completion.  
 
 
-## Step 3: Validate the import
+## Validate the import
 
 When the process completes, navigate to `Turbot > Sandbox > YOUR_ACCOUNT`
 
   
 Search the `Controls` tab for `aws account cmdb`
-<p><img alt="aws_start_1_account_cmdb" src="/images/docs/guardrails/runbooks/getting-started-aws/aws_start_1_account_cmdb.png"/></p><br/>
+<p><img alt="aws_start_1_account_cmdb" src="/images/docs/guardrails/runbooks/getting-started-aws/connect-an-account/aws-start-1-account-cmdb.png"/></p><br/>
 
 When the control is green, Turbot has successfully connected to your account.
 
-In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/observe_aws_activity) we’ll see how Guardrails watches your account and reacts to resource changes.
+In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches your account and reacts to resource changes.
 
 
 ## You are here
 
 1. **Connect an AWS account to Guardrails**
 
-2. [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe_aws_activity)
+2. [Observe AWS resource activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
 
-3. [Attach a Guardrails policy](/guardrails/docs/runbooks/getting-started-aws/attach_a_policy)
+3. [Attach a Guardrails policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
 
-4. [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create_static_exception)
+4. [Create a static exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-static-exception/)
 
-5. [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create_calculated_exception)
+5. [Create a calculated exception to a Guardrails AWS policy](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception/)
 
-6. [Send an alert to email](/guardrails/docs/runbooks/getting-started-aws/send_alert_to_email)
+6. [Send an alert to email](/guardrails/docs/runbooks/getting-started-aws/send-alert-to-email/)
 
-7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-aws/apply_quick_action)
+7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-aws/apply-quick-action/)
 
-8. [Enable automatic enforcement](/guardrails/docs/runbooks/getting-started-aws/enable_enforcement)
+8. [Enable automatic enforcement](/guardrails/docs/runbooks/getting-started-aws/enable-enforcement/)

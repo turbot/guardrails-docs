@@ -1,8 +1,6 @@
 ---
-title: "Getting started with AWS"
-template: Documentation
-nav:
-  title: "Getting started with AWS"
+title: Getting started with AWS
+sidebar_label: Getting started with AWS
 ---
 
 # Getting started with AWS in Guardrails

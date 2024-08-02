@@ -495,14 +495,14 @@
         "id": "getting-started-aws",
         "link": "runbooks/getting-started-aws",
         "items": [
-          "runbooks/getting-started-aws/connect_an_account",
-          "runbooks/getting-started-aws/observe_aws_activity",
-          "runbooks/getting-started-aws/attach_a_policy",
-          "runbooks/getting-started-aws/create_static_exception",
-          "runbooks/getting-started-aws/create_calculated_exception",
-          "runbooks/getting-started-aws/send_alert_to_email",
-          "runbooks/getting-started-aws/apply_quick_action",
-          "runbooks/getting-started-aws/enable_enforcement"
+          "runbooks/getting-started-aws/connect-an-account",
+          "runbooks/getting-started-aws/observe-aws-activity",
+          "runbooks/getting-started-aws/attach-a-policy",
+          "runbooks/getting-started-aws/create-static-exception",
+          "runbooks/getting-started-aws/create-calculated-exception",
+          "runbooks/getting-started-aws/send-alert-to-email",
+          "runbooks/getting-started-aws/apply-quick-action",
+          "runbooks/getting-started-aws/enable-enforcement"
         ]
       },
       "runbooks/azure-getting-started",
