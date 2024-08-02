@@ -71,7 +71,7 @@ With versioning disabled, the bucket no longer complies with the `Check: Enabled
 You can override policies at any level. In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/create-static-exception), we’ll create an exception that enables your test bucket to return to the `OK` state. 
 
 
-## You are here
+## Progress tracker
 
 1. [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 

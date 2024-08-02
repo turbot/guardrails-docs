@@ -64,7 +64,7 @@ For fun, try suspending versioning on the bucket again. It won’t stay that way
 This Getting Started series just scratches the surface.  Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
 
 
-## You are here
+## Progress tracker
 
 1. [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 

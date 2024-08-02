@@ -60,7 +60,7 @@ Here you can see the whole history, reading from the bottom up.
 In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.
 
 
-## You are here
+## Progress tracker
 
 1. [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 

@@ -109,7 +109,7 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/enable-enfor
 
 
 
-## You are here
+## Progress tracker
 
 1. [Connect an AWS account to Guardrails](/guardrails/docs/runbooks/getting-started-aws/connect-an-account/)
 
