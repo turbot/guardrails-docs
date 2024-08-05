@@ -479,7 +479,8 @@
         "items": [
           "runbooks/enterprise-install/installing-te",
           "runbooks/enterprise-install/update-te",
-          "runbooks/enterprise-install/update-ted"
+          "runbooks/enterprise-install/update-ted",
+          "runbooks/enterprise-install/update-tef"
         ]
       },
       {

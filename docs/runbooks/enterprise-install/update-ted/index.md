@@ -58,8 +58,6 @@ Ensure all parameters are correct. Generally, these can be left as default.
 
 Verify the parameters again and select **Update**.
 
-99.9% of all TE installations do not need to change any parameters. The parameters for the TE stack are designed by default to pick up their values from the TEF configuration, with no options necessary to change on installation.
-
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-select-update.png)
 
 ## Step 7: Review
