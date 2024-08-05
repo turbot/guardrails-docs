@@ -9,7 +9,7 @@ nav:
 # Configuring Real-Time Event Handlers
 
 <div className="alert alert-warning">
-This section details the steps required to set up GCP Event Handlers. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/gcp/gcp_setup">gcp_setup baseline</a> which automates this process.
+This section details the steps required to set up GCP Event Handlers. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/main/baselines/gcp/gcp_setup">gcp_setup baseline</a> which automates this process.
 </div>
 
 Turbot Guardrails Event Handlers for GCP are responsible for conveying events from GCP

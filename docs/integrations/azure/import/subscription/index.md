@@ -42,13 +42,13 @@ Terraform environment has not been setup, head on over to the
 The Turbot Development Kit is a public repository that contains the necessary
 Terraform files to import an Azure Subscription into Turbot:
 
-- [Azure Subscription Import Baseline](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_sub_import)
+- [Azure Subscription Import Baseline](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_import)
 
 Note that the linked baseline is for existing Azure subscriptions, but there are
 also baselines available that:
 
-- [Create an Azure subscription and import into Turbot](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_sub_create_then_import)
-- [Create an Azure subscription and import into Turbot with Read Only rights](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_sub_create_then_import_ro)
+- [Create an Azure subscription and import into Turbot](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_create_then_import)
+- [Create an Azure subscription and import into Turbot with Read Only rights](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_create_then_import_ro)
 
 ```hcl
 # Create the Azure > Subscription resource in Turbot

@@ -45,7 +45,7 @@ Terraform environment has not been setup, head on over to the
 The Turbot Development Kit is a public repository that contains the necessary
 Terraform files to import an Azure Active Directory into Turbot:
 
-- [Azure Active Directory Import Baseline](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_active_directory_import)
+- [Azure Active Directory Import Baseline](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_active_directory_import)
 
 ```hcl
 # Create the Azure > Active Directory resource in Turbot

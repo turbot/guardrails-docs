@@ -114,5 +114,5 @@ hive user-group.
 
 Guardrails Bastion host comes with all the pre-requisites installed in order to
 connect to RDS/Redis. Please refer to the
-[README](https://github.com/turbot/guardrails-samples/enterprise-install-helpers/turbot_bastion_host/turbot_bastion_host)
+[README](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host)
 for instructions and usage.

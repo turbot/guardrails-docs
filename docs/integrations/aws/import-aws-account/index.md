@@ -9,7 +9,7 @@ nav:
 # Importing an AWS account into Guardrails
 
 <div className="alert alert-warning">
-This section details the steps required to import an AWS Account into a Guardrails Folder. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_account_import">aws_account_import baseline</a> which automates this process.
+This section details the steps required to import an AWS Account into a Guardrails Folder. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/main/baselines/aws/aws_account_import">aws_account_import baseline</a> which automates this process.
 </div>
 
 ## Overview
@@ -494,21 +494,19 @@ A collection of GraphQL, Terraform and Python to assist developers with
 integrating Guardrails into account onboarding pipelines.
 
 - **Account Import GraphQL**:
-  [account_import graphql](https://github.com/turbot/guardrails-samples/blob/master/api_examples/graphql/queries/aws_account_import.graphql)
+  [account_import graphql](https://github.com/turbot/guardrails-samples/blob/main/queries/aws/aws_account_import.graphql)
 - **Account Import Terraform**:
-  [account_import Terraform](https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_account_import)
+  [account_import Terraform](https://github.com/turbot/guardrails-samples/tree/main/baselines/aws/aws_account_import)
 - **Policies Stuck in TBD**: Use the
-  [run_policies](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_policies)
+  [run_policies_batches](https://github.com/turbot/guardrails-samples/blob/main/guardrails_utilities/python_utils/run_policies_batches)
   script with this filter to rerun policy values in `tbd`:
   `--filter "resourceId:'<ARNofAccount>' state:tbd"`
 - **Controls Stuck in TBD**: Use the
-  [run_controls](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls)
-  or
-  [run_controls_batches](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls_batches)
+  [run_controls_batches](https://github.com/turbot/guardrails-samples/blob/main/guardrails_utilities/python_utils/run_controls_batches)
   scripts with this filter to rerun controls in `tbd`:
   `--filter "resourceId:'<ARNofAccount>' state:tbd"`
 - **Event Handler Controls not in OK**: Use the Guardrails Samples
-  [run_controls_batches](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls_batches)
+  [run_controls_batches](https://github.com/turbot/guardrails-samples/blob/main/guardrails_utilities/python_utils/run_controls_batches)
   script with this filter:
   `--filter "resourceId:'<ARNofAccount>' controlTypeId:'tmod:@turbot/aws#/control/types/eventHandlers','tmod:@turbot/aws-sns#/control/types/topicConfigured','tmod:@turbot/aws-sns#/control/types/subscriptionConfigured','tmod:@turbot/aws-event#s/control/types/targetConfigured','tmod:@turbot/aws-events#/control/types/ruleConfigured' state:tbd,error,invalid"`
 

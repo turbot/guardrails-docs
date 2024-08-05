@@ -61,7 +61,7 @@ Develop a plan for some or all of the following:
 - How new policies will be rolled out.
 - How developers & engineers will get exceptions to policies.
 - How to remediate out-of-compliance resources in legacy Production accounts.
-- How to run a short and fast feedback loop between remediation actions and informing the affected party what happened and why. This often involves notifications, ticketing and dashboard systems. Guardrails' GraphQL API provides considerable power to get the information your enterprise needs. The Guardrails Samples Repo has plenty of [GraphQL examples](https://github.com/turbot/guardrails-samples/tree/master/api_examples/graphql) for controls and notifications.
+- How to run a short and fast feedback loop between remediation actions and informing the affected party what happened and why. This often involves notifications, ticketing and dashboard systems. Guardrails' GraphQL API provides considerable power to get the information your enterprise needs. The Guardrails Samples Repo has plenty of [GraphQL examples](https://github.com/turbot/guardrails-samples/tree/main/queries) for controls and notifications.
 - How to make it easy for devs and engineers to look up information about active policies.
   - What policies are enforced
   - What policies are checked

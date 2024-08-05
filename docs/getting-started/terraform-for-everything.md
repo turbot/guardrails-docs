@@ -117,7 +117,7 @@ Turbot
 ### Account Import
 
 Now that Guardrails is configured with a folder hierarchy, policy packs and policies, we are ready for [account imports](https://www.terraform.io/docs/providers/turbot/r/resource.html).
-Examples can be found in the Guardrails Samples Repo for [AWS](https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_account_import), [Azure](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_sub_import), and [GCP](https://github.com/turbot/guardrails-samples/tree/master/baselines/gcp/gcp_project_import). Be sure to set the parent for each new account/subscription/project to the appropriate destination folder. If the cloud account is imported into the incorrect folder, simply update your Terraform and Guardrails will move it to the right place.
+Examples can be found in the Guardrails Samples Repo for [AWS](https://github.com/turbot/guardrails-samples/tree/main/baselines/aws/aws_account_import), [Azure](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_import), and [GCP](https://github.com/turbot/guardrails-samples/tree/main/baselines/gcp/gcp_project_import). Be sure to set the parent for each new account/subscription/project to the appropriate destination folder. If the cloud account is imported into the incorrect folder, simply update your Terraform and Guardrails will move it to the right place.
 
 Be deliberate with your first few imports. Ensure that the proper permissions are in place. Hunt down outstanding errors. Try to get and keep an All-Green environment.
 
