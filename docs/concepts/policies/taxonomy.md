@@ -249,7 +249,7 @@ Notes:
 ## Additional Information
 
 - [Calculated Policy 7 minute lab](7-minute-labs/calc-policy)
-- [Guardrails Samples Repo with policy pack examples](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
+- [Guardrails Samples Repo with Policy Packs](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
 - [Policies concepts page](concepts/policies)
 - [Azure resource tagging example with calculated policies and Terraform](guides/managing-policies/config-examples/azure-tags)
 - [Calculated Policy FAQ](calculated-faq)

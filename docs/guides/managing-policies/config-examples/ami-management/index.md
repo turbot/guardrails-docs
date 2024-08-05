@@ -95,7 +95,7 @@ To see the results of the control runs, click the **Controls** tab, search for
 the **Controls** subtab to see a list of control states and their applicable
 resource.
 
-See our example policy packs using Terraform over in our
+See our example Policy Packs using Terraform over in our
 [Guardrails Samples Repo](https://github.com/turbot/guardrails-samples/tree/main/policy_packs),
 as well as our [Calculated Policy 7 minute lab](7-minute-labs/calc-policy) for a
 more detailed walk through.

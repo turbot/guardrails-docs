@@ -79,7 +79,7 @@ This concludes the guided tour of Guardrails! We highly recommend reviewing addi
   - [YAML Policy Setting Example](guides/managing-policies/YAML)
   - [Additional Guardrail Concepts](concepts/guardrails)
 - Additional Policy Examples to leverage from the Guardrails Samples Repo:
-  - [Policy Packs Setting Examples](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
+  - [Policy Packs](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
 - [Turbot Guardrails Stacks and Configured Guardrails](concepts/guardrails/configured)
 - [Turbot Guardrails Files](guides/files)
 - Turbot Guardrails Directories:

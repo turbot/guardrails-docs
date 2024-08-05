@@ -42,7 +42,7 @@ resource "turbot_folder" "test_folder_multi_aka" {
 
 You can find lots of examples on our Guardrails Samples Repo.
 
-- [Policy Packs](https://github.com/turbot/guardrails-samples/tree/main/policy_packs) contains a collection of trivial as well as complex policies for compliance requirements such as to limit S3 public access.
+- [Policy Packs](https://github.com/turbot/guardrails-samples/tree/main/policy_packs) simplify and streamline the process of meeting specific control objectives and accelerate the development and delivery of cloud governance automation.
 
 ## Which Terraform versions does Guardrails support?
 

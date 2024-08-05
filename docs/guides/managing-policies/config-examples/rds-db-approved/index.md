@@ -11,7 +11,7 @@ that will check any new and existing RDS databases for approved instance types
 and database engines. Any instance not in compliance will generate an alarm.
 
 <div class = "alert alert-warning">
-This example, along with just about any policy pack in Guardrails, can be deployed using Terraform. Check it out at the <a href="https://github.com/turbot/guardrails-samples/tree/main/policy_packs/aws/rds/enforce_db_instances_to_use_specific_engines_and_instance_classes" target="_blank">Guardrails Samples Repo</a>.
+This example, along with just about any Policy Pack in Guardrails, can be deployed using Terraform. Check it out at the <a href="https://github.com/turbot/guardrails-samples/tree/main/policy_packs/aws/rds/enforce_db_instances_use_specific_engines_and_instance_classes" target="_blank">Guardrails Samples Repo</a>.
 </div>
 
 The Guardrails mod [aws-rds](/guardrails/docs/mods/aws/aws-rds) must be
