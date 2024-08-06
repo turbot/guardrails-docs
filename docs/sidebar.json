@@ -524,8 +524,7 @@
       },
       "runbooks/azure-getting-started",
       "runbooks/gcp-getting-started",
-      "runbooks/enterprise-monitoring",
-      "runbooks/troubleshooting"
+      "runbooks/enterprise-monitoring"
     ]
   },
 
