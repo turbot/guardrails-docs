@@ -24,7 +24,7 @@ Choose the top-level `Policies` tab, and search policy types for `aws s3 bucket 
 Click into the `AWS > S3 > Bucket > Versioning` policy type, choose the `Settings` tab.
 <p><img alt="aws_start_5_bucket_versioning_policy_settings" src="/images/docs/guardrails/runbooks/getting-started-aws/create-calculated-exception/aws-start-5-bucket-versioning-policy-settings.png"/></p><br/>
 
-Note the Sandbox-level policy you created in [Attach a policy](/guardrails/docs/runbooks/getting-started-aws/attach_a_policy), and the bucket-level policy you created in [Create a static exception](/guardrails/docs/runbooks/getting-started-aws/create-static-exception).   
+Note the Sandbox-level policy you created in [Attach a policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy), and the bucket-level policy you created in [Create a static exception](/guardrails/docs/runbooks/getting-started-aws/create-static-exception).   
   
 Click `New Policy Setting`.
 

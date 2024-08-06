@@ -12,22 +12,19 @@ sidebar_label: Attach a Guardrails Policy
 - [Observe AWS Resource Activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity/)
 
 
-Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired configuration. 
+Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state. 
 
 ## Step 1: Review bucket properties
 
-Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/integrations/aws/getting-started-aws/observe-aws-dactivity). In that runbook you switched bucket versioning from the default (`Suspended`) to `Enabled`.
+Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-dactivity). In that runbook you switched bucket versioning from the default (`Suspended`) to `Enabled`.
 <p><img alt="aws_start_3_review_bucket_versioning" src="/images/docs/guardrails/runbooks/getting-started-aws/attach-a-policy/aws-start-3-review-bucket-versioning.png"/></p><br/>
 
-## Step 2: Find and view the AWS > S3 > Bucket > Versioning policy type and controls
+## Step 2: Find and view the AWS > S3 > Bucket > Versioning control
 
-Do a top-level search for `aws s3 bucket versioning`.
+Do a top-level search for the name of your bucket and `s3 bucket versioning`.
 <p><img alt="aws_start_3_search_bucket_versioning" src="/images/docs/guardrails/runbooks/getting-started-aws/attach-a-policy/aws-start-3-search-bucket-versioning.png"/></p><br/>
 
-The `controls` section reports that all buckets are in the `skipped` state. By default, there is no policy to enforce bucket versioning. Let’s make one. Click into the `AWS > S3 > Bucket > Versioning` policy type.  
-<p><img alt="aws_start_3_view_bucket_versioning_no_policy" src="/images/docs/guardrails/runbooks/getting-started-aws/attach-a-policy/aws-start-3-view-bucket-versioning-no-policy.png"/></p><br/>
-
-There’s a policy type, `AWS > S3 > Bucket > Versioning`, but as yet there are no policy settings. The default value for the setting is `Skip`.
+Guardrails reports that the bucket is  in the `skipped` state. By default, there is no attached policy to enforce bucket versioning. Let’s attach one. 
 
 ## Step 3: Attach a policy
 

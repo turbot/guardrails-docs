@@ -1,9 +1,9 @@
 ---
-title: Getting started with AWS
-sidebar_label: Getting started with AWS
+title: Getting Started with AWS
+sidebar_label: Getting Started with AWS
 ---
 
-# Getting started with AWS in Guardrails
+# Getting Started with AWS in Guardrails
 
 In this series of runbooks you'll learn how to:
 

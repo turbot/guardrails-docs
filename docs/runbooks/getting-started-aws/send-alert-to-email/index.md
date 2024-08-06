@@ -50,7 +50,7 @@ The rule will send an alert to the configured email address when any control ent
 
 ## Step 3: Trigger the notification rule
 
-At the end of [Create a calculated exception](/guardrails/docs/integrations/aws/getting-started-aws/create_calculated_exception), your test bucket – the one you tagged with `environment:development` – was in a `Skipped` state for versioning. To verify, do a top-level search for the bucket, click into the resource, choose the `Controls` tab, and search for `aws s3 versioning`.
+At the end of [Create a calculated exception](/guardrails/docs/runbooks/getting-started-aws/create_calculated_exception), your test bucket – the one you tagged with `environment:development` – was in a `Skipped` state for versioning. To verify, do a top-level search for the bucket, click into the resource, choose the `Controls` tab, and search for `aws s3 versioning`.
 <p><img alt="aws_start_6_refind_bucket_versioning_control" src="/images/docs/guardrails/runbooks/getting-started-aws/send-alert-to-email/aws-start-6-refind-bucket-versioning-control.png"/></p><br/>
 
 Now, in the AWS console, remove the `environment:development` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check Enabled`.  And because you left the bucket’s versioning in the AWS default state – suspended – the bucket’s control for versioning now transitions to `Alarm.   
@@ -64,7 +64,7 @@ Now check your email.
 <p><img alt="aws_start_5_view_email_notification" src="/images/docs/guardrails/runbooks/getting-started-aws/send-alert-to-email/aws-start-5-view-email-notification.png"/></p><br/>
 
   
-The alarm reported in the Guardrails console also appears in your inbox. You can alternatively configure Guardrails to send alerts to [Slack]([https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)) or [MS Teams](https://turbot.com/guardrails/docs/guides/notifications/templates#example-ms-teams-template).
+The alarm reported in the Guardrails console also appears in your inbox. You can alternatively configure Guardrails to send alerts to [Slack]([guardrails/docs/guides/notifications/templates#example-slack-template](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)) or [MS Teams](/guardrails/docs/guides/notifications/templates#example-ms-teams-template).
 
 Now that we have successfully alerted on controls, you can repeat this exercise with other Policy Packs from the [Guardrails Hub](hub.guardrails.com). 
 
