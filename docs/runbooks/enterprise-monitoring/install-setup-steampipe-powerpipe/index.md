@@ -22,7 +22,7 @@ Steampipe is an open-source, in-house tool that offers zero-ETL capabilities for
 
 Please refer to https://steampipe.io/downloads?install=linux for generic installation instructions.
 
-1: Install Steampipe: Linux CLI
+1. Install Steampipe: Linux CLI
 
 Copy and paste the following command into your Linux shell:
 
@@ -30,14 +30,14 @@ Copy and paste the following command into your Linux shell:
 sudo /bin/sh -c "$(curl -fsSL https://steampipe.io/install/steampipe.sh)"
 ```
 
-2: Version Check
+2. Version Check
 Verify the installation by checking the Steampipe version:  
 
 ```shell
 steampipe -v
 ```
 
-3: Install your first Plugin
+3. Install your first Plugin
 
 Install the Steampipe plugin:
 
@@ -45,7 +45,7 @@ Install the Steampipe plugin:
 steampipe plugin install steampipe
 ```
 
-4: Run your first query
+4. Run your first query
 
 Run the following query to test the plugin
 
@@ -53,7 +53,7 @@ Run the following query to test the plugin
 steampipe query "select name from steampipe_registry_plugin;"
 ```
 
-5: Install Guardrails Plugin
+5. Install Guardrails Plugin
 
 Run the following query to install the guardrails plugin
 
@@ -61,7 +61,7 @@ Run the following query to install the guardrails plugin
 steampipe plugin install guardrails
 ```
 
-6: Add Connections
+6. Add Connections
 
 Steampipe works with Read permissions. You can use the existing access keys of your Guardrails Workspaces or create a new set of keys with a minimum of "Turbot/ReadOnly" permissions on each workspace.
 
@@ -100,7 +100,7 @@ connection "all_guardrails" {
 }
 ```
 
-7: Run a Guardrails query against your workspaces
+7. Run a Guardrails query against your workspaces
 To open the query shell, run steampipe query with no arguments
 
 ```shell
@@ -131,7 +131,7 @@ Visualize cloud configurations. Assess security posture against a massive librar
 
 Please refer to https://powerpipe.io/downloads?install=linux for generic installation instructions.
 
-1: Install Powerpipe: Linux CLI
+1. Install Powerpipe: Linux CLI
 
 Copy and paste the following command into your Linux shell:
 
@@ -139,7 +139,7 @@ Copy and paste the following command into your Linux shell:
 sudo /bin/sh -c "$(curl -fsSL https://powerpipe.io/install/powerpipe.sh)"
 ```
 
-2: Version Check
+2. Version Check
 
 Verify the installation by checking the Powerpipe version:  
 
@@ -153,7 +153,7 @@ Ensure Steampipe and plugins are installed correctly by running the version chec
 
 ### Troubleshooting
 
-If you encounter any issues during the installation or execution of queries, refer to the official Steampipe documentation at https://steampipe.io/
+If you encounter any issues during the installation or execution of queries, refer to the official Steampipe documentation at https://steampipe.io/docs
 
 ## Conclusion
 
