@@ -485,6 +485,14 @@
       },
       {
         "type": "category",
+        "id": "enterprise-monitoring",
+        "link": "runbooks/enterprise-monitoring",
+        "items": [
+          "runbooks/enterprise-monitoring/install-setup-steampipe-powerpipe"
+        ]
+      },
+      {
+        "type": "category",
         "id": "configuring-guardrails",
         "link": "runbooks/configuring-guardrails",
         "items": [
