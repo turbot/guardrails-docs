@@ -523,8 +523,9 @@
         ]
       },
       "runbooks/azure-getting-started",
-      "runbooks/gcp-getting-started"
-     ]
+      "runbooks/gcp-getting-started",
+      "runbooks/troubleshooting"
+    ]
   },
 
   {
