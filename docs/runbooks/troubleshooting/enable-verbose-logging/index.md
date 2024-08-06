@@ -23,7 +23,7 @@ Long-term verbose logging can cause a considerable increase in logging costs wit
 
 Open the AWS Console and navigate to the System Manager service in the region where Guardrails stacks are deployed
 
-![AWS SSM Console](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-paramater-store.png)
+![AWS SSM Console](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-parameter-store.png)
 
 ## Step 2: Identify SSM Parameter Value for the Workspace
 
@@ -34,14 +34,14 @@ Open the AWS Console and navigate to the System Manager service in the region wh
 
 To start with the default `log_level` is set to `debug`.
 
-![SSM Workspace Parameter Value](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssl-paramater-value-default-settings.png)
+![SSM Workspace Parameter Value](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssl-parameter-value-default-settings.png)
 
 
 ## Step 4: Modify Parameter Value
 
 Select **Edit** and update `log_level` to `verbose` in `Value` section
 
-![SSM Workspace Parameter With Verbose](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-paramater-modifiy-verobse.png)
+![SSM Workspace Parameter With Verbose](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-parameter-modifiy-verbose.png)
 
 **Note:**
 Ensure the parameter string is a valid JSON before saving. Keep all rest of the values as default and select **Save Changes**.
@@ -56,7 +56,7 @@ Navigate to `CloudFormation` check for `Turbot Enterprise` stack and update the 
 
 - [ ] In Step 5 wait for the Cloudformation to finish updating the TE stack. The Stack should indicate `UPDATE_COMPLETE`
 
-![Validate TE Stack Status](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-paramater-change-validation.png)
+![Validate TE Stack Status](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-parameter-change-validation.png)
 
 You have successfully updated the Workspace SSM parameter to enable verbose logging. Now you can navigate Cloudwatch Log Group for /{turbot_prefix}/{te_version}/events or /{turbot_prefix}/{te_version}/api to investigate generated events and check for required troubleshooting data.
 
