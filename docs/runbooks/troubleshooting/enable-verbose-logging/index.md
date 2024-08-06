@@ -3,7 +3,7 @@ title: Enable Verbose Logging
 sidebar_label: Enable Verbose Logging
 ---
 
-# Install Turbot Guardrails Enterprise (TE)
+# Enable Workspace Verbose Logging
 
 In this runbook, you will:
 - Use AWS console setting verbose logging in the Events and API containers, which can provide valuable troubleshooting information
