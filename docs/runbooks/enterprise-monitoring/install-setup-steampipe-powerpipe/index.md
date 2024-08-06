@@ -3,12 +3,9 @@ title: "Steampipe and Powerpipe: Installation and Setup Guide"
 sidebar_label: "Steampipe and Powerpipe: Installation and Setup Guide"
 ---
 
-# Introduction
+# Steampipe and Powerpipe: Installation and Setup Guide
 
-This runbook provides detailed instructions for installing and setting up Steampipe and Powerpipe on a Linux system.
-
-## Purpose
-The purpose of this runbook is to guide users through the installation and initial setup of Steampipe and Powerpipe tools on a Linux Host, specifically the Turbot Guardrails Bastion Host. These tools provide significant benefits for customers managing multiple workspaces:
+This runbook provides detailed instructions for installing and setting up Steampipe and Powerpipe on a Linux system. It is to guide users through the installation and initial setup of Steampipe and Powerpipe tools on a Linux Host, specifically the Turbot Guardrails Bastion Host. These tools provide significant benefits for customers managing multiple workspaces:
 
 - **Aggregated Information**: Steampipe simplifies the process of aggregating information from multiple workspaces, enabling comprehensive data analysis and management.
 - **Seamless Querying**: Users can easily query their data without the need to log into individual workspaces, saving time and improving efficiency.
@@ -20,15 +17,13 @@ This runbook ensures that users can set up these tools efficiently, leveraging t
 * Turbot Guardrails bastion host (Linux system) with sudo privileges
 * Internet connection to download the installation scripts
 
-# Procedure
-
 ## Steampipe
 
 Steampipe is an open-source, in-house tool that offers zero-ETL capabilities for retrieving data directly from APIs and services.
 
 Please refer to https://steampipe.io/downloads?install=linux for generic installation instructions.
 
-1. Install Steampipe: Linux CLI
+### Step 1: Install Steampipe: Linux CLI
 
 Copy and paste the following command into your Linux shell:
 
@@ -36,14 +31,14 @@ Copy and paste the following command into your Linux shell:
 sudo /bin/sh -c "$(curl -fsSL https://steampipe.io/install/steampipe.sh)"
 ```
 
-2. Version Check
+### Step 2: Version Check
 Verify the installation by checking the Steampipe version:  
 
 ```shell
 steampipe -v
 ```
 
-3. Install your first Plugin
+### Step 3: Install your first Plugin
 
 Install the Steampipe plugin:
 
@@ -51,7 +46,7 @@ Install the Steampipe plugin:
 steampipe plugin install steampipe
 ```
 
-4. Run your first query
+### Step 4: Run your first query
 
 Run the following query to test the plugin
 
@@ -59,7 +54,7 @@ Run the following query to test the plugin
 steampipe query "select name from steampipe_registry_plugin;"
 ```
 
-5. Install Guardrails Plugin
+### Step 5: Install Guardrails Plugin
 
 Run the following query to install the guardrails plugin
 
@@ -67,7 +62,7 @@ Run the following query to install the guardrails plugin
 steampipe plugin install guardrails
 ```
 
-6. Add Connections
+### Step 6: Add Connections
 
 Steampipe works with Read permissions. You can use the existing access keys of your Guardrails Workspaces or create a new set of keys with a minimum of "Turbot/ReadOnly" permissions on each workspace.
 
@@ -106,7 +101,7 @@ connection "all_guardrails" {
 }
 ```
 
-7. Run a Guardrails query against your workspaces
+### Step 7: Run a Guardrails query against your workspaces
 To open the query shell, run steampipe query with no arguments
 
 ```shell
@@ -137,7 +132,7 @@ Visualize cloud configurations. Assess security posture against a massive librar
 
 Please refer to https://powerpipe.io/downloads?install=linux for generic installation instructions.
 
-1. Install Powerpipe: Linux CLI
+### Step 1: Install Powerpipe: Linux CLI
 
 Copy and paste the following command into your Linux shell:
 
@@ -145,7 +140,7 @@ Copy and paste the following command into your Linux shell:
 sudo /bin/sh -c "$(curl -fsSL https://powerpipe.io/install/powerpipe.sh)"
 ```
 
-2. Version Check
+### Step 2: Version Check
 
 Verify the installation by checking the Powerpipe version:  
 
@@ -153,14 +148,10 @@ Verify the installation by checking the Powerpipe version:
 powerpipe -v
 ```
 
-### Validation
+### Review
 
 Ensure Steampipe and plugins are installed correctly by running the version checks and sample queries provided in the steps above.
 
 ### Troubleshooting
 
 If you encounter any issues during the installation or execution of queries, refer to the official Steampipe documentation at https://steampipe.io/docs
-
-## Conclusion
-
-This runbook has provided the steps to install and set up Steampipe and Powerpipe on a Linux system, enabling you to retrieve data directly from Turbot Guardrails Workspaces and many other services.
