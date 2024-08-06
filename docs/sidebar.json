@@ -578,7 +578,8 @@
           "runbooks/enterprise-install/installing-te",
           "runbooks/enterprise-install/update-te",
           "runbooks/enterprise-install/update-ted",
-          "runbooks/enterprise-install/update-tef"
+          "runbooks/enterprise-install/update-tef",
+          "runbooks/enterprise-install/update-workspace-to-new-te-version"
         ]
       },
       {
