@@ -62,7 +62,7 @@ Here you can see the result of the policy pack you just attached: the setting fo
 Do a top-level search for the name of your bucket, switch to the `Controls` tab, and search for `access control`. The control, which was formerly in the `Skipped` state, is now in `Alarm` because we’ve set the bucket’s access control to fine-grained.
 
   
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXc1D-PobqjuvJiITmHqE8UEY8xC0AOrrOb3HsnUWs-LIo8Zcp4z6PIeCLAUvsiwpu0EIj-ECRrOL3WfafhyMrnheR-SZ2sfzJt6bBqYtImIlGxhK_lyWBhXVw2HY3a30pt0BXYOKZTcui_nwHeITThM5mXR?key=ZbU8aMaV6K8ybWQ2U_KAUA)  
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeFGLFqw2QW0RXQpuFD89cCOEQ2KrvquzjiAsa-xNH5OLCRJSFuCBdb8SSYBAjHsOPfzmfTx2TCX5b3-QAcEGI-Mi5UNPvxE8RtiXFLkN-kwn9gVVc8bIn0wzWwn6xp-FwKk0sfceZ33G1uz34iqkZc7XfE?key=ZbU8aMaV6K8ybWQ2U_KAUA)  
   
 You can override policies at any level. In the [next runbook](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception), we’ll create an exception that transitions your bucket to the `OK` state. 
 
@@ -74,3 +74,5 @@ You can override policies at any level. In the [next runbook](/guardrails/docs/r
 2. [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
 
 3. **Attach a Guardrails Policy**
+
+4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)

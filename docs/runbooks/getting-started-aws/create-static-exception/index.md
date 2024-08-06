@@ -30,7 +30,7 @@ Note that the bucket inherits `Check: Enabled` from the `Sandbox`-level policy y
 Now click `New Policy Setting`.
 <p><img alt="aws_start_4_create_new_policy_setting" src="/images/docs/guardrails/runbooks/getting-started-aws/create-static-exception/aws-start-4-create-new-policy-setting.png"/></p><br/>
 
-Search for and select the Policy Type `
+Search for and select the Policy Type `AWS > S3 > Bucket > Versioning`.
 
   
 Choose `Skip` and click `Create`. Guardrails sends you to the Policy Setting page.
@@ -46,13 +46,15 @@ The default for bucket versioning was `Skip`, the policy you created in the prev
 ## Step 3: Review Guardrails activity for the bucket
 
 Use the top-level search (as above) to find your test bucket.
-<p><img alt="aws_start_4_find_bucket_to_review_activity" src="/images/docs/guardrails/runbooks/getting-started-aws/create-static-exception/aws-start-4-find-bucket-to-review-activity.png"/></p><br/>
+
+Click into the bucket, then select the `Activity` tab.
+<p><img alt="aws_start_4_review_bucket_activity" src="/images/docs/guardrails/runbooks/getting-started-aws/create-static-exception/aws-start-4-review-bucket-activity.png"/></p><br/>
 
 Here you can see the whole history, reading from the bottom up.
 
- - When you then switched the versioning to `Disabled` the bucket went into `Alarm`.  
+ - When you attached the policy that requires bucket versioning, the bucket went into `Alarm`.  
   
-- Then you created the bucket-level policy setting.   
+- Then you created the bucket-level policy setting to make an exception for your test bucket.  
   
 - Then Guardrails reevaluated, found the bucket in compliance with the new policy setting, and set the status to `Skipped`.
 
