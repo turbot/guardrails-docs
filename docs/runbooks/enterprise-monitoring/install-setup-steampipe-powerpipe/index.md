@@ -1,9 +1,9 @@
 ---
-title: "Steampipe and Powerpipe: Installation and Setup Guide"
-sidebar_label: "Steampipe and Powerpipe: Installation and Setup Guide"
+title: "Install and Setup Steampipe and Powerpipe"
+sidebar_label: "Install and Setup Steampipe and Powerpipe"
 ---
 
-# Steampipe and Powerpipe: Installation and Setup Guide
+# Install and Setup Steampipe and Powerpipe
 
 This runbook provides detailed instructions for installing and setting up Steampipe and Powerpipe on a Linux system. It is to guide users through the installation and initial setup of Steampipe and Powerpipe tools on a Linux Host, specifically the Turbot Guardrails Bastion Host. These tools provide significant benefits for customers managing multiple workspaces:
 
