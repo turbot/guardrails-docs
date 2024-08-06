@@ -506,10 +506,17 @@
           "runbooks/getting-started-aws/enable-enforcement"
         ]
       },
+      {
+        "type": "category",
+        "id": "troubleshooting",
+        "link": "runbooks/troubleshooting",
+        "items": [
+          "runbooks/troubleshooting/enable-verbose-logging"
+        ]
+      },
       "runbooks/azure-getting-started",
       "runbooks/gcp-getting-started",
-      "runbooks/enterprise-monitoring",
-      "runbooks/troubleshooting"
+      "runbooks/enterprise-monitoring"
     ]
   },
 
