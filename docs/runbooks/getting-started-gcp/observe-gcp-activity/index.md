@@ -1,0 +1,56 @@
+---
+title: Observe GCP Activity
+sidebar_label: Observe GCP Activity
+---
+
+
+# Observe GCP Activity
+
+**Prerequisites**:
+
+- [Connect a GCP Account to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-an-account/)
+
+
+## Step 1: Create a GCP bucket
+
+We’ll use the name `guardrails-example-gcp-bucket-01`, choose your own name.  
+<p><img alt="create-gcp-bucket" src="/images/docs/guardrails/runbooks/getting-started-gcp/observe-gcp-activity/create-gcp-bucket.png"/></p><br/>  
+
+
+Accept the defaults, including uniform access which will be the focus of this series.
+<p><img alt="gcp-confirm-uniform-access" src="/images/docs/guardrails/runbooks/getting-started-gcp/observe-gcp-activity/gcp-confirm-uniform-access.png"/></p><br/>
+
+## Step 2: See Guardrails discover the new bucket
+
+  
+Select top-level `Reports`, search in the page for `Resource Activities`, and click the link.   
+
+
+Guardrails reports two notifications related to the bucket creation. `RESOURCE CREATED` indicates discovery of the bucket. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
+<p><img alt="gcp_resource_activities_initial_notifications" src="/images/docs/guardrails/runbooks/getting-started-gcp/observe-gcp-activity/gcp-resource-activities-initial-notifications.png"/></p><br/>  
+  
+Note: If your project is very active, and these notifications do not appear at the top of the stream, you can use the `Resource Type` filter to scope notifications to just those for `GCP > Storage > Bucket`.
+
+## Step 3: See Guardrails react to a bucket change
+
+   
+Now visit your bucket in the GCP console, choose the `Permissions` tab, and click `Switch to Fine-Grained`.
+<p><img alt="gcp_switch_to_fine_grained" src="/images/docs/guardrails/runbooks/getting-started-gcp/observe-gcp-activity/gcp-switch-to-fine-grained.png"/></p><br/>
+
+Revisit `Reports > Resource Activities`, and (if needed) reapply the `GCP > Storage > Bucket` filter.  
+  
+Click into the new notification for your bucket, and see the diff that Guardrails has recorded.  
+<p><img alt="gcp_diff_the_first_change" src="/images/docs/guardrails/runbooks/getting-started-gcp/observe-gcp-activity/gcp-diff-the-first-change.png"/></p><br/>
+
+We’ve now seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource.  
+  
+Next we’ll explore [how to set a policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy) that requires uniform access to buckets.
+
+
+## Progress tracker
+
+1. [Connect a GCP Account to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-an-account/)
+
+2. **Observe GCP Activity**
+
+3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)

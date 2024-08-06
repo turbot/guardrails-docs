@@ -614,6 +614,16 @@
       },
       {
         "type": "category",
+        "id": "getting-started-gcp",
+        "link": "runbooks/getting-started-gcp",
+        "items": [
+          "runbooks/getting-started-gcp/connect-an-account",
+          "runbooks/getting-started-gcp/observe-gcp-activity",
+          "runbooks/getting-started-gcp/attach-a-policy"
+        ]
+      },
+      {
+        "type": "category",
         "id": "troubleshooting",
         "link": "runbooks/troubleshooting",
         "items": [
