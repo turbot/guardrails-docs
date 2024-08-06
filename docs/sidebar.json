@@ -469,59 +469,6 @@
   },
   {
     "type": "category",
-    "id": "runbooks",
-    "link": "runbooks",
-    "items": [
-      {
-        "type": "category",
-        "id": "enterprise-install",
-        "link": "runbooks/enterprise-install",
-        "items": [
-          "runbooks/enterprise-install/installing-te",
-          "runbooks/enterprise-install/update-te",
-          "runbooks/enterprise-install/update-ted",
-          "runbooks/enterprise-install/update-tef"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "enterprise-monitoring",
-        "link": "runbooks/enterprise-monitoring",
-        "items": [
-          "runbooks/enterprise-monitoring/install-setup-steampipe-powerpipe"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "configuring-guardrails",
-        "link": "runbooks/configuring-guardrails",
-        "items": [
-          "runbooks/configuring-guardrails/auto-mod-update"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "getting-started-aws",
-        "link": "runbooks/getting-started-aws",
-        "items": [
-          "runbooks/getting-started-aws/connect-an-account",
-          "runbooks/getting-started-aws/observe-aws-activity",
-          "runbooks/getting-started-aws/attach-a-policy",
-          "runbooks/getting-started-aws/create-static-exception",
-          "runbooks/getting-started-aws/create-calculated-exception",
-          "runbooks/getting-started-aws/send-alert-to-email",
-          "runbooks/getting-started-aws/apply-quick-action",
-          "runbooks/getting-started-aws/enable-enforcement"
-        ]
-      },
-      "runbooks/azure-getting-started",
-      "runbooks/gcp-getting-started",
-      "runbooks/troubleshooting"
-    ]
-  },
-
-  {
-    "type": "category",
     "id": "turbot.com",
     "link": "turbot.com",
     "items": [
@@ -616,6 +563,65 @@
           "enterprise/troubleshooting/event-flood"
         ]
       }
+    ]
+  },
+  {
+    "type": "category",
+    "id": "runbooks",
+    "link": "runbooks",
+    "items": [
+      {
+        "type": "category",
+        "id": "enterprise-install",
+        "link": "runbooks/enterprise-install",
+        "items": [
+          "runbooks/enterprise-install/installing-te",
+          "runbooks/enterprise-install/update-te",
+          "runbooks/enterprise-install/update-ted",
+          "runbooks/enterprise-install/update-tef"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "enterprise-monitoring",
+        "link": "runbooks/enterprise-monitoring",
+        "items": [
+          "runbooks/enterprise-monitoring/install-setup-steampipe-powerpipe"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "configuring-guardrails",
+        "link": "runbooks/configuring-guardrails",
+        "items": [
+          "runbooks/configuring-guardrails/auto-mod-update"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "getting-started-aws",
+        "link": "runbooks/getting-started-aws",
+        "items": [
+          "runbooks/getting-started-aws/connect-an-account",
+          "runbooks/getting-started-aws/observe-aws-activity",
+          "runbooks/getting-started-aws/attach-a-policy",
+          "runbooks/getting-started-aws/create-static-exception",
+          "runbooks/getting-started-aws/create-calculated-exception",
+          "runbooks/getting-started-aws/send-alert-to-email",
+          "runbooks/getting-started-aws/apply-quick-action",
+          "runbooks/getting-started-aws/enable-enforcement"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "troubleshooting",
+        "link": "runbooks/troubleshooting",
+        "items": [
+          "runbooks/troubleshooting/enable-verbose-logging"
+        ]
+      },
+      "runbooks/azure-getting-started",
+      "runbooks/gcp-getting-started"
     ]
   }
 ]
