@@ -8,7 +8,13 @@ sidebar_label: "Steampipe and Powerpipe: Installation and Setup Guide"
 This runbook provides detailed instructions for installing and setting up Steampipe and Powerpipe on a Linux system.
 
 ## Purpose
-The purpose of this runbook is to guide users through the installation and initial setup of Steampipe and Powerpipe tools.
+The purpose of this runbook is to guide users through the installation and initial setup of Steampipe and Powerpipe tools on a Linux Host, specifically the Turbot Guardrails Bastion Host. These tools provide significant benefits for customers managing multiple workspaces:
+
+- **Aggregated Information**: Steampipe simplifies the process of aggregating information from multiple workspaces, enabling comprehensive data analysis and management.
+- **Seamless Querying**: Users can easily query their data without the need to log into individual workspaces, saving time and improving efficiency.
+- **Automated Reporting**: Schedule crontab jobs to run reports that query the workspaces on a daily or weekly basis, providing overall statistics and insights to help monitor and manage your environments effectively.
+
+This runbook ensures that users can set up these tools efficiently, leveraging their full potential to streamline operations and enhance productivity.
 
 ## Prerequisites
 * Turbot Guardrails bastion host (Linux system) with sudo privileges
