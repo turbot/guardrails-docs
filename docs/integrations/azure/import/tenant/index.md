@@ -21,10 +21,9 @@ ease of management. Define a Folder hierarchy prior to import.
 ## Import Azure Tenant via Turbot Console (UI)
 
 1. At the main Turbot screen after logging in with `Turbot/Admin` permissions,
-   click the **IMPORT** card in the top right.
+   click the purple **IMPORT** card in the top right corner.
 2. Select **Azure Tenant** on the left.
-3. Use the **Parent Resource** dropdown menu to select where the Azure Tenant
-   will be imported to.
+3. Use the **Parent Resource** dropdown menu to select the parent resource for the Azure Tenant.
 4. Enter the **Tenant (directory) ID**, **Client (application) ID**, and
    **Client Key (secret)**, as well as the **Environment** type then click
    **Import**.
@@ -84,24 +83,25 @@ resource "turbot_resource" "tenant_resource" {
 resource "turbot_policy_setting" "environment" {
   resource = turbot_resource.tenant_resource.id
   type     = "tmod:@turbot/azure#/policy/types/environment"
-  value    = "Global Cloud" or "US Government" //highlight-line
+  value    = "Global Cloud" 
+  # value    = "US Government"
 }
 
 resource "turbot_policy_setting" "clientKey" {
   resource = turbot_resource.tenant_resource.id
   type     = "tmod:@turbot/azure#/policy/types/clientKey"
-  value    = "turbot application client key" //highlight-line
+  value    = "{Guardrails application client key}" 
 }
 
 resource "turbot_policy_setting" "clientId" {
   resource = turbot_resource.tenant_resource.id
   type     = "tmod:@turbot/azure#/policy/types/clientId"
-  value    = "turbot application client id" //highlight-line
+  value    = "{Guardrails application client id}" //highlight-line
 }
 
 resource "turbot_policy_setting" "tenantId" {
   resource = turbot_resource.tenant_resource.id
   type     = "tmod:@turbot/azure#/policy/types/tenantId"
-  value    = "tenant id" //highlight-line
+  value    = "{tenant id}" //highlight-line
 }
 ```
