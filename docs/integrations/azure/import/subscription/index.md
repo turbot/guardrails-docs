@@ -1,12 +1,12 @@
 ---
-title: "Import Azure Subscription into Turbot"
+title: "Import Azure Subscription into Guardrails"
 template: Documentation
 nav:
   title: "Subscription"
   order: 4
 ---
 
-# Import Azure Subscription into Turbot
+# Import Azure Subscription into Guardrails
 
 [Proper setup in the Azure tenant](integrations/azure/import) is required for
 import of an Azure Subscription into a Guardrails workspace.
@@ -28,7 +28,7 @@ flexibility and ease of management. Define a Folder hierarchy prior to import.
 5. Congratulations! The subscription is now added as a child resource of the
    folder.
 
-CMDB and Discovery controls are enabled by default and Turbot will begin
+CMDB and Discovery controls are enabled by default and Guardrails will begin
 discovering the resources in the Azure Subscription. Resources will start
 appearing right away, and resource discovery will continue to run in the
 background.
@@ -39,19 +39,19 @@ Administrators can easily import subscriptions using Terraform. If your
 Terraform environment has not been set up, head on over to the
 [Terraform Setup Page](reference/terraform/setup).
 
-The Guardrails-Samples Repo is a public repository that contains the necessary
-Terraform files to import an Azure Subscription into Turbot:
+The [Guardrails Samples Repo (GSR)](https://github.com/turbot/guardrails-samples)  is a public repository that contains the necessary
+Terraform files to import an Azure Subscription into Guardrails:
 
 - [Azure Subscription Import Baseline](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_import)
 
 Note that the linked baseline is for existing Azure subscriptions, but there are
 also baselines available that:
 
-- [Create an Azure subscription and import into Turbot](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_create_then_import)
-- [Create an Azure subscription and import into Turbot with Read Only rights](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_create_then_import_ro)
+- [Create an Azure subscription and import into Guardrails](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_create_then_import)
+- [Create an Azure subscription and import into Guardrails with Read Only rights](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_create_then_import_ro)
 
 ```hcl
-# Create the Azure > Subscription resource in Turbot
+# Create the Azure > Subscription resource in Guardrails
 resource "turbot_resource" "subscription_resource" {
   parent = var.parent_resource
   type   = "tmod:@turbot/azure#/resource/types/subscription"
@@ -66,7 +66,7 @@ resource "turbot_resource" "subscription_resource" {
   })
 }
 
-# Set the credentials for the subscription via Turbot policies
+# Set the credentials for the subscription via Guardrails policies
 # Azure > Environment
 resource "turbot_policy_setting" "environment" {
   resource = turbot_resource.subscription_resource.id
