@@ -20,12 +20,12 @@ Now we have our AWS S3 bucket versioning policy set, we can track which S3 bucke
 Do a top-level search for the bucket, and click into the resource.
 <p><img alt="aws_start_4_find_the_bucket" src="/images/docs/guardrails/runbooks/getting-started-aws/create-static-exception/aws-start-4-find-the-bucket.png"/></p><br/>
 
-## Step 2: Create a policy setting
+## Step 2: Create a policy exception
 
 On the bucket page, switch to the `Policies` tab and search for `s3 bucket versioning`.
 <p><img alt="aws_start_4_ready_to_create_new_policy_setting" src="/images/docs/guardrails/runbooks/getting-started-aws/create-static-exception/aws-start-4-ready-to-create-new-policy-setting.png"/></p><br/>
 
-Note that the bucket inherits `Check: Enabled` from the `Sandbox`-level policy you set in the previous runbook.   
+Note that the bucket inherits `Check: Enabled` from the policy pack attached to the `Sandbox` folder.  
   
 Now click `New Policy Setting`.
 <p><img alt="aws_start_4_create_new_policy_setting" src="/images/docs/guardrails/runbooks/getting-started-aws/create-static-exception/aws-start-4-create-new-policy-setting.png"/></p><br/>
@@ -33,14 +33,14 @@ Now click `New Policy Setting`.
 Search for and select the Policy Type `AWS > S3 > Bucket > Versioning`.
 
   
-Choose `Skip` and click `Create`. Guardrails sends you to the Policy Setting page.
+Choose `Skip` then click `Create`. Guardrails takes you to the Policy Setting page.
 
 Select the `Hierarchy` tab to review the new situation.
 <p><img alt="aws_start_4_hierarchy_with_bucket_exception" src="/images/docs/guardrails/runbooks/getting-started-aws/create-static-exception/aws-start-4-hierarchy-with-bucket-exception.png"/></p><br/>  
   
 
 
-The default for bucket versioning was `Skip`, the policy you created in the previous runbook changed it to `Check: Enabled`, and now the bucket overrides that setting back to `Skip`.  
+The default for bucket versioning was `Skip`. In the last runbook, you attached a policy pack to make the effective policy setting `Check: Enabled`. Now with the bucket level policy exception the effective policy  setting goes back to `Skip`.  Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Enabled`.  
 
 
 ## Step 3: Review Guardrails activity for the bucket
@@ -56,7 +56,7 @@ Here you can see the whole history, reading from the bottom up.
   
 - Then you created the bucket-level policy setting to make an exception for your test bucket.  
   
-- Then Guardrails reevaluated, found the bucket in compliance with the new policy setting, and set the status to `Skipped`.
+- Then Guardrails reevaluated, found the bucket in compliance with the new policy setting, and set the status to `Skipped`.
 
   
 In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.

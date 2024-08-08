@@ -38,20 +38,6 @@ In the `Edit policy pack attachments` dialog, select `Enforce Versioning is Enab
   
 
 
-  
-Guardrails returns you to the `Detail` tab of the `Sandbox` page. Click the `Policies` tab, click `Descendant`, and search for `s3 bucket versioning`.  
-<p><img alt="aws_start_3_sandbox_policies_descendant" src="/images/docs/guardrails/runbooks/getting-started-aws/attach-a-policy/aws-start-3-sandbox-policies-descendant.png"/></p><br/>
-
-Click `AWS > S3 > Bucket > Versioning`.   
-<p><img alt="aws_start_3_review_bucket_versioning_policy_type" src="/images/docs/guardrails/runbooks/getting-started-aws/attach-a-policy/aws-start-3-review-bucket-versioning-policy-type.png"/></p><br/>
-
-This is the policy type for S3 bucket versioning. The default is `Skip`.  
-  
-There is one policy setting. Click `1 setting` or `Switch to settings tab` to view it.
-<p><img alt="aws_start_3_view_policy_setting" src="/images/docs/guardrails/runbooks/getting-started-aws/attach-a-policy/aws-start-3-view-policy-setting.png"/></p><br/>
-
-Here you can see the result of the policy pack you just attached: the setting for S3 bucket versioning now overrides the default and has become `Check: Enabled`. 
-
 ## Step 4: Observe a policy-driven alarm
 
 Do a top-level search for the name of your bucket, switch to the `Controls` tab, and search for `bucket versioning`. The control, which was formerly in the `Skipped` state, is now `OK` because you have enabled versioning for it.

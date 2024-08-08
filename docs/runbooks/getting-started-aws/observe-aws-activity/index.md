@@ -13,7 +13,7 @@ sidebar_label: Observe AWS Resource Activity
 
  
 
-Now that you’ve connected an AWS account, you can explore your resource inventory.  Go to the `Reports` tab (chart icon),  search in the page for  `Resource Inventory` and click that link . To visualize activity, go to `Reports`,  find `Resource activities`, click that link. 
+Now that you’ve connected an AWS account, you can explore your resource inventory.  To visualize activity, go to `Reports`,  find `Resource activities`, then click that link. 
 
 The following steps will show how to observe AWS resource activity in real-time.
 
