@@ -28,17 +28,17 @@ Open the AWS Console and navigate to the Service Catalog service in the region w
 
 Select the hamburger menu in the top left and choose **Provisioned Products**.
 
-![Product Selection](/images/docs/guardrails/runbooks/enterprise-install/delete-te/delete-te-service-catalog.png)
+![TE Selection](/images/docs/guardrails/runbooks/enterprise-install/delete-te/delete-te-service-catalog.png)
 
 ## Step 3: Delete the TE Version
 
 Select the TE version to be deleted from the list of provisioned products. Click **Actions** and then select **Terminate**.
 
-![Provisioned Product Naming](/images/docs/guardrails/runbooks/enterprise-install/delete-te/delete-te-terminate-version.png)
+![Delete Action](/images/docs/guardrails/runbooks/enterprise-install/delete-te/delete-te-terminate-version.png)
 
 Type `terminate` in the confirmation field. Ensure the `Ignore errors (optional)` checkbox is unchecked.
 
-![Provisioned Product Naming](/images/docs/guardrails/runbooks/enterprise-install/delete-te/delete-te-cofirmation.png)
+![Confirm Termination](/images/docs/guardrails/runbooks/enterprise-install/delete-te/delete-te-cofirmation.png)
 
 Deletion can take an extended period of time (15 plus minutes).
 
