@@ -108,9 +108,9 @@ sidebar_label: Glossary of Terms
 
 **Policy Taxonomy**: The structured classification of Policies within Turbot Guardrails. It organizes Policies into categories and hierarchies, making it easier to manage and apply them across various Resources. The taxonomy includes different types of Policies such as Simple, Compound, and Calculated, each serving specific purposes. Policies are grouped by Resource Types and Control Objectives to ensure consistent enforcement and reporting.
 
-- **Simple Policy**: Used when a single Policy Setting is sufficient to define a Control's behavior.
+- **Simple Policy**: Used when a single Policy Setting is sufficient to define a Control's behavior. For example, you want to ensure all S3 buckets are versioned. Search for the Policy Type `AWS > EC2 > Bucket > Versioning`. Create a new Policy Setting with the value `Enforce: Enabled`.
 
-- **Compound Policy**: Used when two or more Policy Pettings are required to fully define a Control's behavior. Common examples are `Approved` and `Active`.
+- **Compound Policy**: Used when two or more Policy Settings are required to fully define a Control's behavior. Suppose you want to ensure that EC2 snapshots older than 90 days will be inactivated. This requires two Policy Settings. First, `AWS > EC2 > Snapshot > Active` which might be set to `Enforce: Delete inactive with 30 days warning`. This defines an Action, but not the criterion for the Action. That requires `AWS > EC2 > Snapshot > Active > Age` which might be set to `Force inactive if age > 90 days`. The two Policy Settings work in concert to achieve the desired effect.
 
 - **Calculated Policy**: See Calculated Policy above.
 
