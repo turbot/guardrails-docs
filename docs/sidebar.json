@@ -581,7 +581,8 @@
           "runbooks/enterprise-install/update-tef",
           "runbooks/enterprise-install/update-workspace-to-new-te-version",
           "runbooks/enterprise-install/delete-te",
-          "runbooks/enterprise-install/mod-install"
+          "runbooks/enterprise-install/mod-install",
+          "runbooks/enterprise-install/update-mod"
         ]
       },
       {

@@ -35,7 +35,7 @@ Click **Install Mod** to launch the Install Mod dialog. Search or filter for the
 
 You have successfully installed a mod in the Guardrails environment. Now you can monitor the installation for any issues and document any anomalies.
 
-- [ ] The mod will appear in the list with the installed version with a green tick.
+- [ ] The mod will appear in the list with the installed version indicated with a green checkmark.
 
 ![Mod Install Confirmation](/images/docs/guardrails/runbooks/enterprise-install/mod-install/mod-install-confirmation.png)
 
@@ -50,4 +50,4 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ### Mod Installation Fails
 
-Check the `Turbot > Mod > Installed` log for error message or dependency.
+Check the `Turbot > Mod > Installed` log for error message or dependency. If there are any errors, create a support ticket and include relevant screenshots of the errors.
