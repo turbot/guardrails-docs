@@ -9,12 +9,14 @@ nav:
 
 As a part of Guardrails workspace maintenance, AWS accounts need to be removed. There are two parts to this process:
 
-1. [Decommission Guardrails-managed resources](#decommission-guardrails-infrastructure) in the AWS account, where desired. Altering the relevant policy settings
+1. [Decommission Guardrails-managed resources](#decommission-guardrails-infrastructure) in the AWS account, where
+   desired. Altering the relevant policy settings
    will
    make changes in the AWS account. Administrators should determine if they would like to keep
    Guardrails-managed resources in the account, such as S3 buckets, or CloudTrail. Event Handlers should always be
    removed.
-2. [Disconnect the AWS account from Guardrails](#disconnect-aws-account-from-guardrails) . This is Guardrails-side only change. No changes are made in the AWS
+2. [Disconnect the AWS account from Guardrails](#disconnect-aws-account-from-guardrails) . This is Guardrails-side only
+   change. No changes are made in the AWS
    account.
 
 Note that disconnecting an AWS account from Guardrails will remove all child CMDB records and policy settings.
@@ -23,7 +25,8 @@ Note that disconnecting an AWS account from Guardrails will remove all child CMD
 
 To ensure complete cleanup of Guardrails-managed resources, create the policy settings below with the
 prescribed values. If you wish to retain those resources, do not create the policy setting. Time should be allowed for
-Guardrails to complete the removal process for these resources.
+Guardrails to complete the removal process for these resources. It is safe to create these policy settings, even if
+there is no corresponding `Enforce: Enabled`
 
 1. `AWS > Turbot > Permissions` set to `Enforce: None`. This will remove Guardrails-managed
    IAM policies, groups, roles and users.
@@ -49,7 +52,7 @@ Guardrails to complete the removal process for these resources.
    the account.
 
 Once the controls associated with the above policies have completed, the AWS
-account can be disconnected from the Guardrails workspace. 
+account can be disconnected from the Guardrails workspace.
 
 ## Disconnect AWS Account from Guardrails
 
@@ -92,12 +95,12 @@ number of resources in the account. The general aim is to reduce the number of r
 
 ### Automated Resource Count Reduction
 
-1. Use
-   the `aws_account_delete` [script in the Guardrails Samples Repo (GSR)](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/remove_aws_account)
+1. Use the
+   `aws_account_delete` [script in the Guardrails Samples Repo (GSR)](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/remove_aws_account)
    to automate the process of creating the CMDB policy settings and disconnecting the account.
 2. Refer to
    the [README](https://github.com/turbot/guardrails-samples/blob/main/guardrails_utilities/python_utils/remove_aws_account/README.md)
-   for further instructions on how to setup and run the script.
+   for further instructions on how to set up and run the script.
 
 It may take several attempts to delete the account. If the account cannot be disconnected even after drastic reductions
 in resource counts, please open a ticket with [Turbot Support](mailto:help@turbot.com) for further assistance.
@@ -107,6 +110,5 @@ in resource counts, please open a ticket with [Turbot Support](mailto:help@turbo
 When a user with sufficient permissions attempts to disconnect an AWS account, Guardrails will try to remove the
 account, all child resources, controls, policy settings in a single SQL transactions. This is done for safety. Should
 the transaction fail, it's trivial for the database to roll back to a known good state. The effect of this rollback is
-that the account
-remains visible in Guardrails. AWS accounts with larger numbers of resources, the time required to complete
-the transaction may exceed the statement timeout limit. 
+that the account remains visible in Guardrails. AWS accounts with larger numbers of resources, the time required to
+complete the transaction may exceed the statement timeout limit. 
