@@ -595,7 +595,8 @@
         "id": "configuring-guardrails",
         "link": "runbooks/configuring-guardrails",
         "items": [
-          "runbooks/configuring-guardrails/auto-mod-update"
+          "runbooks/configuring-guardrails/auto-mod-update",
+          "runbooks/configuring-guardrails/blue-green-deployment"
         ]
       },
       {
