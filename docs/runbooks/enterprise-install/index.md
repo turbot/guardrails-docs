@@ -26,7 +26,7 @@ At a high level, the installation process involves 3 stages:
    - Install a version via the
      [Turbot Guardrails Enterprise product](enterprise/installation/te-installation)
 
-2. Creating Workspaces via the
+2. Creating a Workspace via the
    [Turbot Guardrails Workspace Manager](enterprise/installation/workspace-manager)
    CloudFormation Custom Resource.
 

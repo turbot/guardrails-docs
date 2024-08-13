@@ -6,8 +6,7 @@ sidebar_label: Update Workspace TE
 # Update Turbot Guardrails Enterprise (TE) version in Workspace
 
 In this runbook, you will:
-- Use Guardrails AWS master account
-- Learn how to update Workspace TE version
+- Learn how to Update an existing workspace to a new Turbot Guardrails Enterprise (TE) version.
 
 Turbot Guardrails Enterprise (TE) provides automated configuration and management of Turbot infrastructure to be used when running the Turbot software application. For example, TE provides the setup of load balancers, SQS queues, ECS, etc., while Turbot provides the software to run in the container.
 
@@ -16,18 +15,18 @@ TE deploys a new version of the Turbot software -- Every Turbot release requires
 ## Prerequisites
 - Access to the Guardrails master account.
 - Administrator privileges.
-- Familiarity with AWS Console, Service Catalog, and CloudFormation services.
+- Familiarity with AWS Console and CloudFormation service.
 
 
 ## Step 1: Access AWS Console
 
-Open the AWS Console and navigate to AWS CloudFormation to select the Guardrails workspace stack.
+Open the AWS Console and navigate to AWS CloudFormation to select the Guardrails workspace stack corresponding to the workspace that you are planning to update.
 
 ![AWS Console CloudFormation Page](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set.png)
 
 ## Step 2: Update CloudFormation Stack
 
-Once you select the respective stack select **Update**. Choose `Use the existing template` as default selection and select **Next**.
+Once you select the respective stack in the listing, choose the Update option at the top of the screen. Choose `Use the existing template` as default selection and select **Next**.
 
 ![Update CloudFormation Stack](/images/docs/guardrails/runbooks/enterprise-install/update-te/aws-cfn-stack-set-update.png)
 
