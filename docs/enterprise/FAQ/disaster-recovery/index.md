@@ -42,7 +42,7 @@ Here is a list of common scenarios:
   AZ outages generally don't matter in that case.
 - **AWS Service Outage**:  Depending on the outage and duration, the resolution may be wait for the outage to be over.
 - **SSO Authentication**: You'd need break-glass identities in all your workspaces.
-- **Route53 Outage**: Wait for it to end, or shift to OnPrem DNS/
+- **Route53 Outage**: Wait for it to end, or shift to on-prem DNS to resolve to the Guardrails ALB.
 - **Workspace accidentally deleted**: Restore from backup.
 
 ## Temporary vs Permanent Outage
