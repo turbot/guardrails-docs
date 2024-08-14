@@ -97,10 +97,19 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 Common errors with a TEF update:
 
+### Inability to Locate Provisioned TEF Product
+Users may encounter difficulties locating a TEF provisioned product if they were not the original provisioning user. 
+- Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
+
 ### Permissions Issues
+
+Insufficient user privileges can prevent stack modifications.
 
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
 - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
+
+### Network Issues
+When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can Refer to the updated networking guide for [Managing Network Configurations with Stacks](https://turbot.com/guardrails/docs/guides/network-stack#overview).
 
 ### Stack Update Fails
 

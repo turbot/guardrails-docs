@@ -101,6 +101,10 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 Common errors with a TED update:
 
+### Inability to Locate Provisioned TED Product
+Users may encounter difficulties locating a TED provisioned product if they were not the original provisioning user. 
+- Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
+
 ### Permissions Issues
 
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.

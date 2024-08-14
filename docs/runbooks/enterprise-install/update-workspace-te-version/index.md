@@ -8,6 +8,8 @@ sidebar_label: Update Workspace TE Version
 In this runbook, you will:
 - Update a workspace to a new TE version using AWS CloudFormation
 
+A Guardrails workspace is updated to a new version by referencing a newly installed TE product within the workspace stack. This ensures the workspace benefits from the latest TE features and improvements.
+
 ## Prerequisites
 
 - Access to the Guardrails master account.
@@ -70,10 +72,16 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
-### Update Fails or Takes Too Long
+### Stack Update Fails
 
-Check the CloudFormation stack events tab for errors. If there are any errors, create a support ticket and include relevant screenshots of the errors.
+Identifying the initial error in a `CloudFormation` template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
 
-### Workspace Shows Old TE version
+- Navigate to `CloudFormation` service and select failed stack.
+- Open `Events` tab, sort by `Timestamp` descending.
+- Identify first event with status `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
+- Examine error message for failure details such as invalid parameters, resource limits, etc.
+- Cross-reference error message with corresponding resource or parameter in CloudFormation template.
 
-Clear the browser cache and re-login to the workspace.
+### Workspace Displays Incorrect TE Version
+
+To resolve this issue, clear your browser cache and log back into the workspace.
