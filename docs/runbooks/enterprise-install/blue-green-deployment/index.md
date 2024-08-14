@@ -79,7 +79,7 @@ You have successfully updated the TEF Service Catalog product to flip `Parameter
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
 - Learn more about [TE architecture](https://turbot.com/guardrails/docs/enterprise/architecture).
-- Learn about [updating TE stacks](https://turbot.com/guardrails/docs/enterprise/updating-stacks).
+- Learn about [Guardrails Stack Updates](https://turbot.com/guardrails/docs/enterprise/updating-stacks#guardrails-stack-updates).
 
 ## Troubleshooting
 
