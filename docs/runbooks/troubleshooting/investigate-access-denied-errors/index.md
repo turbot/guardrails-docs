@@ -3,7 +3,7 @@ title: Investigate Access Denied Errors with IAM Policy Simulator
 sidebar_label: Investigate Access Denied Errors
 ---
 
-# Investigate Access Denied Erros with IAM Policy Simulator
+# Investigate Access Denied Errors with IAM Policy Simulator
 
 In this runbook, you will:
 - 
@@ -28,6 +28,12 @@ Open the [IAM Policy simulator](https://policysim.aws.amazon.com/home/index.jsp)
 ## Step 3: Specify Principal, Service, and Action
 
 The IAM Policy simulator requires a user, group or role as the test resource.   Choose the IAM resource that you wish to test.
+
+Choose the AWS service.
+
+Choose the actions gathered in Step 1. 
+
+![Choose Principal, Service and Action](/images/docs/guardrails/runbooks/troubleshooting/investigate-access-denied-errors/aws_choose_resource_service_action.png)
 
 ## Step 4: Specify a Region if Necessary
 
