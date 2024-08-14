@@ -78,3 +78,22 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 - Learn more about [Updating a Workspace to this version](https://turbot.com/guardrails/docs/enterprise/updating-stacks/update-workspace#updating-the-workspace).
 - Learn about [updating TE stacks](https://turbot.com/guardrails/docs/enterprise/updating-stacks).
+
+## Troubleshooting
+
+Common errors with a TE update:
+
+### Permissions Issues
+
+- Current logged in user doesn't have permission to modify/update/create resources in the stack.
+- Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
+
+### Stack Update Fails
+
+Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
+
+- Navigate to `CloudFormation` service and select failed stack.
+- Open `Events` tab, sort by `Timestamp` descending.
+- Identify first event with status `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
+- Examine error message for failure details such as invalid parameters, resource limits, etc.
+- Cross-reference error message with corresponding resource or parameter in CloudFormation template.

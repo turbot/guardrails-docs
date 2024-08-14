@@ -105,16 +105,33 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 Common errors with a TED update:
 
+### Permissions Issues
+
+- Current logged in user doesn't have permission to modify/update/create resources in the stack.
+- Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
+
 ### Instance Type and Disk Size Mismatch
-    - Problem: The selected instance type might not be available in the specified region or partition, or the database disk size might not align with the stack configuration.
-    - Solution:
-        Review the CloudFormation stack events to find the initial failure.
-        Look for error messages related to instance type or disk size limitations.
-        Resolve the issue by modifying the CloudFormation template to use a compatible instance type or adjust the disk size.
+
+The selected instance type might not be available in the specified region or partition, or the database disk size might not align with the stack configuration.
+
+- Review the CloudFormation stack events to find the initial failure.
+- Look for error messages related to instance type or disk size limitations.
+- Resolve the issue by modifying the CloudFormation template to use a compatible instance type or adjust the disk size.
 
 ### Stack Rollback Failure Due to Database State
-    - Problem: The CloudFormation stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback.  
-    - Solution: 
-        - Navigate to the CloudFormation console, select the failed stack, and go to the "Events" tab. Look for error messages related to the database or rollback failure.
-        - Ensure the database is in a healthy and suitable state.
-        - Choose the "Rollback" option and confirm the action.
+
+The CloudFormation stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback.
+
+- Navigate to the `CloudFormation` console, select the failed stack, and go to the `Events` tab. Look for error messages related to the database or rollback failure.
+- Ensure the database is in a healthy and suitable state.
+- Choose the `Rollback` option and confirm the action.
+
+### Stack Update Fails
+
+Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
+
+- Navigate to `CloudFormation` service and select failed stack.
+- Open `Events` tab, sort by `Timestamp` descending.
+- Identify first event with status `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
+- Examine error message for failure details such as invalid parameters, resource limits, etc.
+- Cross-reference error message with corresponding resource or parameter in CloudFormation template.
