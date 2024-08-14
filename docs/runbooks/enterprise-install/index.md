@@ -11,8 +11,6 @@ Turbot Guardrails Enterprise is a cloud-native application, built from the groun
 
 ## Installation Overview
 
-//TO DO Link updates based on review//
-
 At a high level, the installation process involves 3 stages:
 
 1. Installing Turbot Guardrails Enterprise via Turbot Portfolio Manager and AWS Service
@@ -43,18 +41,9 @@ via the Service Catalog. Turbot Guardrails portfolios are only available to cust
 being shared / given permission – Contact your Turbot Guardrails Solutions Engineer if you
 require permission to a Turbot Guardrails Portfolio.
 
-### To import the portfolio(s)
+<!-- TO DO -- Provide link how to import portfolio remove the below section to new runbook -->
 
-1. In your Turbot Guardrails master account, import the portfolio into each region that you
-   will install into. [Portfolio links](#portfolios) are provided below.
-2. After importing the portfolio, you must grant access to the portfolio in
-   Service Catalog so that users may deploy the products.
-3. Once the portfolio is imported, and you have been granted access, you can
-   provision Turbot products from Service Catalog Product List.
-
----
-
-### Turbot Guardrails Portfolio
+<!-- ### Turbot Guardrails Portfolio
 
 | Region         | Portfolio                                                                                                                                            |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -71,4 +60,4 @@ require permission to a Turbot Guardrails Portfolio.
 | us-east-2      | [port-weusplgp6bmua](https://console.aws.amazon.com/servicecatalog/home?isSceuc=false&region=us-east-2#portfolios/import?id=port-weusplgp6bmua)      |
 | us-west-1      | [port-lot26rdlx4iry](https://console.aws.amazon.com/servicecatalog/home?isSceuc=false&region=us-west-1#portfolios/import?id=port-lot26rdlx4iry)      |
 | us-west-2      | [port-u4rbevxpzwj3m](https://console.aws.amazon.com/servicecatalog/home?isSceuc=false&region=us-west-2#portfolios/import?id=port-u4rbevxpzwj3m)      |
-| us-gov-west-1  | [port-akp7iklcswqba](https://console.amazonaws-us-gov.com/servicecatalog/home?region=us-gov-west-1/portfolios/import?id=port-akp7iklcswqba)          |
+| us-gov-west-1  | [port-akp7iklcswqba](https://console.amazonaws-us-gov.com/servicecatalog/home?region=us-gov-west-1/portfolios/import?id=port-akp7iklcswqba)          | -->
