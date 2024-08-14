@@ -104,7 +104,7 @@ Common errors with a TEF update:
 
 ### Stack Update Fails
 
-Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
+Identifying the initial error in a `CloudFormation` template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
 
 - Navigate to `CloudFormation` service and select failed stack.
 - Open `Events` tab, sort by `Timestamp` descending.
