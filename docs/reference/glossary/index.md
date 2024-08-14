@@ -7,25 +7,23 @@ sidebar_label: Glossary of Terms
 
 **Account:** Represents a cloud account, such as an AWS Account, Azure Subscription, or GCP Project, within Turbot Guardrails. Accounts are tracked as Resources that can have attached Policies.
 
-**Action:** A runnable process that can be executed by a Control or another Action. Actions are triggered based on Policy Settings and Resource states. The list of available Actions is continually updated based on customer feedback, allowing for the addition of new Actions over time.
+  **Action:** A runnable process that can be executed by a Control or another Action. Actions are triggered based on Policy Settings and Resource states. The list of available Actions is continually updated based on customer feedback, allowing for the addition of new Actions over time.
 
 **AKA (Also Known As):** A unique identifier for a Guardrails object that enables it to be directly indexed. AKA formats vary by provider and service. AWS resources have an ARN that is used as an AKA. Guardrails Resource ids are also AKAs.
 
 **Alert:** An automated message from Guardrails when a Policy violation or significant event occurs. Appears in the Guardrails console. Can also be configured to notify users via email, Slack, Microsoft Teams, or HTTP endpoints.
 
-**Calculated Policy:** Makes Policy Settings contextually aware by sourcing CMDB data, using an GraphQL query, and transforming it with a Nunjucks template that outputs a Resource-specific Policy Value. Any Policy Setting can be calculated.
-
-**Categories:** Organizational groupings of Policies based on their purpose and scope. Examples include Permissions, Compliance, Security, and Operations.
+**Calculated Policy:** Makes Policy Settings [contextually aware](https://turbot.com/guardrails/docs/concepts/policies/calculated-faq#what-is-a-calculated-policy) by sourcing CMDB data, using an GraphQL query, and transforming it with a Nunjucks template that outputs a Resource-specific Policy Value. Any Policy Setting can be calculated.
 
 **CMDB:** The Configuration Management Database (CMDB) stores detailed information about Resources and their configurations. It serves as the primary data source for Calculated Policies, enabling dynamic and context-aware Policy Settings.
 
-**Collective:** The networking and compute components that will be shared by all workspaces in a Guardrails Enterprise installation. Collectives are deployed and managed via the Guardrails Enterprise Foundation (TEF) product in the AWS Service Catalog.
+**Collective:** The [networking and compute components](https://turbot.com/guardrails/docs/enterprise/architecture#collectives) that will be shared by all workspaces in a Guardrails Enterprise installation. Collectives are deployed and managed via the Guardrails Enterprise Foundation (TEF) product in the AWS Service Catalog.
 
-**Control:** An executable that evaluates assertions made by Policy Values for a given Resource. If differences are found, it can take Actions as dictated by those Policy Values. May depend on one or more Policy Values to fully define behaviour. Controls are specific to Resource Types. Controls can be in these states, such as `OK`, `Alarm`, `Error`, `Invalid`, `Skipped`, or `To Be Determined` (`TBD`). They are categorized into Control Types and Control Categories for better organization and reporting.
+**Control:** An [executable](https://turbot.com/guardrails/docs/concepts/controls) that evaluates assertions made by Policy Values for a given Resource. If differences are found, it can take Actions as dictated by those Policy Values. May depend on one or more Policy Values to fully define behaviour. Controls are specific to Resource Types. Controls can be in these states, such as `OK`, `Alarm`, `Error`, `Invalid`, `Skipped`, or `To Be Determined` (`TBD`). They are categorized into Control Types and Control Categories for better organization and reporting.
 
-**Control Objective:** A business need that requires specific configurations or Policies to be enforced across cloud resources. It represents a high-level goal that ensures compliance, security, and operational efficiency. For example, an organization may have a requirement that all cloud storage must be encrypted at rest, or that virtual networks must never be accessible to the public. Often these Control Objectives are written in non-executable Word docs or wikis. Policy Packs can be used to streamline the implementation of Control Objectives.
+**Control Objective:** A [business need](https://turbot.com/guardrails/docs/guides/managing-policies/config-examples#control-objectives) that requires specific configurations or Policies to be enforced across cloud resources. It represents a high-level goal that ensures compliance, security, and operational efficiency. For example, an organization may have a requirement that all cloud storage must be encrypted at rest, or that virtual networks must never be accessible to the public. Often these Control Objectives are written in non-executable Word docs or wikis. Policy Packs can be used to streamline the implementation of Control Objectives.
 
-**Control State:** Represents the current status of a Control after it has evaluated a Resource against its associated Policies. Control states help administrators understand the compliance and operational status of their cloud resources. The possible Control states are:
+**Control State:** Represents the [current status](https://turbot.com/guardrails/docs/concepts/controls#control-state) of a Control after it has evaluated a Resource against its associated Policies. Control states help administrators understand the compliance and operational status of their cloud resources. The possible Control states are:
 
 - **OK:** The Resource is compliant with the Policy Settings. This is the desired state.
 
@@ -39,7 +37,7 @@ sidebar_label: Glossary of Terms
 
 - **TBD (to be determined):** The Control is waiting for Policy calculations to complete. Controls start in this state.
 
-**Control Type:** A blueprint for a specific Control that can be configured for Resources. Control Types are associated with Policy Types and are used to enforce specific Policies on cloud resources. They are organized hierarchically and categorized into categories for better organization and reporting.  Examples include `AWS > S3 > Bucket > Approved` and `GCP > Compute > Disk > Encryption at Rest`.
+**Control Type:** A [blueprint](https://turbot.com/guardrails/docs/concepts/controls#control-state) for a specific Control that can be configured for Resources. Control Types are associated with Policy Types and are used to enforce specific Policies on cloud resources. They are organized hierarchically and categorized into categories for better organization and reporting.  Examples include `AWS > S3 > Bucket > Approved` and `GCP > Compute > Disk > Encryption at Rest`.
 
 **Directive:** A specific instruction within a Policy Setting that dictates how a Control should evaluate and optionally act on Resources. Examples include `Skip`, `Check`, and `Enforce`.
 
@@ -47,15 +45,15 @@ sidebar_label: Glossary of Terms
 
 **Grant Activation:** Permissions can be granted but not active. This allows a user to elevate their privileges for a limited time as needed. Functions similarly to the Linux ‘sudo’ command.
 
-**Event Handler:** The collection of infrastructure deployed into a cloud account to gather events as they occur and forward them to Guardrails for processing. Event Handlers use a push-based mechanism for real-time event processing. For ease of configuration, Event Polling can be used as an alternative to Event Handlers.
+**Event Handler:** The [collection of infrastructure](https://turbot.com/guardrails/docs/integrations/azure/real-time-events/event-handlers) deployed into a cloud account to gather events as they occur and forward them to Guardrails for processing. Event Handlers use a push-based mechanism for real-time event processing. For ease of configuration, Event Polling can be used as an alternative to Event Handlers.
 
-**Polling:** A pull-based mechanism. In Event Polling mode, Guardrails periodically queries the cloud provider's event logs to retrieve the latest events. Event Polling is easier to set up than Event Handlers, but is slower and entails higher API usage.
+**Event Polling:** A pull-based mechanism. In Event Polling mode, Guardrails periodically queries the cloud provider's event logs to retrieve the latest events. Event Polling is easier to set up than Event Handlers, but is slower and entails higher API usage.
 
 **Event Router:** An Action that receives events from a cloud provider (usually via an Event Handler stack), then takes the appropriate action such as creating or updating a cloud resource record.
 
-**Folder:** A logical grouping of Resources. Folders help organize Resources and can have Policies attached to them that are inherited by the Resources within the Folder.
+**Folder:** A [logical grouping](https://turbot.com/guardrails/docs/concepts/resources/hierarchy#folders) of Resources. Folders help organize Resources and can have Policies attached to them that are inherited by the Resources within the Folder.
 
-**GraphQL:** The native query language for the Guardrails API.
+**GraphQL:** The [native query language](https://turbot.com/guardrails/docs/reference/graphql#graphql) for the Guardrails API.
 
 **GraphQL API:** The API provided by Guardrails that enables users to perform Actions programmatically using GraphQL queries and mutations.
 
@@ -63,43 +61,31 @@ sidebar_label: Glossary of Terms
 
 **Guardrails Console:** The user interface (UI) of Guardrails. Enables users to adust Policy Settings, manage Resources, and view Alerts. The console is the visible representation of a Workspace.
 
-**Guardrails Hub:** The central repository for Mods and Policy Packs.
+**Guardrails Hub:** The [central repository](https://hub.guardrails.turbot.com/) for Mods and Policy Packs.
 
 **Hierarchy:** The structured arrangement of Resources, Folders, and Policies within a Workspace. It includes:
 
-- **Resource Hierarchy:** Organizes Resources into a multi-level structure with Turbot Root at the top, followed by Folders and individual Resources.
+- **Resource Hierarchy:** Organizes Resources into a [multi-level structure](https://turbot.com/guardrails/docs/concepts/resources/hierarchy) with Turbot Root at the top, followed by Folders and individual Resources.
 
-- **Policy Hierarchy:** Policies set at higher levels are inherited by lower levels, ensuring consistent enforcement. This hierarchical structure enables efficient management, reporting, and enforcement across different organizational levels.
+- **Policy Hierarchy:** Policies set at higher levels are inherited by lower levels, ensuring consistent enforcement. This [hierarchical structure](https://turbot.com/guardrails/docs/concepts/policies/hierarchy) enables efficient management, reporting, and enforcement across different organizational levels.
 
-**Hive:** Often referred to as the Turbot Guardrails Database. The physical data storage and caching resources used in Turbot Guardrails Enterprise. Hives are deployed and managed via the Turbot Guardrails Enterprise Database (TED) product in the AWS Service Catalog.
+**Hive:** Often referred to as the Turbot Guardrails Database. The [physical data storage and caching resources](https://turbot.com/guardrails/docs/enterprise/architecture#hives) used in Turbot Guardrails Enterprise. Hives are deployed and managed via the Turbot Guardrails Enterprise Database (TED) product in the AWS Service Catalog.
 
-**Mod:** A package of all the Resource, Policy and Control types related to a single cloud platform service. Installing the Mod for a cloud service (e.g. `aws-s3`) installs Controls and starts the discovery process for all Resource types described in the Mod.
+**Mod:** A [package](https://hub.guardrails.turbot.com/#mods) of all the Resource, Policy and Control types related to a single cloud platform service. Installing the Mod for a cloud service (e.g. `aws-s3`) installs Controls and starts the discovery process for all Resource types described in the Mod.
 
 **Notifications:** The delivery mechanism for Alerts and other important messages to users or systems outside the Guardrails console. Notifications can be sent via  email, Slack, Microsoft Teams, or HTTP endpoints.
 
-**Permissions:** A mechanism to govern the Actions that users or groups can perform on Resources. They are managed using Policies and can be granted at various levels, such as Account, Folder, or Resource. Permissions ensure that users have the appropriate access to perform their roles while maintaining security and compliance. Note that permissions in connected systems (e.g., AWS) are governed by mechanisms such as cross-role trust and IAM policies.
+**Permissions:** A [mechanism](https://turbot.com/guardrails/docs/concepts/iam/permissions#permissions) to govern the Actions that users or groups can perform on Resources. They are managed using Policies and can be granted at various levels, such as Account, Folder, or Resource. Permissions ensure that users have the appropriate access to perform their roles while maintaining security and compliance. Note that permissions in connected systems (e.g., AWS) are governed by mechanisms such as cross-role trust and IAM policies.
 
-**Permission levels:** Predefined sets of Permissions that can be assigned to users or groups. Each level encompasses a specific scope of Actions, ranging from read-only access to full administrative control. Common levels include:
+**Permission levels:** Predefined [sets of Permissions](https://turbot.com/guardrails/docs/concepts/iam/permissions#permissions) that can be assigned to users or groups. Each level encompasses a specific scope of Actions, ranging from read-only access to full administrative control.
 
-- **Metadata:** Read-only access to metadata properties.
-
-- **ReadOnly:** Read-only access to data within resources.
-
-- **Operator:** Ability to perform medium to low-risk changes.
-
-- **Admin:** Ability to perform high to medium-risk changes.
-
-- **Owner:** Full control, including managing permissions and making high-risk changes.
-
-- **SuperUser:** Unlimited access to all services, bypassing preventative controls.
-
-**Policy:** A declaration of the desired state or behavior of a resource. Policies are used to enforce compliance, manage configurations, and ensure security across cloud environments. They are implemented by means of Policy Settings, Policy Values, and Policy Types. Policies can be static or calculated based on real-time data and context.
+**Policy:** A [declaration](https://turbot.com/guardrails/docs/concepts/policies) of the desired state or behavior of a resource. Policies are used to enforce compliance, manage configurations, and ensure security across cloud environments. They are implemented by means of Policy Settings, Policy Values, and Policy Types. Policies can be static or calculated based on real-time data and context.
 
 **Policy Exception:** A mechanism to override a required Policy Setting on a Resource at a lower level in the Policy Hierarchy. Exceptions can be implemented using static or calculated Policy Settings.
 
-**Policy Pack:** A group of related Policies that can attach to Resources in the Hierarchy. Discoverable in the Guardrails Hub, installable via Terraform. Formerly called Smart Folder.
+**Policy Pack:** A group of [related Policies](https://hub.guardrails.turbot.com/policy-packs) that can attach to Resources in the Hierarchy. Discoverable in the Guardrails Hub, installable via Terraform. Formerly called Smart Folder.
 
-**Policy Setting:** An assertion about desired state or behavior. Policy Settings dictate the behavior Controls. A Policy Setting is an instance of a Policy Type. A Policy Settings is created and managed by a person (versus a Policy Value which is created and managed by Guardrails). The three kinds of Actions dictated by a Policy Setting are:
+**Policy Setting:** An [assertion about desired state or behavior](https://turbot.com/guardrails/docs/concepts/policies/values-settings#policy-settings). Policy Settings dictate the behavior of Controls. A Policy Setting is an instance of a Policy Type. A Policy Settings is created and managed by a person (versus a Policy Value which is created and managed by Guardrails). The three kinds of Actions dictated by a Policy Setting are:
 
 - **Skip:** Tells Guardrails that a particular Control should not be evaluated for a Resource, and no Action taken. When a policy is set to `skip` it instructs Guardrails to ignore the Control for that Resource.
 
@@ -107,9 +93,9 @@ sidebar_label: Glossary of Terms
 
 - **Enforce:** Tells Guardrails to ensure that a Resource complies with a specified condition. Example values include `Enforce: Enabled` or `Enforce: Disabled`.
 
-**Policy Type:** Defines values that can be used to dictate the behavior of a Control. Each Policy Type is specific to a Resource Type and Control Type. For example, the `AWS > S3 > Bucket > Approved` Policy Type is specific to `AWS > S3 > Bucket` Rsources and the `AWS > S3 > Bucket > Approved` Control.
+**Policy Type:** Defines values that can be used to [dictate the behavior of a Control](https://turbot.com/guardrails/docs/concepts/policies/types-categories#policy-types). Each Policy Type is specific to a Resource Type and Control Type. For example, the `AWS > S3 > Bucket > Approved` Policy Type is specific to `AWS > S3 > Bucket` Rsources and the `AWS > S3 > Bucket > Approved` Control.
 
-**Policy Value:** The effective Policy Setting for a given Resource. The value is dictated by a Policy Setting somewhere in the Resource Hierarchy above the Resource. A Policy Value is created and managed automatically by Guardrails (versus a Policy Setting which is created and managed by a person.)
+**Policy Value:** The [effective Policy Setting](https://turbot.com/guardrails/docs/concepts/policies/values-settings#policy-values) for a given Resource. The value is dictated by a Policy Setting somewhere in the Resource Hierarchy above the Resource. A Policy Value is created and managed automatically by Guardrails (versus a Policy Setting which is created and managed by a person.)
 
 **Policy Taxonomy:** The structured classification of Policies within Turbot Guardrails. It organizes Policies into categories and hierarchies, making it easier to manage and apply them across various Resources. The taxonomy includes different types of Policies such as Simple, Compound, and Calculated, each serving specific purposes. Policies are grouped by Resource Types and Control Objectives to ensure consistent enforcement and reporting.
 
@@ -119,17 +105,17 @@ sidebar_label: Glossary of Terms
 
 - **Calculated Policy:** See Calculated Policy above.
 
-**Quick Actions:** A mechanism that enables users to initiate specific, one-time Control enforcements directly from the Guardrails UI.
+**Quick Actions:** A [mechanism](https://turbot.com/guardrails/docs/guides/quick-actions) that enables users to initiate specific, one-time Control enforcements directly from the Guardrails UI.
 
 **Remediation:** The process of automatically correcting or enforcing the desired state of a Resource based on Policy Settings.
 
 **Resource:** Represents a cloud platform object tracked by the CMDB. A Resource is an instance of a Resource Type. It may have many Policy Values and Controls associated with it. The AWS bucket `my-aws-bucket` is an example of the `AWS > S3 > Bucket` Resource Type.
 
-**Resource Type:** A specific type of Resource, such as `AWS > S3 > Bucket`.
+**Resource Category:** A vendor-agnostic [categorization](https://turbot.com/guardrails/docs/concepts/resources/types-categories#resource-categories)of Resource Types.
 
-**Resource Category:** A vendor-agnostic categorization of Resource Types.
+**Resource Type:** A vendor-agnostic [categorization](https://turbot.com/guardrails/docs/concepts/resources/types-categories#resource-types) of Resource Types.
 
-**Stack:** A set of resources managed by Guardrails and defined using Terraform HCL.
+**Stack:** A [set of resources](https://turbot.com/guardrails/docs/concepts/guardrails/configured#stacks) managed by Guardrails and defined using Terraform HCL.
 
 **Template:** Primarily written in Jinja2/Nunjucks for calculated policies and notifications, templates support complex logic and data manipulation. Other types of templates include Terraform templates for infrastructure as code and JSON/YAML templates for configurations.
 
