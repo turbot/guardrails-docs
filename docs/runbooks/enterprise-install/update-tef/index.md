@@ -54,7 +54,9 @@ Select the desired TEF version under `Product Versions`.
 
 ## Step 6: Verify Parameters
 
-The values of the parameters will initially be set to match previous run of the product. Review the [release notes](https://turbot.com/guardrails/changelog?tag=tef) for the TEF versions between the existing version and the version you are updating to, and identify any new parameters that require a decision about how they will be set. Generally, new parameters will be created in a way to have the least disruption on an existing environment, but care should still be taken to understand these and read any new parameter descriptions to understand their impact.
+The values of the parameters will initially be set to match previous run of the product. Review the [release notes](https://turbot.com/guardrails/changelog?tag=tef) for the TEF versions between the existing version and the version you are updating to, and identify any new parameters that require a decision about how they will be set.
+
+Generally, new parameters will be created in a way to have the least disruption on an existing environment, but care should still be taken to understand these and read any new parameter descriptions to understand their impact.
 
 ![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-verify-parameters.png)
 
@@ -95,15 +97,17 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 Common errors with a TEF update:
 
-### Permissions issues 
-    - Current logged in user doesn't have permission to modify/update/create resources in the stack.
-    - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
+### Permissions Issues
 
-### Update Fails or Takes Too Long
+- Current logged in user doesn't have permission to modify/update/create resources in the stack.
+- Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
 
-    Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
-        - Navigate to CloudFormation service and select failed CloudFormation stack.
-        - Open "Events" tab, sort by timestamp descending.
-        - Identify first event with status CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED.
-        - Examine error message for failure details (invalid parameters, resource limits, etc.).
-        - Cross-reference error message with corresponding resource or parameter in CloudFormation template.
+### Stack Update Fails
+
+Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
+
+- Navigate to `CloudFormation` service and select failed stack.
+- Open `Events` tab, sort by `Timestamp` descending.
+- Identify first event with status `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
+- Examine error message for failure details such as invalid parameters, resource limits, etc.
+- Cross-reference error message with corresponding resource or parameter in CloudFormation template.
