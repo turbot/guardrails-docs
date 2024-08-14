@@ -11,7 +11,7 @@ In this runbook, you will:
 - Use AWS Service Catalogue to update (TEF/TED/TE) for Blue - Green deployment
 - Learn how to maintain cloud infrastructure up-to-date
 
-**Blue - Green Deployment** Using a `blue <-> green` deployment strategy increases application availability and reduces deployment risk by simplifying the rollback process if a deployment fails. This runbook guides administrators through the process of updating `blue <-> green` deployment for TEF, TED and TE.
+**Blue - Green Deployment** Using a `Blue <-> Green` deployment strategy increases application availability and reduces deployment risk by simplifying the rollback process if a deployment fails. This runbook guides administrators through the process of updating `Blue <-> Green` deployment for TEF, TED and TE.
 
 **Note**: Process remains same for TEF, TED and TE. This runbook illustrates the TEF stack.
 
