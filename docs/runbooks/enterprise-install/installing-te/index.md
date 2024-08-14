@@ -9,9 +9,9 @@ In this runbook, you will:
 - Use AWS Service Catalogue to install Turbot Guardrails Enterprise (TE)
 - Learn how to monitor installations
 
-**Turbot Guardrails Enterprise (TE)** provides automated configuration and management of Turbot infrastructure to be used when running the Turbot software application. For example, TE provides the setup of load balancers, SQS queues, ECS, etc., while Turbot provides the software to run in the container.
+**Turbot Guardrails Enterprise (TE)** provides automated configuration and management of Turbot infrastructure to be used when running the Turbot software application. The TE service catalog product will provision a load balancer, SQS queues, ECS containers and lambda functions specific to the version selected into the hosting account. This version does not become active until associated with one or more Guardrails workspaces (accomplished in a separate step).
 
-TE deploys a new version of the Turbot software -- Every Turbot release requires a new TE version.
+Each TE installation deploys a new version of the Turbot software -- Every Turbot release requires a new TE version.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Open the AWS Console and navigate to the Service Catalog service in the region t
 
 ## Step 2: Find TE Product
 
-Select the hamburger menu in the top left and choose **Products**.
+Select the **Products** section from the left navigation pane
 
 ![Product Selection](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-product-selection.png)
 
@@ -43,15 +43,13 @@ Select the desired version, then name the product with the version number prefix
 
 ## Step 4: Verify Parameters
 
-Ensure all parameters are correct. Generally, these can be left as default.
+The parameters for the TE product are derived from settings chosen earlier during the TEF install, so it is rare that any of the existing parameter values need to be modified. Unless directed to by Turbot support you may safely scroll to the bottom of the parameter list.
 
 ![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-parameters-verification.png)
 
 ## Step 5: Launch Product
 
-Verify the parameters again and select **Launch product**.
-
-99.9% of all TE installations do not need to change any parameters. The parameters for the TE stack are designed by default to pick up their values from the TEF configuration, with no options necessary to change on installation.
+Select **Launch product**.
 
 ![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-launch.png)
 
@@ -69,21 +67,33 @@ A new CloudFormation stack should be created with the status CREATE_IN_PROGRESS.
 
 - [ ] The TE provisioned product status should change to **Available** and the CloudFormation stack status should be **CREATE_COMPLETE** to ensure the installation completed successfully.
 
+- [ ] Installation Fails or Takes Too Long:
+    Check the CloudFormation stack events tab for errors. If there are any errors, create a support ticket and include a screenshot of the errors.
+
 ![Installation Complete verification](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-install-complete-status.png)
 
 ## Next Steps
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-- Learn more about [TE architecture](https://turbot.com/guardrails/docs/enterprise/architecture).
+- Learn more about [Updating a Workspace to this version](https://turbot.com/guardrails/docs/enterprise/updating-stacks/update-workspace#updating-the-workspace).
 - Learn about [updating TE stacks](https://turbot.com/guardrails/docs/enterprise/updating-stacks).
 
 ## Troubleshooting
 
-### Installation Fails or Takes Too Long
+Common errors with a TE update:
 
-Check the CloudFormation stack events tab for errors. If there are any errors, create a support ticket and include a screenshot of the errors.
+### Permissions Issues
 
-### Parameters Need Adjustment
+- Current logged in user doesn't have permission to modify/update/create resources in the stack.
+- Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
 
-Review the parameters and consult the product documentation for correct values.
+### Stack Update Fails
+
+Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
+
+- Navigate to `CloudFormation` service and select failed stack.
+- Open `Events` tab, sort by `Timestamp` descending.
+- Identify first event with status `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
+- Examine error message for failure details such as invalid parameters, resource limits, etc.
+- Cross-reference error message with corresponding resource or parameter in CloudFormation template.
