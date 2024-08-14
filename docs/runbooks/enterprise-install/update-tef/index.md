@@ -35,7 +35,7 @@ Select the TEF provisioned product from the list.
 
 ![Select TEF](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-select-tef.png)
 
-Select **Actions** then select **Update**.
+Select **Actions** then select **Update** fromm the dropdown options.
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-actions-update.png)
 

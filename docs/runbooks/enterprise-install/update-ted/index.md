@@ -60,13 +60,11 @@ The values of the parameters will initially be set to match previous run of the 
 ![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-verify-parameters.png)
 
 **Note**
-```
+
 - A frequent issue arises when databases employ auto-scaling storage. Discrepancies in storage figures between the stack and the product can occur if the database has expanded since installation.
-
 - Updating to a major version number can introduce significant changes. It's recommended to upgrade to the highest available minor version within your current major version to minimize risks.
-
 - To ensure cost-efficiency, review and update instance types at least annually to align with the latest supported options."
-```
+
 
 ## Step 7: Update TED
 
@@ -78,9 +76,7 @@ After verifying any changes to existing parameters, select **Update** at the bot
 
 You have initiated the installation of the new TED version. This triggers an update of several nested CloudFormation stacks.
 
-```
-Note: Depending on the changes selected, the database resource can remain in an updating state for an extended period of time. Viewing the state of the RDS instance(s) in the RDS web console can often provide some context about what is happening at any given time.
-```
+**Note**: Depending on the changes selected, the database resource can remain in an updating state for an extended period of time. Viewing the state of the RDS instance(s) in the RDS web console can often provide some context about what is happening at any given time.
 
 Select the TED Provisioned Product, click the Outputs tab, and use the `CloudFormationStackARN` link to navigate to CloudFormation and monitor the update progress.
 
@@ -114,9 +110,9 @@ Common errors with a TED update:
 
 The selected instance type might not be available in the specified region or partition, or the database disk size might not align with the stack configuration.
 
-- Review the CloudFormation stack events to find the initial failure.
+- Review the `CloudFormation` stack events to find the initial failure.
 - Look for error messages related to instance type or disk size limitations.
-- Resolve the issue by modifying the CloudFormation template to use a compatible instance type or adjust the disk size.
+- Resolve the issue by modifying the `CloudFormation` template to use a compatible instance type or adjust the disk size.
 
 ### Stack Rollback Failure Due to Database State
 
