@@ -10,12 +10,12 @@ Runbooks are detailed step-by-step guides designed to help automate and streamli
 
 (To be updated)
 
-|                                                         |
-| ------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [AWS Getting Started](runbooks/aws-getting-started)                       | TO DO                            |
-| [Azure Getting Started](runbooks/azure-getting-started)                 | TO DO |
-| [Configuring Guardrails](concepts/policies/calculated-faq) | TO DO                                                 |
-| [Enterprise Install](runbooks/enterprise-install/installing-te)                      | Guardrails Enterprise Installation                                                          |
-| [Enterprise Monitoring](runbooks/enterprise-monitoring)                      | Understanding Enterprise Monitoring                                                          |
-| [GCP Getting Started](runbooks/gcp-getting-started)               | TO DO |
-| [Troubleshooting](runbooks/troubleshooting)                      | Solutions for common enterprise issues                                                             |
+|                                                               |
+| -------------------------------------------------------       | --------------------------------------------------------------------------------------- |
+| [Getting Started with AWS](runbooks/aws-getting-started)      | TO DO                                                                                   |
+| [Getting Started with Azure](runbooks/azure-getting-started)  | TO DO                                                                                   |
+| [Getting Started with GCP](runbooks/gcp-getting-started)      | TO DO                                                                                   |
+| [Configuring Guardrails](concepts/policies/calculated-faq)    | TO DO                                                                                   |
+| [Enterprise Install](runbooks/enterprise-install/installing-te)| Guardrails Enterprise Installation                                                     |
+| [Enterprise Monitoring](runbooks/enterprise-monitoring)       | Understanding Enterprise Monitoring                                                     |
+| [Troubleshooting](runbooks/troubleshooting)                   | Solutions for common enterprise issues                                                  |

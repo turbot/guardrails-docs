@@ -578,7 +578,8 @@
           "runbooks/enterprise-install/installing-te",
           "runbooks/enterprise-install/update-ted",
           "runbooks/enterprise-install/update-tef",
-          "runbooks/enterprise-install/update-workspace-te-version"
+          "runbooks/enterprise-install/update-workspace-te-version",
+          "runbooks/enterprise-install/blue-green-deployment"
         ]
       },
       {
@@ -594,8 +595,7 @@
         "id": "configuring-guardrails",
         "link": "runbooks/configuring-guardrails",
         "items": [
-          "runbooks/configuring-guardrails/auto-mod-update",
-          "runbooks/configuring-guardrails/blue-green-deployment"
+          "runbooks/configuring-guardrails/auto-mod-update"
         ]
       },
       {
@@ -623,6 +623,7 @@
           "runbooks/getting-started-gcp/attach-a-policy"
         ]
       },
+      "runbooks/getting-started-azure",
       {
         "type": "category",
         "id": "troubleshooting",
@@ -630,9 +631,8 @@
         "items": [
           "runbooks/troubleshooting/enable-verbose-logging"
         ]
-      },
-      "runbooks/azure-getting-started",
-      "runbooks/gcp-getting-started"
+      }
+
     ]
   }
 ]

@@ -41,7 +41,7 @@ Select **Actions** then select **Update** fromm the dropdown options.
 
 ## Step 4: Find TEF Version
 
-Sort the Product versions section by Created time (descending) to see the latest available version.
+Sort the Product versions section by `Created time` (descending) to see the latest available version.
 
 ![Sort TEF Version](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-version-sorting.png)
 

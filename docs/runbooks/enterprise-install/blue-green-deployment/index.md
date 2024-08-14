@@ -25,7 +25,7 @@ In this runbook, you will:
 
 Open the AWS Console and navigate to the Service Catalog service.
 
-![AWS Console Home Page](/images/docs/guardrails/runbooks/configuring-guardrails/blue-green-deployment/aws-service-catalog-console.png)
+![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-console.png)
 
 ## Step 2: Access the Provisioned Product
 
@@ -33,7 +33,7 @@ Navigate to Service Catalogue > Provisioned Products
 
 Change `Access Filter` to `Account`
 
-![Service Catalog Provisioned product](/images/docs/guardrails/runbooks/configuring-guardrails/blue-green-deployment/aws-service-catalog-provisioned-product-list.png)
+![Service Catalog Provisioned product](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-provisioned-product-list.png)
 
 
 ## Step 3: Update TEF Stack
@@ -42,10 +42,9 @@ Select `tef`from the list of provisioned products. Note that, this update proces
 
 Select **Update** from the right top corner **Action** dropdown.
 
-Sort on the `Created time` to make sure the latest TEF stack is selected.
+Sort on the `Created time` (descending) to make sure the latest TEF stack is selected.
 
-![Service Catalog Update](/images/docs/guardrails/runbooks/configuring-guardrails/blue-green-deployment/aws-service-catalog-tef-update.png)
-
+![Service Catalog Update](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-tef-update.png)
 
 ## Step 4: Update the TEF Stack Parameter
 
@@ -55,13 +54,13 @@ Flip to `Blue` to `Green` or `Green` to `Blue` depending on the current state.
 
 Select **Update** at the bottom.
 
-![Deployment Trigger Update](/images/docs/guardrails/runbooks/configuring-guardrails/blue-green-deployment/aws-service-catalog-tef-trigger-change.png)
+![Deployment Trigger Update](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-tef-trigger-change.png)
 
 ## Step 5: Check the Status
 
 After applying the update, the status should change to `Under change`
 
-![Deployment Trigger Status](/images/docs/guardrails/runbooks/configuring-guardrails/blue-green-deployment/aws-service-catalog-tef-update-status-in-progress.png)
+![Deployment Trigger Status](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-tef-update-status-in-progress.png)
 
 **Note**: Approximate time to complete the update is about 20 to 30 minutes.
 
@@ -71,7 +70,7 @@ You have successfully updated the TEF Service Catalog product to flip `Parameter
 
 - [ ] After successful update TEF status should appear with the status `Available`.
 
-![Verify Status](/images/docs/guardrails/runbooks/configuring-guardrails/blue-green-deployment/aws-service-catalog-tef-update-verify-available.png)
+![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-tef-update-verify-available.png)
 
 
 ## Next Steps
@@ -83,10 +82,19 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
-### Installation Fails or Takes Too Long
+Common errors with a TEF update:
 
-Check the CloudFormation stack events tab for errors. If there are any errors, create a support ticket and include a screenshot of the errors.
+### Permissions Issues
 
-### Parameters Need Adjustment
+- Current logged in user doesn't have permission to modify/update/create resources in the stack.
+- Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
 
-Review the parameters and consult the product documentation for correct values.
+### Stack Update Fails
+
+Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
+
+- Navigate to `CloudFormation` service and select failed stack.
+- Open `Events` tab, sort by `Timestamp` descending.
+- Identify first event with status `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
+- Examine error message for failure details such as invalid parameters, resource limits, etc.
+- Cross-reference error message with corresponding resource or parameter in CloudFormation template.
