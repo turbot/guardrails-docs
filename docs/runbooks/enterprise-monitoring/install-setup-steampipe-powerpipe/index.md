@@ -1,6 +1,6 @@
 ---
-title: "Install and Setup Steampipe and Powerpipe"
-sidebar_label: "Install and Setup Steampipe and Powerpipe"
+title: Install and Setup Steampipe and Powerpipe
+sidebar_label: Install and Setup Steampipe and Powerpipe
 ---
 
 # Install and Setup Steampipe and Powerpipe
@@ -32,7 +32,7 @@ sudo /bin/sh -c "$(curl -fsSL https://steampipe.io/install/steampipe.sh)"
 ```
 
 ### Step 2: Version Check
-Verify the installation by checking the Steampipe version:  
+Verify the installation by checking the Steampipe version:
 
 ```shell
 steampipe -v
@@ -142,7 +142,7 @@ sudo /bin/sh -c "$(curl -fsSL https://powerpipe.io/install/powerpipe.sh)"
 
 ### Step 2: Version Check
 
-Verify the installation by checking the Powerpipe version:  
+Verify the installation by checking the Powerpipe version:
 
 ```shell
 powerpipe -v

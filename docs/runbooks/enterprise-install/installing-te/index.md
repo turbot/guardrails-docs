@@ -1,6 +1,6 @@
 ---
-title: Installing TE
-sidebar_label: Installing TE
+title: Install TE
+sidebar_label: Install TE
 ---
 
 # Install Turbot Guardrails Enterprise (TE)

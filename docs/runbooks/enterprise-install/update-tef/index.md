@@ -1,6 +1,6 @@
 ---
-title: Updating TEF
-sidebar_label: Updating TEF
+title: Update TEF
+sidebar_label: Update TEF
 ---
 
 # Update Turbot Guardrails Enterprise Foundation (TEF)
@@ -98,7 +98,7 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 Common errors with a TEF update:
 
 ### Inability to Locate Provisioned TEF Product
-Users may encounter difficulties locating a TEF provisioned product if they were not the original provisioning user. 
+Users may encounter difficulties locating a TEF provisioned product if they were not the original provisioning user.
 - Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
 
 ### Permissions Issues

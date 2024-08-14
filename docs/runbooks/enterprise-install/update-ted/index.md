@@ -1,6 +1,6 @@
 ---
-title: Updating TED
-sidebar_label: Updating TED
+title: Update TED
+sidebar_label: Update TED
 ---
 
 # Update Turbot Guardrails Enterprise Database (TED)
@@ -102,7 +102,7 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 Common errors with a TED update:
 
 ### Inability to Locate Provisioned TED Product
-Users may encounter difficulties locating a TED provisioned product if they were not the original provisioning user. 
+Users may encounter difficulties locating a TED provisioned product if they were not the original provisioning user.
 - Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
 
 ### Permissions Issues
