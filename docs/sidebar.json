@@ -579,7 +579,10 @@
           "runbooks/enterprise-install/update-ted",
           "runbooks/enterprise-install/update-tef",
           "runbooks/enterprise-install/update-workspace-te-version",
-          "runbooks/enterprise-install/blue-green-deployment"
+          "runbooks/enterprise-install/blue-green-deployment",
+          "runbooks/enterprise-install/delete-te",
+          "runbooks/enterprise-install/install-mod",
+          "runbooks/enterprise-install/update-mod"
         ]
       },
       {
