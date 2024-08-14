@@ -47,11 +47,11 @@ sidebar_label: Glossary of Terms
 
 **Grant Activation:** Permissions can be granted but not active. This allows a user to elevate their privileges for a limited time as needed. Functions similarly to the Linux ‘sudo’ command.
 
-**Event Handler:** The collection of infrastructure deployed into a cloud account to gather events as they occur and forward them to Guardrails for processing. Event Handlers use a push-based mechanism for real-time event processing. For ease of configuration, Polling can be used as an alternative to Event Handlers.
+**Event Handler:** The collection of infrastructure deployed into a cloud account to gather events as they occur and forward them to Guardrails for processing. Event Handlers use a push-based mechanism for real-time event processing. For ease of configuration, Event Polling can be used as an alternative to Event Handlers.
+
+**Polling:** A pull-based mechanism. In Event Polling mode, Guardrails periodically queries the cloud provider's event logs to retrieve the latest events. Event Polling is easier to set up than Event Handlers, but is slower and entails higher API usage.
 
 **Event Router:** An Action that receives events from a cloud provider (usually via an Event Handler stack), then takes the appropriate action such as creating or updating a cloud resource record.
-
-**Exception:** A mechanism to override a required Policy Setting on a Resource at a lower level in the Policy Hierarchy. Exceptions can be implemented using static or calculated Policy Settings.
 
 **Folder:** A logical grouping of Resources. Folders help organize Resources and can have Policies attached to them that are inherited by the Resources within the Folder.
 
@@ -75,8 +75,6 @@ sidebar_label: Glossary of Terms
 
 **Mod:** A package of all the Resource, Policy and Control types related to a single cloud platform service. Installing the Mod for a cloud service (e.g. `aws-s3`) installs Controls and starts the discovery process for all Resource types described in the Mod.
 
-**Modes:** Operational states that dictate how Policies are enforced. Examples include `None`, `Policy-Only`, `Role`, and `User`. 
-
 **Notifications:** The delivery mechanism for Alerts and other important messages to users or systems outside the Guardrails console. Notifications can be sent via  email, Slack, Microsoft Teams, or HTTP endpoints.
 
 **Permissions:** A mechanism to govern the Actions that users or groups can perform on Resources. They are managed using Policies and can be granted at various levels, such as Account, Folder, or Resource. Permissions ensure that users have the appropriate access to perform their roles while maintaining security and compliance. Note that permissions in connected systems (e.g., AWS) are governed by mechanisms such as cross-role trust and IAM policies.
@@ -97,7 +95,9 @@ sidebar_label: Glossary of Terms
 
 **Policy:** A declaration of the desired state or behavior of a resource. Policies are used to enforce compliance, manage configurations, and ensure security across cloud environments. They are implemented by means of Policy Settings, Policy Values, and Policy Types. Policies can be static or calculated based on real-time data and context.
 
-**Policy Pack:** A group of related Policies that can attach to Resources in the Hierarchy. Discoverable in the Guardrails Hub, installable via Terraform.
+**Policy Exception:** A mechanism to override a required Policy Setting on a Resource at a lower level in the Policy Hierarchy. Exceptions can be implemented using static or calculated Policy Settings.
+
+**Policy Pack:** A group of related Policies that can attach to Resources in the Hierarchy. Discoverable in the Guardrails Hub, installable via Terraform. Formerly called Smart Folder.
 
 **Policy Setting:** An assertion about desired state or behavior. Policy Settings dictate the behavior Controls. A Policy Setting is an instance of a Policy Type. A Policy Settings is created and managed by a person (versus a Policy Value which is created and managed by Guardrails). The three kinds of Actions dictated by a Policy Setting are:
 
@@ -119,8 +119,6 @@ sidebar_label: Glossary of Terms
 
 - **Calculated Policy:** See Calculated Policy above.
 
-**Polling:** A pull-based mechanism. In Polling mode, Guardrails periodically queries the cloud provider's event logs to retrieve the latest events. Polling is easier to set up than Event Handlers, but is slower and entails higher API usage.
-
 **Quick Actions:** A mechanism that enables users to initiate specific, one-time Control enforcements directly from the Guardrails UI.
 
 **Remediation:** The process of automatically correcting or enforcing the desired state of a Resource based on Policy Settings.
@@ -135,7 +133,7 @@ sidebar_label: Glossary of Terms
 
 **Template:** Primarily written in Jinja2/Nunjucks for calculated policies and notifications, templates support complex logic and data manipulation. Other types of templates include Terraform templates for infrastructure as code and JSON/YAML templates for configurations.
 
-**Turbot:** Acts as a singleton root resource in a Workspace for the Resource and Policy Hierarchies. Policy Settings made here will apply to the entire Resource Hierarchy. Commonly referred to as the Turbot Level of a workspace.
+**Turbot Resource:** Acts as a singleton root resource in a Workspace for the Resource and Policy Hierarchies. Policy Settings made here will apply to the entire Resource Hierarchy. Commonly referred to as the Turbot Level of a workspace.
 
 **Turbot Guardrails Enterprise (TE):** The application layer of a Turbot Guardrails Enterprise deployment. Relies on the Turbot Guardrails Database and Foundation products.
 
