@@ -9,7 +9,7 @@ sidebar_label: Glossary of Terms
 
   **Action:** A runnable process that can be executed by a Control or another Action. Actions are triggered based on Policy Settings and Resource states. The list of available Actions is continually updated based on customer feedback, allowing for the addition of new Actions over time.
 
-**AKA (Also Known As):** A human-readable identifier for a cloud resource, AKA formats vary by provider and service. AWS resources have an ARN that is used as an AKA. Guardrails Resource ids are also AKAs.
+**AKA (Also Known As):** A human-readable identifier for a cloud resource. AKA formats vary by provider and service. AWS resources have an ARN that is used as an AKA. Guardrails Resource ids are also AKAs.
 
 **Alert:** An automated message from Guardrails when a Policy violation or significant event occurs. Appears in the Guardrails console. Can also be configured to notify users via email, Slack, Microsoft Teams, or HTTP endpoints.
 
@@ -21,7 +21,7 @@ sidebar_label: Glossary of Terms
 
 **Control:** An [executable](/guardrails/docs/concepts/controls) that evaluates assertions made by Policy Values for a given Resource. If differences are found, it can take Actions as dictated by those Policy Values. May depend on one or more Policy Values to fully define behaviour. Controls are specific to Resource Types. Controls can be in these states, such as `OK`, `Alarm`, `Error`, `Invalid`, `Skipped`, or `To Be Determined` (`TBD`). They are categorized into Control Types and Control Categories for better organization and reporting.
 
-**Control Category:** A vendor-agnostic [categorizatio](/guardrails/docs/concepts/controls#control-categories)of Resource Types.
+**Control Category:** A vendor-agnostic [categorization](/guardrails/docs/concepts/controls#control-categories) of Resource Types.
 
 **Control Objective:** A [business need](/guardrails/docs/guides/managing-policies/config-examples#control-objectives) that requires specific configurations or Policies to be enforced across cloud resources. It represents a high-level goal that ensures compliance, security, and operational efficiency. For example, an organization may have a requirement that all cloud storage must be encrypted at rest, or that virtual networks must never be accessible to the public. Often these Control Objectives are written in non-executable Word docs or wikis. Policy Packs can be used to streamline the implementation of Control Objectives.
 
