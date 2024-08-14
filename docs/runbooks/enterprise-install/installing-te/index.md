@@ -15,8 +15,7 @@ Each TE installation deploys a new version of the Turbot software -- Every Turbo
 
 ## Prerequisites
 
-- Access to the Guardrails master account.
-- Administrator privileges.
+- Access to the Guardrails master AWS account with Administrator privileges..
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console

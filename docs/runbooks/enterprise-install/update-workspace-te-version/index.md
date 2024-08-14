@@ -12,8 +12,7 @@ A Guardrails workspace is updated to a new version by referencing a newly instal
 
 ## Prerequisites
 
-- Access to the Guardrails master account.
-- Administrator privileges.
+- Access to the Guardrails master AWS account with Administrator privileges..
 - Desired TE version(s) installed.
 - Familiarity with AWS Console and CloudFormation service.
 

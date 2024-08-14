@@ -15,8 +15,7 @@ TED deploys a Turbot Hive, which defines physical database and caching resources
 
 ## Prerequisites
 
-- Access to the Guardrails master account.
-- Administrator privileges.
+- Access to the Guardrails master AWS account with Administrator privileges..
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console
@@ -120,7 +119,7 @@ The selected instance type might not be available in the specified region or par
 
 ### Stack Rollback Failure Due to Database State
 
-The CloudFormation stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback.
+The `CloudFormation` stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback.
 
 - Navigate to the `CloudFormation` console, select the failed stack, and go to the `Events` tab. Look for error messages related to the database or rollback failure.
 - Ensure the database is in a healthy and suitable state.
