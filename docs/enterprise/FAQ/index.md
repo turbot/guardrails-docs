@@ -17,6 +17,7 @@ nav:
 - [Do I need to use AWS ACM for the Turbot Guardrails Enterprise Certificate?](#do-i-need-to-use-aws-acm-for-the-turbot-guardrails-enterprise-certificate)
 - [Do Turbot Guardrails Lambda functions run inside a VPC?](#do-turbot-guardrails-lambda-functions-run-inside-a-vpc)
 - [Can Turbot Guardrails traffic be directed through an HTTP proxy?](#can-turbot-guardrails-traffic-be-directed-through-an-http-proxy)
+- [Can Turbot Guardrails use an HTTP proxy that requires authentication?](#can-turbot-guardrails-use-an-http-proxy-that-requires-authentication)
 - [What URIs does Turbot Guardrails need access to via a proxy?](#what-uris-does-turbot-guardrails-need-access-to-via-a-proxy)
 - [My organization uses SSL/TLS inspection - is this supported for Turbot Guardrails Enterprise?](#my-organization-uses-ssltls-inspection---is-this-supported-for-turbot-guardrails-enterprise)
 - [Does Turbot Guardrails support encrypted ECS AMIs?](#does-turbot-guardrails-support-encrypted-ecs-ami)
@@ -144,6 +145,9 @@ VPC endpoints to allow EC2 to access the following AWS services:
 - ECR DKR
 - CloudWatch Logs
 - S3
+
+## Can Turbot Guardrails use an HTTP proxy that requires authentication?
+Turbot Guardrails requires that the HTTP proxy be unauthenticated.  There is no support for specifying credentials to an authenticated proxy. 
 
 ## What URIs does Turbot need access to via a proxy?
 
