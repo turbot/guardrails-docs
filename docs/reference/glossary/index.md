@@ -47,7 +47,7 @@ An [executable](/guardrails/docs/concepts/controls) that evaluates assertions ma
 
 ## Control Category
 
-A vendor-agnostic [categorization](/guardrails/docs/concepts/controls#control-categories) of Resource Types.
+A vendor-agnostic [categorization](/guardrails/docs/concepts/controls#control-categories) of Control Types.
 
 
 ## Control Objective
@@ -193,7 +193,7 @@ A group of [related Policies](https://hub.guardrails.turbot.com/policy-packs) th
 
 ## Policy Setting
 
-An [assertion about desired state or behavior](/guardrails/docs/concepts/policies/values-settings#policy-settings) of a Control. A Policy Setting is an instance of a Policy Type. A Policy Settings is created and managed by a person (versus a Policy Value which is created and managed by Guardrails). The three kinds of Actions dictated by a Policy Setting are:
+An [assertion about desired state or behavior](/guardrails/docs/concepts/policies/values-settings#policy-settings) of a Control. A Policy Setting is an instance of a Policy Type. A Policy Setting is created and managed by a person (versus a Policy Value which is created and managed by Guardrails). The three kinds of Actions dictated by a Policy Setting are:
 
 
 - **Skip:** Tells Guardrails that a particular Control should not be evaluated for a Resource, and no Action taken. When a policy is set to `skip` it instructs Guardrails to ignore the Control for that Resource.
@@ -209,7 +209,7 @@ Defines values that can be used to [dictate the behavior of a Control](/guardrai
 
 ## Policy Value
 
-The [effective Policy Setting](/guardrails/docs/concepts/policies/values-settings#policy-values) for a given Resource. The value is dictated by a Policy Setting somewhere in the Resource Hierarchy above the Resource. A Policy Value is created and managed automatically by Guardrails (versus a Policy Setting which is created and managed by a person.)
+The [effective Policy Setting](/guardrails/docs/concepts/policies/values-settings#policy-values) for a given Resource. The value is dictated by a Policy Setting somewhere in the Resource Hierarchy above the Resource. A Policy Value is created and managed automatically by Guardrails (versus a Policy Setting which is created and managed by a person).
 
 
 ## Policy Taxonomy
@@ -217,7 +217,7 @@ The [effective Policy Setting](/guardrails/docs/concepts/policies/values-setting
 The [structured classification](https://turbot.com/guardrails/docs/concepts/policies/taxonomy) of Policies within Turbot Guardrails. It organizes Policies into categories and hierarchies, making it easier to manage and apply them across various Resources. The taxonomy includes different types of Policies such as Simple, Compound, and Calculated, each serving specific purposes. Policies are grouped by Resource Types and Control Objectives to ensure consistent enforcement and reporting.
 
 
-- **Simple Policy:** Used when a single Policy Setting is sufficient to define a Control's behavior. For example, you want to ensure all S3 buckets are versioned. Search for the Policy Type `AWS > EC2 > Bucket > Versioning`. Create a new Policy Setting with the value `Enforce: Enabled`.
+- **Simple Policy:** Used when a single Policy Setting is sufficient to define a Control's behavior. For example, you want to ensure all S3 buckes are versioned. Search for the Policy Type `AWS > EC2 > Bucket > Versioning`. Create a new Policy Setting with the value `Enforce: Enabled`.
 
 - **Compound Policy:** Used when two or more Policy Settings are required to fully define a Control's behavior. Suppose you want to ensure that EC2 snapshots older than 90 days will be inactivated. This requires two Policy Settings. First, `AWS > EC2 > Snapshot > Active` which might be set to `Enforce: Delete inactive with 30 days warning`. This defines an Action, but not the criterion for the Action. That requires `AWS > EC2 > Snapshot > Active > Age` which might be set to `Force inactive if age > 90 days`. The two Policy Settings work in concert to achieve the desired effect.
 
@@ -240,7 +240,7 @@ Represents a cloud platform object tracked by the CMDB. A Resource is an instanc
 
 ## Resource Category
 
-A vendor-agnostic [categorization](/guardrails/docs/concepts/resources/types-categories#resource-categories)of Resource Types.
+A vendor-agnostic [categorization](/guardrails/docs/concepts/resources/types-categories#resource-categories) of Resource Types.
 
 
 ## Resource Type
@@ -285,7 +285,7 @@ Each Policy Type has a specific set of Valid Values that define the possible Act
 
 ## Workspace
 
-An independent tenant within Turbot Guardrails, providing a dedicated environment for managing Permissions, Resources, Policies, and Controls. Provides a graphical frontend, permission boundaries, an API endpoint, and a Resource Gierarchy, Each Workspace has its own schema and Turbot Root, ensuring isolation and customization. Workspaces are typically used to separate different environments, such as development, QA, and production.
+An independent tenant within Turbot Guardrails, providing a dedicated environment for managing Permissions, Resources, Policies, and Controls. Provides a graphical frontend, permission boundaries, an API endpoint, and a Resource Hierarchy, Each Workspace has its own schema and Turbot Root, ensuring isolation and customization. Workspaces are typically used to separate different environments, such as development, QA, and production.
 
 
 
