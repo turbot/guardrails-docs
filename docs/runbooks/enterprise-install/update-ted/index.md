@@ -30,6 +30,12 @@ Choose **Provisioned Products** from the left navigation menu.
 
 ![Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-service-catalog.png)
 
+Note: **Inability to Locate Provisioned TED Product**
+Users may encounter difficulties locating a TED provisioned product if they were not the original provisioning user.
+- Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
+
+![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-access-filter.png)
+
 ## Step 3: Find TED Provisioned Product
 
 The TED provisioned product is identifiable by a postfix that matches the database [hive](https://turbot.com/guardrails/docs/enterprise/architecture#hives) name.
@@ -65,7 +71,7 @@ The values of the parameters will initially be set to match previous run of the 
 
 - A frequent issue arises when databases employ auto-scaling storage. Discrepancies in storage figures between the stack and the product can occur if the database has expanded since installation.
 - Upgrading to a major version can introduce significant changes and potential risks. You should not upgrade to a new major version without first consulting with Turbot Support.
-- To ensure cost-efficiency, review and update instance types at least annually to align with the latest supported options.
+- To ensure cost-efficiency, review and update instance types and Elasticache Versions at least annually to align with the latest supported options.
 
 
 ## Step 7: Update TED
@@ -103,10 +109,6 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 Common errors with a TED update:
 
-### Inability to Locate Provisioned TED Product
-Users may encounter difficulties locating a TED provisioned product if they were not the original provisioning user.
-- Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
-
 ### Permissions Issues
 
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
@@ -128,7 +130,7 @@ The `CloudFormation` stack attempts to roll back, but the database is in a state
 
 - Navigate to the `CloudFormation` console, select the failed stack, and go to the `Events` tab. Look for error messages related to the database or rollback failure.
 - Ensure the database is in a healthy and suitable state.
-- Choose the `Rollback` option and confirm the action.
+- Choose the `Continue update rollback` option from `Stack actions` and confirm the action.
 
 ### Stack Update Fails
 

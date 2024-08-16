@@ -24,11 +24,11 @@ Open the AWS Console and navigate to the CloudFormation service in the region wh
 
 ## Step 2: Select the Guardrails Workspace Stack
 
-Select the hamburger menu in the top left and choose **Stacks**.
+From the left navigation menu choose **Stacks**.
 
 ![Stacks Selection](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-select-stacks.png)
 
-Select the **Guardrails workspace stack**, then choose Update.
+search for the stack named **workspace**, then choose Update.
 
 ![Workspace Stack](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-select-workspace-stack.png)
 
@@ -48,7 +48,7 @@ Click Next on **Configure stack options**. Review the Changes under **Changeset 
 
 ## Step 4: Review
 
-You have successfully updated the Workspace to point towards the desired TE version. Now you can monitor the workspace for any issues post-update and document any anomalies.
+You have successfully initiated the Workspace to point towards the desired TE version. Now you can monitor the update for any issues and document any anomalies.
 
 - [ ] The updated workspace stack should appear with the status **UPDATE_IN_PROGRESS**.
 

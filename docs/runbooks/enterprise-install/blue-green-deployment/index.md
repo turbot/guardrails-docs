@@ -3,7 +3,6 @@ title: Blue <-> Green Deployment
 sidebar_label: Blue <-> Green Deployment
 ---
 
-
 # Blue <-> Green Deployment
 
 In this runbook, you will:
@@ -41,8 +40,6 @@ Change `Access Filter` to `Account`
 Select `tef`from the list of provisioned products. Note that, this update process remains same for `ted` & `te`.
 
 Select **Update** from the right top corner **Action** dropdown.
-
-Sort on the `Created time` (descending) to make sure the latest TEF stack is selected.
 
 ![Service Catalog Update](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-tef-update.png)
 
@@ -85,6 +82,8 @@ Common errors with a TEF update:
 
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
 - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
+
+You can Refer to the updated permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
 
 ### Stack Update Fails
 

@@ -28,6 +28,12 @@ Choose **Provisioned Products** from the left navigation menu.
 
 ![Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-service-catalog.png)
 
+Note: **Inability to Locate Provisioned TEF Product**
+Users may encounter difficulties locating a TEF provisioned product if they were not the original provisioning user.
+- Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
+
+![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-tef/ted-update-access-filter.png)
+
 ## Step 3: Select TEF Provisioned Product
 
 Select the TEF provisioned product from the list.
@@ -108,7 +114,7 @@ Insufficient user privileges can prevent stack modifications.
 You can Refer to the updated permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
 
 ### Network Issues
-When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can Refer to the updated networking guide for [Managing Network Configurations with Stacks](https://turbot.com/guardrails/docs/guides/network-stack#overview).
+When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can Refer to the updated networking guide for [Managing Network Configurations with Stacks](https://turbot.com/guardrails/docs/enterprise/installation/pre-installation#custom-network-pre-install-checklist).
 
 ### Stack Update Fails
 
