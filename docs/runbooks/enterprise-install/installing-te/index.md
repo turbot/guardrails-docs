@@ -64,7 +64,7 @@ A new CloudFormation stack should be created with the status `CREATE_IN_PROGRESS
 
 ![CFN Verify Status](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-cfn-status.png)
 
-- [ ] The TE provisioned product status should change to **Available** and the CloudFormation stack status should be **CREATE_COMPLETE** to ensure the installation completed successfully.
+- [ ] The TE provisioned product status should change to **Available** and the `CloudFormation` stack status should be **CREATE_COMPLETE** to ensure the installation completed successfully.
 
 ![Installation Complete verification](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-install-complete-status.png)
 

@@ -11,7 +11,7 @@ In this runbook, you will:
 
 **Turbot Guardrails Enterprise Database (TED)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
-TED deploys a Turbot Hive, which defines physical database and caching resources shared by multiple workspaces.
+TED deploys a Turbot Guardrails [Hive](https://turbot.com/guardrails/docs/enterprise/architecture#hives), which defines physical database and caching resources shared by multiple workspaces.
 
 ## Prerequisites
 
@@ -61,8 +61,8 @@ The values of the parameters will initially be set to match previous run of the 
 **Note**
 
 - A frequent issue arises when databases employ auto-scaling storage. Discrepancies in storage figures between the stack and the product can occur if the database has expanded since installation.
-- Updating to a major version number can introduce significant changes. It's recommended to upgrade to the highest available minor version within your current major version to minimize risks.
-- To ensure cost-efficiency, review and update instance types at least annually to align with the latest supported options."
+- Upgrading to a major version can introduce significant changes and potential risks. You should not upgrade to a new major version without first consulting with Turbot Support.
+- To ensure cost-efficiency, review and update instance types at least annually to align with the latest supported options.
 
 
 ## Step 7: Update TED
