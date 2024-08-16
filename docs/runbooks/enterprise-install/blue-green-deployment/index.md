@@ -8,7 +8,7 @@ sidebar_label: Blue <-> Green Deployment
 
 In this runbook, you will:
 
-- Use AWS Service Catalogue to update (TEF/TED/TE) for Blue - Green deployment
+- Use AWS Service Catalog to update (TEF/TED/TE) for Blue - Green deployment
 - Learn how to maintain cloud infrastructure up-to-date
 
 **Blue - Green Deployment** Using a `Blue <-> Green` deployment strategy increases application availability and reduces deployment risk by simplifying the rollback process if a deployment fails. This runbook guides administrators through the process of updating `Blue <-> Green` deployment for TEF, TED and TE.
@@ -29,7 +29,7 @@ Open the AWS Console and navigate to the Service Catalog service.
 
 ## Step 2: Access the Provisioned Product
 
-Navigate to Service Catalogue > Provisioned Products
+Navigate to Service Catalog > Provisioned Products
 
 Change `Access Filter` to `Account`
 

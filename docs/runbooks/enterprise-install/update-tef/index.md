@@ -6,14 +6,14 @@ sidebar_label: Update TEF
 # Update Turbot Guardrails Enterprise Foundation (TEF)
 
 In this runbook, you will:
-- Use AWS Service Catalogue to update Turbot Guardrails Enterprise Foundation (TEF)
-- Learn how to monitor updates
+- Use AWS Service Catalog to update Turbot Guardrails Enterprise Foundation (TEF)
+- Monitor and troubleshoot the TEF update process.
 
-The **Turbot Guardrails Enterprise Foundation (TEF)** stack creates networking, compute and logging components that will be shared by all workspaces.
+The **Turbot Guardrails Enterprise Foundation (TEF)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account. Stack creates networking, compute and logging components that will be shared by all workspaces.
 
 ## Prerequisites
 
-- Access to the Guardrails master AWS account with Administrator privileges..
+- Access to the Guardrails master AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console

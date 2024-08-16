@@ -6,16 +6,16 @@ sidebar_label: Install TE
 # Install Turbot Guardrails Enterprise (TE)
 
 In this runbook, you will:
-- Use AWS Service Catalogue to install Turbot Guardrails Enterprise (TE)
-- Learn how to monitor installations
+- Use AWS Service Catalog to install Turbot Guardrails Enterprise (TE).
+- Monitor and troubleshoot the TE install process.
 
-**Turbot Guardrails Enterprise (TE)** provides automated configuration and management of Turbot infrastructure to be used when running the Turbot software application. The TE service catalog product will provision a load balancer, SQS queues, ECS containers and lambda functions specific to the version selected into the hosting account. This version does not become active until associated with one or more Guardrails workspaces (accomplished in a separate step).
+**Turbot Guardrails Enterprise (TE)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
 Each TE installation deploys a new version of the Turbot software -- Every Turbot release requires a new TE version.
 
 ## Prerequisites
 
-- Access to the Guardrails master AWS account with Administrator privileges..
+- Access to the Guardrails master AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console
@@ -54,20 +54,17 @@ Select **Launch product**.
 
 ## Step 6: Review
 
-You have successfully installed the TE Service Catalog product. Now you can monitor the product for any issues post-installation and document any anomalies.
+You have successfully launched the TE Service Catalog product. Next, you will monitor the product for any issues during the installation.
 
 - [ ] The installed TE version should appear in Provisioned products with the status **Under change**.
 
 ![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-verify-install.png)
 
-A new CloudFormation stack should be created with the status CREATE_IN_PROGRESS.
+A new CloudFormation stack should be created with the status `CREATE_IN_PROGRESS`.
 
 ![CFN Verify Status](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-cfn-status.png)
 
 - [ ] The TE provisioned product status should change to **Available** and the CloudFormation stack status should be **CREATE_COMPLETE** to ensure the installation completed successfully.
-
-- [ ] Installation Fails or Takes Too Long:
-    Check the CloudFormation stack events tab for errors. If there are any errors, create a support ticket and include a screenshot of the errors.
 
 ![Installation Complete verification](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-install-complete-status.png)
 
@@ -76,7 +73,6 @@ A new CloudFormation stack should be created with the status CREATE_IN_PROGRESS.
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
 - Learn more about [Updating a Workspace to this version](https://turbot.com/guardrails/docs/enterprise/updating-stacks/update-workspace#updating-the-workspace).
-- Learn about [updating TE stacks](https://turbot.com/guardrails/docs/enterprise/updating-stacks).
 
 ## Troubleshooting
 
@@ -91,8 +87,7 @@ Common errors with a TE update:
 
 Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
 
-- Navigate to `CloudFormation` service and select failed stack.
+- Navigate to `CloudFormation` service and select the failed stack.
 - Open `Events` tab, sort by `Timestamp` descending.
-- Identify first event with status `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
+- Open the Events tab, and identify the first event with a failed status e.g. `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
 - Examine error message for failure details such as invalid parameters, resource limits, etc.
-- Cross-reference error message with corresponding resource or parameter in CloudFormation template.

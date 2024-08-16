@@ -6,16 +6,16 @@ sidebar_label: Update TED
 # Update Turbot Guardrails Enterprise Database (TED)
 
 In this runbook, you will:
-- Use AWS Service Catalogue to update Turbot Guardrails Enterprise Database (TED)
-- Learn how to monitor installations
+- Use AWS Service Catalog to update Turbot Guardrails Enterprise Database (TED).
+- Monitor and troubleshoot the TED update process.
 
-**Turbot Guardrails Enterprise Database (TED)** provides an automated configuration and management of Turbot Guardrails database infrastructure to be used when installing/upgrading an enterprise deployment of the Turbot Software.
+**Turbot Guardrails Enterprise Database (TED)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
 TED deploys a Turbot Hive, which defines physical database and caching resources shared by multiple workspaces.
 
 ## Prerequisites
 
-- Access to the Guardrails master AWS account with Administrator privileges..
+- Access to the Guardrails master AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console
