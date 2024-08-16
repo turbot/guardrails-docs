@@ -66,7 +66,7 @@ A new CloudFormation stack should be created with the status `CREATE_IN_PROGRESS
 
 - [ ] The TE provisioned product status should change to **Available** and the `CloudFormation` stack status should be **CREATE_COMPLETE** to ensure the installation completed successfully.
 
-![Installation Complete verification](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-install-complete-status.png)
+![Installation Complete Verification](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-install-complete-status.png)
 
 ## Next Steps
 
@@ -82,6 +82,8 @@ Common errors with a TE update:
 
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
 - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
+
+You can Refer to the updated permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
 
 ### Stack Update Fails
 

@@ -32,13 +32,16 @@ Choose **Provisioned Products** from the left navigation menu.
 
 ## Step 3: Find TED Provisioned Product
 
-The TED provisioned product is identifiable by a postfix that matches the database hive name.
+The TED provisioned product is identifiable by a postfix that matches the database [hive](https://turbot.com/guardrails/docs/enterprise/architecture#hives) name.
 
 ![Find TED](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-find-ted.png)
 
 Select **Actions** then select **Update**.
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-actions-update.png)
+
+**Note**:
+If user encounter difficulties locating a TED provisioned product, changing the `Access Filter` in AWS Service Catalog from `User` to `Account` will enable users to view provisioned products across their entire account.
 
 ## Step 4: Find TED Version
 
@@ -108,6 +111,8 @@ Users may encounter difficulties locating a TED provisioned product if they were
 
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
 - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
+
+You can Refer to the updated permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
 
 ### Instance Type and Disk Size Mismatch
 
