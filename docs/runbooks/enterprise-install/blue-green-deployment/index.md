@@ -62,16 +62,13 @@ After applying the update, the status should change to `Under change`
 
 ![Deployment Trigger Status](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-tef-update-status-in-progress.png)
 
-**Note**: Approximate time to complete the update is about 20 to 30 minutes.
-
 ## Step 6: Review
 
-You have successfully updated the TEF Service Catalog product to flip `Parameter Deployment Trigger`.
+You have successfully initiated the TEF Service Catalog product to flip `Parameter Deployment Trigger`.
 
 - [ ] After successful update TEF status should appear with the status `Available`.
 
 ![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-tef-update-verify-available.png)
-
 
 ## Next Steps
 
@@ -93,8 +90,7 @@ Common errors with a TEF update:
 
 Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
 
-- Navigate to `CloudFormation` service and select failed stack.
+- Navigate to `CloudFormation` service and select the failed stack.
 - Open `Events` tab, sort by `Timestamp` descending.
-- Identify first event with status `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
+- Open the Events tab, and identify the first event with a failed status e.g. `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
 - Examine error message for failure details such as invalid parameters, resource limits, etc.
-- Cross-reference error message with corresponding resource or parameter in CloudFormation template.
