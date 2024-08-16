@@ -9,7 +9,7 @@ In this runbook, you will:
 - Use AWS Service Catalog to update Turbot Guardrails Enterprise Foundation (TEF)
 - Monitor and troubleshoot the TEF update process.
 
-The **Turbot Guardrails Enterprise Foundation (TEF)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account. Stack creates networking, compute and logging components that will be shared by all workspaces.
+The **Turbot Guardrails Enterprise Foundation (TEF)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account. Stack manages networking, compute and logging components that will be shared by all workspaces.
 
 ## Prerequisites
 
@@ -37,6 +37,9 @@ Select the TEF provisioned product from the list.
 Select **Actions** then select **Update** fromm the dropdown options.
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-actions-update.png)
+
+**Note**:
+If user encounter difficulties locating a TEF provisioned product, changing the `Access Filter` in AWS Service Catalog from `User` to `Account` will enable users to view provisioned products across their entire account.
 
 ## Step 4: Find TEF Version
 
@@ -90,15 +93,10 @@ Select the TEF Provisioned Product, click the Outputs tab, and use the `CloudFor
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
 - Learn more about [Turbot Guardrails Enterprise - Architecture](https://turbot.com/guardrails/docs/enterprise/architecture).
-- Learn about [TEF Installation](https://turbot.com/guardrails/docs/enterprise/installation/tef-installation).
 
 ## Troubleshooting
 
 Common errors with a TEF update:
-
-### Inability to Locate Provisioned TEF Product
-Users may encounter difficulties locating a TEF provisioned product if they were not the original provisioning user.
-- Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
 
 ### Permissions Issues
 
@@ -107,15 +105,16 @@ Insufficient user privileges can prevent stack modifications.
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
 - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
 
+You can Refer to the updated permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
+
 ### Network Issues
 When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can Refer to the updated networking guide for [Managing Network Configurations with Stacks](https://turbot.com/guardrails/docs/guides/network-stack#overview).
 
 ### Stack Update Fails
 
-Identifying the initial error in a `CloudFormation` template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
+Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
 
-- Navigate to `CloudFormation` service and select failed stack.
+- Navigate to `CloudFormation` service and select the failed stack.
 - Open `Events` tab, sort by `Timestamp` descending.
-- Identify first event with status `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
+- Open the Events tab, and identify the first event with a failed status e.g. `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
 - Examine error message for failure details such as invalid parameters, resource limits, etc.
-- Cross-reference error message with corresponding resource or parameter in CloudFormation template.

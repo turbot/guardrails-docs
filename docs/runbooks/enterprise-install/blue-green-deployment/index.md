@@ -11,7 +11,7 @@ In this runbook, you will:
 - Use AWS Service Catalog to update (TEF/TED/TE) for Blue - Green deployment
 - Learn how to maintain cloud infrastructure up-to-date
 
-**Blue - Green Deployment** Using a `Blue <-> Green` deployment strategy increases application availability and reduces deployment risk by simplifying the rollback process if a deployment fails. This runbook guides administrators through the process of updating `Blue <-> Green` deployment for TEF, TED and TE.
+**Blue - Green Deployment** Using a `Blue <-> Green` deployment, changes SSM parameter overrides (e.g. IAM role ARNs) are not automatically detected by CloudFormation. Upgrades will recalculate the parameters, but if you wish to refresh you parameters without upgrading you can toggle this parameter. Simply changing it is enough to force the parameters to be re-read and recalculated.
 
 **Note**: Process remains same for TEF, TED and TE. This runbook illustrates the TEF stack.
 

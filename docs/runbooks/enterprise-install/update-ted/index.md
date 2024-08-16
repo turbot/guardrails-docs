@@ -129,8 +129,7 @@ The `CloudFormation` stack attempts to roll back, but the database is in a state
 
 Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
 
-- Navigate to `CloudFormation` service and select failed stack.
+- Navigate to `CloudFormation` service and select the failed stack.
 - Open `Events` tab, sort by `Timestamp` descending.
-- Identify first event with status `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
+- Open the Events tab, and identify the first event with a failed status e.g. `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
 - Examine error message for failure details such as invalid parameters, resource limits, etc.
-- Cross-reference error message with corresponding resource or parameter in CloudFormation template.
