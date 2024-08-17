@@ -18,7 +18,6 @@ In this runbook, you will:
 
 - Access to the Guardrails master AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
-- No downtime required.
 
 ## Step 1: Access AWS Console
 
