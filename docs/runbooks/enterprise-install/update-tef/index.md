@@ -111,10 +111,10 @@ Insufficient user privileges can prevent stack modifications.
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
 - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
 
-You can Refer to the updated permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
+You can refer to the updated  permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
 
 ### Network Issues
-When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can Refer to the updated networking guide for [Managing Network Configurations with Stacks](https://turbot.com/guardrails/docs/enterprise/installation/pre-installation#custom-network-pre-install-checklist).
+When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can refer to the updated  networking guide for [Managing Network Configurations with Stacks](https://turbot.com/guardrails/docs/enterprise/installation/pre-installation#custom-network-pre-install-checklist).
 
 ### Stack Update Fails
 
