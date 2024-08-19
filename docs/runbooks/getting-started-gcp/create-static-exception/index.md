@@ -8,7 +8,7 @@ sidebar_label: Create a static exception to a Guardrails GCP policy
 
 **Prerequisites**:   
   
-- [Connect a GCP Account to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-an-account/)
+- [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
 - [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
 - [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)
 
@@ -65,7 +65,7 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/create-calcu
 
 ## Progress tracker
 
-1. [Connect a GCP Account to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-an-account/)
+1. [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
 
 2. [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
 
@@ -74,3 +74,7 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/create-calcu
 4. **Create a Static Exception to a Guardrails GCP Policy**
 
 5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)
+
+6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email/)
+
+7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-gcp/apply-quick-action/)

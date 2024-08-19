@@ -24,7 +24,7 @@ Choose the top-level `Policies` tab, and search policy types for `aws s3 bucket 
 Click into the `AWS > S3 > Bucket > Versioning` policy type, choose the `Settings` tab.
 <p><img alt="aws_start_5_bucket_versioning_policy_settings" src="/images/docs/guardrails/runbooks/getting-started-aws/create-calculated-exception/aws-start-5-bucket-versioning-policy-settings.png"/></p><br/>
 
-Note the Versioning  policy in the policy pack from the  [Attach a policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy), and the bucket-level policy you created in [Create a static exception](/guardrails/docs/runbooks/getting-started-aws/create-static-exception).   
+Note the Versioning policy (`Check: Enabled`) created in [Attach a policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy), and the bucket-level policy (`Skip`) created in [Create a static exception](/guardrails/docs/runbooks/getting-started-aws/create-static-exception).   
   
 Click `New Policy Setting`.
 
@@ -35,19 +35,21 @@ Click `Enable calculated mode`, then `Launch calculated policy builder`. For the
 <p><img alt="aws_start_5_calc_policy_builder_launched" src="/images/docs/guardrails/runbooks/getting-started-aws/create-calculated-exception/aws-start-5-calc-policy-builder-launched.png"/></p><br/>
 
 Open the `Select snippet` dropdown and choose `Get bucket`.
-<p><img alt="aws_start_5_snippet_dropdown_open" src="/images/docs/guardrails/runbooks/getting-started-aws/create-calculated-exception/aws-start-5-snippet-dropdown-open.png"/></p><br/>
+<p><img alt="aws_start_5_snippet_dropdown_open" src="/images/docs/guardrails/runbooks/getting-started-aws/create-calculated-exception/aws-start-5-snippet-dropdown-open.png"/></p><br/>  
+  
+Guardrails inserts a GraphQL query for bucket tags in the `Input` pane. The result, in the `Output` pane, shows there are no tags on the bucket.
 <p><img alt="aws_start_5_snippet_active" src="/images/docs/guardrails/runbooks/getting-started-aws/create-calculated-exception/aws-start-5-snippet-active.png"/></p><br/>
 
-Guardrails inserts a GraphQL query for bucket tags in the `Input` pane. The result, in the `Output` pane, shows there are no tags on the bucket.  
+  
   
 Now copy this template code:  
   
 ```nunjucks
-{% if $.bucket.turbot.tags.environment == "development" -%}
+{% if $.bucket.turbot.tags.environment == "development" %}
 'Skip'
-{% else -%}
+{% else %}
 'Check: Enabled'
-{%- endif %}
+{% endif %}
 ```
 
 And paste it into the template pane.  

@@ -8,7 +8,7 @@ sidebar_label: Observe GCP Activity
 
 **Prerequisites**:
 
-- [Connect a GCP Account to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-an-account/)
+- [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
 
 
 ## Step 1: Create a GCP bucket
@@ -53,7 +53,7 @@ Next we’ll explore [how to set a policy](/guardrails/docs/runbooks/getting-sta
 
 ## Progress tracker
 
-1. [Connect a GCP Account to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-an-account/)
+1. [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
 
 2. **Observe GCP Activity**
 
@@ -62,3 +62,7 @@ Next we’ll explore [how to set a policy](/guardrails/docs/runbooks/getting-sta
 4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
 
 5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)
+
+6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email/)
+
+7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-gcp/apply-quick-action/)
