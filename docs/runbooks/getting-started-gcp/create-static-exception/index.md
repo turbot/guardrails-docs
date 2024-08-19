@@ -53,7 +53,7 @@ Click into the bucket, then select the `Activity` tab.
 
 Here you can see the whole history, reading from the bottom up.
 
- - When you attached the policy that requires uniform access,  the bucket went into `Alarm`.  
+ - When you attached the policy that requires uniform access,  the bucket went into `Alarm`. The alarm state represents the difference between what the policy asserts and the actual state of the bucket.  
   
 - Then you created the bucket-level policy setting to make an exception for the test bucket.  
   
@@ -72,3 +72,5 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/create-calcu
 3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)
 
 4. **Create a Static Exception to a Guardrails GCP Policy**
+
+5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)

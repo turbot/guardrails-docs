@@ -55,3 +55,5 @@ You can override policies at any level. In the [next runbook](/guardrails/docs/r
 3. **Attach a Guardrails Policy**
 
 4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
+
+5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)
