@@ -8,7 +8,7 @@ sidebar_label: Connect a GCP Account to Guardrails
 
 **Prerequisites**:
 
-A Turbot account with admin privilege, and a top-level `Sandbox` folder.
+Access to the Guardrails console with admin privilege, and a top-level `Sandbox` folder.
 
 ## Step 1: Create a service account for Guardrails
 
