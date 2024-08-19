@@ -8,7 +8,7 @@ sidebar_label: Attach a Guardrails Policy
 
 **Prerequisites**: 
 
-- [Connect a GCP Account to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-an-account/)
+- [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
 - [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
 
 
@@ -48,7 +48,7 @@ You can override policies at any level. In the [next runbook](/guardrails/docs/r
 
 ## Progress tracker
 
-1. [Connect a GCP Account to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-an-account/)
+1. [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
 
 2. [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
 
@@ -57,3 +57,7 @@ You can override policies at any level. In the [next runbook](/guardrails/docs/r
 4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
 
 5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)
+
+6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email/)
+
+7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-gcp/apply-quick-action/)

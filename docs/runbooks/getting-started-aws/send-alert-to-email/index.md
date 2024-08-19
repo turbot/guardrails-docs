@@ -53,7 +53,7 @@ The rule will send an alert to the configured email address when any control ent
 At the end of [Create a calculated exception](/guardrails/docs/runbooks/getting-started-aws/create_calculated_exception), your test bucket – the one you tagged with `environment:development` – was in a `Skipped` state for versioning. To verify, do a top-level search for the bucket, click into the resource, choose the `Controls` tab, and search for `aws s3 versioning`.
 <p><img alt="aws_start_6_refind_bucket_versioning_control" src="/images/docs/guardrails/runbooks/getting-started-aws/send-alert-to-email/aws-start-6-refind-bucket-versioning-control.png"/></p><br/>
 
-Now, in the AWS console, remove the `environment:development` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check Enabled`.  And because you left the bucket’s versioning in the AWS default state – suspended – the bucket’s control for versioning now transitions to `Alarm.   
+Now, in the AWS console, remove the `environment:development` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: Enabled`.  And because you left the bucket’s versioning in the AWS default state – suspended – the bucket’s control for versioning now transitions to `Alarm`.   
 <p><img alt="aws_start_6_observe_bucket_in_alarm" src="/images/docs/guardrails/runbooks/getting-started-aws/send-alert-to-email/aws-start-6-observe-bucket-in-alarm.png"/></p><br/>  
 
 

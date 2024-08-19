@@ -52,7 +52,7 @@ Click into the bucket, then select the `Activity` tab.
 
 Here you can see the whole history, reading from the bottom up.
 
- - When you attached the policy that requires bucket versioning, the bucket went into `Alarm` because the policy setting asserts that versioning should be enabled but it isn’t.  The alarm state represents the difference between what the policy asserts and the actual state of the bucket.  
+ - When you attached the policy that requires bucket versioning, the bucket went into `Alarm`.  The alarm state represents the difference between what the policy asserts and the actual state of the bucket.  
   
 - Then you created the bucket-level policy setting to make an exception for your test bucket.  
   
