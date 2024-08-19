@@ -8,7 +8,7 @@ sidebar_label: Connect a GCP Account to Guardrails
 
 **Prerequisites**:
 
-A Turbot account with admin privilege, and a top-level `Sandbox` folder.
+Access to the Guardrails console with admin privilege, and a top-level `Sandbox` folder.
 
 ## Step 1: Create a service account for Guardrails
 
@@ -60,3 +60,5 @@ Now that Guardrails has imported the project, you’ll want to see Guardrails in
 3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)
 
 4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
+
+5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)

@@ -13,19 +13,20 @@ sidebar_label: Create a static exception to a Guardrails GCP policy
 - [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)
 
 
-Now we have our GCP bucket access control policy set, we can track which GCP buckets do not have uniform access enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket access control status.
+Now that we have set our GCP bucket access control policy, we can track which GCP buckets do not have uniform access enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket access control status.
 
 ## Step 1: Find your test bucket
 
 Do a top-level search for the bucket..
 <p><img alt="gcp_access_control_find_the_bucket" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-static-exception/gcp-access-control-find-the-bucket.png"/></p><br/>
 
-## Step 2: Create a policy setting
+## Step 2: Create a policy exception
 
 Click into the resource, switch to the `Policies` tab, and search for `bucket access control`.
 <p><img alt="gcp_access_control_ready_to_create_new_policy_setting" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-static-exception/gcp-access-control-ready-to-create-new-policy-setting.png"/></p><br/>
 
-Note that the bucket inherits `Check: Uniform` from the `Sandbox`-level policy you set in the previous runbook.   
+Note that the bucket inherits `Check: Uniform` from the policy pack attached to the `Sandbox` folder. 
+
   
 Now click `New Policy Setting`.
 <p><img alt="gcp_access_control_new_policy_setting" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-static-exception/gcp-access-control-new-policy-setting.png"/></p><br/>
@@ -40,7 +41,7 @@ Select the `Hierarchy` tab to review the new situation.
   
 
 
-The default for bucket versioning was `Skip`, the policy you created in the previous runbook changed it to `Check: Uniform`, and now the bucket overrides that setting back to `Skip`.  
+The default for bucket versioning was `Skip`, the policy you created in the previous runbook changed it to `Check: Uniform`, and now the bucket overrides that setting back to `Skip`. Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Uniform`.  
 
 
 ## Step 3: Review Guardrails activity for the bucket
@@ -52,7 +53,7 @@ Click into the bucket, then select the `Activity` tab.
 
 Here you can see the whole history, reading from the bottom up.
 
- - When you attached the policy that requires uniform access,  the bucket went into `Alarm`.  
+ - When you attached the policy that requires uniform access,  the bucket went into `Alarm`. The alarm state represents the difference between what the policy asserts and the actual state of the bucket.  
   
 - Then you created the bucket-level policy setting to make an exception for the test bucket.  
   
@@ -71,3 +72,5 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/create-calcu
 3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)
 
 4. **Create a Static Exception to a Guardrails GCP Policy**
+
+5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)

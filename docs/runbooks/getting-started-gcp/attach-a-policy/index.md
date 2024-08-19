@@ -25,9 +25,6 @@ Do a top-level search for `gcp bucket trusted access`.
 <p><img alt="gcp_search_bucket_access_control" src="/images/docs/guardrails/runbooks/getting-started-gcp/attach-a-policy/gcp-search-bucket-access-control.png"/></p><br/>
 
 Guardrails reports that the bucket is in the `skipped` state. By default, there is no attached policy to enforce uniform access control. Let’s attach one. 
-<p><img alt="gcp_bucket_no_public_access_policy_settings" src="/images/docs/guardrails/runbooks/getting-started-gcp/attach-a-policy/gcp-bucket-no-public-access-policy-settings.png"/></p><br/>
-
-There’s a policy type, `GCP > Storage > Bucket > Policy > Trusted Access`, but as yet there are no policy settings. The default value for the setting is `Skip`.
 
 ## Step 3: Attach a policy
 
@@ -40,22 +37,6 @@ In the `Edit policy pack attachments` dialog, select `Enforce Uniform Access is 
 <p><img alt="gcp_edit_attachments_select_enforce_uniform_access" src="/images/docs/guardrails/runbooks/getting-started-gcp/attach-a-policy/gcp-edit-attachments-select-enforce-uniform-access.png"/></p><br/>  
   
 
-
-  
-Guardrails returns you to the `Detail` tab of the `Sandbox` page. Click the `Policies` tab, click `Descendant`, and search for `gcp bucket access control`.  
-<p><img alt="gcp_bucket_policy_access_control_descendant" src="/images/docs/guardrails/runbooks/getting-started-gcp/attach-a-policy/gcp-bucket-policy-access-control-descendant.png"/></p><br/>
-
-Click into the `GCP > Storage > Bucket > Access Control` policy type.
-<p><img alt="gcp_bucket_policy_access_control_policy_type" src="/images/docs/guardrails/runbooks/getting-started-gcp/attach-a-policy/gcp-bucket-policy-access-control-policy-type.png"/></p><br/>
-
-This is the policy type for GCP > Storage > Bucket > Trusted Access. The default is `Skip`.  
-  
-There is 1 policy setting. Click `1 setting` or `Switch to settings tab` to view them.
-<p><img alt="gcp_bucket_access_control_policy_settings" src="/images/docs/guardrails/runbooks/getting-started-gcp/attach-a-policy/gcp-bucket-access-control-policy-settings.png"/></p><br/>
-
-Here you can see the result of the policy pack you just attached: the setting for GCP bucket access control now overrides the default, `skip`, and has become `Check: Uniform`. 
-
- 
 
 ## Step 4: Observe a policy-driven alarm
 
@@ -74,3 +55,5 @@ You can override policies at any level. In the [next runbook](/guardrails/docs/r
 3. **Attach a Guardrails Policy**
 
 4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
+
+5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)

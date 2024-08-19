@@ -23,9 +23,13 @@ Accept the defaults, including uniform access which will be the focus of this se
 ## Step 2: See Guardrails discover the new bucket
 
   
-Select top-level `Reports`, search in the page for `Resource Activities`, and click the link.   
+Select top-level `Reports`, search in the page for `Resource Activities`.
+<p><img alt="gcp_search_resource_activities" src="/images/docs/guardrails/runbooks/getting-started-gcp/observe-gcp-activity/gcp-search-resource-activities.png"/></p><br/>
 
+  
+In the `Resource Activities` report, open the `Resource Type` filter, search for `gcp bucket`, and select `GCP > Storage > Bucket`.
 
+  
 Guardrails reports two notifications related to the bucket creation. `RESOURCE CREATED` indicates discovery of the bucket. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
 <p><img alt="gcp_resource_activities_initial_notifications" src="/images/docs/guardrails/runbooks/getting-started-gcp/observe-gcp-activity/gcp-resource-activities-initial-notifications.png"/></p><br/>  
   
@@ -39,7 +43,7 @@ Now visit your bucket in the GCP console, choose the `Permissions` tab, and clic
 
 Revisit `Reports > Resource Activities`, and (if needed) reapply the `GCP > Storage > Bucket` filter.  
   
-Click into the new notification for your bucket, and see the diff that Guardrails has recorded.  
+Click into the new notification for your bucket, and see the diff that Guardrails has been  recorded.  
 <p><img alt="gcp_diff_the_first_change" src="/images/docs/guardrails/runbooks/getting-started-gcp/observe-gcp-activity/gcp-diff-the-first-change.png"/></p><br/>
 
 We’ve now seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource.  
@@ -56,3 +60,5 @@ Next we’ll explore [how to set a policy](/guardrails/docs/runbooks/getting-sta
 3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)
 
 4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
+
+5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)

@@ -9,7 +9,7 @@ sidebar_label: Connect an AWS Account to Guardrails
   
 **Prerequisites**:
 
-Access to the Guardrails with  admin privilege, and a top-level `Sandbox` folder.
+Access to the Guardrails console with admin privilege, and a top-level `Sandbox` folder.
 
 ## Step 1: Create an AWS IAM role for Guardrails
 
@@ -144,7 +144,7 @@ Enter the AWS Account ID for the account you are importing.
 
 Copy the IAM Role ARN created earlier and paste it into the field.
 
-Provide the [External ID](https://turbot.com/guardrails/docs/faq/general-faq#how-does-guardrails-protect-my-aws-account-from-the-confused-deputy-problem) you created in Step 1.[[a]](#cmnt1)
+Provide the GUID you created in Step 1.
 <p><img alt="aws_start_1_ready_to_import" src="/images/docs/guardrails/runbooks/getting-started-aws/connect-an-account/aws-start-1-ready-to-import.png"/></p><br/>
 
 Click `Import`.  
@@ -167,8 +167,6 @@ Search the `Controls` tab for `aws account cmdb`
 When the control is green, Turbot has successfully connected to your account.
 
 In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches your account and reacts to resource changes.
-
-[[a]](#cmnt_ref1)Why would be provide a link to this documentation here instead of at the start?  Also, if they're going to use a Guardrails generated external ID, the easiest place to get that is from the Guardrails console....which we don't see until *after* the IAM role has been created. IMO it's easier to just use their random GUID than get into the discussion of the confused deputy problem.
 
 
 ## Progress tracker

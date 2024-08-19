@@ -13,7 +13,7 @@ sidebar_label: Create a static exception to a Guardrails AWS policy
 - [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-aws/attach-a-policy/)
 
 
-Now we have our AWS S3 bucket versioning policy set, we can track which S3 buckets do not have versioning enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket versioning status.
+Now that we have set our AWS S3 bucket versioning policy, we can track which S3 buckets do not have versioning enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket versioning status.
 
 ## Step 1: Find your test bucket
 
@@ -40,7 +40,7 @@ Select the `Hierarchy` tab to review the new situation.
   
 
 
-The default for bucket versioning was `Skip`. In the last runbook, you attached a policy pack to make the effective policy setting `Check: Enabled`. Now with the bucket level policy exception the effective policy  setting goes back to `Skip`.  Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Enabled`.  
+The default for bucket versioning was `Skip`. In the previous runbook, you attached a policy pack to make the effective policy setting `Check: Enabled`. Now with the bucket level policy exception the effective policy  setting goes back to `Skip`.  Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Enabled`.  
 
 
 ## Step 3: Review Guardrails activity for the bucket
@@ -52,11 +52,11 @@ Click into the bucket, then select the `Activity` tab.
 
 Here you can see the whole history, reading from the bottom up.
 
- - When you attached the policy that requires bucket versioning, the bucket went into `Alarm`.  
+ - When you attached the policy that requires bucket versioning, the bucket went into `Alarm` because the policy setting asserts that versioning should be enabled but it isn’t.  The alarm state represents the difference between what the policy asserts and the actual state of the bucket.  
   
 - Then you created the bucket-level policy setting to make an exception for your test bucket.  
   
-- Then Guardrails reevaluated, found the bucket in compliance with the new policy setting, and set the status to `Skipped`.
+- Then the Versioning control reevaluated, and set the status to `Skipped` to match the policy exception of `Skip`.
 
   
 In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.

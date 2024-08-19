@@ -29,11 +29,10 @@ Accept the defaults, including this one for bucket versioning which will be the 
 ## Step 2: See Guardrails discover the new bucket
 
   
-Select `Reports` and search in the page for `Resource Activities`.
+Select top-level `Reports`, search in the page for `Resource Activities`, and click the link.
 <p><img alt="aws_start_2_search_resource_activities" src="/images/docs/guardrails/runbooks/getting-started-aws/observe-aws-activity/aws-start-2-search-resource-activities.png"/></p><br/>
 
-In the `Resource Activities` report, open the `Resource Type` filter, search for bucket, and select `AWS > S3 > Bucket`.
-<p><img alt="aws_start_2_filter_resource_activities_by_aws_s3_bucket" src="/images/docs/guardrails/runbooks/getting-started-aws/observe-aws-activity/aws-start-2-filter-resource-activities-by-aws-s3-bucket.png"/></p><br/>
+In the `Resource Activities` report, open the `Resource Type` filter, search for `aws bucket`, and select `AWS > S3 > Bucket`.
 
 Guardrails reports two notifications related to the bucket creation. `RESOURCE CREATED` indicates discovery of the bucket. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
 <p><img alt="aws_start_2_resource_activities_initial_notifications" src="/images/docs/guardrails/runbooks/getting-started-aws/observe-aws-activity/aws-start-2-resource-activities-initial-notifications.png"/></p><br/>
