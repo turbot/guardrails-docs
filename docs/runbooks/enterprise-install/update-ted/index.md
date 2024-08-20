@@ -107,8 +107,6 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
-Common errors with a TED update:
-
 ### Permissions Issues
 
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
@@ -140,3 +138,5 @@ Identifying the initial error in a CloudFormation template's event stream is cru
 - Open `Events` tab, sort by `Timestamp` descending.
 - Open the Events tab, and identify the first event with a failed status e.g. `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
 - Examine error message for failure details such as invalid parameters, resource limits, etc.
+
+If you encounter any issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.

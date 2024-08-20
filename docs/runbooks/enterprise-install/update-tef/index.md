@@ -102,8 +102,6 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
-Common errors with a TEF update:
-
 ### Permissions Issues
 
 Insufficient user privileges can prevent stack modifications.

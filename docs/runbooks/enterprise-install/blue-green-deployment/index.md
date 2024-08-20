@@ -10,7 +10,7 @@ In this runbook, you will:
 - Use AWS Service Catalog to update (TEF/TED/TE) for Blue - Green deployment
 - Learn how to maintain cloud infrastructure up-to-date
 
-**Blue Green Deployment** Using a `Blue <-> Green` deployment, changes SSM parameter overrides (e.g. IAM role ARNs) are not automatically detected by CloudFormation. Upgrades will recalculate the parameters, but if you wish to refresh you parameters without upgrading you can toggle this parameter. Simply changing it is enough to force the parameters to be re-read and recalculated.
+**Blue Green Deployment** Using a `Blue Green` deployment, changes SSM parameter overrides (e.g. IAM role ARNs) are not automatically detected by CloudFormation. Upgrades will recalculate the parameters, but if you wish to refresh you parameters without upgrading you can toggle this parameter. Simply changing it is enough to force the parameters to be re-read and recalculated.
 
 **Note**: Process remains same for TEF, TED and TE. This runbook illustrates the TEF stack.
 
@@ -75,8 +75,6 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
-Common errors with a TEF update:
-
 ### Permissions Issues
 
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
@@ -92,3 +90,5 @@ Identifying the initial error in a CloudFormation template's event stream is cru
 - Open `Events` tab, sort by `Timestamp` descending.
 - Open the Events tab, and identify the first event with a failed status e.g. `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
 - Examine error message for failure details such as invalid parameters, resource limits, etc.
+
+If you encounter any issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.

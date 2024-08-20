@@ -84,3 +84,5 @@ Identifying the initial error in a `CloudFormation` template's event stream is c
 ### Workspace Displays Incorrect TE Version
 
 To resolve this issue, clear your browser cache and log back into the workspace.
+
+If you encounter any issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.
