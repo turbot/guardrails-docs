@@ -8,7 +8,7 @@ sidebar_label: Observe Azure Resource Activity
 
 **Prerequisites**: 
 
-- [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-an-account/)
+- [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
 
 
  
@@ -55,7 +55,7 @@ Next we’ll explore [how to set a policy](/guardrails/docs/runbooks/getting-sta
 
 ## Progress tracker
 
-1. [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-an-account/)
+1. [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
 
 2. **Observe Azure Resource Activity**
 
