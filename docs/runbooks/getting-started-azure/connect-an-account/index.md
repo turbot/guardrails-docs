@@ -93,23 +93,23 @@ In the left side-bar, go to `Access Control (IAM)`.
 
 Click on `+ Add` then `Add role assignment`.
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdA-5DNqVQhjGghFEoBbN0ktx9iGFii8hWo2G4bzPacpeH-3zjqOOCVxeOnBueMiC-nK69xRVhy3BR7KK0HqnCZliODws9D9AREzTdqjg_IKDRvi9LY6YLSngG3xuWwX6BDVOCbKDlJhnibSv3iaxiXqcQH?key=a-Pis7bB9qzmZZYFFEfFbA)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeSKvs_UOUmXvk_DX6rmKj4VsAepYhdvZAYAQVEkDvfs17Kg9HsJBV44lsM2QK5U-mZ7vmdgtGfta5WLKt5u7qpmaGtcIuxe-EaLZr9Rv5j0ZTbfLDlbRcdIEp0ZsLkEBKS15U7Lewv4_ld3KcCUfaeJx1T?key=a-Pis7bB9qzmZZYFFEfFbA)
 
 Find the `turbot_reader` custom role and select it. 
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXewlj1VGpdycG5y9IkHdfbsSJB_tdsOUzmr2p_IxQlIWswlzphfJiFJkl5chhaGhdju2pkfccBbslphGqBtDRiEa68gqXy3Djj0Q0j1qeWbOOhEHKQ1yVwl6PaMgBROpHGHHtzkMPANIPLlYFuM8W_bbhV9?key=a-Pis7bB9qzmZZYFFEfFbA)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdMQTJFTjB6vAegnyrBLI7fREteYJI-3IUE0SfWlZueEe9To4KRv1Ld48TsHDrvo8h2WMKlmsBLaQkpQtAt_FbWiZBalVvCmHdVan583vG3moeXe1lbAV4CaLQ2r1mY96ny_QCkEh9wnTCdXbqUZl4Ytzkq?key=a-Pis7bB9qzmZZYFFEfFbA)
 
 Select the Guardrails App Registration from earlier.
 
  
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXetAaEUOpQPlB4xBz9O-z3ZSqPe_3dieeZaG-Py8Ux9P4tuzj-HGde9ntybjh0EB6-srltFtEqtCaSZW3PbZRv3WMKzLAUKRbisnyYBy6AlNBhIWoez-qaZOG1hZmiOa98EDgehEWKeL57XRwvwWIedpJdE?key=a-Pis7bB9qzmZZYFFEfFbA)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXf0VIYgHBNUGOEBUBsmgAZzHzXLqoFzP5beqwYCjgtGbSp75JtMiYYVPK6Tsi6kKqrJIV5D2SnZ2ku8Ag75kbu8bYLRkK_zhPxOYp0xCZ7NjC3fIEdFNmt4_cAisBICrKnsn1fF3ihuiuuv1SEYjsOd3ZNN?key=a-Pis7bB9qzmZZYFFEfFbA)
 
 Complete the assignment process. 
 
 If you can see the new role assignment, you are ready to connect the subscription to Guardrails
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdmox-4Fn1gErOLZ89lB7NtOqJX8j9DxfhisfSKIG79UzjFDiqeR1lEgQhVcoa6TpA__Z--avuAtKikm-QsTIcxNEMq0tJF8asebkSCT5yNACku1i58Jjg3AK12zuKcCt3dHyiR88a9qskRY64k_L5bzAtz?key=a-Pis7bB9qzmZZYFFEfFbA)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeGTN0JNjmehmgKn31BfxTSmhKYCuwqt8L996iXMDy9F2O8NXAnHK9EWT8ccWSvWouI0tn0XzeaHJYTCKIcKSg3DxCeLpCbNSWKp7q4TefH6qE_PYWJZwOlU_m6y-sTFgXF2hkM75ssiCzYeHQOp2CfmfcT?key=a-Pis7bB9qzmZZYFFEfFbA)
 
 ## Step 2: Connect the Azure subscription
 
@@ -144,3 +144,5 @@ When the discovery process is complete, navigate to your imported subscription a
 1. **Connect an Azure Account to Guardrails**
 
 2. [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
+
+3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)

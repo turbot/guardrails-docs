@@ -58,3 +58,5 @@ Next we’ll explore [how to set a policy](/guardrails/docs/runbooks/getting-sta
 1. [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-an-account/)
 
 2. **Observe Azure Resource Activity**
+
+3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)
