@@ -84,11 +84,11 @@ Select the TEF Provisioned Product, click the Outputs tab, and use the `CloudFor
 
 ![Navigate To CFN](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-navigate-cfn.png)
 
-- [ ] Verify TEF stack status transitions to UPDATE_IN_PROGRESS upon modification and review the Events tab for expected parameter/resource updates.
+- [ ] Verify TEF stack status transitions to `UPDATE_IN_PROGRESS` upon modification and review the Events tab for expected parameter/resource updates.
 
 ![Verify CFN Status](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-cfn-stack-update.png)
 
-- [ ] Upon completion the TEF CloudFormation stack status should change to **UPDATE_COMPLETE** indicating the update completed successfully.
+- [ ] Upon completion the TEF CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
 ![CFN Update Complete](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-cfn-update-complete.png)
 
