@@ -16,7 +16,7 @@ Now that we can track resource configuration drift, we can create policies to al
 
 ## Step 1: Review bucket properties
 
-Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-dactivity). In that runbook you switched bucket versioning from the default (`Suspended`) to `Enabled`.
+Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/runbooks/getting-started-aws/observe-aws-activity). In that runbook you switched bucket versioning from the default (`Suspended`) to `Enabled`.
 <p><img alt="aws_start_3_review_bucket_versioning" src="/images/docs/guardrails/runbooks/getting-started-aws/attach-a-policy/aws-start-3-review-bucket-versioning.png"/></p><br/>
 
 ## Step 2: Find and view the AWS > S3 > Bucket > Versioning control
