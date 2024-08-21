@@ -482,7 +482,10 @@ as explained above.
 ##### I want to allow permissions for a service that Guardrails does not support, or for which I have not installed a Guardrails mod
 
 - Add the APIs to the `AWS > Turbot > Permissions > Lockdown > API Boundary`
-  policy. This will allow the API in both the boundary and lockdown policies.
+  policy. This will allow the API in both the boundary and lockdown policies. Adding the API to
+  the boundary policy is a necessary but insufficient step to enable acces.  The user must also have access granted to them. 
+- (Optional) Use [Custom Roles](#custom-role-levels) or [Custom Groups](#custom-group-levels) to grant access to the service to the user.
+- (Optional) Open a feature request with [Turbot Support](mailto:help@turbot.com) to request a permissions-only mod for this service. 
 
 ##### I want to only enable specific regions. I do not want anyone, including Guardrails to be able to use them.
 
