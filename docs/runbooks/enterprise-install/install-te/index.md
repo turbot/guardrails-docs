@@ -11,11 +11,11 @@ In this runbook, you will:
 
 **Turbot Guardrails Enterprise (TE)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
-Each TE installation deploys a new version of the Turbot software -- Every Turbot release requires a new TE version.
+TE is application layer of a Turbot Guardrails Enterprise deployment. Relies on the Turbot Guardrails Database (TED) and Foundation (TEF) products. Each TE installation deploys a new version of the Turbot software -- Every Turbot release requires a new TE version.
 
 ## Prerequisites
 
-- Access to the Guardrails master AWS account with Administrator privileges.
+- Access to the Guardrails primary AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console
@@ -24,7 +24,7 @@ Open the AWS Console and navigate to the Service Catalog service in the region t
 
 ![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-aws-console.png)
 
-## Step 2: Find TE Product
+## Step 2: Find Product
 
 Select the **Products** section from the left navigation pane
 
@@ -34,7 +34,7 @@ Select **Turbot Guardrails Enterprise** from the products list, then select **La
 
 ![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/installing-te/install-te-launch-product.png)
 
-## Step 3: Name TE Product
+## Step 3: Name Product
 
 Select the desired version, then name the product with the version number prefixed with `te`.
 

@@ -9,11 +9,13 @@ In this runbook, you will:
 - Use AWS Service Catalog to update Turbot Guardrails Enterprise Foundation (TEF)
 - Monitor and troubleshoot the TEF update process.
 
-The **Turbot Guardrails Enterprise Foundation (TEF)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account. Stack manages networking, compute and logging components that will be shared by all workspaces.
+The **Turbot Guardrails Enterprise Foundation (TEF)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
+
+Stack creates and manages the networking and compute components that will be shared by all workspaces in a Turbot Guardrails Enterprise installation.
 
 ## Prerequisites
 
-- Access to the Guardrails master AWS account with Administrator privileges.
+- Access to the Guardrails primary AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console
@@ -22,7 +24,7 @@ Open the AWS Console and navigate to the Service Catalog service in the region w
 
 ![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-aws-console.png)
 
-## Step 2: Navigate To Provisioned Products
+## Step 2: Find Product
 
 Choose **Provisioned Products** from the left navigation menu.
 
@@ -34,7 +36,7 @@ Users may encounter difficulties locating a TEF provisioned product if they were
 
 ![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-tef/ted-update-access-filter.png)
 
-## Step 3: Select TEF Provisioned Product
+## Step 3: Select Product
 
 Select the TEF provisioned product from the list.
 
@@ -47,14 +49,14 @@ Select **Actions** then select **Update** fromm the dropdown options.
 **Note**:
 If user encounter difficulties locating a TEF provisioned product, changing the `Access Filter` in AWS Service Catalog from `User` to `Account` will enable users to view provisioned products across their entire account.
 
-## Step 4: Find TEF Version
+## Step 4: Find Version
 
 Sort the Product versions section by Created time (descending) to see the latest available version.
 
 ![Sort TEF Version](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-version-sorting.png)
 
 
-## Step 5: Select TEF Version
+## Step 5: Select Version
 
 Select the desired TEF version under `Product Versions`.
 

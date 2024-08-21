@@ -11,11 +11,12 @@ In this runbook, you will:
 
 **Turbot Guardrails Enterprise Database (TED)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
-TED deploys a Turbot Guardrails [Hive](https://turbot.com/guardrails/docs/enterprise/architecture#hives), which defines physical database and caching resources shared by multiple workspaces.
+This is the database layer of a Turbot Guardrails Enterprise deployment. Creates and manages the Guardrails database infrastructure [Hive](https://turbot.com/guardrails/docs/reference/glossary#glossary), which defines physical database and caching resources shared by multiple workspaces.
+
 
 ## Prerequisites
 
-- Access to the Guardrails master AWS account with Administrator privileges.
+- Access to the Guardrails primary AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console
@@ -36,9 +37,9 @@ Users may encounter difficulties locating a TED provisioned product if they were
 
 ![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-access-filter.png)
 
-## Step 3: Find TED Provisioned Product
+## Step 3: Find Product
 
-The TED provisioned product is identifiable by a postfix that matches the database [hive](https://turbot.com/guardrails/docs/enterprise/architecture#hives) name.
+The TED provisioned product is identifiable by a postfix that matches the database [Hive](https://turbot.com/guardrails/docs/reference/glossary#glossary) name.
 
 ![Find TED](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-find-ted.png)
 
@@ -49,13 +50,13 @@ Select **Actions** then select **Update**.
 **Note**:
 If user encounter difficulties locating a TED provisioned product, changing the `Access Filter` in AWS Service Catalog from `User` to `Account` will enable users to view provisioned products across their entire account.
 
-## Step 4: Find TED Version
+## Step 4: Find Version
 
 Sort the Product versions section by Created time (descending) to see the latest available version.
 
 ![Find TED Version](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-find-versions.png)
 
-## Step 5: Select TED Version
+## Step 5: Select Version
 
 Select the desired TED version under `Product Versions`.
 
