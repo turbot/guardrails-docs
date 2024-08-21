@@ -15,17 +15,16 @@ Long-term verbose logging can cause a considerable increase in logging costs wit
 
 ## Prerequisites
 
-- Access to the Guardrails master account.
-- Administrator privileges.
+- Access to the Guardrails AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
-## Step 1: Access AWS System Manager (SSM) Console
+## Step 1: Access AWS Console
 
 Open the AWS Console and navigate to the System Manager service in the region where Guardrails stacks are deployed
 
 ![AWS SSM Console](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-parameter-store.png)
 
-## Step 2: Identify SSM Parameter Value for the Workspace
+## Step 2: Identify SSM Parameter Value
 
 ![SSM Workspace Parameter](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-workspace-parameter.png)
 

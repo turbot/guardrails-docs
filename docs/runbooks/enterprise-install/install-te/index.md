@@ -15,7 +15,7 @@ TE is application layer of a Turbot Guardrails Enterprise deployment. Relies on 
 
 ## Prerequisites
 
-- Access to the Guardrails primary AWS account with Administrator privileges.
+- Access to the Guardrails AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console

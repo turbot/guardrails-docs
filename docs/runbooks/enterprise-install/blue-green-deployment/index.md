@@ -16,7 +16,7 @@ In this runbook, you will:
 
 ## Prerequisites
 
-- Access to the Guardrails master AWS account with Administrator privileges.
+- Access to the Guardrails AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console

@@ -5,9 +5,7 @@ sidebar_label: Enterprise Installation
 
 # Getting Started with Turbot Guardrails Enterprise
 
-<div className="alert alert-warning">
 Turbot Guardrails Enterprise is a cloud-native application, built from the ground up on Amazon Web Services (AWS).  <strong>A dedicated AWS account is recommended for installing Turbot Guardrails Enterprise.</strong>
-</div>
 
 ## Installation Overview
 

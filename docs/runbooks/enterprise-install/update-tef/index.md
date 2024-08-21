@@ -15,7 +15,7 @@ Stack creates and manages the networking and compute components that will be sha
 
 ## Prerequisites
 
-- Access to the Guardrails primary AWS account with Administrator privileges.
+- Access to the Guardrails AWS account with Administrator privileges.
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console
