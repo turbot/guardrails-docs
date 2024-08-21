@@ -12,10 +12,10 @@ Runbooks are detailed step-by-step guides designed to help automate and streamli
 
 |                                                         |
 | ------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [AWS Getting Started](runbooks/aws-getting-started)                       | TO DO                            |
-| [Azure Getting Started](runbooks/azure-getting-started)                 | TO DO |
-| [Configuring Guardrails](concepts/policies/calculated-faq) | TO DO                                                 |
+| [Configuring Guardrails](concepts/policies/calculated-faq) | Setting up Guardrails for Automated Cloud Governance                                                 |
 | [Enterprise Install](runbooks/enterprise-install/installing-te)                      | Guardrails Enterprise Installation                                                          |
 | [Enterprise Monitoring](runbooks/enterprise-monitoring)                      | Understanding Enterprise Monitoring                                                          |
-| [GCP Getting Started](runbooks/gcp-getting-started)               | TO DO |
+| [Getting Started with AWS](runbooks/aws-getting-started)                       | Onboard & Govern of your AWS accounts                           |
+| [Getting Started with Azure](runbooks/azure-getting-started)                 | Onboard & Govern of your Azure subscriptions |
+| [Getting Started with GCP](runbooks/gcp-getting-started)               | Onboard & Govern of your GCP projects |
 | [Troubleshooting](runbooks/troubleshooting)                      | Solutions for common enterprise issues                                                             |

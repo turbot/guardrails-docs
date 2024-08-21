@@ -11,7 +11,7 @@ In this runbook, you will:
 
 **Turbot Guardrails Enterprise (TE)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
-TE is application layer of a Turbot Guardrails Enterprise deployment. Relies on the Turbot Guardrails Database (TED) and Foundation (TEF) products. Each TE installation deploys a new version of the Turbot software -- Every Turbot release requires a new TE version.
+TE is application layer of a Turbot Guardrails Enterprise deployment. Relies on the Turbot Guardrails Database (TED) and Foundation (TEF) products. Each TE installation deploys a new version of the Turbot software.
 
 ## Prerequisites
 
