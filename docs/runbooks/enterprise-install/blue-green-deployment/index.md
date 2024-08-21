@@ -21,26 +21,34 @@ In this runbook, you will:
 
 ## Step 1: Access AWS Console
 
-Open the AWS Console and navigate to the Service Catalog service.
+Open the AWS Console and navigate to the Service Catalog service in the region where TEF is deployed.
 
-![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-console.png)
+![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-aws-console.png)
 
-## Step 2: Access the Provisioned Product
+## Step 2: Find Provisioned Product
 
-Navigate to Service Catalog > Provisioned Products
+Choose **Provisioned Products** from the left navigation menu.
 
-Change `Access Filter` to `Account`
+![Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-service-catalog.png)
 
-![Service Catalog Provisioned product](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-provisioned-product-list.png)
+Note: **Inability to Locate Provisioned TEF Product**
+Users may encounter difficulties locating a TEF provisioned product if they were not the original provisioning user.
+- Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
 
+![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-tef/ted-update-access-filter.png)
 
-## Step 3: Update TEF Stack
+## Step 3: Select Provisioned Product
 
-Select `tef`from the list of provisioned products. Note that, this update process remains same for `ted` & `te`.
+Select the TEF provisioned product from the list.
 
-Select **Update** from the right top corner **Action** dropdown.
+![Select TEF](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-select-tef.png)
 
-![Service Catalog Update](/images/docs/guardrails/runbooks/enterprise-install/blue-green-deployment/aws-service-catalog-tef-update.png)
+Select **Actions** then select **Update** from the dropdown options.
+
+![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-actions-update.png)
+
+**Note**:
+If user encounter difficulties locating a TEF provisioned product, changing the `Access Filter` in AWS Service Catalog from `User` to `Account` will enable users to view provisioned products across their entire account.
 
 ## Step 4: Update the TEF Stack Parameter
 

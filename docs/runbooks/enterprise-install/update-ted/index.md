@@ -11,7 +11,7 @@ In this runbook, you will:
 
 **Turbot Guardrails Enterprise Database (TED)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
-This is the database layer of a Turbot Guardrails Enterprise deployment. Creates and manages the Guardrails database infrastructure [Hive](https://turbot.com/guardrails/docs/reference/glossary#glossary), which defines physical database and caching resources shared by multiple workspaces.
+[TED](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-database-ted) is the database layer of a Turbot Guardrails Enterprise deployment. Creates and manages the Guardrails database infrastructure [Hive](https://turbot.com/guardrails/docs/reference/glossary#hive), which defines physical database and caching resources shared by multiple workspaces.
 
 
 ## Prerequisites
@@ -33,13 +33,13 @@ Choose **Provisioned Products** from the left navigation menu.
 
 Note: **Inability to Locate Provisioned TED Product**
 Users may encounter difficulties locating a TED provisioned product if they were not the original provisioning user.
-- Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
+- Changing the `Access Filter` in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
 
 ![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-access-filter.png)
 
-## Step 3: Find Product
+## Step 3: Find Provisioned Product
 
-The TED provisioned product is identifiable by a postfix that matches the database [Hive](https://turbot.com/guardrails/docs/reference/glossary#glossary) name.
+The TED provisioned product is identifiable by a postfix that matches the database [Hive](https://turbot.com/guardrails/docs/reference/glossary#hive) name.
 
 ![Find TED](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-find-ted.png)
 
@@ -91,11 +91,11 @@ Select the TED Provisioned Product, click the Outputs tab, and use the `CloudFor
 
 ![Navigate ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-navigate-cfn.png)
 
-- [ ] Upon completion the TED CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
+[ ] Upon completion the TED CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
 ![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-cfn-complete.png)
 
-- [ ] The TED provisioned product status should change to `Available`.
+[ ] The TED provisioned product status should change to `Available`.
 
 ![TED Provisioned Product Complete Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-update-complete.png)
 

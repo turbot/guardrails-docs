@@ -50,15 +50,15 @@ Click Next on **Configure stack options**. Review the Changes under **Changeset 
 
 You have successfully initiated the Workspace to point towards the desired TE version. Now you can monitor the update for any issues and document any anomalies.
 
-- [ ] The updated workspace stack should appear with the status `UPDATE_IN_PROGRESS`.
+[ ] The updated workspace stack should appear with the status `UPDATE_IN_PROGRESS`.
 
 ![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-in-progress.png)
 
-- [ ] On completion workspace stack should appear with the status `UPDATE_COMPLETE`.
+[ ] On completion workspace stack should appear with the status `UPDATE_COMPLETE`.
 
 ![Update Complete](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-complete.png)
 
-- [ ] Open the Guardrails console admin panel to verify the updated TE version.
+[ ] Open the Guardrails console admin panel to verify the updated TE version.
 
 ![Guardrails Console Admin Panel](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-guardrails-console.png)
 

@@ -24,7 +24,7 @@ Open the AWS Console and navigate to the Service Catalog service in the region w
 
 ![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-aws-console.png)
 
-## Step 2: Find Product
+## Step 2: Find Provisioned Product
 
 Choose **Provisioned Products** from the left navigation menu.
 
@@ -36,27 +36,27 @@ Users may encounter difficulties locating a TEF provisioned product if they were
 
 ![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-tef/ted-update-access-filter.png)
 
-## Step 3: Select Product
+## Step 3: Select Provisioned Product
 
 Select the TEF provisioned product from the list.
 
 ![Select TEF](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-select-tef.png)
 
-Select **Actions** then select **Update** fromm the dropdown options.
+Select **Actions** then select **Update** from the dropdown options.
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-actions-update.png)
 
 **Note**:
 If user encounter difficulties locating a TEF provisioned product, changing the `Access Filter` in AWS Service Catalog from `User` to `Account` will enable users to view provisioned products across their entire account.
 
-## Step 4: Find Version
+## Step 4: Find Product Version
 
 Sort the Product versions section by Created time (descending) to see the latest available version.
 
 ![Sort TEF Version](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-version-sorting.png)
 
 
-## Step 5: Select Version
+## Step 5: Select Product Version
 
 Select the desired TEF version under `Product Versions`.
 
@@ -84,15 +84,15 @@ Select the TEF Provisioned Product, click the Outputs tab, and use the `CloudFor
 
 ![Navigate To CFN](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-navigate-cfn.png)
 
-- [ ] Verify TEF stack status transitions to `UPDATE_IN_PROGRESS` upon modification and review the Events tab for expected parameter/resource updates.
+[ ] Verify TEF stack status transitions to `UPDATE_IN_PROGRESS` upon modification and review the Events tab for expected parameter/resource updates.
 
 ![Verify CFN Status](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-cfn-stack-update.png)
 
-- [ ] Upon completion the TEF CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
+[ ] Upon completion the TEF CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
 ![CFN Update Complete](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-cfn-update-complete.png)
 
-- [ ] The TEF Provisioned Product Status returns to `Available`.
+[ ] The TEF Provisioned Product Status returns to `Available`.
 
 ![TEF Provisioned Product Status](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-update-complete.png)
 
