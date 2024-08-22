@@ -637,7 +637,17 @@
         "id": "troubleshooting",
         "link": "runbooks/troubleshooting",
         "items": [
-          "runbooks/troubleshooting/enable-verbose-logging"
+          "runbooks/troubleshooting/enable-verbose-logging",
+          {
+            "type": "category",
+            "id": "update-ted",
+            "link": "runbooks/troubleshooting/update-ted",
+            "items": [
+              "runbooks/troubleshooting/update-ted/can-not-modify-storage-of-db-instance",
+              "runbooks/troubleshooting/update-ted/database-instance-not-in-available-state",
+              "runbooks/troubleshooting/update-ted/service-catalog-out-of-sync"
+            ]
+          }
         ]
       }
 
