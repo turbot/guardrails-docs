@@ -86,7 +86,9 @@ Select the TED Provisioned Product, click the Outputs tab, and use the **CloudFo
 
 ![Navigate ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-navigate-cfn.png)
 
-// TO ADD IMAGE OF CFN STACK IN PROGRESS
+The TED CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indicating the update completed successfully.
+
+![Update Progress ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-update-cfn-progress.png)
 
 ## Step 9: Review
 
