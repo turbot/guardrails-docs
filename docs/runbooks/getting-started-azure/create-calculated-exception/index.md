@@ -45,7 +45,7 @@ Guardrails inserts a GraphQL query for storage account tags in the `Input` pane.
 Now copy this template code:  
   
 ```nunjucks
-{% if $.bucket.turbot.tags.environment == "development" %}
+{% if $.storageAccount.turbot.tags.environment == "development" %}
 'Skip'
 {% else %}
 'Check: TLS 1.2'
@@ -92,9 +92,7 @@ The storage account is `OK` because the default TLS version complies with policy
 
 
 Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.
-
-[image: azure_tagged_storage_account_now_skipped]  
-
+<p><img alt="azure_tagged_storage_account_now_skipped" src="/images/docs/guardrails/runbooks/getting-started-azure/create-calculated-exception/azure-tagged-storage-account-now-skipped.png"/></p><br/>
 
 In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams. 
 
