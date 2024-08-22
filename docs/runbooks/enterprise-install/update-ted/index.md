@@ -25,7 +25,7 @@ Open the AWS Console and navigate to the Service Catalog service in the region w
 
 ![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-aws-console.png)
 
-## Step 2: Navigate To Provisioned Products
+## Step 2: Navigate Provisioned Products
 
 Choose **Provisioned Products** from the left navigation menu.
 
@@ -86,7 +86,7 @@ Select the TED Provisioned Product, click the Outputs tab, and use the **CloudFo
 
 ![Navigate ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-navigate-cfn.png)
 
-The TED CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indicating the update completed successfully.
+The TED CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indicating the update process is in progress.
 
 ![Update Progress ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-update-cfn-progress.png)
 
