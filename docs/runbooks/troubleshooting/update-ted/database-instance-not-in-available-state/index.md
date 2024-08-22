@@ -9,7 +9,7 @@ When working with the TED (Turbot Enterprise Database) stack, you might encounte
 
 ## Issue
 
-The most common reason for this issue is that the database is in a state where modifications are not allowed, such as `backing-up`. Attempting to make changes during this time will result in an error.
+The most common reason for this issue is that the database is in a state where modifications are not allowed, such as `Backing-up`. Attempting to make changes during this time will result in an error.
 
 ![Update Failed](/images/docs/guardrails/runbooks/troubleshooting/update-ted/database-instance-not-in-available-state/update-failed.png)
 
@@ -35,7 +35,7 @@ If the database is in a state such as `Backing-up`, you will need to wait until 
 
 Once the database instance is in `Available` state, you can proceed with any planned updates or modifications to the TED stack without encountering the error.
 
-## Facing issues?
+### Facing issues?
 
 Open a ticket with us on https://support.turbot.com and attach the below information.
 
