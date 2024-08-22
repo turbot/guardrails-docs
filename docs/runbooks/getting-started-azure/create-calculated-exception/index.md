@@ -14,7 +14,7 @@ sidebar_label: Create a calculated exception to a Guardrails Azure policy
 - [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
 
 
-In the [previous runbook](guardrails/docs/runbooks/getting-started-azure/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test storage account (we’ll use `guardrailsazurestorage2`), and set the TLS version to 1.1 so it won’t comply with policy that requires version 1.2. Don’t set any tags on the storage account yet.
+In the [previous runbook](guardrails/docs/runbooks/getting-started-azure/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test storage account (we’ll use `guardrailsazurestorage2`). , and set the TLS version to 1.1 so it won’t comply with policy that requires version 1.2. Don’t set any tags on the storage account yet.
 
 ## Step 1: Go to the Azure > Storage > Storage Account > Minimum TLS Version policy
 
@@ -86,7 +86,7 @@ To check the status of the second storage account, do a top-level search for it.
 Click into the resource, choose the `Controls` tab, and set the `Type` filter to `Azure > Storage > Storage Account > Minimum TLS Version`.  
 <p><img alt="azure_filter_storage_account_to_tls_version_policy_type" src="/images/docs/guardrails/runbooks/getting-started-azure/create-calculated-exception/azure-filter-storage-account-to-tls-version-policy-type.png"/></p><br/>
 
-The storage account is `OK` because the default TLS version complies with policy. Now, tag it with `environment:development` to activate the calculated policy you created in this runbook.  
+The storage account is in `Alarm` because the TLS version you set, 1.1, does not  comply with policy. Now, tag it with `environment:development` to activate the calculated policy you created in this runbook.  
 <p><img alt="azure_tag_the_storage_account" src="/images/docs/guardrails/runbooks/getting-started-azure/create-calculated-exception/azure-tag-the-storage-account.png"/></p><br/>  
   
 
@@ -111,3 +111,5 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/send-alert
 4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
 
 5. **Create a Calculated Exception to a Guardrails Azure Policy**
+
+6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-azure/send-alert-to-email/)

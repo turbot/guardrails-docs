@@ -74,3 +74,5 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/create-cal
 4. **Create a Static Exception to a Guardrails Azure Policy**
 
 5. [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception/)
+
+6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-azure/send-alert-to-email/)
