@@ -628,7 +628,7 @@
         "id": "getting-started-azure",
         "link": "runbooks/getting-started-azure",
         "items": [
-          "runbooks/getting-started-azure/connect-an-account",
+          "runbooks/getting-started-azure/connect-a-subscription",
           "runbooks/getting-started-azure/observe-azure-activity"
         ]
       },
