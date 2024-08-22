@@ -9,15 +9,15 @@ In this runbook, you will:
 - Use AWS Service Catalog to update Turbot Guardrails Enterprise Database (TED).
 - Monitor and troubleshoot the TED update process.
 
-**Turbot Guardrails Enterprise Database (TED)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
+[Turbot Guardrails Enterprise Database (TED)](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-database-ted) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
-[TED](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-database-ted) is the database layer of a Turbot Guardrails Enterprise deployment. Creates and manages the Guardrails database infrastructure [Hive](https://turbot.com/guardrails/docs/reference/glossary#hive), which defines physical database and caching resources shared by multiple workspaces.
+TED is the database layer of a Turbot Guardrails Enterprise deployment. Creates and manages the Guardrails database infrastructure [Hive](https://turbot.com/guardrails/docs/reference/glossary#hive), which defines physical database and caching resources shared by multiple workspaces.
 
 
 ## Prerequisites
 
 - Access to the Guardrails AWS account with Administrator privileges.
-- Familiarity with AWS Console, Service Catalog, and CloudFormation services.
+- Familiarity with AWS Console, Service Catalog and CloudFormation services.
 
 ## Step 1: Access AWS Console
 
@@ -25,21 +25,15 @@ Open the AWS Console and navigate to the Service Catalog service in the region w
 
 ![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-aws-console.png)
 
-## Step 2: Navigate To Provisioned Products
+## Step 2: Navigate Provisioned Products
 
 Choose **Provisioned Products** from the left navigation menu.
 
 ![Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-service-catalog.png)
 
-Note: **Inability to Locate Provisioned TED Product**
-Users may encounter difficulties locating a TED provisioned product if they were not the original provisioning user.
-- Changing the `Access Filter` in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
-
-![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-access-filter.png)
-
 ## Step 3: Find Provisioned Product
 
-The TED provisioned product is identifiable by a postfix that matches the database [Hive](https://turbot.com/guardrails/docs/reference/glossary#hive) name.
+The TED provisioned product is identifiable by a postfix that matches the database Hive name.
 
 ![Find TED](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-find-ted.png)
 
@@ -47,8 +41,10 @@ Select **Actions** then select **Update**.
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-actions-update.png)
 
-**Note**:
-If user encounter difficulties locating a TED provisioned product, changing the `Access Filter` in AWS Service Catalog from `User` to `Account` will enable users to view provisioned products across their entire account.
+> [!NOTE]
+> If user encounter difficulties locating a TED provisioned product, changing the **Access Filter** in AWS Service Catalog from **User** to **Account** will enable users to view provisioned products across their entire account.
+
+![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-access-filter.png)
 
 ## Step 4: Find Version
 
@@ -58,7 +54,7 @@ Sort the Product versions section by Created time (descending) to see the latest
 
 ## Step 5: Select Version
 
-Select the desired TED version under `Product Versions`.
+Select the desired TED version under **Product Versions**.
 
 ![Select TED Version](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-select-version.png)
 
@@ -68,12 +64,10 @@ The values of the parameters will initially be set to match previous run of the 
 
 ![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-verify-parameters.png)
 
-**Note**
-
-- A frequent issue arises when databases employ auto-scaling storage. Discrepancies in storage figures between the stack and the product can occur if the database has expanded since installation.
-- Upgrading to a major version can introduce significant changes and potential risks. You should not upgrade to a new major version without first consulting with Turbot Support.
-- To ensure cost-efficiency, review and update instance types and Elasticache Versions at least annually to align with the latest supported options.
-
+> [!NOTE]
+> A frequent issue arises when databases employ auto-scaling storage. Discrepancies in storage figures between the stack and the product can occur if the database has expanded since installation.
+> Upgrading to a major version can introduce significant changes and potential risks. You should not upgrade to a new major version without first consulting with Turbot Support.
+> To ensure cost-efficiency, review and update instance types and Elasticache Versions at least annually to align with the latest supported options.
 
 ## Step 7: Update TED
 
@@ -81,21 +75,28 @@ After verifying any changes to existing parameters, select **Update** at the bot
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-select-update.png)
 
-## Step 8: Review
+## Step 8: Monitor Update
 
 You have initiated the installation of the new TED version. This triggers an update of several nested CloudFormation stacks.
 
-**Note**: Depending on the changes selected, the database resource can remain in an updating state for an extended period of time. Viewing the state of the RDS instance(s) in the RDS web console can often provide some context about what is happening at any given time.
+> [!NOTE]
+> Depending on the changes selected, the database resource can remain in an updating state for an extended period of time. Viewing the state of the RDS instance(s) in the RDS web console can often provide some context about what is happening at any given time.
 
-Select the TED Provisioned Product, click the Outputs tab, and use the `CloudFormationStackARN` link to navigate to CloudFormation and monitor the update progress.
+Select the TED Provisioned Product, click the Outputs tab, and use the **CloudFormationStackARN** link to navigate to CloudFormation and monitor the update progress.
 
 ![Navigate ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-navigate-cfn.png)
 
-[ ] Upon completion the TED CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
+The TED CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indicating the update process is in progress.
+
+![Update Progress ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-update-cfn-progress.png)
+
+## Step 9: Review
+
+- [ ] The TED CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
 ![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-cfn-complete.png)
 
-[ ] The TED provisioned product status should change to `Available`.
+- [ ] The TED provisioned product status should change to `Available`.
 
 ![TED Provisioned Product Complete Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-update-complete.png)
 
@@ -119,24 +120,24 @@ You can refer to the updated  permission guide for [AWS Permissions for Turbot G
 
 The selected instance type might not be available in the specified region or partition, or the database disk size might not align with the stack configuration.
 
-- Review the `CloudFormation` stack events to find the initial failure.
+- Review the **CloudFormation** stack events to find the initial failure.
 - Look for error messages related to instance type or disk size limitations.
-- Resolve the issue by modifying the `CloudFormation` template to use a compatible instance type or adjust the disk size.
+- Resolve the issue by modifying the **CloudFormation** template to use a compatible instance type or adjust the disk size.
 
 ### Stack Rollback Failure Due to Database State
 
-The `CloudFormation` stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback.
+The **CloudFormation** stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback.
 
-- Navigate to the `CloudFormation` console, select the failed stack, and go to the `Events` tab. Look for error messages related to the database or rollback failure.
+- Navigate to the **CloudFormation** console, select the failed stack, and go to the **Events** tab. Look for error messages related to the database or rollback failure.
 - Ensure the database is in a healthy and suitable state.
-- Choose the `Continue update rollback` option from `Stack actions` and confirm the action.
+- Choose the ****Continue update rollback** option from **Stack actions** and confirm the action.
 
 ### Stack Update Fails
 
 Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
 
-- Navigate to `CloudFormation` service and select the failed stack.
-- Open `Events` tab, sort by `Timestamp` descending.
+- Navigate to **CloudFormation** service and select the failed stack.
+- Open **Events** tab, sort by **Timestamp** descending.
 - Open the Events tab, and identify the first event with a failed status e.g. `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
 - Examine error message for failure details such as invalid parameters, resource limits, etc.
 
