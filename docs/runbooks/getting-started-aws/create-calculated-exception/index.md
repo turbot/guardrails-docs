@@ -78,7 +78,7 @@ For the Sandbox, the default is overridden from `Skip` to `Check: Enabled`. For 
 
 ## Step 4: Observe bucket status
 
-To check the status of the second test bucket, do a top-level search for it, and click into the resource.
+To check the status of the second test bucket, do a top-level search for it.
 <p><img alt="aws_start_5_refind_the_bucket" src="/images/docs/guardrails/runbooks/getting-started-aws/create-calculated-exception/aws-start-5-refind-the-bucket.png"/></p><br/>  
   
 

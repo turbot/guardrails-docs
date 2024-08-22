@@ -142,3 +142,5 @@ When the discovery process is complete, navigate to your imported subscription a
 3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)
 
 4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
+
+5. [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception/)

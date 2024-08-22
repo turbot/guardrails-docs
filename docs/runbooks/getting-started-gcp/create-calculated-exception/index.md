@@ -77,7 +77,7 @@ For the Sandbox, the default is overridden from `Skip` to `Check: Uniform`. For 
 
 ## Step 4: Observe bucket status
 
-To check the status of the second test bucket, do a top-level search for it, and click into the resource.
+To check the status of the second test bucket, do a top-level search for it.
 <p><img alt="gcp_refind_the_bucket" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-calculated-exception/gcp-refind-the-bucket.png"/></p><br/>  
   
 
