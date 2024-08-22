@@ -13,6 +13,6 @@ Keeping the TED stack in good shape is crucial for the stability and performance
 
 Below are a few common scenarios
 
-* [Service Catalog Out of Sync with CloudFormation](/runbooks/troubleshooting/update-ted/service-catalog-out-of-sync-with-cloudFormation)
-* [Can not modify the storage of this DB instance](/runbooks/troubleshooting/update-ted/can-not-modify-storage-of-DB-instance)
-* [Database Instance Not in Available State](/runbooks/troubleshooting/update-ted/database-instance-not-in-available-state)
+* [Service Catalog Out of Sync with CloudFormation](/guardrails/docs/runbooks/troubleshooting/update-ted/service-catalog-out-of-sync-with-cloudFormation)
+* [Can not modify the storage of this DB instance](/guardrails/docs/runbooks/troubleshooting/update-ted/can-not-modify-storage-of-DB-instance)
+* [Database Instance Not in Available State](/guardrails/docs/runbooks/troubleshooting/update-ted/database-instance-not-in-available-state)
