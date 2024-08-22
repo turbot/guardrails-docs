@@ -40,7 +40,7 @@ Select the `Hierarchy` tab to review the new situation.
   
 
 
-The default for bucket versioning was `Skip`. In the previous runbook, you attached a policy pack to make the effective policy setting `Check: Enabled`. Now with the bucket level policy exception the effective policy  setting goes back to `Skip`.  Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Enabled`.  
+The default for bucket versioning was `Skip`, the policy you created in the previous runbook changed it to `Check: Uniform`, and now this particular bucket overrides that setting back to `Skip`. Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Uniform`.  
 
 
 ## Step 3: Review Guardrails activity for the bucket

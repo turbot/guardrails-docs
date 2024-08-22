@@ -17,7 +17,7 @@ Now that we have set our GCP bucket access control policy, we can track which GC
 
 ## Step 1: Find your test bucket
 
-Do a top-level search for the bucket..
+Do a top-level search for the bucket.
 <p><img alt="gcp_access_control_find_the_bucket" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-static-exception/gcp-access-control-find-the-bucket.png"/></p><br/>
 
 ## Step 2: Create a policy exception
@@ -41,7 +41,7 @@ Select the `Hierarchy` tab to review the new situation.
   
 
 
-The default for bucket versioning was `Skip`, the policy you created in the previous runbook changed it to `Check: Uniform`, and now the bucket overrides that setting back to `Skip`. Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Uniform`.  
+The default for bucket versioning was `Skip`, the policy you created in the previous runbook changed it to `Check: Uniform`, and now this particular bucket overrides that setting back to `Skip`. Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Uniform`.  
 
 
 ## Step 3: Review Guardrails activity for the bucket

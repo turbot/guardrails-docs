@@ -53,7 +53,7 @@ Now, in the Azure portal,  set the minimum TLS version back to the default, `1.
 
 With the minimum TLS version set back to the default, `1.2`, the storage account now complies with the `Check: TLS 1.2` policy setting so Guardrails puts the storage account  into the `OK` state for that policy.  
   
-You can override policies at any level. In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/create-static-exception), we’ll create an exception that enables your test bucket to skip this check. 
+You can override policies at any level. In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/create-static-exception), we’ll create an exception that enables your test storage account to skip this check. 
 
 
 ## Progress tracker
@@ -63,3 +63,5 @@ You can override policies at any level. In the [next runbook](/guardrails/docs/r
 2. [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
 
 3. **Attach a Guardrails Policy**
+
+4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
