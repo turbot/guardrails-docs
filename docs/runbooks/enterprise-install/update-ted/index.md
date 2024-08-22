@@ -109,36 +109,9 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
-### Permissions Issues
-
-- Current logged in user doesn't have permission to modify/update/create resources in the stack.
-- Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
-
-You can refer to the updated  permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
-
-### Instance Type and Disk Size Mismatch
-
-The selected instance type might not be available in the specified region or partition, or the database disk size might not align with the stack configuration.
-
-- Review the **CloudFormation** stack events to find the initial failure.
-- Look for error messages related to instance type or disk size limitations.
-- Resolve the issue by modifying the **CloudFormation** template to use a compatible instance type or adjust the disk size.
-
 ### Stack Rollback Failure Due to Database State
 
-The **CloudFormation** stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback.
+If the CloudFormation stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback. To resolve this, refer [Rollback Failure Due to Database State](/guardrails/docs/runbooks/troubleshooting/update-ted/database-instance-not-in-available-state#database-instance-not-in-available-state).
 
-- Navigate to the **CloudFormation** console, select the failed stack, and go to the **Events** tab. Look for error messages related to the database or rollback failure.
-- Ensure the database is in a healthy and suitable state.
-- Choose the ****Continue update rollback** option from **Stack actions** and confirm the action.
 
-### Stack Update Fails
-
-Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
-
-- Navigate to **CloudFormation** service and select the failed stack.
-- Open **Events** tab, sort by **Timestamp** descending.
-- Open the Events tab, and identify the first event with a failed status e.g. `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
-- Examine error message for failure details such as invalid parameters, resource limits, etc.
-
-If you encounter any issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.
+If you continue to encounter issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.
