@@ -620,7 +620,10 @@
         "items": [
           "runbooks/getting-started-gcp/connect-a-project",
           "runbooks/getting-started-gcp/observe-gcp-activity",
-          "runbooks/getting-started-gcp/attach-a-policy"
+          "runbooks/getting-started-gcp/attach-a-policy",
+          "runbooks/getting-started-gcp/create-static-exception",
+          "runbooks/getting-started-gcp/create-calculated-exception",
+          "runbooks/getting-started-gcp/send-alert-to-email"
         ]
       },
       {
@@ -629,7 +632,9 @@
         "link": "runbooks/getting-started-azure",
         "items": [
           "runbooks/getting-started-azure/connect-a-subscription",
-          "runbooks/getting-started-azure/observe-azure-activity"
+          "runbooks/getting-started-azure/observe-azure-activity",
+          "runbooks/getting-started-azure/attach-a-policy",
+          "runbooks/getting-started-azure/create-static-exception"
         ]
       },
       {
