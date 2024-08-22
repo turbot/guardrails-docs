@@ -634,7 +634,8 @@
           "runbooks/getting-started-azure/connect-a-subscription",
           "runbooks/getting-started-azure/observe-azure-activity",
           "runbooks/getting-started-azure/attach-a-policy",
-          "runbooks/getting-started-azure/create-static-exception"
+          "runbooks/getting-started-azure/create-static-exception",
+          "runbooks/getting-started-azure/create-calculated-exception"
         ]
       },
       {

@@ -62,10 +62,10 @@ The step 4 result confirms that `Check: Uniform` is valid for this policy type.
   
 Click `Update` to update the policy.
 
-## Step 3: Attach the calculated policy to your AWS account
+## Step 3: Attach the calculated policy to your GCP project
 
-To attach this policy to your GCP account, so it will apply to all buckets in the account, choose your project as the `Resource`.   
-<p><img alt="gcp_attach_calc_policy_to_account" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-calculated-exception/gcp-attach-calc-policy-to-account.png"/></p><br/>
+To attach this policy to your GCP project, so it will apply to all buckets in the account, choose your project as the `Resource`.   
+<p><img alt="gcp_attach_calc_policy_to_subscription" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-calculated-exception/gcp-attach-calc-policy-to-subscription.png"/></p><br/>
 
 Then click `Create`. Guardrails takes you to the `Policy Setting` page. Choose the `Hierarchy` tab.  
 <p><img alt="gcp_hierarchy_with_calc_policy_in_effect" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-calculated-exception/gcp-hierarchy-with-calc-policy-in-effect.png"/></p><br/>  
@@ -77,7 +77,7 @@ For the Sandbox, the default is overridden from `Skip` to `Check: Uniform`. For 
 
 ## Step 4: Observe bucket status
 
-To check the status of the second test bucket, do a top-level search for it, and click into the resource.
+To check the status of the second test bucket, do a top-level search for it.
 <p><img alt="gcp_refind_the_bucket" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-calculated-exception/gcp-refind-the-bucket.png"/></p><br/>  
   
 
