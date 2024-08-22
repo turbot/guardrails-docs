@@ -57,7 +57,7 @@ Here you can see the whole history, reading from the bottom up.
   
 - Then you created the bucket-level policy setting to make an exception for the test storage account.  
   
-- Then Guardrails reevaluated  and set the status to `Skipped`.This particular storage account is now exempt from the policy that requires TLS 1.2.
+- Then Guardrails reevaluated and set the status to `Skipped`.This particular storage account is now exempt from the policy that requires TLS 1.2.
 
   
 In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.
