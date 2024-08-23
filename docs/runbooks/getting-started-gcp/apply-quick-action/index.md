@@ -18,7 +18,7 @@ sidebar_label: Apply a Quick Action
 
 Until now we’ve operated Guardrails in read-only mode, with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this runbook we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
 
-## Step 1: Add the storage.buckets.update permission
+## Step 1: Add the compute.instances.setDeletionProtection permission
 
 Create a custom IAM role.
 <p><img alt="gcp_create_custom_role" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-create-custom-role.png"/></p><br/>
@@ -39,50 +39,33 @@ Do a top-level search for `quick actions` and click into the `Turbot > Quick Act
 It’s disabled by default. On its Policy Type page, click `New Policy Setting`, choose your Sandbox as the target resource, choose `Enabled`, and click `Create`.  
 <p><img alt="gcp_enable_quick_actions" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-enable-quick-actions.png"/></p><br/>
 
-## Step 3: Find a bucket in Alarm for access control
+## Step 3: Find a control for a compute instance
 
   
-In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we left your test bucket in the `Alarm` state.  
+From the top-level `Controls` tab, search for `gcp compute instance deletion`.  
+<p><img alt="gcp_search_compute_instance_deletion" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-search-compute-instance-deletion.png"/></p><br/>
+
+The controls for this policy type are in the `skipped` state by default. Click the status bar to view the controls.
+<p><img alt="gcp_view_controls_for_deletion_protection" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-view-controls-for-deletion-protection.png"/></p><br/>  
   
-Search for it.  
-<p><img alt="gcp_search_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-search-bucket-in-alarm-for-quick-action.png"/></p><br/>
+Click into the control for an instance that does not enable deletion protection.
+<p><img alt="gcp_quick_action_dropdown" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-quick-action-dropdown.png"/></p><br/>
 
-Click into the resource, switch to the `Controls` tab, and search for `s3 bucket versioning`.
-<p><img alt="gcp_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-bucket-in-alarm-for-quick-action.png"/></p><br/>  
+Select the `Policies` tab and change the setting to `Check: Enabled` for this instance.  
   
-
-
-Click into the control and expand the `Actions` dropdown.  
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcchRgvg_XEauh_gRLhkx0w3l0XA-wt1yoBwNOvant47z_WYLhxRjES2pcgV-3M8sS5yOtgpR9Wqwq39rBjezOtUSzyPu4fkA_x40ORp0dJwKeKnbLu4LOw9z2x6e4r0VU7d6E1Bkerrlb96UmDtoMcL9uM?key=mTcIRW7htp-Gjdgfy2mntA)  
   
-[image: gcp_quick_action_dropdown]  
-  
+Go back to the control. It’s now in `Alarm` because theinstance doesn’t enable deletion protection but the policy says it should.
+<p><img alt="gcp_instance_now_in_alarm" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-instance-now-in-alarm.png"/></p><br/>
 
+## Step 4: Take a Quick Action to enable deletion protection.
 
-Hmm. The action is not enabled.
-
-## Step 4: Take a Quick Action to enable versioning  on a bucket
-
-Choose `Enable Versioning`.  
+Expand the `Actions` dropdown and choose `Enable Deletion Protection`.  
+<p><img alt="gcp_ready_to_enable_deletion_protection" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-ready-to-enable-deletion-protection.png"/></p><br/>  
 
 
 Guardrails reports that the action was successful, and the control goes to green.  
-  
-[image: gcp_quick_action_reports_success]  
-
-
-For more detail about what happened here, go to the top-level `Reports` tab, search in the page for `Activity Ledger`, and filter on `Control Type` == `AWS > S3 > Bucket > Versioning`.  
-  
-[image: gcp_quick_action_report_detail]  
-  
-
-
-The flow of notifications tells the story. Reading from the bottom up, Guardrails:  
-  
-- performs the action  
-  
-- notices the updated bucket  
-  
-- reevaluates the control.
+<p><img alt="gcp_quick_action_reports_success" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-quick-action-reports-success.png"/></p><br/>
 
 In the [next runbook](/guardrails/docs/runbooks/getting-started-gcp/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.  
   
