@@ -623,7 +623,8 @@
           "runbooks/getting-started-gcp/attach-a-policy",
           "runbooks/getting-started-gcp/create-static-exception",
           "runbooks/getting-started-gcp/create-calculated-exception",
-          "runbooks/getting-started-gcp/send-alert-to-email"
+          "runbooks/getting-started-gcp/send-alert-to-email",
+          "runbooks/getting-started-gcp/apply-quick-action"
         ]
       },
       {
