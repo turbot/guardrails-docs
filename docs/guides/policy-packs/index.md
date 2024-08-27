@@ -75,7 +75,11 @@ You can find a growing collection of Terraform-defined Policy Packs in the [Guar
 
 Suppose you want to create a Policy Pack to check or enforce the minimum TLS version on an Azure storage account. First clone the repo, and navigate to the `policy_packs/azure/storage` folder. It contains folders for Azure-storage-related policy packs like `enforce_containers_block_public_access`. Create a new folder with an appropriate name, like `enforce_secure_tls_version_for_storage_accounts`, and copy `main.tf`, `policies.tf`, and `providers.tf` from a sibling folder into your new folder.
 
-Adjust `main.tf` for your policy.
+Navigate to `Azure > Storage > Storage Account > Minimum TLS Version` in the Policies hierarchy, and switch to the `Developers` tab.
+
+![developer tab](/images/docs/guardrails/policy-developer-tab.png)
+
+Adjust `main.tf` for your policy, using the resource label as your AKA.
 
 ```tf
 resource "turbot_policy_pack" "main" {
@@ -86,7 +90,7 @@ ociated with older TLS versions"
 }
 ```
 
-Adjust `policies.tf` for your new policy.
+Adjust `policies.tf` for your new policy, using the Terraform code shown in the console. Ideally, include the full hierarchy path as a comment.
 
 ```
 # Azure > Storage > Storage Account > Minimum TLS Version
@@ -98,8 +102,6 @@ resource "turbot_policy_setting" "azure_storage_account_minimum_tls_version" {
   # value    = "Enforce: TLS 1.2"
 }
 ```
-
-To find the value for `type`, navigate the Guardrails Policy Type hierachy to `Azure > Storage > Storage Account > Minimum TLS Version` and click the `Developers` tab.
 
 Adjust the `README.md` for your new policy.
 
