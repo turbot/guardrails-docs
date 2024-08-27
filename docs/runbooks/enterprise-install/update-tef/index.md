@@ -39,7 +39,7 @@ Select the TEF provisioned product from the list.
 > [!NOTE]
 > If user encounter difficulties locating a TED provisioned product, changing the **Access Filter** in AWS Service Catalog from **User** to **Account** will enable users to view provisioned products across their entire account.
 
-![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-tef/ted-update-access-filter.png)
+![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-access-filter.png)
 
 Select **Actions** then select **Update** from the dropdown options.
 
