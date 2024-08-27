@@ -13,7 +13,6 @@ In this runbook, you will:
 
 TED is the database layer of a Turbot Guardrails Enterprise deployment. Creates and manages the Guardrails database infrastructure [Hive](https://turbot.com/guardrails/docs/reference/glossary#hive), which defines physical database and caching resources shared by multiple workspaces.
 
-
 ## Prerequisites
 
 - Access to the Guardrails AWS account with Administrator privileges.

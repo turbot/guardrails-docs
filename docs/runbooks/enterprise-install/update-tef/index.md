@@ -9,9 +9,9 @@ In this runbook, you will:
 - Use AWS Service Catalog to update Turbot Guardrails Enterprise Foundation (TEF)
 - Monitor and troubleshoot the TEF update process.
 
-The **Turbot Guardrails Enterprise Foundation (TEF)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
+The [Turbot Guardrails Enterprise Foundation (TEF)](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-foundation-tef) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
-Stack creates and manages the networking and compute components that will be shared by all workspaces in a Turbot Guardrails Enterprise installation.
+The TEF CloudFormation stack creates and manages the networking and compute components that will be shared by all workspaces in a Turbot Guardrails Enterprise installation (Collective).
 
 ## Prerequisites
 
@@ -24,17 +24,11 @@ Open the AWS Console and navigate to the Service Catalog service in the region w
 
 ![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-aws-console.png)
 
-## Step 2: Find Provisioned Product
+## Step 2: Navigate Provisioned Products
 
 Choose **Provisioned Products** from the left navigation menu.
 
 ![Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-service-catalog.png)
-
-Note: **Inability to Locate Provisioned TEF Product**
-Users may encounter difficulties locating a TEF provisioned product if they were not the original provisioning user.
-- Changing the Access Filter in AWS Service Catalog from User to Account can resolve this issue by allowing users to view provisioned products across their entire account.
-
-![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-tef/ted-update-access-filter.png)
 
 ## Step 3: Select Provisioned Product
 
@@ -42,23 +36,24 @@ Select the TEF provisioned product from the list.
 
 ![Select TEF](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-select-tef.png)
 
+> [!NOTE]
+> If user encounter difficulties locating a TED provisioned product, changing the **Access Filter** in AWS Service Catalog from **User** to **Account** will enable users to view provisioned products across their entire account.
+
+![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-tef/ted-update-access-filter.png)
+
 Select **Actions** then select **Update** from the dropdown options.
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-actions-update.png)
 
-**Note**:
-If user encounter difficulties locating a TEF provisioned product, changing the `Access Filter` in AWS Service Catalog from `User` to `Account` will enable users to view provisioned products across their entire account.
-
-## Step 4: Find Product Version
+## Step 4: Find Version
 
 Sort the Product versions section by Created time (descending) to see the latest available version.
 
 ![Sort TEF Version](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-version-sorting.png)
 
+## Step 5: Select Version
 
-## Step 5: Select Product Version
-
-Select the desired TEF version under `Product Versions`.
+Select the desired TEF version under **Product Versions**.
 
 ![Select TEF Version](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-select-version.png)
 
@@ -76,7 +71,7 @@ After verifying any changes to existing parameters, select **Update** at the bot
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-select-update.png)
 
-## Step 8: Review
+## Step 8: Monitor Update
 
 You have initiated the installation of the new TEF version. This triggers an update of several nested CloudFormation stacks.
 
@@ -88,11 +83,13 @@ Select the TEF Provisioned Product, click the Outputs tab, and use the `CloudFor
 
 ![Verify CFN Status](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-cfn-stack-update.png)
 
-[ ] Upon completion the TEF CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
+## Step 9: Review
+
+[ ] The TEF CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
 ![CFN Update Complete](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-cfn-update-complete.png)
 
-[ ] The TEF Provisioned Product Status returns to `Available`.
+[ ] The TEF Provisioned Product status should change to `Available`.
 
 ![TEF Provisioned Product Status](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-update-complete.png)
 
@@ -124,3 +121,5 @@ Identifying the initial error in a CloudFormation template's event stream is cru
 - Open `Events` tab, sort by `Timestamp` descending.
 - Open the Events tab, and identify the first event with a failed status e.g. `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
 - Examine error message for failure details such as invalid parameters, resource limits, etc.
+
+If you continue to encounter issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.
