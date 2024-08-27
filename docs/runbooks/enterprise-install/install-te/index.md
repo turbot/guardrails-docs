@@ -7,11 +7,11 @@ sidebar_label: Install TE
 
 In this runbook, you will:
 - Use AWS Service Catalog to install Turbot Guardrails Enterprise (TE).
-- Monitor and troubleshoot the TE install process.
+- Monitor and troubleshoot the installation process.
 
-**Turbot Guardrails Enterprise (TE)** is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
+[Turbot Guardrails Enterprise (TE)](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-te) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
-TE is application layer of a Turbot Guardrails Enterprise deployment. Relies on the Turbot Guardrails Database (TED) and Foundation (TEF) products. Each TE installation deploys a new version of the Turbot software.
+TE is application layer of a Turbot Guardrails Enterprise deployment. Relies on the [Turbot Guardrails Enterprise Database (TED)](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-database-ted) and [Turbot Guardrails Enterprise Foundation (TEF)](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-foundation-tef) products. TE deploys a new version of the Turbot software -- Every Turbot release requires a new TE version.
 
 ## Prerequisites
 
@@ -24,9 +24,9 @@ Open the AWS Console and navigate to the Service Catalog service in the region t
 
 ![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-aws-console.png)
 
-## Step 2: Find Product
+## Step 2: Navigate to Products
 
-Select the **Products** section from the left navigation pane
+Select the **Products** section from the left navigation menu.
 
 ![Product Selection](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-product-selection.png)
 
@@ -34,37 +34,52 @@ Select **Turbot Guardrails Enterprise** from the products list, then select **La
 
 ![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-launch-product.png)
 
-## Step 3: Name Provisioned Product
+## Step 3: Find Version
 
-Select the desired version, then name the provisioned product with the version number prefixed with `te`.
+Sort the Product versions section by Created time (descending) to see the latest available version.
+
+![Find Version](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-find-versions.png)
+
+## Step 4: Name Provisioned Product
+
+Select the desired TE version under **Product Versions**., then name the provisioned product.
+
+> [!NOTE]
+> When selecting a name for the provisioned product, it's typical to start with "te" and include the version number (e.g., te-5-45-1).
 
 ![Provisioned Product Naming](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-product-naming.png)
 
-## Step 4: Verify Parameters
+## Step 5: Verify Parameters
 
 The parameters for the TE product are derived from settings chosen earlier during the TEF install, so it is rare that any of the existing parameter values need to be modified. Unless directed to by Turbot support you may safely scroll to the bottom of the parameter list.
 
 ![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-parameters-verification.png)
 
-## Step 5: Launch Product
+## Step 6: Launch Product
 
 Select **Launch product**.
 
 ![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-launch.png)
 
-## Step 6: Review
+## Step 7: Monitor Installation
 
-You have successfully launched the TE Service Catalog product. Next, you will monitor the product for any issues during the installation.
+You have initiated the installation of the new TE version. This triggers an update of several nested CloudFormation stacks.
 
-[ ] The installed TE version should appear in Provisioned products with the status `Under change`.
+Select the TE Provisioned Product, click the Outputs tab, and use the **CloudFormationStackARN** link to navigate to CloudFormation and monitor the install progress.
 
-![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-verify-install.png)
+![Navigate to CloudFormation](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-navigate-cfn.png)
 
-[ ] A new CloudFormation stack should be created with the status `CREATE_IN_PROGRESS`.
+The TE CloudFormation stack status should would be `CREATE_IN_PROGRESS` indicating the install process is in progress.
 
-![CFN Verify Status](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-cfn-status.png)
+![Install Progress](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-install-cfn-progress.png)
 
-[ ] The TE provisioned product status should change to `Available` and the `CloudFormation` stack status should be `CREATE_COMPLETE` to ensure the installation completed successfully.
+## Step 8: Review
+
+- [ ] The TE CloudFormation stack status should change to `CREATE_COMPLETE` indicating the installation completed successfully.
+
+![CFN Create Complete](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-cfn-create-complete.png)
+
+- [ ] The TE provisioned product status should change to `Available`.
 
 ![Installation Complete Verification](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-install-complete-status.png)
 
