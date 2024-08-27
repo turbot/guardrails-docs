@@ -101,6 +101,9 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
+### Network Issues
+When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can refer to the updated  networking guide for [Managing Network Configurations with Stacks](https://turbot.com/guardrails/docs/enterprise/installation/pre-installation#custom-network-pre-install-checklist).
+
 ### Permissions Issues
 
 Insufficient user privileges can prevent stack modifications.
@@ -110,16 +113,8 @@ Insufficient user privileges can prevent stack modifications.
 
 You can refer to the updated  permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
 
-### Network Issues
-When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can refer to the updated  networking guide for [Managing Network Configurations with Stacks](https://turbot.com/guardrails/docs/enterprise/installation/pre-installation#custom-network-pre-install-checklist).
-
 ### Stack Update Fails
 
-Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
-
-- Navigate to `CloudFormation` service and select the failed stack.
-- Open `Events` tab, sort by `Timestamp` descending.
-- Open the Events tab, and identify the first event with a failed status e.g. `CREATE_FAILED`, `UPDATE_FAILED`, or `DELETE_FAILED`.
-- Examine error message for failure details such as invalid parameters, resource limits, etc.
+Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures. If the CloudFormation stack fails to update. Resolve the issue by referring to [Stack Update Fails](/guardrails/docs/runbooks/troubleshooting/update-tef/stack-update-fails#stack-update-fails).
 
 If you continue to encounter issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.
