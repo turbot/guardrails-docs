@@ -654,6 +654,14 @@
               "runbooks/troubleshooting/update-ted/database-instance-not-in-available-state",
               "runbooks/troubleshooting/update-ted/service-catalog-out-of-sync"
             ]
+          },
+          {
+            "type": "category",
+            "id": "update-tef",
+            "link": "runbooks/troubleshooting/update-tef",
+            "items": [
+              "runbooks/troubleshooting/update-tef/stack-update-fails"
+            ]
           }
         ]
       }
