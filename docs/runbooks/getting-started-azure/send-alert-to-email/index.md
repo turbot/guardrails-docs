@@ -84,3 +84,7 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/apply-quic
 5. [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception/)
 
 6. **Send an Alert to Email**
+
+7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-azure/apply-quick-action/)
+
+8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-azure/enable-enforcement/)
