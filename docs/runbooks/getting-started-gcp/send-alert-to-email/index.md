@@ -86,3 +86,5 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-gcp/apply-quick-
 6. **Send an Alert to Email**
 
 7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-gcp/apply-quick-action/)
+
+8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-gcp/enable-enforcement/)
