@@ -102,7 +102,7 @@ An Action that receives events from a cloud provider (usually via an Event Handl
 
 ## File
 
-A Resource that holds a JSON document containing reference data. Used frequently in Calculated Policies. Created, viewed, and deleted using the [turbot file](guardrails/docs/reference/cli/commands/file) command.
+A Resource that holds a JSON document containing reference data. Used frequently in Calculated Policies. Created, viewed, and deleted using the [turbot file](/guardrails/docs/reference/cli/commands/file) command.
 
 
 ## Folder
