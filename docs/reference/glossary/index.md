@@ -42,7 +42,7 @@ The [networking and compute components](/guardrails/docs/enterprise/architecture
 
 ## Control
 
-An [executable](/guardrails/docs/concepts/controls) that evaluates assertions made by Policy Values for a given Resource. If differences are found, it can take Actions as dictated by those Policy Values. May depend on one or more Policy Values to fully define behaviour. Controls are specific to Resource Types. Controls can be in these states, such as `OK`, `Alarm`, `Error`, `Invalid`, `Skipped`, or `To Be Determined` (`TBD`). They are categorized into Control Types and Control Categories for better organization and reporting.
+An [active resource](/guardrails/docs/concepts/controls) that evaluates assertions made by Policy Values for a given Resource. If differences are found, it can take Actions as dictated by those Policy Values. May depend on one or more Policy Values to fully define behaviour. Controls are specific to Resource Types. Controls can be in these states, such as `OK`, `Alarm`, `Error`, `Invalid`, `Skipped`, or `To Be Determined` (`TBD`). They are categorized into Control Types and Control Categories for better organization and reporting.
 
 
 ## Control Category
@@ -76,12 +76,6 @@ Represents the [current status](/guardrails/docs/concepts/controls#control-state
 
 A [blueprint](/guardrails/docs/concepts/controls#control-state) for a specific Control that can be configured for Resources. Control Types are associated with Policy Types and are used to enforce specific Policies on cloud resources. They are organized hierarchically and categorized into categories for better organization and reporting.  Examples include `AWS > S3 > Bucket > Approved` and `GCP > Compute > Disk > Encryption at Rest`.
 
-
-## Directive
-
-A specific instruction within a Policy Setting that dictates how a Control should evaluate and optionally act on Resources. Examples include `Skip`, `Check`, and `Enforce`.
-
-
 ## Grant
 
 A permission assignment that enables a user or group to perform specific Actions on a Resource. Grants define the level of access (e.g., `read-only`, `operator`, `admin`) and can be scoped to various Resource levels such as Accounts, Folders, or individual Resources. Grants can be configured to be active immediately, or may require activation by the user.
@@ -91,10 +85,9 @@ A permission assignment that enables a user or group to perform specific Actions
 
 Permissions can be granted but not active. This allows a user to elevate their privileges for a limited time as needed. Functions similarly to the Linux ‘sudo’ command.
 
-
 ## Event Handler
 
-The [collection of infrastructure](/guardrails/docs/integrations/azure/real-time-events/event-handlers) deployed into a cloud account to gather events as they occur and forward them to Guardrails for processing. Event Handlers use a push-based mechanism for real-time event processing. For ease of configuration, Event Polling can be used as an alternative to Event Handlers.
+The infrastructure deployed into a cloud account to gather events as they occur and forward them to Guardrails for processing. Event Handlers use a push-based mechanism for real-time event processing. See docs for [AWS](/guardrails/docs/integrations/aws/event-handlers), [Azure](/guardrails/docs/integrations/azure/real-time-events), and [GCP](/guardrails/docs/integrations/gcp/real-time-events). For ease of configuration, Event Polling can be used as an alternative to Event Handlers.
 
 
 ## Event Polling
@@ -109,7 +102,7 @@ An Action that receives events from a cloud provider (usually via an Event Handl
 
 ## File
 
-A Resource that holds a JSON document containing reference data. Used frequently in Calculated Policies.
+A Resource that holds a JSON document containing reference data. Used frequently in Calculated Policies. Created, viewed, and deleted using the [turbot file](guardrails/docs/reference/cli/commands/file) command.
 
 
 ## Folder
