@@ -15,7 +15,7 @@ The TEF CloudFormation stack creates and manages the networking and compute comp
 
 ## Prerequisites
 
-- Access to the Guardrails AWS account with Administrator privileges.
+- Access to the Guardrails AWS account with [Administrator Privileges](http://localhost:3000/guardrails/docs/enterprise/FAQ/admin-permissions#overview).
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console

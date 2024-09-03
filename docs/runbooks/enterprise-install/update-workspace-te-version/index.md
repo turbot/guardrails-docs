@@ -12,7 +12,7 @@ A Guardrails [Workspace](https://turbot.com/guardrails/docs/reference/glossary#g
 
 ## Prerequisites
 
-- Access to the Guardrails AWS account with Administrator privileges.
+- Access to the Guardrails AWS account with [Administrator Privileges](http://localhost:3000/guardrails/docs/enterprise/FAQ/admin-permissions#overview).
 - Desired TE version(s) installed.
 - Familiarity with AWS Console and CloudFormation service.
 

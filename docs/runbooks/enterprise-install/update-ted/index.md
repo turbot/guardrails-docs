@@ -15,7 +15,7 @@ TED is the database layer of a Turbot Guardrails Enterprise deployment. Creates 
 
 ## Prerequisites
 
-- Access to the Guardrails AWS account with Administrator privileges.
+- Access to the Guardrails AWS account with [Administrator Privileges](http://localhost:3000/guardrails/docs/enterprise/FAQ/admin-permissions#overview).
 - Familiarity with AWS Console, Service Catalog and CloudFormation services.
 
 ## Step 1: Access AWS Console
@@ -110,7 +110,7 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ### Stack Rollback Failure Due to Database State
 
-If the CloudFormation stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback. To resolve this, refer [Rollback Failure Due to Database State](/guardrails/docs/runbooks/troubleshooting/update-ted/database-instance-not-in-available-state#database-instance-not-in-available-state).
+If the CloudFormation stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback. To resolve this, refer [Rollback Failure Due to Database State](/guardrails/docs/runbooks/troubleshooting/database-instance-not-in-available-state#database-instance-not-in-available-state).
 
 
 If you continue to encounter issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.
