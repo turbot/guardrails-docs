@@ -16,7 +16,7 @@ nav:
 ## Install the Turbot Guardrails CLI
 
 ## Downloads
-- Download the latest Turbot Guardrails CLI from [Turbot Guardrails CLI Releases](https://github.com/turbot/guardrails-cli/releases). 
+- Download the latest Turbot Guardrails CLI from [Turbot Guardrails CLI Releases](https://github.com/turbot/guardrails-cli/releases).
 Download the CLI that matches your target platform.  Windows, MacOS and Linux are supported.
 
 - Unzip the `turbot` binary into a directory in your PATH (Linux example: `/usr/local/bin/turbot`)
@@ -36,10 +36,10 @@ To configure the Turbot Guardrails CLI tool to connect to your workspace, run th
 
 ```bash
 $ turbot configure
-✔ Profile name [default] … default                                 
-✔ Workspace URL … https://turbot-customer.cloud.turbot.com     
-✔ Turbot Access Key … ************************************        
-✔ Turbot Secret Key … ************************************        
+✔ Profile name [default] … default
+✔ Workspace URL … https://turbot-customer.cloud.turbot.com
+✔ Turbot Access Key … ************************************
+✔ Turbot Secret Key … ************************************
 Written profile 'default' to '/Users/TestUser/.config/turbot/credentials.yml'
 ```
 
@@ -48,7 +48,7 @@ credentials file. The default profile is used when you run the `turbot` command
 without explicitly specifying a `--profile` .
 
 The default location for the credentials file is referenced by the Turbot Guardrails CLI, the Turbot Guardrails Terraform
-provider and the Python scripts in the [Guardrails Samples Repo](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python).
+provider and the Python scripts in the [Guardrails Samples Repo](https://github.com/turbot/guardrails-samples/tree/main/api_examples/python).
 
 ### Named Profiles
 
@@ -58,10 +58,10 @@ workspaces at ease. Make the profile names meaningful and easy to remember.
 
 ```bash
 $ turbot configure
-✔ Profile name [default] … production                              
-✔ Workspace URL … https://prod-customer.cloud.turbot.com   
-✔ Turbot Access Key … ************************************         
-✔ Turbot Secret Key … ************************************         
+✔ Profile name [default] … production
+✔ Workspace URL … https://prod-customer.cloud.turbot.com
+✔ Turbot Access Key … ************************************
+✔ Turbot Secret Key … ************************************
 Written profile 'default' to '/Users/TestUser/.config/turbot/credentials.yml'
 ```
 

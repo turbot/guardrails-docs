@@ -72,9 +72,9 @@ when installing or removing Azure and GCP mods.
    - Identify any issues with **controls** in `tbd`, `error` or `invalid`.
      Resolve any problems.
    - Use the
-     [run_policy](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_policies)
+     [run_policies_batches](https://github.com/turbot/guardrails-samples/blob/main/guardrails_utilities/python_utils/run_policies_batches)
      and
-     [run_controls](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls)
+     [run_controls_batches](https://github.com/turbot/guardrails-samples/blob/main/guardrails_utilities/python_utils/run_controls_batches)
      scripts help a lot with resolving policy values and controls stuck in
      `tbd`.
    - A healthy workspace has zero controls or policy values in `error` or
@@ -121,7 +121,7 @@ steps should be disregarded.
 7. Let Guardrails clean up the resources. Time taken will depend on overall system
    load, Guardrails configuration and the number of resources for that mod.
    - Use the
-     [run_controls](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls)
+     [run_controls_batches](https://github.com/turbot/guardrails-samples/blob/main/guardrails_utilities/python_utils/run_controls_batches)
      script in the case where CMDB controls need a kick to finish cleaning
      themselves up.
 8. Verify that all resources for each mod have been removed from Guardrails. There
@@ -200,7 +200,7 @@ Let's break this down:
 **Important Note**: This works well for new controls, but existing controls will
 require a control run to adhere to the new, defined interval. We suggest running
 all relevant resource controls which can be done all at once by utilizing a
-[control run](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls)
+[run_controls_batches](https://github.com/turbot/guardrails-samples/blob/main/guardrails_utilities/python_utils/run_controls_batches)
 script.
 
 ### **WARNING!!**

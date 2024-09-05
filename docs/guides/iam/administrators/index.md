@@ -74,7 +74,7 @@ Guardrails allows administrators to set a custom minimum password length for loc
 
 ## Setting Guardrails API Keys to expire
 
-By default, Guardrails API keys do not expire. Passwords for users in the Guardrails Local directory expire by default at 365 days. Usually, the API keys for the break glass described above are method of last resort to get back into a workspace in the event of an emergency.  The [Password Reset](https://github.com/turbot/guardrails-samples/tree/main/queries/password_reset) queries in the Guardrails Samples Repo require API keys. These instructions describe a method for expiring all Guardrails API keys except the break glass user(s).  A benefit of this approach is that it makes it easy to apply to one directory but not others.
+By default, Guardrails API keys do not expire. Passwords for users in the Guardrails Local directory expire by default at 365 days. Usually, the API keys for the break glass described above are method of last resort to get back into a workspace in the event of an emergency.  The [Password Reset](https://github.com/turbot/guardrails-samples/blob/main/queries/iam/reset_local_directory_user_password.graphql) queries in the Guardrails Samples Repo require API keys. These instructions describe a method for expiring all Guardrails API keys except the break glass user(s).  A benefit of this approach is that it makes it easy to apply to one directory but not others.
 
 1. Use the "Aging Turbot Access Keys" report to get an idea of which keys this policy will deactivate.  API keys in this report show all keys over 90 days of age, regardless of "Active" or "Inactive" status.
 2. In the Terraform below, adjust the regex to match the break glass user(s). Make additional changes to the calc policy as required.

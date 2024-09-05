@@ -64,7 +64,7 @@ Terraform environment has not been setup, head on over to the
 The Turbot Development Kit is a public repository that contains the necessary
 Terraform files to import a Management Group into Turbot:
 
-- [Azure Management Group Import Baseline](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_management_group_import)
+- [Azure Management Group Import Baseline](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_management_group_import)
 
 ```hcl
 # Create the Azure > Management Group resource in Turbot

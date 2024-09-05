@@ -14,7 +14,7 @@ instructions for creating roles using AWS CloudFormation templates.
 Start by creating the role required for Turbot Parameters. The link below
 contains the necessary CloudFormation template:
 
-- <a href="https://github.com/turbot/guardrails-samples/blob/master/installation/turbot-parameters-lambda-role.yml" target="_blank">Turbot
+- <a href="https://github.com/turbot/guardrails-samples/blob/main/enterprise_installation/custom_role_templates/turbot-parameters-lambda-role.yml" target="_blank">Turbot
   Parameters Custom IAM Roles YAML</a>
 
 Refer to
@@ -33,7 +33,7 @@ Custom Resource IAM role and the TEF customer IAM role **MUST BE CREATED PRIOR
 TO BEGINNING THE TURBOT INSTALL!** Follow the below link for the TEF Custom IAM
 Roles CloudFormation template:
 
-- <a href="https://github.com/turbot/guardrails-samples/blob/master/installation/tef-custom-iam-roles.yml" target="_blank">TEF
+- <a href="https://github.com/turbot/guardrails-samples/blob/main/enterprise_installation/custom_role_templates/tef-custom-iam-roles.yml" target="_blank">TEF
   Custom IAM Roles YAML</a>
 
 Refer to
@@ -66,7 +66,7 @@ Use the below provided CloudFormation template to create the required roles and
 policies for the TE stack. This step is **REQUIRED** to successfully install the
 TE stack:
 
-- <a href="https://github.com/turbot/guardrails-samples/blob/master/installation/te-custom-iam-roles.yml" target="_blank">TE
+- <a href="https://github.com/turbot/guardrails-samples/blob/main/enterprise_installation/custom_role_templates/te-custom-iam-roles.yml" target="_blank">TE
   IAM Roles and Policies YAML</a>
 
 Refer to

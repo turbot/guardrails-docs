@@ -82,7 +82,7 @@ deploy ALL your workspaces from a single template, so that you can manage
 versions for all workspaces from a single stack, for instance.
 
 This template can also be found on the Guardrails Samples Repo -
-[Workspace Manager CloudFormation Template](https://github.com/turbot/guardrails-samples/blob/master/installation/workspace-template.yml)
+[Workspace Manager CloudFormation Template](https://github.com/turbot/guardrails-samples/blob/main/enterprise_installation/workspace_template.yml)
 
 ```yaml
 AWSTemplateFormatVersion: 2010-09-09
