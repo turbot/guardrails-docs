@@ -9,13 +9,13 @@ In this runbook, you will:
 - Use AWS Service Catalog to update Turbot Guardrails Enterprise Foundation (TEF)
 - Monitor and troubleshoot the TEF update process.
 
-The [Turbot Guardrails Enterprise Foundation (TEF)](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-foundation-tef) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
+The [Turbot Guardrails Enterprise Foundation (TEF)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-foundation-tef) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
 The TEF CloudFormation stack creates and manages the networking and compute components that will be shared by all workspaces in a Turbot Guardrails Enterprise installation (Collective).
 
 ## Prerequisites
 
-- Access to the Guardrails AWS account with [Administrator Privileges](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions).
+- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console
@@ -97,12 +97,12 @@ Select the TEF Provisioned Product, click the Outputs tab, and use the `CloudFor
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-- Learn more about [Turbot Guardrails Enterprise - Architecture](https://turbot.com/guardrails/docs/enterprise/architecture).
+- Learn more about [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
 
 ## Troubleshooting
 
 ### Network Issues
-When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can refer to the updated  networking guide for [Managing Network Configurations with Stacks](https://turbot.com/guardrails/docs/enterprise/installation/pre-installation#custom-network-pre-install-checklist).
+When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can refer to the updated  networking guide for [Managing Network Configurations with Stacks](/guardrails/docs/enterprise/installation/pre-installation#custom-network-pre-install-checklist).
 
 ### Permissions Issues
 
@@ -111,7 +111,7 @@ Insufficient user privileges can prevent stack modifications.
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
 - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
 
-You can refer to the updated  permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
+You can refer to the updated  permission guide for [AWS Permissions for Turbot Guardrails Administrators](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
 
 ### Stack Update Fails
 

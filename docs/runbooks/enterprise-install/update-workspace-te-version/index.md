@@ -8,11 +8,11 @@ sidebar_label: Update Workspace TE Version
 In this runbook, you will:
 - Update a Guardrails workspace to a new TE version using AWS CloudFormation
 
-A Guardrails [Workspace](https://turbot.com/guardrails/docs/reference/glossary#glossary) is updated to a new version by referencing a newly installed [TE](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise) product within the workspace stack. This ensures the workspace benefits from the latest TE features and improvements.
+A Guardrails [Workspace](/guardrails/docs/reference/glossary#workspace) is updated to a new version by referencing a newly installed [TE](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-te) product within the workspace stack. This ensures the workspace benefits from the latest TE features and improvements.
 
 ## Prerequisites
 
-- Access to the Guardrails AWS account with [Administrator Privileges](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions).
+- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Desired TE version(s) installed.
 - Familiarity with AWS Console and CloudFormation service.
 
@@ -68,8 +68,8 @@ You have initiated the update of a new TE version in the Guardrails workspace. T
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-- Learn more about [TE architecture](https://turbot.com/guardrails/docs/enterprise/architecture).
-- Learn about [Installing TE](https://turbot.com/guardrails/docs/enterprise/installation/te-installation).
+- Learn more about [TE architecture](/guardrails/docs/enterprise/architecture).
+- Learn about [Installing TE](/guardrails/docs/enterprise/installation/te-installation).
 
 ## Troubleshooting
 

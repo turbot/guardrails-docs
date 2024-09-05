@@ -9,13 +9,13 @@ In this runbook, you will:
 - Use AWS Service Catalog to update Turbot Guardrails Enterprise Database (TED).
 - Monitor and troubleshoot the TED update process.
 
-[Turbot Guardrails Enterprise Database (TED)](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-database-ted) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
+[Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
 TED is the database layer of a Turbot Guardrails Enterprise deployment. Creates and manages the Guardrails database infrastructure [Hive](https://turbot.com/guardrails/docs/reference/glossary#hive), which defines physical database and caching resources shared by multiple workspaces.
 
 ## Prerequisites
 
-- Access to the Guardrails AWS account with [Administrator Privileges](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions).
+- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS Console, Service Catalog and CloudFormation services.
 
 ## Step 1: Access AWS Console
@@ -103,8 +103,8 @@ The TED CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indica
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-- Learn more about [Turbot Guardrails Enterprise - Architecture](https://turbot.com/guardrails/docs/enterprise/architecture).
-- Learn about [TED Installation](https://turbot.com/guardrails/docs/enterprise/installation/ted-installation)
+- Learn more about [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
+- Learn about [TED Installation](/guardrails/docs/enterprise/installation/ted-installation)
 
 ## Troubleshooting
 

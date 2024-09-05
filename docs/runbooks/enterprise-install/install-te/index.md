@@ -9,13 +9,13 @@ In this runbook, you will:
 - Use AWS Service Catalog to install Turbot Guardrails Enterprise (TE).
 - Monitor and troubleshoot the installation process.
 
-[Turbot Guardrails Enterprise (TE)](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-te) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
+[Turbot Guardrails Enterprise (TE)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-te) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
 
-TE is application layer of a Turbot Guardrails Enterprise deployment. Relies on the [Turbot Guardrails Enterprise Database (TED)](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-database-ted) and [Turbot Guardrails Enterprise Foundation (TEF)](https://turbot.com/guardrails/docs/reference/glossary#urbot-guardrails-enterprise-foundation-tef) products. TE deploys a new version of the Turbot software -- Every Turbot release requires a new TE version.
+TE is application layer of a Turbot Guardrails Enterprise deployment. Relies on the [Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) and [Turbot Guardrails Enterprise Foundation (TEF)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-foundation-tef) products. TE deploys a new version of the Turbot software -- Every Turbot release requires a new TE version.
 
 ## Prerequisites
 
-- Access to the Guardrails AWS account with [Administrator Privileges](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions).
+- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console
@@ -87,7 +87,7 @@ The TE CloudFormation stack status should would be `CREATE_IN_PROGRESS` indicati
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-- Learn more about [Updating a Workspace to this version](https://turbot.com/guardrails/docs/enterprise/updating-stacks/update-workspace#updating-the-workspace).
+- Learn more about [Updating a Workspace to this version](/guardrails/docs/enterprise/updating-stacks/update-workspace#updating-the-workspace).
 
 ## Troubleshooting
 
@@ -96,7 +96,7 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
 - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
 
-You can refer to the updated  permission guide for [AWS Permissions for Turbot Guardrails Administrators](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
+You can refer to the updated  permission guide for [AWS Permissions for Turbot Guardrails Administrators](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
 
 ### Stack Update Fails
 
