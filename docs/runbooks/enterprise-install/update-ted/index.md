@@ -15,7 +15,7 @@ TED is the database layer of a Turbot Guardrails Enterprise deployment. Creates 
 
 ## Prerequisites
 
-- Access to the Guardrails AWS account with [Administrator Privileges](http://localhost:3000/guardrails/docs/enterprise/FAQ/admin-permissions#overview).
+- Access to the Guardrails AWS account with [Administrator Privileges](https://turbot.com/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS Console, Service Catalog and CloudFormation services.
 
 ## Step 1: Access AWS Console
