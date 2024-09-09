@@ -30,7 +30,13 @@ Choose **Provisioned Products** from the left navigation menu.
 
 ![Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-service-catalog.png)
 
-## Step 3: Find Provisioned Product
+## Step 3: View Provisioned Products
+
+Change the **Access Filter** in AWS Service Catalog from **User** to **Account** to view all TED provisioned products across the entire account.
+
+![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-access-filter.png)
+
+## Step 4: Find Provisioned Product
 
 The TED provisioned product is identifiable by a postfix that matches the database Hive name.
 
@@ -40,24 +46,19 @@ Select **Actions** then select **Update**.
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-actions-update.png)
 
-> [!NOTE]
-> If user encounter difficulties locating a TED provisioned product, changing the **Access Filter** in AWS Service Catalog from **User** to **Account** will enable users to view provisioned products across their entire account.
-
-![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-access-filter.png)
-
-## Step 4: Find Version
+## Step 5: Find Version
 
 Sort the Product versions section by Created time (descending) to see the latest available version.
 
 ![Find TED Version](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-find-versions.png)
 
-## Step 5: Select Version
+## Step 6: Select Version
 
 Select the desired TED version under **Product Versions**.
 
 ![Select TED Version](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-select-version.png)
 
-## Step 6: Verify Parameters
+## Step 7: Verify Parameters
 
 The values of the parameters will initially be set to match previous run of the product. Review the [release notes](https://turbot.com/guardrails/changelog?tag=ted) for the TED versions between the existing version and the version you are updating to, and identify any new parameters that require a decision about how they will be set. Generally, new parameters will be created in a way to have the least disruption on an existing environment, but care should still be taken to understand these and read any new parameter descriptions to understand their impact.
 
@@ -68,13 +69,13 @@ The values of the parameters will initially be set to match previous run of the 
 > Upgrading to a major version can introduce significant changes and potential risks. You should not upgrade to a new major version without first consulting with Turbot Support.
 > To ensure cost-efficiency, review and update instance types and Elasticache Versions at least annually to align with the latest supported options.
 
-## Step 7: Update TED
+## Step 8: Update TED
 
 After verifying any changes to existing parameters, select **Update** at the bottom of the screen.
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-select-update.png)
 
-## Step 8: Monitor Update
+## Step 9: Monitor Update
 
 You have initiated the installation of the new TED version. This triggers an update of several nested CloudFormation stacks.
 
@@ -89,7 +90,7 @@ The TED CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indica
 
 ![Update Progress ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-update-cfn-progress.png)
 
-## Step 9: Review
+## Step 10: Review
 
 - [ ] The TED CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
