@@ -82,7 +82,7 @@ You have initiated the installation of the new TED version. This triggers an upd
 > [!NOTE]
 > Depending on the changes selected, the database resource can remain in an updating state for an extended period of time. Viewing the state of the RDS instance(s) in the RDS web console can often provide some context about what is happening at any given time.
 
-Select the TED Provisioned Product, select the **Outputs** tab, and use the **CloudFormationStackARN** **Value** link to navigate to CloudFormation stack and monitor the update progress.
+Select the TED Provisioned Product, select the **Outputs** tab, and use the **CloudFormationStackARN** **Value** link to navigate to the CloudFormation stack and monitor the update progress.
 
 ![Navigate ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-navigate-cfn.png)
 
