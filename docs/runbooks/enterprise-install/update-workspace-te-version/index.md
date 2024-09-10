@@ -28,9 +28,13 @@ From the left navigation menu choose **Stacks**.
 
 ![Stacks Selection](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-select-stacks.png)
 
-search for the stack named **workspace**, then choose Update.
+search for the stack named **workspace**.
 
 ![Workspace Stack](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-select-workspace-stack.png)
+
+Then choose Update
+
+![Update Stack](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-select-update-stack.png)
 
 ## Step 3: Update Stack
 
