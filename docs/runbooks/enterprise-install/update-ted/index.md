@@ -42,13 +42,13 @@ The TED provisioned product is identifiable by a postfix that matches the databa
 
 ![Find TED](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-find-ted.png)
 
-Select **Actions** then select **Update**.
+From the **Actions** menu, select **Update**
 
 ![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-actions-update.png)
 
 ## Step 5: Find Version
 
-Sort the Product versions section by Created time (descending) to see the latest available version.
+Sort the Product versions section by **Created time** (descending) to see the latest available version.
 
 ![Find TED Version](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-find-versions.png)
 
@@ -82,7 +82,7 @@ You have initiated the installation of the new TED version. This triggers an upd
 > [!NOTE]
 > Depending on the changes selected, the database resource can remain in an updating state for an extended period of time. Viewing the state of the RDS instance(s) in the RDS web console can often provide some context about what is happening at any given time.
 
-Select the TED Provisioned Product, click the Outputs tab, and use the **CloudFormationStackARN** link to navigate to CloudFormation and monitor the update progress.
+Select the TED Provisioned Product, select the **Outputs** tab, and use the **CloudFormationStackARN** **Value** link to navigate to CloudFormation stack and monitor the update progress.
 
 ![Navigate ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-navigate-cfn.png)
 
