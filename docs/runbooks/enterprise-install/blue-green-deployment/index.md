@@ -1,22 +1,24 @@
 ---
-title: Blue Green Deployment
-sidebar_label: Blue Green Deployment
+title: Blue Green Deployment Trigger
+sidebar_label: Blue Green Deployment Trigger
 ---
 
 # Blue Green Deployment
 
 In this runbook, you will:
 
-- Use AWS Service Catalog to update (TEF/TED/TE) for Blue - Green deployment
+- Use AWS Service Catalog to update (TEF/TED/TE) for Blue - Green deployment trigger
 - Learn how to maintain cloud infrastructure up-to-date
 
-**Blue Green Deployment** Using a `Blue Green` deployment, changes SSM parameter overrides (e.g. IAM role ARNs) are not automatically detected by CloudFormation. Upgrades will recalculate the parameters, but if you wish to refresh you parameters without upgrading you can toggle this parameter. Simply changing it is enough to force the parameters to be re-read and recalculated.
+**Blue Green Deployment** Using a `Blue <-> Green` deployment, changes SSM parameter overrides (e.g. IAM role ARNs, ALB timeout, ECS AMI), those are not automatically detected by CloudFormation. Update will recalculate the parameters, but if you wish to refresh your parameters without upgrading, you can toggle this parameter. Simply changing it is enough to force the parameters to be re-read and recalculated. Updating deployment trigger from `blue <-> green` should trigger new Lambda deployment which means a cold restart of the Lambda functions.
 
-**Note**: Process remains same for TEF, TED and TE. This runbook illustrates the TEF stack.
+> [!NOTE]
+> The process remains the same for TEF, TED, and TE. This runbook illustrates the TEF stack. When applying a Blue-Green deployment, first update TEF, followed by TED, and then TE.
+
 
 ## Prerequisites
 
-- Access to the Guardrails AWS account with Administrator privileges.
+- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 
 ## Step 1: Access AWS Console
