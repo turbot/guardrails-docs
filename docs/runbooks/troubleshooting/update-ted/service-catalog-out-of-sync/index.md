@@ -53,7 +53,7 @@ The most common cause of this issue is that database storage has been increased 
 
 ![Update Complete](/images/docs/guardrails/runbooks/troubleshooting/update-ted/service-catalog-out-of-sync/update-complete.png)
 
-### Having Issues?
+### Facing Issues?
 
 If you're still facing issues, open a ticket at https://support.turbot.com and provide the following information:
 
