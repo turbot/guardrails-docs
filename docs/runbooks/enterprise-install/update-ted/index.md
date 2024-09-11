@@ -96,7 +96,7 @@ The TED CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indica
 
 ![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-cfn-complete.png)
 
-- [ ] The TED provisioned product status should change to `Available`.
+- [ ] The TED `Provisioned product` status should change to `Available`.
 
 ![TED Provisioned Product Complete Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-update-complete.png)
 

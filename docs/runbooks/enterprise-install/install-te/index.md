@@ -30,13 +30,13 @@ Select the **Products** section from the left navigation menu.
 
 ![Product Selection](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-product-selection.png)
 
-Select **Turbot Guardrails Enterprise** from the products list, then select **Launch Product**.
+Select **Turbot Guardrails Enterprise** from the products list, select **Launch Product**.
 
 ![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-launch-product.png)
 
 ## Step 3: Find Version
 
-Sort the Product versions section by Created time (descending) to see the latest available version.
+Sort the Product versions section by `Created time` (descending) to see the latest available version.
 
 ![Find Version](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-find-versions.png)
 
@@ -45,7 +45,7 @@ Sort the Product versions section by Created time (descending) to see the latest
 Select the desired TE version under **Product Versions**., then name the provisioned product.
 
 > [!NOTE]
-> When selecting a name for the provisioned product, it's typical to start with "te" and include the version number (e.g., te-5-45-1).
+> When selecting a name for the provisioned product, it is common practice to start with “te” and include the version number (e.g., te-5-45-1).
 
 ![Provisioned Product Naming](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-product-naming.png)
 
@@ -65,7 +65,7 @@ Select **Launch product**.
 
 You have initiated the installation of the new TE version. This triggers an update of several nested CloudFormation stacks.
 
-Select the TE Provisioned Product, click the Outputs tab, and use the **CloudFormationStackARN** link to navigate to CloudFormation and monitor the install progress.
+Select the TE Provisioned Product, click the **Outputs** tab, and use the **CloudFormationStackARN** **Value** link to navigate to CloudFormation and monitor the install progress.
 
 ![Navigate to CloudFormation](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-navigate-cfn.png)
 
@@ -79,7 +79,7 @@ The TE CloudFormation stack status should would be `CREATE_IN_PROGRESS` indicati
 
 ![CFN Create Complete](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-cfn-create-complete.png)
 
-- [ ] The TE provisioned product status should change to `Available`.
+- [ ] The TE `Provisioned product` status should change to `Available`.
 
 ![Installation Complete Verification](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-install-complete-status.png)
 
