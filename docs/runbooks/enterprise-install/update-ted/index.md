@@ -109,23 +109,21 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
-<!-- ### Stack Rollback Failure Due to Database State
-
-If the CloudFormation stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback. To resolve this, refer [Rollback Failure Due to Database State](/guardrails/docs/runbooks/troubleshooting/database-instance-not-in-available-state#database-instance-not-in-available-state). -->
-
 <!-- ### Permissions Issues
-
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
 - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
 
 You can refer to the updated  permission guide for [AWS Permissions for Turbot Guardrails Administrators](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
  -->
 
+<!-- ### Stack Rollback Failure Due to Database State
+If the CloudFormation stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback. To resolve this, refer [Rollback Failure Due to Database State](/guardrails/docs/runbooks/troubleshooting/database-instance-not-in-available-state#database-instance-not-in-available-state). -->
+
 |                                                         |
 | ------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [Permissions Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators) | If the current logged in user doesn't have permission to modify/update/create resources in the stack or Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
-| [Stack Rollback Failure Due to Database State](/guardrails/docs/runbooks/troubleshooting/database-instance-not-in-available-state#database-instance-not-in-available-state) | If the CloudFormation stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback.                                                 |
-| [Service Catalog Out of Sync with CloudFormation](/guardrails/docs/runbooks/troubleshooting/service-catalog-out-of-sync#service-catalog-out-of-sync-with-cloudformation) | If the Service Catalog Provisioned Product, CloudFormation Stack, or the physical RDS instance becomes out of sync.                                               |
+| [Permissions Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators) | If the current logged in user doesn't have permission to modify/update/create resources in the stack or Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software
+| [Stack Rollback Failure Due to Database State](/guardrails/docs/runbooks/troubleshooting/database-instance-not-in-available-state#database-instance-not-in-available-state) | If the CloudFormation stack attempts to roll back, but the database is in a state (Upgrading, Backing Up, etc.) that prevents successful rollback                                                |
+| [Service Catalog Out of Sync with CloudFormation](/guardrails/docs/runbooks/troubleshooting/service-catalog-out-of-sync#service-catalog-out-of-sync-with-cloudformation) | If the Service Catalog Provisioned Product, CloudFormation Stack, or the physical RDS instance becomes out of sync                                               |
 
 
 If you continue to encounter issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.
