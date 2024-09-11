@@ -19,7 +19,7 @@ When working with the [TED (Turbot Enterprise Database)](/guardrails/docs/refere
 
 ## Step 1: Check Provisioned Product Status
 
-While executing the [TED update](/guardrails/docs/runbooks/enterprise-install/update-ted#update-turbot-guardrails-enterprise-database-ted), the provisioned product in the Service Catalog changing to a `Tainted` status.
+While executing the [TED update](/guardrails/docs/runbooks/enterprise-install/update-ted#update-turbot-guardrails-enterprise-database-ted), check if the provisioned product in the Service Catalog changing to a `Tainted` status.
 
 ![Tainted Status](/images/docs/guardrails/runbooks/troubleshooting/service-catalog-out-of-sync/ted-tained-status.png)
 
@@ -41,12 +41,12 @@ The most common cause of this issue is an increase in database storage due to au
 - Compare the actual configuration settings of the RDS instance with the parameter values in the TED stack.
 - Update the TED stack to align with the actual configuration of the RDS instance.
 
-## Step 3: Move the CloudFormation Stack from FAILED to UPDATE_COMPLETE
+## Step 3: Move the CloudFormation Stack from FAILED to COMPLETE
 
-- You may find that the CloudFormation Stack does not allow updates, with the **Update** button `grayed` out. Any changes attempted during this state will fail since the stack cannot be updated.
-- Select the stack, select the `Stack action` dropdown button, and choose **Continue update rollback**.
-- A new window titled **Continue update rollback** will pop up.
-- Under the `Advanced Troubleshooting` section, select checkbox **HivePrimary** under `Resources to skip - optional`. This will skip the rollback operation on that resource.
+- If the CloudFormation stack does not allow updates, and the **Update** button is `grayed` out, this indicates that the stack is in a state that prevents updates. Any changes attempted while in this state will fail.
+- To resolve this, select the stack, then select the **Stack actions** dropdown button, and choose **Continue update rollback**.
+- A new window titled **Continue update rollback** will appear.
+- Under the `Advanced Troubleshooting` section, check the box next to **HivePrimary** under `Resources to skip - optional`. This action will `skip` the rollback for that particular resource.
 
 ![Continue Update Rollback](/images/docs/guardrails/runbooks/troubleshooting/service-catalog-out-of-sync/continue-update-rollback.png)
 
