@@ -576,6 +576,7 @@
         "link": "runbooks/enterprise-install",
         "items": [
           "runbooks/enterprise-install/install-te",
+          "runbooks/enterprise-install/install-tef",
           "runbooks/enterprise-install/update-ted",
           "runbooks/enterprise-install/update-tef",
           "runbooks/enterprise-install/update-workspace-te-version",
