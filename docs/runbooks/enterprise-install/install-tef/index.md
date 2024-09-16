@@ -19,7 +19,6 @@ The TEF CloudFormation stack creates and manages the networking and compute comp
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 - Available Domain name(s) and Valid ACM Certificate(s).
 
-
 ## Step 1: Access AWS Console
 
 Open the AWS Console and navigate to the Service Catalog service in the region where you wish to install TEF.
