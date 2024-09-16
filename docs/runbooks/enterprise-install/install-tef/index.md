@@ -98,7 +98,7 @@ Enter the **Region Code**. This is the unique code for this region in the multi-
 
 Select the desired values for **Turbot Handler Log Retention Days**, **Audit Trail Log Retention Days**, **Turbot Guardrails Process Log Objects Retention Days** and **Turbot Guardrails Mod Installation Data Retention Days** or keep the defaults.
 
-![Logging](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-product-parameter-logging1.png)
+![Logging](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-product-parameter-logging.png)
 
 
 ## Step 9: Configure Network  Option A - Created in this Stack
