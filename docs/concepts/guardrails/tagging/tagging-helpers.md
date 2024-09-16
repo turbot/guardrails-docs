@@ -95,7 +95,7 @@ Fixing incorrect keys and values is the most common tagging use case. The `trans
 
 ### transformMap(tags_map, rules) -> transformed_map
 
-Transforms `tags_map` based on `rules` and returns `transformed_map`; the `tags_map` paramater and the `transformed_map` return value are simple arrays of `key:value` pairs e.g.:
+Transforms `tags_map` based on `rules` and returns `transformed_map`; the `tags_map` parameter and the `transformed_map` return value are simple arrays of `key:value` pairs e.g.:
 
 ```json
 {

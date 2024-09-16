@@ -6,7 +6,7 @@ sidebar_label: Install TEF
 # Install Turbot Guardrails Enterprise Foundation (TEF)
 
 In this runbook, you will:
-- Use AWS Service Catalog to install Turbot Guardrails Enterprise Foundation (TEF)
+- Use AWS Service Catalog to install Turbot Guardrails Enterprise Foundation (TEF). This guide demonstrates the installation process using the default `Network Option A - Created in this Stack`, where Turbot Guardrails manages the creation of the VPC and related networking resources.
 - Monitor and troubleshoot the TEF install process.
 
 The [Turbot Guardrails Enterprise Foundation (TEF)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-foundation-tef) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.
@@ -18,6 +18,7 @@ The TEF CloudFormation stack creates and manages the networking and compute comp
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 - Available Domain name(s) and Valid ACM Certificate(s).
+
 
 ## Step 1: Access AWS Console
 
@@ -57,17 +58,30 @@ Select the desired TED version under **Product Versions**. Usually, you will wan
 
 ## Step 7: Configure Installation
 
+Table Option: (For Demo)
+
+| Parameters                                   | Description                                              |
+|----------------------------------------------|----------------------------------------------------------|
+| Installation Domain Name                     | Provide the base domain name for the installation.       |
+| Turbot Certificate ARN | ARN of an ACM certificate to be used in this region. |
+
+> [!NOTE]
+> The remaining parameters can be left with their default values for now.
+
+Text Option: (For Demo)
+
 Enter the **Installation Domain Name**. This is the base domain name for the installation. For example, turbot.mycompany.com. Workspaces will be setup as subdomains of the InstallationDomain in the formation. For example, dev.turbot.mycompany.com.
 
 > [!IMPORTANT]
 > If you elect to create a public API gateway, it will also be a subdomain of the installation domain (for example, external.mycompany.turbot.com).
 > Domain names CANNOT be shared across multiple TEF installs if the API Gateway is deployed. Attempting to do so will result in connection errors.
 
-Enter the **Turbot Certificate ARN** ARN of an ACM certificate to be used in this region. This must be a certificate with a name that matches the Installation Domain Name. If using wildcards, the certificate should include the Installation Domain Name and a wildcard. Else, the certificate should contain entries for the Installation Domain Name, all planned workspaces and any public API gateways.
+Enter the **Turbot Certificate ARN** ARN of an ACM certificate to be used in this region.
 
 > [!NOTE]
 > For environments where wildcard certs are not allowed, the certification should include the base Installation Domain Name, all workspace domain names and any public API gateways.
 
+<!--
 Select **Manage DNS records in Route 53**. If enabled, a version alias domain records will be created using Route 53 for the Installation Domain zone. Set to Disabled if using a custom DNS approach to versions.
 
 > [!NOTE]
@@ -76,11 +90,9 @@ Select **Manage DNS records in Route 53**. If enabled, a version alias domain re
 Enter the **Region Code**. This is the unique code for this region in the multi-region setup.
 
 > [!NOTE]
-> Ensure each region is different! Up to 3 regions may be configured separately: alpha, beta and gamma. No one region is more important than the others since work is evenly distributed and even the primary database may failover between them. Each region must be given a different node identifier from this list, allowing the stacks to be automatically coordinated for peering etc.
+> Ensure each region is different! Up to 3 regions may be configured separately: alpha, beta and gamma. We recommend to use alpha for the installation -->
 
-![Installation](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-installation.png)
-
-![Installation](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-installation0.png)
+![Installation](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-installation-1.png)
 
 ## Step 8: Configure Logging
 
@@ -88,34 +100,40 @@ Select the desired values for **Turbot Handler Log Retention Days**, **Audit Tra
 
 ![Logging](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-product-parameter-logging1.png)
 
-![Logging](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-product-parameter-logging.png)
 
-## Step 9: Configure Network
+## Step 9: Configure Network  Option A - Created in this Stack
 
-The Turbot Guardrails Enterprise Foundation setup can create the VPC to host Turbot. Alternatively, you can install Turbot into an existing VPC.
-
-### This Region [Option A - Created in this Stack]
+The Turbot Guardrails Enterprise Foundation setup can create the VPC to host Turbot Guardrails, when `Network  Option A` is selected for the installation.
 
 > [!NOTE]
-> To have TEF create the Turbot VPC, enter the required information in Network - This Region Option A - Created in this Stack and leave all fields in Network - This Region Option B Predefined blank!.
+> Leave all fields in `Network - This Region [Option B - Predefined]` as blank.
 
 
-Enter the CIDR ranges for the TEF Subnets. These CIDR ranges must all fall within the range specified for the VPC in the previous step. Any subnet with an empty CIDR will NOT be created.
+Table Option: (For Demo)
 
-**Public Subnets** will route through an Internet Gateway, allowing public IP addresses to be used. If you wish to access the Turbot Console via the Internet, on a public IP address, then you should configure one or more public subnets to host the load balancers.
+| Parameters                                   | Description                                              |
+|----------------------------------------------|----------------------------------------------------------|
+| Public Subnets                     | Provide CIDR ranges for the public subnets or continue with default value provided in the parameter.       |
+| Turbot Guardrails Subnets          | Provide CIDR ranges for the Guardrails subnets or continue with default value provided in the parameter.        |
+| Database Subnets                   | Provide CIDR ranges for the database subnets or continue with default value provided in the parameter.       |
+| NAT Gateway High Availability      | Default value is Single-AZ. For a production deployment, you should choose Multi-AZ      |
 
-**Turbot Subnets** are configured as private subnets that may route outbound to the internet via a NAT gateway, but not inbound. Turbot application servers and containers will be launched in these subnets.
+
+
+Text Option: (For Demo)
+
+**Public Subnets** will route through an Internet Gateway, allowing public IP addresses to be used. If you wish to access the Guardrails Console via the Internet, on a public IP address, then you should configure one or more public subnets to host the load balancers.
+
+**Turbot Guardrails Subnets** are configured as private subnets that may route outbound to the internet via a NAT gateway, but not inbound. Guardrails application servers and containers will be launched in these subnets.
 
 **Database Subnets** are configured as private subnets with no inbound or outbound access – only VPC traffic is routed to and from these subnets. These subnets can be used to host the Postgres database instances.
- 
-> [!IMPORTANT] 
+
+> [!IMPORTANT]
 > Any subnet with an empty CIDR will NOT be created. For each subnet type, there are 3 possible subnets that corresponds to 3 different availability zones. If you wish to create a 2 AZ network, only enter CIDRs for subnets #1 and #2.
 
 ![Network Created in Stack](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-network-create-in-stack.png)
 
-Enter the desired **NAT Gateway High Availability** configuration. For a production deployment, you should choose Multi-AZ.
-
-### This Region [Option B - Predefined]
+<!-- ### This Region [Option B - Predefined]
 
 > [!IMPORTANT]
 > Turbot requires outbound https to the Internet from the load balancer and application (Turbot) subnets. This can be routed through your proxy if desired. If using a proxy, you must also create VPC endpoints to allow fargate to access ECR API, CloudWatch Logs, ECR DKR and S3 AWS services.
@@ -128,7 +146,7 @@ Enter the predefined **Application (Turbot Guardrails) Subnets** where the Turbo
 
 Enter the predefined **Database Subnets** where the databases will be deployed. Defined as a comma separated list of subnet IDs. If you have selected a pre-defined VPC, you MUST specify Database Subnet IDs here.
 
-![Network Predefined](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-network-predefined.png)
+![Network Predefined](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-network-predefined.png) -->
 
 
 ### Load Balancer
@@ -143,11 +161,11 @@ Enter the **SSL Policy** for the ALB HTTPS listener.
 
 ### Proxy
 
-Enter the **HTTP_PROXY** and **HTTPS_PROXY** configuration used by the Turbot Guardrails application containers for HTTP and HTTPS requests, e.g. https://internal.proxy.com:2011 or http://internal.proxy.com:2011. Default is null (no proxy). 
+Enter the **HTTP_PROXY** and **HTTPS_PROXY** configuration used by the Turbot Guardrails application containers for HTTP and HTTPS requests, e.g. https://internal.proxy.com:2011 or http://internal.proxy.com:2011. Default is null (no proxy).
 
 Enter the **NO_PROXY** configuration used by the Turbot Guardrails application containers as exceptions to the HTTPS_PROXY and HTTP_PROXY settings, e.g. 169.254.169.254,169.254.170.2,localhost . Set this to 'null' if you do not wish to use a NO_PROXY configuration.
 
-> [!NOTE] 
+> [!NOTE]
 > Controls and calculated policies running in Lambda functions do not use the proxy configuration since they are outside the VPC.
 > The Javascript AWS SDK does not support sending some services through a proxy and not others. Access to AWS service endpoints must all go through the proxy or none.
 
@@ -155,7 +173,7 @@ Enter the **NO_PROXY** configuration used by the Turbot Guardrails application c
 
 ### Security Groups
 
-Enter the **Custom Outbound Security Group ID** which is a security group rule to be added to the Egress Rules for all turbot guardrails containers and VPC lambda functions. If you use an http proxy, you will need to add an egress rule to allow the containers to access it. You may also need outbound access for other infrastructure services, such as dns. 
+Enter the **Custom Outbound Security Group ID** which is a security group rule to be added to the Egress Rules for all turbot guardrails containers and VPC lambda functions. If you use an http proxy, you will need to add an egress rule to allow the containers to access it. You may also need outbound access for other infrastructure services, such as dns.
 
 Minimum Requirements
 - Ingress: None
