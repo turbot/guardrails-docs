@@ -79,4 +79,100 @@ Select **Enable Read Replica for this region**. If true, create a read replica f
 
 ![Database Advanced High Availability](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-database-advanced-high-availability.png)
 
-## Step 9: Configure Database - Advanced - High Availability
+## Step 9: Configure Database - Advanced - Engine
+
+Select **DB Engine** as `Postgres` and **DB Engine Parameter Group Family** as postgres15. Then, choose the supported **DB Engine Version** and **Read Replica DB Engine Version** from the dropdown list, and decide whether to enable **Allow major version upgrade** for RDS.
+
+![Database Advanced Engine](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-database-advanced-engine.png)
+
+## Step 10: Configure Database - Advanced - Storage
+
+Select the desired **Storage Type** based on your requirements. If unsure, GP3 is a reliable starting option. If you choose IO1, you'll need to specify the Provisioned IOPS (only applicable to the IO1 type). [Amazon documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-iops) for valid values and rations.
+
+![Database Advanced Storage](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-database-advanced-storage.png)
+
+## Step 11: Configure Database - Advanced - Encryption
+
+In the **Use AWS KMS DB Encryption** field, select either aws/rds to use the predefined AWS KMS key for RDS, or Hive CMK to create a customer-managed key specific to the hive (which is typically more secure and recommended). Similarly select the **Encryption method for Redis**.
+
+![Database Advanced Encryption](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-database-advanced-encryption.png)
+
+## Step 12: Configure Database - Advanced - Authentication
+
+The **Master User Name for DB** defaults to "master", leave the **MasterPassword** field blank if running TED for the first time, and later update it directly on the database if needed, then update the TED stack with the custom password; alternatively, you can choose to **Use AWS IAM for DB Access**, which is recommended as it eliminates the need to store or rotate secrets.
+
+![Database Advanced Authentication](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-database-advanced-authentication.png)
+
+## Step 13: Configure Database - Advanced - Backup & Snapshots
+
+It is recommended to enable **Deletion Protection** to protect database resources from deletion, by explicitly setting it to false. You may also set the Backup Retention Period to specify how many days automated backups will be retained, and choose whether to **Delete Automated Backups** when the primary instance is deleted (the recommended value is false).
+
+![Database Advanced Backups and Snapshots](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-database-advanced-backup-snapshot.png)
+
+## Step 14: Configure Database - Advanced - Logging
+
+Select the **Type of Statements to be Logged** and set the **Minimum Duration for Logging in ms** to define the threshold execution time above which statements will be logged. Then set the value to **Delete logs older than N minutes**.
+
+Enable or Disable **Performance Insights** for your database instances and set the **Maximum Concurrent Connections** along with the Alarm and Critical Alarm **Threshold for maximum number of concurrent connections**.
+
+![Database Advanced Logging](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-database-advanced-logging.png)
+
+## Step 15: Configure Cache
+
+Choose to **Use Elasticache** and select the desired values for **ElastiCache Version**, **Cache Node Type** and the **Cache Number Of Nodes**.
+
+![Cache](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-cache.png)
+
+## Step 16: Configure Advanced - Foundation Parameters and Overrides
+
+The Foundation Parameters allow the TED stack to use SSM parameters defined in the TEF stack. You should only change these values if you did not use the default Resource Name Prefix (turbot) in the TEF stack.
+
+![Foundation Parameters](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-adavanced-foundation-parameters.png)
+
+The Foundation Overrides allow you to override values defined in the TEF stack. You will likely want to leave these blank.
+
+## Step 17: Advanced - Infrastructure
+
+Select a **Resource Name Prefix** which will be added to all Turbot Guardrails resources. Because this prefix will be used across many resource types and different resource types have different name restrictions, you should avoid special characters and uppercase letters. This prefix should match the name prefix you used in the TEF stack.
+
+> [!NOTE]
+> It is HIGHLY RECOMMENDED that you use the default prefix! The TEF Stack will export the parameters that you have select to an SSM parameter, and they will use this prefix. Using the default will greatly simplify TE deployments and upgrades.
+
+![Advanced Infrastructure](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-advanced-infrastructure.png)
+
+## Step 18: Launch Product
+
+Select **Launch product**.
+
+![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-launch-product.png)
+
+## Step 19: Monitor Installation
+
+You have initiated the installation of the new TED version. This triggers an update of several nested CloudFormation stacks.
+
+The TED stack should be in the **CREATE_IN_PROGRESS** status.
+
+![Under Change Status](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-cfn-create-status.png)
+
+## Step 20: Review
+
+- [ ] The TEF CloudFormation stack status should change to `CREATE_COMPLETE` indicating the installation completed successfully.
+
+![CFN Create Complete](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-cfn-create-complete-status.png)
+
+- [ ] The TE `Provisioned product` status should change to `Available`.
+
+![Installation Complete Verification](/images/docs/guardrails/runbooks/enterprise-install/install-ted/install-ted-service-catalog-available-status.png)
+
+## Next Steps
+
+Please see the following resources to learn more about Turbot Guardrails Enterprise:
+
+- Learn more about [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
+- Learn more about [Updating TED](/guardrails/docs/runbooks/enterprise-install/update-ted).
+
+## Troubleshooting
+
+### Permissions Issues
+
+TODO
