@@ -102,7 +102,7 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
-### Permissions Issues
+<!-- ### Permissions Issues
 
 - Current logged in user doesn't have permission to modify/update/create resources in the stack.
 - Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
@@ -125,4 +125,9 @@ You can refer to the updated  permission guide for [AWS Permissions for Turbot G
 
 Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures. If the CloudFormation stack fails to update. Resolve the issue by referring to [Stack Update Fails](/guardrails/docs/runbooks/troubleshooting/update-tef/stack-update-fails#stack-update-fails).
 
-If you continue to encounter issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.
+If you continue to encounter issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently. -->
+
+| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Permission Issues                        | If the current logged-in user lacks permission to modify, update, or create resources in the stack, or if IAM roles or SCPs have changed, preventing built-in roles from accessing needed configuration settings.   | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators)             |
+| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |

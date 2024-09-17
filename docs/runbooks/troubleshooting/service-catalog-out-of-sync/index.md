@@ -106,7 +106,7 @@ Initiate Service Catalog [TED **Update**](/guardrails/docs/runbooks/enterprise-i
 
 ![Status Available in Service Catalog](/images/docs/guardrails/runbooks/troubleshooting/service-catalog-out-of-sync/service-catalog-status-available.png)
 
-## Step 8: Review CloudFormation Stack Status
+## Step 8: Review CloudFormation Stack
 
 ![Update Complete](/images/docs/guardrails/runbooks/troubleshooting/service-catalog-out-of-sync/update-complete.png)
 
