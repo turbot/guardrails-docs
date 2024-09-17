@@ -469,26 +469,26 @@
   },
   {
     "type": "category",
-    "id": "turbot.com",
-    "link": "turbot.com",
+    "id": "guardrails.turbot.com",
+    "link": "guardrails.turbot.com",
     "items": [
       {
         "type": "category",
         "id": "user",
-        "link": "turbot.com/user",
+        "link": "guardrails.turbot.com/user",
         "items": [
-          "turbot.com/user/sign-up",
-          "turbot.com/user/profile"
+          "guardrails.turbot.com/user/sign-up",
+          "guardrails.turbot.com/user/profile"
         ]
       },
       {
         "type": "category",
         "id": "organizations",
-        "link": "turbot.com/organizations",
+        "link": "guardrails.turbot.com/organizations",
         "items": [
-          "turbot.com/organizations/setup",
-          "turbot.com/organizations/team",
-          "turbot.com/organizations/profile"
+          "guardrails.turbot.com/organizations/setup",
+          "guardrails.turbot.com/organizations/team",
+          "guardrails.turbot.com/organizations/profile"
         ]
       }
     ]

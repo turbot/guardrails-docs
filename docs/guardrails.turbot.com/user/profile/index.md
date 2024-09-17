@@ -6,7 +6,7 @@ sidebar_label: Profile Management
 # Profile Management
 
 Similar to sites like GitHub.com, your basic organization profile is public on
-Turbot.com. It does not contain any private information.
+guardrails.turbot.com. It does not contain any private information.
 
 ## Manage your profile
 
@@ -20,4 +20,4 @@ To manage your public profile:
 
 ## See also
 
-- [Organizations](turbot.com/organizations)
+- [Organizations](guardrails.turbot.com/organizations)
