@@ -105,10 +105,7 @@
         "type": "category",
         "id": "console",
         "link": "guides/console",
-        "items": [
-          "guides/console/reports",
-          "guides/console/detail-pages"
-        ]
+        "items": ["guides/console/reports", "guides/console/detail-pages"]
       },
       {
         "type": "category",
@@ -131,9 +128,7 @@
         "type": "category",
         "id": "firehose",
         "link": "guides/firehose",
-        "items": [
-          "guides/firehose/pipelines"
-        ]
+        "items": ["guides/firehose/pipelines"]
       },
       "guides/graphql",
       {
@@ -198,26 +193,20 @@
             "type": "category",
             "id": "import-aws-account",
             "link": "integrations/aws/import-aws-account",
-            "items": [
-              "integrations/aws/import-aws-account/gov-cloud"
-            ]
+            "items": ["integrations/aws/import-aws-account/gov-cloud"]
           },
           {
             "type": "category",
             "id": "event-handlers",
             "link": "integrations/aws/event-handlers",
-            "items": [
-              "integrations/aws/event-handlers/poller"
-            ]
+            "items": ["integrations/aws/event-handlers/poller"]
           },
           "integrations/aws/services",
           {
             "type": "category",
             "id": "permissions",
             "link": "integrations/aws/permissions",
-            "items": [
-              "integrations/aws/permissions/user-mode"
-            ]
+            "items": ["integrations/aws/permissions/user-mode"]
           },
           "integrations/aws/security-hub",
           "integrations/aws/decommission"
@@ -264,9 +253,7 @@
             "type": "category",
             "id": "import",
             "link": "integrations/gcp/import-gcp-project",
-            "items": [
-              "integrations/gcp/import-gcp-project/service-accounts"
-            ]
+            "items": ["integrations/gcp/import-gcp-project/service-accounts"]
           },
           "integrations/gcp/services",
           "integrations/gcp/permissions",
@@ -275,9 +262,7 @@
             "type": "category",
             "id": "real-time-events",
             "link": "integrations/gcp/real-time-events",
-            "items": [
-              "integrations/gcp/real-time-events/event-pollers"
-            ]
+            "items": ["integrations/gcp/real-time-events/event-pollers"]
           }
         ]
       },
@@ -385,9 +370,7 @@
         "type": "category",
         "id": "faq/workspace-faq",
         "link": "faq/workspace-faq",
-        "items": [
-          "faq/workspace-faq/key_rotation"
-        ]
+        "items": ["faq/workspace-faq/key_rotation"]
       },
       "faq/guardrails-and-aws-scps"
     ]
@@ -436,9 +419,7 @@
         "type": "category",
         "id": "reference/terraform",
         "link": "reference/terraform",
-        "items": [
-          "reference/terraform/setup"
-        ]
+        "items": ["reference/terraform/setup"]
       },
       {
         "type": "category",
@@ -476,10 +457,7 @@
         "type": "category",
         "id": "user",
         "link": "turbot.com/user",
-        "items": [
-          "turbot.com/user/sign-up",
-          "turbot.com/user/profile"
-        ]
+        "items": ["turbot.com/user/sign-up", "turbot.com/user/profile"]
       },
       {
         "type": "category",
@@ -508,9 +486,7 @@
             "type": "category",
             "id": "pre-installation",
             "link": "enterprise/installation/pre-installation",
-            "items": [
-              "enterprise/installation/pre-installation/external-role"
-            ]
+            "items": ["enterprise/installation/pre-installation/external-role"]
           },
           "enterprise/installation/tef-installation",
           "enterprise/installation/ted-installation",
@@ -533,9 +509,7 @@
         "type": "category",
         "id": "restore",
         "link": "enterprise/restore",
-        "items": [
-          "enterprise/restore/disaster-recovery-exercise"
-        ]
+        "items": ["enterprise/restore/disaster-recovery-exercise"]
       },
       "enterprise/mod-cleanup",
       {
@@ -594,9 +568,7 @@
         "type": "category",
         "id": "configuring-guardrails",
         "link": "runbooks/configuring-guardrails",
-        "items": [
-          "runbooks/configuring-guardrails/auto-mod-update"
-        ]
+        "items": ["runbooks/configuring-guardrails/auto-mod-update"]
       },
       {
         "type": "category",
@@ -653,7 +625,6 @@
           "runbooks/troubleshooting/service-catalog-out-of-sync"
         ]
       }
-
     ]
   }
 ]
