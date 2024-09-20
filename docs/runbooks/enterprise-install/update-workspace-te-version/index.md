@@ -20,35 +20,35 @@ A Guardrails [Workspace](/guardrails/docs/reference/glossary#workspace) is updat
 
 Open the AWS Console and navigate to the CloudFormation service in the region where your workspace is deployed.
 
-![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-aws-console.png)
+![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/aws-cloudformation-console.png)
 
 ## Step 2: Select Guardrails Workspace Stack
 
 From the left navigation menu choose **Stacks**.
 
-![Stacks Selection](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-select-stacks.png)
+![Stacks Selection](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-stacks.png)
 
 search for the stack named **workspace**.
 
-![Workspace Stack](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-select-workspace-stack.png)
+![Workspace Stack](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-select-workspace-stack.png)
 
 Then choose Update
 
-![Update Stack](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-select-update-stack.png)
+![Update Stack](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-workspace-stack-select-update.png)
 
 ## Step 3: Update Stack
 
 Select **Use existing template** and click Next.
 
-![Select Existing Template](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-select-existing.png)
+![Select Existing Template](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-stack-use-existing-template.png)
 
 Modify the Version to match the new TE version number used in the TE stack (e.g., 5.45.4), then click Next.
 
-![Select Existing Template](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-modify-te-version.png)
+![Select Existing Template](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-stack-modify-te-version.png)
 
 Click Next on **Configure stack options**. Review the Changes under **Changeset Preview** and click Submit.
 
-![Review Changeset](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-review-update.png)
+![Review Changeset](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-select-submit-action.png)
 
 ## Step 4: Monitor Update
 
@@ -56,17 +56,17 @@ You have initiated the update of a new TE version in the Guardrails workspace. T
 
 [ ] The workspace CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indicating the update process is in progress.
 
-![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-in-progress.png)
+![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-workspace-stack-update-progress.png)
 
 ## Step 5: Review
 
 [ ] The workspace CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
-![Update Complete](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-complete.png)
+![Update Complete](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-workspace-stack-update-complete.png)
 
 [ ] Updated TE version should reflect in Guardrails console admin panel.
 
-![Guardrails Console Admin Panel](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/update-workspace-guardrails-console.png)
+![Guardrails Console Admin Panel](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/guardrails-console-verify-version.png)
 
 ## Next Steps
 
