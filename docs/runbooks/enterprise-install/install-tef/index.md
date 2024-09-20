@@ -23,37 +23,37 @@ The TEF CloudFormation stack creates and manages the networking and compute comp
 
 Open the AWS Console and navigate to the Service Catalog service in the region where you wish to install TEF.
 
-![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-aws-console.png)
+![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/install-tef/aws-service-catalog-console.png)
 
 ## Step 2: Navigate to Products
 
 Select the **Products** section from the left navigation menu.
 
-![Product Selection](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-service-catalog-select-products.png)
+![Product Selection](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-products.png)
 
 ## Step 3: Launch Product
 
 Select **Turbot Guardrails Enterprise Foundation** from the products list, select **Launch Product**.
 
-![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-launch-product.png)
+![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-launch-product-tef.png)
 
 ## Step 4: Name Provisioned Product
 
 Select a Name for the provisioned project. Typically, this will be "tef"
 
-![Name Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-name-provisioned-product.png)
+![Name Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-name-provisioned-product.png)
 
 ## Step 5: Find Version
 
 Sort the Product versions section by **Created time** (descending) to see the latest available version.
 
-![Find TEF Version](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-find-version.png)
+![Find TEF Version](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-find-tef-product-versions.png)
 
 ## Step 6: Select Version
 
-Select the desired TED version under **Product Versions**. Usually, you will want the latest version.
+Select the desired TEF version under **Product Versions**. Usually, you will want the latest version.
 
-![Select TEF Version](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-select-version.png)
+![Select TEF Version](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-select-tef-version.png)
 
 ## Step 7: Configure Installation
 
@@ -91,13 +91,13 @@ Enter the **Region Code**. This is the unique code for this region in the multi-
 > [!NOTE]
 > Ensure each region is different! Up to 3 regions may be configured separately: alpha, beta and gamma. We recommend to use alpha for the installation -->
 
-![Installation](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-installation-1.png)
+![Installation](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-installation.png)
 
 ## Step 8: Configure Logging
 
 Select the desired values for **Turbot Handler Log Retention Days**, **Audit Trail Log Retention Days**, **Turbot Guardrails Process Log Objects Retention Days** and **Turbot Guardrails Mod Installation Data Retention Days** or keep the defaults.
 
-![Logging](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-product-parameter-logging.png)
+![Logging](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-logging.png)
 
 
 ## Step 9: Configure Network  Option A - Created in this Stack
@@ -130,7 +130,7 @@ Text Option: (For Demo)
 > [!IMPORTANT]
 > Any subnet with an empty CIDR will NOT be created. For each subnet type, there are 3 possible subnets that corresponds to 3 different availability zones. If you wish to create a 2 AZ network, only enter CIDRs for subnets #1 and #2.
 
-![Network Created in Stack](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-network-create-in-stack.png)
+![Network Created in Stack](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-network-create-in-stack.png)
 
 <!-- ### This Region [Option B - Predefined]
 
@@ -145,7 +145,7 @@ Enter the predefined **Application (Turbot Guardrails) Subnets** where the Turbo
 
 Enter the predefined **Database Subnets** where the databases will be deployed. Defined as a comma separated list of subnet IDs. If you have selected a pre-defined VPC, you MUST specify Database Subnet IDs here.
 
-![Network Predefined](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-network-predefined.png) -->
+![Network Predefined](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-network-predefined.png) -->
 
 
 ### Load Balancer
@@ -156,7 +156,7 @@ Enter the **CIDR for inbound access from Clients / Users** for inbound traffic t
 
 Enter the **SSL Policy** for the ALB HTTPS listener.
 
-![Network Load Balancer](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-network-load-balancer.png)
+![Network Load Balancer](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-network-load-balancer.png)
 
 ### Proxy
 
@@ -168,7 +168,7 @@ Enter the **NO_PROXY** configuration used by the Turbot Guardrails application c
 > Controls and calculated policies running in Lambda functions do not use the proxy configuration since they are outside the VPC.
 > The Javascript AWS SDK does not support sending some services through a proxy and not others. Access to AWS service endpoints must all go through the proxy or none.
 
-![Network Proxy](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-network-proxy.png)
+![Network Proxy](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-network-proxy.png)
 
 ### Security Groups
 
@@ -192,13 +192,13 @@ Minimum Requirements
 
 > [!NOTE] For new deployments, if using TEF 1.35.0 or later, if you don't provide custom security group for Predefined VPC, Turbot Guardrails will create one for you, for previous versions, Turbot Guardrails won't.
 
-![Network Security Groups](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-network-security-groups.png)
+![Network Security Groups](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-network-security-groups.png)
 
 ## Step 10: Configure Advanced - Scaling
 
 Set **Autoscaling target CPU Utilisation** for ECS EC2 instances in Turbot Guardrails Autoscaling Group. The current recommended setting is 50.
 
-![Target CPU Utilisation](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-scaling-target-cpu-utilisation.png)
+![Target CPU Utilisation](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-scaling-target-cpu-utilisation.png)
 
 Set the **API Container Desired Scale Size** for the number of simultaneous API tasks that you want to run on the cluster. The current recommended setting is 1.
 
@@ -206,25 +206,25 @@ Set the **API Container Minimum Scale Size** to the minimum value that API Auto 
 
 Set the **API Container Maximum Scale Size** to the maximum value that API Auto Scaling can use to scale a target during a scaling activity. The current recommended setting is 2.
 
-![Advanced Scaling](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-advanced-scaling.png)
+![Advanced Scaling](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-advanced-scaling.png)
 
 ## Step 10: Configure Advanced - Deployment
 
 Select the portfolio lifecycle **Release Phase** for deployment (development, staging, or production). This should usually be "production".
 
-![Release Phase](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-deployment-release-phase.png)
+![Release Phase](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-deployment-release-phase.png)
 
 Select a **Resource Name Prefix** to be used for all resources created in the stack or use the default (turbot). Since this prefix will be used across many resource types and different resource types have different name restrictions, you should avoid special characters and uppercase letters.
 
 > [!IMPORTANT] It is HIGHLY RECOMMENDED that you use the default prefix! The TEF Stack will export the parameters that you have select to an SSM parameter, and they will use this prefix. Using the default will greatly simplify TE deployments and upgrades.
 
-![Resource Name Prefix](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-deployment-resource-name-prefix.png)
+![Resource Name Prefix](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-parameter-deployment-resource-name-prefix.png)
 
 ## Step 11: Launch Product
 
 Select **Launch product**.
 
-![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-final-launch-product.png)
+![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-launch-product-action.png)
 
 ## Step 12: Monitor Installation
 
@@ -232,17 +232,17 @@ You have initiated the installation of the new TEF version. This triggers an upd
 
 The TEF provisioned product should be in the **Under Change** status.
 
-![Under Change Status](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-status-under-change.png)
+![Under Change Status](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-under-change.png)
 
 ## Step 13: Review
 
 - [ ] The TEF CloudFormation stack status should change to `CREATE_COMPLETE` indicating the installation completed successfully.
 
-![CFN Create Complete](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-cfn-create-complete.png)
+![CFN Create Complete](/images/docs/guardrails/runbooks/enterprise-install/install-tef/cfn-tef-create-complete.png)
 
 - [ ] The TE `Provisioned product` status should change to `Succeeded`.
 
-![Installation Complete Verification](/images/docs/guardrails/runbooks/enterprise-install/install-tef/install-tef-succeeded-status.png)
+![Installation Complete Verification](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-tef-succeeded.png)
 
 ## Next Steps
 
