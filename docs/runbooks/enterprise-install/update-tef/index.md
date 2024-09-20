@@ -22,13 +22,13 @@ The TEF CloudFormation stack creates and manages the networking and compute comp
 
 Open the AWS Console and navigate to the Service Catalog service in the region where TEF is deployed.
 
-![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-aws-console.png)
+![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-tef/aws-service-catalog-console.png)
 
 ## Step 2: Navigate Provisioned Products
 
 Choose **Provisioned Products** from the left navigation menu.
 
-![Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-service-catalog.png)
+![Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/update-tef/service-catalog-provisioned-products.png)
 
 ## Step 3: View Provisioned Products
 
@@ -101,31 +101,6 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 - Learn more about [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
 
 ## Troubleshooting
-
-<!-- ### Permissions Issues
-
-- Current logged in user doesn't have permission to modify/update/create resources in the stack.
-- Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
-
-You can refer to the updated  permission guide for [AWS Permissions for Turbot Guardrails Administrators](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
-
-### Network Issues
-When installing Turbot into an existing VPC, custom CloudFormation stack resources interact with AWS APIs. Correct network configuration is crucial. You can refer to the updated  networking guide for [Managing Network Configurations with Stacks](/guardrails/docs/enterprise/installation/pre-installation#custom-network-pre-install-checklist).
-
-### Permissions Issues
-
-Insufficient user privileges can prevent stack modifications.
-
-- Current logged in user doesn't have permission to modify/update/create resources in the stack.
-- Existing IAM roles have been changed or new SCPs added that prevent the built-in roles from having access needed to reconfigure the software.
-
-You can refer to the updated  permission guide for [AWS Permissions for Turbot Guardrails Administrators](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators).
-
-### Stack Update Fails
-
-Identifying the initial error in a CloudFormation template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures. If the CloudFormation stack fails to update. Resolve the issue by referring to [Stack Update Fails](/guardrails/docs/runbooks/troubleshooting/update-tef/stack-update-fails#stack-update-fails).
-
-If you continue to encounter issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently. -->
 
 | Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|

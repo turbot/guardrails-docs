@@ -18,64 +18,83 @@ TED is the database layer of a Turbot Guardrails Enterprise deployment. Creates 
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS Console, Service Catalog and CloudFormation services.
 
-## Step 1: Access AWS Console
+## Step 1: Access RDS Service
+
+>[!CAUTION]
+> Before initiating the TED update involving RDS changes, ensure that the RDS instance is in the `Available` status. Any other status may result in potential errors or delays during the TED stack update for the RDS instance.
+
+Open the AWS Console and navigate to the RDS service in the region where TED is deployed.
+
+![Access RDS Console](/images/docs/guardrails/runbooks/enterprise-install/update-ted/rds-console-access.png)
+
+## Step 2: Find RDS Instance
+
+![Find RDS Instance](/images/docs/guardrails/runbooks/enterprise-install/update-ted/rds-find-instance.png)
+
+## Step 3: Check RDS Instance Status
+
+Check the DB instance `Status` in `Available` state.
+
+![RDS Instance Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/rds-instance-status-available.png)
+
+## Step 4: Access AWS Service Catalog
 
 Open the AWS Console and navigate to the Service Catalog service in the region where TED is deployed.
 
-![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-aws-console.png)
+![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/update-ted/aws-service-catalog-console.png)
 
-## Step 2: Navigate Provisioned Products
+## Step 5: Navigate Provisioned Products
 
 Choose **Provisioned Products** from the left navigation menu.
 
-![Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-service-catalog.png)
+![Provisioned Products](/images/docs/guardrails/runbooks/enterprise-install/update-ted/service-catalog-provisioned-products.png)
 
-## Step 3: View Provisioned Products
+## Step 6: View Provisioned Products
 
 Change the **Access Filter** in AWS Service Catalog from **User** to **Account** to view all TED provisioned products across the entire account.
 
-![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-access-filter.png)
+![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-ted/service-catalog-select-access-filter.png)
 
-## Step 4: Find Provisioned Product
+## Step 7: Find Provisioned Product
 
 The TED provisioned product is identifiable by a postfix that matches the database Hive name.
 
-![Find TED](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-find-ted.png)
+![Find TED](/images/docs/guardrails/runbooks/enterprise-install/update-ted/service-catalog-find-provisioned-product-ted.png)
 
 From the **Actions** menu, select **Update**
 
-![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-actions-update.png)
+![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/service-catalog-actions-update.png)
 
-## Step 5: Find Version
+## Step 8: Find Version
 
 Sort the Product versions section by **Created time** (descending) to see the latest available version.
 
-![Find TED Version](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-find-versions.png)
+![Find TED Version](/images/docs/guardrails/runbooks/enterprise-install/update-ted/service-catalog-find-ted-product-versions.png)
 
-## Step 6: Select Version
+## Step 9: Select Version
 
 Select the desired TED version under **Product Versions**.
 
-![Select TED Version](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-select-version.png)
+![Select TED Version](/images/docs/guardrails/runbooks/enterprise-install/update-ted/service-catalog-select-ted-version.png)
 
-## Step 7: Verify Parameters
+## Step 10: Verify Parameters
 
 The values of the parameters will initially be set to match previous run of the product. Review the [release notes](https://turbot.com/guardrails/changelog?tag=ted) for the TED versions between the existing version and the version you are updating to, and identify any new parameters that require a decision about how they will be set. Generally, new parameters will be created in a way to have the least disruption on an existing environment, but care should still be taken to understand these and read any new parameter descriptions to understand their impact.
 
-![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-verify-parameters.png)
+![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/update-ted/service-catalog-ted-verify-parameters.png)
 
-> [!NOTE]
+> [!CAUTION]
 > A frequent issue arises when databases employ auto-scaling storage. Discrepancies in storage figures between the stack and the product can occur if the database has expanded since installation.
 > Upgrading to a major version can introduce significant changes and potential risks. You should not upgrade to a new major version without first consulting with Turbot Support.
-> To ensure cost-efficiency, review and update instance types and Elasticache Versions at least annually to align with the latest supported options.
+> To ensure cost-efficiency, review and update instance types and ElastiCache Versions at least annually to align with the latest supported options.
 
-## Step 8: Update TED
+## Step 11: Update TED
 
 After verifying any changes to existing parameters, select **Update** at the bottom of the screen.
 
-![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-select-update.png)
+![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-ted/service-catalog-ted-update-action.png)
 
-## Step 9: Monitor Update
+## Step 12: Monitor Update
 
 You have initiated the installation of the new TED version. This triggers an update of several nested CloudFormation stacks.
 
@@ -84,21 +103,21 @@ You have initiated the installation of the new TED version. This triggers an upd
 
 Select the TED Provisioned Product, select the **Outputs** tab, and use the **CloudFormationStackARN** **Value** link to navigate to the CloudFormation stack and monitor the update progress.
 
-![Navigate ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-navigate-cfn.png)
+![Navigate ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/service-catalog-update-ted-navigate-to-cfn.png)
 
 The TED CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indicating the update process is in progress.
 
-![Update Progress ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-update-cfn-progress.png)
+![Update Progress ](/images/docs/guardrails/runbooks/enterprise-install/update-ted/cfn-ted-update-progress.png)
 
-## Step 10: Review
+## Step 13: Review
 
 - [ ] The TED CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
-![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-cfn-complete.png)
+![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/cfn-ted-update-complete.png)
 
 - [ ] The TED `Provisioned product` status should change to `Available`.
 
-![TED Provisioned Product Complete Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/update-ted-update-complete.png)
+![TED Provisioned Product Complete Status](/images/docs/guardrails/runbooks/enterprise-install/update-ted/service-catalog-ted-update-complete.png)
 
 ## Next Steps
 
