@@ -22,23 +22,23 @@ TE is application layer of a Turbot Guardrails Enterprise deployment. Relies on 
 
 Open the AWS Console and navigate to the Service Catalog service in the region to deploy TE.
 
-![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-aws-console.png)
+![AWS Console Home Page](/images/docs/guardrails/runbooks/enterprise-install/install-te/aws-service-catalog-console.png)
 
 ## Step 2: Navigate to Products
 
 Select the **Products** section from the left navigation menu.
 
-![Product Selection](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-product-selection.png)
+![Product Selection](/images/docs/guardrails/runbooks/enterprise-install/install-te/service-catalog-products.png)
 
 Select **Turbot Guardrails Enterprise** from the products list, select **Launch Product**.
 
-![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-launch-product.png)
+![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-te/service-catalog-launch-product-te.png)
 
 ## Step 3: Find Version
 
 Sort the Product versions section by `Created time` (descending) to see the latest available version.
 
-![Find Version](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-find-versions.png)
+![Find Version](/images/docs/guardrails/runbooks/enterprise-install/install-te/service-catalog-find-te-product-versions.png)
 
 ## Step 4: Name Provisioned Product
 
@@ -47,19 +47,19 @@ Select the desired TE version under **Product Versions**., then name the provisi
 > [!NOTE]
 > When selecting a name for the provisioned product, it is common practice to start with “te” and include the version number (e.g., te-5-45-1).
 
-![Provisioned Product Naming](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-product-naming.png)
+![Provisioned Product Naming](/images/docs/guardrails/runbooks/enterprise-install/install-te/service-catalog-name-provisioned-product.png)
 
 ## Step 5: Verify Parameters
 
 The parameters for the TE product are derived from settings chosen earlier during the TEF install, so it is rare that any of the existing parameter values need to be modified. Unless directed to by Turbot support you may safely scroll to the bottom of the parameter list.
 
-![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-parameters-verification.png)
+![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/install-te/service-catalog-te-verify-parameters.png)
 
 ## Step 6: Launch Product
 
 Select **Launch product**.
 
-![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-launch.png)
+![Launch Product](/images/docs/guardrails/runbooks/enterprise-install/install-te/service-catalog-te-launch-product-action.png)
 
 ## Step 7: Monitor Installation
 
@@ -67,21 +67,21 @@ You have initiated the installation of the new TE version. This triggers an upda
 
 Select the TE Provisioned Product, click the **Outputs** tab, and use the **CloudFormationStackARN** **Value** link to navigate to CloudFormation and monitor the install progress.
 
-![Navigate to CloudFormation](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-navigate-cfn.png)
+![Navigate to CloudFormation](/images/docs/guardrails/runbooks/enterprise-install/install-te/service-catalog-install-te-navigate-to-cfn.png)
 
 The TE CloudFormation stack status should would be `CREATE_IN_PROGRESS` indicating the install process is in progress.
 
-![Install Progress](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-install-cfn-progress.png)
+![Install Progress](/images/docs/guardrails/runbooks/enterprise-install/install-te/cfn-install-te-update-progress.png)
 
 ## Step 8: Review
 
 - [ ] The TE CloudFormation stack status should change to `CREATE_COMPLETE` indicating the installation completed successfully.
 
-![CFN Create Complete](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-cfn-create-complete.png)
+![CFN Create Complete](/images/docs/guardrails/runbooks/enterprise-install/install-te/cfn-install-te-update-complete.png)
 
 - [ ] The TE `Provisioned product` status should change to `Available`.
 
-![Installation Complete Verification](/images/docs/guardrails/runbooks/enterprise-install/install-te/install-te-install-complete-status.png)
+![Installation Complete Verification](/images/docs/guardrails/runbooks/enterprise-install/install-te/service-catalog-te-install-complete.png)
 
 ## Next Steps
 
