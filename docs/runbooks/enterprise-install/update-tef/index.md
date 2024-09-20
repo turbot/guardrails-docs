@@ -32,31 +32,31 @@ Choose **Provisioned Products** from the left navigation menu.
 
 ## Step 3: View Provisioned Products
 
-Change the **Access Filter** in AWS Service Catalog from **User** to **Account** to view all TED provisioned products across the entire account.
+Change the **Access Filter** in AWS Service Catalog from **User** to **Account** to view all TEF provisioned products across the entire account.
 
-![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-ted/ted-update-access-filter.png)
+![Access Filter](/images/docs/guardrails/runbooks/enterprise-install/update-tef/service-catalog-select-access-filter.png)
 
 ## Step 4: Select Provisioned Product
 
 Select the TEF provisioned product from the list.
 
-![Select TEF](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-select-tef.png)
+![Select TEF](/images/docs/guardrails/runbooks/enterprise-install/update-tef/service-catalog-find-provisioned-product-tef.png)
 
 Select **Actions** menu, select **Update**
 
-![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-actions-update.png)
+![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-tef/service-catalog-actions-update.png)
 
 ## Step 5: Find Version
 
 Sort the Product versions section by `Created time` (descending) to see the latest available version.
 
-![Sort TEF Version](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-version-sorting.png)
+![Sort TEF Version](/images/docs/guardrails/runbooks/enterprise-install/update-tef/service-catalog-find-tef-product-versions.png)
 
 ## Step 6: Select Version
 
 Select the desired TEF version under **Product Versions**.
 
-![Select TEF Version](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-select-version.png)
+![Select TEF Version](/images/docs/guardrails/runbooks/enterprise-install/update-tef/service-catalog-select-tef-version.png)
 
 ## Step 7: Verify Parameters
 
@@ -64,13 +64,13 @@ The values of the parameters will initially be set to match previous run of the 
 
 Generally, new parameters will be created in a way to have the least disruption on an existing environment, but care should still be taken to understand these and read any new parameter descriptions to understand their impact.
 
-![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-verify-parameters.png)
+![Parameters Verification](/images/docs/guardrails/runbooks/enterprise-install/update-tef/service-catalog-tef-verify-parameters)
 
 ## Step 8: Update TEF
 
 After verifying any changes to existing parameters, select **Update** at the bottom of the screen.
 
-![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-select-update.png)
+![Select Update](/images/docs/guardrails/runbooks/enterprise-install/update-tef/service-catalog-tef-update-action.png)
 
 ## Step 9: Monitor Update
 
@@ -78,21 +78,21 @@ You have initiated the installation of the new TEF version. This triggers an upd
 
 Select the TEF Provisioned Product, click the `Outputs` tab, and use the `CloudFormationStackARN` link to navigate to CloudFormation and monitor the update progress.
 
-![Navigate To CFN](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-navigate-cfn.png)
+![Navigate To CFN](/images/docs/guardrails/runbooks/enterprise-install/update-tef/service-catalog-update-tef-navigate-to-cfn.png)
 
 - [ ] Verify TEF stack status transitions to `UPDATE_IN_PROGRESS` upon modification and review the Events tab for expected parameter/resource updates.
 
-![Verify CFN Status](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-cfn-stack-update.png)
+![Verify CFN Status](/images/docs/guardrails/runbooks/enterprise-install/update-tef/cfn-tef-update-progress.png)
 
 ## Step 10: Review
 
 - [ ] The TEF CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
-![CFN Update Complete](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-cfn-update-complete.png)
+![CFN Update Complete](/images/docs/guardrails/runbooks/enterprise-install/update-tef/cfn-tef-update-complete.png)
 
 - [ ] The TEF Provisioned Product status should change to `Available`.
 
-![TEF Provisioned Product Status](/images/docs/guardrails/runbooks/enterprise-install/update-tef/tef-update-update-complete.png)
+![TEF Provisioned Product Status](/images/docs/guardrails/runbooks/enterprise-install/update-tef/service-catalog-tef-update-complete.png)
 
 ## Next Steps
 
