@@ -21,13 +21,13 @@ In Guardrails, policies provide:
 Guardrails Policies can be managed using the Guardrails UI, Guardrails API or software
 configuration management tools.
 
-The [v5 mods directory](mods/) is an invaluable resource for looking up policy
+The [v5 mods directory](https://hub.guardrails.turbot.com/#mods) is an invaluable resource for looking up policy
 URIs, policy values and policy defaults. (A free, self-registered account is
 required.)
 
 A **control objective** is a business need, for example at rest enforcement for
-[S3](mods/aws/aws-s3), [EC2](mods/aws/aws-ec2/), and
-[RDS](mods/aws/aws-rds/). Note that a control objective may require
+[S3](https://hub.guardrails.turbot.com/mods/aws/mods/aws-s3), [EC2](https://hub.guardrails.turbot.com/mods/aws/mods/aws-ec2/), and
+[RDS](https://hub.guardrails.turbot.com/mods/aws/mods/aws-rds/). Note that a control objective may require
 one or many policies to fully implement.
 
 ## Key Concepts

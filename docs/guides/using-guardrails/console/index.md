@@ -103,7 +103,7 @@ a list of policy packs if there are any in the environment.
 Policies make assertions about how a particular resource should be configured.
 
 Check out the [Policies Docs](concepts/policies) for more detailed information.
-The [Mods Repository](mods) (free registration required) has documentation about
+The [Mods Repository](https://hub.guardrails.turbot.com/#mods) (free registration required) has documentation about
 which policies are available and the behavior of those policies, sorted by mod
 type.
 
@@ -177,7 +177,7 @@ installed mods.
 
 ![admin](/images/docs/guardrails/turbot_example_company_admin.png)
 
-Check out the [Mods docs](mods) for more information.
+Check out the [Mods docs](https://hub.guardrails.turbot.com/#mods) for more information.
 
 Tip: To the left of each mod, you can click the green check, red circle or gray
 question mark to jump straight to the state of the `Mod Installed control` for

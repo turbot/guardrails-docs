@@ -47,7 +47,7 @@ A few steps must be completed before an account can be imported into a Guardrail
   allows you to grant access to Guardrails without sharing security credentials like
   passwords or other secrets.
 - The `aws` mod installed. This mod holds the resource definition for an AWS
-  Account. Additional mods may be desired. Remember that [Mods](mods) enable
+  Account. Additional mods may be desired. Remember that [Mods](https://hub.guardrails.turbot.com/#mods) enable
   Guardrails to discovery and manage for various AWS services. If the mod isn't installed for a particular service,
   Guardrails can't see those resources. Refer to the  [Recommended Starting Mods](mods#recommended-starting-mods) for
   more information.

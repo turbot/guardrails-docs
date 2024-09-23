@@ -49,7 +49,7 @@ Note: You can search for any policy by its name for this example.
 
 Check out the other subtabs while viewing the policy setting to get an idea of what you can find. Once the policy is created, it will immediately take effect on relevant resources. Click the **Controls** tab at the top, then do a similar search as in step 2 (e.g. AWS S3 Versioning, Azure Storage Access Tier, or GCP Storage Versioning). Select the result then click the **Controls** subtab to see the result of setting this new policy!
 
-This is just an example of the power of Turbot Guardrails. To find a full list of policies (as well as controls and resource types) for any mod (for example, aws-s3, azure-storage, or gcp-storage), head on over to the [Mods](mods) page, search for the mod, then click the **Inspect** tab.
+This is just an example of the power of Turbot Guardrails. To find a full list of policies (as well as controls and resource types) for any mod (for example, aws-s3, azure-storage, or gcp-storage), head on over to the [Mods](https://hub.guardrails.turbot.com/#mods) page, search for the mod, then click the **Inspect** tab.
 
 For more complex examples, however, we need to use what are called **Calculated Policies**.
 

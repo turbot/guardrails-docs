@@ -24,7 +24,7 @@ Resource types are defined in a type hierarchy.
 Note that the resource type hierarchy is separate and distinct from the
 [Resource Hierarchy](hierarchy).
 
-Resource types are defined in [Mods](mods).
+Resource types are defined in [Mods](https://hub.guardrails.turbot.com/#mods).
 
 ## Resource Categories
 

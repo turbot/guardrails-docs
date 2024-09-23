@@ -23,7 +23,7 @@ Turbot.
 - [Active Directory](guides/azure/import/active-directory)
 - [Subscriptions](guides/azure/import/subscription)
 
-Remember that [Mods](mods) enable Turbot to work in the cloud environment. Refer
+Remember that [Mods](https://hub.guardrails.turbot.com/#mods) enable Turbot to work in the cloud environment. Refer
 to the [Recommended Starting Mods](mods#recommended-starting-mods) for more
 information.
 

@@ -29,7 +29,7 @@ the <code>AWS > S3 > Bucket</code> resource type and has child policies such as 
 Approved > Regions</code>.
 </div>
 
-Policy types are defined in [Mods](mods).
+Policy types are defined in [Mods](https://hub.guardrails.turbot.com/#mods).
 
 ### Policy Categories
 

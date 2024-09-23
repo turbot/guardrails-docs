@@ -91,7 +91,7 @@ setting the following custom option:
 Once the TEF, TED, and TE stacks are successful and in the OK state, the
 Workspace stack can be configured and subsequent post installation steps taken
 care of. Post installation steps can include updating internal DNS records,
-[installing and updating mods](mods) and
+[installing and updating mods](https://hub.guardrails.turbot.com/#mods) and
 [creating a new directory](guides/directories) for authentication.
 
 - [Guide to install the Workspace Manager](enterprise/installation/workspace-manager)

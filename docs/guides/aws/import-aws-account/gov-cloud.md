@@ -75,18 +75,18 @@ suggested mods to install.
 
 Recommended Mods:
 
-1. [aws](mods/aws/aws)
-2. [aws-iam](mods/aws/aws-iam)
-3. [aws-kms](mods/aws/aws-kms)
-4. [aws-ec2](mods/aws/aws-ec2)
+1. [aws](https://hub.guardrails.turbot.com/mods/aws/mods/aws)
+2. [aws-iam](https://hub.guardrails.turbot.com/mods/aws/mods/aws-iam)
+3. [aws-kms](https://hub.guardrails.turbot.com/mods/aws/mods/aws-kms)
+4. [aws-ec2](https://hub.guardrails.turbot.com/mods/aws/mods/aws-ec2)
 5. aws-vpc-\*
-   - [aws-vpc-core](mods/aws/aws-vpc-core)
-   - [aws-vpc-internet](mods/aws/aws-vpc-internet)
-   - [aws-vpc-connect](mods/aws/aws-vpc-connect)
-   - [aws-vpc-security](mods/aws/aws-vpc-security)
-6. [aws-sns](mods/aws/aws-sns)
-7. [aws-cloudtrail](mods/aws/aws-cloudtrail)
-8. [aws-events](mods/aws/aws-events)
+   - [aws-vpc-core](https://hub.guardrails.turbot.com/mods/aws/mods/aws-vpc-core)
+   - [aws-vpc-internet](https://hub.guardrails.turbot.com/mods/aws/mods/aws-vpc-internet)
+   - [aws-vpc-connect](https://hub.guardrails.turbot.com/mods/aws/mods/aws-vpc-connect)
+   - [aws-vpc-security](https://hub.guardrails.turbot.com/mods/aws/mods/aws-vpc-security)
+6. [aws-sns](https://hub.guardrails.turbot.com/mods/aws/mods/aws-sns)
+7. [aws-cloudtrail](https://hub.guardrails.turbot.com/mods/aws/mods/aws-cloudtrail)
+8. [aws-events](https://hub.guardrails.turbot.com/mods/aws/mods/aws-events)
 
 ## Importing an AWS GovCloud or China account into a Guardrails folder
 

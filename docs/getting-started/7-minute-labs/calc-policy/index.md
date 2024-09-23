@@ -170,7 +170,7 @@ which _this bucket resides_. Likewise, you may use `account` and `folder` to get
 information about account and folder above the bucket in the hierarchy.
 
 You can discover the schema for these resources via auto-complete, or by viewing
-the schema definition in the **Inspect** tab of the [mod documentation](mods).
+the schema definition in the **Inspect** tab of the [mod documentation](https://hub.guardrails.turbot.com/#mods).
 The `bucket` query refers to the
 [S3 Bucket Schema](mods/turbot/aws-s3/inspect#/definitions/bucket), as an
 example.
@@ -215,4 +215,4 @@ CMDB!
 - [Turbot Guardrails Filter Language Reference](reference/filter)
 - [Managing Policies Guide](guides/managing-policies)
 - [Policy Settings in 7 minutes](7-minute-labs/set-policy)
-- [Mod Documentation](mods)
+- [Mod Documentation](https://hub.guardrails.turbot.com/#mods)
