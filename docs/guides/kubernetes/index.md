@@ -19,9 +19,8 @@ Turbot Guardrails is deeply integrated with [Kubernetes](https://kubernetes.io/)
 
 ## Further Reading
 
-- Explore [Kubernetes Mods](mods/kubernetes/)
-- Explore [ServiceNow Kubernetes Mods](mods/servicenow/servicenow-kubernetes)
-- Explore [osquery Mods](mods/turbot/osquery)
+- Explore [Kubernetes Mods](https://hub.guardrails.turbot.com/mods/kubernetes/mods)
+- Explore [ServiceNow Kubernetes Mods](https://hub.guardrails.turbot.com/mods/servicenow/mods?q=kube)
 - Review the announcement posts:
   - [Kubernetes Security Posture Management](https://turbot.com/guardrails/blog/2024/05/kubernetes-security-posture-management)
   - [Real-time Kubernetes discovery for ServiceNow CMDB](https://turbot.com/guardrails/blog/2024/05/servicenow-kubernetes-discovery)

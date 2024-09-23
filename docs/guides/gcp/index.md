@@ -32,7 +32,6 @@ Turbot Guardrails is deeply integrated with
 
 ## Further Reading
 
-- Explore [GCP Mods](mods/gcp/)
-- Set up Guardrails GCP permissions/services with
-  [Terraform GCP baselines](https://github.com/turbot/guardrails-samples/tree/master/baselines/gcp)
-- Learn more about [permissions in Guardrails ](concepts/iam/permissions)
+- Explore [GCP Mods](https://hub.guardrails.turbot.com/mods/gcp/mods)
+- Set up Guardrails [GCP Policies](https://hub.guardrails.turbot.com/policy-packs?providers=gcp)
+- Learn more about [permissions in Guardrails](concepts/iam/permissions)

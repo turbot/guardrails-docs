@@ -24,11 +24,11 @@ Since its inception, Guardrails has deeply integrated with
 
 ## Getting started with Guardrails for AWS
 
-1. [Import an AWS Account](integrations/aws/import-aws-account) into a Guardrails  Folder.
-1. [Set up the AWS Event Handlers](integrations/aws/event-handlers) to configure real-time
+1. [Import an AWS Account](guides/aws/import-aws-account) into a Guardrails  Folder.
+1. [Set up the AWS Event Handlers](guides/aws/event-handlers) to configure real-time
    events.
-1. [Enable AWS Services](integrations/aws/services) that you will use.
-1. [Configure Permissions Policies](integrations/aws/permissions) to allow Guardrails to manage
+1. [Enable AWS Services](guides/aws/services) that you will use.
+1. [Configure Permissions Policies](guides/aws/permissions) to allow Guardrails to manage
    AWS permissions for your users.
 
 ## Security Hub
@@ -41,7 +41,6 @@ about Guardrails controls for their account.
 
 ## Further Reading
 
-- Explore [AWS Mods](/mods/)
-- Set up Guardrails AWS policies with
-  [Terraform Control Objectives](https://github.com/turbot/guardrails-samples/tree/master/control_objectives)
+- Explore [AWS Mods](https://hub.guardrails.turbot.com/mods/aws/mods)
+- Set up Guardrails [AWS policies] (https://hub.guardrails.turbot.com/policy-packs?providers=aws)
 - Learn more about [permissions in Guardrails](concepts/iam/permissions)
