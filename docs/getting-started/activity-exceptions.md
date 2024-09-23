@@ -98,9 +98,9 @@ This concludes the guided tour of Guardrails! We highly recommend reviewing addi
   - [Policy Pack Guide](guides/policy-packs)
 - Turbot Guardrails Permissions (RBAC):
   - [Permissions Concepts](concepts/iam/permissions)
-  - [Managing AWS Permissions](integrations/aws/permissions)
-  - [Managing Azure Permissions](integrations/azure/permissions)
-  - [Managing GCP Permissions](integrations/gcp/permissions)
+  - [Managing AWS Permissions](guides/aws/permissions)
+  - [Managing Azure Permissions](guides/azure/permissions)
+  - [Managing GCP Permissions](guides/gcp/permissions)
 
 ### Developer Focused
 

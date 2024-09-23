@@ -149,7 +149,7 @@ Some organizations have automation to tag new resources and want to restrict
 users who are not admins from adding, removing, or changing tags. By default,
 tagging changes are allowed at the `Operator` level.
 
-We will leverage [Permission Modifiers](integrations/aws/permissions#modifiers)
+We will leverage [Permission Modifiers](guides/aws/permissions#modifiers)
 to restrict the subset of ec2 permissions which allow changes relating to tags.
 
 **AWS > EC2 > Permissions > Levels > Modifiers**: This policy accepts an array

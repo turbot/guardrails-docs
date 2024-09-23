@@ -69,7 +69,7 @@ other tools or systems. Cloud providers, operating systems, SaaS tools -
 virtually any system can be a source of Guardrails Resources.
 
 All discovered resources are added to the Guardrails Resource Hierarchy.
-[Mods](mods) define the structure of these resources, Guardrails simply ensures they
+[Mods](https://hub.guardrails.turbot.com/#mods) define the structure of these resources, Guardrails simply ensures they
 are valid and structured according to their definition.
 
 <div className="example"> AWS Account 1111 is added as a discoverable resource,

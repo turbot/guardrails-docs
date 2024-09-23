@@ -75,7 +75,7 @@ Turbot
 
 ### Policies
 
-[Policies](https://www.terraform.io/docs/providers/turbot/r/policy_setting.html) specify what actions Guardrails should take to realize your control objectives. The [v5 mods directory](mods/) is an invaluable resource for looking up policy URIs, policy values, and policy defaults (A free, self-registered account is required).
+[Policies](https://www.terraform.io/docs/providers/turbot/r/policy_setting.html) specify what actions Guardrails should take to realize your control objectives. The [v5 mods directory](https://hub.guardrails.turbot.com/#mods) is an invaluable resource for looking up policy URIs, policy values, and policy defaults (A free, self-registered account is required).
 
 Given the breadth of prepackaged policies that Guardrails offers, it is very easy to enable a ton of nice-to-have policies without considering the technical debt and environmental noise associated with all those alarms.
 

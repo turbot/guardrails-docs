@@ -140,92 +140,92 @@
     "items": [
       {
         "type": "category",
-        "id": "governing-aws",
-        "link": "guides/governing-aws",
+        "id": "aws",
+        "link": "guides/aws",
         "items": [
           {
             "type": "category",
             "id": "import-aws-account",
-            "link": "guides/governing-aws/import-aws-account",
+            "link": "guides/aws/import-aws-account",
             "items": [
-              "guides/governing-aws/import-aws-account/gov-cloud"
+              "guides/aws/import-aws-account/gov-cloud"
             ]
           },
           {
             "type": "category",
             "id": "event-handlers",
-            "link": "guides/governing-aws/event-handlers",
+            "link": "guides/aws/event-handlers",
             "items": [
-              "guides/governing-aws/event-handlers/poller"
+              "guides/aws/event-handlers/poller"
             ]
           },
-          "guides/governing-aws/services",
+          "guides/aws/services",
           {
             "type": "category",
             "id": "permissions",
-            "link": "guides/governing-aws/permissions",
+            "link": "guides/aws/permissions",
             "items": [
-              "guides/governing-aws/permissions/user-mode"
+              "guides/aws/permissions/user-mode"
             ]
           },
-          "guides/governing-aws/security-hub",
-          "guides/governing-aws/decommission"
+          "guides/aws/security-hub",
+          "guides/aws/decommission"
         ]
       },
       {
         "type": "category",
-        "id": "guides/governing-azure",
-        "link": "guides/governing-azure",
+        "id": "azure",
+        "link": "guides/azure",
         "items": [
           {
             "type": "category",
             "id": "import",
-            "link": "guides/governing-azure/import",
+            "link": "guides/azure/import",
             "items": [
-              "guides/governing-azure/import/tenant",
-              "guides/governing-azure/import/active-directory",
-              "guides/governing-azure/import/management-group",
-              "guides/governing-azure/import/subscription"
+              "guides/azure/import/tenant",
+              "guides/azure/import/active-directory",
+              "guides/azure/import/management-group",
+              "guides/azure/import/subscription"
             ]
           },
           {
             "type": "category",
             "id": "real-time-events",
-            "link": "guides/governing-azure/real-time-events",
+            "link": "guides/azure/real-time-events",
             "items": [
-              "guides/governing-azure/real-time-events/ad-event-pollers",
-              "guides/governing-azure/real-time-events/event-pollers",
-              "guides/governing-azure/real-time-events/mgmt-event-pollers",
-              "guides/governing-azure/real-time-events/event-handlers"
+              "guides/azure/real-time-events/ad-event-pollers",
+              "guides/azure/real-time-events/event-pollers",
+              "guides/azure/real-time-events/mgmt-event-pollers",
+              "guides/azure/real-time-events/event-handlers"
             ]
           },
-          "guides/governing-azure/services",
-          "guides/governing-azure/permissions",
-          "guides/governing-azure/decommission"
+          "guides/azure/services",
+          "guides/azure/permissions",
+          "guides/azure/decommission"
         ]
       },
       {
         "type": "category",
         "id": "gcp",
-        "link": "guides/governing-gcp",
+        "link": "guides/gcp",
         "items": [
           {
             "type": "category",
             "id": "import",
-            "link": "guides/governing-gcp/import-gcp-project",
+            "link": "guides/gcp/import-gcp-project",
             "items": [
-              "guides/governing-gcp/import-gcp-project/service-accounts"
+              "guides/gcp/import-gcp-project/service-accounts"
             ]
           },
-          "guides/governing-gcp/services",
-          "guides/governing-gcp/permissions",
-          "guides/governing-gcp/decommission",
+          "guides/gcp/services",
+          "guides/gcp/permissions",
+          "guides/gcp/decommission",
           {
             "type": "category",
             "id": "real-time-events",
-            "link": "guides/governing-gcp/real-time-events",
+            "link": "guides/gcp/real-time-events",
             "items": [
-              "guides/governing-gcp/real-time-events/event-pollers"
+              "guides/gcp/real-time-events/event-pollers"
             ]
           }
         ]
@@ -233,21 +233,21 @@
       {
         "type": "category",
         "id": "kubernetes",
-        "link": "guides/governing-kubernetes",
+        "link": "guides/kubernetes",
         "items": [
-          "guides/governing-kubernetes/import-kubernetes-cluster",
-          "guides/governing-kubernetes/configure-queries",
-          "guides/governing-kubernetes/decommission"
+          "guides/kubernetes/import-kubernetes-cluster",
+          "guides/kubernetes/configure-queries",
+          "guides/kubernetes/decommission"
         ]
       },
       {
         "type": "category",
         "id": "servicenow",
-        "link": "guides/integrating-servicenow",
+        "link": "guides/servicenow",
         "items": [
-          "guides/integrating-servicenow/import-servicenow-instance",
-          "guides/integrating-servicenow/servicenow-to-guardrails-sync",
-          "guides/integrating-servicenow/guardrails-to-servicenow-sync"
+          "guides/servicenow/import-servicenow-instance",
+          "guides/servicenow/servicenow-to-guardrails-sync",
+          "guides/servicenow/guardrails-to-servicenow-sync"
         ]
       },
       {

@@ -11,7 +11,7 @@ These are the __Turbot > Workspace__ policies relevant to event handling for Saa
 - [Turbot > Workspace > Webhook Secrets > Rotation](mods/turbot/turbot/policy#turbot--workspace--webhook-secrets--rotation) - Instructs Guardrails to regularly rotate the secrets used to sign the JWTs.  Defaults to 'Skip'.
 - [Turbot > Workspace > Webhook Secrets > Expiration Period](mods/turbot/turbot/policy#turbot--workspace--webhook-secrets--expiration-period) - Specifies the interval for secret rotation. Default value is 'Never'.
 - [Turbot > Workspace > Webhook Secrets](mods/turbot/turbot/policy#turbot--workspace--webhook-secrets) - Use this policy only when there is a requirement for specific secrets to be used. Otherwise, the default setting will auto-generate new secrets as required.
-- [AWS > Account > Regions](mods/aws/aws/policy#aws--account--regions) - Specifies the list of regions that Guardrails will monitor. By default, Guardrails monitors all regions that do not require an opt-in. If there are regional restrictions through SCPs, then the regions list should not exceed those permitted by the SCP.
+- [AWS > Account > Regions](https://hub.guardrails.turbot.com/mods/aws/mods/aws/policy#aws--account--regions) - Specifies the list of regions that Guardrails will monitor. By default, Guardrails monitors all regions that do not require an opt-in. If there are regional restrictions through SCPs, then the regions list should not exceed those permitted by the SCP.
 - [Turbot > Workspace > Gateway Domain Name](mods/turbot/turbot/policy#turbot--workspace--gateway-domain-name) - Enterprise Only: Specifies the API gateway address to use for the Event Handlers.
 
 ## Initial Setup Process

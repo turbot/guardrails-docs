@@ -51,7 +51,7 @@ For each line, the Azure service is defined as a variable, then assigned a value
 that corresponds to the policy type responsible for tagging the specific
 resource type. The value is whats known as the `Policy URI`. The URI for any
 existing policy type, as well as control and resource types, can be found by
-searching for the specific mod on the [Mods page](mods). This formatting allows
+searching for the specific mod on the [Mods page](https://hub.guardrails.turbot.com/#mods). This formatting allows
 us to pass in key/ value pairs to the main.tf file.
 
 ```hcl
@@ -108,7 +108,7 @@ code is necessary. The same Azure service keys can be used in the tags policy
 map. However, rather than setting the value to the URI of the policy, it can be
 set to the desired value that the policy should be set to. Once again, available
 settings can be found by searching for the specific mod on the
-[Mods page](mods).
+[Mods page](https://hub.guardrails.turbot.com/#mods).
 
 ```hcl
 ## Set which Azure resources need to be tagged

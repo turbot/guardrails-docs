@@ -7,7 +7,7 @@ sidebar_label: Controls
 
 A control is a Guardrails [resource](concepts/resources) that is tasked with enforcing one or more [policies](concepts/policies). Depending on what control objective is being monitored and/or enforced, controls can rely on either one or multiple policies to evaluate cloud resources for compliance.
 
-Controls are where the magic happens with Guardrails. These "control" all policy enforcements, either generating alarms for administrative review or taking action against out of compliance cloud resources. Controls also monitor Guardrails to ensure that resources such as [Mods](mods) are installed correctly.
+Controls are where the magic happens with Guardrails. These "control" all policy enforcements, either generating alarms for administrative review or taking action against out of compliance cloud resources. Controls also monitor Guardrails to ensure that resources such as [Mods](https://hub.guardrails.turbot.com/#mods) are installed correctly.
 
 Controls rely on resource state and policy settings to operate. Essentially:
 

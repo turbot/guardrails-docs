@@ -40,7 +40,7 @@ regions.
    Global or Org trail is functioning in a region then Guardrails will use it.
    1. If not present then one will need to be created. Create trails
       automatically using
-      [Guardrails Audit Trails](integrations/aws/event-handlers#configuring-cloudtrail)
+      [Guardrails Audit Trails](guides/aws/event-handlers#configuring-cloudtrail)
       or any other method that results in the creation of a functional
       cloudtrail.
 3. If a trail is present, use the CloudTrail console to search for the specific
@@ -62,7 +62,7 @@ regions.
    document a list of all Guardrails event rules to provide to Guardrails Support.
    1. If no Guardrails Event Rules are present, it’s possible that event handlers
       have never been deployed in this region. Refer to the
-      [AWS Event Handler Deployment guide](integrations/aws/event-handlers) for
+      [AWS Event Handler Deployment guide](guides/aws/event-handlers) for
       next steps.
 3. In the Rules search bar, enter the name of the service associated with the
    event of interest. For our RDS example, we would search for "rds". We expect
@@ -104,7 +104,7 @@ regions.
 2. Find the Turbot Guardrails IAM role.
 3. Verify that it has sufficient permissions to deploy SNS topics, SNS
    subscriptions, Event Rules and Event Targets in the desired regions. See
-   [What Permissions to Grant](integrations/aws/import-aws-account#what-permissions-to-grant)
+   [What Permissions to Grant](guides/aws/import-aws-account#what-permissions-to-grant)
    for more info.
 4. If using SCPs, ensure they grant sufficient permissions for Guardrails to manage
    event handlers in the desired regions.

@@ -15,7 +15,7 @@ sidebar_label: "Azure FAQ"
 
 ## Where can I find a list of Azure mods developed by Guardrails?
 
-Guardrails publishes mod information on our [Mods page](mods). From here, searching
+Guardrails publishes mod information on our [Mods page](https://hub.guardrails.turbot.com/#mods). From here, searching
 `Azure` will populate the list with mods specifically for a variety of Azure
 services. Selecting the mod will display the **Readme** (if there is one),
 **Inspect** (a list of controls, resource types, and policies contained in said
@@ -29,9 +29,9 @@ within the window defined via the Guardrails policy,
 `Azure > Turbot > Event Poller > Interval`. Note that the window policy setting
 must be greater than the interval, and it is recommended to be at least twice
 the interval. More detailed information about the policies can be found by
-[inspecting the Azure Mod](mods/azure/azure/policy#azure--turbot--event-poller),
+[inspecting the Azure Mod](https://hub.guardrails.turbot.com/mods/azure/mods/azure/policy#azure--turbot--event-poller),
 as well as the
-[Azure Event Poller](integrations/azure/real-time-events/event-pollers) page.
+[Azure Event Poller](guides/azure/real-time-events/event-pollers) page.
 
 ## How do I rotate the Azure Subscription credentials integrated with Guardrails?
 
@@ -47,9 +47,9 @@ This ensures that Guardrails always has a valid access key for this subscription
 
 There are three policies used to integrate an Azure Subscription with Turbot Guardrails:
 
-- [Azure > Tenant ID](mods/azure/azure/policy#azure--tenant-id)
-- [Azure > Client ID](mods/azure/azure/policy#azure--client-id)
-- [Azure > Client Secret](mods/azure/azure/policy#azure--client-secret)
+- [Azure > Tenant ID](https://hub.guardrails.turbot.com/mods/azure/mods/azure/policy#azure--tenant-id)
+- [Azure > Client ID](https://hub.guardrails.turbot.com/mods/azure/mods/azure/policy#azure--client-id)
+- [Azure > Client Secret](https://hub.guardrails.turbot.com/mods/azure/mods/azure/policy#azure--client-secret)
 
 **Tenant ID (Directory ID):**
 

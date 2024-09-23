@@ -87,7 +87,7 @@ Permissions can be granted but not active. This allows a user to elevate their p
 
 ## Event Handler
 
-The infrastructure deployed into a cloud account to gather events as they occur and forward them to Guardrails for processing. Event Handlers use a push-based mechanism for real-time event processing. See docs for [AWS](/guardrails/docs/integrations/aws/event-handlers), [Azure](/guardrails/docs/integrations/azure/real-time-events), and [GCP](/guardrails/docs/integrations/gcp/real-time-events). For ease of configuration, Event Polling can be used as an alternative to Event Handlers.
+The infrastructure deployed into a cloud account to gather events as they occur and forward them to Guardrails for processing. Event Handlers use a push-based mechanism for real-time event processing. See docs for [AWS](/guardrails/docs/guides/aws/event-handlers), [Azure](/guardrails/docs/guides/azure/real-time-events), and [GCP](/guardrails/docs/guides/gcp/real-time-events). For ease of configuration, Event Polling can be used as an alternative to Event Handlers.
 
 
 ## Event Polling

@@ -41,12 +41,12 @@ Discover everything, remediate anything!
 
 ## What public cloud providers does Guardrails support?
 
-Guardrails has support for [AWS](integrations/aws), [Azure](integrations/azure), and
-[Google Cloud](integrations/gcp), as well as Operating Systems (and Kubernetes
+Guardrails has support for [AWS](guides/aws), [Azure](guides/azure), and
+[Google Cloud](guides/gcp), as well as Operating Systems (and Kubernetes
 coming soon!).
 
 If Guardrails does not currently support your platform, it can! Guardrails' extensible
-platform allows you to build your own [mods](mods) with the
+platform allows you to build your own [mods](https://hub.guardrails.turbot.com/#mods) with the
 [Guardrails CLI!](reference/cli)
 
 ## How is Guardrails deployed?
@@ -56,7 +56,7 @@ can host it for you (single tenant or multi-tenant) as a managed service.
 
 ## Where can I find the latest information about mods?
 
-Our [Mods](mods/) page has a full list of mods published by Turbot Guardrails. Searching
+Our [Mods](https://hub.guardrails.turbot.com/#mods) page has a full list of mods published by Turbot Guardrails. Searching
 the list is as easy as typing in the service name and pressing enter! Clicking
 the mod will render the mod information page, which can include a README (some
 are self explanatory, i.e. AWS-Amplify), an inspect tab, dependencies, and a
@@ -290,13 +290,13 @@ When set to `Protected`, the external ID must be in the protected format for
 credentials to be generated for the account to be associated to Guardrails.
 
 More information about the
-[External ID Protection Policy](mods/aws/aws/policy#aws--account--turbot-iam-role--external-id--protection).
+[External ID Protection Policy](https://hub.guardrails.turbot.com/mods/aws/mods/aws/policy#aws--account--turbot-iam-role--external-id--protection).
 More information about the
 [confused Deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
 
 ## What is Guardrails AWS IAM Role External ID Protection?
 
-During an [AWS Account Import](integrations/aws/import-aws-account), Guardrails will
+During an [AWS Account Import](guides/aws/import-aws-account), Guardrails will
 suggest an auto-generated external ID that is unique to your Guardrails Workspace
 (e.g. `turbot:123456789012345:26c29c72-4406-44a6-ac53-bd8b6e4d1437`). You can
 use the generated external ID for your IAM role to prevent the
