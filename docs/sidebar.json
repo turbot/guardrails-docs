@@ -527,7 +527,7 @@
     "label": "Hub"
   },
   {
-    "type": "product",
+    "type": "external",
     "id": "changelog",
     "link": "https://turbot.com/guardrails/changelog",
     "label": "Changelog"
