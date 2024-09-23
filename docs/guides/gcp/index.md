@@ -24,10 +24,10 @@ Turbot Guardrails is deeply integrated with
 
 ## Getting started with Guardrails for GCP
 
-1. [Import a GCP Project](integrations/gcp/import-gcp-project) into a Guardrails Folder
-1. [Set up GCP Real-Time Events](integrations/gcp/real-time-events)
-1. [Enable GCP Services](integrations/gcp/services) that you will use
-1. [Configure Permissions Policies](integrations/gcp/permissions) to allow Guardrails to manage
+1. [Import a GCP Project](guides/gcp/import-gcp-project) into a Guardrails Folder
+1. [Set up GCP Real-Time Events](guides/gcp/real-time-events)
+1. [Enable GCP Services](guides/gcp/services) that you will use
+1. [Configure Permissions Policies](guides/gcp/permissions) to allow Guardrails to manage
    GCP permissions for your users
 
 ## Further Reading

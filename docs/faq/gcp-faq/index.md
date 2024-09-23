@@ -52,7 +52,7 @@ There are two policies used to integrate a GCP Project with Turbot Guardrails:
 2. In the `GCP > Private Key` policy page, click the `Settings` subtab.
 3. Click on the pencil icon next to the `GCP > Private Key` policy you intend to update.
 4. Note: you will need to format the Key in a multi-line format. Example of the Key format can be
-   found [here](https://turbot.com/guardrails/docs/integrations/gcp/import-gcp-project#creating-a-service-account-via-the-gcloud-cli).
+   found [here](https://turbot.com/guardrails/docs/guides/gcp/import-gcp-project#creating-a-service-account-via-the-gcloud-cli).
 
 **Credential Verification:**
 

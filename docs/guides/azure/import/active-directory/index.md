@@ -8,7 +8,7 @@ nav:
 
 # Import Azure Active Directory into Turbot
 
-[Proper setup in the Azure tenant](integrations/azure/import) is required for
+[Proper setup in the Azure tenant](guides/azure/import) is required for
 import of an Azure Active Directory into Turbot.
 
 All child resources of the Azure Active Directory will be discovered and

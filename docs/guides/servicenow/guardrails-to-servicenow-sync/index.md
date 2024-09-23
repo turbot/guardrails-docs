@@ -262,6 +262,6 @@ An import set will be then be created that contains the data above so the `statu
 ## Next Steps
 
 1. Additional context and a demo about the feature is in the announcement post [Continuous Cloud CMDB Sync with ServiceNow & Turbot Guardrails](https://turbot.com/guardrails/blog/2023/12/cmdb-sync-guardrails-servicenow-integration).
-2. Consider integrating ServiceNow to Guardrails. Follow the [Enable ServiceNow sync to Guardrails](https://turbot.com/integrations/servicenow/servicenow-to-guardrails-sync) integration guide to configure real-time syncing of ServiceNow resource to Turbot Guardrails.
+2. Consider integrating ServiceNow to Guardrails. Follow the [Enable ServiceNow sync to Guardrails](https://turbot.com/guides/servicenow/servicenow-to-guardrails-sync) integration guide to configure real-time syncing of ServiceNow resource to Turbot Guardrails.
 
 We want to hear from you! Join our [Slack Community](https://turbot.com/community/join) `#guardrails` channel to ask questions and share feedback.

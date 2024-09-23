@@ -8,7 +8,7 @@ nav:
 
 # Import Azure Tenant into Turbot
 
-[Proper setup in the Azure tenant](integrations/azure/import) is required for
+[Proper setup in the Azure tenant](guides/azure/import) is required for
 import of an Azure Tenant into Turbot.
 
 All child resources of the Azure Tenant will be discovered and subsequently

@@ -14,8 +14,8 @@ Turbot Guardrails is deeply integrated with [Kubernetes](https://kubernetes.io/)
 
 # Getting Started with Guardrails for Kubernetes
 
-1. [Import a Kubernetes cluster](integrations/kubernetes/import-kubernetes-cluster) into a Guardrails Folder.
-2. [Configure queries](integrations/kubernetes/configure-queries) for resources.
+1. [Import a Kubernetes cluster](guides/kubernetes/import-kubernetes-cluster) into a Guardrails Folder.
+2. [Configure queries](guides/kubernetes/configure-queries) for resources.
 
 ## Further Reading
 

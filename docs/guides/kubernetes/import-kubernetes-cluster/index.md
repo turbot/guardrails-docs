@@ -27,11 +27,11 @@ The following [mods](https://turbot.com/guardrails/docs/mods) need to be install
 - [turbot/osquery](https://turbot.com/guardrails/docs/mods/turbot/osquery)
 - [turbot/kubernetes](https://turbot.com/guardrails/docs/mods/kubernetes/kubernetes)
 
-If using the [ServiceNow integration](https://turbot.com/guardrails/docs/integrations/servicenow) to sync Kubernetes data into ServiceNow, the following mods need to be installed:
+If using the [ServiceNow integration](https://turbot.com/guardrails/docs/guides/servicenow) to sync Kubernetes data into ServiceNow, the following mods need to be installed:
 - [turbot/servicenow](https://turbot.com/guardrails/docs/mods/servicenow/servicenow)
 - [turbot/servicenow-kubernetes](https://turbot.com/guardrails/docs/mods/servicenow/servicenow-kubernetes) (if using the ServiceNow integration)
 
-For ServiceNow integration, a [ServiceNow instance should be imported into Guardrails](https://turbot.com/guardrails/docs/integrations/servicenow/import-servicenow-instance) as well.
+For ServiceNow integration, a [ServiceNow instance should be imported into Guardrails](https://turbot.com/guardrails/docs/guides/servicenow/import-servicenow-instance) as well.
 
 ### Policies
 
@@ -153,8 +153,8 @@ Enrollment can fail for a number of reasons:
 
 ## Next Steps
 
-1. [Configure queries](integrations/kubernetes/configure-queries) for resources.
-2. Setup the [sync from cloud resources with Turbot Guardrails to ServiceNow](/guardrails/docs/integrations/servicenow/guardrails-to-servicenow-sync).
+1. [Configure queries](guides/kubernetes/configure-queries) for resources.
+2. Setup the [sync from cloud resources with Turbot Guardrails to ServiceNow](/guardrails/docs/guides/servicenow/guardrails-to-servicenow-sync).
 
 ## Further Reading
 

@@ -16,7 +16,7 @@ The Guardrails **Event Handlers** are responsible for conveying events from AWS
 CloudTrail back to Guardrails for processing. This is a requirement for Guardrails to
 process and respond in real-time. However, if your organization has more complex
 requirements that forbid the use of the Event driven model,
-[**Event Pollers**](integrations/aws/event-handlers/poller) can be used. Event Handlers and Event
+[**Event Pollers**](guides/aws/event-handlers/poller) can be used. Event Handlers and Event
 Pollers enable Guardrails' **Event-driven model** of operation.
 
 Guardrails uses the following infrastructure for event handling:

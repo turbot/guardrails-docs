@@ -18,10 +18,10 @@ Once the Service Principal is created and required permissions are set, Tenants,
 Management Groups, Active Directory, and Subscriptions can be imported into
 Turbot.
 
-- [Tenant](integrations/azure/import/tenant)
-- [Management Group](integrations/azure/import/management-group)
-- [Active Directory](integrations/azure/import/active-directory)
-- [Subscriptions](integrations/azure/import/subscription)
+- [Tenant](guides/azure/import/tenant)
+- [Management Group](guides/azure/import/management-group)
+- [Active Directory](guides/azure/import/active-directory)
+- [Subscriptions](guides/azure/import/subscription)
 
 Remember that [Mods](mods) enable Turbot to work in the cloud environment. Refer
 to the [Recommended Starting Mods](mods#recommended-starting-mods) for more

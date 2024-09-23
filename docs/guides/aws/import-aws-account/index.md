@@ -32,7 +32,7 @@ Consider that Turbot Guardrails is hosted only in AWS commercial accounts. There
 
 - We can import AWS commercial partition accounts directly by the IAM Role only.
 - To import
-  [AWS China or AWS GovCloud accounts](integrations/aws/import-aws-account/gov-cloud)
+  [AWS China or AWS GovCloud accounts](guides/aws/import-aws-account/gov-cloud)
   requires an IAM User Access key pair along with the IAM Role.
 
 <div className="alert alert-info" role="alert"><b>NOTICE</b>: Free Tier AWS accounts cannot be used with Guardrails. If this is attempted, Guardrails will fail to properly discover resources in the account and will generate errors in the Guardrails console.

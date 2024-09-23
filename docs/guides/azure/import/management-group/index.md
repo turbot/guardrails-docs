@@ -8,7 +8,7 @@ nav:
 
 # Import Azure Management Group into Turbot
 
-[Proper setup in the Azure tenant](integrations/azure/import) is required for
+[Proper setup in the Azure tenant](guides/azure/import) is required for
 import of an Azure Management Group into Turbot.
 
 All child resources of the Management Group in Azure will be discovered and

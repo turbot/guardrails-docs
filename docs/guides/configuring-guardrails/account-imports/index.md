@@ -11,9 +11,9 @@ Terraform, or even via a GraphQL API request. Do a thorough read of the
 appropriate integration guides. These contain additional steps that must be done
 prior to importing into Guardrails:
 
-- [AWS](integrations/aws)
-- [Azure](integrations/azure)
-- [GCP](integrations/gcp)
+- [AWS](guides/aws)
+- [Azure](guides/azure)
+- [GCP](guides/gcp)
 
 Ensure that the proper access permissions are in place in the child account or
 Guardrails won't be able to get very far with Discovery!
@@ -75,7 +75,7 @@ This is the information required to import an GCP Project.
 ### AWS
 
 Navigate to the
-[AWS Integrations page](integrations/aws/import-aws-account#importing-the-account-via-terraform)
+[AWS Integrations page](guides/aws/import-aws-account#importing-the-account-via-terraform)
 and simply copy the code and paste into a configuration file, replacing the
 necessary values.
 

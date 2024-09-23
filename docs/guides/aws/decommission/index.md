@@ -24,7 +24,7 @@ facilitate cleanup. Be sure to verify that the exceptions are being set ONLY on 
    remove the Guardrails-managed CloudTrail.
 3. `AWS > Turbot > Event Handlers` set to `Enforce: Not configured`. This will
    remove Guardrails-managed Cloudwatch Event Rules and SNS topics. Refer to the
-   [Event Handler documentation](integrations/aws/event-handlers) for additional
+   [Event Handler documentation](guides/aws/event-handlers) for additional
    context.
 4. `AWS > Turbot > Service Roles` set to `Enforce: Not configured`. This will
    remove any Guardrails-managed IAM service roles.

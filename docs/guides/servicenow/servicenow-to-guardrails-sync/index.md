@@ -80,6 +80,6 @@ Once the policies are set, you should now see the Applications brought into Guar
 ## Next Steps
 
 1. Additional context about the feature and a demo is in the announcement post [ServiceNow + Guardrails: Context-aware cloud & security automation](https://turbot.com/guardrails/blog/2023/12/context-aware-guardrails-servicenow-integration).
-2. Consider integrating Turbot Guardrails to ServiceNow. Follow the [Enable Guardrails sync to ServiceNow](/guardrails/docs/integrations/servicenow/guardrails-to-servicenow-sync) integration guide to configure real-time syncing of cloud resources to your ServiceNow CMDB.
+2. Consider integrating Turbot Guardrails to ServiceNow. Follow the [Enable Guardrails sync to ServiceNow](/guardrails/docs/guides/servicenow/guardrails-to-servicenow-sync) integration guide to configure real-time syncing of cloud resources to your ServiceNow CMDB.
 
 We want to hear from you! Join our [Slack Community](https://turbot.com/community/join) `#guardrails` channel to ask questions and share feedback.

@@ -8,7 +8,7 @@ nav:
 
 # Import Azure Subscription into Turbot
 
-[Proper setup in the Azure tenant](integrations/azure/import) is required for
+[Proper setup in the Azure tenant](guides/azure/import) is required for
 import of an Azure Subscription into Turbot.
 
 While you can import an Azure Subscription at the Turbot level, it is

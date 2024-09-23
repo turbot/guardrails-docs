@@ -41,8 +41,8 @@ Discover everything, remediate anything!
 
 ## What public cloud providers does Guardrails support?
 
-Guardrails has support for [AWS](integrations/aws), [Azure](integrations/azure), and
-[Google Cloud](integrations/gcp), as well as Operating Systems (and Kubernetes
+Guardrails has support for [AWS](guides/aws), [Azure](guides/azure), and
+[Google Cloud](guides/gcp), as well as Operating Systems (and Kubernetes
 coming soon!).
 
 If Guardrails does not currently support your platform, it can! Guardrails' extensible
@@ -296,7 +296,7 @@ More information about the
 
 ## What is Guardrails AWS IAM Role External ID Protection?
 
-During an [AWS Account Import](integrations/aws/import-aws-account), Guardrails will
+During an [AWS Account Import](guides/aws/import-aws-account), Guardrails will
 suggest an auto-generated external ID that is unique to your Guardrails Workspace
 (e.g. `turbot:123456789012345:26c29c72-4406-44a6-ac53-bd8b6e4d1437`). You can
 use the generated external ID for your IAM role to prevent the

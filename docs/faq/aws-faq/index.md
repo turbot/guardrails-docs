@@ -39,7 +39,7 @@ level with the following value:
 Once the policy has been created, Guardrails will automatically update both the
 **AWS/Admin** and **AWS/Operator** role!
 
-Head over to the [AWS Permissions](integrations/aws/permissions) page for more
+Head over to the [AWS Permissions](guides/aws/permissions) page for more
 information regarding Guardrails and AWS permissions.
 
 ## Does Guardrails support automated scheduling (start/stop) for RDS DB instances?
@@ -224,7 +224,7 @@ policies set correctly to add the service permission set.
 
 More information regarding Guardrails lockdown and boundary policies can be found on
 our
-[AWS Permissions](integrations/aws/permissions#turbot-polices-for-configuring-boundary-and-lockdown-policies)
+[AWS Permissions](guides/aws/permissions#turbot-polices-for-configuring-boundary-and-lockdown-policies)
 page.
 
 ## What does the AWS > EC2 > Load Balancer Listener policy relate to?

@@ -13,7 +13,7 @@ nav:
 User Mode provides a full set of AWS permission management capabilities using
 AWS IAM users and groups. User mode is suited for customers that have business
 restrictions preventing the use of
-[Guardrails Policy-only, or Role  permission modes](integrations/aws/permissions#permissions-modes).
+[Guardrails Policy-only, or Role  permission modes](guides/aws/permissions#permissions-modes).
 
 User Mode utilizes AWS IAM users, groups, and policies to assign rights
 to user profiles in a Guardrails workspace to log into AWS accounts.
@@ -68,7 +68,7 @@ Notes:
   restrict what permission levels can be assigned with respect to a particular
   service. The available options are **Metadata**, **ReadOnly**, **Operator**,
   **Admin**, and **Owner**. Refer to
-  [Guardrails Standard Levels](integrations/aws/permissions#standard-levels) for
+  [Guardrails Standard Levels](guides/aws/permissions#standard-levels) for
   more information.
 - Allowed permission levels across all services can be defined using the blanket
   policy, `AWS > Turbot > Permissions > Levels [Default]`.
@@ -89,7 +89,7 @@ For questions regarding AWS Permission boundaries, refer to
 [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html).
 
 Additionally, refer to
-[Turbot Lockdown and Boundary Policy](integrations/aws/permissions#lockdown-and-boundary-policies)
+[Turbot Lockdown and Boundary Policy](guides/aws/permissions#lockdown-and-boundary-policies)
 documentation for more information on how Turbot utilizes boundary policies to
 restrict permissions.
 

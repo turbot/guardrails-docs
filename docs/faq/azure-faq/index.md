@@ -31,7 +31,7 @@ must be greater than the interval, and it is recommended to be at least twice
 the interval. More detailed information about the policies can be found by
 [inspecting the Azure Mod](mods/azure/azure/policy#azure--turbot--event-poller),
 as well as the
-[Azure Event Poller](integrations/azure/real-time-events/event-pollers) page.
+[Azure Event Poller](guides/azure/real-time-events/event-pollers) page.
 
 ## How do I rotate the Azure Subscription credentials integrated with Guardrails?
 

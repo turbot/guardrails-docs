@@ -25,7 +25,7 @@ Guardrails requires a number of mods for the ServiceNow integration to work.  In
 3. **Cloud Service ServiceNow Mods**: Install cloud service specific ServiceNow mods:
    - Install the `turbot/servicenow-{platform}-{service}` mod(s) for the platform services that your organization wants to sync to ServiceNow. 
 
-Note: The installation of other `turbot/servicenow*` mods such as `turbot/servicenow-aws`, `turbot/servicenow-ec2`, etc are specific to the [syncing cloud resources](https://turbot.com/guardrails/docs/integrations/servicenow/guardrails-to-servicenow-sync) from AWS, Azure or GCP with Turbot Guardrails to ServiceNow. These are only required if you are enabling those features.
+Note: The installation of other `turbot/servicenow*` mods such as `turbot/servicenow-aws`, `turbot/servicenow-ec2`, etc are specific to the [syncing cloud resources](https://turbot.com/guardrails/docs/guides/servicenow/guardrails-to-servicenow-sync) from AWS, Azure or GCP with Turbot Guardrails to ServiceNow. These are only required if you are enabling those features.
 
 Once the `turbot/servicenow` mod is installed, you should be able to see a new option in your `https://{turbot-workspace-url}/apollo/accounts/import`
 
@@ -155,7 +155,7 @@ You will then have your instance associated, under the main navigation Policies 
 
 **Next Steps:**
 
-1. Setup the [sync from ServiceNow resources to Turbot Guardrails](/guardrails/docs/integrations/servicenow/servicenow-to-guardrails-sync) and or
-2. Setup the [sync from cloud resources with Turbot Guardrails to ServiceNow](/guardrails/docs/integrations/servicenow/guardrails-to-servicenow-sync)
+1. Setup the [sync from ServiceNow resources to Turbot Guardrails](/guardrails/docs/guides/servicenow/servicenow-to-guardrails-sync) and or
+2. Setup the [sync from cloud resources with Turbot Guardrails to ServiceNow](/guardrails/docs/guides/servicenow/guardrails-to-servicenow-sync)
 
 We want to hear from you! Join our [Slack Community](https://turbot.com/community/join) `#guardrails` channel to ask questions and share feedback.

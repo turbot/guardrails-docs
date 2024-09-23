@@ -27,15 +27,15 @@ Turbot Guardrails is deeply integrated with
 1. Import Azure Resources. These are in the recommended order to import, but not
    all sections will apply to all organizations:
 
-   - [Import Azure Tenant](integrations/azure/import/tenant)
-   - [Import Azure Active Directory](integrations/azure/import/active-directory)
-   - [Import Azure Management Group](integrations/azure/import/management-group)
-   - [Import Azure Subscription](integrations/azure/import/subscription)
+   - [Import Azure Tenant](guides/azure/import/tenant)
+   - [Import Azure Active Directory](guides/azure/import/active-directory)
+   - [Import Azure Management Group](guides/azure/import/management-group)
+   - [Import Azure Subscription](guides/azure/import/subscription)
 
-2. [Set up the Azure Real-Time Events](integrations/azure/real-time-events) to keep Turbot
+2. [Set up the Azure Real-Time Events](guides/azure/real-time-events) to keep Turbot
    CMDB up to date
-3. [Enable Azure Services](integrations/azure/services) that you will use
-4. [Configure Permissions Policies](integrations/azure/permissions) to allow Turbot to manage
+3. [Enable Azure Services](guides/azure/services) that you will use
+4. [Configure Permissions Policies](guides/azure/permissions) to allow Turbot to manage
    Azure permissions for your users
 
 ## Further Reading

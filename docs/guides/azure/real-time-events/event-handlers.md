@@ -29,7 +29,7 @@ installed and up to date in the environment:
 
 When configuring event handlers, specific roles must be assigned (or created) to
 ensure functionality. Review the section on
-[Role access grants for Turbot Discovery](integrations/azure/import#turbot-mode)
+[Role access grants for Turbot Discovery](guides/azure/import#turbot-mode)
 and note the requirement of a custom role for `Read-Only` Turbot mode using
 event handlers.
 
