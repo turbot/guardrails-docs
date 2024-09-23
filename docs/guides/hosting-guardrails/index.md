@@ -1,8 +1,8 @@
 ---
-title: Enterprise
+title: Hosting Guardrails
 ---
 
-# Turbot Guardrails Enterprise
+# Hosting Turbot Guardrails Enterprise
 
 ![Turbot Guardrails High-Level Physical Architecture](/images/docs/guardrails/physical-architecture.png)
 

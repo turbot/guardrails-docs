@@ -1,9 +1,9 @@
 ---
-title: Directories
-sidebar_label: Directories
+title: Single Sign-on
+sidebar_label: Single Sign-on
 ---
 
-# Guardrails and Directories
+# Guardrails and Single Sign-on Directories
 
 Guardrails supports SAML and Google OAuth2 for authentication into a Guardrails workspace. Common SAML directories
 include Azure Entra ID (formerly, Azure AD), Okta and PingID.

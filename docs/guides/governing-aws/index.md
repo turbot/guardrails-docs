@@ -1,11 +1,11 @@
 ---
-title: AWS
+title: Governing AWS
 template: Documentation
 nav:
   order: 10
 ---
 
-# Amazon Web Services (AWS)
+# Governing Amazon Web Services (AWS)
 
 ## Overview
 

@@ -1,11 +1,11 @@
 ---
-title: Azure
+title: Governing Azure
 template: Documentation
 nav:
   order: 10
 ---
 
-# Microsoft Azure
+# Governing Microsoft Azure
 
 ## Overview
 

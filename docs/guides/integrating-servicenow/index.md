@@ -1,11 +1,11 @@
 ---
-title: ServiceNow
+title: Integrating ServiceNow
 template: Documentation
 nav:
   order: 10
 ---
 
-# ServiceNow
+# Integrating ServiceNow
 
 Turbot Guardrails is deeply integrated with [ServiceNow](https://servicenow.com). A bi-directional sync between each platform can be utilized to:
 

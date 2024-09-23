@@ -1,11 +1,11 @@
 ---
-title: GCP
+title: Governing GCP
 template: Documentation
 nav:
   order: 10
 ---
 
-# Google Cloud Platform (GCP)
+# Governing Google Cloud Platform (GCP)
 
 ## Overview
 

@@ -1,11 +1,11 @@
 ---
-title: Kubernetes
+title: Governing Kubernetes
 template: Documentation
 nav:
   order: 10
 ---
 
-# Kubernetes
+# Governing Kubernetes
 
 Turbot Guardrails is deeply integrated with [Kubernetes](https://kubernetes.io/):
 - Sync in your Kubernetes cluster and resource details to Turbot Guardrails.
