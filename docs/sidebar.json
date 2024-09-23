@@ -521,7 +521,7 @@
     ]
   },
   {
-    "type": "product",
+    "type": "external",
     "id": "hub-guardrails",
     "link": "https://hub.guardrails.turbot.com",
     "label": "Hub"
