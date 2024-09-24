@@ -32,39 +32,51 @@ search for the stack named **workspace**.
 
 ![Workspace Stack](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-select-workspace-stack.png)
 
-Then choose Update
+Choose **Update**
 
 ![Update Stack](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-workspace-stack-select-update.png)
 
+
 ## Step 3: Update Stack
 
-Select **Use existing template** and click Next.
+Select **Use existing template** and select **Next**.
 
 ![Select Existing Template](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-stack-use-existing-template.png)
 
-Modify the Version to match the new TE version number used in the TE stack (e.g., 5.45.4), then click Next.
+Modify the Version to match the new TE version number used in the TE stack (e.g., 5.45.4), then select **Next**.
 
 ![Select Existing Template](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-stack-modify-te-version.png)
 
-Click Next on **Configure stack options**. Review the Changes under **Changeset Preview** and click Submit.
+## Step 4: Specify TE Version
+
+![Specify TE Version](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-stack-specify-te-version.png)
+
+Scroll down to **Advanced options**, leave the entire section as default and select **Next**
+
+![Advanced Option as Default TE Version](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-stack-advanced-option-as-default.png)
+
+
+## Step 5: Submit Changes
+
+In **Configure stack options**, review changes under **Changeset Preview** and select **Submit**.
 
 ![Review Changeset](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-select-submit-action.png)
 
-## Step 4: Monitor Update
+## Step 6: Monitor Update
 
 You have initiated the update of a new TE version in the Guardrails workspace. This triggers an update of several nested CloudFormation stacks.
 
-[ ] The workspace CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indicating the update process is in progress.
+- [ ] The workspace CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indicating the update process is in progress.
 
 ![Verify Status](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-workspace-stack-update-progress.png)
 
-## Step 5: Review
+## Step 7: Review
 
-[ ] The workspace CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
+- [ ] The workspace CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
 ![Update Complete](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-workspace-stack-update-complete.png)
 
-[ ] Updated TE version should reflect in Guardrails console admin panel.
+- [ ] Updated TE version should reflect in Guardrails `Workspace Admin` panel.
 
 ![Guardrails Console Admin Panel](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/guardrails-console-verify-version.png)
 
@@ -77,18 +89,8 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 ## Troubleshooting
 
-### Stack Update Fails
-
-Identifying the initial error in a `CloudFormation` template's event stream is crucial for effective troubleshooting. It often provides the root cause of the issue, preventing unnecessary investigations into subsequent errors that might be cascading failures.
-
-- Navigate to `CloudFormation` service and select failed stack.
-- Open `Events` tab, sort by `Timestamp` descending.
-- Identify first event with status `UPDATE_FAILED`.
-- Examine error message for failure details such as invalid parameters, resource limits, etc.
-- Cross-reference error message with corresponding resource or parameter in CloudFormation template.
-
-### Workspace Displays Incorrect TE Version
-
-To resolve this issue, clear your browser cache and log back into the workspace.
-
-If you encounter any issues, please open a ticket with us at https://support.turbot.com and attach the relevant information to assist you more efficiently.
+| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Workspace Displays Incorrect TE Version                        | `Workspace Admin` in your workspace section does not display updated TE version after workspace is updated successfully.   | Clear your browser cache and log back into the workspace.             |
+| Permission Issues                        | If the current logged-in user lacks permission to modify, update, or create resources in the stack, or if IAM roles or SCPs have changed, preventing built-in roles from accessing needed configuration settings.   | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators)             |
+| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
