@@ -20,7 +20,7 @@ Login to the Azure portal
 Navigate to App Registrations in your organization’s Entra ID.
 
 Click `New Registration`
-<p><img alt="azure_new_registratration" src="/images/docs/guardrails/runbooks/getting-started-azure/connect-a-subscription/azure-new-registratration.png"/></p><br/>
+<p><img alt="azure_new_registration" src="/images/docs/guardrails/runbooks/getting-started-azure/connect-a-subscription/azure-new-registration.png"/></p><br/>
 
 Name the application. The name ought to be recognizable as a Guardrails registration and relevant to the subscription to be imported. Turbot recommends the naming convention `Guardrails - {Name of the subscription}`.
 
