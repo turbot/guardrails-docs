@@ -23,25 +23,17 @@ In the [previous runbook](/guardrails/docs/runbooks/getting-started-aws/apply-qu
 
 Step 1: Suspend versioning in AWS
 
-In the AWS console, suspend versioning for your test bucket.  
-<p><img alt="aws_start_8_suspend_versioning" src="/images/docs/guardrails/runbooks/getting-started-aws/enable-enforcement/aws-start-8-suspend-versioning.png"/></p><br/>
-
-The notification flow we saw in the [previous runbook](/guardrails/docs/runbooks/getting-started-aws/apply-quick-action) now shows that Guardrails has noticed the change, and put the bucket into `Alarm`.  
-<p><img alt="aws_start_8_bucket_in_alarm" src="/images/docs/guardrails/runbooks/getting-started-aws/enable-enforcement/aws-start-8-bucket-in-alarm.png"/></p><br/>
-
-  
+In the AWS console, suspend versioning for your original test bucket, in our case `bucket-example-01`.   
 
 
 ## Step 2: Find the versioning policy for the bucket
 
-Search for your original test bucket (ours was `bucket-example-01` whose bucket versioning policy we set to `Skip` in  [Create a static  exception](/guardrails/docs/runbooks/getting-started-aws/create-static-exception)   
+Search for the bucket. In  [Create a static  exception](/guardrails/docs/runbooks/getting-started-aws/create-static-exception) we set its bucket versioning policy to `Skip`.
 <p><img alt="aws_start_8_find_bucket_versioning_policy_setting" src="/images/docs/guardrails/runbooks/getting-started-aws/enable-enforcement/aws-start-8-find-bucket-versioning-policy-setting.png"/></p><br/>
 
 ## Step 3: Update the policy setting
 
-Click into the Policy Setting, click `Edit`, and 
-
-Edit the policy, originally we had an exception to "Skip" the bucket from checking S3 bucket versioning.  Now we will automatically enforce versioning to be enabled.  Choose `Enforce: Enabled` and click `Update`.  
+Click into the Policy Setting, click `Edit`. Originally we had an exception to "Skip" the bucket from checking S3 bucket versioning.  Now we will automatically enforce versioning to be enabled.  Choose `Enforce: Enabled` and click `Update`.  
 <p><img alt="aws_start_8_enable_enforcement" src="/images/docs/guardrails/runbooks/getting-started-aws/enable-enforcement/aws-start-8-enable-enforcement.png"/></p><br/>
 
 On the Policy Setting page, switch to the `Activity` tab.  

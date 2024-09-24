@@ -13,7 +13,7 @@ Access to the Guardrails console with admin privilege, and a top-level `Sandbox`
 
 ## Step 1: Create an AWS IAM role for Guardrails
 
-You’ll need an IAM role that grants Guardrails read-only permissions to discover resources in your AWS account and monitor changes. Use this CloudFormation stack to facilitate creating this role.. When prompted for `TurbotExternalId`, provide a random GUID and also save it for step 2.  
+You’ll need an IAM role that grants Guardrails read-only permissions to discover resources in your AWS account and monitor changes. Use this CloudFormation stack to facilitate creating this role. When prompted for `TurbotExternalId`, provide a random GUID and also save it for step 2.  
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'

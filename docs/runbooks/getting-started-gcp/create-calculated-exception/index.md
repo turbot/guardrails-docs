@@ -21,7 +21,7 @@ In the [previous runbook](guardrails/docs/runbooks/getting-started-gcp/create_st
 Choose the top-level `Policies` tab, and search policy types for `gcp bucket access control`.  
 <p><img alt="gcp_find_bucket_access_control_policy" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-calculated-exception/gcp-find-bucket-access-control-policy.png"/></p><br/>
 
-Click into the `GCP > Storage > Bucket > Access Control\` policy type, choose the `Settings` tab.
+Click into the `GCP > Storage > Bucket > Access Control` policy type, choose the `Settings` tab.
 <p><img alt="gcp_bucket_access_control_policy_settings" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-calculated-exception/gcp-bucket-access-control-policy-settings.png"/></p><br/>
 
 Note the Access Control policy (`Check: Uniform`) created in [Attach a policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy), and the bucket-level policy (`Skip`) created in [Create a static exception](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception).   
@@ -46,7 +46,7 @@ Now copy this template code:
 {% if $.bucket.turbot.tags.environment == "development" -%}
 'Skip'
 {% else -%}
-'Check: Enabled'
+'Check: Uniform'
 {%- endif %}
 ```
 
@@ -64,7 +64,7 @@ Click `Update` to update the policy.
 
 ## Step 3: Attach the calculated policy to your GCP project
 
-To attach this policy to your GCP project, so it will apply to all buckets in the account, choose your project as the `Resource`.   
+To attach this policy to your GCP project, so it will apply to all buckets, choose your project as the `Resource`.   
 <p><img alt="gcp_attach_calc_policy_to_subscription" src="/images/docs/guardrails/runbooks/getting-started-gcp/create-calculated-exception/gcp-attach-calc-policy-to-subscription.png"/></p><br/>
 
 Then click `Create`. Guardrails takes you to the `Policy Setting` page. Choose the `Hierarchy` tab.  

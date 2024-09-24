@@ -43,7 +43,7 @@ Now visit your bucket in the GCP console, choose the `Permissions` tab, and clic
 
 Revisit `Reports > Resource Activities`, and (if needed) reapply the `GCP > Storage > Bucket` filter.  
   
-Click into the new notification for your bucket, and see the diff that Guardrails has been  recorded.  
+Click into the new notification for your bucket, and see the diff that Guardrails has recorded.  
 <p><img alt="gcp_diff_the_first_change" src="/images/docs/guardrails/runbooks/getting-started-gcp/observe-gcp-activity/gcp-diff-the-first-change.png"/></p><br/>
 
 We’ve now seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource.  
