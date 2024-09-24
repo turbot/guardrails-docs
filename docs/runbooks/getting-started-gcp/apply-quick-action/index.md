@@ -47,34 +47,24 @@ In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-
 Search for it.  
 <p><img alt="gcp_search_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-search-bucket-in-alarm-for-quick-action.png"/></p><br/>
 
-Click into the resource, switch to the `Controls` tab, and search for `s3 bucket versioning`.
+Click into the resource, switch to the `Controls` tab, and search for `gcp access control`.
 <p><img alt="gcp_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-bucket-in-alarm-for-quick-action.png"/></p><br/>  
   
 
 
 Click into the control and expand the `Actions` dropdown.  
-  
-[image: gcp_quick_action_dropdown]  
-  
-
-
-Hmm. The action is not enabled.
+<p><img alt="gcp_quick_action_dropdown" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-quick-action-dropdown.png"/></p><br/>
 
 ## Step 4: Take a Quick Action to enable versioning  on a bucket
 
-Choose `Enable Versioning`.  
+Choose `Set Uniform Access Control`.  
 
 
 Guardrails reports that the action was successful, and the control goes to green.  
-  
-[image: gcp_quick_action_reports_success]  
+<p><img alt="gcp_quick_action_reports_success" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-quick-action-reports-success.png"/></p><br/>
 
-
-For more detail about what happened here, go to the top-level `Reports` tab, search in the page for `Activity Ledger`, and filter on `Control Type` == `AWS > S3 > Bucket > Versioning`.  
-  
-[image: gcp_quick_action_report_detail]  
-  
-
+For more detail about what happened here, go to the top-level `Reports` tab, search in the page for `Activity Ledger`, and filter on `Control Type` == `GCP > Storage > Bucket > Access Control`.  
+<p><img alt="gcp_quick_action_report_detail" src="/images/docs/guardrails/runbooks/getting-started-gcp/apply-quick-action/gcp-quick-action-report-detail.png"/></p><br/>
 
 The flow of notifications tells the story. Reading from the bottom up, Guardrails:  
   
