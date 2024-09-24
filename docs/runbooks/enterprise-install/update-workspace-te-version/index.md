@@ -60,7 +60,7 @@ Scroll down to **Advanced options**, leave the entire section as default and sel
 
 In **Configure stack options**, review changes under **Changeset Preview** and select **Submit**.
 
-![Review Changeset](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-select-submit-action.png)
+![Submit Changeset](/images/docs/guardrails/runbooks/enterprise-install/update-workspace-te-version/cfn-worksapce-stack-select-submit-changes.png)
 
 ## Step 6: Monitor Update
 
