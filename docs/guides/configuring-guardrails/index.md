@@ -8,7 +8,7 @@ This section provides how-to guides for common tasks.
 
 | |
 | - | -
-| [Change Windows](guides/configuring-guardrails/configuring-guardrails/change-window) | Learn about Guardrails' Change Window mechanism
+| [Change Windows](guides/configuring-guardrails/change-window) | Learn about Guardrails' Change Window mechanism
 | [Directories](guides/configuring-guardrails/directories) | Steps to configure Directories in Guardrails
 | [File](guides/configuring-guardrails/files) | Create and modify Guardrails Files for easy data reference across and environment
 | [Firehose](guides/configuring-guardrails/firehose) | Create and delete Guardrails Watch notifications
