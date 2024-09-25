@@ -1,6 +1,6 @@
 ---
-title: Update Workspace TE Version
-sidebar_label: Update Workspace TE Version
+title: Update Workspace
+sidebar_label: Update Workspace
 ---
 
 # Update Workspace TE Version
