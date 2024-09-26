@@ -1,6 +1,6 @@
 ---
-title: Attach a Guardrails Policy
-sidebar_label: Attach a Guardrails Policy
+title: Attach a Policy Pack
+sidebar_label: Attach Policy Pack
 ---
 
 

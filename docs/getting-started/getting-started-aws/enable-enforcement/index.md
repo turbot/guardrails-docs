@@ -1,10 +1,7 @@
 ---
 title: Enable Automatic Enforcement
-sidebar_label: Enable Automatic Enforcement
+sidebar_label: Enable Enforcement
 ---
-
-
-
 
 # Enable Automatic Enforcement
 

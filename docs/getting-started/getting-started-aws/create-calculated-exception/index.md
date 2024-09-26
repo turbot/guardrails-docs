@@ -1,6 +1,6 @@
 ---
-title: Create a Calculated Exception to a Guardrails AWS Policy
-sidebar_label: Create a calculated exception to a Guardrails AWS policy
+title: Create a Calculated Policy Exception
+sidebar_label: Create Calculated Policy
 ---
 
 

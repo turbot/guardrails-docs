@@ -55,14 +55,14 @@
         "id": "getting-started-aws",
         "link": "getting-started/getting-started-aws",
         "items": [
-          "getting-started/getting-started-aws/apply-quick-action",
           "getting-started/getting-started-aws/connect-an-account",
-          "getting-started/getting-started-aws/create-static-exception",
-          "getting-started/getting-started-aws/send-alert-to-email",
+          "getting-started/getting-started-aws/observe-aws-activity",
           "getting-started/getting-started-aws/attach-a-policy",
+          "getting-started/getting-started-aws/create-static-exception",
           "getting-started/getting-started-aws/create-calculated-exception",
-          "getting-started/getting-started-aws/enable-enforcement",
-          "getting-started/getting-started-aws/observe-aws-activity"
+          "getting-started/getting-started-aws/send-alert-to-email",
+          "getting-started/getting-started-aws/apply-quick-action",
+          "getting-started/getting-started-aws/enable-enforcement"
         ]
       },
 
@@ -97,12 +97,6 @@
           "getting-started/getting-started-gcp/observe-gcp-activity"
         ]
       },
-
-      "getting-started/imports-and-reports",
-      "getting-started/search-and-visualize",
-      "getting-started/policy-management",
-      "getting-started/activity-exceptions",
-      "getting-started/next",
       "getting-started/terraform-for-everything",
       "getting-started/faq"
     ]
@@ -466,7 +460,8 @@
             "id": "troubleshooting",
             "link": "guides/hosting-guardrails/troubleshooting",
             "items": [
-              "guides/hosting-guardrails/troubleshooting/event-flood"
+              "guides/hosting-guardrails/troubleshooting/event-flood",
+              "guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync"
             ]
           }
         ]

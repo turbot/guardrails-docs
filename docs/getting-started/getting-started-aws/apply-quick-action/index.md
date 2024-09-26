@@ -6,6 +6,8 @@ sidebar_label: Apply a Quick Action
 
 # Apply a Quick Action
 
+Until now we’ve operated Guardrails in read-only mode, with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this runbook we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
+
 **Prerequisites**:
 
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
@@ -14,9 +16,6 @@ sidebar_label: Apply a Quick Action
 - [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
 - [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
 - [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/)
-
-
-Until now we’ve operated Guardrails in read-only mode, with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this runbook we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
 
 ## Step 1: Add the s3:PutBucketVersioning permission.
 
@@ -108,20 +107,20 @@ In the [next runbook](/guardrails/docs/getting-started/getting-started-aws/enabl
 
 ## Progress tracker
 
-1. [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
+- [x] [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
 /guardrails/docs/getting-started/getting-started-aws/connect-an-account
 
-2. [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
+- [x] [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
 
-3. [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/attach-a-policy/)
+- [x] [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/attach-a-policy/)
 
-4. [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
+- [x] [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
 
-5. [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
+- [x] [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
 
-6. [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/)
+- [x] [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/)
 
-7. **Apply a Quick Action**
+- [ ] **Apply a Quick Action**
 
-8. [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-aws/enable-enforcement/)
+- [ ] [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-aws/enable-enforcement/)
 

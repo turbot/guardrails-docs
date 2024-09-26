@@ -1,8 +1,7 @@
 ---
-title: Send an Alert to Email
-sidebar_label: Send an Alert to Email
+title: Send Email Alerts
+sidebar_label: Send Alerts
 ---
-
 
 # Send an Alert to Email
 

@@ -1,6 +1,6 @@
 ---
-title: Create a Static Exception to a Guardrails AWS Policy
-sidebar_label: Create a static exception to a Guardrails AWS policy
+title: Create Static Exceptions
+sidebar_label: Create Exceptions
 ---
 
 
