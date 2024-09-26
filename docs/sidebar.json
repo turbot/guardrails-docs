@@ -411,9 +411,6 @@
                   "guides/hosting-guardrails/installation/pre-installation/external-role"
                 ]
               },
-              "guides/hosting-guardrails/installation/tef-installation",
-              "guides/hosting-guardrails/installation/ted-installation",
-              "guides/hosting-guardrails/installation/te-installation",
               "guides/hosting-guardrails/installation/install-te",
               "guides/hosting-guardrails/installation/install-ted",
               "guides/hosting-guardrails/installation/install-tef",

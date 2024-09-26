@@ -1,6 +1,6 @@
 ---
-title: Workspace Manager
-sidebar_label: Workspace Manager
+title: Create Workspace
+sidebar_label: Create Workspace
 ---
 
 # Guardrails Workspace Manager
