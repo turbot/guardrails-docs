@@ -12,7 +12,7 @@ Access to the Guardrails console with admin privilege, and a top-level `Sandbox`
 
 ## Step 1: Create an AWS IAM role for Guardrails
 
-You’ll need an IAM role that grants Guardrails read-only permissions to discover resources in your AWS account and monitor changes. Use this CloudFormation stack to facilitate creating this role.. When prompted for `TurbotExternalId`, provide a random GUID and also save it for step 2.  
+You’ll need an IAM role that grants Guardrails read-only permissions to discover [resources](/guardrails/docs/reference/glossary#resource) in your AWS account and monitor changes. Use this CloudFormation stack to facilitate creating this role. When prompted for `TurbotExternalId`, provide a random GUID and also save it for step 2.  
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -123,18 +123,12 @@ Resources:
 ```
 
 
-<!--
-The `Permissions` tab of the resulting `turbot-service-readonly` role:
-
-<p><img alt="aws_start_1_turbot_service_readonly_permissions" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-turbot-service-readonly-permissions.png"/></p><br/>
--->
-
 Copy the role ARN and proceed to step 2.
 
 ## Step 2: Connect the AWS Account
 
 Login to Guardrails.
-s
+
 Click the top-level `Connect`.
 
 Click `AWS Account`.
@@ -166,7 +160,7 @@ Search the `Controls` tab for `aws account cmdb`.
 
 <p><img alt="aws_start_1_account_cmdb" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-account-cmdb.png"/></p>
 
-When the control is green, Turbot has successfully connected to your account.
+When the [control](/guardrails/docs/reference/glossary#control) is green, Turbot has successfully connected to your account.
 
 ## Step 4: Review
 
