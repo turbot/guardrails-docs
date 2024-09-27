@@ -1,6 +1,6 @@
 ---
 title: Getting Started with GCP
-sidebar_label: Getting Started with GCP 🆕
+sidebar_label: Getting Started with GCP
 ---
 
 # Getting Started with GCP in Guardrails

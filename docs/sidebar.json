@@ -57,7 +57,7 @@
         "items": [
           "getting-started/getting-started-aws/connect-an-account",
           "getting-started/getting-started-aws/observe-aws-activity",
-          "getting-started/getting-started-aws/attach-a-policy",
+          "getting-started/getting-started-aws/attach-policy-pack",
           "getting-started/getting-started-aws/create-static-exception",
           "getting-started/getting-started-aws/create-calculated-exception",
           "getting-started/getting-started-aws/send-alert-to-email",
