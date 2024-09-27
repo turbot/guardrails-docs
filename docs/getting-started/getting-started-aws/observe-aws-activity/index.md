@@ -53,18 +53,18 @@ Next we’ll explore [how to set a policy](/guardrails/docs/getting-started/gett
 
 ## Progress tracker
 
-1. [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
+1 [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
 
-2. **Observe AWS Resource Activity**
+2 **Observe AWS Resource Activity**
 
-3. [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/attach-a-policy/)
+3 [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/attach-a-policy/)
 
-4. [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
+4 [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
 
-5. [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
+5 [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
 
-6. [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/)
+6 [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/)
 
-7. [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/)
+7 [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/)
 
-8. [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-aws/enable-enforcement/)
+8 [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-aws/enable-enforcement/)
