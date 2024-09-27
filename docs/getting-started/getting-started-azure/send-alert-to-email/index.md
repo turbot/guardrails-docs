@@ -22,7 +22,7 @@ To enable notifications for your workspace, search top-level `Policies` for `tu
 
 
 Open the `Settings`, click into the `Turbot > Notifications` setting, click `Edit`, switch to `Enabled`, and click `Update`.
-<p><img alt="aws_start_6_update_turbot_notifications_setting" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/Azure-start-6-update-turbot-notifications-setting.png"/></p><br/>
+<p><img alt="aws_start_6_update_turbot_notifications_setting" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-start-6-update-turbot-notifications-setting.png"/></p><br/>
 
 ## Step 2: Create a notification rule
 
@@ -38,7 +38,7 @@ Enter this rule, along with one or more email addresses you want to notify.
   emails:
   - you@yourcompany.com
 ```
-<p><img alt="aws_start_6_create_notification_rule" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/Azure-start-6-create-notification-rule.png"/></p><br/>
+<p><img alt="aws_start_6_create_notification_rule" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-start-6-create-notification-rule.png"/></p><br/>
 
 Click `Update`.
 
