@@ -12,7 +12,7 @@ The following steps will show how to observe Azure resource activity in real-tim
 
 **Prerequisites**:
 
-- [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
+- [Connect an Azure Account to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-a-subscription/)
 
 ## Step 1: Create an Azure storage account
 
@@ -47,23 +47,23 @@ Click into the new notification for your storage account, and scroll down in the
 
 We’ve now seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource.
 
-Next we’ll explore [how to set a policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy) that requires storage accounts to use TLS 1.2.
+Next we’ll explore [how to set a policy](/guardrails/docs/getting-started/getting-started-azure/attach-a-policy) that requires storage accounts to use TLS 1.2.
 
 
 ## Progress tracker
 
-1. [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
+1. [Connect an Azure Account to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-a-subscription/)
 
 2. **Observe Azure Resource Activity**
 
-3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)
+3. [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-azure/attach-a-policy/)
 
-4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
+4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-static-exception/)
 
-5. [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-calculated-exception/)
 
-6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-azure/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-azure/send-alert-to-email/)
 
-7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-azure/apply-quick-action/)
+7. [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-azure/apply-quick-action/)
 
-8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-azure/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-azure/enable-enforcement/)

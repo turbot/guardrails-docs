@@ -10,13 +10,13 @@ Now that we can track resource configuration drift, we can create policies to al
 
 **Prerequisites**:
 
-- [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
-- [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
+- [Connect an Azure Account to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-a-subscription/)
+- [Observe Azure Resource Activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity/)
 
 
 ## Step 1: Review storage account properties
 
-Check the properties of the storage account you created in [Observe Azure activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity). In that runbook you switched the minimum TLS version to 1.1.
+Check the properties of the storage account you created in [Observe Azure activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity). In that guide you switched the minimum TLS version to 1.1.
 <p><img alt="azure-review-min-tls-version" src="/images/docs/guardrails/getting-started/getting-started-azure/attach-a-policy/azure-review-min-tls-version.png"/></p><br/>
 
 ## Step 2: Find and view the Azure > Storage > Storage Account > Minimum TLS Version control
@@ -53,23 +53,23 @@ Now, in the Azure portal,  set the minimum TLS version back to the default, `1.
 
 With the minimum TLS version set back to the default, `1.2`, the storage account now complies with the `Check: TLS 1.2` policy setting so Guardrails puts the storage account  into the `OK` state for that policy.
 
-You can override policies at any level. In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/create-static-exception), we’ll create an exception that enables your test storage account to skip this check.
+You can override policies at any level. In the [next guide](/guardrails/docs/getting-started/getting-started-azure/create-static-exception), we’ll create an exception that enables your test storage account to skip this check.
 
 
 ## Progress tracker
 
-1. [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
+1. [Connect an Azure Account to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-a-subscription/)
 
-2. [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
+2. [Observe Azure Resource Activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity/)
 
 3. **Attach a Guardrails Policy**
 
-4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
+4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-static-exception/)
 
-5. [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-calculated-exception/)
 
-6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-azure/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-azure/send-alert-to-email/)
 
-7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-azure/apply-quick-action/)
+7. [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-azure/apply-quick-action/)
 
-8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-azure/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-azure/enable-enforcement/)

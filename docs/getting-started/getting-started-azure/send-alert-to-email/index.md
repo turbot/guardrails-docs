@@ -5,15 +5,15 @@ sidebar_label: Send Alerts
 
 # Send an Alert to Email
 
-In [the previous runbook](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email.
+In [the previous guide](/guardrails/docs/getting-started/getting-started-azure/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email.
 
 **Prerequisites**:
 
-- [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
-- [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
-- [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)
-- [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
-- [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception/)
+- [Connect an Azure Account to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-a-subscription/)
+- [Observe Azure Resource Activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity/)
+- [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-azure/attach-a-policy/)
+- [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-static-exception/)
+- [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-calculated-exception/)
 
 ## Step 1: Enable your workspace for notifications
 
@@ -47,7 +47,7 @@ The rule will send an alert to the configured email address when any control ent
 
 ## Step 3: Trigger the notification rule
 
-At the end of [Create a calculated exception](/guardrails/docs/runbooks/getting-started-azure/create_calculated_exception), your test storage account – the one you tagged with `environment:development` – was in a `Skipped` state for TLS version. To verify, do a top-level search for the storage account, click into the resource, choose the `Controls` tab, and search for `azure storage tls version`.
+At the end of [Create a calculated exception](/guardrails/docs/getting-started/getting-started-azure/create_calculated_exception), your test storage account – the one you tagged with `environment:development` – was in a `Skipped` state for TLS version. To verify, do a top-level search for the storage account, click into the resource, choose the `Controls` tab, and search for `azure storage tls version`.
 <p><img alt="azure_refind_storage_account_tls_version_control" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-refind-storage-account-tls-version-control.png"/></p><br/>
 
 Now, in the Azure portal, remove the `environment:development` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: TLS 1.2`.  And because you left the storage account in a different state  – TLS v1.1  – the storage account’s control for versioning now transitions to `Alarm`.  
@@ -65,23 +65,23 @@ The alarm reported in the Guardrails console also appears in your inbox. You can
 
 Now that we have successfully alerted on controls, you can repeat this exercise with other Policy Packs from the [Guardrails Hub](hub.guardrails.com).
 
-In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, correct the TLS version for the storage account that’s now in the `Alarm` state and make it green.
+In the [next guide](/guardrails/docs/getting-started/getting-started-azure/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, correct the TLS version for the storage account that’s now in the `Alarm` state and make it green.
 
 
 ## Progress tracker
 
-1. [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
+1. [Connect an Azure Account to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-a-subscription/)
 
-2. [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
+2. [Observe Azure Resource Activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity/)
 
-3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)
+3. [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-azure/attach-a-policy/)
 
-4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
+4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-static-exception/)
 
-5. [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-calculated-exception/)
 
 6. **Send an Alert to Email**
 
-7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-azure/apply-quick-action/)
+7. [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-azure/apply-quick-action/)
 
-8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-azure/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-azure/enable-enforcement/)

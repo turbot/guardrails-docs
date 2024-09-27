@@ -6,14 +6,14 @@ sidebar_label: Create Calculated Policy
 
 # Create a Calculated Exception to a Guardrails Azure Policy
 
-In the [previous runbook](guardrails/docs/runbooks/getting-started-azure/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test storage account (we’ll use `guardrailsazurestorage2`). , and set the TLS version to 1.1 so it won’t comply with policy that requires version 1.2. Don’t set any tags on the storage account yet.
+In the [previous guide](guardrails/docs/runbooks/getting-started-azure/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test storage account (we’ll use `guardrailsazurestorage2`). , and set the TLS version to 1.1 so it won’t comply with policy that requires version 1.2. Don’t set any tags on the storage account yet.
 
 **Prerequisites**:
 
-- [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
-- [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
-- [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)
-- [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
+- [Connect an Azure Account to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-a-subscription/)
+- [Observe Azure Resource Activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity/)
+- [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-azure/attach-a-policy/)
+- [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-static-exception/)
 
 ## Step 1: Go to the Azure > Storage > Storage Account > Minimum TLS Version policy
 
@@ -23,14 +23,14 @@ Choose the top-level `Policies` tab, and search policy types for `azure storage 
 Click into the `Azure > Storage > Storage Account > Minimum TLS Version` policy type, choose the `Settings` tab.
 <p><img alt="azure_tls_versioning_policy_settings" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-tls-versioning-policy-settings.png"/></p><br/>
 
-Note the Versioning policy (`Check: TLS 1.2`) created in [Attach a policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy), and the storage-account-level policy (`Skip`) created in [Create a static exception](/guardrails/docs/runbooks/getting-started-azure/create-static-exception).
+Note the Versioning policy (`Check: TLS 1.2`) created in [Attach a policy](/guardrails/docs/getting-started/getting-started-azure/attach-a-policy), and the storage-account-level policy (`Skip`) created in [Create a static exception](/guardrails/docs/getting-started/getting-started-azure/create-static-exception).
 
 Click `New Policy Setting`.
 
 ## Step 2: Create a calculated exception
 <p><img alt="azure_begin_calc_exception" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-begin-calc-exception.png"/></p><br/>
 
-Click `Enable calculated mode`, then `Launch calculated policy builder`. For the `Test Resource`, choose the bucket you created at the start of this runbook.
+Click `Enable calculated mode`, then `Launch calculated policy builder`. For the `Test Resource`, choose the bucket you created at the start of this guide.
 <p><img alt="azure_calc_policy_builder_launched" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-calc-policy-builder-launched.png"/></p><br/>
 
 Open the `Select snippet` dropdown and choose `Get storageAccount`.
@@ -85,7 +85,7 @@ To check the status of the second storage account, do a top-level search for it.
 Click into the resource, choose the `Controls` tab, and set the `Type` filter to `Azure > Storage > Storage Account > Minimum TLS Version`.
 <p><img alt="azure_filter_storage_account_to_tls_version_policy_type" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-filter-storage-account-to-tls-version-policy-type.png"/></p><br/>
 
-The storage account is in `Alarm` because the TLS version you set, 1.1, does not  comply with policy. Now, tag it with `environment:development` to activate the calculated policy you created in this runbook.
+The storage account is in `Alarm` because the TLS version you set, 1.1, does not  comply with policy. Now, tag it with `environment:development` to activate the calculated policy you created in this guide.
 <p><img alt="azure_tag_the_storage_account" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-tag-the-storage-account.png"/></p><br/>
 
 
@@ -93,7 +93,7 @@ The storage account is in `Alarm` because the TLS version you set, 1.1, does not
 Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.
 <p><img alt="azure_tagged_storage_account_now_skipped" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-tagged-storage-account-now-skipped.png"/></p><br/>
 
-In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams.
+In the [next guide](/guardrails/docs/getting-started/getting-started-azure/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams.
 
 
 
@@ -101,18 +101,18 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/send-alert
 
 ## Progress tracker
 
-1. [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
+1. [Connect an Azure Account to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-a-subscription/)
 
-2. [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
+2. [Observe Azure Resource Activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity/)
 
-3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)
+3. [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-azure/attach-a-policy/)
 
-4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
+4. [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-static-exception/)
 
 5. **Create a Calculated Exception to a Guardrails Azure Policy**
 
-6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-azure/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-azure/send-alert-to-email/)
 
-7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-azure/apply-quick-action/)
+7. [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-azure/apply-quick-action/)
 
-8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-azure/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-azure/enable-enforcement/)

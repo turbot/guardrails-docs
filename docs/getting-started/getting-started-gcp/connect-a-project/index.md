@@ -45,7 +45,7 @@ Switch to the `Controls` tab and search for `cmdb`.
 When the  control is green, the project is successfully connected to Guardrails.
 <p><img alt="project_cmdb" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/project-cmdb.png"/></p><br/>
 
-Now that Guardrails has imported the project, you’ll want to see Guardrails in action. In [the next runbook](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity) we’ll explore a control that checks whether your buckets comply with a default policy to block public access, and reacts when you change that setting in GCP.
+Now that Guardrails has imported the project, you’ll want to see Guardrails in action. In [the next runbook](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity) we’ll explore a control that checks whether your buckets comply with a default policy to block public access, and reacts when you change that setting in GCP.
 
 
 
@@ -55,16 +55,16 @@ Now that Guardrails has imported the project, you’ll want to see Guardrails in
 
 1. **Connect a GCP Project to Guardrails**
 
-2. [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
+2. [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity/)
 
-3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)
+3. [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-gcp/attach-a-policy/)
 
-4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
+4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception/)
 
-5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/getting-started/getting-started-gcp/create-calculated-exception/)
 
-6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email/)
 
-7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-gcp/apply-quick-action/)
+7. [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action/)
 
-8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-gcp/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-gcp/enable-enforcement/)

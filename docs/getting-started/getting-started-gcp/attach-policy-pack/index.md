@@ -9,13 +9,13 @@ Now that we can track resource configuration drift, we can create policies to al
 
 **Prerequisites**:
 
-- [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
-- [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
+- [Connect a GCP Project to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project/)
+- [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity/)
 
 
 ## Step 1: Review bucket permissions
 
-Check the configuration of the bucket you created in [Observe GCP activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity). In that runbook you switched your test bucket from uniform to fine-grained access. Verify that is the configuration.
+Check the configuration of the bucket you created in [Observe GCP activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity). In that runbook you switched your test bucket from uniform to fine-grained access. Verify that is the configuration.
 <p><img alt="gcp-review-fine-grained" src="/images/docs/guardrails/getting-started/getting-started-gcp/attach-a-policy/gcp-review-fine-grained.png"/></p><br/>
 
 ## Step 2: Find and view the GCP > Storage > Bucket > Access Control control
@@ -42,23 +42,23 @@ In the `Edit policy pack attachments` dialog, select `Enforce Uniform Access is 
 Do a top-level search for the name of your bucket, switch to the `Controls` tab, and search for `access control`. The control, which was formerly in the `Skipped` state, is now in `Alarm` because we’ve set the bucket’s access control to fine-grained.
 <p><img alt="gcp_observe_policy_driven_alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/attach-a-policy/gcp-observe-policy-driven-alarm.png"/></p><br/>
 
-You can override policies at any level. In the [next runbook](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception), we’ll create an exception that transitions your bucket to the `OK` state.
+You can override policies at any level. In the [next runbook](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception), we’ll create an exception that transitions your bucket to the `OK` state.
 
 
 ## Progress tracker
 
-1. [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
+1. [Connect a GCP Project to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project/)
 
-2. [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
+2. [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity/)
 
 3. **Attach a Guardrails Policy**
 
-4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
+4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception/)
 
-5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)
+5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/getting-started/getting-started-gcp/create-calculated-exception/)
 
-6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email/)
 
-7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-gcp/apply-quick-action/)
+7. [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action/)
 
-8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-gcp/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-gcp/enable-enforcement/)

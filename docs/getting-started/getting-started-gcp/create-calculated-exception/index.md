@@ -9,10 +9,10 @@ In the [previous runbook](guardrails/docs/runbooks/getting-started-gcp/create_st
 
 **Prerequisites**:
 
-- [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
-- [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
-- [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)
-- [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
+- [Connect a GCP Project to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project/)
+- [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity/)
+- [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-gcp/attach-a-policy/)
+- [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception/)
 
 
 
@@ -24,7 +24,7 @@ Choose the top-level `Policies` tab, and search policy types for `gcp bucket acc
 Click into the `GCP > Storage > Bucket > Access Control\` policy type, choose the `Settings` tab.
 <p><img alt="gcp_bucket_access_control_policy_settings" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/gcp-bucket-access-control-policy-settings.png"/></p><br/>
 
-Note the Access Control policy (`Check: Uniform`) created in [Attach a policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy), and the bucket-level policy (`Skip`) created in [Create a static exception](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception).
+Note the Access Control policy (`Check: Uniform`) created in [Attach a policy](/guardrails/docs/getting-started/getting-started-gcp/attach-a-policy), and the bucket-level policy (`Skip`) created in [Create a static exception](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception).
 
 Click `New Policy Setting`.
 
@@ -93,7 +93,7 @@ The bucket is in alarm. Now, label it with `environment:development` to activate
 Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.
 <p><img alt="gcp_labeled_bucket_now_skipped" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/gcp-labeled-bucket-now-skipped.png"/></p><br/>
 
-In the [next runbook](/guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams.
+In the [next runbook](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams.
 
 
 
@@ -101,18 +101,18 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-gcp/send-alert-t
 
 ## Progress tracker
 
-1. [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
+1. [Connect a GCP Project to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project/)
 
-2. [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
+2. [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity/)
 
-3. [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)
+3. [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-gcp/attach-a-policy/)
 
-4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
+4. [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception/)
 
 5. **Create a Calculated Exception to a Guardrails GCP Policy**
 
-6. [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email/)
+6. [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email/)
 
-7. [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-gcp/apply-quick-action/)
+7. [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action/)
 
-8. [Enable Automatic Enforcement](/guardrails/docs/runbooks/getting-started-gcp/enable-enforcement/)
+8. [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-gcp/enable-enforcement/)
