@@ -461,7 +461,9 @@
             "link": "guides/hosting-guardrails/troubleshooting",
             "items": [
               "guides/hosting-guardrails/troubleshooting/event-flood",
-              "guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync"
+              "guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync",
+              "guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state",
+              "guides/hosting-guardrails/troubleshooting/enable-verbose-logging"
             ]
           }
         ]
