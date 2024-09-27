@@ -1,11 +1,12 @@
 ---
 title: Install TE
-sidebar_label: Install TE 🆕
+sidebar_label: Install TE
 ---
 
 # Install Turbot Guardrails Enterprise (TE)
 
-In this runbook, you will:
+In this guide, you will:
+
 - Use AWS Service Catalog to install Turbot Guardrails Enterprise (TE).
 - Monitor and troubleshoot the installation process.
 

@@ -5,7 +5,7 @@ sidebar_label: Update TED
 
 # Update Turbot Guardrails Enterprise Database (TED)
 
-In this runbook, you will:
+In this guide, you will:
 - Use AWS Service Catalog to update Turbot Guardrails Enterprise Database (TED).
 - Monitor and troubleshoot the TED update process.
 

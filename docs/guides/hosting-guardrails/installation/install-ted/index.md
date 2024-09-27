@@ -1,11 +1,11 @@
 ---
 title: Install TED
-sidebar_label: Install TED 🆕
+sidebar_label: Install TED
 ---
 
 # Install Turbot Guardrails Enterprise Database (TED)
 
-In this runbook, you will:
+In this guide, you will:
 - Use AWS Service Catalog to install Turbot Guardrails Enterprise Database (TED)
 - Monitor and troubleshoot the TED install process.
 

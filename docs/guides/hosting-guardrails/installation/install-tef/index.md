@@ -1,11 +1,11 @@
 ---
 title: Install TEF
-sidebar_label: Install TEF 🆕
+sidebar_label: Install TEF
 ---
 
 # Install Turbot Guardrails Enterprise Foundation (TEF)
 
-In this runbook, you will:
+In this guide, you will:
 - Use AWS Service Catalog to install Turbot Guardrails Enterprise Foundation (TEF). This guide demonstrates the installation process using the default `Network Option A - Created in this Stack`, where Turbot Guardrails manages the creation of the VPC and related networking resources.
 - Monitor and troubleshoot the TEF install process.
 

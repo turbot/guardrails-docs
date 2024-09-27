@@ -5,7 +5,7 @@ sidebar_label: Update TEF
 
 # Update Turbot Guardrails Enterprise Foundation (TEF)
 
-In this runbook, you will:
+In this guide, you will:
 - Use AWS Service Catalog to update Turbot Guardrails Enterprise Foundation (TEF)
 - Monitor and troubleshoot the TEF update process.
 
