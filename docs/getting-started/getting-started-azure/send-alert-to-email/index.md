@@ -1,10 +1,11 @@
 ---
-title: Send an Alert to Email
-sidebar_label: Send an Alert to Email
+title: Send Email Alerts
+sidebar_label: Send Alerts
 ---
 
-
 # Send an Alert to Email
+
+In [the previous runbook](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email.
 
 **Prerequisites**:
 
@@ -14,18 +15,14 @@ sidebar_label: Send an Alert to Email
 - [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
 - [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception/)
 
-
-In [the previous runbook](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email.
-
 ## Step 1: Enable your workspace for notifications
-
 
 To enable notifications for your workspace, search top-level `Policies` for `turbot notifications` and click into the `Turbot > Notifications` policy type.
 <p><img alt="azure_notifications_policy_type" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-notifications-policy-type.png"/></p><br/>
 
 
 Open the `Settings`, click into the `Turbot > Notifications` setting, click `Edit`, switch to `Enabled`, and click `Update`.
-<p><img alt="aws_start_6_update_turbot_notifications_setting" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/aws-start-6-update-turbot-notifications-setting.png"/></p><br/>
+<p><img alt="aws_start_6_update_turbot_notifications_setting" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/Azure-start-6-update-turbot-notifications-setting.png"/></p><br/>
 
 ## Step 2: Create a notification rule
 
@@ -41,7 +38,7 @@ Enter this rule, along with one or more email addresses you want to notify.
   emails:
   - you@yourcompany.com
 ```
-<p><img alt="aws_start_6_create_notification_rule" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/aws-start-6-create-notification-rule.png"/></p><br/>
+<p><img alt="aws_start_6_create_notification_rule" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/Azure-start-6-create-notification-rule.png"/></p><br/>
 
 Click `Update`.
 

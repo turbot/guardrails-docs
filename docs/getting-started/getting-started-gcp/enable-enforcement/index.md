@@ -1,15 +1,12 @@
 ---
 title: Enable Automatic Enforcement
-sidebar_label: Enable Automatic Enforcement
+sidebar_label: Enable Enforcement
 ---
-
-  
-
 
 # Enable Automatic Enforcement
 
-**Prerequisites**:  
-  
+**Prerequisites**:
+
 - [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
 - [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
 - [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)

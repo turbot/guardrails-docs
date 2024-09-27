@@ -1,21 +1,18 @@
 ---
-title: Observe Azure Resource Activity
-sidebar_label: Observe Azure Resource Activity
+title: Observe Resource Activity
+sidebar_label: Observe Activity
 ---
 
 
 # Observe Azure resource activity
 
-**Prerequisites**:
-
-- [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
-
-
- 
-
 Now that you’ve connected an Azure subscription, you can explore your resource inventory.  To visualize activity, go to `Reports`,  find `Resource activities`, then click that link. 
 
 The following steps will show how to observe Azure resource activity in real-time.
+
+**Prerequisites**:
+
+- [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
 
 ## Step 1: Create an Azure storage account
 

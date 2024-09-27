@@ -3,7 +3,6 @@ title: Apply a Quick Action
 sidebar_label: Apply a Quick Action
 ---
 
-
 # Apply a Quick Action
 
 **Prerequisites**:
@@ -19,9 +18,11 @@ sidebar_label: Apply a Quick Action
 ## Step 1: Enable Quick Actions
 
 Do a top-level search for `quick actions` and click into the `Turbot > Quick Actions > Enabled` setting.
+
 <p><img alt="azure_find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/azure-find-quick-actions-policies.png"/></p><br/>
 
 It’s disabled by default. On its Policy Type page, click `New Policy Setting`, choose your Sandbox as the target resource, choose `Enabled`, and click `Create`.
+
 <p><img alt="azure_ready_to_enable_quick_actions" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/azure-ready-to-enable-quick-actions.png"/></p><br/>
 
 

@@ -3,16 +3,15 @@ title: Attach a Guardrails Policy
 sidebar_label: Attach a Guardrails Policy
 ---
 
-
 # Attach a Guardrails Policy
+
+Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state.
 
 **Prerequisites**:
 
 - [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
 - [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
 
-
-Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state.
 
 ## Step 1: Review bucket permissions
 

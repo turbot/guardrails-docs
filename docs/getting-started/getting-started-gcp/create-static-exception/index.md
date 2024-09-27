@@ -1,10 +1,12 @@
 ---
-title: Create a Static Exception to a Guardrails GCP Policy
-sidebar_label: Create a static exception to a Guardrails GCP policy
+title: Create Static Exceptions
+sidebar_label: Create Exceptions
 ---
 
 
 # Create a Static Exception to a Guardrails GCP Policy
+
+Now that we have set our GCP bucket access control policy, we can track which GCP buckets do not have uniform access enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket access control status.
 
 **Prerequisites**:
 
@@ -12,8 +14,6 @@ sidebar_label: Create a static exception to a Guardrails GCP policy
 - [Observe GCP Activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity/)
 - [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-gcp/attach-a-policy/)
 
-
-Now that we have set our GCP bucket access control policy, we can track which GCP buckets do not have uniform access enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket access control status.
 
 ## Step 1: Find your test bucket
 

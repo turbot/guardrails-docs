@@ -6,6 +6,9 @@ sidebar_label: Apply a Quick Action
 
 # Apply a Quick Action
 
+
+Until now we’ve operated Guardrails in read-only mode, with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this runbook we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
+
 **Prerequisites**:
 
 - [Connect a GCP Project to Guardrails](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project/)
@@ -15,8 +18,6 @@ sidebar_label: Apply a Quick Action
 - [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)
 - [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email/)
 
-
-Until now we’ve operated Guardrails in read-only mode, with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this runbook we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
 
 ## Step 1: Add the storage.buckets.update permission
 

@@ -1,10 +1,11 @@
 ---
-title: Send an Alert to Email
-sidebar_label: Send an Alert to Email
+title: Send Email Alerts
+sidebar_label: Send Alerts
 ---
 
-
 # Send an Alert to Email
+
+In [the previous runbook](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email.
 
 **Prerequisites**:
 
@@ -14,8 +15,6 @@ sidebar_label: Send an Alert to Email
 - [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-static-exception/)
 - [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception/)
 
-
-In [the previous runbook](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email.
 
 ## Step 1: Enable your workspace for notifications
 

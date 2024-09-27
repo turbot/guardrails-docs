@@ -1,10 +1,12 @@
 ---
-title: Create a Calculated Exception to a Guardrails Azure Policy
-sidebar_label: Create a calculated exception to a Guardrails Azure policy
+title: Create a Calculated Policy Exception
+sidebar_label: Create Calculated Policy
 ---
 
 
 # Create a Calculated Exception to a Guardrails Azure Policy
+
+In the [previous runbook](guardrails/docs/runbooks/getting-started-azure/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test storage account (we’ll use `guardrailsazurestorage2`). , and set the TLS version to 1.1 so it won’t comply with policy that requires version 1.2. Don’t set any tags on the storage account yet.
 
 **Prerequisites**:
 
@@ -12,9 +14,6 @@ sidebar_label: Create a calculated exception to a Guardrails Azure policy
 - [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
 - [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)
 - [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-static-exception/)
-
-
-In the [previous runbook](guardrails/docs/runbooks/getting-started-azure/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test storage account (we’ll use `guardrailsazurestorage2`). , and set the TLS version to 1.1 so it won’t comply with policy that requires version 1.2. Don’t set any tags on the storage account yet.
 
 ## Step 1: Go to the Azure > Storage > Storage Account > Minimum TLS Version policy
 

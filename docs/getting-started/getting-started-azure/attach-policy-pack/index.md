@@ -6,13 +6,13 @@ sidebar_label: Attach a Guardrails Policy
 
 # Attach a Guardrails Policy
 
+Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state.
+
 **Prerequisites**:
 
 - [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
 - [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
 
-
-Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state.
 
 ## Step 1: Review storage account properties
 

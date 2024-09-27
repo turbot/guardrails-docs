@@ -1,6 +1,6 @@
 ---
-title: Connect a GCP Project to Guardrails
-sidebar_label: Connect a GCP Project to Guardrails
+title: Connect an GCP Project
+sidebar_label: Connect GCP Project
 ---
 
 

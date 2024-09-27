@@ -1,15 +1,12 @@
 ---
 title: Enable Automatic Enforcement
-sidebar_label: Enable Automatic Enforcement
+sidebar_label: Enable Enforcement
 ---
-
-  
-
 
 # Enable Automatic Enforcement
 
-**Prerequisites**:  
-  
+**Prerequisites**:
+
 - [Connect an Azure Account to Guardrails](/guardrails/docs/runbooks/getting-started-azure/connect-a-subscription/)
 - [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
 - [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)
@@ -17,7 +14,6 @@ sidebar_label: Enable Automatic Enforcement
 - [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception/)
 - [Send an Alert to Email](/guardrails/docs/runbooks/getting-started-azure/send-alert-to-email/)
 - [Apply a Quick Action](/guardrails/docs/runbooks/getting-started-azure/apply-quick-action/)
-
 
 
 ## Progress tracker

@@ -1,10 +1,11 @@
 ---
-title: Create a Static Exception to a Guardrails Azure Policy
-sidebar_label: Create a static exception to a Azure GCP policy
+title: Create Static Exceptions
+sidebar_label: Create Exceptions
 ---
 
-
 # Create a Static Exception to a Guardrails Azure Policy
+
+Now that we have set our Azure storage account policy (for minimum TLS version), we can track which Azure storage accounts do not comply with the policy. In this runbook we will show how to create an exception for your test storage account, so Guardrails will ignore its TLS version.
 
 **Prerequisites**:
 
@@ -12,8 +13,6 @@ sidebar_label: Create a static exception to a Azure GCP policy
 - [Observe Azure Resource Activity](/guardrails/docs/runbooks/getting-started-azure/observe-azure-activity/)
 - [Attach a Guardrails Policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy/)
 
-
-Now that we have set our Azure storage account policy (for minimum TLS version), we can track which Azure storage accounts do not comply with the policy. In this runbook we will show how to create an exception for your test storage account, so Guardrails will ignore its TLS version.
 
 ## Step 1: Find your test storage account
 
