@@ -45,7 +45,7 @@ Switch to the `Controls` tab and search for `cmdb`.
 When the  control is green, the project is successfully connected to Guardrails.
 <p><img alt="project_cmdb" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/project-cmdb.png"/></p><br/>
 
-Now that Guardrails has imported the project, you’ll want to see Guardrails in action. In [the next runbook](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity) we’ll explore a control that checks whether your buckets comply with a default policy to block public access, and reacts when you change that setting in GCP.
+Now that Guardrails has imported the project, you’ll want to see Guardrails in action. In [the next guide](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity) we’ll explore a control that checks whether your buckets comply with a default policy to block public access, and reacts when you change that setting in GCP.
 
 
 

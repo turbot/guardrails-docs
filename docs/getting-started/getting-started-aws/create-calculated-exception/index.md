@@ -7,7 +7,7 @@ sidebar_label: Create Calculated Policy
 # Create a Calculated Exception to a Guardrails AWS Policy
 
 
-In the [previous runbook](guardrails/docs/getting-started/getting-started-aws/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test bucket (we’ll use `example-bucket-02`) in the default state: bucket versioning suspended, no tags.
+In the [previous guide](guardrails/docs/getting-started/getting-started-aws/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test bucket (we’ll use `example-bucket-02`) in the default state: bucket versioning suspended, no tags.
 
 **Prerequisites**:
 
@@ -31,7 +31,7 @@ Click `New Policy Setting`.
 ## Step 2: Create a calculated exception
 <p><img alt="aws_start_5_begin_calc_exception" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-start-5-begin-calc-exception.png"/></p><br/>
 
-Click `Enable calculated mode`, then `Launch calculated policy builder`. For the `Test Resource`, choose the bucket you created at the start of this runbook.
+Click `Enable calculated mode`, then `Launch calculated policy builder`. For the `Test Resource`, choose the bucket you created at the start of this guide.
 <p><img alt="aws_start_5_calc_policy_builder_launched" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-start-5-calc-policy-builder-launched.png"/></p><br/>
 
 Open the `Select snippet` dropdown and choose `Get bucket`.
@@ -39,7 +39,6 @@ Open the `Select snippet` dropdown and choose `Get bucket`.
 
 Guardrails inserts a GraphQL query for bucket tags in the `Input` pane. The result, in the `Output` pane, shows there are no tags on the bucket.
 <p><img alt="aws_start_5_snippet_active" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-start-5-snippet-active.png"/></p><br/>
-
 
 
 Now copy this template code:
@@ -86,7 +85,7 @@ To check the status of the second test bucket, do a top-level search for it.
 Click into the resource, choose the `Controls` tab, and set the `Type` filter to `AWS > S3 > Bucket > Versioning`.
 <p><img alt="aws_start_5_filter_bucket_to_the_versioning_policy_type" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-start-5-filter-bucket-to-the-versioning-policy-type.png"/></p><br/>
 
-The bucket is in alarm. Now, tag it with `environment:development` to activate the calculated policy you created in this runbook.
+The bucket is in alarm. Now, tag it with `environment:development` to activate the calculated policy you created in this guide.
 <p><img alt="aws_start_5_tag_the_bucket" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-start-5-tag-the-bucket.png"/></p><br/>
 
 
@@ -94,7 +93,7 @@ The bucket is in alarm. Now, tag it with `environment:development` to activate t
 Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.
 <p><img alt="aws_start_5_tagged_bucket_now_skipped" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-start-5-tagged-bucket-now-skipped.png"/></p><br/>
 
-In the [next runbook](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams.
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams.
 
 
 

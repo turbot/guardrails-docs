@@ -6,7 +6,7 @@ sidebar_label: Create Exceptions
 
 # Create a Static Exception to a Guardrails GCP Policy
 
-Now that we have set our GCP bucket access control policy, we can track which GCP buckets do not have uniform access enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket access control status.
+Now that we have set our GCP bucket access control policy, we can track which GCP buckets do not have uniform access enabled. In this guide we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket access control status.
 
 **Prerequisites**:
 
@@ -41,7 +41,7 @@ Select the `Hierarchy` tab to review the new situation.
 
 
 
-The default for bucket versioning was `Skip`, the policy you created in the previous runbook changed it to `Check: Uniform`, and now this particular bucket overrides that setting back to `Skip`. Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Uniform`.
+The default for bucket versioning was `Skip`, the policy you created in the previous guide changed it to `Check: Uniform`, and now this particular bucket overrides that setting back to `Skip`. Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Uniform`.
 
 
 ## Step 3: Review Guardrails activity for the bucket
@@ -60,7 +60,7 @@ Here you can see the whole history, reading from the bottom up.
 - Then Guardrails reevaluated, found the bucket in compliance with the new policy setting, and set the status to `Skipped`.
 
 
-In the [next runbook](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.
 
 
 ## Progress tracker

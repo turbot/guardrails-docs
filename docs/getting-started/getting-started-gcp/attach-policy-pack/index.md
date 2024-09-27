@@ -15,7 +15,7 @@ Now that we can track resource configuration drift, we can create policies to al
 
 ## Step 1: Review bucket permissions
 
-Check the configuration of the bucket you created in [Observe GCP activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity). In that runbook you switched your test bucket from uniform to fine-grained access. Verify that is the configuration.
+Check the configuration of the bucket you created in [Observe GCP activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity). In that guide you switched your test bucket from uniform to fine-grained access. Verify that is the configuration.
 <p><img alt="gcp-review-fine-grained" src="/images/docs/guardrails/getting-started/getting-started-gcp/attach-a-policy/gcp-review-fine-grained.png"/></p><br/>
 
 ## Step 2: Find and view the GCP > Storage > Bucket > Access Control control
@@ -42,7 +42,7 @@ In the `Edit policy pack attachments` dialog, select `Enforce Uniform Access is 
 Do a top-level search for the name of your bucket, switch to the `Controls` tab, and search for `access control`. The control, which was formerly in the `Skipped` state, is now in `Alarm` because we’ve set the bucket’s access control to fine-grained.
 <p><img alt="gcp_observe_policy_driven_alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/attach-a-policy/gcp-observe-policy-driven-alarm.png"/></p><br/>
 
-You can override policies at any level. In the [next runbook](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception), we’ll create an exception that transitions your bucket to the `OK` state.
+You can override policies at any level. In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception), we’ll create an exception that transitions your bucket to the `OK` state.
 
 
 ## Progress tracker

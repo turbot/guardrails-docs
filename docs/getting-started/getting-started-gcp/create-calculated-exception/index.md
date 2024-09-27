@@ -5,7 +5,7 @@ sidebar_label: Create Calculated Policy
 
 # Create a Calculated Exception to a Guardrails GCP Policy
 
-In the [previous runbook](guardrails/docs/runbooks/getting-started-gcp/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test bucket (we’ll use `guardrails-example-gcp-bucket-02`) with fine-grained access control and no labels.
+In the [previous guide](guardrails/docs/runbooks/getting-started-gcp/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test bucket (we’ll use `guardrails-example-gcp-bucket-02`) with fine-grained access control and no labels.
 
 **Prerequisites**:
 
@@ -31,7 +31,7 @@ Click `New Policy Setting`.
 ## Step 2: Create a calculated exception
 <p><img alt="gcp_begin_calc_exception" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/gcp-begin-calc-exception.png"/></p><br/>
 
-Click `Enable calculated mode`, then `Launch calculated policy builder`. For the `Test Resource`, choose the bucket you created at the start of this runbook.
+Click `Enable calculated mode`, then `Launch calculated policy builder`. For the `Test Resource`, choose the bucket you created at the start of this guide.
 <p><img alt="gcp_calc_policy_builder_launched" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/gcp-calc-policy-builder-launched.png"/></p><br/>
 
 Open the `Select snippet` dropdown and choose `Get bucket`.
@@ -85,7 +85,7 @@ To check the status of the second test bucket, do a top-level search for it.
 Click into the resource, choose the `Controls` tab, and set the `Type` filter to `GCP  > Storage > Bucket > Access Control`.
 <p><img alt="gcp_filter_bucket_to_the_access_control_policy_type" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/gcp-filter-bucket-to-the-access-control-policy-type.png"/></p><br/>
 
-The bucket is in alarm. Now, label it with `environment:development` to activate the calculated policy you created in this runbook.
+The bucket is in alarm. Now, label it with `environment:development` to activate the calculated policy you created in this guide.
 <p><img alt="gcp_label_the_bucket" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/gcp-label-the-bucket.png"/></p><br/>
 
 
@@ -93,7 +93,7 @@ The bucket is in alarm. Now, label it with `environment:development` to activate
 Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.
 <p><img alt="gcp_labeled_bucket_now_skipped" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/gcp-labeled-bucket-now-skipped.png"/></p><br/>
 
-In the [next runbook](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams.
+In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams.
 
 
 

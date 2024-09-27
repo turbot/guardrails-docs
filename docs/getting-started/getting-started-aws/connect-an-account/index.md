@@ -165,7 +165,7 @@ Search the `Controls` tab for `aws account cmdb`
 
 When the control is green, Turbot has successfully connected to your account.
 
-In the [next runbook](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches your account and reacts to resource changes.
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches your account and reacts to resource changes.
 
 
 ## Progress tracker

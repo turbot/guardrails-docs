@@ -5,7 +5,7 @@ sidebar_label: Enable Enforcement
 
 # Enable Automatic Enforcement
 
-In the [previous runbook](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
+In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
 
 **Prerequisites**:
 
@@ -23,7 +23,7 @@ In the [previous runbook](/guardrails/docs/getting-started/getting-started-aws/a
 In the AWS console, suspend versioning for your test bucket.
 <p><img alt="aws_start_8_suspend_versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-start-8-suspend-versioning.png"/></p><br/>
 
-The notification flow we saw in the [previous runbook](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) now shows that Guardrails has noticed the change, and put the bucket into `Alarm`.
+The notification flow we saw in the [previous guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) now shows that Guardrails has noticed the change, and put the bucket into `Alarm`.
 
 <p><img alt="aws_start_8_bucket_in_alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-start-8-bucket-in-alarm.png"/></p><br/>
 
@@ -52,7 +52,7 @@ Here you can see the whole history. Reading from the bottom up:
 
 - Guardrails reevaluated and found the bucket to be out-of-policy
 
-- Guardrails autonomously did what you did with a `Quick Action` in the previous runbook: enable versioning
+- Guardrails autonomously did what you did with a `Quick Action` in the previous guide: enable versioning
 
 - Guardrails noticed the bucket’s changed status
 

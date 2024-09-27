@@ -15,7 +15,7 @@ Now that we can track resource configuration drift, we can create policies to al
 
 ## Step 1: Review bucket properties
 
-Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity). In that runbook you switched bucket versioning from the default (`Suspended`) to `Enabled`.
+Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity). In that guide you switched bucket versioning from the default (`Suspended`) to `Enabled`.
 <p><img alt="aws_start_3_review_bucket_versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/attach-a-policy/aws-start-3-review-bucket-versioning.png"/></p><br/>
 
 ## Step 2: Find and view the AWS > S3 > Bucket > Versioning control
@@ -50,7 +50,7 @@ Now, in the AWS console, set versioning for your bucket back to the AWS default,
 
 With versioning disabled, the bucket no longer complies with the `Check: Enabled` policy setting so Guardrails puts the bucket into the `Alarm` state for that policy.
 
-You can override policies at any level. In the [next runbook](/guardrails/docs/getting-started/getting-started-aws/create-static-exception), we’ll create an exception that enables your test bucket to return to the `OK` state.
+You can override policies at any level. In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-static-exception), we’ll create an exception that enables your test bucket to return to the `OK` state.
 
 
 ## Progress tracker

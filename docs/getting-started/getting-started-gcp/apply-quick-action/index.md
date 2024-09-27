@@ -7,7 +7,7 @@ sidebar_label: Apply a Quick Action
 # Apply a Quick Action
 
 
-Until now we’ve operated Guardrails in read-only mode, with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this runbook we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
+Until now we’ve operated Guardrails in read-only mode, with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this guide we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
 
 **Prerequisites**:
 
@@ -85,7 +85,7 @@ The flow of notifications tells the story. Reading from the bottom up, Guardrail
 
 - reevaluates the control.
 
-In the [next runbook](/guardrails/docs/getting-started/getting-started-gcp/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.
+In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.
 
 
 
