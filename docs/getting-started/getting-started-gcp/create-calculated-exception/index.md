@@ -5,7 +5,7 @@ sidebar_label: Create Calculated Policy
 
 # Create a Calculated Exception to a Guardrails GCP Policy
 
-In the [previous guide](guardrails/docs/runbooks/getting-started-gcp/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test bucket (we’ll use `guardrails-example-gcp-bucket-02`) with fine-grained access control and no labels.
+In the [previous guide](getting-started/getting-started-gcp/create-static-exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test bucket (we’ll use `guardrails-example-gcp-bucket-02`) with fine-grained access control and no labels.
 
 **Prerequisites**:
 

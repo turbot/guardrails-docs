@@ -20,7 +20,7 @@ We’ll use the name `bucket-example-01`, choose your own name.
 <p><img alt="aws_start_2_create_bucket_name" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-start-2-create-bucket-name.png"/></p><br/>
 
 
-Accept the defaults, including this one for bucket versioning which will be the focus of this series of runbooks.
+Accept the defaults, including this one for bucket versioning which will be the focus of this series of guides.
 <p><img alt="aws_start_2_create_bucket_versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-start-2-create-bucket-versioning.png"/></p><br/>
 
 ## Step 2: See Guardrails discover the new bucket

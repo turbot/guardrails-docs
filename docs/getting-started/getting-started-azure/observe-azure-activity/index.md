@@ -20,7 +20,7 @@ We’ll use the name `guardrailsazurestorage1`, choose your own name.
 <p><img alt="azure_create_storage_account" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/azure-create-storage-account.png"/></p><br/>
 
 
-Accept the defaults, including this one for minimum TLS version which will be the focus of this series of runbooks.
+Accept the defaults, including this one for minimum TLS version which will be the focus of this series of guides.
 <p><img alt="azure_minimum_tls_version" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/azure-minimum-tls-version.png"/></p><br/>
 
 ## Step 2: See Guardrails discover the new storage account
