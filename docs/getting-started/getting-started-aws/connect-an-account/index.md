@@ -6,7 +6,6 @@ sidebar_label: Connect AWS Account
 
 # Connect an AWS Account to Guardrails
 
-
 **Prerequisites**:
 
 Access to the Guardrails console with admin privilege, and a top-level `Sandbox` folder.

@@ -6,15 +6,15 @@ sidebar_label: Create Calculated Policy
 
 # Create a Calculated Exception to a Guardrails AWS Policy
 
+
+In the [previous runbook](guardrails/docs/getting-started/getting-started-aws/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test bucket (we’ll use `example-bucket-02`) in the default state: bucket versioning suspended, no tags.
+
 **Prerequisites**:
 
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
 - [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/attach-a-policy/)
 - [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
-
-
-In the [previous runbook](guardrails/docs/runbooks/getting-started-aws/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test bucket (we’ll use `example-bucket-02`) in the default state: bucket versioning suspended, no tags.
 
 ## Step 1: Go to the AWS > S3 > Bucket > Versioning policy
 

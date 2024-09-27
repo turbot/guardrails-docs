@@ -19,7 +19,7 @@ Until now we’ve operated Guardrails in read-only mode, with the minimal permis
 
 ## Step 1: Add the s3:PutBucketVersioning permission.
 
-Use this CloudFormation stack to add one write permission to the `turbot-service-readonly` role you set up in [the first runbook]([/](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)guardrails/docs/runbooks/getting-started-aws/connect-an-account).
+Use this CloudFormation stack to add one write permission to the `turbot-service-readonly` role you set up in [the first runbook](getting-started/getting-started-aws/connect-an-account)
 
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'

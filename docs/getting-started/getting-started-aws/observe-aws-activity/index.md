@@ -6,14 +6,11 @@ sidebar_label: Observe Activity
 
 # Observe AWS resource activity
 
+Now that you’ve connected an AWS account, you can explore your resource inventory.  To visualize activity, go to `Reports`,  find `Resource activities`, then click that link. 
+
 **Prerequisites**:
 
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
-
-
- 
-
-Now that you’ve connected an AWS account, you can explore your resource inventory.  To visualize activity, go to `Reports`,  find `Resource activities`, then click that link. 
 
 The following steps will show how to observe AWS resource activity in real-time.
 

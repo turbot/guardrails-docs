@@ -6,14 +6,14 @@ sidebar_label: Create Exceptions
 
 # Create a Static Exception to a Guardrails AWS Policy
 
+Now that we have set our AWS S3 bucket versioning policy, we can track which S3 buckets do not have versioning enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket versioning status.
+
 **Prerequisites**:
 
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
 - [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/attach-a-policy/)
 
-
-Now that we have set our AWS S3 bucket versioning policy, we can track which S3 buckets do not have versioning enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket versioning status.
 
 ## Step 1: Find your test bucket
 

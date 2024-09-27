@@ -5,6 +5,8 @@ sidebar_label: Enable Enforcement
 
 # Enable Automatic Enforcement
 
+In the [previous runbook](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
+
 **Prerequisites**:
 
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
@@ -16,22 +18,20 @@ sidebar_label: Enable Enforcement
 - [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/)
 
 
-In the [previous runbook](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
-
-Step 1: Suspend versioning in AWS
+## Step 1: Suspend versioning in AWS
 
 In the AWS console, suspend versioning for your test bucket.
 <p><img alt="aws_start_8_suspend_versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-start-8-suspend-versioning.png"/></p><br/>
 
 The notification flow we saw in the [previous runbook](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) now shows that Guardrails has noticed the change, and put the bucket into `Alarm`.
+
 <p><img alt="aws_start_8_bucket_in_alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-start-8-bucket-in-alarm.png"/></p><br/>
-
-
 
 
 ## Step 2: Find the versioning policy for the bucket
 
-Search for your original test bucket (ours was `bucket-example-01` whose bucket versioning policy we set to `Skip` in  [Create a static  exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception)
+Search for your original test bucket (ours was `bucket-example-01`) whose bucket versioning policy we set to `Skip` in  [Create a static  exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception)
+
 <p><img alt="aws_start_8_find_bucket_versioning_policy_setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-start-8-find-bucket-versioning-policy-setting.png"/></p><br/>
 
 ## Step 3: Update the policy setting
@@ -39,9 +39,11 @@ Search for your original test bucket (ours was `bucket-example-01` whose bucket 
 Click into the Policy Setting, click `Edit`, and
 
 Edit the policy, originally we had an exception to "Skip" the bucket from checking S3 bucket versioning.  Now we will automatically enforce versioning to be enabled.  Choose `Enforce: Enabled` and click `Update`.
+
 <p><img alt="aws_start_8_enable_enforcement" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-start-8-enable-enforcement.png"/></p><br/>
 
 On the Policy Setting page, switch to the `Activity` tab.
+
 <p><img alt="aws_start_8_enforcement_happened" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-start-8-enforcement-happened.png"/></p><br/>
 
 Here you can see the whole history. Reading from the bottom up:
