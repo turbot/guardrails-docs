@@ -5,66 +5,76 @@ sidebar_label: Enable Verbose Logging
 
 # Enable Workspace Verbose Logging
 
-In this runbook, you will:
-- Use AWS console setting verbose logging in the Events and API containers, which can provide valuable troubleshooting information
+In this guide, you will:
+- Use AWS console setting verbose logging in the Events and API containers
 - Learn how to troubleshoot in Guardrails
 
-**Verbose Logging** Generally, verbose logging will only be required when working with Turbot Support to diagnose some issues. Enabling verbose logging on the Events and API containers should be considered a short-term measure. It should only be enabled as long as necessary.
+**Verbose logging** is primarily used for troubleshooting and is generally only necessary when working with Turbot Support to diagnose specific issues. When enabled, verbose logging on Events and API containers should be viewed as a short-term solution, active only for the duration required to gather essential data.
 
-Long-term verbose logging can cause a considerable increase in logging costs with little to no value from the data logged.
+It's important to note that keeping verbose logging enabled for extended periods can lead to a significant increase in logging costs, while offering little to no additional value from the data collected. 
 
 ## Prerequisites
 
 - Access to the Guardrails AWS account with Administrator privileges.
-- Familiarity with AWS Console, Service Catalog, and CloudFormation services.
+- Familiarity with AWS Console, Systems Manager(SSM), Service Catalog and CloudFormation services.
 
 ## Step 1: Access AWS Console
 
 Open the AWS Console and navigate to the System Manager service in the region where Guardrails stacks are deployed
 
-![AWS SSM Console](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-parameter-store.png)
+![AWS Console SSM](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-console-ssm.png)
 
-## Step 2: Identify SSM Parameter Value
+## Step 2: Navigate to Parameter Store
 
-![SSM Workspace Parameter](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-workspace-parameter.png)
+Choose **Parameter Store** from the left navigation menu.
 
+![SSM Parameter Store](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/ssm-parameter-store.png)
 
-## Step 3: Check Default Parameter Value
+## Step 3: Identify SSM Parameter Value
 
-To start with the default `log_level` is set to `debug`.
+To enable verbose event logging, first identify the workspace(s) you want to configure. Search for **tenant** to generate a list of parameters for all workspaces in this region, then Locate the relevant parameters, which will follow this format: **/{turbot_prefix}/tenant/{workspace}.{installation_domain}**.
+
+![SSM Workspace Parameter](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/ssm-workspace-parameter-search.png)
+
+## Step 3: Verify Parameter Value
+
+Choose the tenant parameter and verify if the **log_level** is set to `debug`, as this is the default setting.
 
 ![SSM Workspace Parameter Value](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssl-parameter-value-default-settings.png)
 
-
 ## Step 4: Modify Parameter Value
 
-Select **Edit** and update `log_level` to `verbose` in `Value` section
+Select **Edit** and update `log_level` to `verbose` in `Value` field. Then select **Save changes**.
+
+> [!Note] Ensure the parameter string is a valid JSON before saving. Keep all rest of the values as default.
 
 ![SSM Workspace Parameter With Verbose](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-parameter-modifiy-verbose.png)
 
-**Note:**
-Ensure the parameter string is a valid JSON before saving. Keep all rest of the values as default and select **Save Changes**.
+## Step 5: Enable Verbose Logging in Service Catalog
 
-## Step 5: Enforce the Change
+Navigate to the **Service Catalog** service and select the **Turbot Guardrails Enterprise (TE)** provisioned product where verbose logging is required. Then, select Actions and choose Update.
 
-Enforce the change by updating the respective CloudFormation TE stack where the workspace is hosted. This step is important to ensure that the changes made above propagate to the respective workspace.
+![Service Catalog TE Update](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/service-catalog-te-update.png)
 
-Navigate to `CloudFormation` check for `Turbot Enterprise` stack and update the `Parameter Deployment Trigger` value from Blue <-> Green. This should trigger a new parameter change. No other changes to the TE stack are required as part of these troubleshooting steps.
+Toggle the Deployment Trigger between Blue and Green, this will trigger the TE Cloudformation stack to ensure that the Events and API containers are using the latest SSM parameter values. No other changes to the TE stack are required as a part of these troubleshooting steps. The select **Update**.
 
-## Step 6: Review
+![Service Catalog TE Deployment Trigger](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/service-catalog-deployment-trigger.png)
 
-- [ ] In Step 5 wait for the Cloudformation to finish updating the TE stack. The Stack should indicate `UPDATE_COMPLETE`
+## Step 6: Review Cloud Formation Stack
 
-![Validate TE Stack Status](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/aws-ssm-parameter-change-validation.png)
+- [ ] The TED CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
-You have successfully updated the Workspace SSM parameter to enable verbose logging. Now you can navigate Cloudwatch Log Group for /{turbot_prefix}/{te_version}/events or /{turbot_prefix}/{te_version}/api to investigate generated events and check for required troubleshooting data.
+![Validate TE Stack Status](/images/docs/guardrails/runbooks/troubleshooting/enable-verbose-logging/cfn-workspace-te-stack-validation.png)
 
-**Note:**
-When troubleshooting is complete, turn off verbose logging. Go to the SSM Console and repeat steps 1 to 5. Edit the `log_level` back to `debug`.
+## Step 7: Search for Troubleshooting Data.
 
-## Next Steps
+With verbose logging now enabled, you can navigate to Cloudwatch service and find the Log Group(s) for **/{turbot_prefix}/{te_version}/events** or **/{turbot_prefix}/{te_version}/api** to investigate generated events and check for required troubleshooting data.
 
-Please see the following resources to learn more about Turbot Guardrails Enterprise:
+> [!Important]
+> When troubleshooting is complete, turn off verbose logging. Go to the SSM Console and repeat steps 1 to 5. Edit the `log_level` back to `debug`.
 
-- Learn more about [TE architecture](https://turbot.com/guardrails/docs/enterprise/architecture).
-- Learn about [Troubleshooting](https://turbot.com/guardrails/docs/enterprise/troubleshooting).
+If you encounter any issues, please [Open Support Ticket](https://support.turbot.com) and attach the relevant information to assist you more efficiently.
+
+- A screenshot of the SSM workspace parameter value.
+- A screenshot of the CloudFormation Events tab for the TE stack.
+- A screenshot of the Service Catalog TE provisioned product.
