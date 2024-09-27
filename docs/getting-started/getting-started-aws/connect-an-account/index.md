@@ -147,13 +147,13 @@ Copy the IAM Role ARN created earlier and paste it into the field.
 
 Provide the GUID you created in Step 1.
 
-<p><img alt="aws_start_1_ready_to_import" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-ready-to-import.png"/></p><br/>
+<p><img alt="aws_start_1_ready_to_import" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-ready-to-import.png"/></p>
 
 Click `Import`.
 
 
 Wait for the progress bar to complete.
-<p><img alt="aws_start_1_aws_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-aws-progress-bar.png"/></p><br/>
+<p><img alt="aws_start_1_aws_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-aws-progress-bar.png"/></p>
 
 This process takes a while, and you’ll see the bars fluctuate. Note that error messages, like "Try again later: error in handling command," are not uncommon and should resolve as the process iterates to completion.
 
@@ -164,7 +164,7 @@ When the process completes, navigate to `Turbot > Sandbox > YOUR_ACCOUNT`.
 
 Search the `Controls` tab for `aws account cmdb`.
 
-<p><img alt="aws_start_1_account_cmdb" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-account-cmdb.png"/></p><br/>
+<p><img alt="aws_start_1_account_cmdb" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-account-cmdb.png"/></p>
 
 When the control is green, Turbot has successfully connected to your account.
 
