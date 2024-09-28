@@ -127,24 +127,27 @@ Copy the role ARN and proceed to step 2.
 
 ## Step 2: Connect the AWS Account
 
-Login to Guardrails.
+**Login** to Guardrails [console](https://turbot.com/guardrails/docs/guides/using-guardrails/console).
 
-Click the top-level `Connect`.
+<!-- ![Guardrails Console Login](/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-guardrails-console-login.png) -->
 
-Click `AWS Account`.
+Select the top-level **Connect**.
 
-Use the `Parent Resource` dropdown to select the `Sandbox` folder.
+![Guardrails Console Connect](/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-guardrails-console-connect.png)
 
-Enter the AWS Account ID for the account you are importing.
+Select **AWS Account**. Use the `Parent Resource` dropdown to select the `Sandbox` folder.
 
-Copy the IAM Role ARN created earlier and paste it into the field.
+![Connect AWS](/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-guardrails-console-connect-aws.png)
 
-Provide the GUID you created in Step 1.
+Enter the AWS `Account ID` for the account you are importing.
+
+Copy the `IAM Role ARN` created earlier and paste it into the field.
+
+Provide the `GUID` you created in Step 1.
 
 <p><img alt="aws_start_1_ready_to_import" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-ready-to-import.png"/></p>
 
 Click `Import`.
-
 
 Wait for the progress bar to complete.
 <p><img alt="aws_start_1_aws_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-aws-progress-bar.png"/></p>
