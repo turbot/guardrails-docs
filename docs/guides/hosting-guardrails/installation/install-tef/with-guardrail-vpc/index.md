@@ -1,9 +1,9 @@
 ---
 title: With Guardrail VPC
-sidebar_label: With Guardrail VPC
+sidebar_label: Install TEF and New VPC
 ---
 
-# Install TEF With Guardrail VPC
+# Install TEF and New VPC
 
 In this guide, you will:
 - Use AWS Service Catalog to install Turbot Guardrails Enterprise Foundation (TEF). This guide demonstrates the installation process using the default `Network Option A - Created in this Stack`, where Turbot Guardrails manages the creation of the VPC and related networking resources.
