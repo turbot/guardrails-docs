@@ -46,7 +46,7 @@ Select the TE provisioned product from the list to be deleted.
 
 ## Step 5: Delete the TE Version
 
-Select the TE version to be deleted from the list of provisioned products. Click **Actions** and select **Terminate**.
+Select **Actions** and choose **Terminate**.
 
 ![Delete Action](/images/docs/guardrails/guides/hosting-guardrails/installation/delete-te/service-catalog-terminate-te-provisioned-product.png)
 
@@ -54,11 +54,11 @@ To confirm termination, type `terminate` in the confirmation field and ensure th
 
 ![Confirm Termination](/images/docs/guardrails/guides/hosting-guardrails/installation/delete-te/service-catalog-terminate-te-confirm-action.png)
 
-When the dialog box shows "Service Catalog is terminating TE," select Close and allow the process to continue.
+When the dialog box shows `Service Catalog is terminating TE` select **Close** and allow the process to continue.
 
 ![Close Action](/images/docs/guardrails/guides/hosting-guardrails/installation/delete-te/service-catalog-termination-close-action.png)
 
-> [!NOTE] Note: Deletion can take an extended period of time (15 plus minutes).
+> [!NOTE] Deletion can take an extended period of time (15 plus minutes).
 
 ## Step 6: Monitor Deletion
 
