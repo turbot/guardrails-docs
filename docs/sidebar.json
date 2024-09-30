@@ -414,7 +414,16 @@
                   "guides/hosting-guardrails/installation/pre-installation/external-role"
                 ]
               },
-              "guides/hosting-guardrails/installation/install-tef",
+              {
+                "type": "category",
+                "id": "install-tef",
+                "link": "guides/hosting-guardrails/installation/install-tef",
+                "items": [
+                  "guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc",
+                  "guides/hosting-guardrails/installation/install-tef/with-existing-vpc"
+                ]
+              },
+
               "guides/hosting-guardrails/installation/install-ted",
               "guides/hosting-guardrails/installation/install-te",
               "guides/hosting-guardrails/installation/workspace-manager",
