@@ -8,9 +8,9 @@ sidebar_label: Delete TE Version
 In this guide, you will:
 
 - Use AWS Service Catalog to delete an installed TE version.
-- Monitor and troubleshoot the TE deletion process
+- Monitor and troubleshoot the TE deletion process.
 
-Deleting the old [Turbot Guardrails Enterprise (TE)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-te) versions declutters the environment, frees up resources for new deployments and reduces cloud costs.
+Deleting old [Turbot Guardrails Enterprise (TE)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-te) versions declutters the environment, frees up resources for new deployments and reduces cloud costs.
 
 > [!Important]
 > The TE stack and workspace stack will need to be updated in tandem! Do not delete the old TE stack until the new, updated stack has completed in CloudFormation
@@ -40,15 +40,13 @@ Change the **Access Filter** in AWS Service Catalog from **User** to **Account**
 
 ## Step 4: Select Provisioned Product
 
-Select the TE provisioned product to be deleted from the list.
+Select the TE provisioned product from the list to be deleted.
 
 ![Select TE](/images/docs/guardrails/guides/hosting-guardrails/installation/delete-te/service-catalog-select-provisioned-product-te.png)
 
-From the **Actions** menu, select **Update**
+## Step 5: Delete the TE Version
 
-## Step 3: Delete the TE Version
-
-Select the TE version to be deleted from the list of provisioned products. Click **Actions** and then select **Terminate**.
+Select the TE version to be deleted from the list of provisioned products. Click **Actions** and select **Terminate**.
 
 ![Delete Action](/images/docs/guardrails/guides/hosting-guardrails/installation/delete-te/service-catalog-terminate-te-provisioned-product.png)
 
@@ -62,19 +60,19 @@ When the dialog box shows "Service Catalog is terminating TE," select Close and 
 
 > [!NOTE] Note: Deletion can take an extended period of time (15 plus minutes).
 
-## Step 4: Monitor Deletion
+## Step 6: Monitor Deletion
 
-You have initiated the deletion of the TE version. This triggers deletion of nested CloudFormation stacks.
+You have initiated the deletion of the TE version. This triggers deletion of several nested CloudFormation stacks.
 
 Select the TE Provisioned Product, select the **Outputs** tab, and use the **CloudFormationStackARN** **Value** link to navigate to the CloudFormation stack and monitor the deletion progress.
 
 ![Navigate To CFN ](/images/docs/guardrails/guides/hosting-guardrails/installation/delete-te/service-catalog-navigate-cfn.png)
 
-The TED CloudFormation stack status should change to `DELETE_IN_PROGRESS` indicating the update process is in progress.
+The TE CloudFormation stack status should change to `DELETE_IN_PROGRESS` indicating the delete process is in progress.
 
 ![Delete Progress](/images/docs/guardrails/guides/hosting-guardrails/installation/delete-te/cfn-te-stack-delete-progress.png)
 
-## Step 5: Review
+## Step 7: Review
 
 - [ ] The TE CloudFormation stack status should change to `DELETE_COMPLETE` indicating the deletion completed successfully.
 
