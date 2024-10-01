@@ -17,6 +17,7 @@ Before you get started, if you have not already completed, follow the [Importing
 Beyond the `@turbot/servicenow` mod already installed as part of the ServiceNow instance import above, there are other [ServiceNow mods](/guardrails/docs/mods/servicenow) which need to be installed in your Guardrails workspace. These mods enable the policies and controls for the applicable cloud resources you would like to sync into your ServiceNow CMDB.
 
 Example of related cloud mods:
+
 * `@turbot/servicenow-aws`
   * `@turbot/servicenow-aws-ec2`
   * `@turbot/servicenow-aws-iam`
@@ -43,6 +44,7 @@ In rare use cases you may need to adjust along with your Customer Success SME. F
 The `ServiceNow > Turbot > Watches` control is essential for managing the deletion or archiving of records in ServiceNow when resources are deleted. Upon deletion, depending on the `Configuration Item` policy settings below, Guardrails will remove or archive resources directly in ServiceNow if they are no longer active in the cloud provider.
 
 Policies that are already set are:
+
 * `ServiceNow > Turbot > Watches > AWS`
 * `ServiceNow > Turbot > Watches > Azure`
 * `ServiceNow > Turbot > Watches > GCP`
@@ -60,6 +62,7 @@ The primary function of the sync control is to ensure that cloud resources disco
 ### Table management
 
 The sync depends on defining a ServiceNow table to sync the records to. Each cloud resource type (AWS S3 Buckets, Azure Compute Instances, etc) are associated to their own table in the ServiceNow CMDB. Syncing can occur on:
+
 * New tables managed by Guardrails, e.g. `cmdb_ci_guardrails`
 * Extension tables managed by Guardrails, e.g. `cmdb_ci_aws_s3_bucket` extends global table `cmdb_ci_cloud_storage_account`.
 * Existing tables in SNOW, managed by Guardrails, e.g. `cloud_ci`
@@ -72,6 +75,7 @@ The Table management policy types follow a similar policy construct to the Confi
 * `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Table > Definition`
 
 To either create a new table or modify an existing one (such as adding new columns), you can use the following table policies per cloud resource type like for `AWS > S3 > Buckets`.
+
 * `AWS > S3 > Bucket > ServiceNow > Table`
   * Defines if the table is enabled for the cloud resource type
   * Defaults to `Skip`, set to `Enforce: Configured` to create or associate the table
@@ -81,6 +85,7 @@ To either create a new table or modify an existing one (such as adding new colum
   * Can adjust table columns that are associated to the sync, or create your own.
 
 Working with tables from Guardrails or in ServiceNow:
+
 * When a table name is changed:
   * If the table name is modified in the Turbot Guardrails policy, a new ServiceNow table with the necessary columns is created. However, the original table remains, leading to two tables - the existing one and the newly created one with the changed name.
   * If the table name is modified in ServiceNow, an update to the Guardrails policy is required to reflect the new name of the table.
@@ -130,7 +135,7 @@ To illustrate the setup process of sync control, let's use the example of synchr
   * **"Enforce: Sync":** Ensures data synchronization. Data will be removed from the ServiceNow table once it is deleted from the Guardrails CMDB.
   * **"Enforce: Sync, archive on Delete":** This policy enforces data synchronization and dictates that data should be archived in ServiceNow when it is deleted from the Guardrails CMDB.
 
-2. Data Mapping:
+1. Data Mapping:
 
 Configure the mapping in `AWS > S3 > Bucket > ServiceNow > Configuration Item > Record`. This involves defining how each piece of data in the Guardrails CMDB corresponds to a column in ServiceNow. To populate the added columns dynamically, the Configuration Item policy can define where the data comes from. In this example, the `bucket_name`, `account_id`, and `tags` in the Guardrails CMDB are mapped to their respective columns in ServiceNow. Any changes in these data points in the Guardrails will automatically update the corresponding columns in ServiceNow.
 
@@ -148,7 +153,7 @@ region: "us-east-1",
 tags: {"foo": "bar"}
 ```
 
-3. Table Definition:
+1. Table Definition:
 
 In `AWS > S3 > Bucket > ServiceNow > Configuration Item > Table Definition`, you can define the specific table name in ServiceNow where the data will be synchronized. Although it defaults to the name defined in `AWS > S3 > Bucket > ServiceNow > Table > Definition`, you have the option to direct the data to an existing table of your choice.
 
@@ -175,7 +180,7 @@ columns:
     label: Cloud Tags
 ```
 
-4. Archiving records in ServiceNow
+1. Archiving records in ServiceNow
 Archiving is a strategic process to retain records that are not actively used but are still valuable for historical or compliance purposes.
 
 When `AWS > S3 > Bucket > ServiceNow > Configuration Item` is set to `Enforce: Sync`, data will be removed from the ServiceNow table once it is deleted from the Guardrails CMDB (when the cloud resource is deleted).
@@ -210,16 +215,166 @@ archiveColumns:
 
 Note: the status column should be defined in the `AWS > S3 > Bucket > ServiceNow > Configuration Item > Table Definition` as well.
 
+## CI Relationships
+
+Guardrails can also create and sync relationships between Configuration Items, after the resources from Guardrails are synced to ServiceNow.
+
+### Relationships policies
+
+The following policy structure manages how relationships between CIs are synced to ServiceNow:
+
+* `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Relationships`
+  * Sets whether relationships for the current Resource Type will be created in ServiceNow
+  * Defaults to `Skip`, can be set either in Check mode or Enforce mode:
+    * `Check: Disabled`
+    * `Check: Enabled`
+    * `Enforce: Disabled`
+    * `Enforce: Enabled`
+  * `Enforce: Enabled` will create and sync relationships as defined in the Template policy (explained below)
+  * `Enforce: Disabled` will remove all relationships as defined in the Template policy (explained below)
+* `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Relationships > Template`
+  * Template on how the relationships for the current Resource Type would be created
+
+### Relationships management
+
+All relationships synced to ServiceNow are managed via the `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Relationships > Template` policy. Each Resource Type will have a relationships template defined by default, which can then be updated per requirement.
+The Template must contain either a `parent` or a `child` relationship. It can also contain multiple parent/child relationships, defined per below format:
+
+* `Parent` relationship
+
+```json
+[
+  {
+    "type": "<type of the relationship>",
+    "parent": {
+      "name": "<record's name field value>",
+      "sysId": "<record's sys_id",
+      "tableName": "<ServiceNow table name where the record is present>"
+    }
+  }
+]
+```
+
+* `Child` relationship
+
+```json
+[
+  {
+    "type": "<type of the relationship>",
+    "child": {
+      "name": "<record's name field value>",
+      "sysId": "<record's sys_id",
+      "tableName": "<ServiceNow table name where the record is present>"
+    }
+  }
+]
+```
+
+* Multiple relationships
+
+```json
+[
+    {
+    "type": "<type of the relationship>",
+    "parent": {
+      "name": "<record's name field value>",
+      "sysId": "<record's sys_id",
+      "tableName": "<ServiceNow table name where the record is present>"
+    }
+  },
+  {
+    "type": "<type of the relationship>",
+    "child": {
+      "name": "<record's name field value>",
+      "sysId": "<record's sys_id",
+      "tableName": "<ServiceNow table name where the record is present>"
+    }
+  }
+]
+```
+
+* `type`: (Required) Defines the type of relationship, such as “dependency”, “association”, or any custom relationship types defined in ServiceNow.
+* `sysId`: (Required) The unique identifier of the record in ServiceNow.
+* `tableName`: (Required) The table in ServiceNow where the record is located, such as “incident”, “cmdb_ci”, etc.
+* `name`: (Optional) The specific name of the record (usually the value in the `name` field of the ServiceNow record).
+
+#### Notes
+
+1. The CI record should already be available in ServiceNow for the relationship to be created successfully.
+2. Removing a relationship block from the Template policy will delete the relationship in ServiceNow.
+
+#### Examples
+
+1. The `AWS > S3 > Bucket > ServiceNow > Relationships > Template` defaults to:
+
+```json
+[
+  {
+    "type": "Contains::Contained by",
+    "parent": {
+      "name": "us-east-1",
+      "sysId": "0e39cf7a97381210f0e6f52ad0987gvf",
+      "tableName": "x_1115212_guardrai_guardrails_aws_region"
+    }
+  }
+]
+```
+
+This would create/sync a relationship from the `parent` subnet CI named `us-east-1` with `sysId` `0e39cf7a97381210f0e6f52ad0987gvf` present in CMDB CI table `x_1115212_guardrai_guardrails_aws_region` to the current bucket, with the relationship type `Contains::Contained by`.
+
+1. The `GCP > Compute Engine > Node Group > ServiceNow > Relationships > Template`, defaults to:
+
+```json
+[
+  {
+    "type": "Uses::Used by",
+    "child": {
+      "name": "acme mode group template",
+      "sysId": "0e39cf7a97381210f0e6f52ad0565fr4",
+      "tableName": "x_1115212_guardrai_guardrails_gcp_computeengine_node_group_template"
+    }
+  }
+]
+```
+
+This would create/sync a relationship from the current node group record to the `child` node group template CI named `acme mode group template` with `sysId` as `0e39cf7a97381210f0e6f52ad0565fr4` present in CMDB CI table `x_1115212_guardrai_guardrails_gcp_computeengine_node_group_template`.
+
+1. You could also create a custom relationship for the S3 bucket to relate it to a business application in ServiceNow, by updating the Template policy:
+
+```json
+[
+  {
+    "type": "Contains::Contained by",
+    "parent": {
+      "name": "us-east-1",
+      "sysId": "0e39cf7a97381210f0e6f52ad0987gvf",
+      "tableName": "x_1115212_guardrai_guardrails_aws_region"
+    }
+  },
+  {
+    "type": "Owns::Owned by",
+    "parent": {
+      "name": "Guardrails Relationships Integration",
+      "sysId": "0e39cf7a97381210f0e6f52ad0565fr4",
+      "tableName": "cmdb_ci_business_app"
+    }
+  }
+]
+```
+
+This would create a new relationship from the `parent` business application CI named `Guardrails Relationships Integration` with `sysId` `0e39cf7a97381210f0e6f52ad0565fr4` present in CMDB CI table `cmdb_ci_business_app` to the current bucket, with the relationship type `Owns::Owned by`.
+
 ## Import sets
 
 Guardrails can also sync cloud resource data by creating and sending [import sets](https://docs.servicenow.com/csh?topicname=c_ImportSetsKeyConcepts.html&version=latest) to import set tables, which then transform and map the data into other tables.
 
 While Guardrails does send import sets with resource data, it does **not**:
-- Create import set tables
-- Set coalesce fields
-- Manage data sources
-- Create transform maps
-- Cleanup processed import sets
+
+* Create import set tables
+* Set coalesce fields
+* Manage data sources
+* Create transform maps
+* Cleanup processed import sets
 
 All of the items above need to be configured in your ServiceNow instance outside of Guardrails.
 
