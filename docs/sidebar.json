@@ -411,6 +411,7 @@
                   "guides/hosting-guardrails/installation/pre-installation/checklist",
                   "guides/hosting-guardrails/installation/pre-installation/networking",
                   "guides/hosting-guardrails/installation/pre-installation/service-catalog",
+                  "guides/hosting-guardrails/installation/pre-installation/import-portfolio",
                   "guides/hosting-guardrails/installation/pre-installation/external-role"
                 ]
               },
