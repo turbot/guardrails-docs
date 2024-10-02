@@ -6,25 +6,22 @@ sidebar_label: Observe AWS Resource Activity
 
 # Observe AWS resource activity
 
-Now that you’ve connected an AWS account, you can explore your resource inventory.  In this guide you’ll discover how to search for resources…
+You’ve connected an AWS account, and seen Guardrails discover  your existing AWS resources. In this guide you’ll create a new S3 bucket that Guardrails will discover. You’ll then change a setting on the bucket, and see Guardrails notice that change.
 
 ## Prerequisites
 
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
+  
+  
+You will also need to create  an S3 bucket. We’ll illustrate using `bucket-example-01`, but use your own name. Create your bucket with the default setting for versioning: disabled.
 
-
-The following steps will show how to observe AWS resource activity in real-time.
-
-## Step 1: Create an S3 bucket
-
-We’ll use the name `bucket-example-01`, choose your own name.  
-
-
-## Step 2: See Guardrails discover the new bucket
+## Step 1: Locate the `Resource Activities` report.
 
   
-Select top-level `Reports`, search in the page for `Resource Activities`, and click the link.
+Select top-level `Reports`, search for `resource`, locate `Resource Activities`, and click the link.
 <p><img alt="aws_search_resource_activities" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-search-resource-activities.png"/></p>
+
+Step 2: Observe notifications
 
 In the `Resource Activities` report, search for the name of your bucket.
 
@@ -51,10 +48,4 @@ Next we’ll explore [how to set a policy](/guardrails/docs/getting-started/gett
 <div>
 <div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/connect-an-account/">Connect an AWS Account to Guardrails</a></div>
 <div>✅ <strong>Observe AWS Resource Activity</strong></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack/">Attach a Guardrails Policy</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/create-static-exception/">Create a Static Exception to a Guardrails AWS Policy</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/">Create a Calculated Exception to a Guardrails AWS Policy</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/">Send an Alert to Email</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/">Apply a Quick Action</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/enable-enforcement/">Enable Automatic Enforcement</a></div>
 </div>

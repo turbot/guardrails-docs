@@ -99,4 +99,5 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe
 ## Progress tracker
 <div>
 <div>✅ <strong>Connect an AWS Account to Guardrails</strong></div>
+<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/">Observe AWS Resource Activity</a></div>
 </div>
