@@ -6,13 +6,13 @@ sidebar_label: Attach a Guardrails Policy
 
 # Attach a Guardrails Policy
 
-**Prerequisites**: 
+Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state. 
+
+## Prerequisites
 
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
 
-
-Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state. 
 
 ## Step 1: Review bucket properties
 
