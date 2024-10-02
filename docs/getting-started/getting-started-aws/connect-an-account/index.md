@@ -6,180 +6,97 @@ sidebar_label: Connect an AWS Account to Guardrails
 
 # Connect an AWS Account to Guardrails
 
-  
-**Prerequisites**:
+In this guide, you’ll connect an AWS account to Guardrails. Then, in following guides, you’ll work through a series of exploratory exercises to learn the basics cloud governance with Guardrails.
+
+## Prerequisites
 
 Access to the Guardrails console with admin privilege, and a top-level `Sandbox` folder.
 
-## Step 1: Create an AWS IAM role for Guardrails
-
-You’ll need an IAM role that grants Guardrails read-only permissions to discover [resources](/guardrails/docs/reference/glossary#resource) in your AWS account and monitor changes. Use this CloudFormation stack to facilitate creating this role. When prompted for `TurbotExternalId`, provide a random GUID and also save it for step 2.  
-
-```
-AWSTemplateFormatVersion: '2010-09-09'
-Parameters:
-  RoleName:
-    Type: String
-    Default: turbot-service-readonly
-    Description: The role that Turbot uses to connect to this account
-  PolicyName:
-    Type: String
-    Default: turbot-readonly-events-sns
-    Description: The name for the policy for SNS and Events write access.
-  TurbotAccountId:
-    Type: String
-    Default: 287590803701
-    Description: >
-      The AWS Account ID where Turbot is installed. This will be added to the
-      trust policy of the role to allow access for Turbot Defaults to the Turbot
-      US SaaS account
-  TurbotExternalId:
-    Type: String
-    NoEcho: true
-    MinLength: 1
-    Description: |
-      The AWS External ID to add to the trust policy of the Turbot role
-Resources:
-  TurbotReadOnlyRole:
-    Type: "AWS::IAM::Role"
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: 2012-10-17
-        Statement:
-          - Effect: Allow
-            Principal:
-              AWS: !Sub "arn:aws:iam::${TurbotAccountId}:root"
-            Action:
-              - "sts:AssumeRole"
-            Condition:
-              StringEquals:
-                "sts:ExternalId": !Ref TurbotExternalId
-      Path: /turbot/core/
-      ManagedPolicyArns:
-        - "arn:aws:iam::aws:policy/ReadOnlyAccess"
-      RoleName: !Ref RoleName
-  TurbotSNSEventsPolicy:
-    Type: "AWS::IAM::Policy"
-    Properties:
-      PolicyName: !Ref PolicyName
-      Roles:
-        - !Ref RoleName
-      PolicyDocument:
-        Version: 2012-10-17
-        Statement:
-          - Sid: TurbotEvents
-            Effect: Allow
-            Action:
-              - "events:PutEvents"
-              - "events:EnableRule"
-              - "events:DisableRule"
-              - "events:PutRule"
-              - "events:DeleteRule"
-              - "events:PutTargets"
-              - "events:RemoveTargets"
-              - "events:TagResource"
-              - "events:UntagResource"
-            Resource:
-              - !Sub "arn:aws:events:*:${AWS::AccountId}:rule/turbot_aws_api_events*"
-          - Sid: TurbotSNS
-            Effect: Allow
-            Action:
-              - "sns:TagResource"
-              - "sns:UntagResource"
-              - "sns:CreateTopic"
-              - "sns:DeleteTopic"
-              - "sns:SetTopicAttributes"
-              - "sns:Publish"
-              - "sns:Subscribe"
-              - "sns:ConfirmSubscription"
-              - "sns:AddPermission"
-              - "sns:RemovePermission"
-              - "sns:Unsubscribe"
-            Resource:
-              - !Sub "arn:aws:sns:*:${AWS::AccountId}:turbot_aws_api_handler_global"
-              - !Sub "arn:aws:sns:*:${AWS::AccountId}:turbot_aws_api_handler_global:*"
-    DependsOn:
-      - TurbotReadOnlyRole
-  EventHandlersGlobalRole:
-    Type: 'AWS::IAM::Role'
-    Properties: 
-      RoleName: "turbot_aws_api_events_global"
-      Path: "/turbot/"
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Action: "sts:AssumeRole"
-            Effect: "Allow"
-            Principal:
-              Service: "events.amazonaws.com"
-      Policies:
-        - PolicyName: "aws_api_events_policy"
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: "Allow"
-                Action: 
-                  - "events:PutEvents"
-                Resource: !Sub "arn:aws:events:*:${AWS::AccountId}:event-bus/default"
-```
+## Step 1: Initiate the `Connect`
 
   
-Copy the role ARN and proceed to step 2.
+On the Guardrails home page, hover on `Connect`.  
+<p><img alt="locate-top-level-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/locate-top-level-connect.png"/></p>
 
-## Step 2: Connect the AWS Account
+Click to open the `Connect` screen.
 
-Login to Guardrails.
+## Step 2: Capture the external ID
 
-Click the top-level `Connect`.
+Choose `AWS Account`.
 
-Click `AWS Account`.  
+Copy the IAM Role External ID and save it for use in Step 4.  
+<p><img alt="initial-connect-screen" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/initial-connect-screen.png"/></p>
+
+## Step 3: Download a CloudFormation template
+
+You’ll need an IAM role that grants Guardrails read-only permissions to discover [resources](/guardrails/docs/reference/glossary#resource) in your AWS account and monitor changes. 
+
   
-Use the `Parent Resource` dropdown to select the `Sandbox` folder.
+We provide a CloudFormation template to create that role.  Visit [this url](tbd), and download it.
 
-Enter the AWS Account ID for the account you are importing.
+## Step 4: Create the CloudFormation stack
 
-Copy the IAM Role ARN created earlier and paste it into the field.
+In AWS, create a CloudFormation stack using the template you downloaded. Provide the external ID from step 1.  
+  
+When the stack is created, verify that the role `turbot-service-readonly` exists in your account, with these permissions:  
+  
+- ReadOnlyAccess  
+- turbot-readonly-events-sns  
+  
+Copy the role ARN for use in step 5.
 
-Provide the GUID you created in Step 1.
-<p><img alt="aws_ready_to_import" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-ready-to-import.png"/></p>
+## Step 5: Connect your account
+<p><img alt="finish-and-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/finish-and-connect.png"/></p>
 
-Click `Import`.  
+* Set the `Parent Resource` to `Sandbox`
+* Provide your AWS account ID
+* Paste the role ARN from step 4
+* Verify the external ID matches what you captured in Step 2. If not, overwrite with that captured value.
 
+Click `Connect`.
+
+## Step 6: Observe progress
 
 Wait for the progress bar to complete.
 <p><img alt="aws_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-progress-bar.png"/></p>
 
-This process takes a while, and you’ll see the bars fluctuate. Note that error messages, like "Try again later: error in handling command", are not uncommon and should resolve as the process iterates to completion.  
+This process takes a while, and you’ll see the bars fluctuate. Note that error messages, like "Try again later: error in handling command", are not uncommon and should resolve as the process iterates to completion. The number of resources will grow as Guardrails discovers them.  
 
 
-## Step 3: Validate the import
+## Step 7: Locate the `Controls by State` report
 
-When the process completes, navigate to `Turbot > Sandbox > YOUR_ACCOUNT`
+Search `Reports` for `controls`.  
+<p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
-  
-Search the `Controls` tab for `cmdb`
-<p><img alt="aws_account_cmdb" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-account-cmdb.png"/></p>
+Select `Controls by State`.
 
-When the control is green, Turbot has successfully connected to your account.
+## Step 8: Review
 
-## Step 4: Review
+You’ve now successfully connected your AWS account to Guardrails.
+<p><img alt="aws-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-controls-by-state.png"/></p>
 
-  
-In this guide you have connected an AWS account to Guardrails. To further verify, check the number of resources found.
+Bookmark the `Controls by State` report, you’ll need in subsequent guides.
+
+> !CAUTION]
+
+> It’s normal for the `Controls by State` report to show controls in `Alarm` and/or `TBD`. If controls are in `Error` or `Invalid`, you should check with your administrator to resolve these issues. See [Troubleshooting](#troubleshooting).
 
 ## Next Steps
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches your account and reacts to resource changes.
 
+## Troubleshooting
+
+| Issue | Description | Guide |
+|--|--|--|
+| ERROR | One or more controls are in ERROR. | [tbd]() |
+| INVALID | One or more controls are INVALID. | [tbd]() |
+
+  
+
+
 
 ## Progress tracker
 <div>
 <div>✅ <strong>Connect an AWS Account to Guardrails</strong></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/">Observe AWS Resource Activity</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack/">Attach a Guardrails Policy</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/create-static-exception/">Create a Static Exception to a Guardrails AWS Policy</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/">Create a Calculated Exception to a Guardrails AWS Policy</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/">Send an Alert to Email</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/">Apply a Quick Action</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/enable-enforcement/">Enable Automatic Enforcement</a></div>
 </div>
