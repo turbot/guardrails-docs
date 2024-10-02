@@ -141,13 +141,13 @@ Enter the AWS Account ID for the account you are importing.
 Copy the IAM Role ARN created earlier and paste it into the field.
 
 Provide the GUID you created in Step 1.
-<p><img alt="aws_start_1_ready_to_import" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-ready-to-import.png"/></p>
+<p><img alt="aws_ready_to_import" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-ready-to-import.png"/></p>
 
 Click `Import`.  
 
 
 Wait for the progress bar to complete.
-<p><img alt="aws_start_1_aws_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-aws-progress-bar.png"/></p>
+<p><img alt="aws_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-progress-bar.png"/></p>
 
 This process takes a while, and you’ll see the bars fluctuate. Note that error messages, like "Try again later: error in handling command", are not uncommon and should resolve as the process iterates to completion.  
 
@@ -157,18 +157,25 @@ This process takes a while, and you’ll see the bars fluctuate. Note that error
 When the process completes, navigate to `Turbot > Sandbox > YOUR_ACCOUNT`
 
   
-Search the `Controls` tab for `aws account cmdb`
-<p><img alt="aws_start_1_account_cmdb" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-start-1-account-cmdb.png"/></p>
+Search the `Controls` tab for `cmdb`
+<p><img alt="aws_account_cmdb" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-account-cmdb.png"/></p>
 
 When the control is green, Turbot has successfully connected to your account.
 
-## Step 4: Review  
+## Step 4: Review
+
   
 In this guide you have connected an AWS account to Guardrails. To further verify, check the number of resources found.
 
-##  Next Steps
+## Next Steps
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches your account and reacts to resource changes.
+
+Presumably we move this to https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation and link from here?
+
+The external ID here has the same format as the one Guardrails autogenerates, to be clearer that it's a user-generated ID maybe it should just be a bare GUID?
+
+This was true when I was working in busy environments, but in the clean environment I'm using now, things were very smooth. Should we assume that POC customers will be in similarly clean environments?
 
 
 ## Progress tracker
