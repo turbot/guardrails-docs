@@ -171,12 +171,6 @@ In this guide you have connected an AWS account to Guardrails. To further verify
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches your account and reacts to resource changes.
 
-Presumably we move this to https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation and link from here?
-
-The external ID here has the same format as the one Guardrails autogenerates, to be clearer that it's a user-generated ID maybe it should just be a bare GUID?
-
-This was true when I was working in busy environments, but in the clean environment I'm using now, things were very smooth. Should we assume that POC customers will be in similarly clean environments?
-
 
 ## Progress tracker
 <div>

@@ -46,10 +46,6 @@ We’ve now seen how Guardrails detects the creation of a new resource in a conn
   
 Next we’ll explore [how to set a policy](/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack) that requires buckets to enable versioning.
 
-I kind of went back and forth on this. In my original clean environment (Joe's) it was possible to view the ledger, when I moved to @bob's demo environment that became problematic, but in the new acme environment it might be appropriate?
-
-How do set expectations for the length of the wait (which varies for AWS/Azure/GCP)?
-
 
 ## Progress tracker
 <div>
