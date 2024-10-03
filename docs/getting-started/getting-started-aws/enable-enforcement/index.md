@@ -59,12 +59,12 @@ This Getting Started series just scratches the surface.  Try installing more [p
 
 ## Progress tracker
 
-- [x] [Connect an AWS Account to Guardrails(path)
-- [x] [Observe AWS Resource Activity(path)
-- [x] [Enable your First Policy Pack(path)
-- [x] [Review Account-Wide Bucket Versioning(path)
-- [x] [Create a Static Exception to a Guardrails AWS Policy(path)
-- [x] [Create a Calculated Exception to a Guardrails AWS Policy(path)
-- [x] [Send an Alert to Email(path)
-- [x] [Apply a Quick Action(path)
+- [x] [Connect an AWS Account to Guardrails](path)
+- [x] [Observe AWS Resource Activity](path)
+- [x] [Enable your First Policy Pack](path)
+- [x] [Review Account-Wide Bucket Versioning](path)
+- [x] [Create a Static Exception to a Guardrails AWS Policy](path)
+- [x] [Create a Calculated Exception to a Guardrails AWS Policy](path)
+- [x] [Send an Alert to Email](path)
+- [x] [Apply a Quick Action](path)
 - [x] **Enable Automatic Enforcement**

@@ -65,10 +65,10 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/create-calcu
 
 ## Progress tracker
 
-- [x] [Connect an AWS Account to Guardrails(path)
-- [x] [Observe AWS Resource Activity(path)
-- [x] [Enable your First Policy Pack(path)
-- [x] [Review Account-Wide Bucket Versioning(path)
+- [x] [Connect an AWS Account to Guardrails](path)
+- [x] [Observe AWS Resource Activity](path)
+- [x] [Enable your First Policy Pack](path)
+- [x] [Review Account-Wide Bucket Versioning](path)
 - [x] **Create a Static Exception to a Guardrails AWS Policy**
 - [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)
 - [ ] [Send an Alert to Email](path)

@@ -10,6 +10,8 @@ Now that we can track resource configuration drift, we can create policies to al
 
 ## Prerequisites
 
+- [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
+- [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
 
 
 ## Step 1: Review bucket properties
@@ -48,13 +50,24 @@ Use the top-level search to find your bucket.
 Click into the resource, switch to the `Controls` tab, and search for `versioning`.
 <p><img alt="aws-observe-single-control" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-observe-single-control.png"/></p>
 
-Now, instead of skipping the versioning check, Guardrails runs it. Your bucket is green because you enabled versioning in [Observe AWS Activity](/guardrails/docs/getting-started/observe-aws-activity), so  it’s now in policy!
+Now, instead of skipping the versioning check, Guardrails runs it. Your bucket is green because you enabled versioning in [Observe AWS Activity](/guardrails/docs/getting-started/observe-aws-activity), so  it’s now in policy.
 
 ## Next Steps
 
 In this guide you’ve enabled a policy pack to check S3 bucket versioning. In the [next guide](/guardrails/docs/getting-started/getting-started-aws/review-across-account) we’ll see how that policy pack affects all the buckets in your account.
 
   
+
+
+
 ## Progress tracker
 
+- [x] [Connect an AWS Account to Guardrails](path)
+- [x] [Observe AWS Resource Activity](path)
 - [x] **Enable your First Policy Pack**
+- [ ] [Review Account-Wide Bucket Versioning](path)
+- [ ] [Create a Static Exception to a Guardrails AWS Policy](path)
+- [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)
+- [ ] [Send an Alert to Email](path)
+- [ ] [Apply a Quick Action](path)
+- [ ] [Enable Automatic Enforcement](path)
