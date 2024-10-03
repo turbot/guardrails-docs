@@ -88,7 +88,8 @@ required.
 
 From the [Permissions Docs](concepts/iam/permissions)
 
-> Note that a grant does not have to be an active grant: a grant can be
+> [!IMPORTANT]
+> A grant does not have to be an active grant: a grant can be
 > explicitly activated or deactivated. A grant activation can be set to expire
 > at a specific time, allowing for time-bound temporary privilege escalation.
 
