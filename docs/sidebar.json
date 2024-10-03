@@ -411,6 +411,7 @@
                   "guides/hosting-guardrails/installation/pre-installation/checklist",
                   "guides/hosting-guardrails/installation/pre-installation/networking",
                   "guides/hosting-guardrails/installation/pre-installation/service-catalog",
+                  "guides/hosting-guardrails/installation/pre-installation/import-portfolio",
                   "guides/hosting-guardrails/installation/pre-installation/external-role"
                 ]
               },
@@ -426,8 +427,10 @@
 
               "guides/hosting-guardrails/installation/install-ted",
               "guides/hosting-guardrails/installation/install-te",
+              "guides/hosting-guardrails/installation/install-mod",
               "guides/hosting-guardrails/installation/workspace-manager",
-              "guides/hosting-guardrails/installation/post-installation"
+              "guides/hosting-guardrails/installation/post-installation",
+              "guides/hosting-guardrails/installation/delete-te"
             ]
           },
           {
