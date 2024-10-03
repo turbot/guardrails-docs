@@ -329,7 +329,7 @@ This would create/sync a relationship from the `parent` subnet CI named `us-east
   {
     "type": "Uses::Used by",
     "child": {
-      "name": "acme mode group template",
+      "name": "acme node group template",
       "sysId": "0e39cf7a97381210f0e6f52ad0565fr4",
       "tableName": "x_1115212_guardrai_guardrails_gcp_computeengine_node_group_template"
     }
@@ -337,7 +337,7 @@ This would create/sync a relationship from the `parent` subnet CI named `us-east
 ]
 ```
 
-This would create/sync a relationship from the current node group record to the `child` node group template CI named `acme mode group template` with `sysId` as `0e39cf7a97381210f0e6f52ad0565fr4` present in CMDB CI table `x_1115212_guardrai_guardrails_gcp_computeengine_node_group_template`.
+This would create/sync a relationship from the current node group record to the `child` node group template CI named `acme node group template` with `sysId` as `0e39cf7a97381210f0e6f52ad0565fr4` present in CMDB CI table `x_1115212_guardrai_guardrails_gcp_computeengine_node_group_template`.
 
 1. You could also create a custom relationship for the S3 bucket to relate it to a business application in ServiceNow, by updating the Template policy:
 
