@@ -11,6 +11,7 @@ This command installs either all dependencies of a mod, or specific dependencies
 
 `turbot install` saves any packages into the `turbot_mods` subdirectory by default.
 
+> [!NOTE]
 > Dependency installation is atomic is nature. If the installation of one dependency fails, the entire operation is aborted.
 
 ## Usage
