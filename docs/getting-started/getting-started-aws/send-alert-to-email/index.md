@@ -74,12 +74,12 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/apply-quick-
 
 ## Progress tracker
 
-- [x] [Connect an AWS Account to Guardrails(path)
-- [x] [Observe AWS Resource Activity(path)
-- [x] [Enable your First Policy Pack(path)
-- [x] [Review Account-Wide Bucket Versioning(path)
-- [x] [Create a Static Exception to a Guardrails AWS Policy(path)
-- [x] [Create a Calculated Exception to a Guardrails AWS Policy(path)
+- [x] [Connect an AWS Account to Guardrails](path)
+- [x] [Observe AWS Resource Activity](path)
+- [x] [Enable your First Policy Pack](path)
+- [x] [Review Account-Wide Bucket Versioning](path)
+- [x] [Create a Static Exception to a Guardrails AWS Policy](path)
+- [x] [Create a Calculated Exception to a Guardrails AWS Policy](path)
 - [x] **Send an Alert to Email**
 - [ ] [Apply a Quick Action](path)
 - [ ] [Enable Automatic Enforcement](path)

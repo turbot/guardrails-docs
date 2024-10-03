@@ -49,16 +49,13 @@ Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-st
 
 
 ## Progress tracker
-<<<<<<< Updated upstream
-<div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/connect-an-account/">Connect an AWS Account to Guardrails</a></div>
-<div>✅ <strong>Observe AWS Resource Activity</strong></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/">Enable your First Policy Pack</a></div>
-</div>
-=======
 
-- [x] [Connect an AWS Account to Guardrails(path)]
+- [x] [Connect an AWS Account to Guardrails](path)
 - [x] **Observe AWS Resource Activity**
 - [ ] [Enable your First Policy Pack](path)
 - [ ] [Review Account-Wide Bucket Versioning](path)
->>>>>>> Stashed changes
+- [ ] [Create a Static Exception to a Guardrails AWS Policy](path)
+- [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)
+- [ ] [Send an Alert to Email](path)
+- [ ] [Apply a Quick Action](path)
+- [ ] [Enable Automatic Enforcement](path)
