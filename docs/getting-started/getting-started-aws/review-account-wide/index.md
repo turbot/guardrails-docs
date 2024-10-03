@@ -15,7 +15,29 @@ In this guide you’ll see how the policy pack you enabled in [Enable a Guardrai
 - [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
 
 
-[image: aws-all-bucket-versioning]  
+## Step 1: Review bucket versioning across your account
+
+You bookmarked the `Controls by State` report in [Connect an Account](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity), go there now.
+
+Set the `Resource Type` filter to `AWS > S3 > Bucket`, and search for `versioning`.  
+<p><img alt="aws-account-wide-1" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/aws-account-wide-1.png"/></p>  
+  
+In the [previous guide]((/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s versioning control from `Skipped` to `OK`. Here we can see that other buckets are in `Alarm`.   
+  
+Step 2: Set versioning for another bucket
+
+Now enable versioning on another bucket, and review again.  
+<p><img alt="aws-account-wide-2" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/aws-account-wide-2.png"/></p>  
+  
+Now that bucket’s versioning control has also switched from `Alarm` to `OK`.
+
+## Step 3: Review
+
+To further explore the policy pack you’ve enabled, create a new bucket, observe that it shows up here in `Alarm`  for versioning, then enable versioning and observe that it transitions to `OK`.
+
+## Next Steps
+
+In the [next guide](/guardrails/docs/getting-started/create-static-exception) we’ll learn how to create an exception so that a bucket can be exempt from the versioning requirement.  
   
 
 
