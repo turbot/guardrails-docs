@@ -72,19 +72,23 @@ The required parameters for this  installation option are as below
 > A wildcard certificate is highly recommended.  Without a wildcard cert, the certificate will need to be updated with the new workspaces as they are brought online.
 > Wildcard certificates should include entries for both the base **Installation Domain Name** and a wildcard for workspaces (e.g., `turbot.mycompany.com` and `*.turbot.mycompany.com`). If wildcard certificates are not allowed, the certificate should cover the base **Installation Domain Name**, all workspace domain names, and any public API gateways.
 
+> [!IMPORTANT]
+> **Manager DNS records in Route 53** It is highly recommended that you allow Turbot to manage DNS records in Route53.  If you choose not to do so, you must manually update DNS records every time you install a new version in your workspaces.
+
 ![Installation Parameter](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-parameter-installation.png)
 
-Keep the rest of the parameters in this section at their default values, leaving the `Turbot Guardrails License Key` field blank.
+> [!Note]
+> Each region must be given a different **Region Code** identifier, allowing the stacks to be automatically coordinated for peering etc. Select "alpha" as the **Region Code** for this first region.
+
+Proceed to `Logging` section leaving the `Turbot Guardrails License Key` field blank.
 
 ## Step 8: Configure Logging
-
-Select the desired values for **Turbot Handler Log Retention Days**, **Audit Trail Log Retention Days**, **Turbot Guardrails Process Log Objects Retention Days** and **Turbot Guardrails Mod Installation Data Retention Days** or keep all with default values.
 
 Select the desired values for `Turbot Handler Log Retention Days`, `Audit Trail Log Retention Days`, `Turbot Guardrails Process Log Objects Retention Days`, and `Turbot Guardrails Mod Installation Data Retention Days`, or leave them all at their default values.
 
 <!-- ![Logging](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-parameter-logging.png) -->
 
-## Step 9: Configure Network  Option A - Created in this Stack
+## Step 9: Configure Network with New VPC - Created in this Stack
 
 The Turbot Guardrails Enterprise Foundation setup can create the VPC to host Turbot Guardrails, when `Network  Option A` is selected for the installation. Leave all fields in `Network - This Region [Option B - Predefined]` as blank as this option is used to install [Guardrails into an existing VPC](guides/hosting-guardrails/installation/install-tef/with-existing-vpc) .
 
@@ -95,9 +99,7 @@ The Turbot Guardrails Enterprise Foundation setup can create the VPC to host Tur
 
 ![Network Created in Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-parameter-network-create-in-stack.png)
 
-
 Keep rest of the parameters for `Load Balancer`, `Proxy`, `Security Groups`  at their default values and proceed to `Advanced - ECS EC2 configuration` section.
-
 
 ![Default Parameter Sections](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-default-parameter-sections.png)
 
