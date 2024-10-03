@@ -22,6 +22,7 @@ You can update by downloading from https://turbot.com/guardrails/docs/releases/c
 
 ### Information sent to the server
 
+> [!IMPORTANT]
 > Only anonymous information, which cannot be used to identify the user or host, is sent to server.
 
 Such information includes:
@@ -41,4 +42,5 @@ Use of the feature is optional and can be disabled by setting the `TURBOT_UPDATE
 Alternatively, setting `updateCheckDisable: true` in the configuration file (`~/.config/turbot/config.yml`) disables the
 feature completely.
 
+> [!IMPORTANT]
 > Please note that the feature is enabled by default.

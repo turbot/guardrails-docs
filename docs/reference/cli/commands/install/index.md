@@ -70,6 +70,7 @@ turbot install @turbot/aws
 ### `turbot install mod@version`
 When a version is specified, the command will look for and install the specified `version` from the registry. If the specified `version` cannot be located in the registry, the installation is aborted.
 
+> [!NOTE]
 > More information about `version` is given below in the [Version](#Version) section
 
 Example:
@@ -91,6 +92,7 @@ or
 turbot install "@turbot/aws@>=5.0.2 <5.4.0"
 ```
 
+> [!NOTE]
 > More information about `version_range` is given below in the [Version Ranges](#version-ranges) section.
 
 ### Using in combination
