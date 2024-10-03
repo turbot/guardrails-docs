@@ -10,7 +10,8 @@ sidebar_label: Send an Alert to Email
 
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-- [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack/)
+- [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
+- [Review Account-Wide Bucket Versioning](/guardrails/docs/getting-started/getting-started-aws/review-account-wide/)
 - [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
 - [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
 
@@ -72,13 +73,13 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/apply-quick-
 
 
 ## Progress tracker
-<div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/connect-an-account/">Connect an AWS Account to Guardrails</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/">Observe AWS Resource Activity</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack/">Attach a Guardrails Policy</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/create-static-exception/">Create a Static Exception to a Guardrails AWS Policy</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/">Create a Calculated Exception to a Guardrails AWS Policy</a></div>
-<div>✅ <strong>Send an Alert to Email</strong></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/">Apply a Quick Action</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/enable-enforcement/">Enable Automatic Enforcement</a></div>
-</div>
+
+- [x] [Connect an AWS Account to Guardrails(path)
+- [x] [Observe AWS Resource Activity(path)
+- [x] [Enable your First Policy Pack(path)
+- [x] [Review Account-Wide Bucket Versioning(path)
+- [x] [Create a Static Exception to a Guardrails AWS Policy(path)
+- [x] [Create a Calculated Exception to a Guardrails AWS Policy(path)
+- [x] **Send an Alert to Email**
+- [ ] [Apply a Quick Action](path)
+- [ ] [Enable Automatic Enforcement](path)

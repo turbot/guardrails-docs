@@ -10,7 +10,8 @@ sidebar_label: Create a static exception to a Guardrails AWS policy
   
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-- [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack/)
+- [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
+- [Review Account-Wide Bucket Versioning](/guardrails/docs/getting-started/getting-started-aws/review-account-wide/)
 
 
 Now that we have set our AWS S3 bucket versioning policy, we can track which S3 buckets do not have versioning enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket versioning status.
@@ -63,13 +64,13 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/create-calcu
 
 
 ## Progress tracker
-<div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/connect-an-account/">Connect an AWS Account to Guardrails</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/">Observe AWS Resource Activity</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack/">Attach a Guardrails Policy</a></div>
-<div>✅ <strong>Create a Static Exception to a Guardrails AWS Policy</strong></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/">Create a Calculated Exception to a Guardrails AWS Policy</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/">Send an Alert to Email</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/">Apply a Quick Action</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/enable-enforcement/">Enable Automatic Enforcement</a></div>
-</div>
+
+- [x] [Connect an AWS Account to Guardrails(path)
+- [x] [Observe AWS Resource Activity(path)
+- [x] [Enable your First Policy Pack(path)
+- [x] [Review Account-Wide Bucket Versioning(path)
+- [x] **Create a Static Exception to a Guardrails AWS Policy**
+- [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)
+- [ ] [Send an Alert to Email](path)
+- [ ] [Apply a Quick Action](path)
+- [ ] [Enable Automatic Enforcement](path)
