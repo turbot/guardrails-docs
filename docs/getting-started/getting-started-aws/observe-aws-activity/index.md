@@ -39,14 +39,26 @@ Guardrails will soon notice the change.
 Click into the new notification for your bucket, and scroll down in the diff to see the change that Guardrails has recorded.  
 <p><img alt="aws_diff_the_first_change" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-diff-the-first-change.png"/></p>
 
-We’ve now seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource.  
-  
-Next we’ll explore [how to set a policy](/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack) that requires buckets to enable versioning.
+## Step 4: Review
+
+We’ve now seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource.
+
+## Next Steps
+
+Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack) that requires buckets to enable versioning.
 
 
 ## Progress tracker
+<<<<<<< Updated upstream
 <div>
 <div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/connect-an-account/">Connect an AWS Account to Guardrails</a></div>
 <div>✅ <strong>Observe AWS Resource Activity</strong></div>
 <div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/">Enable your First Policy Pack</a></div>
 </div>
+=======
+
+- [x] [Connect an AWS Account to Guardrails(path)]
+- [x] **Observe AWS Resource Activity**
+- [ ] [Enable your First Policy Pack](path)
+- [ ] [Review Account-Wide Bucket Versioning](path)
+>>>>>>> Stashed changes
