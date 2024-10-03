@@ -20,27 +20,27 @@ Guardrails is designed to enable organizations to selectively install policies, 
 
 Log into the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/install-mod/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/installation/install-mod/guardrails-console-login.png)
 
 ## Step 2: Navigate to Mods
 
 Choose **Admin** from the top right corner.
 
-![Navigate To Admin](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/install-mod/guardrails-navigate-admin-panel.png)
+![Navigate To Admin](/images/docs/guardrails/guides/hosting-guardrails/installation/install-mod/guardrails-navigate-admin-panel.png)
 
 Select **Mods**.
 
-![Mods](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/install-mod/guardrails-navigate-mods.png)
+![Mods](/images/docs/guardrails/guides/hosting-guardrails/installation/install-mod/guardrails-navigate-mods.png)
 
 ## Step 3: Install Mod
 
 The **Mods** page displays the list of mods that are installed in your workspace. Select **Install Mod** to install a mod.
 
-![Mods](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/install-mod/guardrails-mod-install.png)
+![Mods](/images/docs/guardrails/guides/hosting-guardrails/installation/install-mod/guardrails-mod-install.png)
 
 Search for the desired mod to install. Usually you would want to select the latest recommended version. Select **Install Mod**.
 
-![Install Mod](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/install-mod/guardrails-install-mod-action.png)
+![Install Mod](/images/docs/guardrails/guides/hosting-guardrails/installation/install-mod/guardrails-install-mod-action.png)
 
 ## Step 4: Monitor Installation
 
@@ -48,17 +48,17 @@ You have initiated the installation of the new Guardrails mod.
 
 - [ ] Verify the mod name and version that appears in the list.
 
-![Mod Install Confirmation](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/install-mod/guardrails-mod-install-verify.png)
+![Mod Install Confirmation](/images/docs/guardrails/guides/hosting-guardrails/installation/install-mod/guardrails-mod-install-verify.png)
 
 ## Step 5: Review
 
 - [ ] The Mod Health is in an **OK** state, indicating successful installation.
 
-![Mod Health](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/install-mod/guardrails-mod-install-verify.png)
+![Mod Health](/images/docs/guardrails/guides/hosting-guardrails/installation/install-mod/guardrails-mod-install-verify.png)
 
 - [ ] The Control Types associated with the mod are available and displayed under Controls.
 
-![Control Type](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/install-mod/guardrails-control-type-verify.png)
+![Control Type](/images/docs/guardrails/guides/hosting-guardrails/installation/install-mod/guardrails-control-type-verify.png)
 
 ## Next Steps
 
