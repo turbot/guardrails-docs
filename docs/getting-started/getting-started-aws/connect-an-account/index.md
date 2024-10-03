@@ -100,7 +100,7 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe
 
 - [x] **Connect an AWS Account to Guardrails**
 - [ ] [Observe AWS Resource Activity](path)
-- [ ] [Enable your First Policy Pack](path)
+- [ ] [Enable Your First Policy Pack](path)
 - [ ] [Review Account-Wide Bucket Versioning](path)
 - [ ] [Create a Static Exception to a Guardrails AWS Policy](path)
 - [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)

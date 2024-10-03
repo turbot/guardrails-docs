@@ -1,10 +1,10 @@
 ---
-title: Enable your First Policy Pack
+title: Enable Your First Policy Pack
 sidebar_label: Enable Policy Pack
 ---
 
 
-# Enable your first Guardrails Policy Pack
+# Enable Your First Guardrails Policy Pack
 
 Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state. 
 
@@ -64,7 +64,7 @@ In this guide you’ve enabled a policy pack to check S3 bucket versioning. In t
 
 - [x] [Connect an AWS Account to Guardrails](path)
 - [x] [Observe AWS Resource Activity](path)
-- [x] **Enable your First Policy Pack**
+- [x] **Enable Your First Policy Pack**
 - [ ] [Review Account-Wide Bucket Versioning](path)
 - [ ] [Create a Static Exception to a Guardrails AWS Policy](path)
 - [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)

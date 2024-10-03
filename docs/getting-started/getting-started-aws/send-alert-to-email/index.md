@@ -10,7 +10,7 @@ sidebar_label: Send an Alert to Email
 
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-- [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
+- [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
 - [Review Account-Wide Bucket Versioning](/guardrails/docs/getting-started/getting-started-aws/review-account-wide/)
 - [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
 - [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
@@ -76,7 +76,7 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/apply-quick-
 
 - [x] [Connect an AWS Account to Guardrails](path)
 - [x] [Observe AWS Resource Activity](path)
-- [x] [Enable your First Policy Pack](path)
+- [x] [Enable Your First Policy Pack](path)
 - [x] [Review Account-Wide Bucket Versioning](path)
 - [x] [Create a Static Exception to a Guardrails AWS Policy](path)
 - [x] [Create a Calculated Exception to a Guardrails AWS Policy](path)

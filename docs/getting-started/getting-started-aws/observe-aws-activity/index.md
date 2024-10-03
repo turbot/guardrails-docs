@@ -52,7 +52,7 @@ Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-st
 
 - [x] [Connect an AWS Account to Guardrails](path)
 - [x] **Observe AWS Resource Activity**
-- [ ] [Enable your First Policy Pack](path)
+- [ ] [Enable Your First Policy Pack](path)
 - [ ] [Review Account-Wide Bucket Versioning](path)
 - [ ] [Create a Static Exception to a Guardrails AWS Policy](path)
 - [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)
