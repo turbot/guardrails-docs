@@ -21,7 +21,7 @@ You will also need to create  an S3 bucket. We’ll illustrate using `bucket-ex
 Select top-level `Reports`, search for `resource`, locate `Resource Activities`, and click the link.
 <p><img alt="aws_search_resource_activities" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-search-resource-activities.png"/></p>
 
-Step 2: Observe notifications
+## Step 2: Observe notifications
 
 In the `Resource Activities` report, search for the name of your bucket.
 
@@ -48,4 +48,5 @@ Next we’ll explore [how to set a policy](/guardrails/docs/getting-started/gett
 <div>
 <div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/connect-an-account/">Connect an AWS Account to Guardrails</a></div>
 <div>✅ <strong>Observe AWS Resource Activity</strong></div>
+<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/">Enable your First Policy Pack</a></div>
 </div>
