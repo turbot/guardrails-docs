@@ -12,7 +12,7 @@ In this guide you’ll see how the policy pack you enabled in [Enable a Guardrai
 
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-- [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
+- [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
 
 
 ## Step 1: Review bucket versioning across your account
@@ -37,7 +37,7 @@ To further explore the policy pack you’ve enabled, create a new bucket, observ
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/create-static-exception) we’ll learn how to create an exception so that a bucket can be exempt from the versioning requirement.  
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we’ll learn how to create an exception so that a bucket can be exempt from the versioning requirement.  
   
 
 
@@ -46,7 +46,7 @@ In the [next guide](/guardrails/docs/getting-started/create-static-exception) we
 
 - [x] [Connect an AWS Account to Guardrails](path)
 - [x] [Observe AWS Resource Activity](path)
-- [x] [Enable your First Policy Pack](path)
+- [x] [Enable Your First Policy Pack](path)
 - [x] **Review Account-Wide Bucket Versioning**
 - [ ] [Create a Static Exception to a Guardrails AWS Policy](path)
 - [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)
