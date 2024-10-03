@@ -28,7 +28,7 @@ Select the **Portfolios** section from the left navigation menu.
 
 ![Product Selection](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/service-catalog-select-portfolio.png)
 
-Select the **Imported** tab, then select **Actions** and choose **Import portfolio**.
+Select the **Imported** tab, from **Actions** dropdown, choose **Import portfolio**
 
 ![Select Import Portfolio](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/service-catalog-select-import-portfolio.png)
 
@@ -58,24 +58,8 @@ Once the portfolio is imported and access has been granted, you can view and pro
 
 ![Product List](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/service-catalog-products-verify.png)
 
-## Next Steps
 
-Please see the following resources to learn more about Turbot Guardrails Enterprise:
-
-- [Turbot Guardrails Architecture](/guardrails/docs/guides/hosting-guardrails/architecture#turbot-guardrails-enterprise---architecture).
-- [Installing Turbot Guardrails Enterprise Foundation (TEF)](/guardrails/docs/guides/hosting-guardrails/installation/install-tef#install-turbot-guardrails-enterprise-foundation-tef)
-- [Installing Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/guides/hosting-guardrails/installation/install-ted#install-turbot-guardrails-enterprise-database-ted)
-- [Installing Turbot Guardrails Enterprise (TE)](/guardrails/docs/guides/hosting-guardrails/installation/install-te#install-turbot-guardrails-enterprise-te)
-
-## Troubleshooting
-
-| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
-|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| Permission Issues                        | If the current logged-in user lacks permission or if IAM roles or SCPs have changed, preventing built-in roles from accessing needed configuration settings.   | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators)             |
-| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
-
-
-### Turbot Guardrails Portfolio
+## Turbot Guardrails Portfolio
 
 | Region         | Portfolio                                                                                                                                            |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -93,4 +77,20 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 | us-west-1      | [port-lot26rdlx4iry](https://console.aws.amazon.com/servicecatalog/home?isSceuc=false&region=us-west-1#portfolios/import?id=port-lot26rdlx4iry)      |
 | us-west-2      | [port-u4rbevxpzwj3m](https://console.aws.amazon.com/servicecatalog/home?isSceuc=false&region=us-west-2#portfolios/import?id=port-u4rbevxpzwj3m)      |
 | us-gov-west-1  | [port-akp7iklcswqba](https://console.amazonaws-us-gov.com/servicecatalog/home?region=us-gov-west-1/portfolios/import?id=port-akp7iklcswqba)          |
+
+## Next Steps
+
+Please see the following resources to learn more about Turbot Guardrails Enterprise:
+
+- [Turbot Guardrails Architecture](/guardrails/docs/guides/hosting-guardrails/architecture#turbot-guardrails-enterprise---architecture).
+- [Installing Turbot Guardrails Enterprise Foundation (TEF)](/guardrails/docs/guides/hosting-guardrails/installation/install-tef#install-turbot-guardrails-enterprise-foundation-tef)
+- [Installing Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/guides/hosting-guardrails/installation/install-ted#install-turbot-guardrails-enterprise-database-ted)
+- [Installing Turbot Guardrails Enterprise (TE)](/guardrails/docs/guides/hosting-guardrails/installation/install-te#install-turbot-guardrails-enterprise-te)
+
+## Troubleshooting
+
+| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Permission Issues                        | If the current logged-in user lacks permission or if IAM roles or SCPs have changed, preventing built-in roles from accessing needed configuration settings.   | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators)             |
+| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
 
