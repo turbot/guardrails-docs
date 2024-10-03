@@ -320,24 +320,24 @@ The Template must contain either a `parent` or a `child` relationship. It can al
 ]
 ```
 
-This would create/sync a relationship from the `parent` subnet CI named `us-east-1` with `sysId` `0e39cf7a97381210f0e6f52ad0987gvf` present in CMDB CI table `x_1115212_guardrai_guardrails_aws_region` to the current bucket, with the relationship type `Contains::Contained by`.
+This would create/sync a relationship from the subnet CI named `us-east-1` with `sysId` `0e39cf7a97381210f0e6f52ad0987gvf` present in CMDB CI table `x_1115212_guardrai_guardrails_aws_region` to the current bucket, with the relationship type `Contains::Contained by`.
 
-1. The `GCP > Compute Engine > Node Group > ServiceNow > Relationships > Template`, defaults to:
+1. The `AWS > VPC > Flow Log > ServiceNow > Relationships > Template` includes:
 
 ```json
 [
   {
-    "type": "Uses::Used by",
+    "type": "Feeds::Fed By",
     "child": {
-      "name": "acme node group template",
+      "name": "acme bucket",
       "sysId": "0e39cf7a97381210f0e6f52ad0565fr4",
-      "tableName": "x_1115212_guardrai_guardrails_gcp_computeengine_node_group_template"
+      "tableName": "x_1115212_guardrai_guardrails_aws_s3_bucket"
     }
   }
 ]
 ```
 
-This would create/sync a relationship from the current node group record to the `child` node group template CI named `acme node group template` with `sysId` as `0e39cf7a97381210f0e6f52ad0565fr4` present in CMDB CI table `x_1115212_guardrai_guardrails_gcp_computeengine_node_group_template`.
+This would create/sync a relationship from the current flow log record to the S3 bucket CI named `acme bucket` with `sysId` as `0e39cf7a97381210f0e6f52ad0565fr4` present in CMDB CI table `x_1115212_guardrai_guardrails_aws_s3_bucket`.
 
 1. You could also create a custom relationship for the S3 bucket to relate it to a business application in ServiceNow, by updating the Template policy:
 
@@ -362,7 +362,7 @@ This would create/sync a relationship from the current node group record to the 
 ]
 ```
 
-This would create a new relationship from the `parent` business application CI named `Guardrails Relationships Integration` with `sysId` `0e39cf7a97381210f0e6f52ad0565fr4` present in CMDB CI table `cmdb_ci_business_app` to the current bucket, with the relationship type `Owns::Owned by`.
+This would create a new relationship from the business application CI named `Guardrails Relationships Integration` with `sysId` `0e39cf7a97381210f0e6f52ad0565fr4` present in CMDB CI table `cmdb_ci_business_app` to the current bucket, with the relationship type `Owns::Owned by`.
 
 ## Import sets
 
