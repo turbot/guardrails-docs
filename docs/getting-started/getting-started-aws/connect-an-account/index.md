@@ -101,3 +101,15 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe
 <div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/">Observe AWS Resource Activity</a></div>
 <div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/">Enable your First Policy Pack</a></div>
 </div>
+
+## Progress Tracker
+
+- [x] Connect an AWS Account to Guardrails
+- [ ] [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
+- [ ] [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
+
+## Progress Tracker
+
+1.  **Connect an AWS Account to Guardrails**
+2. [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
+3. [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
