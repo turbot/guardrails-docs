@@ -96,6 +96,7 @@ Select the desired values for `Turbot Handler Log Retention Days`, `Audit Trail 
 ## Step 9: Configure Network with Existing VPC
 
 The Turbot Guardrails Enterprise Foundation setup can use your existing VPC to host Turbot Guardrails, when `Network - This Region [Option B - Predefined]` is opted for the installation.
+
 <!-- Leave all fields in `Network  Option A` as blank as this option is used to install [Guardrails with new VPC](/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc). -->
 
 <!-- Enter the VPC ID that will be used to host Turbot in the `VPC` field. This VPC must already exist. If empty, then a new VPC will be deployed by this stack, per **Network - This Region [Option A - Created in this Stack]**.
@@ -113,13 +114,11 @@ Enter the VPC ID in `VPC`, comma separated list of subnet IDs in` Load Balancer 
 ![Network With Existing VPC](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-parameter-network-existing-vpc.png)
 
 > [!CAUTION]
-> Turbot Guardrails requires outbound https to the Internet from the load balancer and application (Turbot Guardrails) subnets. This can be routed through your proxy if desired.
-If using a proxy, you must also create VPC endpoints to allow fargate to access ECR API, CloudWatch Logs, ECR DKR and S3 AWS services.
+> Turbot Guardrails requires outbound https to the Internet from the load balancer and application (Turbot Guardrails) subnets. This can be routed through your proxy if desired. If using a proxy, you must also create VPC endpoints to allow fargate to access ECR API, CloudWatch Logs, ECR DKR and S3 AWS services.
 
-Keep rest of the parameters for `Load Balancer`, `Proxy`, `Security Groups`  at their default values and proceed to `Advanced - ECS EC2 configuration` section.
+Make appropriate changes for any predefined values for `Load Balancer`, `Proxy`, `Security Groups`, else you can leave then with the default provided values and proceed to `Advanced - ECS EC2 configuration` section.
 
 ![Default Parameter Sections](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-default-parameter-sections-netowrk-opt-b.png)
-
 
 ## Step 10: Advanced - ECS EC2 Configuration
 
@@ -160,9 +159,26 @@ The TEF provisioned product should be in the **Under Change** status.
 
 ![Installation Complete Verification](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-succeeded.png)
 
+## Step 14: Enable Termination Protection
 
-## Enable Termination Protection
+> [!IMPORTANT]
+> To ensure that the TEF stack is not accidentally deleted, it is strongly recommend that termination protection is enabled.
 
+Select the TEF Provisioned Product, select **Outputs** tab, and use the `CloudFormationStackARN` **Value** link to navigate to the respective CloudFormation stack.
+
+![Navigate to CloudFormation Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-install-tef-navigate-to-cfn.png)
+
+Select the TEF stack. The description of the correct stack should say **Turbot Guardrails Enterprise Foundation &lt;version&gt;**.
+
+![TEF CFN Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/cfn-stack-tef.png)
+
+Select **Edit termination protection** from **Stack actions** dropdown menu.
+
+![Edit Termination Protection](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/cfn-stack-edit-termination-protection.png)
+
+Choose `Termination protection` as **Activated** and select **Save**.
+
+![Termination Protection Activated](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/cfn-stack-edit-termination-protection-activated.png)
 
 ## Next Steps
 
