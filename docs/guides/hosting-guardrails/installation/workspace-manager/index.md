@@ -33,28 +33,28 @@ Create a new stack, using the [Sample Workspace Manager CloudFormation Template]
 
 Enter the appropriate parameters:
 
-   - **Name:** The name of workspace, which will be used as the first part of
-     the console URL. For instance, if you specify “dev” as the workspace name,
-     and you set up the TEF stack using `mycompany.turbot.com` as the domain
-     name, the console URL will be `dev.mycompany.turbot.com`
+- **Name:** The name of workspace, which will be used as the first part of
+  the console URL. For instance, if you specify “dev” as the workspace name,
+  and you set up the TEF stack using `mycompany.turbot.com` as the domain
+  name, the console URL will be `dev.mycompany.turbot.com`
 
-   - **Version:** The version of Turbot Guardrails Enterprise to install in the workspace.
-     This must match an installed (via TE) version exactly, For example:
-     `5.46.0`
+- **Version:** The version of Turbot Guardrails Enterprise to install in the workspace.
+  This must match an installed (via TE) version exactly, For example:
+  `5.46.0`
 
-   - **Hive:** The Hive name where the database is hosted. This should be the
-     Hive name that you specified when setting up TED
+- **Hive:** The Hive name where the database is hosted. This should be the
+  Hive name that you specified when setting up TED
 
-   - **UseRoute53:** If set to `True`, the stack will automatically update the
-     DNS alias for the console URL to point to the newly installed version. If
-     you do not use Route53 to manage the DNS, choose "False". You will need to
-     create (or modify) a CNAME record for your workspace to point to the load
-     balancer for the new version (available as `LoadBalancerDNS` in the stack
-     output variables).
+- **UseRoute53:** If set to `True`, the stack will automatically update the
+  DNS alias for the console URL to point to the newly installed version. If
+  you do not use Route53 to manage the DNS, choose "False". You will need to
+  create (or modify) a CNAME record for your workspace to point to the load
+  balancer for the new version (available as `LoadBalancerDNS` in the stack
+  output variables).
 
-   - **FoundationStackOutputPrefix:** This must match the resource prefix that
-     you specified in the Turbot Guardrails Enterprise Foundation stack so that this stack
-     can use exported outputs from the TEF stack.
+- **FoundationStackOutputPrefix:** This must match the resource prefix that
+  you specified in the Turbot Guardrails Enterprise Foundation stack so that this stack
+  can use exported outputs from the TEF stack.
 
 ![CloudFormation Update Parameters](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-update-parameters.png)
 
@@ -72,21 +72,19 @@ Click on **Submit** and wait for the stack creation to complete.
 ## Step 5: Provision Admin Account and Access the Workspace
 
 Once the Workspace Manager CloudFormation stack is created, the Workspace Manager generates the initial Turbot Admin account and password, along with a key pair.
-	
-  Go to the stack outputs to find:
-	
-  - Console URL: Available in the `WorkspaceUrl` output variable. Use this link to access the web console.
-	
-  - Admin Credentials: Displayed in the `WorkspaceManagerOutput` variable in the stack outputs.
-	
+Go to the stack outputs to find:
+
+- Console URL: Available in the `WorkspaceUrl` output variable. Use this link to access the web console.
+- Admin Credentials: Displayed in the `WorkspaceManagerOutput` variable in the stack outputs.
+
 Login using the generated admin credentials. Once logged in, change the admin password and delete the generated keys.
 
->	[!WARNING]
+> [!WARNING]
 > The username, password, and keys will appear in plain text in the CloudFormation stack output variables. If you re-run the stack, the stack output variables will be overwritten, so it’s important to secure this information immediately after stack creation.
-	
-- Navigate to Profile (from the user icon in the top right of the Turbot Console).
 
-- Change the admin password and delete the access keys by clicking [X] next to the access key generated during install. New access keys can be created if necessary.
+Navigate to Profile (from the user icon in the top right of the Turbot Console).
+
+Change the admin password and delete the access keys by clicking [X] next to the access key generated during install. New access keys can be created if necessary.
 
 ## Sample Workspace Manager CloudFormation Template
 
