@@ -77,7 +77,7 @@ You’ve now successfully connected your AWS account to Guardrails.
 
 Bookmark the `Controls by State` report, you’ll need in subsequent guides.
 
-> [!CAUTION]
+> ![CAUTION]
 > It’s normal for the `Controls by State` report to show controls in `Alarm` and/or `TBD`. If controls are in `Error` or `Invalid`, you should check with your administrator to resolve these issues. See [Troubleshooting](#troubleshooting).
 
 ## Next Steps
@@ -96,20 +96,13 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe
 
 
 ## Progress tracker
-<div>
-<div>✅ <strong>Connect an AWS Account to Guardrails</strong></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/">Observe AWS Resource Activity</a></div>
-<div>☐ <a href="/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/">Enable your First Policy Pack</a></div>
-</div>
 
-## Progress Tracker
-
-- [x] Connect an AWS Account to Guardrails
-- [ ] [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-- [ ] [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
-
-## Progress Tracker
-
-1.  **Connect an AWS Account to Guardrails**
-2. [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-3. [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
+- [x] **Connect an AWS Account to Guardrails**
+- [ ] [Observe AWS Resource Activity](path)
+- [ ] [Enable Your First Policy Pack](path)
+- [ ] [Review Account-Wide Bucket Versioning](path)
+- [ ] [Create a Static Exception to a Guardrails Policy](path)
+- [ ] [Create a Calculated Exception to a Guardrails Policy](path)
+- [ ] [Send an Alert to Email](path)
+- [ ] [Apply a Quick Action](path)
+- [ ] [Enable Automatic Enforcement](path)

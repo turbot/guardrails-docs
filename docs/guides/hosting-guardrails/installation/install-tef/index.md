@@ -7,7 +7,7 @@ sidebar_label: Install TEF
 
 This section provides detailed step-by-step instructions on how to install the Turbot Guardrails Enterprise Foundation (TEF) product:
 
-| Option | Description |
+| | |
 | - | - |
-| [With Guardrails-Managed VPC](guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc) | Guide for installing TEF using Guardrails-managed VPC. |
-| [With Existing VPC](guides/hosting-guardrails/installation/install-tef/with-existing-vpc) | Guide for installing TEF using existing VPC. |
+| [Install TEF and New VPC](guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc) | Guide for installing TEF using Guardrails-managed VPC. |
+| [Install TEF into Existing VPC](guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc) | Guide for installing TEF using existing VPC. |

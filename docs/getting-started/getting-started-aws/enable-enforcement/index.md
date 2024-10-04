@@ -12,9 +12,10 @@ sidebar_label: Enable Automatic Enforcement
   
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-- [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack/)
-- [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
-- [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
+- [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
+- [Review Account-Wide Bucket Versioning](/guardrails/docs/getting-started/getting-started-aws/review-account-wide/)
+- [Create a Static Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
+- [Create a Calculated Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
 - [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/)
 - [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/)
 
@@ -57,13 +58,13 @@ This Getting Started series just scratches the surface.  Try installing more [p
 
 
 ## Progress tracker
-<div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/connect-an-account/">Connect an AWS Account to Guardrails</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/">Observe AWS Resource Activity</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack/">Attach a Guardrails Policy</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/create-static-exception/">Create a Static Exception to a Guardrails AWS Policy</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/">Create a Calculated Exception to a Guardrails AWS Policy</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/">Send an Alert to Email</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/">Apply a Quick Action</a></div>
-<div>✅ <strong>Enable Automatic Enforcement</strong></div>
-</div>
+
+- [x] [Connect an AWS Account to Guardrails](path)
+- [x] [Observe AWS Resource Activity](path)
+- [x] [Enable Your First Policy Pack](path)
+- [x] [Review Account-Wide Bucket Versioning](path)
+- [x] [Create a Static Exception to a Guardrails Policy](path)
+- [x] [Create a Calculated Exception to a Guardrails Policy](path)
+- [x] [Send an Alert to Email](path)
+- [x] [Apply a Quick Action](path)
+- [x] **Enable Automatic Enforcement**

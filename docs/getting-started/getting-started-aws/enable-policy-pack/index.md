@@ -1,10 +1,10 @@
 ---
-title: Enable your First Policy Pack
+title: Enable Your First Policy Pack
 sidebar_label: Enable Policy Pack
 ---
 
 
-# Enable your first Guardrails Policy Pack
+# Enable Your First Guardrails Policy Pack
 
 Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state. 
 
@@ -38,33 +38,36 @@ To attach it, click top-level `Resources`, navigate to your `Sandbox > YOUR_AWS_
 ## Step 4: Attach the policy pack to your account
 
 In the `Edit policy pack attachments` dialog, select `Enforce Versioning is Enabled for AWS S3 Buckets` and  click `Save`.
-<p><img alt="aws-edit-attachments-select-enforce-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-edit-attachments-select-enforce-versioning.png"/></p>  
+<p><img alt="aws-edit-attachments-select-enforce-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-edit-attachments-select-enforce-versioning.png"/></p>
+
+## Step 5: Search for your bucket
+
+Use the top-level search to find your bucket.
+<p><img alt="aws-search-for-bucket" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-search-for-bucket.png"/></p>
+
+## Step 6: Review
+
+Click into the resource, switch to the `Controls` tab, and search for `versioning`.
+<p><img alt="aws-observe-single-control" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-observe-single-control.png"/></p>
+
+Now, instead of skipping the versioning check, Guardrails runs it. Your bucket is green because you enabled versioning in [Observe AWS Activity](/guardrails/docs/getting-started/observe-aws-activity), so  it’s now in policy.
+
+## Next Steps
+
+In this guide you’ve enabled a policy pack to check S3 bucket versioning. In the [next guide](/guardrails/docs/getting-started/getting-started-aws/review-across-account) we’ll see how that policy pack affects all the buckets in your account.
+
   
 
-
-## Step 5: Observe policy-driven alarms
-
-Revisit the `Controls by State` report, ideally still in the tab used for Step 2. If not, repeat the instructions in Step 2.
-<p><img alt="aws_observe_policy_effect" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-observe-policy-effect.png"/></p>  
-  
-Now Guardrails checks that bucket versioning is enabled. Your bucket is green because you enabled versioning in [Observe AWS Activity](/guardrails/docs/getting-started/observe-aws-activity), and it’s now in policy. Others are red: out of policy.  
-  
-Step 6: Put your test bucket into alarm  
-
-
-Now, in the AWS console, set versioning for your bucket to`Suspended`.
-<p><img alt="aws-all-buckets-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-all-buckets-in-alarm.png"/></p>  
-  
-
-
-With versioning disabled, the bucket no longer complies with the `Check: Enabled` policy setting so Guardrails puts the bucket into the `Alarm` state for that policy.  
-  
-You can override policies at any level. In the [next runbook](/guardrails/docs/getting-started/getting-started-aws/create-static-exception), we’ll create an exception that enables your test bucket to return to the `OK` state. 
 
 
 ## Progress tracker
-<div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/connect-an-account/">Connect an AWS Account to Guardrails</a></div>
-<div>✅ <a href="/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/">Observe AWS Resource Activity</a></div>
-<div>✅ <strong>Enable your First Policy Pack</strong></div>
-</div>
+
+- [x] [Connect an AWS Account to Guardrails](path)
+- [x] [Observe AWS Resource Activity](path)
+- [x] **Enable Your First Policy Pack**
+- [ ] [Review Account-Wide Bucket Versioning](path)
+- [ ] [Create a Static Exception to a Guardrails Policy](path)
+- [ ] [Create a Calculated Exception to a Guardrails Policy](path)
+- [ ] [Send an Alert to Email](path)
+- [ ] [Apply a Quick Action](path)
+- [ ] [Enable Automatic Enforcement](path)

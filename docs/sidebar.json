@@ -58,6 +58,7 @@
           "getting-started/getting-started-aws/connect-an-account",
           "getting-started/getting-started-aws/observe-aws-activity",
           "getting-started/getting-started-aws/enable-policy-pack",
+          "getting-started/getting-started-aws/review-account-wide",
           "getting-started/getting-started-aws/create-static-exception",
           "getting-started/getting-started-aws/create-calculated-exception",
           "getting-started/getting-started-aws/send-alert-to-email",
@@ -190,26 +191,20 @@
             "type": "category",
             "id": "import-aws-account",
             "link": "guides/aws/import-aws-account",
-            "items": [
-              "guides/aws/import-aws-account/gov-cloud"
-            ]
+            "items": ["guides/aws/import-aws-account/gov-cloud"]
           },
           {
             "type": "category",
             "id": "event-handlers",
             "link": "guides/aws/event-handlers",
-            "items": [
-              "guides/aws/event-handlers/poller"
-            ]
+            "items": ["guides/aws/event-handlers/poller"]
           },
           "guides/aws/services",
           {
             "type": "category",
             "id": "permissions",
             "link": "guides/aws/permissions",
-            "items": [
-              "guides/aws/permissions/user-mode"
-            ]
+            "items": ["guides/aws/permissions/user-mode"]
           },
           "guides/aws/security-hub",
           "guides/aws/decommission"
@@ -256,9 +251,7 @@
             "type": "category",
             "id": "import",
             "link": "guides/gcp/import-gcp-project",
-            "items": [
-              "guides/gcp/import-gcp-project/service-accounts"
-            ]
+            "items": ["guides/gcp/import-gcp-project/service-accounts"]
           },
           "guides/gcp/services",
           "guides/gcp/permissions",
@@ -267,9 +260,7 @@
             "type": "category",
             "id": "real-time-events",
             "link": "guides/gcp/real-time-events",
-            "items": [
-              "guides/gcp/real-time-events/event-pollers"
-            ]
+            "items": ["guides/gcp/real-time-events/event-pollers"]
           }
         ]
       },
@@ -298,6 +289,8 @@
         "id": "configuring-guardrails",
         "link": "guides/configuring-guardrails",
         "items": [
+          "guides/hosting-guardrails/installation/install-mod",
+          "guides/hosting-guardrails/updating-stacks/update-mod",
           "guides/configuring-guardrails/account-imports",
           {
             "type": "category",
@@ -320,9 +313,7 @@
             "type": "category",
             "id": "firehose",
             "link": "guides/configuring-guardrails/firehose",
-            "items": [
-              "guides/configuring-guardrails/firehose/pipelines"
-            ]
+            "items": ["guides/configuring-guardrails/firehose/pipelines"]
           },
           {
             "type": "category",
@@ -420,13 +411,12 @@
                 "id": "install-tef",
                 "link": "guides/hosting-guardrails/installation/install-tef",
                 "items": [
-                  "guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc",
-                  "guides/hosting-guardrails/installation/install-tef/with-existing-vpc"
+                  "guides/hosting-guardrails/installation/install-tef/install-tef-and-new-vpc",
+                  "guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc"
                 ]
               },
               "guides/hosting-guardrails/installation/install-ted",
               "guides/hosting-guardrails/installation/install-te",
-              "guides/hosting-guardrails/installation/install-mod",
               "guides/hosting-guardrails/installation/workspace-manager",
               "guides/hosting-guardrails/installation/workspace-login",
               "guides/hosting-guardrails/installation/post-installation",
@@ -475,7 +465,8 @@
               "guides/hosting-guardrails/troubleshooting/event-flood",
               "guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync",
               "guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state",
-              "guides/hosting-guardrails/troubleshooting/enable-verbose-logging"
+              "guides/hosting-guardrails/troubleshooting/enable-verbose-logging",
+              "guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error"
             ]
           }
         ]
@@ -505,9 +496,7 @@
         "type": "category",
         "id": "faq/workspace-faq",
         "link": "faq/workspace-faq",
-        "items": [
-          "faq/workspace-faq/key_rotation"
-        ]
+        "items": ["faq/workspace-faq/key_rotation"]
       },
       "faq/guardrails-and-aws-scps"
     ]
@@ -556,9 +545,7 @@
         "type": "category",
         "id": "reference/terraform",
         "link": "reference/terraform",
-        "items": [
-          "reference/terraform/setup"
-        ]
+        "items": ["reference/terraform/setup"]
       },
       {
         "type": "category",
