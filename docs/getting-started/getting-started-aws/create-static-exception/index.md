@@ -53,8 +53,6 @@ Click into the bucket, then select the `Activity` tab.
 
 ## Step 4: Review
 
-## Step 4: Review
-
 Here you can see the whole history, reading from the bottom up.
 
 - When you attached the policy that requires bucket versioning, the bucket transitioned to `Alarm`.  The alarm state represents the difference between what the policy asserts and the actual state of the bucket.  
