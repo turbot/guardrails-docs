@@ -15,16 +15,23 @@ previously, using the TEF, TED, and TE products in the Service Catalog.
 Workspaces are deployed and managed using **Guardrails Workspace Manager**, which is
 implemented as a CloudFormation custom resource.
 
-## Create a Workspace
+## Prerequisites
 
-1. In the AWS Console, navigate to the CloudFormation service in the alpha region.
+- Ensure the Guardrails TEF, TED and TE stacks are successfully installed.
 
-1. Create a new stack, using the
-   [Sample Workspace Manager CloudFormation Template](#sample-workspace-manager-cloudformation-template)
+## Step 1: Access AWS Console
+
+In the AWS Console, navigate to the CloudFormation service in the alpha region.
+
+## Step 2: Create New Stack
+
+Create a new stack, using the [Sample Workspace Manager CloudFormation Template](#sample-workspace-manager-cloudformation-template)
 
 ![CloudFormation Create Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-upload-template.png)
 
-1. Enter the appropriate parameters:
+## Step 3: Enter Parameters
+
+Enter the appropriate parameters:
 
    - **Name:** The name of workspace, which will be used as the first part of
      the console URL. For instance, if you specify “dev” as the workspace name,
@@ -56,32 +63,32 @@ implemented as a CloudFormation custom resource.
 
 ![CloudFormation Enable Termination Protection](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-enable-termination-protection.png)
 
-1. Currently, the Workspace Manager generates the initial Turbot Admin account
-   and password, as well as a key pair. You should login and change the password
-   and keys as soon as the stack is complete. a. The Console URL for the
-   workspace is available in the `WorkspaceUrl` output variable. Go to the stack
-   outputs and click the link to go to the web console. b. The admin username
-   and password are displayed in the `WorkspaceManagerOutput` variable in the
-   stack outputs. Login using the admin username and password. c. Once logged
-   in, change the admin password and delete the generated keys. You can do this
-   from the profile settings page. i. In the top right of the Turbot Console,
-   you will see currently logged in user, “Turbot Admin”. Hover over this link,
-   and then click “Profile” from the popup menu to take you to the profile page.
-   ii. In the list of access keys, click the [X] button to delete the access key
-   generated during the install. If desired, you can generate new access keys by
-   clicking the New access key button iii. On the left side of the page, click
-   the Reset Password button to change the admin password
+## Step 4: Complete Stack Creation
 
-1. Click on **Submit** and wait for the stack creation to complete.
+Click on **Submit** and wait for the stack creation to complete.
 
 ![CloudFormation Stack Creation Complete](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-creation-complete.png)
 
-> [!WARNING]
-> You should login and change the password and keys as soon as the stack is complete:
-    * The username, password, and keys will appear in plain text in the CloudFormation stack output variables. 
-    * If you re-run the stack, the stack output variable will be overwritten
+## Step 5: Provision Admin Account and Access the Workspace
 
-### Sample Workspace Manager CloudFormation Template
+Once the Workspace Manager CloudFormation stack is created, the Workspace Manager generates the initial Turbot Admin account and password, along with a key pair.
+	
+  Go to the stack outputs to find:
+	
+  - Console URL: Available in the `WorkspaceUrl` output variable. Use this link to access the web console.
+	
+  - Admin Credentials: Displayed in the `WorkspaceManagerOutput` variable in the stack outputs.
+	
+Login using the generated admin credentials. Once logged in, change the admin password and delete the generated keys.
+
+>	[!WARNING]
+> The username, password, and keys will appear in plain text in the CloudFormation stack output variables. If you re-run the stack, the stack output variables will be overwritten, so it’s important to secure this information immediately after stack creation.
+	
+- Navigate to Profile (from the user icon in the top right of the Turbot Console).
+
+- Change the admin password and delete the access keys by clicking [X] next to the access key generated during install. New access keys can be created if necessary.
+
+## Sample Workspace Manager CloudFormation Template
 
 While the sample template provides a simple, out-of-the box mechanism for
 deploying a single workspace, it is merely a starting point. You may wish to
@@ -284,3 +291,9 @@ Outputs:
         - Workspace
         - Output
 ```
+
+## Next Steps
+
+- Head over to the [Post Installation document](https://turbot.com/guardrails/docs/guides/hosting-guardrails/installation/post-installation) for further instructions after setting up the workspace.
+
+- Learn more about managing versions and updating workspaces from [Turbot Guardrails Enterprise Documentation](https://turbot.com/guardrails/docs/guides/hosting-guardrails/updating-stacks).
