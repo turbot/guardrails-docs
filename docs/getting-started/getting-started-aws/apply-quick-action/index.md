@@ -12,8 +12,8 @@ sidebar_label: Apply a Quick Action
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
 - [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
 - [Review Account-Wide Bucket Versioning](/guardrails/docs/getting-started/getting-started-aws/review-account-wide/)
-- [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
-- [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
+- [Create a Static Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
+- [Create a Calculated Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
 - [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/)
 
 
@@ -116,8 +116,8 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/enable-enfor
 - [x] [Observe AWS Resource Activity](path)
 - [x] [Enable Your First Policy Pack](path)
 - [x] [Review Account-Wide Bucket Versioning](path)
-- [x] [Create a Static Exception to a Guardrails AWS Policy](path)
-- [x] [Create a Calculated Exception to a Guardrails AWS Policy](path)
+- [x] [Create a Static Exception to a Guardrails Policy](path)
+- [x] [Create a Calculated Exception to a Guardrails Policy](path)
 - [x] [Send an Alert to Email](path)
 - [x] **Apply a Quick Action**
 - [ ] [Enable Automatic Enforcement](path)

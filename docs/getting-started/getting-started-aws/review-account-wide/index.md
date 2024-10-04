@@ -22,7 +22,7 @@ You bookmarked the `Controls by State` report in [Connect an Account](/guardrail
 Set the `Resource Type` filter to `AWS > S3 > Bucket`, and search for `versioning`.  
 <p><img alt="aws-account-wide-1" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/aws-account-wide-1.png"/></p>  
   
-In the [previous guide]((/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s versioning control from `Skipped` to `OK`. Here we can see that other buckets are in `Alarm`.   
+In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s versioning control from `Skipped` to `OK`. Here we can see that other buckets are in `Alarm`.   
   
 Step 2: Set versioning for another bucket
 
@@ -48,8 +48,8 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-
 - [x] [Observe AWS Resource Activity](path)
 - [x] [Enable Your First Policy Pack](path)
 - [x] **Review Account-Wide Bucket Versioning**
-- [ ] [Create a Static Exception to a Guardrails AWS Policy](path)
-- [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)
+- [ ] [Create a Static Exception to a Guardrails Policy](path)
+- [ ] [Create a Calculated Exception to a Guardrails Policy](path)
 - [ ] [Send an Alert to Email](path)
 - [ ] [Apply a Quick Action](path)
 - [ ] [Enable Automatic Enforcement](path)

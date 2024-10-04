@@ -1,6 +1,6 @@
 ---
-title: Create a Static Exception to a Guardrails AWS Policy
-sidebar_label: Create a static exception to a Guardrails AWS policy
+title: Create a Static Exception to a Guardrails Policy
+Sidebar_label: Create a Static Exception to a Guardrails Policy
 ---
 
 
@@ -18,7 +18,7 @@ You’ve seen how to enable a policy pack to check versioning for all buckets. N
 
 ## Step 1: Locate a bucket in Alarm
 
-Do a top-level search for one of your buckets that was shown as in `Alarm` at the end of the [previous guide]((/guardrails/docs/getting-started/getting-started-aws/review-across-account). Set the `Type` filter to `AWS > S3 > Bucket` if needed.
+Do a top-level search for one of your buckets that was shown as in `Alarm` at the end of the [previous guide](/guardrails/docs/getting-started/getting-started-aws/review-across-account). Set the `Type` filter to `AWS > S3 > Bucket` if needed.
 <p><img alt="aws_find_bucket_in_alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/aws-find-bucket-in-alarm.png"/></p>
 
 ## Step 2: Create a policy exception
@@ -49,20 +49,27 @@ The default for bucket versioning was `Skip`, the policy you created in the prev
 Use the top-level search (as above) to find the bucket.
 
 Click into the bucket, then select the `Activity` tab.
-<p><img alt="aws_start_4_review_bucket_activity" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/aws-start-4-review-bucket-activity.png"/></p>
+<p><img alt="aws_review_bucket_activity" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/aws-review-bucket-activity.png"/></p>
+
+## Step 4: Review
 
 ## Step 4: Review
 
 Here you can see the whole history, reading from the bottom up.
 
- - When you attached the policy that requires bucket versioning, the bucket transitioned from its initial state, `TBD` to `Alarm`.  The alarm state represents the difference between what the policy asserts and the actual state of the bucket.  
+- When you attached the policy that requires bucket versioning, the bucket transitioned to `Alarm`.  The alarm state represents the difference between what the policy asserts and the actual state of the bucket.  
   
 - Then you created the bucket-level policy setting to make an exception for your test bucket.  
   
 - Then the Versioning control reevaluated, and set the status to `Skipped` to match the policy exception of `Skip`.
 
   
-In the [next runbook](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.
+In the [next runbook](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.  
+
+
+## Next Steps
+
+In the next guide we’ll see how you can make exceptions dynamically, by evaluating properties of resources.
 
 
 ## Progress tracker
@@ -71,8 +78,8 @@ In the [next runbook](/guardrails/docs/getting-started/getting-started-aws/creat
 - [x] [Observe AWS Resource Activity](path)
 - [x] [Enable Your First Policy Pack](path)
 - [x] [Review Account-Wide Bucket Versioning](path)
-- [x] **Create a Static Exception to a Guardrails AWS Policy**
-- [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)
+- [x] **Create a Static Exception to a Guardrails Policy**
+- [ ] [Create a Calculated Exception to a Guardrails Policy](path)
 - [ ] [Send an Alert to Email](path)
 - [ ] [Apply a Quick Action](path)
 - [ ] [Enable Automatic Enforcement](path)
