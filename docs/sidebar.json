@@ -439,6 +439,7 @@
             "id": "updating-stacks",
             "link": "guides/hosting-guardrails/updating-stacks",
             "items": [
+              "guides/hosting-guardrails/updating-stacks/update-mod",
               "guides/hosting-guardrails/updating-stacks/update-ted",
               "guides/hosting-guardrails/updating-stacks/update-tef",
               "guides/hosting-guardrails/updating-stacks/update-workspace"
@@ -476,7 +477,8 @@
               "guides/hosting-guardrails/troubleshooting/event-flood",
               "guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync",
               "guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state",
-              "guides/hosting-guardrails/troubleshooting/enable-verbose-logging"
+              "guides/hosting-guardrails/troubleshooting/enable-verbose-logging",
+              "guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error"
             ]
           }
         ]
