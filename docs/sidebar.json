@@ -291,6 +291,7 @@
         "items": [
           "guides/hosting-guardrails/installation/install-mod",
           "guides/hosting-guardrails/updating-stacks/update-mod",
+          "guides/hosting-guardrails/installation/uninstall-mod",
           "guides/configuring-guardrails/account-imports",
           {
             "type": "category",
