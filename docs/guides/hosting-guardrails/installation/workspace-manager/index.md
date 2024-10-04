@@ -15,15 +15,14 @@ previously, using the TEF, TED, and TE products in the Service Catalog.
 Workspaces are deployed and managed using **Guardrails Workspace Manager**, which is
 implemented as a CloudFormation custom resource.
 
-<div className="alert alert-info" role="alert"><p>Turbot recommends enabling Termination Protection on the Workspace Manager CloudFormation stack. This can be done at creation by expanding the <b>Stack creation options</b> and enabling Termination Protection.</p><p>This can also be configured post CloudFormation stack deployment. Select the stack while viewing the CloudFormation service in the AWS console, click <b>Stack actions</b> in the top right, then click <b>Edit termination protection</b>. Set this to enabled and click Save!</p></div>
-
 ## Create a Workspace
 
-1. In the AWS Console, navigate to the CloudFormation service in the alpha
-   region.
+1. In the AWS Console, navigate to the CloudFormation service in the alpha region.
 
 1. Create a new stack, using the
    [Sample Workspace Manager CloudFormation Template](#sample-workspace-manager-cloudformation-template)
+
+![CloudFormation Create Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-upload-template.png)
 
 1. Enter the appropriate parameters:
 
@@ -34,14 +33,14 @@ implemented as a CloudFormation custom resource.
 
    - **Version:** The version of Turbot Guardrails Enterprise to install in the workspace.
      This must match an installed (via TE) version exactly, For example:
-     `5.0.0-beta.18`
+     `5.46.0`
 
    - **Hive:** The Hive name where the database is hosted. This should be the
      Hive name that you specified when setting up TED
 
    - **UseRoute53:** If set to `True`, the stack will automatically update the
      DNS alias for the console URL to point to the newly installed version. If
-     you do not use Route53 to manage the DNS, choose “False”. You will need to
+     you do not use Route53 to manage the DNS, choose "False". You will need to
      create (or modify) a CNAME record for your workspace to point to the load
      balancer for the new version (available as `LoadBalancerDNS` in the stack
      output variables).
@@ -49,6 +48,13 @@ implemented as a CloudFormation custom resource.
    - **FoundationStackOutputPrefix:** This must match the resource prefix that
      you specified in the Turbot Guardrails Enterprise Foundation stack so that this stack
      can use exported outputs from the TEF stack.
+
+![CloudFormation Update Parameters](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-update-parameters.png)
+
+> [!NOTE]
+> Turbot recommends enabling **Termination Protection** on the Workspace Manager CloudFormation stack. This can be done at creation by expanding the **Stack creation options** and enabling Termination Protection. This can also be configured post CloudFormation stack deployment. Select the stack while viewing the CloudFormation service in the AWS console, click **Stack actions** in the top right, then click **Edit termination protection**. Set this to enabled and click **Save**!
+
+![CloudFormation Enable Termination Protection](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-enable-termination-protection.png)
 
 1. Currently, the Workspace Manager generates the initial Turbot Admin account
    and password, as well as a key pair. You should login and change the password
@@ -66,13 +72,14 @@ implemented as a CloudFormation custom resource.
    clicking the New access key button iii. On the left side of the page, click
    the Reset Password button to change the admin password
 
-<div className="alert alert-warning">
-  You should login and change the password and keys as soon as the stack is complete:
-  <ul>
-    <li> The username, password, and keys will appear in plain text in the CloudFormation stack output variables </li>
-    <li> If you re-run the stack, the stack output variable will be overwritten  </li>
-  </ul>
-  </div>
+1. Click on **Submit** and wait for the stack creation to complete.
+
+![CloudFormation Stack Creation Complete](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-creation-complete.png)
+
+> [!WARNING]
+> You should login and change the password and keys as soon as the stack is complete:
+    * The username, password, and keys will appear in plain text in the CloudFormation stack output variables. 
+    * If you re-run the stack, the stack output variable will be overwritten
 
 ### Sample Workspace Manager CloudFormation Template
 
@@ -82,7 +89,7 @@ deploy ALL your workspaces from a single template, so that you can manage
 versions for all workspaces from a single stack, for instance.
 
 This template can also be found on the Guardrails Samples Repo -
-[Workspace Manager CloudFormation Template](https://github.com/turbot/guardrails-samples/blob/master/installation/workspace-template.yml)
+[Workspace Manager CloudFormation Template](https://github.com/turbot/guardrails-samples/blob/main/enterprise_installation/workspace_template.yml)
 
 ```yaml
 AWSTemplateFormatVersion: 2010-09-09
@@ -131,17 +138,17 @@ Parameters:
   # This can be removed for simplicity
   FoundationStackOutputPrefix:
     Description: >
-      Name of the resource prefix used by the Turbot Foundation stack, which is
-      a prefix for exported outputs from that stack.
+      Name of the resource prefix used by the Turbot Foundation stack, which
+      is a prefix for exported outputs from that stack.
     Type: String
     Default: turbot
 
   InstallationDomainSsmValue:
     Description: >
-      Name of the SSM Param that holds the installation domain name, which is
-      exported from the TEF foundation stack.
+      Name of the SSM Param that holds the installation domain name,
+      which is exported from the TEF foundation stack.
     Type: "AWS::SSM::Parameter::Value<String>"
-    Default: "/${FoundationStackOutputPrefix}/enterprise/installation_domain"
+    Default: "/turbot/enterprise/installation_domain"
 
 Conditions:
   UseRoute53DnsManagement: !Equals [true, !Ref UseRoute53]
@@ -227,11 +234,7 @@ Resources:
         - Arn:
             Fn::Sub:
               - "arn:aws:sqs:${AWS::Region}:${AWS::AccountId}:${FoundationStackOutputPrefix}_${VersionSafe}_events"
-              - VersionSafe:
-                  !Join [
-                    "_",
-                    !Split [".", !Join ["_", !Split ["-", !Ref Version]]],
-                  ]
+              - VersionSafe: !Join ["_", !Split [".", !Join ["_", !Split ["-", !Ref Version]]]]
           Id:
             Fn::Sub:
               - "${WorkspaceId}_minute_tick"
