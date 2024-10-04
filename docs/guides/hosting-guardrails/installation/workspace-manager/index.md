@@ -7,7 +7,7 @@ sidebar_label: Create Workspace
 
 In this guide, you will:
 
-- Use AWS CloudFormation service to create Turbot Guardrails Workspace through `Workspace Manager CloudFormation Template`
+- Use AWS CloudFormation service to create Turbot Guardrails Workspace through Workspace Manager CloudFormation Template
 
 A [Workspace](/guardrails/docs/reference/glossary#workspace) is an independent tenant of Guardrails, with its own version and its
 own schema (logical shard) in a hive. Each Workspace has its own root resource as [Turbot](/guardrails/docs/reference/glossary#turbot-resource),
@@ -51,28 +51,14 @@ Create a new stack, using the **Choose existing template** option by uploading t
 
 Enter the appropriate parameters and select **Next**
 
-- **Name:** The name of workspace, which will be used as the first part of
-  the console URL. For instance, if you specify “dev” as the workspace name,
-  and you set up the TEF stack using `mycompany.turbot.com` as the domain
-  name, the console URL will be `dev.mycompany.turbot.com`
-
-- **Version:** The version of Turbot Guardrails Enterprise to install in the workspace.
-  This must match an installed (via TE) version exactly, For example:
-  `5.46.0`
-
-- **Hive:** The Hive name where the database is hosted. This should be the
-  Hive name that you specified when setting up TED
-
-- **UseRoute53:** If set to `True`, the stack will automatically update the
-  DNS alias for the console URL to point to the newly installed version. If
-  you do not use Route53 to manage the DNS, choose "False". You will need to
-  create (or modify) a CNAME record for your workspace to point to the load
-  balancer for the new version (available as `LoadBalancerDNS` in the stack
-  output variables).
-
-- **FoundationStackOutputPrefix:** This must match the resource prefix that
-  you specified in the Turbot Guardrails Enterprise Foundation stack so that this stack
-  can use exported outputs from the TEF stack.
+| Parameter Name                      | Value                                                                                                                                                      |
+|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                                 | The name of the workspace, which will be used as the first part of the console URL. For instance, if you specify “dev” as the workspace name, and you set up the TEF stack using `mycompany.turbot.com` as the domain name, the console URL will be `dev.mycompany.turbot.com`. |
+| Version                              | The version of Turbot Guardrails Enterprise to install in the workspace. This must match an installed (via TE) version exactly. For example: `5.46.0`. |
+| Hive                                 | The Hive name where the database is hosted. This should be the Hive name that you specified when setting up TED. |
+| UseRoute53                           | If set to `True`, the stack will automatically update the DNS alias for the console URL to point to the newly installed version. If you do not use Route53 to manage the DNS, choose "False". You will need to create (or modify) a CNAME record for your workspace to point to the load balancer for the new version (available as `LoadBalancerDNS` in the stack output variables). |
+| FoundationStackOutputPrefix          | This must match the resource prefix that you specified in the Turbot Guardrails Enterprise Foundation stack so that this stack can use exported outputs from the TEF stack. |
+| Alternate URL                        | Provide an alternate URL for the workspace, leave blank if not required. |
 
 ![CloudFormation Update Parameters](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-update-parameters.png)
 
@@ -88,7 +74,7 @@ Click on **Submit** and wait for the stack creation to complete.
 
 ![CloudFormation Stack Creation Complete](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-creation-complete.png)
 
-## Step 7: Provision Admin Account and Access the Workspace
+## Step 7: Access Workspace Initial Credentials
 
 Once the Workspace Manager CloudFormation stack is created, the Workspace Manager generates the initial Turbot Admin account and password, along with a key pair.
 Go to the stack outputs to find:
@@ -102,14 +88,48 @@ Go to the stack outputs to find:
 
 ![Workspace Credentials](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-workspace-credentials.png)
 
-Login using the generated admin credentials. Once logged in, change the admin password and delete the generated keys.
-
 > [!WARNING]
 > The username, password, and keys will appear in plain text in the CloudFormation stack output variables. If you re-run the stack, the stack output variables will be overwritten, so it’s important to secure this information immediately after stack creation.
 
-Navigate to Profile (from the user icon in the top right of the Turbot Console).
+## Step 8: Login Workspace with Initial Credentials
 
-Change the admin password and delete the access keys by clicking [X] next to the access key generated during install. New access keys can be created if necessary.
+Login using the generated admin credentials. Once logged in, change the admin password and delete the generated keys.
+
+![Workspace Login](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/workspace-login.png)
+
+> [!CAUTION]
+> As best practice rotate the initial password and delete the initial access key associated with the admin profile provisioned during the above process.
+
+## Step 9: Rotate Initial Password
+
+Navigate to `Profile` in Guardrails console.
+
+![Workspace Password Rotation](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/workspace-password-rotation.png)
+
+Rotate `Password`
+
+![Workspace Password Rotation Action](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/workspace-password-rotation-action.png)
+
+## Step 10: Delete Access Key
+
+Initial admin login access key created during the Workspace creation process remains active, first `Deactivate` access key.
+
+![Deactivate Access Key](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/workspace-deactivate-access-key.png)
+
+Confirm to `Deactivate`
+
+![Confirm Deactivate Access Key](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/workspace-deactivate-access-key-confirm.png)
+
+Once the access is deactivated, check access key status is shown as `INACTIVE`, select `X` to delete.
+
+![Delete Access Key](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/delete-access-key.png)
+
+Confirm deletion by selecting **Delete** button.
+
+![Delete Access Key Action](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/delete-access-key-delete-action.png)
+
+> [!Note]
+> New access keys can be created if necessary.
 
 ## Next Steps
 

@@ -424,11 +424,11 @@
                   "guides/hosting-guardrails/installation/install-tef/with-existing-vpc"
                 ]
               },
-
               "guides/hosting-guardrails/installation/install-ted",
               "guides/hosting-guardrails/installation/install-te",
               "guides/hosting-guardrails/installation/install-mod",
               "guides/hosting-guardrails/installation/workspace-manager",
+              "guides/hosting-guardrails/installation/workspace-login",
               "guides/hosting-guardrails/installation/post-installation",
               "guides/hosting-guardrails/installation/delete-te"
             ]
