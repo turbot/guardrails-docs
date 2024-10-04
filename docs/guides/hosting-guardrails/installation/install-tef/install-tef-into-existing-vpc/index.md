@@ -149,17 +149,7 @@ The TEF provisioned product should be in the **Under Change** status.
 
 ![Under Change Status](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-under-change.png)
 
-## Step 13: Review
-
-- [ ] The TEF CloudFormation stack status should change to `CREATE_COMPLETE` indicating the installation completed successfully.
-
-![CFN Create Complete](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/cfn-tef-create-complete.png)
-
-- [ ] The TE `Provisioned product` status should change to `Succeeded`.
-
-![Installation Complete Verification](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-succeeded.png)
-
-## Step 14: Enable Termination Protection
+## Step 13: Enable Termination Protection
 
 > [!IMPORTANT]
 > To ensure that the TEF stack is not accidentally deleted, it is strongly recommend that termination protection is enabled.
@@ -179,6 +169,16 @@ Select **Edit termination protection** from **Stack actions** dropdown menu.
 Choose `Termination protection` as **Activated** and select **Save**.
 
 ![Termination Protection Activated](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/cfn-stack-edit-termination-protection-activated.png)
+
+## Step 14: Review
+
+- [ ] The TEF CloudFormation stack status should change to `CREATE_COMPLETE` indicating the installation completed successfully.
+
+![CFN Create Complete](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/cfn-tef-create-complete.png)
+
+- [ ] The TE `Provisioned product` status should change to `Succeeded`.
+
+![Installation Complete Verification](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-succeeded.png)
 
 ## Next Steps
 
