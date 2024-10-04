@@ -54,7 +54,7 @@ You have initiated the installation of the new Guardrails mod.
 
 - [ ] The Mod Health is in an **OK** state, indicating successful installation.
 
-![Mod Health](/images/docs/guardrails/guides/hosting-guardrails/installation/install-mod/guardrails-mod-install-verify.png)
+![Mod Health](/images/docs/guardrails/guides/hosting-guardrails/installation/install-mod/guardrails-installed-mod-health.png)
 
 - [ ] The Control Types associated with the mod are available and displayed under Controls.
 
