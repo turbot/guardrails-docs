@@ -74,62 +74,9 @@ Click on **Submit** and wait for the stack creation to complete.
 
 ![CloudFormation Stack Creation Complete](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-creation-complete.png)
 
-## Step 7: Access Workspace Initial Credentials
+## Step 7: Login New Workspace
 
-Once the Workspace Manager CloudFormation stack is created, the Workspace Manager generates the initial Turbot Admin account and password, along with a key pair.
-Go to the stack outputs to find:
-
-`Console URL` available in the `WorkspaceUrl` **Outputs** variable. Use this `WorkspaceUrl` link to access the web console.
-
-![Workspace URL](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-workspace-url.png)
-
-
-`Admin Credentials` is displayed in the `WorkspaceManagerOutput` variable in the stack outputs.
-
-![Workspace Credentials](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-workspace-credentials.png)
-
-> [!WARNING]
-> The username, password, and keys will appear in plain text in the CloudFormation stack output variables. If you re-run the stack, the stack output variables will be overwritten, so it’s important to secure this information immediately after stack creation.
-
-## Step 8: Login Workspace with Initial Credentials
-
-Login using the generated admin credentials. Once logged in, change the admin password and delete the generated keys.
-
-![Workspace Login](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/workspace-login.png)
-
-> [!CAUTION]
-> As best practice rotate the initial password and delete the initial access key associated with the admin profile provisioned during the above process.
-
-## Step 9: Rotate Initial Password
-
-Navigate to `Profile` in Guardrails console.
-
-![Workspace Password Rotation](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/workspace-password-rotation.png)
-
-Rotate `Password`
-
-![Workspace Password Rotation Action](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/workspace-password-rotation-action.png)
-
-## Step 10: Delete Access Key
-
-Initial admin login access key created during the Workspace creation process remains active, first `Deactivate` access key.
-
-![Deactivate Access Key](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/workspace-deactivate-access-key.png)
-
-Confirm to `Deactivate`
-
-![Confirm Deactivate Access Key](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/workspace-deactivate-access-key-confirm.png)
-
-Once the access is deactivated, check access key status is shown as `INACTIVE`, select `X` to delete.
-
-![Delete Access Key](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/delete-access-key.png)
-
-Confirm deletion by selecting **Delete** button.
-
-![Delete Access Key Action](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/delete-access-key-delete-action.png)
-
-> [!Note]
-> New access keys can be created if necessary.
+Now you can [login to newly provisioned Workspace](/guides/hosting-guardrails/installation/workspace-login#workspace-login) and initiate credential rotation.
 
 ## Next Steps
 
