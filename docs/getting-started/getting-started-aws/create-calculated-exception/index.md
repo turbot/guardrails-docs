@@ -62,7 +62,7 @@ Now copy this template code:
 {% endif %}
 ```
 
-And paste it into the template pane.  
+And paste it into the template pane.
 <p><img alt="aws-template-active" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-template-active.png"/></p>  
   
 
@@ -91,7 +91,7 @@ Now, in the AWS console, assign the tag `environment:development` to another buc
 
 
 Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.
-<p><img alt="aws_start_5_tagged_bucket_now_skipped" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-start-5-tagged-bucket-now-skipped.png"/></p>
+<p><img alt="aws-tagged-bucket-now-skipped" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-tagged-bucket-now-skipped.png"/></p>
 
 Step 7: Review
 
