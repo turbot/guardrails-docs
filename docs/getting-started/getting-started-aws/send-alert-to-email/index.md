@@ -12,8 +12,8 @@ sidebar_label: Send an Alert to Email
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
 - [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
 - [Review Account-Wide Bucket Versioning](/guardrails/docs/getting-started/getting-started-aws/review-account-wide/)
-- [Create a Static Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
-- [Create a Calculated Exception to a Guardrails AWS Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
+- [Create a Static Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
+- [Create a Calculated Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
 
 
 In [the previous runbook](/guardrails/docs/runbooks/getting-started-aws/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
@@ -78,8 +78,8 @@ In the [next runbook](/guardrails/docs/runbooks/getting-started-aws/apply-quick-
 - [x] [Observe AWS Resource Activity](path)
 - [x] [Enable Your First Policy Pack](path)
 - [x] [Review Account-Wide Bucket Versioning](path)
-- [x] [Create a Static Exception to a Guardrails AWS Policy](path)
-- [x] [Create a Calculated Exception to a Guardrails AWS Policy](path)
+- [x] [Create a Static Exception to a Guardrails Policy](path)
+- [x] [Create a Calculated Exception to a Guardrails Policy](path)
 - [x] **Send an Alert to Email**
 - [ ] [Apply a Quick Action](path)
 - [ ] [Enable Automatic Enforcement](path)

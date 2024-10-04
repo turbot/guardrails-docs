@@ -54,8 +54,8 @@ Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-st
 - [x] **Observe AWS Resource Activity**
 - [ ] [Enable Your First Policy Pack](path)
 - [ ] [Review Account-Wide Bucket Versioning](path)
-- [ ] [Create a Static Exception to a Guardrails AWS Policy](path)
-- [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)
+- [ ] [Create a Static Exception to a Guardrails Policy](path)
+- [ ] [Create a Calculated Exception to a Guardrails Policy](path)
 - [ ] [Send an Alert to Email](path)
 - [ ] [Apply a Quick Action](path)
 - [ ] [Enable Automatic Enforcement](path)

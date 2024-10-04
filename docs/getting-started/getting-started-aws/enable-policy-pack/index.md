@@ -66,8 +66,8 @@ In this guide you’ve enabled a policy pack to check S3 bucket versioning. In t
 - [x] [Observe AWS Resource Activity](path)
 - [x] **Enable Your First Policy Pack**
 - [ ] [Review Account-Wide Bucket Versioning](path)
-- [ ] [Create a Static Exception to a Guardrails AWS Policy](path)
-- [ ] [Create a Calculated Exception to a Guardrails AWS Policy](path)
+- [ ] [Create a Static Exception to a Guardrails Policy](path)
+- [ ] [Create a Calculated Exception to a Guardrails Policy](path)
 - [ ] [Send an Alert to Email](path)
 - [ ] [Apply a Quick Action](path)
 - [ ] [Enable Automatic Enforcement](path)
