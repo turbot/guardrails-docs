@@ -142,6 +142,10 @@ The TEF provisioned product should be in the **Under Change** status.
 
 ![Installation Complete Verification](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-succeeded.png)
 
+## Enable Termination Protection
+
+
+
 ## Next Steps
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:

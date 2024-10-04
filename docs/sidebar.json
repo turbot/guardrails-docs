@@ -299,6 +299,8 @@
         "id": "configuring-guardrails",
         "link": "guides/configuring-guardrails",
         "items": [
+          "guides/hosting-guardrails/installation/install-mod",
+          "guides/hosting-guardrails/updating-stacks/update-mod",
           "guides/configuring-guardrails/account-imports",
           {
             "type": "category",
@@ -428,7 +430,6 @@
 
               "guides/hosting-guardrails/installation/install-ted",
               "guides/hosting-guardrails/installation/install-te",
-              "guides/hosting-guardrails/installation/install-mod",
               "guides/hosting-guardrails/installation/workspace-manager",
               "guides/hosting-guardrails/installation/post-installation",
               "guides/hosting-guardrails/installation/delete-te"
@@ -439,7 +440,6 @@
             "id": "updating-stacks",
             "link": "guides/hosting-guardrails/updating-stacks",
             "items": [
-              "guides/hosting-guardrails/updating-stacks/update-mod",
               "guides/hosting-guardrails/updating-stacks/update-ted",
               "guides/hosting-guardrails/updating-stacks/update-tef",
               "guides/hosting-guardrails/updating-stacks/update-workspace"
