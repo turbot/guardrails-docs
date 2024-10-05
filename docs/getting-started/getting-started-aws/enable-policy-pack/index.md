@@ -16,15 +16,15 @@ Now that we can track resource configuration drift, we can create policies to al
 
 ## Step 1: Review bucket properties
 
-Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity). In that runbook you switched bucket versioning to `Enabled`.
+Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity). In that guide you switched bucket versioning to `Enabled`.
 
-## Step 2: Review S3 Bucket Controls for Versioning
+## Step 2: Review S3 bucket controls for versioning
 
   
 You bookmarked the `Controls by State` report in [Connect an Account](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity), go there now.
 
 Set the `Resource Type` filter to `AWS > S3 > Bucket`, and search for `versioning`.
-<p><img alt="aws_search_bucket_versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-search-bucket-versioning.png"/></p>
+<p><img alt="aws-search-bucket-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-search-bucket-versioning.png"/></p>
 
 Your  bucket is in the `skipped` state, as are others created with the S3 bucket default for versioning. There is not yet a Guardrails policy to check bucket versioning. Leave this view in a tab. Now open a new tab where we’ll enable a policy pack.
 

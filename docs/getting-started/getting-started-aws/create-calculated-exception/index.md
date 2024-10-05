@@ -15,7 +15,7 @@ sidebar_label: Create a Calculated Exception to a Guardrails policy
 - [Create a Static Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
 
 
-In the [previous runbook](guardrails/docs/getting-started/getting-started-aws/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags..
+In the [previous guide](guardrails/docs/getting-started/getting-started-aws/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags.
 
 ## Step 1: Locate the policy pack
 
@@ -75,23 +75,21 @@ Click `Update` to update the policy.
 
 ## Step 5: Observe bucket versioning controls
 
-Revisit your bookmarks `Controls by State` report, set the `Type` filter to `AWS > S3 > Bucket`, and search for `versioning`.
+Revisit your bookmarks `Controls by State` report, and set the `Type` filter to `AWS > S3 > Bucket > Versioning`.
 <p><img alt="aws-revisit-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-revisit-controls-by-state.png"/></p>  
   
 
 
-The bucket for which you made an exception in the previous guide will be in the `Skipped` state, others will be in `Alarm` because they are exempt from the `Check: Enabled` policy.   
+The bucket for which you made an exception in the previous guide will be in the `Skipped` state. The buckets for which you enabled versioning will be green. Find a different bucket that’s in `Alarm` for versioning, here we’ll use `bucket-example-04`.
 
+## Step 6: Tag the bucket
 
-## Step 6: Tag a bucket
-
-Now, in the AWS console, assign the tag `environment:development` to another bucket, here we’ll use `bucket-example-03`.  
+Now, in the AWS console, assign the tag `environment:development` to the bucket`.  
 <p><img alt="aws-tagged-bucket-now-skipped" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-tagged-bucket-now-skipped.png"/></p>  
   
 
 
 Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.
-<p><img alt="aws-tagged-bucket-now-skipped" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-tagged-bucket-now-skipped.png"/></p>
 
 ## Step 7: Review
 
@@ -99,7 +97,7 @@ Experiment with tagging and untagging other buckets in this way, and observe now
 
 ## Next Steps
 
-In the [next runbook](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams. 
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams. 
 
   
 

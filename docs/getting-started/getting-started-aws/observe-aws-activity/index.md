@@ -26,7 +26,7 @@ Select top-level `Reports`, search for `resource`, locate `Resource Activities`,
 In the `Resource Activities` report, search for the name of your bucket.
 
 Guardrails reports two notifications related to the bucket creation. `RESOURCE CREATED` indicates discovery of the bucket. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
-<p><img alt="aws_resource_activities_initial_notifications" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-activities-initial-notifications.png"/></p>
+<p><img alt="aws-resource-activities-initial-notifications" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-activities-initial-notifications.png"/></p>
 
 ## Step 3: See Guardrails react to a bucket change
 
@@ -34,10 +34,10 @@ Guardrails reports two notifications related to the bucket creation. `RESOURCE C
 Now visit your bucket in the AWS console, choose the `Properties` tab, and enable versioning.
 
 Guardrails will soon notice the change. 
-<p><img alt="aws_resource_activities_with_change_detected" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-activities-with-change-detected.png"/></p>
+<p><img alt="aws-resource-activities-with-change-detected" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-activities-with-change-detected.png"/></p>
 
 Click into the new notification for your bucket, and scroll down in the diff to see the change that Guardrails has recorded.  
-<p><img alt="aws_diff_the_first_change" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-diff-the-first-change.png"/></p>
+<p><img alt="aws-diff-the-first-change" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-diff-the-first-change.png"/></p>
 
 ## Step 4: Review
 
