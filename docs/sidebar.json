@@ -289,9 +289,10 @@
         "id": "configuring-guardrails",
         "link": "guides/configuring-guardrails",
         "items": [
-          "guides/hosting-guardrails/installation/install-mod",
-          "guides/hosting-guardrails/updating-stacks/update-mod",
-          "guides/hosting-guardrails/installation/uninstall-mod",
+          "guides/configuring-guardrails/install-mod",
+          "guides/configuring-guardrails/update-mod",
+          "guides/configuring-guardrails/uninstall-mod",
+          "guides/configuring-guardrails/mod-lambda-cleanup",
           "guides/configuring-guardrails/account-imports",
           {
             "type": "category",
@@ -442,7 +443,6 @@
               "guides/hosting-guardrails/restore/disaster-recovery-exercise"
             ]
           },
-          "guides/hosting-guardrails/mod-cleanup",
           {
             "type": "category",
             "id": "faq",
