@@ -20,25 +20,36 @@ sidebar_label: Enable Automatic Enforcement
 - [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/)
 
 
-In the [previous runbook](/guardrails/docs/runbooks/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
+In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
 
-Step 1: Suspend versioning in AWS
+## Step 1: Revisit your static exception
 
-In the AWS console, suspend versioning for your original test bucket, in our case `bucket-example-01`.   
+In  [Create a static  exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we set its bucket versioning policy for a bucket to `Skip`.  
+  
+Use the `Controls by State` control to find it.
+<p><img alt="aws-find-bucket-skipped-by-static-exception" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-find-bucket-skipped-by-static-exception.png"/></p>
+
+## Step 2: View the policies for the control
+
+Click into the Control and switch to the `Policies` tab.  
+<p><img alt="aws-view-skipped-bucket-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-view-skipped-bucket-policy-setting.png"/></p>  
+  
 
 
-## Step 2: Find the versioning policy for the bucket
+## Step 3: View the policy setting
 
-Search for the bucket. In  [Create a static  exception](/guardrails/docs/runbooks/getting-started-aws/create-static-exception) we set its bucket versioning policy to `Skip`.
-<p><img alt="aws_start_8_find_bucket_versioning_policy_setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-start-8-find-bucket-versioning-policy-setting.png"/></p>
+Click the `Setting` link (wrench icon).
+<p><img alt="aws-view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-view-policy-setting.png"/></p>
 
-## Step 3: Update the policy setting
+## Step 4: Update the policy setting
 
-Click into the Policy Setting, click `Edit`. Originally we had an exception to "Skip" the bucket from checking S3 bucket versioning.  Now we will automatically enforce versioning to be enabled.  Choose `Enforce: Enabled` and click `Update`.  
-<p><img alt="aws_start_8_enable_enforcement" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-start-8-enable-enforcement.png"/></p>
+Click `Edit`.
+<p><img alt="aws-update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-update-policy-setting.png"/></p>
+
+## Step 5: Observe enforcement
 
 On the Policy Setting page, switch to the `Activity` tab.  
-<p><img alt="aws_start_8_enforcement_happened" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-start-8-enforcement-happened.png"/></p>
+<p><img alt="aws-enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-enforcement-happened.png"/></p>
 
 Here you can see the whole history. Reading from the bottom up:
 
@@ -46,13 +57,19 @@ Here you can see the whole history. Reading from the bottom up:
 
 - Guardrails reevaluated and found the bucket to be out-of-policy
 
-- Guardrails autonomously did what you did with a `Quick Action` in the previous runbook: enable versioning  
+- Guardrails autonomously did what you did with a `Quick Action` in the previous guide: enable versioning  
   
 - Guardrails noticed the bucket’s changed status
 
-- Guardrails reevaluated and found that the bucket now complies with policy
+- Guardrails reevaluated and found that the bucket now complies with policy  
+  
+
+
+## Step 6: Review
 
 For fun, try suspending versioning on the bucket again. It won’t stay that way for long!
+
+## Next Steps
 
 This Getting Started series just scratches the surface.  Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
 

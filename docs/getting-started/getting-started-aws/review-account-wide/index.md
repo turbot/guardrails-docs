@@ -22,12 +22,10 @@ You bookmarked the `Controls by State` report in [Connect an Account](/guardrail
 Set the `Resource Type` filter to `AWS > S3 > Bucket`, and search for `versioning`.  
 <p><img alt="aws-account-wide-1" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/aws-account-wide-1.png"/></p>  
   
-In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s versioning control from `Skipped` to `OK`. Here we can see that other buckets are in `Alarm`.   
-  
-Step 2: Set versioning for another bucket
+In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s versioning control from `Skipped` to `OK`. Here we can see that other buckets are in `Alarm`. 
+<p><img alt="aws-account-wide-2" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/aws-account-wide-2.png"/></p>
 
-Now enable versioning on another bucket, and review again.  
-<p><img alt="aws-account-wide-2" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/aws-account-wide-2.png"/></p>  
+  
   
 Now that bucket’s versioning control has also switched from `Alarm` to `OK`.
 
