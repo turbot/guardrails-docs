@@ -90,7 +90,7 @@
         "items": [
           "getting-started/getting-started-gcp/connect-a-project",
           "getting-started/getting-started-gcp/observe-gcp-activity",
-          "getting-started/getting-started-gcp/attach-policy-pack",
+          "getting-started/getting-started-gcp/enable-policy-pack",
           "getting-started/getting-started-gcp/create-static-exception",
           "getting-started/getting-started-gcp/create-calculated-exception",
           "getting-started/getting-started-gcp/send-alert-to-email",
