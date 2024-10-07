@@ -25,7 +25,7 @@ Navigate to **Policies** tab, search for `Auto Update` text.
 
 ![Find Auto Update Policy](/images/docs/guardrails/guides/configuring-guardrails/auto-mod-update/guardrails-console-policies-auto-update.png)
 
-On selecting the `Turbot > Mod > Auto Update`, it shows sub-policies along with the main policy.
+Select the **Turbot > Mod > Auto Update policy**, which will display a set of related policies, as shown below.
 
 ![Set of Sub-Policies](/images/docs/guardrails/guides/configuring-guardrails/auto-mod-update/guardrails-console-policies-auto-update-sub-policies.png)
 
@@ -41,11 +41,11 @@ On selecting the `Turbot > Mod > Auto Update`, it shows sub-policies along with 
 
 ## Step 3: Create Policy Setting
 
-Select **New Policy Setting**, which brings up `Create Policy Setting`.
+Select **New Policy Setting** to open the `Create Policy Setting` window.
 
 ![Create New Policy](/images/docs/guardrails/guides/configuring-guardrails/auto-mod-update/guardrails-console-policies-auto-update-create-new-policy.png)
 
-Assign the policy values, with `Resource` selected as `Turbot`.
+Assign the policy values as `Turbot` for `Resource`.
 
 > [!NOTE]
 > The policy is applied at the `Turbot` resource level.
@@ -70,7 +70,7 @@ Create new policy by selecting **New Policy Setting**.
 
 ![Create Schedule Policy](/images/docs/guardrails/guides/configuring-guardrails/auto-mod-update/guardrails-console-policies-auto-update-select-schedule-create-policy.png)
 
-Set the desired schedule for the `Turbot > Mod > Auto Update` to check and execute the mod update to the recommended version.
+Set the desired value in the schedule policy for `Turbot > Mod > Auto Update` control to check for and execute the mod update to the recommended version.
 
 ![Schedule Policy Value](/images/docs/guardrails/guides/configuring-guardrails/auto-mod-update/guardrails-console-policies-auto-update-select-schedule-policy-value.png)
 
@@ -80,7 +80,7 @@ Set the desired schedule for the `Turbot > Mod > Auto Update` to check and execu
 
 ## Step 5: Review
 
-- [ ] Check if the above policies are reflected.
+- [ ] Check if the above policies are reflected in Guardrails console.
 
 ![Check Settings](/images/docs/guardrails/guides/configuring-guardrails/auto-mod-update/guardrails-console-policies-auto-update-settings-check.png)
 
