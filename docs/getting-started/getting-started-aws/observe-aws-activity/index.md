@@ -4,7 +4,7 @@ sidebar_label: Observe AWS Resource Activity
 ---
 
 
-# Observe AWS resource activity
+# Observe AWS Resource Activity
 
 You’ve connected an AWS account, and seen Guardrails discover  your existing AWS resources. In this guide you’ll create a new S3 bucket that Guardrails will discover. You’ll then change a setting on the bucket, and see Guardrails notice that change.
 
