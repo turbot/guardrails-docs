@@ -8,8 +8,6 @@ sidebar_label: Automated Mod Updates
 In this guide, you will:
 - Setup automated mod update from the Turbot registry.
 
-<!-- Specify if this mod should be automatically updated from the Turbot registry. The current version is checked against the Turbot > Mod > Desired Version policy, which is calculated from the Turbot > Mod > Version Range policy. -->
-
 ## Prerequisites
 
 - **Turbot/Owner** permissions at the Turbot resource level.
@@ -91,8 +89,8 @@ Set the desired schedule for the `Turbot > Mod > Auto Update` to check and execu
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-- Learn about [Updating Mod](/guardrails/docs/guides/configuring-guardrails/update-mod).
-- Learn about [Policy Exception] (/managing-policies#creating-an-exception)
+- Learn about [Policy Exception] (/guides/configuring-guardrails/managing-policies#creating-an-exception)
+- Learn about [Updating Mod](/guardrails/docs/guides/configuring-guardrails/update-mod)
 
 ## Troubleshooting
 
