@@ -18,58 +18,52 @@ You’ve seen how to enable a policy pack to check versioning for all buckets. N
 
 ## Step 1: Locate a bucket control in Alarm for versioning
 
-You bookmarked the `Controls by State` report in [Connect an Account](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity), go there now.
+You bookmarked the `Controls by State` report in [Connect an Account](/guardrails/docs/getting-started/getting-started-aws/connect-an-account), go there now.
 
-Set the `Resource Type` filter to `AWS > S3 > Bucket > Versioning `, and the `State` to `Alarm`.
-<p><img alt="aws_find_bucket_in_alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/aws-find-bucket-in-alarm.png"/></p>
+Set the `Type` filter to `AWS > S3 > Bucket > Versioning `, and the `State` to `Alarm`.
+<p><img alt="find_bucket_in_alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/find-bucket-in-alarm.png"/></p>
 
-## Step 2: Switch to the bucket resource
-<p><img alt="switch-to-bucket-resource" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/switch-to-bucket-resource.png"/></p>  
-  
-Click the bucket name in the breadcrumb trail.  
+## Step 2: Open the control
 
+Click into the bucket control.
+<p><img alt="open-bucket-control" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/open-bucket-control.png"/></p>
 
-## Step 3: Switch to the `Policies` tab
+## Step 3: Switch to the resource policies
 
-Select the `Policies` tab and search for `versioning`.  
-<p><img alt="switch-to-bucket-resource" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/switch-to-bucket-resource.png"/></p>
+Click the bucket’s name in the breadcrumb trail and switch to the `Policies` tab.
+<p><img alt="switch-to-policies-tab" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/switch-to-policies-tab.png"/></p>
 
-Click into the bucket resource, switch to the `Policies` tab, and search for `s3 bucket versioning`.
-
-Note that the bucket inherits `Check: Enabled` from the policy pack you attached to the account.  
-
+Click `New Policy Setting`.
 
 ## Step 4: Create the policy setting
+<p><img alt="create-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/create-policy-setting.png"/></p>
 
-Now click `New Policy Setting`.
-<p><img alt="aws_create_new_policy_setting" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/aws-create-new-policy-setting.png"/></p>
+Under `Policy Type` search for `AWS > S3 > Bucket > Versioning.
 
-Search for and select the Policy Type `AWS > S3 > Bucket > Versioning`.
+Choose the `Skip` setting.
 
-  
-Choose `Skip` then click `Create`. Guardrails takes you to the Policy Setting page.
-
-Select the `Hierarchy` tab to review the new situation.
-<p><img alt="aws_hierarchy_with_bucket_exception" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/aws-hierarchy-with-bucket-exception.png"/></p>  
-  
+Click `Create`.  
 
 
-The default for bucket versioning was `Skip`, the policy you created in the previous guide changed it to `Check: Enabled`, and now this particular bucket overrides that setting back to `Skip`. 
+## Step 5: View the hierarchy
 
-## Step 5: View Guardrails activity for the bucket
+Switch to the Hierarchy tab.  
+<p><img alt="view-hierarchy-tab" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/view-hierarchy-tab.png"/></p>
 
-Use the top-level search to find the bucket.
+The account-level policy specifies `Check: Enabled`. You’ve overridden that with an exception that exempts this particular bucket from that policy.
 
-Click into the bucket, then select the `Activity` tab.
-<p><img alt="aws_review_bucket_activity" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/aws-review-bucket-activity.png"/></p>
+## Step 6: Review bucket activity
 
-## Step 4: Review
+Now switch to the `Activity` tab.
+<p><img alt="review_bucket_activity" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/review-bucket-activity.png"/></p>
 
-Here you can see the history.
+## Step 7: Review
+
+Observe the history.
 
 - You created the bucket-level policy setting to make an exception for your test bucket.  
   
-- Then the Versioning control reevaluated, and set the status to `Skipped` to match the policy exception of `Skip`.
+- Then the Versioning control reevaluated, and set the status to `Skipped`.
 
   
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.  

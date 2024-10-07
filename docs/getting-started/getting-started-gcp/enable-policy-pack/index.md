@@ -71,3 +71,8 @@ In this guide you’ve enabled a policy pack to check GCP bucket access control.
 - [x] [Observe GCP Activity](path)
 - [x] **Enable Your First Guardrails Policy Pack**
 - [ ] [Review Account-Wide Bucket Access Control](path)
+- [ ] [Create a Static Exception to a Guardrails GCP Policy](path)
+- [ ] [Create a Calculated Exception to a Guardrails GCP Policy](path)
+- [ ] [Send an Alert to Email](path)
+- [ ] [Apply a Quick Action](path)
+- [ ] [Enable Automatic Enforcement](path)

@@ -54,3 +54,8 @@ Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-st
 - [x] **Observe GCP Activity**
 - [ ] [Enable Your First Guardrails Policy Pack](path)
 - [ ] [Review Account-Wide Bucket Access Control](path)
+- [ ] [Create a Static Exception to a Guardrails GCP Policy](path)
+- [ ] [Create a Calculated Exception to a Guardrails GCP Policy](path)
+- [ ] [Send an Alert to Email](path)
+- [ ] [Apply a Quick Action](path)
+- [ ] [Enable Automatic Enforcement](path)
