@@ -6,7 +6,7 @@ sidebar_label: Review Account-Wide Bucket Versioning
 
 # Review Account-Wide Bucket Versioning
 
-In this guide you’ll see how the policy pack you enabled in [Enable a Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-aws/review-across-account) governs all the S3 buckets in your account.
+In this guide you’ll see how the policy pack you enabled in [Enable a Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) governs all the S3 buckets in your account.
 
 ## Prerequisites
 
@@ -15,21 +15,22 @@ In this guide you’ll see how the policy pack you enabled in [Enable a Guardrai
 - [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
 
 
-## Step 1: Review bucket versioning across your account
+## Step 1: Observe bucket versioning controls across your account
 
 You bookmarked the `Controls by State` report in [Connect an Account](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity), go there now.
 
-Set the `Resource Type` filter to `AWS > S3 > Bucket`, and search for `versioning`.  
+Set the `Resource Type` filter to `AWS > S3 > Bucket`, and search for `versioning`.
+  
 <p><img alt="aws-account-wide-1" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/aws-account-wide-1.png"/></p>  
   
-In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s versioning control from `Skipped` to `OK`. Here we can see that other buckets are in `Alarm`. 
-<p><img alt="aws-account-wide-2" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/aws-account-wide-2.png"/></p>
-
+In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s versioning control from `Skipped` to `OK`, because you turned on versioning in [Observe AWS Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity).  
+  
+Other buckets created in the default state, with versioning disabled, are out of policy.  
   
   
 Now that bucket’s versioning control has also switched from `Alarm` to `OK`.
 
-## Step 3: Review
+## Step 2: Review
 
 To further explore the policy pack you’ve enabled, create a new bucket, observe that it shows up here in `Alarm`  for versioning, then enable versioning and observe that it transitions to `OK`.
 

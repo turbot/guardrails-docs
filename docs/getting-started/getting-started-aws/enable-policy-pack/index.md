@@ -33,7 +33,9 @@ Your  bucket is in the `skipped` state, as are others created with the S3 bucke
 Your Guardrails workspace already has the pre-installed policy pack [Enforce Versioning Is Enabled for AWS S3 Buckets](https://hub.guardrails.turbot.com/policy-packs/aws_s3_enforce_versioning_is_enabled_for_buckets).
 
 To attach it, click top-level `Resources`, navigate to your `Sandbox > YOUR_AWS_ACCOUNT`, select the `Detail` tab, and locate the `Manage Link` next to `Policy Packs`.
-<p><img alt="aws_locate_policy_pack_manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-locate-policy-pack-manage.png"/></p>
+<p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-locate-policy-pack-manage.png"/></p>  
+  
+Click the `Manage` link.
 
 ## Step 4: Attach the policy pack to your account
 

@@ -53,3 +53,4 @@ Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-st
 - [x] [Connect a GCP Project to Guardrails](path)
 - [x] **Observe GCP Activity**
 - [ ] [Enable Your First Guardrails Policy Pack](path)
+- [ ] [Review Account-Wide Bucket Access Control](path)
