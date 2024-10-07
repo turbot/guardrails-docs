@@ -99,7 +99,7 @@
         ]
       },
       "getting-started/terraform-for-everything",
-      
+
       "getting-started/faq"
     ]
   },
@@ -293,7 +293,7 @@
           "guides/configuring-guardrails/install-mod",
           "guides/configuring-guardrails/update-mod",
           "guides/configuring-guardrails/uninstall-mod",
-          "guides/configuring-guardrails/mod-auto-update",
+          "guides/configuring-guardrails/auto-mod-update",
           "guides/configuring-guardrails/mod-lambda-cleanup",
           "guides/configuring-guardrails/account-imports",
           {
