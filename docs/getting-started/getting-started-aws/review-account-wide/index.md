@@ -19,8 +19,7 @@ In this guide you’ll see how the policy pack you enabled in [Enable a Guardrai
 
 You bookmarked the `Controls by State` report in [Connect an Account](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity), go there now.
 
-Set the `Resource Type` filter to `AWS > S3 > Bucket`, and search for `versioning`.
-  
+Set the `Resource Type` filter to `AWS > S3 > Bucket`, and search for `versioning`.  
 <p><img alt="aws-account-wide-1" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/aws-account-wide-1.png"/></p>  
   
 In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s versioning control from `Skipped` to `OK`, because you turned on versioning in [Observe AWS Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity).  
