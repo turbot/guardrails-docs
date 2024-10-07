@@ -70,3 +70,4 @@ In this guide you’ve enabled a policy pack to check GCP bucket access control.
 - [x] [Connect a GCP Project to Guardrails](path)
 - [x] [Observe GCP Activity](path)
 - [x] **Enable Your First Guardrails Policy Pack**
+- [ ] [Review Account-Wide Bucket Access Control](path)
