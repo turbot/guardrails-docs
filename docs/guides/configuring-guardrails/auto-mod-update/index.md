@@ -66,7 +66,7 @@ Select `Turbot > Mod > Auto Update` **Schedule** policy.
 
 ![Select Schedule Policy](/images/docs/guardrails/guides/configuring-guardrails/auto-mod-update/guardrails-console-policies-auto-update-select-schedule-policy.png)
 
-Create new policy by selecting **New Policy Setting**.
+Create new schedule policy by selecting **New Policy Setting**.
 
 ![Create Schedule Policy](/images/docs/guardrails/guides/configuring-guardrails/auto-mod-update/guardrails-console-policies-auto-update-select-schedule-create-policy.png)
 
