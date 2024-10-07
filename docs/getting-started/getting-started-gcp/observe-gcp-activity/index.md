@@ -13,7 +13,7 @@ You’ve connected a GCP project, and seen Guardrails discover  your existing G
 - [Connect a GCP Project to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project/)
   
   
-You will also need to create  a GCP bucket. We’ll illustrate using `guardrails_bucket_example_01`, but use your own name. Create your bucket with the default setting for access control: `Uniform`.
+You will also need to create  a GCP bucket. We’ll illustrate using `guardrails_bucket_example_01`, but use your own name. Create your bucket with the default setting for access control: `Fine-Grained`.
 
 ## Step 1: Locate the `Resource Activities` report
 
@@ -41,7 +41,7 @@ Click into the new notification for your bucket, and scroll down in the diff to 
 
 ## Step 4: Review
 
-We’ve now seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource.
+We’ve now seen how Guardrails detects the creation of a new resource in a connected project, and also notices and records changes to the configuration of that resource.
 
 ## Next Steps
 
@@ -52,3 +52,4 @@ Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-st
 
 - [x] [Connect a GCP Project to Guardrails](path)
 - [x] **Observe GCP Activity**
+- [ ] [Enable Your First Guardrails Policy Pack](path)

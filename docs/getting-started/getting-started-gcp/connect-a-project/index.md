@@ -101,3 +101,4 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/observe
 
 - [x] **Connect a GCP Project to Guardrails**
 - [ ] [Observe GCP Activity](path)
+- [ ] [Enable Your First Guardrails Policy Pack](path)
