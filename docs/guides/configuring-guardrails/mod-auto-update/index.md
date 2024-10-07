@@ -23,29 +23,79 @@ Log into the Guardrails console with provided local credentials or by using any 
 
 ## Step 2: Find Policy
 
-The policy is applied at the Turbot level. Navigate to **Policies** tab, search for `Auto Update` text
+Navigate to **Policies** tab, search for `Auto Update` text
 
 ![Find Auto Update Policy](/images/docs/guardrails/guides/configuring-guardrails/mod-auto-update/guardrails-console-policies-auto-update.png)
 
-## Step 3: Setting up Policy
+On selecting the `Turbot > Mod > Auto Update`, it shows sub-policies along with the main policy
+
+![Set of Sub-Policies](/images/docs/guardrails/guides/configuring-guardrails/mod-auto-update/guardrails-console-policies-auto-update-sub-policies.png)
 
 
+| Settings                      | Description                                                                                   |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------|
+| Desired Version                         | The desired version of the mod, is usually calculated by matching Turbot > Mod > Auto Update > Version Range against mod versions currently available in the Turbot Registry. The desired version is then used by Turbot > Mod > Auto Update to determine if an update is available, and the target version to use.|
+| Version Range                       | Specify the allowed range of versions for this mod. This version range is used to calculate Turbot > Mod > Desired Version, so the mod can be automatically updated per Turbot > Mod > Auto Update parent policy. The default value is set to `^{{MAJOR}`: The latest version in the same major release that is installed|
+| Schedule | The period when Turbot is permitted to apply changes to Mod using Mod's Auto Update control. This is only used when Turbot > Mod > Auto Update parent policy is set to Enforce within Mod Change Window. See detailed information [here](https://hub.guardrails.turbot.com/mods/turbot/policies/turbot/modChangeWindowSchedule)                           |
 
-## Step 4: Setting up Sub-Policy
+> [!IMPORTANT]
+> The policy evaluation process checks against the `Turbot > Mod > Desired Version` policy, which is calculated from the `Turbot > Mod > Version Range` policy. If not set, it picks up the latest recommended version.
+
+## Step 3: Create Policy Setting
+
+Select **New Policy Setting**, which brings up `Create Policy Setting`
+
+![Create New Policy](/images/docs/guardrails/guides/configuring-guardrails/mod-auto-update/guardrails-console-policies-auto-update-create-new-policy.png)
+
+Assign the policy values, with `Resource` selected as `Turbot`
+
+> [!NOTE]
+> The policy is applied at the Turbot level.
+
+![Assign Policy Values](/images/docs/guardrails/guides/configuring-guardrails/mod-auto-update/guardrails-console-policies-auto-update-assign-policy-values.png)
 
 
+| Settings                      | Description                                                                                   |
+|-------------------------------|-----------------------------------------------------------------------------------------------|
+| Check                         | Will alarm if the version is out of date.                                                     |
+| Enforce                       | Will attempt to automatically update the mod as soon as a new version of the mod is available.|
+| Enforce within Mod Change Window | Will schedule mod updates based on the specified UTC format time.                             |
+
+
+## Step 4: Setting up Schedule
+
+Select `Turbot > Mod > Auto Update` **Schedule** policy
+
+![Select Schedule Policy](/images/docs/guardrails/guides/configuring-guardrails/mod-auto-update/guardrails-console-policies-auto-update-select-schedule-policy.png)
+
+Create new policy by selecting **New Policy Setting**
+
+![Create Schedule Policy](/images/docs/guardrails/guides/configuring-guardrails/mod-auto-update/guardrails-console-policies-auto-update-select-schedule-create-policy.png)
+
+Set the desired schedule for the `Turbot > Mod > Auto Update` to check and execute the mod update to the recommended version.
+
+![Schedule Policy Value](/images/docs/guardrails/guides/configuring-guardrails/mod-auto-update/guardrails-console-policies-auto-update-select-schedule-policy-value.png)
+
+> [!Note]
+> Turbot assumes UTC.
+> The format of this policy is a list of yaml object, each with a name, description, a start time, and duration (in hours).
+
+## Step 5: Review
+
+- [ ] Check if the above policies are reflected.
+
+![Check Settings](/images/docs/guardrails/guides/configuring-guardrails/mod-auto-update/guardrails-console-policies-auto-update-settings-check.png)
 
 
 ## Next Steps
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-- Learn more about [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
-- Learn about [Updating Mod](/guardrails/docs/enterprise/updating-stacks/mod-update).
+- Learn about [Updating Mod](/guardrails/docs/guides/configuring-guardrails/update-mod).
+- Learn about [Policy Exception] (/managing-policies#creating-an-exception)
 
 ## Troubleshooting
 
 | Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| Mod Dependency               | If the mod installation fails due the dependent/parent mod not installed.                                           | [Troubleshoot Mod Peer Dependency Error](/guardrails/docs/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error#peer-mod-dependency-error)                            |
 | Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
