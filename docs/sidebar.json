@@ -424,7 +424,15 @@
               "guides/hosting-guardrails/installation/install-te",
               "guides/hosting-guardrails/installation/workspace-manager",
               "guides/hosting-guardrails/installation/workspace-login",
-              "guides/hosting-guardrails/installation/post-installation",
+              {
+                "type": "category",
+                "id": "post-installation",
+                "link": "guides/hosting-guardrails/installation/post-installation",
+                "items": [
+                  "guides/hosting-guardrails/installation/post-installation/create-ted-critical-alarms",
+                  "guides/hosting-guardrails/installation/post-installation/create-te-critical-alarms"
+                ]
+              },
               "guides/hosting-guardrails/installation/delete-te"
             ]
           },
