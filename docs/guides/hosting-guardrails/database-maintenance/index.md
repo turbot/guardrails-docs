@@ -1,6 +1,6 @@
 ---
-title: "Hive Restore"
-sidebar_label: "Hive Restore"
+title: "Hive Maintenance"
+sidebar_label: "Hive Maintenance"
 ---
 
 # Getting Started with Guardrails Hive Restore
