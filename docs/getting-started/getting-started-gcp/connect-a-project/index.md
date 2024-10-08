@@ -103,3 +103,8 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/observe
 - [ ] [Observe GCP Activity](path)
 - [ ] [Enable Your First Guardrails Policy Pack](path)
 - [ ] [Review Account-Wide Bucket Access Control](path)
+- [ ] [Create a Static Exception to a Guardrails GCP Policy](path)
+- [ ] [Create a Calculated Exception to a Guardrails GCP Policy](path)
+- [ ] [Send an Alert to Email](path)
+- [ ] [Apply a Quick Action](path)
+- [ ] [Enable Automatic Enforcement](path)

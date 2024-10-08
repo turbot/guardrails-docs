@@ -58,7 +58,7 @@ Click `Connect`.
 ## Step 6: Observe progress
 
 Wait for the progress bar to complete.
-<p><img alt="aws_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-progress-bar.png"/></p>
+<p><img alt="aws-progress-bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-progress-bar.png"/></p>
 
 This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.  
 
