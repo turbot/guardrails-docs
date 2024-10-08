@@ -4,8 +4,8 @@ sidebar_label: Create a Calculated Exception to a Guardrails Policy
 ---
 
 
-Create a Calculated Exception to a Guardrails AWS Policy  
-  
+# Create a Calculated Exception to a Guardrails AWS Policy
+
 In the [previous guide](guardrails/docs/getting-started/getting-started-aws/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags.
 
 **Prerequisites**:   
@@ -86,7 +86,7 @@ Revisit your bookmarks `Controls by State` report, and set the `Type` filter to 
   
 
 
-The bucket for which you made an exception in the previous guide will be in the `Skipped` state. Find a different bucket that’s in `Alarm` for versioning, here we’ll use `bucket-example-04`.
+The bucket for which you made an exception in the previous guide will be in the `Skipped` state. Find a bucket in Alarm for versioning, here we’ll use `example-bucket-04`.
 
 ## Step 8: Tag the bucket
 
