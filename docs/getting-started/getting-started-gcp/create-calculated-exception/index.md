@@ -74,7 +74,7 @@ And paste it into the template pane.
 Revisit your bookmarks `Controls by State` report, and set the `Type` filter to `GCP > Storage > Bucket > Access Control`.
 <p><img alt="revisit-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/revisit-controls-by-state.png"/></p>  
   
-The bucket for which you made an exception in the previous guide will be in the `Skipped` state. Find a different bucket that’s in `Alarm` for access control. If none are, pick a bucket and set its access control to Fine-Grained. Here we’ll use `guardrails_bucket_example_02`.
+The bucket for which you made an exception in the previous guide will be in the `Skipped` state. Find a bucket that’s in `Alarm` for access control. Here we’ll use `guardrails_bucket_example_02`.
 
 ## Step 8: Label the bucket
 
