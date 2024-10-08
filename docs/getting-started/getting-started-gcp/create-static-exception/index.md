@@ -72,7 +72,7 @@ Observe the history.
   
 - Then the control for Access Control reevaluated, and set the status to `Skipped`
 
-Next Steps
+## Next Steps
 
   
 In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource label.
