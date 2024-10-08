@@ -74,7 +74,7 @@ Now, in the GCP console, remove the `environment:development` label. The calcula
 Now check your email.
 
   
-[image: gcp_view_email_notification]  
+[image: view_email_notification]  
   
 (unable to reproduce at the moment)
 
@@ -82,7 +82,9 @@ Now check your email.
 The alarm reported in the Guardrails console also appears in your inbox. You can alternatively configure Guardrails to send alerts to [Slack]([guardrails/docs/guides/notifications/templates#example-slack-template](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)) or [MS Teams](/guardrails/docs/guides/notifications/templates#example-ms-teams-template).  
   
   
-Step 7: Review
+
+
+## Step 7: Review
 
 Now that we have successfully alerted on controls, you can repeat this exercise with other Policy Packs from the [Guardrails Hub](hub.guardrails.com).   
   
