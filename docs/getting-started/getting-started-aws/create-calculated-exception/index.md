@@ -4,7 +4,9 @@ sidebar_label: Create a Calculated Exception to a Guardrails Policy
 ---
 
 
-# Create a Calculated Exception to a Guardrails AWS Policy
+Create a Calculated Exception to a Guardrails AWS Policy  
+  
+In the [previous guide](guardrails/docs/getting-started/getting-started-aws/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags.
 
 **Prerequisites**:   
   
@@ -15,41 +17,45 @@ sidebar_label: Create a Calculated Exception to a Guardrails Policy
 - [Create a Static Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
 
 
-In the [previous guide](guardrails/docs/getting-started/getting-started-aws/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags.
-
 ## Step 1: Locate the policy pack
 
 From the Guardrails home, navigate to `Turbot > Sandbox > YOUR_AWS_ACCOUNT` and switch to the `Detail` tab.
-<p><img alt="aws-locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-locate-policy-pack.png"/></p>
+<p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/locate-policy-pack.png"/></p>
+
+## Step 2: Open the policy pack
 
   
   
-Click into `Enforce Versioning is Enabled for AWS S3 Buckets` Policy Pack. and switch to the Policies tab.
-<p><img alt="aws-bucket-versioning-policy-settings" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-bucket-versioning-policy-settings.png"/></p>
+Click into `Enforce Versioning is Enabled for AWS S3 Buckets` Policy Pack.
+
+Click the `policy setting` link.
+<p><img alt="bucket-versioning-policy-settings" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/bucket-versioning-policy-settings.png"/></p>
 
 Note the Versioning policy (`Check: Enabled`) created in [this guide](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack).   
   
 Click `New Policy Setting`.
 
-## Step 2: Choose Policy Type and Resource
+## Step 3: Choose Policy Type and Resource
 
 Set the Policy Type to `AWS > S3 > Bucket > Versioning`, and the `Resource` to the policy pack.
-<p><img alt="aws-choose-policy-type-and-resource" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-choose-policy-type-and-resource.png"/></p>
+<p><img alt="choose-policy-type-and-resource" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/choose-policy-type-and-resource.png"/></p>
 
-## Step 3: Launch Calculated Policy Builder
+## Step 4: Launch Calculated Policy Builder
 
 Click `Enable calculated mode`, then `Launch calculated policy builder`. For the `Test Resource` choose one of your buckets.
-<p><img alt="aws-calc-policy-builder-launched" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-calc-policy-builder-launched.png"/></p>
+<p><img alt="calc-policy-builder-launched" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/calc-policy-builder-launched.png"/></p>
 
-## Step 4: Query for bucket tags
+## Step 5: Query for bucket tags
 
 Open the `Select snippet` dropdown and choose `Get bucket`.
-<p><img alt="aws-snippet-dropdown-open" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-snippet-dropdown-open.png"/></p>  
+<p><img alt="snippet-dropdown-open" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/snippet-dropdown-open.png"/></p>
+
+  
   
 Guardrails inserts a GraphQL query for bucket tags in the `Input` pane. The result, in the `Output` pane, shows there are no tags on the bucket.
-<p><img alt="aws-snippet-active" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-snippet-active.png"/></p>
+<p><img alt="snippet-active" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/snippet-active.png"/></p>
 
-## Step 5: Add the Jinja2 template
+## Step 6: Add the Jinja2 template
 
   
 Now copy this template code:  
@@ -63,7 +69,7 @@ Now copy this template code:
 ```
 
 And paste it into the template pane.
-<p><img alt="aws-template-active" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-template-active.png"/></p>  
+<p><img alt="template-active" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/template-active.png"/></p>  
   
 
 
@@ -73,25 +79,25 @@ The result confirms that `Check: Enabled` is valid for this policy type.
   
 Click `Update` to update the policy.
 
-## Step 5: Observe bucket versioning controls
+## Step 7: Observe bucket versioning controls
 
 Revisit your bookmarks `Controls by State` report, and set the `Type` filter to `AWS > S3 > Bucket > Versioning`.
-<p><img alt="aws-revisit-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-revisit-controls-by-state.png"/></p>  
+<p><img alt="revisit-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/revisit-controls-by-state.png"/></p>  
   
 
 
-The bucket for which you made an exception in the previous guide will be in the `Skipped` state. The buckets for which you enabled versioning will be green. Find a different bucket that’s in `Alarm` for versioning, here we’ll use `bucket-example-04`.
+The bucket for which you made an exception in the previous guide will be in the `Skipped` state. Find a different bucket that’s in `Alarm` for versioning, here we’ll use `bucket-example-04`.
 
-## Step 6: Tag the bucket
+## Step 8: Tag the bucket
 
-Now, in the AWS console, assign the tag `environment:development` to the bucket`.  
-<p><img alt="aws-tagged-bucket-now-skipped" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/aws-tagged-bucket-now-skipped.png"/></p>  
+Now, in the AWS console, assign the tag `environment:development` to the bucket.  
+<p><img alt="tagged-bucket-now-skipped" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/tagged-bucket-now-skipped.png"/></p>  
   
 
 
 Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.
 
-## Step 7: Review
+## Step 9: Review
 
 Experiment with tagging and untagging other buckets in this way, and observe now Guardrails notices and reacts to the changes. 
 

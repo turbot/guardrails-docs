@@ -6,6 +6,9 @@ Sidebar_label: Create a Static Exception to a Guardrails Policy
 
 # Create a Static Exception to a Guardrails AWS Policy
 
+  
+You’ve seen how to enable a policy pack to check versioning for all buckets. Now let’s explore how to create exceptions to that policy.  In this guide we’ll create an exception for a single bucket.
+
 **Prerequisites**:   
   
 - [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
@@ -13,8 +16,6 @@ Sidebar_label: Create a Static Exception to a Guardrails Policy
 - [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
 - [Review Account-Wide Bucket Versioning](/guardrails/docs/getting-started/getting-started-aws/review-account-wide/)
 
-
-You’ve seen how to enable a policy pack to check versioning for all buckets. Now let’s explore how to create exceptions to that policy.  In this guide we’ll create an exception for a single bucket.
 
 ## Step 1: Locate a bucket control in Alarm for versioning
 
