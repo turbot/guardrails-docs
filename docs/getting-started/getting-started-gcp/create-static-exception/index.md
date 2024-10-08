@@ -1,82 +1,94 @@
 ---
-title: Create Static Exceptions
-sidebar_label: Create Exceptions
+title: Create a Static Exception to a Guardrails GCP Policy
+sidebar_label: Create a Static Exception to a Guardrails GCP Policy
 ---
 
 
 # Create a Static Exception to a Guardrails GCP Policy
 
-Now that we have set our GCP bucket access control policy, we can track which GCP buckets do not have uniform access enabled. In this guide we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket access control status.
+You’ve seen how to enable a policy pack to access control for all buckets. Now let’s explore how to create exceptions to that policy.  In this guide we’ll create an exception for a single bucket.
 
-**Prerequisites**:
-
+**Prerequisites**:   
+  
 - [Connect a GCP Project to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project/)
 - [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity/)
-- [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-gcp/attach-a-policy/)
+- [Enable Your First Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack/)
+- [Review Account-Wide Bucket Access Control](/guardrails/docs/getting-started/getting-started-gcp/review-account-wide/)
 
 
-## Step 1: Find your test bucket
+Now that we have set our GCP bucket access control policy, we can track which GCP buckets do not have uniform access enabled. In this runbook we will show how to create an exception for your test bucket, so Guardrails will ignore its bucket access control status.
 
-Do a top-level search for the bucket.
-<p><img alt="gcp_access_control_find_the_bucket" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/gcp-access-control-find-the-bucket.png"/></p><br/>
+## Step 1: Locate a bucket in Alarm for access control
 
-## Step 2: Create a policy exception
+You bookmarked the `Controls by State` report in [Connect a Project](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project), go there now.
 
-Click into the resource, switch to the `Policies` tab, and search for `bucket access control`.
-<p><img alt="gcp_access_control_ready_to_create_new_policy_setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/gcp-access-control-ready-to-create-new-policy-setting.png"/></p><br/>
+Set the `Type` filter to `GCP > Storage  > Bucket > Access Control `, and the `State` to `Alarm`.  
+<p><img alt="find-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/find-bucket-in-alarm.png"/></p>
 
-Note that the bucket inherits `Check: Uniform` from the policy pack attached to the `Sandbox` folder.
+## Step 2: Open the control
 
-
-Now click `New Policy Setting`.
-<p><img alt="gcp_access_control_new_policy_setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/gcp-access-control-new-policy-setting.png"/></p><br/>
-
-Search for and select the Policy Type `GCP > Storage > Bucket  > Access Control`
+Click into the bucket control.
+<p><img alt="open-bucket-control" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/open-bucket-control.png"/></p>  
+  
 
 
-Choose `Skip` and click `Create`. Guardrails sends you to the Policy Setting page.
+## Step 3: Switch to the resource policies
 
-Select the `Hierarchy` tab to review the new situation.
-<p><img alt="gcp_access_control_hierarchy_with_bucket_exception" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/gcp-access-control-hierarchy-with-bucket-exception.png"/></p><br/>
+Click the bucket’s name in the breadcrumb trail and switch to the `Policies` tab.
+<p><img alt="switch-to-policies-tab" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/switch-to-policies-tab.png"/></p>  
+  
+Click `New Policy Setting`.
 
+## Step 4: Create the policy exception
+<p><img alt="create-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/create-policy-setting.png"/></p>
 
+Under `Policy Type` search for `GCP  > Storage > Bucket > Access Control.
 
-The default for bucket versioning was `Skip`, the policy you created in the previous guide changed it to `Check: Uniform`, and now this particular bucket overrides that setting back to `Skip`. Note that every other bucket in the Sandbox folder still has an effective policy setting of `Check: Uniform`.
+Choose the `Skip` setting.
 
-
-## Step 3: Review Guardrails activity for the bucket
-
-Use the top-level search (as above) to find your test bucket.
-
-Click into the bucket, then select the `Activity` tab.
-<p><img alt="gcp_review_bucket_activity" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/gcp-review-bucket-activity.png"/></p><br/>
-
-Here you can see the whole history, reading from the bottom up.
-
- - When you attached the policy that requires uniform access,  the bucket went into `Alarm`. The alarm state represents the difference between what the policy asserts and the actual state of the bucket.
-
-- Then you created the bucket-level policy setting to make an exception for the test bucket.
-
-- Then Guardrails reevaluated, found the bucket in compliance with the new policy setting, and set the status to `Skipped`.
+Click `Create`.  
 
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.
+## Step 5: View the hierarchy
+
+Switch to the Hierarchy tab.  
+<p><img alt="view-hierarchy-tab" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/view-hierarchy-tab.png"/></p>  
+  
+
+
+The project-level policy specifies `Check: Uniform`. You’ve overridden that with an exception that exempts this particular bucket from that policy.  
+
+
+## Step 6: Review bucket activity
+
+Now switch to the `Activity` tab.
+<p><img alt="review_bucket_activity" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/review-bucket-activity.png"/></p>
+
+## Step 7: Review
+
+Observe the history.
+
+- You created the bucket-level policy setting to make an exception for your test bucket.  
+  
+- Then the control for Access Control reevaluated, and set the status to `Skipped`
+
+Next Steps
+
+  
+In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource label.
+
+  
+
 
 
 ## Progress tracker
 
-1. [Connect a GCP Project to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project/)
-
-2. [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity/)
-
-3. [Attach a Guardrails Policy](/guardrails/docs/getting-started/getting-started-gcp/attach-a-policy/)
-
-4. **Create a Static Exception to a Guardrails GCP Policy**
-
-5. [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/getting-started/getting-started-gcp/create-calculated-exception/)
-
-6. [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email/)
-
-7. [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action/)
-
-8. [Enable Automatic Enforcement](/guardrails/docs/getting-started/getting-started-gcp/enable-enforcement/)
+- [x] [Connect a GCP Project to Guardrails](path)
+- [x] [Observe GCP Activity](path)
+- [x] [Enable Your First Guardrails Policy Pack](path)
+- [x] [Review Account-Wide Bucket Access Control](path)
+- [x] **Create a Static Exception to a Guardrails GCP Policy**
+- [ ] [Create a Calculated Exception to a Guardrails GCP Policy](path)
+- [ ] [Send an Alert to Email](path)
+- [ ] [Apply a Quick Action](path)
+- [ ] [Enable Automatic Enforcement](path)
