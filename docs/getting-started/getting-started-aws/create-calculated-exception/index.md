@@ -4,8 +4,8 @@ sidebar_label: Create a Calculated Exception to a Guardrails Policy
 ---
 
 
-Create a Calculated Exception to a Guardrails AWS Policy  
-  
+# Create a Calculated Exception to a Guardrails AWS Policy
+
 In the [previous guide](guardrails/docs/getting-started/getting-started-aws/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags.
 
 **Prerequisites**:   
