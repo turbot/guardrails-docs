@@ -9,7 +9,7 @@ sidebar_label: Calculated Policies FAQ
 
 - [What is a calculated policy?](#what-is-a-calculated-policy)
 - [How do calculated policies work?](#how-do-calculated-policies-work)
-- [How has the multi-query query calc process been optimized in Guardrails?](#how-has-the-multi-query-calc-process-been-optimized-in-guardrails)
+- [How has the multi-query calc process been optimized in Guardrails?](#how-has-the-multi-query-calc-process-been-optimized-in-guardrails)
 - [Which policy can I turn into a calculated policy?](#which-policy-can-i-turn-into-a-calculated-policy)
 - [Are there any limitations to calculated policies?](#are-there-any-limitations-to-calculated-policies)
 - [How do I set a calculated policy?](#how-do-i-set-a-calculated-policy)
