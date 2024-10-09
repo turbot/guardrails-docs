@@ -479,7 +479,8 @@
               "guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state",
               "guides/hosting-guardrails/troubleshooting/enable-verbose-logging",
               "guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error",
-              "guides/hosting-guardrails/troubleshooting/investigate-event-flood"
+              "guides/hosting-guardrails/troubleshooting/investigate-event-flood",
+              "guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch"
             ]
           }
         ]

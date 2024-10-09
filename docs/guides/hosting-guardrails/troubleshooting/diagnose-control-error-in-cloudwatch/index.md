@@ -1,9 +1,9 @@
 ---
-title: How to Diagnose Control Error in CloudWatch Log Groups
-sidebar_label: How to Diagnose Control Error in CloudWatch Log Groups
+title: Diagnose Control Error in AWS CloudWatch
+sidebar_label: Diagnose Control Error in AWS CloudWatch
 ---
 
-# How to Diagnose Control/Policy Error in CloudWatch Log Groups
+# Diagnose Control Error in AWS CloudWatch Log Groups
 
 In this guide, you will:
 - Use Guardrails console and AWS Cloudwatch to Diagnose the control error.
@@ -21,51 +21,63 @@ Log into the Guardrails console.
 
 ![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error/guardrails-console-login.png)
 
-## Step 2: Navigate to Mods
+## Step 2: Navigate To Control Error
 
-Navigate to the control in an Error state.
+Navigate to the control in an error state to be investigated. Select **VIEW LOG**.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error/guardrails-navigate-admin-panel.png)
+![Control Error](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch/guardrails-control-error.png)
 
-Select the **Mods** tab.
+## Step 3: View Logs
 
-![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error/guardrails-navigate-mods.png)
+Select **Debug and above** from the **Level** filter.
 
-## Step 3: Search Mod
+![Debug and Above](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch/guardrails-level-filter.png)
 
-Search for the installed mod that is in an error state.
+Select the **Internal Error** message to expand it.
 
-![Mod Search](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error/mod-search.png)
+![Internal Error](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch/guardrails-expand-error-message.png)
 
-Select the mod and navigate to **Turbot > Mod > Installed** control.
+Upon expanding the error, there isn't enough detailed information to determine the root cause, requiring further investigation in the AWS CloudWatch log groups.
 
-![Select Mod](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error/guardrails-navigate-mods-installed.png)
+## Step 4: Access AWS Console
 
-## Step 4: Verify Missing Mod
+Open the AWS Console and navigate to the CloudWatch service in the region where Guardrails is deployed.
 
-Verify the missing mod by reviewing the displayed error message.
+![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch/aws-console-cloudwatch.png)
 
-![Verify Missing Mod](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error/guardrails-verify-missing-mod-error.png)
+## Step 5: Navigate to Log Groups
 
-## Step 5: Install Dependent Mod
+Choose **Log Groups** from the left navigation menu.
 
-Install the missing mod.
+![Navigate to Log Groups](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch/cloudwatch-navigate-log-groups.png)
 
-![Install Mod](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error/gurdrails-install-missing-mod.png)
+## Step 6: Search Log Group
 
-## Step 5: Run Control
+Search for log groups with the prefix **/aws/lambda/turbot_** followed by the workspace version.
 
-Select **Run control** from the **Actions** dropdown and re-run the mod installed control.
+![Search Log Group](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch/cloudwatch-log-groups-select.png)
 
-![Run Mod Installed](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error/guardrails-re-run-control.png)
+## Step 7: Select Log Group
 
-## Step 6: Verify
+Select the **worker** log group as indicated in the **type** field from the error log in the Guardrails console. Choose **Search all log steams**.
 
-The mod control moves to an **OK** state, indicating a successful mod installation.
+![Worker Log Group](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch/cloudwatch-select-search-all-log-streams.png)
 
-![Install Success](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error/guardrails-mod-install-success.png)
+## Step 8: Search Error
+
+Search using the **errorId** retrieved from the Guardrails console control error log.
+
+![Search with Error Id](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch/cloudwatch-loggroups-search-with-errorid.png)
+
+## Step 8: Find Error Details
+
+Collapse the search result to view the full error details.
+
+![Error Details](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch/cloudwatch-loggroups-error-details.png)
+
+After reviewing the detailed error message, use the information to identify the root cause and take the necessary corrective actions.
 
 If you encounter any further issues, please [Open Support Ticket](https://support.turbot.com) and attach the relevant information to assist you more efficiently.
 
-- A screenshot of the mod peer dependency error.
-- A screenshot of the installed mods.
+- A screenshot of the Guadrails control in error.
+- Gathered logs and error details from AWS CloudWatch Log Groups.
