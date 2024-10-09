@@ -83,7 +83,7 @@ You’ve now successfully connected your AWS account to Guardrails.
 
 Bookmark the `Controls by State` report, you’ll need it in subsequent guides.
 
-> [!CAUTION]
+> [!NOTE]
 > It’s normal for the `Controls by State` report to show controls in `Alarm` and/or `TBD`. If controls are in `Error` or `Invalid`, you should check with your administrator to resolve these issues. See [Troubleshooting](#troubleshooting).
 
 ## Next Steps
