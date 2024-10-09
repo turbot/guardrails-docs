@@ -29,21 +29,25 @@ To enable notifications for your workspace, search top-level `Policies` for `tu
 
 ## Step 2: Enable notifications
 
+  
 Switch to the `Settings` tab and click `New Policy Setting`.
 
 <p><img alt="create-turbot-notifications-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/create-turbot-notifications-setting.png"/></p>
 
-Set `Policy Type` to `Turbot > Notifications`, and `Resource` to `Turbot`.
+Set the `Resource` to `Turbot`.
 
-Choose the `Enabled` setting and click `Create`.
+Choose the `Enabled` setting and click `Create`.  
+
+<p><img alt="notifications-enabled" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/notifications-enabled.png"/></p>
 
 ## Step 3: Create a notification rule
 
-Search top-level `Policies` for `rule-based routing`, click into the policy type `Turbot > Notifications > Rule-Based Routing`, and click `New Policy Setting`.  
+From the `Policy Setting` page, click `Notifications` in the breadcrumb trail to return to the `Policy Type` page. Select `Rule-Based Routing` and click `New Policy Setting`.  
   
-Select `Turbot` as the resource. This policy must apply at that level.  
+Set the `Resource` to `Turbot`.
+
   
-Enter this rule, along with one or more email addresses you want to notify.  
+Enter this rule, using one or more email addresses you want to notify.  
   
 ```yaml
 - rules: |
