@@ -41,6 +41,7 @@ Add this permission to the `turbot-service-readonly` role you set up in [the fir
 Do a top-level search for `quick actions` and click into the `Turbot > Quick Actions > Enabled` setting.
 
 It’s disabled by default. On its Policy Type page, click `New Policy Setting`, choose your Sandbox as the target resource, choose `Enabled`, and click `Create`.  
+
 <p><img alt="aws-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-enable-quick-actions.png"/></p>
 
 ## Step 3: Find a bucket in Alarm for versioning
@@ -49,16 +50,17 @@ It’s disabled by default. On its Policy Type page, click `New Policy Setting`,
 In [Send an alert to email]( /guardrails/docs//getting-started-aws/send-alert-to-email) we left your test bucket in the `Alarm` state.  
   
 Use the `Controls by State` report to find it.  
+
 <p><img alt="aws_search_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-search-bucket-in-alarm-for-quick-action.png"/></p>
 
 ## Step 4: Prepare to take a Quick Action
 
 Click into the Control.
-<p><img alt="aws-view-bucket-in-alarm-for-quick-action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-view-bucket-in-alarm-for-quick-action.png"/></p>  
-  
 
+<p><img alt="aws-view-bucket-in-alarm-for-quick-action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-view-bucket-in-alarm-for-quick-action.png"/></p>
 
 Expand the `Actions` dropdown.  
+
 <p><img alt="aws-versioning-quick-action-dropdown" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-versioning-quick-action-dropdown.png"/></p>
 
 ## Step 5: Take a Quick Action to enable versioning on a bucket
@@ -67,11 +69,13 @@ Choose `Enable Versioning`.
 
 
 Guardrails reports that the action was successful, and the control goes to green.  
+
 <p><img alt="aws-quick-action-reports-success" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-quick-action-reports-success.png"/></p>
 
 ## Step 6: Review
 
 For more detail about what happened here, go to the top-level `Reports` tab, search in the page for `Activity Ledger`, and filter on `Control Type` == `AWS > S3 > Bucket > Versioning`.  
+
 <p><img alt="aws-quick-action-report-detail" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-quick-action-report-detail.png"/></p>
 
 The flow of notifications tells the story. Reading from the bottom up, Guardrails:  
@@ -98,12 +102,12 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/enable-
 
 ## Progress tracker
 
-- [x] [Connect an AWS Account to Guardrails](path)
-- [x] [Observe AWS Resource Activity](path)
-- [x] [Enable Your First Policy Pack](path)
-- [x] [Review Account-Wide Bucket Versioning](path)
-- [x] [Create a Static Exception to a Guardrails Policy](path)
-- [x] [Create a Calculated Exception to a Guardrails Policy](path)
-- [x] [Send an Alert to Email](path)
+- [x] Connect an AWS Account to Guardrails
+- [x] Observe AWS Resource Activity
+- [x] Enable Your First Policy Pack
+- [x] Review Account-Wide Bucket Versioning
+- [x] Create a Static Exception to a Guardrails Policy
+- [x] Create a Calculated Exception to a Guardrails Policy
+- [x] Send an Alert to Email
 - [x] **Apply a Quick Action**
-- [ ] [Enable Automatic Enforcement](path)
+- [ ] Enable Automatic Enforcement

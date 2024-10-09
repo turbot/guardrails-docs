@@ -51,6 +51,7 @@ Enable these APIs (if not already enabled):
 
   
 On the Guardrails home page, hover on `Connect`.  
+
 <p><img alt="locate-top-level-connect" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/locate-top-level-connect.png"/></p>
 
 Click to open the `Connect` screen.
@@ -63,9 +64,8 @@ Use the `Parent Resource` dropdown to select your Sandbox.
 
   
 Drag/drop the JSON file you downloaded when you created the key for the service account.
-<p><img alt="ready_to_import" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/ready-to-import.png"/></p>  
-  
 
+<p><img alt="ready_to_import" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/ready-to-import.png"/></p>
 
 Click `Connect`.
 
@@ -73,17 +73,17 @@ Click `Connect`.
 
   
 Wait for the progress bar to complete.
-<p><img alt="gcp_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/gcp-progress-bar.png"/></p>  
-  
+
+<p><img alt="gcp_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/gcp-progress-bar.png"/></p>
+
 This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.
 
 ## Step 7: Locate the Controls by State report
 
 Search top-level `Reports` for `controls`.  
+
 <p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/search-for-controls-reports.png"/></p>
 
-  
-  
 Select `Controls by State`.  
   
 
@@ -91,6 +91,7 @@ Select `Controls by State`.
 ## Step 8: View Controls by State
 
 You’ve now successfully connected your GCP project to Guardrails.
+
 <p><img alt="gcp-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/gcp-controls-by-state.png"/></p>
 
 Bookmark the `Controls by State` report, you’ll need it in subsequent guides.
@@ -106,10 +107,9 @@ Your Guardrails account is now using [Event Polling]([https://turbot.com/guardra
 In this step, you’ll create policy settings for the GCP Pub/Sub and Logging APIs.
 
 From top-level `Policies`, navigate to `GCP > Logging > API Enabled` and click `New Policy Setting`.  
+
 <p><img alt="logging-api-enabled" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/logging-api-enabled.png"/></p>
 
-  
-  
 Select `Turbot` as the resource, choose `Enforce: Enabled`, and click `Create`.  
   
 Do the same for `GCP > Pub/Sub > API Enabled`.  
@@ -118,6 +118,7 @@ Do the same for `GCP > Pub/Sub > API Enabled`.
 ## Step 10: Configure Turbot event handlers
 
 From top-level `Policies`, navigate to `GCP > Turbot > Event Handlers > Logging`, and click `New Policy Setting`.
+
 <p><img alt="event-handlers-logging" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/event-handlers-logging.png"/></p>
 
 Select `Turbot` as the resource, choose `Enforce: Configured`, and click `Create`.  
@@ -130,6 +131,7 @@ Do the same for `GCP > Pub/Sub > API Enabled`.
 ## Step 11: Review
 
 From top-level `Controls`, search for `gcp > turbot > event handlers`
+
 <p><img alt="review-event-handlers" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/review-event-handlers.png"/></p>
 
 Verify that both event handlers are green. Guardrails will now react instantly when resources change in your GCP project.
@@ -151,11 +153,11 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/observe
 ## Progress tracker
 
 - [x] **Connect a GCP Project to Guardrails**
-- [ ] [Observe GCP Activity](path)
-- [ ] [Enable Your First Guardrails Policy Pack](path)
-- [ ] [Review Account-Wide Bucket Access Control](path)
-- [ ] [Create a Static Exception to a Guardrails GCP Policy](path)
-- [ ] [Create a Calculated Exception to a Guardrails GCP Policy](path)
-- [ ] [Send an Alert to Email](path)
-- [ ] [Apply a Quick Action](path)
-- [ ] [Enable Automatic Enforcement](path)
+- [ ] Observe GCP Activity
+- [ ] Enable Your First Guardrails Policy Pack
+- [ ] Review Account-Wide Bucket Access Control
+- [ ] Create a Static Exception to a Guardrails GCP Policy
+- [ ] Create a Calculated Exception to a Guardrails GCP Policy
+- [ ] Send an Alert to Email
+- [ ] Apply a Quick Action
+- [ ] Enable Automatic Enforcement

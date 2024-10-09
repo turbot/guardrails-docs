@@ -13,11 +13,12 @@ You’ve connected a GCP project, and seen Guardrails discover  your existing G
 - [Connect a GCP Project to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project/)
   
   
-You will also need to create  a GCP bucket. We’ll illustrate using `guardrails_bucket_example_01`, but use your own name. Create your bucket with the default setting for access control: `Fine-Grained`.
+You will also need to create  a GCP bucket. We’ll illustrate using `guardrails_bucket_example_01`, but use your own name. 
 
 ## Step 1: Locate the `Resource Activities` report
 
 Select top-level `Reports`, search for `resource`, locate `Resource Activities`, and click the link.
+
 <p><img alt="gcp-search-resource-activities" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-search-resource-activities.png"/></p>
 
 ## Step 2: Observe notifications
@@ -25,6 +26,7 @@ Select top-level `Reports`, search for `resource`, locate `Resource Activities`,
 In the `Resource Activities` report, search for the name of your bucket.
 
 Guardrails reports two notifications related to the bucket creation. `RESOURCE CREATED` indicates discovery of the bucket. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
+
 <p><img alt="gcp-resource-activities-initial-notifications" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-resource-activities-initial-notifications.png"/></p>
 
 ## Step 3: See Guardrails react to a bucket change
@@ -34,9 +36,11 @@ Now visit your bucket in the GCP console, and switch access control to `Fine-Gra
 
   
 Guardrails will soon notice the change.  
-<p><img alt="gcp-resource-activities-with-change-detected" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-resource-activities-with-change-detected.png"/></p>  
-  
+
+<p><img alt="gcp-resource-activities-with-change-detected" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-resource-activities-with-change-detected.png"/></p>
+
 Click into the new notification for your bucket, and scroll down in the diff to see the change that Guardrails has recorded.    
+
 <p><img alt="gcp-diff-the-first-change" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-diff-the-first-change.png"/></p>
 
 ## Step 4: Review
@@ -50,12 +54,12 @@ Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-st
 
 ## Progress tracker
 
-- [x] [Connect a GCP Project to Guardrails](path)
+- [x] Connect a GCP Project to Guardrails
 - [x] **Observe GCP Activity**
-- [ ] [Enable Your First Guardrails Policy Pack](path)
-- [ ] [Review Account-Wide Bucket Access Control](path)
-- [ ] [Create a Static Exception to a Guardrails GCP Policy](path)
-- [ ] [Create a Calculated Exception to a Guardrails GCP Policy](path)
-- [ ] [Send an Alert to Email](path)
-- [ ] [Apply a Quick Action](path)
-- [ ] [Enable Automatic Enforcement](path)
+- [ ] Enable Your First Guardrails Policy Pack
+- [ ] Review Account-Wide Bucket Access Control
+- [ ] Create a Static Exception to a Guardrails GCP Policy
+- [ ] Create a Calculated Exception to a Guardrails GCP Policy
+- [ ] Send an Alert to Email
+- [ ] Apply a Quick Action
+- [ ] Enable Automatic Enforcement
