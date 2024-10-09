@@ -5,6 +5,8 @@ sidebar_label: "Upgrade or Resizing Exercise"
 
 # Database Upgrade or Resizing Exercise
 
+This process allows you to resize and/or upgrade the database with minimal downtime.
+
 ## Process Overview
 
 1. **Spin up a new TED**:
@@ -61,7 +63,7 @@ sidebar_label: "Upgrade or Resizing Exercise"
     ```shell
     nohup pg_dump -h $SOURCE -U master -F c -b -v -f data.dump turbot > dump.log 2>&1
     ```
-using nohup keeps the dump running even if the session expires, to stop pg_dump, do ps aux, kill <pid>
+    using nohup keeps the dump running even if the session expires, to stop pg_dump, do ps aux, kill <pid>
 
 9. **Restore the dump in the target db instance**:
     ```shell
