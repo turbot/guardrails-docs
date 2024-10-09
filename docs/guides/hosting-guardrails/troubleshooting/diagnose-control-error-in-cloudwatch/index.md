@@ -19,7 +19,7 @@ When troubleshooting error messages in the Guardrails Console, control logs typi
 
 Log into the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/diagnose-control-error-in-cloudwatch/guardrails-console-login.png)
 
 ## Step 2: Navigate To Control Error
 
@@ -79,5 +79,5 @@ After reviewing the detailed error message, use the information to identify the 
 
 If you encounter any further issues, please [Open Support Ticket](https://support.turbot.com) and attach the relevant information to assist you more efficiently.
 
-- A screenshot of the Guadrails control in error.
+- A screenshot of the Guardrails control in error.
 - Gathered logs and error details from AWS CloudWatch Log Groups.
