@@ -40,9 +40,19 @@ the same way as a normal policy.
 
 ## How has the multi-query calc process been optimized in Guardrails?
 
-The multi-query calc process in Turbot Guardrails allows you to dynamically compute policy values using multiple data sources within the Turbot CMDB. This process involves writing queries that retrieve various pieces of information, which are then used to calculate the final policy value.
+The multi-query calc process in Turbot Guardrails allows you to dynamically 
+compute policy values using multiple data sources within the Turbot CMDB. 
+This process involves writing queries that retrieve various pieces of information, 
+which are then used to calculate the final policy value.
 
-Previously, you had to manually run separate queries to fetch the resource ID and any related data, which often resulted in redundant queries. With recent improvements, the system automatically populates key attributes—such as resource IDs, tags, and other common fields—directly into the context. This eliminates the need to manually query for these attributes, allowing you to focus on writing a single, more efficient query to retrieve additional data. These enhancements significantly reduce redundancy and streamline the overall process, improving the speed and efficiency of calculated policies.
+Previously, you had to manually run separate queries to fetch the resource ID 
+and any related data, which often resulted in redundant queries. With recent 
+improvements, the system automatically populates key attributes—such as resource IDs,
+tags, and other common fields—directly into the context. This eliminates the need to 
+manually query for these attributes, allowing you to focus on writing a single, 
+more efficient query to retrieve additional data. These enhancements significantly 
+reduce redundancy and streamline the overall process, improving the speed and 
+efficiency of calculated policies.
 
 ## Which policy can I turn into a calculated policy?
 
