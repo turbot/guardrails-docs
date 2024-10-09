@@ -23,23 +23,25 @@ Now that we have set our GCP bucket access control policy, we can track which GC
 You bookmarked the `Controls by State` report in [Connect a Project](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project), go there now.
 
 Set the `Type` filter to `GCP > Storage  > Bucket > Access Control `, and the `State` to `Alarm`.  
+
 <p><img alt="find-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/find-bucket-in-alarm.png"/></p>
 
 ## Step 2: Open the control
 
 Click into the bucket control.
-<p><img alt="open-bucket-control" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/open-bucket-control.png"/></p>  
-  
 
+<p><img alt="open-bucket-control" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/open-bucket-control.png"/></p>
 
 ## Step 3: Switch to the resource policies
 
 Click the bucket’s name in the breadcrumb trail and switch to the `Policies` tab.
-<p><img alt="switch-to-policies-tab" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/switch-to-policies-tab.png"/></p>  
-  
+
+<p><img alt="switch-to-policies-tab" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/switch-to-policies-tab.png"/></p>
+
 Click `New Policy Setting`.
 
 ## Step 4: Create the policy exception
+
 <p><img alt="create-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/create-policy-setting.png"/></p>
 
 Under `Policy Type` search for `GCP  > Storage > Bucket > Access Control.
@@ -52,9 +54,8 @@ Click `Create`.
 ## Step 5: View the hierarchy
 
 Switch to the Hierarchy tab.  
-<p><img alt="view-hierarchy-tab" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/view-hierarchy-tab.png"/></p>  
-  
 
+<p><img alt="view-hierarchy-tab" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/view-hierarchy-tab.png"/></p>
 
 The project-level policy specifies `Check: Uniform`. You’ve overridden that with an exception that exempts this particular bucket from that policy.  
 
@@ -62,15 +63,16 @@ The project-level policy specifies `Check: Uniform`. You’ve overridden that wi
 ## Step 6: Review bucket activity
 
 Now switch to the `Activity` tab.
+
 <p><img alt="review_bucket_activity" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/review-bucket-activity.png"/></p>
 
 ## Step 7: Review
 
 Observe the history.
 
-- You created the bucket-level policy setting to make an exception for your test bucket.  
+You created the bucket-level policy setting to make an exception for your test bucket.  
   
-- Then the control for Access Control reevaluated, and set the status to `Skipped`
+Then the control for Access Control reevaluated, and set the status to `Skipped`
 
 ## Next Steps
 
@@ -83,12 +85,12 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/create-
 
 ## Progress tracker
 
-- [x] [Connect a GCP Project to Guardrails](path)
-- [x] [Observe GCP Activity](path)
-- [x] [Enable Your First Guardrails Policy Pack](path)
-- [x] [Review Account-Wide Bucket Access Control](path)
+- [x] Connect a GCP Project to Guardrails
+- [x] Observe GCP Activity
+- [x] Enable Your First Guardrails Policy Pack
+- [x] Review Account-Wide Bucket Access Control
 - [x] **Create a Static Exception to a Guardrails GCP Policy**
-- [ ] [Create a Calculated Exception to a Guardrails GCP Policy](path)
-- [ ] [Send an Alert to Email](path)
-- [ ] [Apply a Quick Action](path)
-- [ ] [Enable Automatic Enforcement](path)
+- [ ] Create a Calculated Exception to a Guardrails GCP Policy
+- [ ] Send an Alert to Email
+- [ ] Apply a Quick Action
+- [ ] Enable Automatic Enforcement

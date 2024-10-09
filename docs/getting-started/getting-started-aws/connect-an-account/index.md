@@ -16,6 +16,7 @@ Access to the Guardrails console with admin privilege, and a top-level `Sandbox`
 
   
 On the Guardrails home page, hover on `Connect`.  
+
 <p><img alt="locate-top-level-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/locate-top-level-connect.png"/></p>
 
 Click to open the `Connect` screen.
@@ -25,6 +26,7 @@ Click to open the `Connect` screen.
 Choose `AWS Account`.
 
 Copy the IAM Role External ID and save it for use in Step 4.  
+
 <p><img alt="initial-connect-screen" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/initial-connect-screen.png"/></p>
 
 ## Step 3: Download a CloudFormation template
@@ -46,6 +48,7 @@ When the stack is created, verify that the role `turbot-service-readonly` exists
 Copy the role ARN for use in step 5.
 
 ## Step 5: Connect your account
+
 <p><img alt="finish-and-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/finish-and-connect.png"/></p>
 
 * Set the `Parent Resource` to `Sandbox`
@@ -58,6 +61,7 @@ Click `Connect`.
 ## Step 6: Observe progress
 
 Wait for the progress bar to complete.
+
 <p><img alt="aws-progress-bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-progress-bar.png"/></p>
 
 This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.  
@@ -66,6 +70,7 @@ This process takes a while, and you’ll see the bars fluctuate. The number of r
 ## Step 7: Locate the `Controls by State` report
 
 Search `Reports` for `controls`.  
+
 <p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
 Select `Controls by State`.
@@ -73,6 +78,7 @@ Select `Controls by State`.
 ## Step 8: Review
 
 You’ve now successfully connected your AWS account to Guardrails.
+
 <p><img alt="aws-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-controls-by-state.png"/></p>
 
 Bookmark the `Controls by State` report, you’ll need it in subsequent guides.
@@ -98,11 +104,11 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe
 ## Progress tracker
 
 - [x] **Connect an AWS Account to Guardrails**
-- [ ] [Observe AWS Resource Activity](path)
-- [ ] [Enable Your First Policy Pack](path)
-- [ ] [Review Account-Wide Bucket Versioning](path)
-- [ ] [Create a Static Exception to a Guardrails Policy](path)
-- [ ] [Create a Calculated Exception to a Guardrails Policy](path)
-- [ ] [Send an Alert to Email](path)
-- [ ] [Apply a Quick Action](path)
-- [ ] [Enable Automatic Enforcement](path)
+- [ ] Observe AWS Resource Activity
+- [ ] Enable Your First Policy Pack
+- [ ] Review Account-Wide Bucket Versioning
+- [ ] Create a Static Exception to a Guardrails Policy
+- [ ] Create a Calculated Exception to a Guardrails Policy
+- [ ] Send an Alert to Email
+- [ ] Apply a Quick Action
+- [ ] Enable Automatic Enforcement
