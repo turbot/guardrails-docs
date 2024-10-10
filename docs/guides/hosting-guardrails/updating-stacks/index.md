@@ -1,6 +1,6 @@
 ---
 title: "Keeping Guardrails Up to Date"
-sidebar_label: "Keeping Guardrails Up to Date"
+sidebar_label: "Update Guardrails"
 ---
 
 # Guardrails Stack Updates

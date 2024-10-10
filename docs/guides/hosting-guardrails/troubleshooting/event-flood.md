@@ -7,12 +7,12 @@ sidebar_label: "Event Flood"
 
 ## What is an Event flood?
 
-An event flood is a large and sustained backlog of events in the Guardrails Events queue. The "Events Queue Backlog" graph in the Turbot Guardrails Enterprise (TE) Cloudwatch dashboard is the best place to see if an event flood is underway. Event floods may have several different causes. This document describes where to go looking for the cause. Resolution of the event flood will depend on the cause(s).
+An event flood is a large and sustained backlog of events in the Guardrails Events queue. The "Events Queue Backlog" graph in the Turbot Guardrails Enterprise (TE) CloudWatch dashboard is the best place to see if an event flood is underway. Event floods may have several different causes. This document describes where to go looking for the cause. Resolution of the event flood will depend on the cause(s).
 
 ## Initial Symptoms
 
 - **Control runs for longer than usual in the Guardrails Console**: A common initial symptom of an event flood appears when a manually run control process takes a long time get out of the `Initializing` or `Handling` states. (You'll see these states in the top left corner of the "View Logs" page that appears after clicking "Run Control" from the Action menu. These states are also different from the normal control states of `ok`, `alarm`, etc.)
-- **Cloudwatch Alarms**: As part of normal deployment, TE deploys a number of Cloudwatch Alarms for various run time failures. Event floods would be caught by `turbot_5_{minor}_{patch}_events_queue_messages_visible_alarm`. These alarms should be connected to an organization's normal cloud notification systems.
+- **CloudWatch Alarms**: As part of normal deployment, TE deploys a number of CloudWatch Alarms for various run time failures. Event floods would be caught by `turbot_5_{minor}_{patch}_events_queue_messages_visible_alarm`. These alarms should be connected to an organization's normal cloud notification systems.
 
 ## Common Causes of Event Floods
 
@@ -23,7 +23,7 @@ Various causes can initiate and sustain an event flood. This list is not exhaust
 - **Guardrails vs Automation**: Guardrails fighting with automation in a managed account.
 - **Guardrails vs Guardrails**: Guardrails fighting with itself due to misconfigured/conflicting policies. A common example would be a Stack control that specifies the configuration for some resource. Other Guardrails policies describe a different configuration for the same resource.
   - For example, the `AWS > Region > Stack > Source` policy describes an S3 bucket with a policy that does not include EncryptionInTransit. For the same bucket, the `AWS > S3 > Bucket > Encryption in Transit` policy *does* enforce encryption in transit. The Stack control and Encryption in Transit controls will flip-flop the bucket policy back and forth forever.
-- **Guardrails Policy Misconfiguration**: A misconfiguration within Guardrails, example: Setting Event Handlers to **Enforce: Configured** and 'AWS > Events > Rule > CMDB' to **Enforce: Disabled**. The Event Handlers create Event Rules, but the Rule CMDB will delete them from CMDB. Event Handlers don't see the Event Rules so it creates them again. In the TE Cloudwatch dashboard this appears as lot of symmetric 'events:PutRule' and 'events:PutTargets' events.
+- **Guardrails Policy Misconfiguration**: A misconfiguration within Guardrails, example: Setting Event Handlers to **Enforce: Configured** and 'AWS > Events > Rule > CMDB' to **Enforce: Disabled**. The Event Handlers create Event Rules, but the Rule CMDB will delete them from CMDB. Event Handlers don't see the Event Rules so it creates them again. In the TE CloudWatch dashboard this appears as lot of symmetric 'events:PutRule' and 'events:PutTargets' events.
 - **Misconfiguration of Guardrails**: Something about the configuration of Guardrails, the application, that prevents proper processing of incoming events. Common examples include: DB too small for the workload, worker concurrency too low for workload, DB tuned improperly, worker lambda tuned improperly, too few ECS hosts.
 - **Guardrails Bug**: There's a bug in Guardrails somewhere.
 
@@ -33,9 +33,9 @@ It's not uncommon for event floods to arise from a combination of factors. Look 
 
 If you suspect there is an event flood underway, start with these information sources:
 
-**TE Cloudwatch Dashboard**: Start here. The top two graphs on the TE dashboard will show if you're in a flood state. The "Activities" Section at the bottom of the TE dashboard is very helpful too.
+**TE CloudWatch Dashboard**: Start here. The top two graphs on the TE dashboard will show if you're in a flood state. The "Activities" Section at the bottom of the TE dashboard is very helpful too.
 
-**TED Cloudwatch Dashboard**: Check DB and Redis health. While not common, an under-provisioned DB may cause problems.
+**TED CloudWatch Dashboard**: Check DB and Redis health. While not common, an under-provisioned DB may cause problems.
 
 **RDS Performance Insights**: If you're looking for additional information on what may be slowing down event processing.
 
