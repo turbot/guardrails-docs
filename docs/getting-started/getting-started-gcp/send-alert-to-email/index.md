@@ -79,10 +79,7 @@ At the end of [Create a calculated exception](/guardrails/getting-started/gettin
 
 Now, in the GCP console, remove the `environment:development` label. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: Uniform`.  And because you left the bucket’s access control in the fine-grained state, the bucket’s control for access control now transitions to `Alarm`.   
 
-[image: observe-unlabeled-bucket-in-alarm]
-
-(unable to reproduce at the moment)  
-
+<p><img alt="observe-unlabeled-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/send-alert-to-email/observe-unlabeled-bucket-in-alarm.png"/></p>
 
 ## Step 6: Check email
 
@@ -109,7 +106,7 @@ Now that we have successfully alerted on controls, you can repeat this exercise 
 
 ## Next Steps
 
-In the [next runbook](/guardrails/docs/runbooks/getting-started-gcp/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, enable uniform access on a bucket that’s now in the `Alarm` state and make it green. Note that this will require one additional permission on the role you created in [the first runbook]([/](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)guardrails/docs/runbooks/getting-started-aws/connect-an-account): `s3:PutBucketVersioning`. 
+In the [next guide](/guardrails/docs/runbooks/getting-started-gcp/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, enable uniform access on a bucket that’s now in the `Alarm` state and make it green. Note that this will require one additional permission on the role you created in [the first runbook]([/](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)guardrails/docs/runbooks/getting-started-aws/connect-an-account): `s3:PutBucketVersioning`. 
 
 
 ## Progress tracker

@@ -44,7 +44,7 @@ Click `New Policy Setting`.
 
 <p><img alt="create-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/create-policy-setting.png"/></p>
 
-Under `Policy Type` search for `GCP  > Storage > Bucket > Access Control.
+Under `Policy Type` search for `GCP  > Storage > Bucket > Access Control`.
 
 Choose the `Skip` setting.
 

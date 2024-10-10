@@ -48,6 +48,8 @@ Click `Edit`.
 
 <p><img alt="aws-update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-update-policy-setting.png"/></p>
 
+Choose `Enforce: Enabled` and click `Update`.
+
 ## Step 5: Observe enforcement
 
 On the Policy Setting page, switch to the `Activity` tab.  

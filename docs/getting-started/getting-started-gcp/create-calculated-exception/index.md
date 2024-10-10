@@ -76,7 +76,12 @@ And paste it into the template pane.
 
 <p><img alt="template-active" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/template-active.png"/></p>
 
-Click `Update`.  
+Guardrails evaluates the template in the context of the chosen `Test Resource`. The template output, `Check: Uniform`, is the calculated policy value that will govern any bucket’s `GCP > Storage > Bucket > Access Control` policy if the bucket is labeled with `environment:development`. Only these labeled buckets will be required to have uniform access enabled. Others will be skipped, whether or not they enable uniform access.  
+  
+The result confirms that `Check: Uniform` is valid for this policy type.
+
+  
+Click `Update` to update the policy.  
   
 Guardrails displays the `Update Policy Setting` screen.  
 
@@ -94,7 +99,7 @@ The bucket for which you made an exception in the previous guide will be in the 
 
 ## Step 8: Label the bucket
 
-Now, in the GCP console, assign the label `environment:development` to the bucket that’s in `Alarm`.  
+Now, in the GCP console, assign the label `environment:development` to a bucket that’s in `Alarm`.  
 
 <p><img alt="labeled-bucket-now-skipped" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/labeled-bucket-now-skipped.png"/></p>
 
