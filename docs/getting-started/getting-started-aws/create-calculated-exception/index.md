@@ -80,19 +80,21 @@ Guardrails evaluates the template in the context of the chosen `Test Resource`. 
   
 The result confirms that `Check: Enabled` is valid for this policy type.  
   
-Click `Update` to update the policy.
+Guardrails displays the `Update Policy Setting` screen.  
 
-## Step 7: Observe bucket versioning controls
+<p><img alt="update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/update-policy-setting.png"/></p>
+
+## Step 7: Observe controls for bucket versioning
 
 Revisit your bookmarks `Controls by State` report, and set the `Type` filter to `AWS > S3 > Bucket > Versioning`.
 
 <p><img alt="revisit-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/revisit-controls-by-state.png"/></p>
 
-The bucket for which you made an exception in the previous guide will be in the `Skipped` state. Find a bucket in Alarm for versioning, here we’ll use `example-bucket-04`.
+The bucket for which you made an exception in the previous guide will be in the `Skipped` state. Buckets with versioning enabled will be green. Find a bucket in Alarm for versioning, here we’ll use `example-bucket-04`.
 
 ## Step 8: Tag the bucket
 
-Now, in the AWS console, assign the tag `environment:development` to the bucket.  
+Now, in the AWS console, assign the tag `environment:development` to a bucket that’s in `Alarm`.  
 
 <p><img alt="tagged-bucket-now-skipped" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/tagged-bucket-now-skipped.png"/></p>
 

@@ -14,28 +14,18 @@ Now that we can track resource configuration drift, we can create policies to al
 - [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
 
 
-## Step 1: Review bucket properties
+## Step 1: Review bucket versioning
 
-Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity). In that guide you switched bucket versioning to `Enabled`.
+Check the properties of the bucket you created in [Observe AWS activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity). In that guide you switched your test bucket’s versioning to `Enabled`.
 
 ## Step 2: Review S3 bucket controls for versioning
 
   
 You bookmarked the `Controls by State` report in [Connect an Account](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity), go there now.
 
-Set the `Resource Type` filter to `AWS > S3 > Bucket`, and search for `versioning`.
+Set the `Type` filter to `AWS > S3 > Bucket > Versioning` and search for the name of your bucket
 
 <p><img alt="aws-search-bucket-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-search-bucket-versioning.png"/></p>
-
-Your  bucket is in the `skipped` state, as are others created with the S3 bucket default for versioning. There is not yet a Guardrails policy to check bucket versioning. Leave this view in a tab. Now open a new tab where we’ll enable a policy pack.
-
-## Step 3: Prepare to add a policy pack
-
-Your Guardrails workspace already has the pre-installed policy pack [Enforce Versioning Is Enabled for AWS S3 Buckets](https://hub.guardrails.turbot.com/policy-packs/aws_s3_enforce_versioning_is_enabled_for_buckets).
-
-To attach it, click top-level `Resources`, navigate to your `Sandbox > YOUR_AWS_ACCOUNT`, select the `Detail` tab, and locate the `Manage Link` next to `Policy Packs`.
-
-<p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-locate-policy-pack-manage.png"/></p>
 
 Click the `Manage` link.
 

@@ -25,6 +25,8 @@ Set the `Type` filter to `AWS > S3 > Bucket > Versioning `, and the `State` to `
 
 <p><img alt="find_bucket_in_alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/find-bucket-in-alarm.png"/></p>
 
+Your test bucket is now `OK` but other buckets created with default settings will be in `Alarm`.
+
 ## Step 2: Open the control
 
 Click into the bucket control.
@@ -68,9 +70,9 @@ Now switch to the `Activity` tab.
 
 Observe the history.
 
-- You created the bucket-level policy setting to make an exception for your test bucket.  
+You created the bucket-level policy setting to make an exception for your test bucket.  
   
-- Then the Versioning control reevaluated, and set the status to `Skipped`.
+Then the Versioning control reevaluated, and set the status to `Skipped`.
 
   
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.  
