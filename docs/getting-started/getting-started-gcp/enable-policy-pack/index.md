@@ -22,7 +22,7 @@ Check the configuration of the bucket you created in [Observe GCP activity](/gua
 
 You bookmarked the `Controls by State` report in [Connect a Project](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity), go there now.
 
-Set the `Type` filter to `GCP > Storage > Bucket > Access Control`, and search for the name of your bucket.
+Set the `Type` filter to `GCP > Storage > Bucket > Access Control` and search for the name of your bucket.
 
 <p><img alt="gcp-search-bucket-access-control" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-policy-pack/gcp-search-bucket-access-control.png"/></p>
 

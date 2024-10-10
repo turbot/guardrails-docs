@@ -20,7 +20,7 @@ sidebar_label: Enable Automatic Enforcement
 - [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action/)
 
 
-In the [previous guide](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
+In the [previous guide](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on bucket access control. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
 
 ## Step 1: Revisit your static exception
 
@@ -28,38 +28,15 @@ In  [Create a static  exception](/guardrails/docs/getting-started/getting-star
   
 Use the `Controls by State` control to find it.
 
-  
-[image: find-bucket-skipped-by-static-exception]  
-  
-(unable to reproduce at the moment)
-
-## Step 2: View the policies for the control
-
-Click into the Control and switch to the `Policies` tab.  
-  
-[image: view-skipped-bucket-policy-setting]  
-  
-(unable to reproduce at the moment)  
-  
-
+<p><img alt="find-bucket-skipped-by-static-exception" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/find-bucket-skipped-by-static-exception.png"/></p>
 
 ## Step 3: View the policy setting
 
 Click the `Setting` link (wrench icon).
 
-[image: view-policy-setting]
+<p><img alt="view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/view-policy-setting.png"/></p>
 
-(unable to reproduce at the moment)
-
-## Step 4: Update the policy setting
-
-Click `Edit`.
-
-  
-[image: aws-update-policy-setting]
-
-  
-(unable to reproduce at the moment)
+Choose `Enforce: Enabled` and click `Update`.
 
 ## Step 5: Observe enforcement
 
@@ -87,7 +64,7 @@ Here you can see the whole history. Reading from the bottom up:
 
 ## Step 6: Review
 
-For fun, try suspending versioning on the bucket again. It won’t stay that way for long!
+For fun, try switching access back to Fine-Grained again. It won’t stay that way for long!
 
 ## Next Steps
 

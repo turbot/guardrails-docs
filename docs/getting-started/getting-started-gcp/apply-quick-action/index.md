@@ -29,13 +29,16 @@ Assign the role to the service account you created in [Connect a Project](/guard
 
 ## Step 2: Enable Quick Actions
 
-Do a top-level search for `quick actions` and click into the `Turbot > Quick Actions > Enabled` setting.
+Do a top-level search for `quick actions`.
 
-<p><img alt="gcp_find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-find-quick-actions-policies.png"/></p>
+<p><img alt="find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/find-quick-actions-policies.png"/></p>
 
-It’s disabled by default. On its `Policy Type` page, click `New Policy Setting`, choose your Sandbox as the target resource, choose `Enabled`, and click `Create`.  
+Click into `Turbot > Quick Actions > Enabled`, choose your Sandbox as the target resource. choose `Enabled`, and click `Create`.  
 
-<p><img alt="gcp_enable_quick_actions" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-enable-quick-actions.png"/></p>
+<p><img alt="enable_quick_actions" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/enable-quick-actions.png"/></p>
+
+Choose `Enabled`, and click `Create`.  
+
 
 ## Step 3: Find a bucket in Alarm for access control
 
@@ -46,43 +49,30 @@ Search for it.
 
 <p><img alt="gcp_search_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-search-bucket-in-alarm-for-quick-action.png"/></p>
 
-Click into the resource, switch to the `Controls` tab, and search for `gcp access control`.
+## Step 4: Prepare to take a Quick Action
+
+Click into the resource, switch to the `Controls` tab, and search for `access control`.
 
 <p><img alt="gcp_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-bucket-in-alarm-for-quick-action.png"/></p>
 
-Click into the control and expand the `Actions` dropdown.  
-  
-[image: gcp_quick_action_dropdown]  
-  
+Click into the Access Control control and expand the `Actions` dropdown.  
 
+<p><img alt="gcp_quick_action_dropdown" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-quick-action-dropdown.png"/></p>
 
-(unable to reproduce at the moment)
-
-## Step 4: Take a Quick Action to enable versioning  on a bucket
+## Step 5: Take a Quick Action to enable uniform access control
 
 Choose `Set Uniform Access Control`.  
 
 
 Guardrails reports that the action was successful, and the control goes to green.  
-  
-[image: gcp_quick_action_reports_success]  
 
+<p><img alt="gcp_quick_action_reports_success" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-quick-action-reports-success.png"/></p>
 
-(unable to reproduce at the moment)
+## Step 6: Review
 
-For more detail about what happened here, go to the top-level `Reports` tab, search in the page for `Activity Ledger`, and filter on `Control Type` == `GCP > Storage > Bucket > Access Control`.  
-  
-[image: gcp_quick_action_report_detail]  
-  
+Explore taking Quick Actions on other resources in your project.
 
-
-The flow of notifications tells the story. Reading from the bottom up, Guardrails:  
-  
-- performs the action  
-  
-- notices the updated bucket  
-  
-- reevaluates the control
+## Next Steps
 
 In the [next runbook](/guardrails/docs/runbooks/getting-started-gcp/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.  
   
