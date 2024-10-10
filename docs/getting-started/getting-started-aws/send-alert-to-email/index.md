@@ -20,12 +20,16 @@ In [the previous guide](/guardrails/docs/getting-started/getting-started-aws/cre
 
 In [the previous guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
 
-## Step 1: Locate the `Turbot > Notifications` policy type
+## Step 1: Locate the Turbot > Notifications policy type
 
   
 To enable notifications for your workspace, search top-level `Policies` for `turbot notifications` and click into the `Turbot > Notifications` policy type.  
 
 <p><img alt="search-notifications-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/search-notifications-policy-type.png"/></p>
+
+Click into the `Turbot Notifications` policy type.  
+
+<p><img alt="view-turbot-notifications-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/view-turbot-notifications-policy-type.png"/></p>
 
 ## Step 2: Enable notifications
 
@@ -63,7 +67,7 @@ Click `Create`.
 
 The rule will send an alert to the configured email address when any control enters the `Alarm` state for S3 bucket versioning.
 
-## Step 4: Find a skipped bucket
+## Step 4: Find the bucket skipped by your calculated policy
 
 At the end of [Create a calculated exception](/guardrails/getting-started/getting-started-aws/create_calculated_exception), your test bucket – the one you tagged with `environment:development` – was in a `Skipped` state for versioning. To verify, revisit the `Controls by State` report, set the `Type` filter to `AWS > S3 > Bucket > Versioning`, and search for the bucket.
 

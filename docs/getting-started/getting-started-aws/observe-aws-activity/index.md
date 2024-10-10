@@ -33,7 +33,7 @@ Guardrails reports two notifications related to the bucket creation. `RESOURCE C
 ## Step 3: See Guardrails react to a bucket change
 
    
-Now visit your bucket in the AWS console, choose the `Properties` tab, and enable versioning.
+Now visit your bucket in the AWS console and enable versioning.
 
 Guardrails will soon notice the change. 
 

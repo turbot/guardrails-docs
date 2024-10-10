@@ -51,10 +51,14 @@ Copy the role ARN for use in step 5.
 
 <p><img alt="finish-and-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/finish-and-connect.png"/></p>
 
-* Set the `Parent Resource` to `Sandbox`
-* Provide your AWS account ID
-* Paste the role ARN from step 4
-* Verify the external ID matches what you captured in Step 2. If not, overwrite with that captured value.
+Set the `Parent Resource` to `Sandbox`.
+
+Provide your AWS account ID.
+
+Paste the role ARN from step 4.
+
+Verify the external ID matches what you captured in Step 2. If not, overwrite with that captured value.  
+
 
 Click `Connect`.
 
