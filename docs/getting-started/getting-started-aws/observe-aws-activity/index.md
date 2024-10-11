@@ -65,7 +65,7 @@ We’ve now seen how Guardrails detects the creation of a new resource in a conn
 
 ## Next Steps
 
-Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-started/getting-started-aws/attach-policy-pack) that requires buckets to enable versioning.
+Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) that requires buckets to enable versioning.
 
 
 ## Progress tracker
