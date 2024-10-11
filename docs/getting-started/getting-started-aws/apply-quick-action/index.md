@@ -38,22 +38,26 @@ Add this permission to the `turbot-service-readonly` role you set up in [the fir
 
 ## Step 2: Enable Quick Actions
 
-Do a top-level search for `quick actions`.
+Search Policies for `quick actions`.
 
 <p><img alt="find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/find-quick-actions-policies.png"/></p>
 
-Click into `Turbot > Quick Actions > Enabled`, and choose your Sandbox as the target resource. 
+Click into `Turbot > Quick Actions > Enabled` and switch to the `Settings` tab.
+
+<p><img alt="switch to settings" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/switch to settings.png"/></p>
+
+Click `New Policy Setting`’  
 
 <p><img alt="aws-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-enable-quick-actions.png"/></p>
 
-Choose `Enabled` and click `Create`.
+Choose your account as the resource, choose `Enabled`, and click `Create`.
 
 ## Step 3: Find a bucket in Alarm for versioning
 
   
 In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we left your test bucket in the `Alarm` state.  
   
-Search for it.  
+Locate it.  
 
 <p><img alt="aws_search_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-search-bucket-in-alarm-for-quick-action.png"/></p>
 
@@ -62,10 +66,6 @@ Search for it.
 Click into the resource, switch to the `Controls` tab, and search for `versioning`.
 
 <p><img alt="aws-bucket-in-alarm-for-quick-action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-bucket-in-alarm-for-quick-action.png"/></p>
-
-Click into the Versioning control and expand the `Actions` dropdown.  
-
-<p><img alt="aws-versioning-quick-action-dropdown" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-versioning-quick-action-dropdown.png"/></p>
 
 ## Step 5: Take a Quick Action to enable versioning
 

@@ -107,7 +107,7 @@ Guardrails notices the change, reevaluates the resource, runs the calculated pol
 
 ## Step 9: Review
 
-Experiment with labeling and unlabeling other buckets in this way, and observe now Guardrails notices and reacts to the changes. 
+Experiment with labeling and unlabeling other buckets in this way, and observe how Guardrails notices and reacts to the changes. 
 
 ## Next Steps
 

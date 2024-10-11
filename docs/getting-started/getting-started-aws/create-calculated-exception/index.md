@@ -102,7 +102,7 @@ Guardrails notices the change, reevaluates the resource, runs the calculated pol
 
 ## Step 9: Review
 
-Experiment with tagging and untagging other buckets in this way, and observe now Guardrails notices and reacts to the changes. 
+Experiment with tagging and untagging other buckets in this way, and observe how Guardrails notices and reacts to the changes. 
 
 ## Next Steps
 
