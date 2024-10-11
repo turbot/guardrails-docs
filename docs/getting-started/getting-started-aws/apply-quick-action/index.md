@@ -44,9 +44,7 @@ Do a top-level search for `quick actions`.
 
 Click into `Turbot > Quick Actions > Enabled`, and choose your Sandbox as the target resource. 
 
-d[image: aws-enable-quick-actions]  
-  
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXf4pnRDjrSAX_tkIt1U75tjwfJ-5LbsGyaAdVOG5bsYGic-FyGDTFZIEXClXOXVz-FXcyY3SEbtARYrMikXzDGYvsbCzeWuuHJ5ww2rEaY257KhHipT0cy-AzIXRyYxcq-5niRfZAW5D5F0o_Np7YGkV-c?key=4ddJnD5nTqoLHa4rob4uSA)
+<p><img alt="aws-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-enable-quick-actions.png"/></p>
 
 Choose `Enabled` and click `Create`.
 
