@@ -16,13 +16,13 @@ Now that we can track resource configuration drift, we can create policies to al
 
 ## Step 1: Review bucket access control
 
-Check the configuration of the bucket you created in [Observe GCP activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity). In that  guide you switched your test bucket from uniform to fine-grained access. Verify that is the configuration.
+Check the configuration of the bucket you created in [Observe GCP activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity). In that  guide you switched your test bucket from uniform to fine-grained access. Verify that’s still the case.
 
-## Step 2: Review GCP controls for bucket uniform access
+## Step 2: Check the Guardrails control for access control
 
 You bookmarked the `Controls by State` report in [Connect a Project](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity), go there now.
 
-Set the `Type` filter to `GCP > Storage > Bucket > Access Control` and search for the name of your bucket.
+Set the `Type` filter to `GCP > Storage > Bucket > Access Control` and search for your bucket.
 
 <p><img alt="gcp-search-bucket-access-control" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-policy-pack/gcp-search-bucket-access-control.png"/></p>
 
@@ -44,23 +44,14 @@ In the `Edit policy pack attachments` dialog, select `Enforce Uniform Access is 
 
 <p><img alt="gcp-edit-attachments-select-enforce-uniform-access" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-policy-pack/gcp-edit-attachments-select-enforce-uniform-access.png"/></p>
 
-## Step 5: Search for your bucket
+## Step 5: Review
 
   
-Use the top-level search to find your bucket.
+Set the `Type` filter to `GCP > Storage > Bucket > Access Control` and search for your bucket.
 
-<p><img alt="gcp-search-for-bucket" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-policy-pack/gcp-search-for-bucket.png"/></p>
-
-## 
-
-## Step 6: Review
-
-Click into the resource, switch to the `Controls` tab, and search for `access control`. 
-
-<p><img alt="gcp-observe-single-control" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-policy-pack/gcp-observe-single-control.png"/></p>
+<p><img alt="gcp-search-bucket-access-control-again" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-policy-pack/gcp-search-bucket-access-control-again.png"/></p>
 
 Now, instead of skipping the access control check, Guardrails runs it. Your bucket is red because you turned off uniform access in [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-aws-activity)  but the policy requires it.  
-  
 
 
 ## Next Steps

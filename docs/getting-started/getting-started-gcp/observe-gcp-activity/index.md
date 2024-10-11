@@ -15,7 +15,7 @@ You’ve connected a GCP project, and seen Guardrails discover your existing GCP
   
 You will also need to create  a GCP bucket. We’ll illustrate using `guardrails_bucket_example_01`, but use your own name. 
 
-## Step 1: Locate the `Resource Activities` report
+## Step 1: Locate the Resource Activities report
 
 Select top-level `Reports`, search for `resource`, locate `Resource Activities`, and click the link.
 
@@ -33,7 +33,7 @@ Set the filter to `GCP > Storage > Bucket`. You can do this by entering `gcp sto
 
 Alternatively, you can navigate to the same place by clicking on `>` to drill down into the hierarchy.  
   
-Either way, select `GCP > Storage > Buckett` to set the `Resource Type` filter.
+Either way, select `GCP > Storage > Bucket` to set the `Resource Type` filter.
 
 <p><img alt="gcp-resource-type-filter-set" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-resource-type-filter-set.png"/></p>
 
@@ -48,7 +48,7 @@ Guardrails reports two notifications related to the bucket creation. `RESOURCE C
 ## Step 4: See Guardrails react to a bucket change
 
    
-Now visit your bucket in the GCP console, and switch access control to `Fine-Grained`.
+Now visit your bucket in the GCP console, and switch access control to fine-grained.
 
   
 Guardrails will soon notice the change.  
@@ -65,7 +65,7 @@ We’ve now seen how Guardrails detects the creation of a new resource in a conn
 
 ## Next Steps
 
-Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-started/getting-started-gcp/attach-policy-pack) that requires buckets to enable versioning.
+Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack) that requires buckets to enable uniform access.
 
 
 ## Progress tracker
