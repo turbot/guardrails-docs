@@ -6,7 +6,7 @@ sidebar_label: Create a Calculated Exception to a Guardrails GCP policy
 
 # Create a Calculated Exception to a Guardrails GCP Policy
 
-In the [previous runbook](guardrails/docs/runbooks/getting-started-gcp/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource labels.
+In the [previous guide](guardrails/docs/runbooks/getting-started-gcp/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource labels.
 
 **Prerequisites**:   
   
@@ -21,7 +21,7 @@ You’ll also need another bucket with the access control setting of `Fine-Grain
 
 ## Step 1: Locate the policy pack
 
-From the Guardrails home, navigate to Turbot > Sandbox > YOUR_GCP_PROJECT and switch to the Detail tab.  
+From the Guardrails home, navigate to `Turbot > Sandbox > YOUR_GCP_PROJECT` and switch to the Detail tab.  
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/locate-policy-pack.png"/></p>
 
@@ -55,7 +55,7 @@ Open the `Select snippet` dropdown and choose `Get bucket`.
 
 <p><img alt="snippet-dropdown-open" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/snippet-dropdown-open.png"/></p>
 
-Guardrails inserts a GraphQL query for bucket tags in the `Input` pane. The result, in the `Output` pane, shows there are no tags on the bucket.  
+Guardrails inserts a GraphQL query for bucket tags in the `Input` pane. The result, in the `Output` pane, shows there are no labels on the bucket.  
 
 <p><img alt="snippet-active" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/snippet-active.png"/></p>
 
