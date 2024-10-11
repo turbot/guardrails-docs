@@ -25,10 +25,8 @@ Set the `Resource Type` filter to `AWS > S3 > Bucket`, and search for `versionin
 
 In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s Versioning control from `Skipped` to `OK`, because you turned on versioning in [Observe AWS Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity).  
   
-Other buckets created in the default state, with versioning disabled, are out of policy.  
-  
-  
-Now that bucket’s versioning control has also switched from `Alarm` to `OK`.
+Other buckets created in the default state, with versioning disabled, are red: out of policy.  
+
 
 ## Step 2: Review
 

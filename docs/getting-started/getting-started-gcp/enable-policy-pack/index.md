@@ -6,15 +6,15 @@ sidebar_label: Enable Policy Pack
 
 # Enable your First Policy Pack
 
+Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state. 
+
 **Prerequisites**: 
 
 - [Connect a GCP Project to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/connect-a-project/)
 - [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity/)
 
 
-Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state. 
-
-## Step 1: Review bucket access control
+## Step 1: Check bucket access control in GCP
 
 Check the configuration of the bucket you created in [Observe GCP activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity). In that  guide you switched your test bucket from uniform to fine-grained access. Verify that’s still the case.
 
