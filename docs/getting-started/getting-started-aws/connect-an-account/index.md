@@ -43,7 +43,7 @@ In AWS, create a CloudFormation stack using the template you downloaded. Provide
 When the stack is created, verify that the role `turbot-service-readonly` exists in your account, with these permissions:  
   
 - ReadOnlyAccess  
-- turbot-readonly-events-sns  
+- turbot-guardrails-access-policy  
   
 Copy the role ARN for use in step 5.
 
