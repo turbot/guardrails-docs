@@ -29,15 +29,19 @@ Assign the role to the service account you created in [Connect a Project](/guard
 
 ## Step 2: Enable Quick Actions
 
-Do a top-level search for `quick actions`.
+Search Policies for `quick actions`.
 
 <p><img alt="find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/find-quick-actions-policies.png"/></p>
 
-Click into `Turbot > Quick Actions > Enabled`, choose your Sandbox as the target resource. choose `Enabled`, and click `Create`.  
+Click into `Turbot > Quick Actions > Enabled` and switch to the `Settings` tab.
 
-<p><img alt="enable_quick_actions" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/enable-quick-actions.png"/></p>
+<p><img alt="switch to settings" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/switch to settings.png"/></p>
 
-Choose `Enabled`, and click `Create`.  
+Click `New Policy Setting`’  
+
+<p><img alt="gcp-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-enable-quick-actions.png"/></p>
+
+Choose your project, choose`Enabled`, and click `Create`.  
 
 
 ## Step 3: Find a bucket in Alarm for access control
@@ -45,17 +49,13 @@ Choose `Enabled`, and click `Create`.
   
 In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we left your test bucket in the `Alarm` state.  
   
-Search for it.  
+Locate it.  
 
 <p><img alt="gcp_search_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-search-bucket-in-alarm-for-quick-action.png"/></p>
 
 ## Step 4: Prepare to take a Quick Action
 
-Click into the resource, switch to the `Controls` tab, and search for `access control`.
-
-<p><img alt="gcp_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-bucket-in-alarm-for-quick-action.png"/></p>
-
-Click into the Access Control control and expand the `Actions` dropdown.  
+Click into the control and expand the `Actions` dropdown.
 
 <p><img alt="gcp_quick_action_dropdown" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-quick-action-dropdown.png"/></p>
 

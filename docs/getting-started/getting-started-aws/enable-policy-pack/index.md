@@ -4,7 +4,7 @@ sidebar_label: Enable Policy Pack
 ---
 
 
-# Enable Your First Guardrails Policy Pack
+# Enable Your First Policy Pack
 
 Now that we can track resource configuration drift, we can create policies to alert when those configurations do not meet our desired state. 
 
@@ -51,7 +51,7 @@ In the `Edit policy pack attachments` dialog, select `Enforce Versioning is Enab
 
 <p><img alt="aws-search-bucket-versioning-again" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-search-bucket-versioning-again.png"/></p>
 
-Now, instead of skipping the versioning check, Guardrails runs it. Your bucket is green because you enabled versioning in [Observe AWS Activity](/guardrails/docs/getting-started/observe-aws-activity), so  it’s now in policy.
+Now, instead of skipping the versioning check, Guardrails runs it. Your bucket is green because you enabled versioning in [Observe AWS Activity](/guardrails/docs/getting-started/observe-aws-activity), so it’s now in policy.
 
 ## Next Steps
 

@@ -80,7 +80,7 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-
 
 ## Next Steps
 
-In the next guide we’ll see how you can make exceptions dynamically, by evaluating properties of resources.
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.
 
 
 ## Progress tracker
