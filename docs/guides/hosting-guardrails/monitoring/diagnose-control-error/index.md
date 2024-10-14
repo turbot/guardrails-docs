@@ -8,7 +8,7 @@ sidebar_label: Diagnose Control Error
 In this guide, you will:
 - Use Guardrails console and AWS CloudWatch to Diagnose the control error.
 
-When troubleshooting error messages in the Guardrails Console, control logs typically provide sufficient information to identify the root cause. However, in some cases, additional details may be needed for a more thorough diagnosis, which can be retrieved from the AWS CloudWatch log groups.
+When diagnosing error messages in the Guardrails console, control logs typically provide sufficient information to identify the root cause. However, in some cases, additional details may be needed for a more thorough diagnosis, which can be retrieved from the AWS CloudWatch log groups.
 
 ## Prerequisites
 
