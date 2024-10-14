@@ -47,7 +47,7 @@ Copy the role ARN for use in step 5.
 
 ## Step 5: Copy the Role ARN
 
-## Verify that the stack completed successfully and then select the outputs tab.  From the stack outputs select and copy the value for Role ARN.
+Verify that the stack completed successfully and then select the outputs tab.  From the stack outputs select and copy the value for Role ARN.
 
 <p><img alt="cloudformation-outputs" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/cloudformation-outputs.png"/></p>
 
@@ -65,7 +65,7 @@ Paste the Role ARN from step 5 into the "IAM Role ARN" field.  Also, copy and p
 
 ## Step 8: Verify the external ID
 
-## Check that the IAM Role External ID matches the value from the cloudformation template. If not, overwrite with that captured value.
+Check that the IAM Role External ID matches the value from the cloudformation template. If not, overwrite with that captured value.
 
 <p><img alt="verify-external-id" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/verify-external-id.png"/></p>
 
@@ -90,7 +90,7 @@ Select the `Reports` item from the top navigation menu.  Type "controls" into t
 
 ## Step 12: Configure report filters
 
-## Select the Type Dropdown from the filters bar. Then enable the check box next to "AWS" to limit the report to only show AWS controls.
+Select the Type Dropdown from the filters bar. Then enable the check box next to "AWS" to limit the report to only show AWS controls.
 
 Bookmark the `Controls by State` report, you’ll need it in subsequent guides.
 
