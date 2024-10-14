@@ -24,31 +24,36 @@ In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/app
 
 ## Step 1: Revisit your static exception
 
-In  [Create a static  exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we set its bucket versioning policy for a bucket to `Skip`.  
+In  [Create a static  exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we set the bucket versioning policy for a bucket to `Skip`.  
   
 Use the `Controls by State` control to find it.
+
 <p><img alt="aws-find-bucket-skipped-by-static-exception" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-find-bucket-skipped-by-static-exception.png"/></p>
 
 ## Step 2: View the policies for the control
 
 Click into the Control and switch to the `Policies` tab.  
-<p><img alt="aws-view-skipped-bucket-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-view-skipped-bucket-policy-setting.png"/></p>  
-  
 
+<p><img alt="aws-view-skipped-bucket-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-view-skipped-bucket-policy-setting.png"/></p>
 
 ## Step 3: View the policy setting
 
 Click the `Setting` link (wrench icon).
+
 <p><img alt="aws-view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-view-policy-setting.png"/></p>
 
 ## Step 4: Update the policy setting
 
 Click `Edit`.
+
 <p><img alt="aws-update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-update-policy-setting.png"/></p>
+
+Choose `Enforce: Enabled` and click `Update`.
 
 ## Step 5: Observe enforcement
 
 On the Policy Setting page, switch to the `Activity` tab.  
+
 <p><img alt="aws-enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-enforcement-happened.png"/></p>
 
 Here you can see the whole history. Reading from the bottom up:
@@ -76,12 +81,12 @@ This Getting Started series just scratches the surface.  Try installing more [p
 
 ## Progress tracker
 
-- [x] [Connect an AWS Account to Guardrails](path)
-- [x] [Observe AWS Resource Activity](path)
-- [x] [Enable Your First Policy Pack](path)
-- [x] [Review Account-Wide Bucket Versioning](path)
-- [x] [Create a Static Exception to a Guardrails Policy](path)
-- [x] [Create a Calculated Exception to a Guardrails Policy](path)
-- [x] [Send an Alert to Email](path)
-- [x] [Apply a Quick Action](path)
+- [x] Connect an AWS Account to Guardrails
+- [x] Observe AWS Resource Activity
+- [x] Enable Your First Policy Pack
+- [x] Review Account-Wide Bucket Versioning
+- [x] Create a Static Exception to a Guardrails Policy
+- [x] Create a Calculated Exception to a Guardrails Policy
+- [x] Send an Alert to Email
+- [x] Apply a Quick Action
 - [x] **Enable Automatic Enforcement**
