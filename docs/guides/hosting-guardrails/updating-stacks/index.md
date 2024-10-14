@@ -15,9 +15,8 @@ stack will be updated in tandem with the TE stack and is never deleted.
 
 ## Instructions to Update a Guardrails Stack
 
-- [Update the TEF stack](enterprise/updating-stacks/update-tef)
-- [Update the TED stack](enterprise/updating-stacks/ted-update)
-- [Update the TE stack and custom workspace](enterprise/updating-stacks/update-workspace)
+- [Update the TEF stack](guides/hosting-guardrails/updating-stacks/update-tef)
+- [Update the TED stack](guides/hosting-guardrails/updating-stacks/update-ted)
+- [Update the TE stack and custom workspace](guides/hosting-guardrails/updating-stacks/update-workspace)
 
-Head over to the [Releases](releases) section for release notes for TEF, TED,
-and the TE stacks.
+Head over to the [Releases](/guardrails/changelog) section for release notes for TEF, TED and the TE stacks.

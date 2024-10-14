@@ -441,8 +441,8 @@
             "id": "updating-stacks",
             "link": "guides/hosting-guardrails/updating-stacks",
             "items": [
-              "guides/hosting-guardrails/updating-stacks/update-ted",
               "guides/hosting-guardrails/updating-stacks/update-tef",
+              "guides/hosting-guardrails/updating-stacks/update-ted",
               "guides/hosting-guardrails/updating-stacks/update-workspace"
             ]
           },
