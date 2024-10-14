@@ -18,24 +18,26 @@ You will also need to create  an S3 bucket. We’ll illustrate using `bucket-ex
 ## Step 1: Locate the Resource Activities report
 
   
-Select top-level `Reports`, search for `resource`, locate `Resource Activities`, and click the link.
+Select **Reports** from the top navigation menu.
 
 <p><img alt="aws_search_resource_activities" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-search-resource-activities.png"/></p>
 
 ## Step 2: Open the Resource Type filter
 
-In the `Resource Activities` report, expand the `Resource Type` dropdown.
+Expand the **Resource Type** dropdown.
 
 <p><img alt="aws-resource-type-dropdown" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-type-dropdown.png"/></p>
 
-## Step 3: Search for or navigate to AWS > S3 > Bucket
+## Step 3: Search for (or navigate to) AWS > S3 > Bucket
 
   
-Set the filter to `AWS > S3 > Bucket`. You can do this by entering `aws s3 bucket` into the search box, as shown here. Alternatively, you can navigate to the same place by clicking on `>` to drill down into the hierarchy.  
+Set the filter to `AWS > S3 > Bucket`. You can do this by entering `aws s3 bucket` into the search box, as shown here. Alternatively, you can navigate to the same place using **>**  to drill down into the hierarchy.  
 
 <p><img alt="aws-resource-type-search" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-type-search.png"/></p>
 
 ## Step 4: Select the filter
+
+Enable the checkbox to limit the report to only S3 buckets.
 
 <p><img alt="aws-resource-type-filter-set" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-type-filter-set.png"/></p>
 
