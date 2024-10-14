@@ -5,7 +5,7 @@ sidebar_label: Getting Started with AWS
 
 # Getting Started with AWS
 
-This section provides detailed step-by-step instructions on how to use Guardrails features for AWS account, organized by subject area:
+This section provides detailed step-by-step instructions on how to use Guardrails features for an AWS account.
 
 
 | |

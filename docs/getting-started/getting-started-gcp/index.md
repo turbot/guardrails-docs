@@ -5,7 +5,7 @@ sidebar_label: Getting Started with GCP
 
 # Getting Started with GCP
 
-This section provides detailed step-by-step instructions on how to use Guardrails features for GCP account, organized by subject area:
+This section provides detailed step-by-step instructions on how to use Guardrails features for a GCP account.
 
 | |
 | - | - |
