@@ -17,13 +17,13 @@ In this guide, you’ll connect an AWS account to Guardrails. Then, in following
 ## Step 1: Initiate the Connect
 
   
-Login to the Guardrails' console and select the "CONNECT" option from the home page.  
+Login to the Guardrails' console and select the **CONNECT** option from the home page.  
 
 <p><img alt="locate-top-level-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/locate-top-level-connect.png"/></p>
 
 ## Step 2: Capture the external ID
 
-Select `AWS Account` from the left navigation and then click SOMETHING  to download the CloudFormation template we will use to set up the required IAM role.  
+Select **AWS Account** from the left navigation and then click SOMETHING  to download the CloudFormation template we will use to set up the required IAM role.  
 
 <p><img alt="initial-connect-screen" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/initial-connect-screen.png"/></p>
 
@@ -53,13 +53,13 @@ Verify that the stack completed successfully and then select the outputs tab.  
 
 ## Step 6: Select import location
 
-Use the `Parent Resource` dropdown to select the "Sandbox" folder as the location to import the account.
+Use the **Parent Resource** dropdown to select the **Sandbox**  folder as the location to import the account.
 
 <p><img alt="set-parent-resource" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-parent-resource.png"/></p>
 
 ## Step 7: Update account details
 
-Paste the Role ARN from step 5 into the "IAM Role ARN" field.  Also, copy and paste the AWS account ID into the "Account ID" field.
+Paste the Role ARN from step 5 into the **IAM Role ARN** field.  Also, copy and paste the AWS account ID into the **Account ID** field.
 
 <p><img alt="ready-to-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/ready-to-connect.png"/></p>
 
@@ -70,6 +70,9 @@ Check that the IAM Role External ID matches the value from the cloudformation te
 <p><img alt="verify-external-id" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/verify-external-id.png"/></p>
 
 ## Step 9: Connect your account
+
+  
+Select the **Connect** button to import the account.
 
 <p><img alt="finish-and-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/finish-and-connect.png"/></p>
 
@@ -84,19 +87,21 @@ This process takes a while, and you’ll see the bars fluctuate. The number of r
 
 ## Step 11: Controls by State report
 
-Select the `Reports` item from the top navigation menu.  Type "controls" into the "Search reports…" field to show only reports with the word `controls` in their name. Select `Controls by State`.  
+Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select **Controls by State**.  
 
 <p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
 ## Step 12: Configure report filters
 
-Select the Type Dropdown from the filters bar. Then enable the check box next to "AWS" to limit the report to only show AWS controls.
+Select the **Type** dropdown from the filters bar. Then enable the check box next to **AWS** to limit the report to only show AWS controls.  
 
-Bookmark the `Controls by State` report, you’ll need it in subsequent guides.
+<p><img alt="set-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-type-filter.png"/></p>
+
+Bookmark the **Controls by State** report, you’ll need it in subsequent guides.
 
 ## Step 13: Review Controls
 
-Review the status of your controls for AWS.  Alarm, OK, Skipped and TBD are all common and normal states to see in your account.   If you see controls in Error or Invalid states, those must be cleared before moving further into these guides.  
+Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account.  If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
 
 <p><img alt="aws-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-controls-by-state.png"/></p>
 
