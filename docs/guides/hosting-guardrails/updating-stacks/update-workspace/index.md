@@ -6,7 +6,7 @@ sidebar_label: Update Workspace
 # Update Workspace TE Version
 
 In this guide, you will:
-- Update a Guardrails workspace to a new TE version using AWS CloudFormation
+- Update a Guardrails workspace to a new TE version using AWS CloudFormation.
 
 A Guardrails [Workspace](/guardrails/docs/reference/glossary#workspace) is updated to a new version by referencing a newly installed [TE](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-te) product within the workspace stack. This ensures the workspace benefits from the latest TE features and improvements.
 

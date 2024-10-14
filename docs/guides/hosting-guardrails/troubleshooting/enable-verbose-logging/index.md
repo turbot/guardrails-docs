@@ -6,8 +6,8 @@ sidebar_label: Enable Verbose Logging
 # Enable Workspace Verbose Logging
 
 In this guide, you will:
-- Use AWS console setting verbose logging in the Events and API containers
-- Learn how to troubleshoot in Guardrails
+- Use AWS console setting verbose logging in the Events and API containers.
+- Learn how to troubleshoot in Guardrails.
 
 **Verbose logging** is primarily used for troubleshooting and is generally only necessary when working with Turbot Support to diagnose specific issues. When enabled, verbose logging on Events and API containers should be viewed as a short-term solution, active only for the duration required to gather essential data.
 
