@@ -57,9 +57,9 @@ Enter this rule, using one or more email addresses you want to notify.
   
 ```yaml
 - rules: |
-   $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/policy/types/bucketAccessControl’
+   NOTIFY $.oldControl.state:skipped $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
   emails:
-     - judell@turbot.com  
+     - judell@turbot.com
 ```  
 
 <p><img alt="create_notification_rule" src="/images/docs/guardrails/getting-started/getting-started-gcp/send-alert-to-email/create-notification-rule.png"/></p>
@@ -86,22 +86,24 @@ Now, in the GCP console, remove the `environment:development` label. The calcula
   
 Now check your email.
 
-  
-[image: view_email_notification]  
-  
-(unable to reproduce at the moment)
+<p><img alt="view_email_notification" src="/images/docs/guardrails/getting-started/getting-started-gcp/send-alert-to-email/view-email-notification.png"/></p>
 
-  
 The alarm reported in the Guardrails console also appears in your inbox. You can alternatively configure Guardrails to send alerts to [Slack]([guardrails/docs/guides/notifications/templates#example-slack-template](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)) or [MS Teams](/guardrails/docs/guides/notifications/templates#example-ms-teams-template).  
-  
-  
 
 
 ## Step 7: Review
 
-Now that we have successfully alerted on controls, you can repeat this exercise with other Policy Packs from the [Guardrails Hub](hub.guardrails.com).   
+Update your notification rule to handle transitions from `OK` to `Alarm`.
+
+```yaml
+- rules: |
+   NOTIFY $.oldControl.state:skipped $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
+   NOTIFY $.oldControl.state:ok $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
+  emails:
+     - judell@turbot.com
+```  
   
-  
+Find another bucket that’s `OK` for access control, set it to fine-grained, and verify that you see the alarm both in the Guardrails console and in email.  
 
 
 ## Next Steps

@@ -22,49 +22,42 @@ sidebar_label: Enable Automatic Enforcement
 
 In the [previous guide](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on bucket access control. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
 
-## Step 1: Revisit your static exception
+## Step 1: Locate the Policy Pack
 
-In  [Create a static  exception](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception) we set the bucket access control policy for a bucket to `Skip`.  
-  
-Use the `Controls by State` control to find it.
+In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack) we enabled `Enforce Uniform Access is Enabled for GCP Storage Buckets`.
 
-<p><img alt="find-bucket-skipped-by-static-exception" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/find-bucket-skipped-by-static-exception.png"/></p>
+Locate it on the `Policies` page.
 
-## Step 3: View the policy setting
+<p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/locate-policy-pack.png"/></p>
 
-Click the `Setting` link (wrench icon).
+Click the link.
+
+## Step 2: View the policy setting
+
+Open the Policy Pack to view the current setting.
 
 <p><img alt="view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/view-policy-setting.png"/></p>
 
+It’s the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack).
+
+Click the pencil icon to edit, and click the `Disable calculated mode` to return to basic mode.
+
+<p><img alt="gcp-update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/gcp-update-policy-setting.png"/></p>
+
 Choose `Enforce: Enabled` and click `Update`.
 
-## Step 5: Observe enforcement
+## Step 3: Observe enforcement
 
-On the Policy Setting page, switch to the `Activity` tab.  
+Revisit `Controls by State` and set the filter to `GCP > Storage > Bucket > Access Control`.  
 
+<p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/enforcement-happened.png"/></p>
 
-[image: enforcement-happened]
-
-  
-(unable to reproduce at the moment)
-
-Here you can see the whole history. Reading from the bottom up:
-
-- you updated the policy setting
-
-- Guardrails reevaluated and found the bucket to be out-of-policy
-
-- Guardrails autonomously did what you did with a `Quick Action` in the previous guide: enable versioning  
-  
-- Guardrails noticed the bucket’s changed status
-
-- Guardrails reevaluated and found that the bucket now complies with policy  
-  
+All your buckets are now green for access control.  
 
 
 ## Step 6: Review
 
-For fun, try switching access back to Fine-Grained again. It won’t stay that way for long!
+Try switching a bucket back to fine-grained access control. It won’t stay that way for long!
 
 ## Next Steps
 
