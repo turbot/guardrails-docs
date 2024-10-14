@@ -12,7 +12,7 @@ In this guide, you’ll connect an AWS account to Guardrails. Then, in following
 
 Access to the Guardrails console with admin privilege, and a top-level `Sandbox` folder.
 
-## Step 1: Initiate the `Connect`
+## Step 1: Initiate the Connect
 
   
 On the Guardrails home page, hover on `Connect`.  
@@ -51,15 +51,6 @@ Copy the role ARN for use in step 5.
 
 <p><img alt="finish-and-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/finish-and-connect.png"/></p>
 
-Set the `Parent Resource` to `Sandbox`.
-
-Provide your AWS account ID.
-
-Paste the role ARN from step 4.
-
-Verify the external ID matches what you captured in Step 2. If not, overwrite with that captured value.  
-
-
 Click `Connect`.
 
 ## Step 6: Observe progress
@@ -71,7 +62,7 @@ Wait for the progress bar to complete.
 This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.  
 
 
-## Step 7: Locate the `Controls by State` report
+## Step 7: Locate the Controls by State report
 
 Search `Reports` for `controls`.  
 

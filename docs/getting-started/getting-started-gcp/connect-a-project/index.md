@@ -58,7 +58,7 @@ Click to open the `Connect` screen.
 
 ## Step 5: Connect your project
 
-Click `GCP Project`.  
+Choose `GCP Project`.  
   
 Use the `Parent Resource` dropdown to select your Sandbox.
 
@@ -88,7 +88,7 @@ Select `Controls by State`.
   
 
 
-## Step 8: View Controls by State
+## Step 8: Review
 
 You’ve now successfully connected your GCP project to Guardrails.
 
@@ -99,42 +99,6 @@ Bookmark the `Controls by State` report, you’ll need it in subsequent guides.
 > [!NOTE]
 > It’s normal for the `Controls by State` report to show controls in `Alarm` and/or `TBD`. If controls are in `Error` or `Invalid`, you should check with your administrator to resolve these issues. See [Troubleshooting](#troubleshooting).  
 
-
-## Step 9: Enable APIs for Turbot event handlers
-
-Your Guardrails account is now using [Event Polling]([https://turbot.com/guardrails/docs/reference/glossary#event-polling](https://turbot.com/guardrails/docs/reference/glossary#event-polling)). To speed up Guardrails’ detection of resource changes in your GCP project, you’ll now enable [Event Handlers]([https://turbot.com/guardrails/docs/reference/glossary#event-handler](https://turbot.com/guardrails/docs/reference/glossary#event-handler)).  
-  
-In this step, you’ll create policy settings for the GCP Pub/Sub and Logging APIs.
-
-From top-level `Policies`, navigate to `GCP > Logging > API Enabled` and click `New Policy Setting`.  
-
-<p><img alt="logging-api-enabled" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/logging-api-enabled.png"/></p>
-
-Select `Turbot` as the resource, choose `Enforce: Enabled`, and click `Create`.  
-  
-Do the same for `GCP > Pub/Sub > API Enabled`.  
-
-
-## Step 10: Configure Turbot event handlers
-
-From top-level `Policies`, navigate to `GCP > Turbot > Event Handlers > Logging`, and click `New Policy Setting`.
-
-<p><img alt="event-handlers-logging" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/event-handlers-logging.png"/></p>
-
-Select `Turbot` as the resource, choose `Enforce: Configured`, and click `Create`.  
-  
-Do the same for `GCP > Pub/Sub > API Enabled`.
-
-  
-
-
-## Step 11: Review
-
-From top-level `Controls`, search for `gcp > turbot > event handlers`
-
-<p><img alt="review-event-handlers" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/review-event-handlers.png"/></p>
-
-Verify that both event handlers are green. Guardrails will now react instantly when resources change in your GCP project.
 
 ## Next Steps
 

@@ -74,7 +74,7 @@
         "items": [
           "getting-started/getting-started-azure/connect-a-subscription",
           "getting-started/getting-started-azure/observe-azure-activity",
-          "getting-started/getting-started-azure/attach-policy-pack",
+          "getting-started/getting-started-azure/enable-policy-pack",
           "getting-started/getting-started-azure/create-static-exception",
           "getting-started/getting-started-azure/create-calculated-exception",
           "getting-started/getting-started-azure/send-alert-to-email",
