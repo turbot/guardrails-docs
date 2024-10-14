@@ -11,7 +11,7 @@ Turbot Guardrails is a comprehensive governance platform that automates the disc
 
 Its architecture is centered around a core event loop called the **OODA loop**: 
 
-![Turbot Guardrails OODA Loop](architecture_ooda_loop.png)
+![Turbot Guardrails OODA Loop](/images/docs/guardrails/architecture_ooda_loop.png)
 
 * **Observe:** Monitor changes across your organization's cloud service providers.
 * **Orient:** Record all governed resources in the Guardrails CMDB, enriching them with metadata for context.
@@ -20,16 +20,16 @@ Its architecture is centered around a core event loop called the **OODA loop**:
 
 Guardrails continuously monitors real-time change events occurring at the cloud service providers without hindering the agility of application teams. This real-time monitoring enables Guardrails to identify configuration errors stemming from both human actions and automated processes, including intentional misconfigurations by individuals with elevated privileges.
 
-![Turbot Guardrails Governance](architecture_event_monitor.png)
+![Turbot Guardrails Governance](/images/docs/guardrails/architecture_event_monitor.png)
 
 ## Deployment Options
 
 Organizations have two primary options for deploying Turbot Guardrails:
 
 1. **Turbot Guardrails SaaS:** This option leverages the software-as-a-service offering of Turbot Guardrails.
-![Turbot Guardrails SaaS Architecture](architecture_saas.png)
+![Turbot Guardrails SaaS Architecture](/images/docs/guardrails/architecture_saas.png)
 2. **Turbot Guardrails Enterprise:** This option allows organizations to deploy Turbot Guardrails within their own AWS account and VPC.
-![Turbot Guardrails Hosted Architecture](architecture_hosted.png)
+![Turbot Guardrails Hosted Architecture](/images/docs/guardrails/architecture_hosted.png)
 
 ## Guardrails Hosted Deployment Architecture
 
@@ -47,7 +47,7 @@ Key aspects of the deployment architecture include:
 
 Turbot Guardrails Enterprise is engineered for secure deployment across diverse enterprise VPC configurations. This adaptability ranges from a simple public subnet with an internet gateway (IGW) to a multi-AZ, three-tier VPC (database, application, web) operating in private network space and utilizing centralized outbound network connectivity (through a transit gateway or proxy).
 
-![Turbot Guardrails Network Architecture](architecture_networking.png)
+![Turbot Guardrails Network Architecture](/images/docs/guardrails/architecture_networking.png)
 
 The most common enterprise network topology typically requires the following network configurations:
 
@@ -58,11 +58,11 @@ The most common enterprise network topology typically requires the following net
 
 ## Real-time Event Architecture
 
-![Turbot Guardrails Real-Time Event Architecture](architecture_event_handling.png)
+![Turbot Guardrails Real-Time Event Architecture](/images/docs/guardrails/architecture_event_handling.png)
 
 In a private VPC deployment, Guardrails utilizes the AWS API Gateway service to receive external events from cloud service providers. The API gateway is configured to accept only properly signed events and does not expose any data externally.
 
-![Turbot Guardrails Real-Time Event Architecture](architecture_api_gateway.png)
+![Turbot Guardrails Real-Time Event Architecture](/images/docs/guardrails/architecture_api_gateway.png)
 
 Key characteristics of the API gateway configuration:
 
