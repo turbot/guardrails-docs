@@ -14,7 +14,7 @@ WARNING: Old mod Lambdas should not be cleaned up manually. It's easy to make a 
 ### AWS Lambda Console
 Note how much storage is used in the Lambda console. Also, take note of any mod lambdas that are using old versions of Node.js. As mod version cleanup happens, lambda storage should go down.
 
-### TEF 
+### TEF
 1. Set the Mods Cleanup parameter to "On".
 2. Toggle the Deployment Trigger to force reevaluation of all SSM parameters.
 
@@ -26,13 +26,13 @@ Or
 ### Mods in the Guardrails Console
 1. Any mods that haven't been updated since TE 5.36.* was deployed in the environment will need to be upgraded or removed+reinstalled. The upgrade approach is recommended. Customers with pinned mod versions or with mod auto-update disabled should upgrade to the latest mod release.
 
-## Is it working? 
+## Is it working?
 There is no visible change in the Guardrails console that mod lambda clean up is underway.  All change records appear in the CloudWatch Logs for the maintenance container.
 
 ### CloudWatch Logs
 
 To verify that mod lambda cleanup is happening:
-1. Go to the Cloudwatch log group `/{turbot_prefix}/{current_te_version}/maintenance`
+1. Go to the CloudWatch log group `/{turbot_prefix}/{current_te_version}/maintenance`
 2. Search with the log group for the string "Running delete operation".
 
 Example:
