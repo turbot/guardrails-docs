@@ -44,7 +44,7 @@ Search Policies for `quick actions`.
 
 Click into `Turbot > Quick Actions > Enabled` and switch to the `Settings` tab.
 
-<p><img alt="switch to settings" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/switch to settings.png"/></p>
+<p><img alt="switch-to-settings" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/switch-to-settings.png"/></p>
 
 Click `New Policy Setting`’  
 
