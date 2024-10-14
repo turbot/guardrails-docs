@@ -7,7 +7,7 @@ sidebar_label: Create Workspace
 
 In this guide, you will:
 
-- Use AWS CloudFormation service to create Turbot Guardrails Workspace through Workspace Manager CloudFormation Template
+- Use AWS CloudFormation service to create Turbot Guardrails Workspace through Workspace Manager CloudFormation Template.
 
 A [Workspace](/guardrails/docs/reference/glossary#workspace) is an independent tenant of Guardrails, with its own version and its
 own schema (logical shard) in a hive. Each Workspace has its own root resource as [Turbot](/guardrails/docs/reference/glossary#turbot-resource),
@@ -33,10 +33,10 @@ In the AWS Console, navigate to the CloudFormation service in the alpha region.
 While the sample template provides a simple, out-of-the box mechanism for deploying a single workspace, it is merely a starting point. You may wish to
 deploy ALL your workspaces from a single template, so that you can manage versions for all workspaces from a single stack, for instance.
 
-This template is available at Guardrails Samples Repo
+This template is available at Guardrails sample repo.
 [Workspace Manager CloudFormation Template](https://github.com/turbot/guardrails-samples/blob/main/enterprise_installation/workspace_template.yml)
 
-Download
+Download the template.
 
 ![Download Template](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/github-guardrails-samples-workspace-template-download.png)
 
@@ -64,7 +64,7 @@ Enter the appropriate parameters and select **Next**
 
 ## Step 5: Enable Termination Protection
 
-Turbot recommends enabling **Termination Protection** on the Workspace Manager CloudFormation stack. This can be done at creation by expanding the **Stack creation options** and enabling Termination Protection. This can also be configured post CloudFormation stack deployment. Select the stack while viewing the CloudFormation service in the AWS console, click **Stack actions** in the top right, then click **Edit termination protection**. Set this to `Activated` and select **Save**!
+Turbot recommends enabling **Termination Protection** on the Workspace Manager CloudFormation stack. This can be done at creation by expanding the **Stack creation options** and enabling Termination Protection. This can also be configured post CloudFormation stack deployment. Select the stack while viewing the CloudFormation service in the AWS console, click **Stack actions** in the top right, then click **Edit termination protection**. Set this to `Activated` and select **Save**.
 
 ![CloudFormation Enable Termination Protection](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-enable-termination-protection.png)
 

@@ -7,8 +7,8 @@ sidebar_label: Workspace Login
 
 In this guide, you will:
 
-- Use Guardrails console to login to the Workspace
-- Perform initial credentials rotation operation
+- Use Guardrails console to login to the Workspace.
+- Perform initial credentials rotation operation.
 
 A [Workspace](/guardrails/docs/reference/glossary#workspace) is an independent tenant of Guardrails, with its own version and its
 own schema (logical shard) in a hive. Each Workspace has its own root resource as [Turbot](/guardrails/docs/reference/glossary#turbot-resource),
@@ -29,7 +29,7 @@ In the AWS Console, navigate to the CloudFormation service in the alpha region.
 
 ## Step 2: Find Workspace Stack
 
-While CloudFormation `Stacks`, search for the stack name and select the stack
+While CloudFormation `Stacks`, search for the stack name and select the stack.
 
 ![Find Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/cloudformation-created-stack.png)
 

@@ -6,7 +6,7 @@ sidebar_label: Install TED
 # Install Turbot Guardrails Enterprise Database (TED)
 
 In this guide, you will:
-- Use AWS Service Catalog to install Turbot Guardrails Enterprise Database (TED)
+- Use AWS Service Catalog to install Turbot Guardrails Enterprise Database (TED).
 - Monitor and troubleshoot the TED install process.
 
 [Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account.

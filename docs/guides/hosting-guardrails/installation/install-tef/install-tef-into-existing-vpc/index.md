@@ -17,8 +17,8 @@ The TEF CloudFormation stack creates and manages the networking and compute comp
 
 ## Prerequisites
 
-- Availability of Turbot's Guardrails enterprise products [Link Here Service Catalog Portfolios Guide]
-- Preparedness on the [Turbot Guardrails Enterprise Pre-Installation Checklist](/guardrails/docs/guides/hosting-guardrails/installation/pre-installation/checklist)
+- Availability of Turbot's Guardrails enterprise products [Link Here Service Catalog Portfolios Guide].
+- Preparedness on the [Turbot Guardrails Enterprise Pre-Installation Checklist](/guardrails/docs/guides/hosting-guardrails/installation/pre-installation/checklist).
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 - Available Domain name(s), Valid ACM Certificate(s) and existing VPC & it's related network resources configuration details.
@@ -43,7 +43,7 @@ Select **Turbot Guardrails Enterprise Foundation** from the products list, selec
 
 ## Step 4: Name Provisioned Product
 
-Select a Name for the provisioned project. Typically, this will be "tef"
+Select a Name for the provisioned project. Typically, this will be `tef`.
 
 ![Name Provisioned Product](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-name-provisioned-product.png)
 
@@ -61,7 +61,7 @@ Select the desired TEF version under **Product Versions**. Usually, you will wan
 
 ## Step 7: Configure Installation
 
-The required parameters for this  installation option are as below
+The required parameters for this installation option are as below
 
 **Installation Domain Name**: This should be the base domain name for the installation (for example, `turbot.mycompany.com`). This should be unique per Guardrails installation. You cannot share an Installation Domain Name across multiple collectives. Workspaces will be set up as subdomains of this installation domain (for example, `dev.turbot.mycompany.com`). If you elect to create a public API gateway, it will also be a subdomain of the installation domain (for example, `external.mycompany.turbot.com`).
 
@@ -71,11 +71,11 @@ The required parameters for this  installation option are as below
 **Turbot Certificate ARN**: This is used for the Turbot Console (and gateway, if applicable) in this region. This **_must_** be the ARN of an **_ACM certificate in this region_**, and the certificate domain name must match the **Installation Domain Name**.
 
 > [!IMPORTANT]
-> A wildcard certificate is highly recommended.  Without a wildcard cert, the certificate will need to be updated with the new workspaces as they are brought online.
+> A wildcard certificate is highly recommended. Without a wildcard cert, the certificate will need to be updated with the new workspaces as they are brought online.
 > Wildcard certificates should include entries for both the base **Installation Domain Name** and a wildcard for workspaces (e.g., `turbot.mycompany.com` and `*.turbot.mycompany.com`). If wildcard certificates are not allowed, the certificate should cover the base **Installation Domain Name**, all workspace domain names, and any public API gateways.
 
 > [!IMPORTANT]
-> **Manager DNS records in Route 53** It is highly recommended that you allow Turbot to manage DNS records in Route53.  If you choose not to do so, you must manually update DNS records every time you install a new version in your workspaces.
+> **Manager DNS records in Route 53** It is highly recommended that you allow Turbot to manage DNS records in Route53. If you choose not to do so, you must manually update DNS records every time you install a new version in your workspaces.
 
 > [!IMPORTANT]
 > Enter the desired **NAT Gateway High Availability** configuration.  For a production deployment, you should choose **Multi-AZ**.
@@ -91,25 +91,11 @@ Proceed to `Logging` section leaving the `Turbot Guardrails License Key` field b
 
 Select the desired values for `Turbot Handler Log Retention Days`, `Audit Trail Log Retention Days`, `Turbot Guardrails Process Log Objects Retention Days`, and `Turbot Guardrails Mod Installation Data Retention Days`, or leave them all at their default values.
 
-<!-- ![Logging](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-parameter-logging.png) -->
-
 ## Step 9: Configure Network with Existing VPC
 
 The Turbot Guardrails Enterprise Foundation setup can use your existing VPC to host Turbot Guardrails, when `Network - This Region [Option B - Predefined]` is opted for the installation.
 
-<!-- Leave all fields in `Network  Option A` as blank as this option is used to install [Guardrails with new VPC](/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc). -->
-
-<!-- Enter the VPC ID that will be used to host Turbot in the `VPC` field. This VPC must already exist. If empty, then a new VPC will be deployed by this stack, per **Network - This Region [Option A - Created in this Stack]**.
-
-In the `Load Balancer Subnets field`, enter a comma separated list of subnet IDs where the load balancers will be deployed. These subnets may be public facing or internal facing, and can be identical to the Application Subnet IDs. Id you have selected a pre-defined VPC, you MUST specify Load Balancer Subnet Ids here.
-
-In the `Application (Turbot Guardrails) Subnets` field, enter a comma separated list of subnet IDs where the Turbot Containers and private lambda functions (such as the workspace manager) will be deployed. If you have selected a pre-defined VPC, you MUST specify Application (Turbot Guardrails) Subnet IDs here. These subnets must be able to route https outbound to the Internet, either directly or through a proxy.
-
-In the `Database Subnets` field, enter a comma separated list of subnet IDs where the databases will be deployed. If you have selected a pre-defined VPC, you MUST specify Database Subnet IDs here. -->
-
 Enter the VPC ID in `VPC`, comma separated list of subnet IDs in` Load Balancer Subnets`, `Application (Turbot Guardrails) Subnets` and in `Database Subnets` fields.
-
-<!-- ![Network Created in Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-parameter-network-create-in-stack.png) -->
 
 ![Network With Existing VPC](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-parameter-network-existing-vpc.png)
 

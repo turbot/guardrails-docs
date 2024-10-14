@@ -15,8 +15,8 @@ The TEF CloudFormation stack creates and manages the networking and compute comp
 
 ## Prerequisites
 
-- Availability of Turbot's Guardrails enterprise products [Link Here Service Catalog Portfolios Guide]
-- Preparedness on the [Turbot Guardrails Enterprise Pre-Installation Checklist](/guardrails/docs/guides/hosting-guardrails/installation/pre-installation/checklist)
+- Availability of Turbot's Guardrails enterprise products [Link Here Service Catalog Portfolios Guide].
+- Preparedness on the [Turbot Guardrails Enterprise Pre-Installation Checklist](/guardrails/docs/guides/hosting-guardrails/installation/pre-installation/checklist).
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 - Available Domain name(s) and Valid ACM Certificate(s).
@@ -41,7 +41,7 @@ Select **Turbot Guardrails Enterprise Foundation** from the products list, selec
 
 ## Step 4: Name Provisioned Product
 
-Select a Name for the provisioned project. Typically, this will be "tef"
+Select a Name for the provisioned project. Typically, this will be `tef`.
 
 ![Name Provisioned Product](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-and-new-vpc/service-catalog-name-provisioned-product.png)
 
@@ -59,7 +59,7 @@ Select the desired TEF version under **Product Versions**. Usually, you will wan
 
 ## Step 7: Configure Installation
 
-The required parameters for this  installation option are as below
+The required parameters for this installation option are as below
 
 **Installation Domain Name**: This should be the base domain name for the installation (for example, `turbot.mycompany.com`). This should be unique per Guardrails installation. You cannot share an Installation Domain Name across multiple collectives. Workspaces will be set up as subdomains of this installation domain (for example, `dev.turbot.mycompany.com`). If you elect to create a public API gateway, it will also be a subdomain of the installation domain (for example, `external.mycompany.turbot.com`).
 
@@ -69,7 +69,7 @@ The required parameters for this  installation option are as below
 **Turbot Certificate ARN**: This is used for the Turbot Console (and gateway, if applicable) in this region. This **_must_** be the ARN of an **_ACM certificate in this region_**, and the certificate domain name must match the **Installation Domain Name**.
 
 > [!IMPORTANT]
-> A wildcard certificate is highly recommended.  Without a wildcard cert, the certificate will need to be updated with the new workspaces as they are brought online.
+> A wildcard certificate is highly recommended. Without a wildcard cert, the certificate will need to be updated with the new workspaces as they are brought online.
 > Wildcard certificates should include entries for both the base **Installation Domain Name** and a wildcard for workspaces (e.g., `turbot.mycompany.com` and `*.turbot.mycompany.com`). If wildcard certificates are not allowed, the certificate should cover the base **Installation Domain Name**, all workspace domain names, and any public API gateways.
 
 > [!IMPORTANT]
@@ -90,7 +90,7 @@ Select the desired values for `Turbot Handler Log Retention Days`, `Audit Trail 
 
 ## Step 9: Configure Network with New VPC - Created in this Stack
 
-The Turbot Guardrails Enterprise Foundation setup can create the VPC to host Turbot Guardrails, when `Network  Option A` is selected for the installation. Leave all fields in `Network - This Region [Option B - Predefined]` as blank as this option is used to install [Guardrails into an existing VPC](guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc) .
+The Turbot Guardrails Enterprise Foundation setup can create the VPC to host Turbot Guardrails, when `Network Option A` is selected for the installation. Leave all fields in `Network - This Region [Option B - Predefined]` as blank as this option is used to install [Guardrails into an existing VPC](guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc) .
 
 
 > [!IMPORTANT]
@@ -99,7 +99,7 @@ The Turbot Guardrails Enterprise Foundation setup can create the VPC to host Tur
 
 ![Network Created in Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-and-new-vpc/service-catalog-tef-parameter-network-create-in-stack.png)
 
-Keep rest of the parameters for `Load Balancer`, `Proxy`, `Security Groups`  at their default values and proceed to `Advanced - ECS EC2 configuration` section.
+Keep rest of the parameters for `Load Balancer`, `Proxy`, `Security Groups` at their default values and proceed to `Advanced - ECS EC2 configuration` section.
 
 ![Default Parameter Sections](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-and-new-vpc/service-catalog-tef-default-parameter-sections.png)
 
