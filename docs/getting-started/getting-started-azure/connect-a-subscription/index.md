@@ -7,15 +7,13 @@ sidebar_label: Connect an Azure Account to Guardrails
 # Connect an Azure Subscription to Guardrails
 
   
-In this guide, you’ll connect an AWS account to Guardrails. Then, in following guides, you’ll work through a series of exploratory exercises to learn the basics of cloud governance with Guardrails.
+In this guide, you’ll connect an Azure subscription to Guardrails. Then, in following guides, you’ll work through a series of exploratory exercises to learn the basics of cloud governance with Guardrails.
 
 **Prerequisites**:
 
 Access to the Guardrails console with admin privilege, and a top-level `Sandbox` folder.
 
-## Step 1: Create a App Registration and roles
-
-### Register an app
+## Step 1: Register an app
 
 Login to the Azure portal.
 
@@ -30,7 +28,7 @@ The Redirect URI is optional.  The Guardrails integration doesn’t use the red
 Capture the Application (client) ID from the Overview tab.  Copy the Application (client) ID and Directory (tenant) IDs.  You will need them later.  
 
 
-### Create a secret
+## Step 2: Create a secret
 
   
 Under the `Manage` sidebar item, go to `Certificates & secrets`. 
@@ -39,11 +37,11 @@ Go to the `Client Secrets` tab.
   
 Create a new secret and capture its Value.  Don’t use the Secret ID!
 
-### Create a ReadOnly role
+## Step 3: Create a ReadOnly role
 
-### Click the `Shell icon` in the portal at top right, next to the search bar.
+Click the `Shell icon` in the portal at top right, next to the search bar.
 
-Select `Bash`
+Select `Bash`.
 
 In the cloud shell, create `turbot_reader_role.json`, swapping in your subscription id.  The Azure default `Reader` role does not include permissions to read `KeyVault Secrets` metadata (not the secret itself), so they are included here.   
   
@@ -74,7 +72,7 @@ Run this command to create the role.
 az role definition create --role-definition turbot_reader_role.json  
 ```
 
-Assign `turbot_reader` to the Guardrails App Registration.
+## Step 4: Assign the role to the app
 
 Go to the subscription that will be imported into Guardrails.  
   
@@ -89,7 +87,7 @@ Search for the name of your registered app, click `Select`.
 Complete the `Review + assign` flow.  
 
 
-## Step 2: Initiate the Connect
+## Step 5: Initiate the Connect
 
 On the Guardrails home page, hover on `Connect`.
 
@@ -97,7 +95,7 @@ On the Guardrails home page, hover on `Connect`.
 
 Click to open the `Connect` screen.
 
-## Step 2: Connect your subscription
+## Step 6: Connect your subscription
 
 Choose `Azure Subscription`.
 
@@ -115,19 +113,21 @@ Select your environment (likely Global Cloud).
 
 Click `Connect`.
 
-## Step 3: Observe progress
+## Step 7: Observe progress
 
 <p><img alt="azure_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-a-subscription/azure-progress-bar.png"/></p>
 
 This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.
 
-## Step 4: Locate the Controls by State report[image: search-for-controls-reports]
+## Step 8: Locate the Controls by State report
 
-## Step 5: Review
+<p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-a-subscription/search-for-controls-reports.png"/></p>
 
-You’ve now successfully connected your AWS account to Guardrails.
+## Step 9: Review
 
-<p><img alt="aws-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-a-subscription/aws-controls-by-state.png"/></p>
+You’ve now successfully connected your Azure subscription to Guardrails.
+
+<p><img alt="azure-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-a-subscription/azure-controls-by-state.png"/></p>
 
 Bookmark the `Controls by State` report, you’ll need it in subsequent guides.
 
