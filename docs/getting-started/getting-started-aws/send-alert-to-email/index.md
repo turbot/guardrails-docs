@@ -55,7 +55,7 @@ Enter this rule, using one or more email addresses you want to notify.
   
 ```yaml
 - rules: |
-   $.control.state:alarm $.controlType.uri:'tmod:@turbot/aws-s3#/control/types/bucketVersioning'
+   NOTIFY $.control.state:alarm $.controlType.uri:'tmod:@turbot/aws-s3#/control/types/bucketVersioning'
   emails:
      - judell@turbot.com
 ```  
@@ -88,13 +88,21 @@ Now check your email.
 
 The alarm reported in the Guardrails console also appears in your inbox. You can alternatively configure Guardrails to send alerts to [Slack]([guardrails/docs/guides/notifications/templates#example-slack-template](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)) or [MS Teams](/guardrails/docs/guides/notifications/templates#example-ms-teams-template).
 
-## Step 7: Review
+## Update your notification rule to handle transitions from `OK` to `Alarm`.
 
-Now that we have successfully alerted on controls, you can repeat this exercise with other Policy Packs from the [Guardrails Hub](hub.guardrails.com). 
+```yaml
+- rules: |
+   NOTIFY $.oldControl.state:skipped $.control.state:alarm $.controlType.uri:'tmod:@turbot/aws-s3#/control/types/bucketVersioning'
+   NOTIFY $.oldControl.state:ok $.control.state:alarm $.controlType.uri:'tmod:@turbot/aws-s3#/control/types/bucketVersioning'
+  emails:
+     - judell@turbot.com
+```  
+  
+Find a bucket that’s `OK` for versioning, disable versioning, and verify that you see the alarm both in the Guardrails console and in email.
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, enable versioning on a bucket that’s now in the `Alarm` state and make it green. Note that this will require one additional permission on the role you created in [the first guide]([/](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)guardrails/docs/getting-started/getting-started-aws/connect-an-account): `s3:PutBucketVersioning`. 
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, directly enable versioning on a bucket that’s now in the `Alarm` state and make it green. Note that this will require one additional permission on the role you created in [the first guide]([/](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)guardrails/docs/getting-started/getting-started-aws/connect-an-account): `s3:PutBucketVersioning`. 
 
 
 ## Progress tracker

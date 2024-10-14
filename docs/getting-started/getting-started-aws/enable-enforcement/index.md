@@ -22,57 +22,38 @@ sidebar_label: Enable Automatic Enforcement
 
 In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
 
-## Step 1: Revisit your static exception
+## Step 1: Locate the Policy Pack
 
-In  [Create a static  exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we set the bucket versioning policy for a bucket to `Skip`.  
-  
-Use the `Controls by State` control to find it.
+In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`.
 
-<p><img alt="aws-find-bucket-skipped-by-static-exception" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-find-bucket-skipped-by-static-exception.png"/></p>
+Locate it on the `Policies` page.
 
-## Step 2: View the policies for the control
+<p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/locate-policy-pack.png"/></p>
 
-Click into the Control and switch to the `Policies` tab.  
+Click the link.  
 
-<p><img alt="aws-view-skipped-bucket-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-view-skipped-bucket-policy-setting.png"/></p>
 
-## Step 3: View the policy setting
+## Step 2: View the policy setting.
 
-Click the `Setting` link (wrench icon).
+Open the Policy Pack to view the current setting.
 
-<p><img alt="aws-view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-view-policy-setting.png"/></p>
+<p><img alt="view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/view-policy-setting.png"/></p>
 
-## Step 4: Update the policy setting
+It’s the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack).
 
-Click `Edit`.
+Click the pencil icon to edit, and click the `Disable calculated mode` to return to basic mode.
 
 <p><img alt="aws-update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-update-policy-setting.png"/></p>
 
-Choose `Enforce: Enabled` and click `Update`.
+## Step 3: Observe enforcement
 
-## Step 5: Observe enforcement
+Revisit `Controls by State` and set the filter to `AWS > S3 > Bucket > Versioning`.  
 
-On the Policy Setting page, switch to the `Activity` tab.  
-
-<p><img alt="aws-enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-enforcement-happened.png"/></p>
-
-Here you can see the whole history. Reading from the bottom up:
-
-- you updated the policy setting
-
-- Guardrails reevaluated and found the bucket to be out-of-policy
-
-- Guardrails autonomously did what you did with a `Quick Action` in the previous guide: enable versioning  
-  
-- Guardrails noticed the bucket’s changed status
-
-- Guardrails reevaluated and found that the bucket now complies with policy  
-  
-
+<p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/enforcement-happened.png"/></p>
 
 ## Step 6: Review
 
-For fun, try suspending versioning on the bucket again. It won’t stay that way for long!
+Try suspending versioning on a bucket. It won’t stay that way for long!
 
 ## Next Steps
 
