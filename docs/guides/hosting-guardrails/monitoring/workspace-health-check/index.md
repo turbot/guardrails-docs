@@ -19,33 +19,33 @@ An ideal workspace should be quick and responsive. It should employ necessary co
 
 Log into the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/workspace-health-check/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-console-login.png)
 
 ## Step 2: Navigate to Reports
 
 Choose **Reports** from the top navigation menu.
 
-![Navigate to Reports](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/workspace-health-check/guardrails-navigate-to-reports.png)
+![Navigate to Reports](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-navigate-to-reports.png)
 
 ## Step 3: View Control Alerts
 
 Under Controls, select **Alerts by Control Type**.
 
-![Alerts by Control Type](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/workspace-health-check/guardrails-select-controls-alerts.png)
+![Alerts by Control Type](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-select-controls-alerts.png)
 
 Filter for **Error** and **Invalid** states.
 
-![Apply Filter](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/workspace-health-check/guardrails-filter-error-invalid.png)
+![Apply Filter](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-filter-error-invalid.png)
 
 ## Step 3: View Policy Alerts
 
 In **Reports**, under **Policies**, select **Policy Values by State**.
 
-![Alerts by Policy Values](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/workspace-health-check/guardrails-policy-values-by-state.png)
+![Alerts by Policy Values](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-policy-values-by-state.png)
 
 Filter for **Error** and **Invalid** states.
 
-![Apply Filter](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/workspace-health-check/filter-policy-error-invalid-state.png)
+![Apply Filter](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/filter-policy-error-invalid-state.png)
 
 ## Step 4: Resolving Errors and Optimizing Controls
 

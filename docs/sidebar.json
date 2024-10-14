@@ -486,7 +486,7 @@
             "link": "guides/hosting-guardrails/monitoring",
             "items": [
               "guides/hosting-guardrails/monitoring/investigate-event-flood",
-              "guides/hosting-guardrails/monitoring/diagnose-control-error-in-cloudwatch",
+              "guides/hosting-guardrails/monitoring/diagnose-control-error",
               "guides/hosting-guardrails/monitoring/workspace-health-check"
             ]
           }
