@@ -30,7 +30,6 @@ In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-st
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/locate-policy-pack.png"/></p>
 
-Click the link.
 
 ## Step 2: View the policy setting
 

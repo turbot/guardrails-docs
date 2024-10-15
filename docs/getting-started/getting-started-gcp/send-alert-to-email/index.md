@@ -27,7 +27,7 @@ To enable notifications for your workspace, select **Policies** in the top navig
 
 <p><img alt="search-notifications-policy-type" src="/images/docs/guardrails/getting-started/getting-started-gcp/send-alert-to-email/search-notifications-policy-type.png"/></p>
 
-Step 2: Create new policy setting
+## Step 2: Create new policy setting
 
 Choose **New Policy Setting**.
 
