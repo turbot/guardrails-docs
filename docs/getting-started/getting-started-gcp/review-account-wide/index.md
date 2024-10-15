@@ -1,6 +1,6 @@
 ---
 title: Review Account-Wide Bucket Access Control
-sidebar_label: Review Account-Wide Bucket Access Control
+sidebar_label: Review Bucket Access Control
 ---
 
 

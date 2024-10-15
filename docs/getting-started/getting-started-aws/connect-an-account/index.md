@@ -1,6 +1,6 @@
 ---
 title: Connect an AWS Account to Guardrails
-sidebar_label: Connect an AWS Account to Guardrails
+sidebar_label: Connect an AWS Account
 ---
 
 

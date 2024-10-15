@@ -1,6 +1,6 @@
 ---
 title: Create a Calculated Exception to a Guardrails Azure Policy
-sidebar_label: Create a calculated exception to a Guardrails Azure policy
+sidebar_label: Create a Calculated Exception
 ---
 
 

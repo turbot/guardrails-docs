@@ -1,6 +1,6 @@
 ---
 title: Create a Static Exception to a Guardrails GCP Policy
-sidebar_label: Create a Static Exception to a Guardrails GCP Policy
+sidebar_label: Create a Policy Exception
 ---
 
 

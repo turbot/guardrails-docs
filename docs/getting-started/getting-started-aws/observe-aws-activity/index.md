@@ -1,6 +1,6 @@
 ---
 title: Observe AWS Resource Activity
-sidebar_label: Observe AWS Resource Activity
+sidebar_label: Observe Resource Activity
 ---
 
 
