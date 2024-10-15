@@ -16,37 +16,37 @@ In this guide, you’ll connect an AWS account to Guardrails. Then, in following
 
 ## Step 1: Initiate the Connect
 
-  
-Login to the Guardrails' console and select the **CONNECT** option from the home page.  
+
+Login to the Guardrails' console and select the **CONNECT** option from the home page.
 
 <p><img alt="locate-top-level-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/locate-top-level-connect.png"/></p>
 
 ## Step 2: Capture the external ID
 
-Select **AWS Account** from the left navigation and then click SOMETHING  to download the CloudFormation template we will use to set up the required IAM role.  
+Select **AWS Account** from the left navigation and then click SOMETHING  to download the CloudFormation template we will use to set up the required IAM role.
 
 <p><img alt="initial-connect-screen" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/initial-connect-screen.png"/></p>
 
 ## Step 3: Review the downloaded CloudFormation template
 
-You’ll need an IAM role that grants Guardrails permission to discover [resources](/guardrails/docs/reference/glossary#resource) in your AWS account and to monitor changes via event handlers. 
+You’ll need an IAM role that grants Guardrails permission to discover [resources](/guardrails/docs/reference/glossary#resource) in your AWS account and to monitor changes via event handlers.
 
-  
+
 The CloudFormation template you downloaded in the last step has the minimum permissions necessary to create that role..
 
 ## Step 4: Create the CloudFormation stack
 
-In AWS, create a CloudFormation stack using the template you downloaded.  
-  
-When the stack is created, verify that the role `turbot-service-readonly` exists in your account, with these permissions:  
-  
-- ReadOnlyAccess  
-- turbot-guardrails-access-policy  
+In AWS, create a CloudFormation stack using the template you downloaded.
+
+When the stack is created, verify that the role `turbot-service-readonly` exists in your account, with these permissions:
+
+- ReadOnlyAccess
+- turbot-guardrails-access-policy
 
 
 ## Step 5: Copy the Role ARN
 
-Verify that the stack completed successfully and then select the outputs tab.  From the stack outputs select and copy the value for Role ARN.
+Verify that the stack completed successfully. Select the **Outputs** tab then copy the value for `Role ARN`.
 
 <p><img alt="cloudformation-outputs" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/cloudformation-outputs.png"/></p>
 
@@ -70,7 +70,7 @@ Check that the IAM Role External ID matches the value from the CloudFormation te
 
 ## Step 9: Connect your account
 
-  
+
 Select the **Connect** button to import the account.
 
 <p><img alt="finish-and-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/finish-and-connect.png"/></p>
@@ -83,13 +83,13 @@ Wait for the progress bar to complete. This process takes a while, and you’ll 
 
 ## Step 11: View Controls by State report
 
-Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select **Controls by State**.  
+Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select **Controls by State**.
 
 <p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
 ## Step 12: Configure report filters
 
-Select the **Type** dropdown from the filters bar. Then enable the check box next to **AWS** to limit the report to only show AWS controls.  
+Select the **Type** dropdown from the filters bar. Then enable the check box next to **AWS** to limit the report to only show AWS controls.
 
 <p><img alt="set-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-type-filter.png"/></p>
 
@@ -114,7 +114,7 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe
 | ERROR | One or more controls are in ERROR. | [tbd]() |
 | INVALID | One or more controls are INVALID. | [tbd]() |
 
-  
+
 
 
 
