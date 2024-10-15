@@ -77,12 +77,9 @@ Select the **Connect** button to import the account.
 
 ## Step 10: Observe progress
 
-Wait for the progress bar to complete.
+Wait for the progress bar to complete. This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.
 
 <p><img alt="aws-progress-bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-progress-bar.png"/></p>
-
-This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.  
-
 
 ## Step 11: View Controls by State report
 
