@@ -31,7 +31,7 @@ Expand the **Resource Type** dropdown.
 ## Step 3: Search for (or navigate to) AWS > S3 > Bucket
 
   
-Set the filter to `AWS > S3 > Bucket`. You can do this by entering `aws s3 bucket` into the search box, as shown here. Alternatively, you can navigate to the same place using **>**  to drill down into the hierarchy.  
+Set the filter to **AWS > S3 > Bucket**. You can do this by entering `aws s3 bucket` into the search box, as shown here. Alternatively, you can navigate to the same place using **>**  to drill down into the hierarchy.  
 
 <p><img alt="aws-resource-type-search" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-type-search.png"/></p>
 
@@ -44,9 +44,7 @@ Enable the checkbox to limit the report to only S3 buckets.
 ## Step 5: Observe notifications
 
   
-Now search for the name of your bucket.
-
-Guardrails reports two notifications related to the bucket creation. `RESOURCE CREATED` indicates discovery of the bucket. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
+Now search for the name of your bucket. Guardrails reports two notifications related to the bucket creation. `RESOURCE CREATED` indicates discovery of the bucket. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
 
 <p><img alt="aws-resource-activities-initial-notifications" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-activities-initial-notifications.png"/></p>
 
@@ -58,13 +56,13 @@ Now visit your bucket in the AWS console and enable versioning. Guardrails will 
 
 ## Step 7: Observe the difference
 
-Click into the new notification for your bucket, and scroll down in the diff to see the change that Guardrails has recorded.  
+Select the new notification for your bucket, and scroll down in the diff to see the change that Guardrails has recorded.  
 
 <p><img alt="aws-diff-the-first-change" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-diff-the-first-change.png"/></p>
 
 ## Step 8: Review
 
-We’ve now seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource.
+We’ve now seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource. Try creating a new bucket and repeating these steps.
 
 ## Next Steps
 

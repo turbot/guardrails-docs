@@ -36,47 +36,47 @@ Add this permission to the `turbot-service-readonly` role you set up in [the fir
 }
 ```
 
-## Step 2: Enable Quick Actions
+## Step 2: Location Turbot > Quick Actions > Enabled
 
-Search Policies for `quick actions`.
+Search Policies for `quick actions`. Select **Turbot > Quick Actions > Enabled**.
 
 <p><img alt="find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/find-quick-actions-policies.png"/></p>
 
-Click into `Turbot > Quick Actions > Enabled` and switch to the `Settings` tab.
+## Step 3: View Turbot > Quick Actions > Enabled policy type
 
-<p><img alt="switch-to-settings" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/switch-to-settings.png"/></p>
+Select **New Policy Setting**.
 
-Click `New Policy Setting`’  
+<p><img alt="view-quick-actions-enabled-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/view-quick-actions-enabled-policy-type.png"/></p>
+
+## Step 4: Enable Quick Actions
+
+Choose your account as the **Resource**, choose **Enabled`, and select **Create**.  
 
 <p><img alt="aws-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-enable-quick-actions.png"/></p>
 
-Choose your account as the resource, choose `Enabled`, and click `Create`.
-
-## Step 3: Find a bucket in Alarm for versioning
+## Step 5: Find a bucket in Alarm for versioning
 
   
-In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we left your test bucket in the `Alarm` state.  
-  
-Locate it.  
+In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we left your test bucket in the `Alarm` state. Locate it in **Controls by State** and select the control  
 
 <p><img alt="aws_search_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-search-bucket-in-alarm-for-quick-action.png"/></p>
 
-## Step 4: Prepare to take a Quick Action
+## Step 6: Prepare to take a Quick Action
 
-Click into the resource, switch to the `Controls` tab, and search for `versioning`.
+Select the **Actions** dropdown.
 
 <p><img alt="aws-bucket-in-alarm-for-quick-action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-bucket-in-alarm-for-quick-action.png"/></p>
 
-## Step 5: Take a Quick Action to enable versioning
+## Step 7: Take a Quick Action to enable versioning
 
-Choose `Enable Versioning`.  
+Choose **Enable Versioning**.  
 
 
 Guardrails reports that the action was successful, and the control goes to green.  
 
 <p><img alt="aws-quick-action-reports-success" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-quick-action-reports-success.png"/></p>
 
-## Step 6: Review
+## Step 8: Review
 
   
 Explore taking Quick Actions on other resources in your account. 
