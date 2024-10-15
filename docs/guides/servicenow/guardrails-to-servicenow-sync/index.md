@@ -248,7 +248,7 @@ The Template must contain either a `parent` or a `child` relationship. It can al
     "type": "<type of the relationship>",
     "parent": {
       "name": "<record's name field value>",
-      "sysId": "<record's sys_id",
+      "sysId": "<record's sys_id>",
       "tableName": "<ServiceNow table name where the record is present>"
     }
   }
@@ -263,7 +263,7 @@ The Template must contain either a `parent` or a `child` relationship. It can al
     "type": "<type of the relationship>",
     "child": {
       "name": "<record's name field value>",
-      "sysId": "<record's sys_id",
+      "sysId": "<record's sys_id>",
       "tableName": "<ServiceNow table name where the record is present>"
     }
   }
@@ -278,7 +278,7 @@ The Template must contain either a `parent` or a `child` relationship. It can al
     "type": "<type of the relationship>",
     "parent": {
       "name": "<record's name field value>",
-      "sysId": "<record's sys_id",
+      "sysId": "<record's sys_id>",
       "tableName": "<ServiceNow table name where the record is present>"
     }
   },
@@ -286,14 +286,14 @@ The Template must contain either a `parent` or a `child` relationship. It can al
     "type": "<type of the relationship>",
     "child": {
       "name": "<record's name field value>",
-      "sysId": "<record's sys_id",
+      "sysId": "<record's sys_id>",
       "tableName": "<ServiceNow table name where the record is present>"
     }
   }
 ]
 ```
 
-* `type`: (Required) Defines the type of relationship, such as “dependency”, “association”, or any custom relationship types defined in ServiceNow.
+* `type`: (Required) Defines the type of relationship, such as `Contains::Contained by`, `Owns::Owned by`, or any custom relationship types defined in ServiceNow.
 * `sysId`: (Required) The unique identifier of the record in ServiceNow.
 * `tableName`: (Required) The table in ServiceNow where the record is located, such as “incident”, “cmdb_ci”, etc.
 * `name`: (Optional) The specific name of the record (usually the value in the `name` field of the ServiceNow record).
@@ -302,6 +302,7 @@ The Template must contain either a `parent` or a `child` relationship. It can al
 
 1. The CI record should already be available in ServiceNow for the relationship to be created successfully.
 2. Removing a relationship block from the Template policy will delete the relationship in ServiceNow.
+3. To view the CI relationships in ServiceNow, you may have to include the `Related CIs` formatter in the Form Layout of the table which contains the CI.
 
 #### Examples
 
