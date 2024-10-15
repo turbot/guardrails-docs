@@ -24,30 +24,29 @@ In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/app
 
 ## Step 1: Locate the Policy Pack
 
-In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`.
-
-Locate it on the `Policies` page.
+In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`. Locate it on the `Policies` page, and select the link.
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/locate-policy-pack.png"/></p>
 
-Click the link.  
+## Step 2: View the policy setting
 
-
-## Step 2: View the policy setting.
-
-Open the Policy Pack to view the current setting.
+View the current setting. It’s the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack).
 
 <p><img alt="view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/view-policy-setting.png"/></p>
 
-It’s the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack).
+## Step 3: Edit the policy setting Select the pencil icon to edit the setting, and select **Disable calculated mode** to return to basic mode.
 
-Click the pencil icon to edit, and click the `Disable calculated mode` to return to basic mode.
+<p><img alt="edit-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/edit-policy-setting.png"/></p>
+
+## Step 4: Enable enforcement
+
+Choose **Enforce: Enable** and select **Update**.
 
 <p><img alt="aws-update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-update-policy-setting.png"/></p>
 
-## Step 3: Observe enforcement
+## Step 5: Observe enforcement
 
-Revisit `Controls by State` and set the filter to `AWS > S3 > Bucket > Versioning`.  
+Revisit **Controls by State* and use the **Type** filter to choose **AWS > S3 > Bucket > Versioning**.  
 
 <p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/enforcement-happened.png"/></p>
 

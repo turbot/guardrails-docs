@@ -42,8 +42,7 @@ When the stack is created, verify that the role `turbot-service-readonly` exists
   
 - ReadOnlyAccess  
 - turbot-guardrails-access-policy  
-  
-Copy the role ARN for use in step 5.
+
 
 ## Step 5: Copy the Role ARN
 
@@ -65,7 +64,7 @@ Paste the Role ARN from step 5 into the **IAM Role ARN** field.  Also, copy and
 
 ## Step 8: Verify the external ID
 
-Check that the IAM Role External ID matches the value from the cloudformation template. If not, overwrite with that captured value.
+Check that the IAM Role External ID matches the value from the CloudFormation template. If not, overwrite with that captured value.
 
 <p><img alt="verify-external-id" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/verify-external-id.png"/></p>
 
@@ -85,7 +84,7 @@ Wait for the progress bar to complete.
 This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.  
 
 
-## Step 11: Controls by State report
+## Step 11: View Controls by State report
 
 Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select **Controls by State**.  
 

@@ -21,9 +21,9 @@ Check the properties of the bucket you created in [Observe AWS activity](/guardr
 ## Step 2: Check the Guardrails versioning control for your bucket
 
   
-You bookmarked the `Controls by State` report in [Connect an Account](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity), go there now.
+You bookmarked the **Controls by State** report in [Connect an Account](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity), go there now.
 
-Set the `Type` filter to `AWS > S3 > Bucket > Versioning` and search for your bucket. 
+Set the `**Type** filter to **AWS > S3 > Bucket > Versioning** and search for your bucket. 
 
 It is in the `skipped` state. There is not yet a Guardrails policy to check bucket versioning. 
 
@@ -33,25 +33,21 @@ It is in the `skipped` state. There is not yet a Guardrails policy to check buck
 
 Your Guardrails workspace already has the pre-installed policy pack [Enforce Versioning Is Enabled for AWS S3 Buckets](https://hub.guardrails.turbot.com/policy-packs/aws_s3_enforce_versioning_is_enabled_for_buckets).
 
-To attach it, click top-level `Resources`, navigate to `Turbot > Sandbox > YOUR_AWS_ACCOUNT`, select the `Detail` tab, and locate the `Manage Link` next to `Policy Packs`.
+Select **Resources** in the top navigation bar. Navigate to **Turbot > Sandbox > YOUR_AWS_ACCOUNT**, select the **Detail** tab, and select the **Manage Link** next to **Policy Packs**.
 
 <p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-locate-policy-pack-manage.png"/></p>
 
-Click the `Manage` link.
-
 ## Step 4: Attach the policy pack to your account
 
-In the `Edit policy pack attachments` dialog, select `Enforce Versioning is Enabled for AWS S3 Buckets` and  click `Save`.
+In  **Edit policy pack attachments**, choose `Enforce Versioning is Enabled for AWS S3 Buckets` and  select **Save**.
 
 <p><img alt="aws-edit-attachments-select-enforce-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-edit-attachments-select-enforce-versioning.png"/></p>
 
 ## Step 5: Review
 
- Set the `Type` filter to `AWS > S3 > Bucket` and search for your bucket.
+ In **Controls by State** use the **Type** filter to select **AWS > S3 > Bucket**, then search for your bucket. Now, instead of skipping the versioning check, Guardrails runs it. Your bucket is green because you enabled versioning in [Observe AWS Activity](/guardrails/docs/getting-started/observe-aws-activity), so it’s now in policy.
 
 <p><img alt="aws-search-bucket-versioning-again" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-search-bucket-versioning-again.png"/></p>
-
-Now, instead of skipping the versioning check, Guardrails runs it. Your bucket is green because you enabled versioning in [Observe AWS Activity](/guardrails/docs/getting-started/observe-aws-activity), so it’s now in policy.
 
 ## Next Steps
 
