@@ -27,7 +27,7 @@ To enable notifications for your workspace, select **Policies** in the top navi
 
 <p><img alt="search-notifications-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/search-notifications-policy-type.png"/></p>
 
-## Step 2: View Turbot Notifications policy type
+## Step 2: Create new policy setting
 
 Choose **New Policy Setting**.
 

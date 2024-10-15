@@ -17,7 +17,7 @@ sidebar_label: Apply a Quick Action
 - [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email/)
 
 
-Until now we’ve operated Guardrails in read-only mode, with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this runbook we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
+Until now we’ve operated Guardrails with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this runbook we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
 
 ## Step 1: Add the storage.buckets.update permission
 
@@ -27,48 +27,46 @@ Add the permission `storage.buckets.update`.
 
 Assign the role to the service account you created in [Connect a Project](/guardrails/docs/runbooks/getting-started-gcp/connect-a-project).
 
-## Step 2: Enable Quick Actions
+## Step 2: Location Turbot > Quick Actions > Enabled
 
-Search Policies for `quick actions`.
+Search **Policies** for `quick actions`. Select **Turbot > Quick Actions > Enabled**.
 
 <p><img alt="find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/find-quick-actions-policies.png"/></p>
 
-Click into `Turbot > Quick Actions > Enabled` and switch to the `Settings` tab.
+## Step 3: View Turbot > Quick Actions > Enabled policy type
 
-<p><img alt="switch-to-settings" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/switch-to-settings.png"/></p>
+Select **New Policy Setting**.
 
-Click `New Policy Setting`’  
+<p><img alt="view-quick-actions-enabled-policy-type" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/view-quick-actions-enabled-policy-type.png"/></p>
+
+## Step 4: Enable Quick Actions
+
+Choose your project as the **Resource**, choose **Enabled`, and select **Create**.  
 
 <p><img alt="gcp-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-enable-quick-actions.png"/></p>
 
-Choose your project, choose`Enabled`, and click `Create`.  
-
-
-## Step 3: Find a bucket in Alarm for access control
+## Step 5: Find a bucket in Alarm for access control
 
   
-In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we left your test bucket in the `Alarm` state.  
-  
-Locate it.  
+In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we left your test bucket in the `Alarm` state. Locate it in **Controls by State** and select the control.  
 
 <p><img alt="gcp_search_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-search-bucket-in-alarm-for-quick-action.png"/></p>
 
-## Step 4: Prepare to take a Quick Action
+## Step 6: Prepare to take a Quick Action
 
-Click into the control and expand the `Actions` dropdown.
+Select the **Actions** dropdown.
 
 <p><img alt="gcp_quick_action_dropdown" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-quick-action-dropdown.png"/></p>
 
-## Step 5: Take a Quick Action to enable uniform access control
+## Step 7: Take a Quick Action to enable uniform access control
 
-Choose `Set Uniform Access Control`.  
-
+Choose **Set Uniform Access Control**.  
 
 Guardrails reports that the action was successful, and the control goes to green.  
 
 <p><img alt="gcp_quick_action_reports_success" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-quick-action-reports-success.png"/></p>
 
-## Step 6: Review
+## Step 8: Review
 
 Explore taking Quick Actions on other resources in your project.
 

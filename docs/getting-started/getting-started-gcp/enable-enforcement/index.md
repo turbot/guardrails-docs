@@ -20,13 +20,13 @@ sidebar_label: Enable Automatic Enforcement
 - [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action/)
 
 
-In the [previous guide](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on bucket access control. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
+In the [previous guide](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action) we showed how to add the single permission that enables you to take a **Quick Action** on bucket access control. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
+
+In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`. Locate it on the `Policies` page, and select the link.
 
 ## Step 1: Locate the Policy Pack
 
-In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack) we enabled `Enforce Uniform Access is Enabled for GCP Storage Buckets`.
-
-Locate it on the `Policies` page.
+In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack) we enabled `Enforce Uniform Access Is Enabled for GCP Storage Buckets`. Locate it in **Policies** and select the link.
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/locate-policy-pack.png"/></p>
 
@@ -34,26 +34,28 @@ Click the link.
 
 ## Step 2: View the policy setting
 
-Open the Policy Pack to view the current setting.
+View the current setting. It’s the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-gcp/create-calculated-exception).
 
 <p><img alt="view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/view-policy-setting.png"/></p>
 
-It’s the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack).
+## Step 3: Edit the policy setting
 
-Click the pencil icon to edit, and click the `Disable calculated mode` to return to basic mode.
+  
+Select the pencil icon to edit the setting, and select **Disable calculated mode** to return to basic mode.
+
+<p><img alt="edit-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/edit-policy-setting.png"/></p>
+
+## Step 4: Enable enforcement
+
+Choose **Enforce: Uniform** and select **Update**.
 
 <p><img alt="gcp-update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/gcp-update-policy-setting.png"/></p>
 
-Choose `Enforce: Enabled` and click `Update`.
+## Step 5: Observe enforcement
 
-## Step 3: Observe enforcement
-
-Revisit `Controls by State` and set the filter to `GCP > Storage > Bucket > Access Control`.  
+Revisit **Controls by State** and use the **Type**  filter to choose **GCP > Storage > Bucket > Access Control**. All your buckets are now green, except the one you exempted in [Create a static exception](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception).   
 
 <p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/enforcement-happened.png"/></p>
-
-All your buckets are now green for access control.  
-
 
 ## Step 6: Review
 
