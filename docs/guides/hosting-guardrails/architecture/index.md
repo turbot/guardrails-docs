@@ -3,15 +3,15 @@ title: Architecture
 sidebar_label: Architecture
 ---
 
-# Turbot Guardrails Hosting Architecture 
+# Turbot Guardrails Hosting Architecture
 
 ## Conceptual Architecture
 
-Turbot Guardrails is a comprehensive governance platform that automates the discovery and remediation of compliance, security, and operational objectives within your organization. The platform leverages a consistent policy language to discover resources, track changes, and automate remediation across various cloud provider platforms. 
+Turbot Guardrails is a comprehensive governance platform that automates the discovery and remediation of compliance, security, and operational objectives within your organization. The platform leverages a consistent policy language to discover resources, track changes, and automate remediation across various cloud provider platforms.
 
-Its architecture is centered around a core event loop called the **OODA loop**: 
+Its architecture is centered around a core event loop called the **OODA loop**:
 
-![Turbot Guardrails OODA Loop](/images/docs/guardrails/architecture_ooda_loop.png)
+![Turbot Guardrails OODA Loop](/images/docs/guardrails/guides/hosting-guardrails/architecture/architecture-ooda-loop.png)
 
 * **Observe:** Monitor changes across your organization's cloud service providers.
 * **Orient:** Record all governed resources in the Guardrails CMDB, enriching them with metadata for context.
@@ -20,16 +20,16 @@ Its architecture is centered around a core event loop called the **OODA loop**:
 
 Guardrails continuously monitors real-time change events occurring at the cloud service providers without hindering the agility of application teams. This real-time monitoring enables Guardrails to identify configuration errors stemming from both human actions and automated processes, including intentional misconfigurations by individuals with elevated privileges.
 
-![Turbot Guardrails Governance](/images/docs/guardrails/architecture_event_monitor.png)
+![Turbot Guardrails Governance](/images/docs/guardrails/guides/hosting-guardrails/architecture/architecture-event-monitor.png)
 
 ## Deployment Options
 
 Organizations have two primary options for deploying Turbot Guardrails:
 
 1. **Turbot Guardrails SaaS:** This option leverages the software-as-a-service offering of Turbot Guardrails.
-![Turbot Guardrails SaaS Architecture](/images/docs/guardrails/architecture_saas.png)
+![Turbot Guardrails SaaS Architecture](/images/docs/guardrails/guides/hosting-guardrails/architecture/architecture-saas.png)
 2. **Turbot Guardrails Enterprise:** This option allows organizations to deploy Turbot Guardrails within their own AWS account and VPC.
-![Turbot Guardrails Hosted Architecture](/images/docs/guardrails/architecture_hosted.png)
+![Turbot Guardrails Hosted Architecture](/images/docs/guardrails/guides/hosting-guardrails/architecture/architecture-hosted.png)
 
 ## Guardrails Hosted Deployment Architecture
 
@@ -47,22 +47,22 @@ Key aspects of the deployment architecture include:
 
 Turbot Guardrails Enterprise is engineered for secure deployment across diverse enterprise VPC configurations. This adaptability ranges from a simple public subnet with an internet gateway (IGW) to a multi-AZ, three-tier VPC (database, application, web) operating in private network space and utilizing centralized outbound network connectivity (through a transit gateway or proxy).
 
-![Turbot Guardrails Network Architecture](/images/docs/guardrails/architecture_networking.png)
+![Turbot Guardrails Network Architecture](/images/docs/guardrails/guides/hosting-guardrails/architecture/architecture-networking.png)
 
 The most common enterprise network topology typically requires the following network configurations:
 
 1. **Inbound Access:** Inbound TCP port 443 access from end-user devices to the Guardrails Application Load Balancer (ALB).
-2. **Outbound Access to AWS APIs:** Outbound TCP port 443 access to AWS APIs (https://*.amazonaws.com). When an on-premises proxy is employed for outbound internet access, it is highly recommended to enable AWS PrivateLink endpoints for essential services such as KMS, S3, IAM, RDS, CloudWatch Events/Logs, SNS, SQS, ECS, ECR, and EC2.
+2. **Outbound Access to AWS APIs:** Outbound TCP port 443 access to AWS APIs (`https://*.amazonaws.com`). When an on-premises proxy is employed for outbound internet access, it is highly recommended to enable AWS PrivateLink endpoints for essential services such as KMS, S3, IAM, RDS, CloudWatch Events/Logs, SNS, SQS, ECS, ECR, and EC2.
 3. **Outbound Access for Utilities:** Outbound access to NTP, DNS, and SMTP for alerts.
 4. **Outbound Access to Cloud Services:** Outbound access to enabled cloud services including AWS, Azure, GCP, and ServiceNow.
 
 ## Real-time Event Architecture
 
-![Turbot Guardrails Real-Time Event Architecture](/images/docs/guardrails/architecture_event_handling.png)
+![Turbot Guardrails Real-Time Event Architecture](/images/docs/guardrails/guides/hosting-guardrails/architecture/architecture-event-handling.png)
 
 In a private VPC deployment, Guardrails utilizes the AWS API Gateway service to receive external events from cloud service providers. The API gateway is configured to accept only properly signed events and does not expose any data externally.
 
-![Turbot Guardrails Real-Time Event Architecture](/images/docs/guardrails/architecture_api_gateway.png)
+![Turbot Guardrails Real-Time Event Architecture](/images/docs/guardrails/guides/hosting-guardrails/architecture/architecture-api-gateway.png)
 
 Key characteristics of the API gateway configuration:
 
@@ -85,7 +85,7 @@ Security Measures:
 
 ## Application Architecture
 
-![Turbot Guardrails Application Architecture](architecture_versioning.png)
+![Turbot Guardrails Application Architecture](/images/docs/guardrails/guides/hosting-guardrails/architecture/architecture-versioning.png)
 
 The logical components of the architecture are deployed and managed independently to maintain separation of concerns and provide flexibility in deployment scenarios. The application layer comprises four key layers:
 
@@ -100,14 +100,14 @@ The logical components of the architecture are deployed and managed independentl
 - An instance of the TED stack is called a **Hive**. Each Hive defines the physical data storage and caching resources utilized in Guardrails Enterprise.
 - While a Hive can be shared by multiple workspaces, a single workspace cannot span multiple Hives. Within each Hive (physical database), workspaces are segregated into distinct logical schemas to ensure data isolation and enable data movement between Hives if needed.
 - Hives are deployed and managed using the Turbot Enterprise Database (TED) product within the AWS Service Catalog. Turbot typically names Hives after renowned scientists in the area (e.g., newton, edison—inspired by the concept of a “hive mind”).
-- The use of multiple Hives allows for physical data separation (e.g., isolating critical tenants) and scalability through physical sharding. However, most Turbot Enterprise customers initially start with a single Hive. 
+- The use of multiple Hives allows for physical data separation (e.g., isolating critical tenants) and scalability through physical sharding. However, most Turbot Enterprise customers initially start with a single Hive.
 
 **3. Turbot Enterprise (TE)**
 
 - An instance of the TE stack is called a **Version**. Each Collective hosts zero or more versions of Guardrails. Each version is installed independently and remains immutable. This allows for simultaneous operation of multiple versions, such as 5.1.0, 5.1.1, and 5.2.0. Changes are implemented exclusively through the installation of new versions, and existing versions are never directly updated.
 - Each Version can serve zero or more Tenants concurrently.
 - Versions define the majority of their infrastructure in a self-contained and reproducible manner. For instance, load balancers, IAM roles, Lambda functions, and container instances are uniquely defined within each version. This approach enhances reproducibility and accuracy while mitigating risks associated with installations and upgrades.
-- Versions are deployed and managed via the Turbot Enterprise (TE) product in the AWS Service Catalog. They are immutable; as Turbot releases new Guardrails versions, installation should be performed as a new instance of the product rather than an update to a previous version. 
+- Versions are deployed and managed via the Turbot Enterprise (TE) product in the AWS Service Catalog. They are immutable; as Turbot releases new Guardrails versions, installation should be performed as a new instance of the product rather than an update to a previous version.
 
 **4. Turbot Guardrails Workspaces**
 
@@ -115,4 +115,4 @@ The logical components of the architecture are deployed and managed independentl
 - Multiple workspaces can coexist within the same Collective, potentially sharing the same database. However, they operate independently. Each workspace can be upgraded or downgraded separately, and there is no data sharing between workspaces.
 - Deployment and management of Workspaces are handled through Guardrails' Workspace Manager, implemented as a CloudFormation custom resource.
 - Organizations can utilize multiple workspaces for various purposes, such as separating a development instance from a production instance for testing new Guardrails versions, modules, and so on.
-- Workspace naming typically reflects their lifecycle phase. For instance, within the `brooklyn` namespace (TEF) for vandelay.com, workspaces might be named:  `dev.brooklyn.vandelay.com`, `qa.brooklyn.vandelay.com`, and `prod.brooklyn.vandelay.com`. 
+- Workspace naming typically reflects their lifecycle phase. For instance, within the `brooklyn` namespace (TEF) for vandelay.com, workspaces might be named:  `dev.brooklyn.vandelay.com`, `qa.brooklyn.vandelay.com`, and `prod.brooklyn.vandelay.com`.
