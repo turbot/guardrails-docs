@@ -230,10 +230,10 @@ The following policy structure manages how relationships between CIs are synced 
     * `Check: Enabled`
     * `Enforce: Disabled`
     * `Enforce: Enabled`
-  * `Enforce: Enabled` will create and sync relationships as defined in the Template policy (explained below)
-  * `Enforce: Disabled` will remove all relationships as defined in the Template policy (explained below)
+  * `Enforce: Enabled` will create and sync relationships defined in the Template policy (explained below)
+  * `Enforce: Disabled` will remove all relationships defined in the Template policy (explained below)
 * `{Cloud Provider} > {Service} > {Resource Type} > ServiceNow > Relationships > Template`
-  * Template on how the relationships for the current Resource Type would be created
+  * Template on how the relationships for the current Resource Type will be created
 
 ### Relationships management
 
@@ -295,7 +295,7 @@ The Template must contain either a `parent` or a `child` relationship. It can al
 
 * `type`: (Required) Defines the type of relationship, such as `Contains::Contained by`, `Owns::Owned by`, or any custom relationship types defined in ServiceNow.
 * `sysId`: (Required) The unique identifier of the record in ServiceNow.
-* `tableName`: (Required) The table in ServiceNow where the record is located, such as “incident”, “cmdb_ci”, etc.
+* `tableName`: (Required) The table in ServiceNow where the record is located, such as `cmdb_ci`.
 * `name`: (Optional) The specific name of the record (usually the value in the `name` field of the ServiceNow record).
 
 #### Notes
