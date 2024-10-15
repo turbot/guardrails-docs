@@ -331,6 +331,7 @@ Note that while AWS allows most traditional characters to be a part of the
 external ID, there are restrictions as to which external ID actually work for
 Guardrails:
 
+> [!IMPORTANT]
 > The external ID value that a third party uses to assume a role must have a
 > minimum of 2 characters and a maximum of 1,224 characters. The value must be
 > alphanumeric without white space. It can also include the following symbols:

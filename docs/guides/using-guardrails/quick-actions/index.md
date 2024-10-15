@@ -30,7 +30,8 @@ There are two policies that determine whether a user is allowed to run quick act
 
 Quick actions are disabled by default, to Enable Quick Actions set the `Turbot > Quick Actions > Enabled` policy to Enabled. This can be done at the Turbot level (to affect all accounts), or at the individual account level if you want to test on a specific account.
 
-> Note: Quick Actions use the permissions granted to the Guardrails service user or cross-account role used to import your cloud service account into Guardrails. Execution of quick actions will fail if the underlying role prevents those actions from occurring.
+> [!IMPORTANT]
+> Quick Actions use the permissions granted to the Guardrails service user or cross-account role used to import your cloud service account into Guardrails. Execution of quick actions will fail if the underlying role prevents those actions from occurring.
 
 Each action requires that the user has a specific Guardrails permission level. The default permission level needed is defined in the mod. Excpetions/changes to the default permissions required for Quick Actions can be set using the `Turbot > Quick Actions > Permission Levels` policy.
 
