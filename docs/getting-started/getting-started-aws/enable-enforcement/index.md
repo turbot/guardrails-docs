@@ -20,11 +20,11 @@ sidebar_label: Enable Automatic Enforcement
 - [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/)
 
 
-In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a `Quick Action` on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
+In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a **Quick Action** on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
 
 ## Step 1: Locate the Policy Pack
 
-In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`. Locate it on the `Policies` page, and select the link.
+In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`. Locate it in **Policies**  and select the link.
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/locate-policy-pack.png"/></p>
 
@@ -37,8 +37,7 @@ View the current setting. It’s the calculated policy you created [earlier](/gu
 ## Step 3: Edit the policy setting
 
   
-  
- Select the pencil icon to edit the setting, and select **Disable calculated mode** to return to basic mode.
+Select the pencil icon to edit the setting, and select **Disable calculated mode** to return to basic mode.
 
 <p><img alt="edit-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/edit-policy-setting.png"/></p>
 
@@ -50,7 +49,7 @@ Choose **Enforce: Enable** and select **Update**.
 
 ## Step 5: Observe enforcement
 
-Revisit **Controls by State** and use the **Type** filter to choose **AWS > S3 > Bucket > Versioning**.  
+Revisit **Controls by State** and use the **Type** filter to choose **AWS > S3 > Bucket > Versioning**. All your buckets are now green, except the one you exempted in [Create a static exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception).   
 
 <p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/enforcement-happened.png"/></p>
 

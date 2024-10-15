@@ -4,7 +4,7 @@ sidebar_label: Review Account-Wide Bucket Access Control
 ---
 
 
-# Observe Account-Wide Bucket Access Control
+# Review Account-Wide Bucket Access Control
 
 In this guide you’ll see how the policy pack you enabled in [Enable a Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/review-across-account) governs all the GCP buckets in your account.
 
@@ -15,18 +15,15 @@ In this guide you’ll see how the policy pack you enabled in [Enable a Guardrai
 - [Enable Your First Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack/)
 
 
-## Step 1: Review bucket versioning across your account
+## Step 1: Open Controls by State and limit to GCP bucket access control
 
-You bookmarked the `Controls by State` report in [Connect an Account](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity), go there now.
-
-Set the `Type` filter to `GCP > Storage > Bucket > Access Control`.  
-
-<p><img alt="gcp-account-wide-1" src="/images/docs/guardrails/getting-started/getting-started-gcp/review-account-wide/gcp-account-wide-1.png"/></p>
-
+In **Controls by State**, use the **Resource Type** filter to choose **AWS > Storage > Bucket > Access Control**.  
+  
 In the [previous guide](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s Access Control control from `Skipped` to `Alarm`,  because you switched to fine-grained access in [Observe AWS Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity).  
   
-Other buckets created in the default state, with uniform access enabled, are green: in policy.  
+Other buckets created in the default state, with uniform access enabled, are green: in policy.
 
+<p><img alt="gcp-account-wide-1" src="/images/docs/guardrails/getting-started/getting-started-gcp/review-account-wide/gcp-account-wide-1.png"/></p>
 
 ## Step 2: Review
 

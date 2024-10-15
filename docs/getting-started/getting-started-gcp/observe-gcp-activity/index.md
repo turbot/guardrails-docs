@@ -17,27 +17,30 @@ You will also need to create  a GCP bucket. We’ll illustrate using `guardrail
 
 ## Step 1: Locate the Resource Activities report
 
-Select top-level `Reports`, search for `resource`, locate `Resource Activities`, and click the link.
+Select **Reports** from the top navigation menu, and select **Resource Activities**.
 
 <p><img alt="gcp-search-resource-activities" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-search-resource-activities.png"/></p>
 
-## Step 2: Set the Resource Type filter to GCP > Storage > Bucket
+## Step 2: Open the Resource Type filter
 
-In the `Resource Activities` report, expand the `Resource Type` dropdown.
+Expand the **Resource Type** dropdown.
 
 <p><img alt="gcp-resource-type-dropdown" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-resource-type-dropdown.png"/></p>
 
-Set the filter to `GCP > Storage > Bucket`. You can do this by entering `gcp storage bucket` into the search box, as shown here.
+## Step 3: Search for (or navigate to) GCP > Storage > Bucket
+
+  
+Set the filter to **GCP > Storage > Bucket**. You can do this by entering `gcp storage buckett` into the search box, as shown here. Alternatively, you can navigate to the same place using **>** to drill down into the hierarchy.
 
 <p><img alt="gcp-resource-type-search" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-resource-type-search.png"/></p>
 
-Alternatively, you can navigate to the same place by clicking on `>` to drill down into the hierarchy.  
-  
-Either way, select `GCP > Storage > Bucket` to set the `Resource Type` filter.
+## Step 4: Select the filter
+
+Enable the checkbox to limit the report to only GCP buckets.
 
 <p><img alt="gcp-resource-type-filter-set" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-resource-type-filter-set.png"/></p>
 
-## Step 3: Observe notifications
+## Step 5: Observe notifications
 
 Now search for the name of your bucket.
 
@@ -45,21 +48,20 @@ Guardrails reports two notifications related to the bucket creation. `RESOURCE C
 
 <p><img alt="gcp-resource-activities-initial-notifications" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-resource-activities-initial-notifications.png"/></p>
 
-## Step 4: See Guardrails react to a bucket change
+## Step 6: See Guardrails react to a bucket change
 
    
-Now visit your bucket in the GCP console, and switch access control to fine-grained.
-
-  
-Guardrails will soon notice the change.  
+Now visit your bucket in the GCP console, and switch access control to fine-grained. Guardrails will soon notice the change.  
 
 <p><img alt="gcp-resource-activities-with-change-detected" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-resource-activities-with-change-detected.png"/></p>
 
-Click into the new notification for your bucket, and scroll down in the diff to see the change that Guardrails has recorded.    
+## Step 7: Observe the difference
+
+Select the new notification for your bucket, and scroll down in the diff to see the change that Guardrails has recorded.  
 
 <p><img alt="gcp-diff-the-first-change" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/gcp-diff-the-first-change.png"/></p>
 
-## Step 5: Review
+## Step 8: Review
 
 We’ve now seen how Guardrails detects the creation of a new resource in a connected project, and also notices and records changes to the configuration of that resource.
 

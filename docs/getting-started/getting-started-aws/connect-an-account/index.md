@@ -93,10 +93,10 @@ Select **Reports** from the top navigation menu.  Type `controls` into the **Se
 ## Step 11: Configure report filters
 
 Select the **Type** dropdown from the filters bar. Then enable the check box next to **AWS** to limit the report to only show AWS controls.  
+  
+Bookmark the **Controls by State** report, you’ll need it in subsequent guides.  
 
 <p><img alt="set-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-type-filter.png"/></p>
-
-Bookmark the **Controls by State** report, you’ll need it in subsequent guides.
 
 ## Step 12: Review Controls
 
@@ -104,9 +104,9 @@ Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD
 
 <p><img alt="aws-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-controls-by-state.png"/></p>
 
-You’ve now successfully connected your AWS account to Guardrails.
-
 ## Next Steps
+
+You’ve now successfully connected your AWS account to Guardrails.
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches your account and reacts to resource changes.
 

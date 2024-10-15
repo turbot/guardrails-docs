@@ -17,49 +17,61 @@ In the [previous guide](guardrails/docs/runbooks/getting-started-gcp/create_stat
 - [Create a Static Exception to a Guardrails GCP Policy](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception/)
 
 
-You’ll also need another bucket with the access control setting of `Fine-Grained`. Here we’ll use `guardrails_bucket_example_02`.
+You’ll also need another bucket with access control set to fine-grained. Here we’ll use `guardrails_bucket_example_02`.
 
 ## Step 1: Locate the policy pack
 
-From the Guardrails home, navigate to `Turbot > Sandbox > YOUR_GCP_PROJECT` and switch to the Detail tab.  
+From the top navigation bar, navigate to **Turbot > Sandbox > YOUR_GCP_PROJECT`** and select the **Detail** tab.
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/locate-policy-pack.png"/></p>
 
-## Step 2: Open the policy pack
+## Step 2: View the policy pack
 
-Click into the `Enforce Uniform Access Is Enabled for GCP Storage Buckets` Policy Pack.  
-  
-Click the `policy setting` link. 
+Select **Enforce Uniform Access Is Enabled for GCP Storage Buckets**, then select the **policy setting** link.
+
+<p><img alt="bucket-access-control-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/bucket-access-control-policy-pack.png"/></p>
+
+## Step 3: View policy pack settings
+
+Select the `policy setting` link. Note the Access Control policy (`Check: Uniform`) created in [this guide](/guardrails/docs/getting-started/getting-started-gc[/enable-policy-pack). Select **New Policy Setting**.
 
 <p><img alt="bucket-access-control-policy-settings" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/bucket-access-control-policy-settings.png"/></p>
 
-Note the Access Control policy (`Check: Uniform`) created in [this guide](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack).   
-  
-Click `New Policy Setting`.
+## Step 4: Choose Policy Type and Resource
 
-## Step 3: Choose Policy Type and Resource
-
-Set the Policy Type to `GCP > Storage > Bucket > Access Control`, and the `Resource` to the policy pack.
+Choose the Policy Type **GCP > Storage > Bucket > Access Control**/
 
 <p><img alt="choose-policy-type-and-resource" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/choose-policy-type-and-resource.png"/></p>
 
-## Step 4: Launch Calculated Policy Builder
+## Step 5: Enable calculated mode
 
-Click `Enable calculated mode`, then `Launch calculated policy builder`.  For the `Test Resource` choose one of your buckets.
+Select **Enable calculated mode**.
+
+<p><img alt="enable-calculated-mode" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/enable-calculated-mode.png"/></p>
+
+## Step 6: Launch calculated policy builder
+
+<p><img alt="launch-calculated-policy-builder" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/launch-calculated-policy-builder.png"/></p>
+
+## Step 7: Choose test resource
+
+Choose one of your buckets.
 
 <p><img alt="calc-policy-builder-launched" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/calc-policy-builder-launched.png"/></p>
 
-## Step 5: Query for bucket tags
+## Step 8: Insert snippet
 
-Open the `Select snippet` dropdown and choose `Get bucket`.
+Choose **Select snippet** and select **Get bucket**.
 
 <p><img alt="snippet-dropdown-open" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/snippet-dropdown-open.png"/></p>
 
-Guardrails inserts a GraphQL query for bucket tags in the `Input` pane. The result, in the `Output` pane, shows there are no labels on the bucket.  
+## Step 9: Query for tags
+
+Guardrails inserts a GraphQL query for bucket tags in the **Input** pane. The result, in the **Output** pane, shows there are no tags on the bucket.  
 
 <p><img alt="snippet-active" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/snippet-active.png"/></p>
 
-## Step 6: Add the Jinja2 template
+## Step 10: Add the Jinja2 template
 
   
 Now copy this template code:  
@@ -74,38 +86,32 @@ Now copy this template code:
 
 And paste it into the template pane.
 
+Guardrails evaluates the template in the context of the chosen **Test Resource**. The template output, `Check: Uniform`, is the calculated policy value that will govern any bucket’s **GCP > Storage > Bucket > Access Control** policy if the bucket is labeled with `environment:development`. Only these labeled buckets will be required to have uniform access enabled. Others will be skipped, whether or not they enable uniform access.  
+  
+The result confirms that `Check: Uniform` is valid for this policy type.  
+
 <p><img alt="template-active" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/template-active.png"/></p>
 
-Guardrails evaluates the template in the context of the chosen `Test Resource`. The template output, `Check: Uniform`, is the calculated policy value that will govern any bucket’s `GCP > Storage > Bucket > Access Control` policy if the bucket is labeled with `environment:development`. Only these labeled buckets will be required to have uniform access enabled. Others will be skipped, whether or not they enable uniform access.  
+## Step 11: Update policy setting  
   
-The result confirms that `Check: Uniform` is valid for this policy type.
-
-  
-Click `Update` to update the policy.  
-  
-Guardrails displays the `Update Policy Setting` screen.  
+Select **Update**. Guardrails displays the `Update Policy Setting` screen.  
 
 <p><img alt="update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/update-policy-setting.png"/></p>
 
-Click `Update`.
 
-## Step 7: Observe controls for bucket access control
+## Step 12: Observe controls for bucket access control
 
-Revisit your bookmarks `Controls by State` report, and set the `Type` filter to `GCP > Storage > Bucket > Access Control`.
+Revisit **Controls by State** and set the **Type** filter to **GCP > Storage > Bucket > Access Control**. The bucket for which you made an exception in the previous guide will be in the `Skipped` state. Buckets with uniform access enabled will be green. Find a bucket in Alarm for uniform access, here we’ll use `guardrails_bucket_example_02`.
 
 <p><img alt="revisit-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/revisit-controls-by-state.png"/></p>
 
-The bucket for which you made an exception in the previous guide will be in the `Skipped` state. Buckets with the uniform access setting will be green. The bucket that you set to fine-grained access, in our case  `guardrails_bucket_example_02`, will be red.
+## Step 13: Label the bucket
 
-## Step 8: Label the bucket
-
-Now, in the GCP console, assign the label `environment:development` to a bucket that’s in `Alarm`.  
+Now, in the GCP console, assign the label `environment:development` to a bucket that’s in `Alarm`. Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.  
 
 <p><img alt="labeled-bucket-now-skipped" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/labeled-bucket-now-skipped.png"/></p>
 
-Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.
-
-## Step 9: Review
+## Step 14: Review
 
 Experiment with labeling and unlabeling other buckets in this way, and observe how Guardrails notices and reacts to the changes. 
 
