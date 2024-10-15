@@ -10,5 +10,5 @@ The following guides provide detailed instructions for effectively monitoring Gu
 | Guide | Description |
 | - | - |
 | [Diagnose Control Error](/guardrails/docs/guides/hosting-guardrails/monitoring/diagnose-control-error) | Provides steps to identify and resolve control errors in Guardrails. |
-| [Investigate Event Flood](/guides/hosting-guardrails/monitoring/investigate-event-flood) | Outlines the process for diagnosing and managing event floods. |
-| [Workspace Health Check](/guides/hosting-guardrails/monitoring/workspace-health-check) | Guides for assessing the health of your Guardrails workspace. |
+| [Investigate Event Flood](/guardrails/docs/guides/hosting-guardrails/monitoring/investigate-event-flood) | Outlines the process for diagnosing and managing event floods. |
+| [Workspace Health Check](/guardrails/docs/guides/hosting-guardrails/monitoring/workspace-health-check) | Guides for assessing the health of your Guardrails workspace. |
