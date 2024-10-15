@@ -1,6 +1,6 @@
 ---
-title: Review Account-Wide Bucket Versioning
-sidebar_label: Review Bucket Versioning
+title: Review Account-Wide TLS Version for Storage Accounts
+sidebar_label: Review TLS Version
 ---
 
 

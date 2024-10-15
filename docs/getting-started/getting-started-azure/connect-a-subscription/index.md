@@ -1,6 +1,6 @@
 ---
-title: Connect an Azure Account to Guardrails
-sidebar_label: Connect an Azure Account to Guardrails
+title: Connect an Azure Subscription to Guardrails
+sidebar_label: Connect a Subscription
 ---
 
 

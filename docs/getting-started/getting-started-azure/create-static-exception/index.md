@@ -1,6 +1,6 @@
 ---
 title: Create a Static Exception to a Guardrails Azure Policy
-sidebar_label: Create a static exception to a Azure GCP policy
+sidebar_label: Create a Policy Exception
 ---
 
 

@@ -1,6 +1,6 @@
 ---
-title: Observe GCP Activity
-sidebar_label: Observe GCP Activity
+title: Observe GCP Resource Activity
+sidebar_label: Observe Resource Activity
 ---
 
 

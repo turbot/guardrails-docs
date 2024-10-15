@@ -1,6 +1,6 @@
 ---
 title: Observe Azure Resource Activity
-sidebar_label: Observe Azure Resource Activity
+sidebar_label: Observe Resource Activity
 ---
 
 

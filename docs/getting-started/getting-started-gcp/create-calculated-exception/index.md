@@ -1,6 +1,6 @@
 ---
 title: Create a Calculated Exception to a Guardrails GCP Policy
-sidebar_label: Create a Calculated Exception to a Guardrails GCP policy
+sidebar_label: Create a Calculated Exception
 ---
 
 

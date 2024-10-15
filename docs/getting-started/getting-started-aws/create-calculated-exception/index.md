@@ -1,6 +1,6 @@
 ---
 title: Create a Calculated Exception to a Guardrails Policy
-sidebar_label: Create a Calculated Exception to a Guardrails Policy
+sidebar_label: Create a Calculated Exception
 ---
 
 
