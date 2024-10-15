@@ -67,15 +67,25 @@ To enable the sync for the Application table, set the following policies:
 - `ServiceNow > Application > Business Rule` set to `Enforce: Configured`.
 - `ServiceNow > Application > Business Rule > Name` leave as the default.
 
-Note: remember to set your `ServiceNow > Config > System Properties` policy to `Enforce: Configured` from the prerequisites section above.
+> [!NOTE]
+> Remember to set your `ServiceNow > Config > System Properties` policy to `Enforce: Configured` from the prerequisites section above.
 
-Example of one of the policies set: <img src="/images/docs/guardrails/servicenow/servicenow-turbot-guardrails-table-sync-policy.png" style={{ boxShadow: 'none', width: '75%', height: '75%' }} />
+Example of one of the policies set:
+<!--
+<img src="/images/docs/guardrails/servicenow/servicenow-turbot-guardrails-table-sync-policy.png" style={{ boxShadow: 'none', width: '75%', height: '75%' }} /> -->
 
-**Note:** when setting the policies, select the resource scope at or above the level where your ServiceNow instance was imported to. If you have set your instance at the Turbot level, set the policies at that level. If you imported the ServiceNow instance within a Folder (e.g. Acme), set the policy at the Acme folder or higher (e.g. Turbot level).
+
+![ServiceNow Guardrails Sync Policy](/images/docs/guardrails/guides/servicenow/servicenow-to-guardrails-sync/servicenow-turbot-guardrails-table-sync-policy.png)
+
+> [!NOTE]
+> When setting the policies, select the resource scope at or above the level where your ServiceNow instance was imported to. If you have set your instance at the Turbot level, set the policies at that level. If you imported the ServiceNow instance within a Folder (e.g. Acme), set the policy at the Acme folder or higher (e.g. Turbot level).
 
 Once the policies are set, you should now see the Applications brought into Guardrails under your ServiceNow instance:
 
-<img src="/images/docs/guardrails/servicenow/turbot-guardrails-servicenow-cmdb-ci-appl-records-in-turbot.jpg" style={{ boxShadow: 'none', width: '75%', height: '75%' }} />
+<!-- <img src="/images/docs/guardrails/servicenow/turbot-guardrails-servicenow-cmdb-ci-appl-records-in-turbot.jpg" style={{ boxShadow: 'none', width: '75%', height: '75%' }} /> -->
+
+![CMDB CI Records](/images/docs/guardrails/guides/servicenow/servicenow-to-guardrails-sync/turbot-guardrails-servicenow-cmdb-ci-appl-records-in-turbot.jpg)
+
 
 ## Next Steps
 
