@@ -113,8 +113,8 @@ organization.
   Installation Domain Name
 
 ## Do Turbot Guardrails Lambda functions run inside a VPC?
-Turbot Guardrails Lambda functions fall into two categories:  Management Lambdas and Mod Lambdas. 
-Management Lambdas are deployed by the TEF, TED and TE stacks.  These are always deployed inside the Guardrails VPC. 
+Turbot Guardrails Lambda functions fall into two categories:  Management Lambdas and Mod Lambdas.
+Management Lambdas are deployed by the TEF, TED and TE stacks.  These are always deployed inside the Guardrails VPC.
 Mod Lambda functions generally interact directly with cloud
 service providers.  They are not connected to a VPC for improved performance and
 efficient use of VPC IP space.
@@ -184,9 +184,9 @@ Alternatively, you can micro-segment if needed
 
 ## My organization uses SSL/TLS inspection - is this supported for Turbot Guardrails Enterprise?
 
-Guardrails does not currently support the use of MITM SSL interception proxies.  Customers requiring traffic 
+Guardrails does not currently support the use of MITM SSL interception proxies.  Customers requiring traffic
 introspection should use a Proxy instead. Guardrails uses several AWS services that do not support inclusion
-of the third party certificates necessary for these solutions to work. You will need to create exceptions 
+of the third party certificates necessary for these solutions to work. You will need to create exceptions
 for the VPC hosting Guardrails to allow outbound traffic to AWS, GCP, and Azure API endpoints.
 
 ## Does Turbot Guardrails support encrypted ECS AMI?
@@ -194,8 +194,8 @@ for the VPC hosting Guardrails to allow outbound traffic to AWS, GCP, and Azure 
 Turbot Guardrails uses the Amazon Linux 2 AMI for ECS hosts by default. Customers
 requiring encrypted EBS volumes for the Guardrails ECS hosts can use one of two approaches:
 
-**EBS Default Encryption** 
-1. Enable "Default KMS Key for EBS Encryption" using the AWS  
+**EBS Default Encryption**
+1. Enable "Default KMS Key for EBS Encryption" using the AWS
    [instructions](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
    Ensure the CMK has
    [sufficient permissions](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk).
@@ -337,18 +337,18 @@ changes immediately.
 
 ## How do I increase the connection timeout for the Application Load Balancer (ALB)?
 
-Changes to the ALB and ECS container timeouts are best done concurrently with updates to 
-the TED `statement_timeout` parameter. ALB and ECS Container timesout are specified via SSM 
-parameter, as there is no parameter in the TE Serivce Catalog product to increase 
+Changes to the ALB and ECS container timeouts are best done concurrently with updates to
+the TED `statement_timeout` parameter. ALB and ECS Container timesout are specified via SSM
+parameter, as there is no parameter in the TE Serivce Catalog product to increase
 HTTP timeout. The ECS containers look for the SSM parameter
-called `/${ResourceNamePrefix}/overrides/enterprise/alb_idle_timeout` on launch to 
+called `/${ResourceNamePrefix}/overrides/enterprise/alb_idle_timeout` on launch to
 establish their internal HTTP timeouts.
 
 1. Create a new SSM Parameter in the AWS region that hosts the Guardrails install.
    This can be done manually, via CFN, Terraform, or by whatever method is preferred.
    For convenience, a CloudFormation template can be found below.
    Override the value to match the DB's statement_timeout parameter; `300` seconds is common.
-   The default value for `${ResourceNamePrefix}` is `turbot`. 
+   The default value for `${ResourceNamePrefix}` is `turbot`.
 
 ```yaml
 AlbIdleTimeoutParameter:
@@ -372,9 +372,9 @@ have the default value of 120 seconds.
 
 **Note**: Don't forget, this should not be a permanent change, so revert these
 changes as soon as possible. Consult with Turbot Support if this becomes a long term
-requirement. 
-**Note**: The shortest timeout between the DB, ALB and ECS containers dictates 
-the maximum timeout for an HTTP call. 
+requirement.
+**Note**: The shortest timeout between the DB, ALB and ECS containers dictates
+the maximum timeout for an HTTP call.
 
 
 ## Where does Turbot Guardrails store security and audit logs for failed login attempts to the console?
@@ -460,7 +460,7 @@ be done via the Turbot Service Catalog portfolio.
 
 Queries can sometimes cause the Worker Lambda to run long or time out. These
 show up as the red line in the Worker Lambda - Duration widget in the TE
-Cloudwatch dashboard. Ideally, all queries would run very fast, less than 2
+CloudWatch dashboard. Ideally, all queries would run very fast, less than 2
 seconds. Long-running queries can be an early warning indicator of scalability
 concerns or bugs.
 
@@ -479,7 +479,7 @@ will be.
 
 In order to find the long-running worker runs, do the following:
 
-1. Go to the Log Insights page in the Cloudwatch dashboard in the primary region
+1. Go to the Log Insights page in the CloudWatch dashboard in the primary region
    of the Turbot Master account. Search for the log group named
    `{resource_prefix}_worker\_5\_{minor}_{patch}`. You want to be searching
    through the appropriate logs.
@@ -521,9 +521,9 @@ after investigation, reach out to [Turbot Support](mailto:support@turbot.com)
 No. While Turbot recommends a wildcard certificate to simplify configuration and
 adding new workspaces, it is not strictly required. Those customers with a
 private ALB and an API gateway must generate a single certificate with an entry
-for each workspace hosted on the TEF deployment and for the API gateway. Even if the 
-`gateway.{installation.domain.name}` hostname won't be used for event handling because of DNS 
-considerations, it must still be included in the certificate. 
+for each workspace hosted on the TEF deployment and for the API gateway. Even if the
+`gateway.{installation.domain.name}` hostname won't be used for event handling because of DNS
+considerations, it must still be included in the certificate.
 For an installation with a single workspace and an API gateway, the certificate must contain:
 
 ```
@@ -553,7 +553,7 @@ Guardrails will automatically copy the tags applied to the Service Catalog Turbo
 1. Log into your Turbot Master account then head over to Service Catalog.
 2. Identify the TEF product in the Provisioned Products list.
 3. Update the TEF product. Stay on the current version.
-4. Scroll all the way to the bottom.  You'll see a place to put in your tags. 
+4. Scroll all the way to the bottom.  You'll see a place to put in your tags.
 5. Set the required tag keys and values.
 6. Click "Update".
 7. When the TEF stack has finished updating, switch over to the Guardrails console.

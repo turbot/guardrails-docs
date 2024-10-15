@@ -42,7 +42,7 @@ Typically indicates a misconfigured mod failing to terminate the task.
   backlog?
 - **Guardrails Master Changes**: Were any changes made to the Guardrails application?
 
-Answer to these questions will come from the Turbot Guardrails Enterprise (TE) Cloudwatch
+Answer to these questions will come from the Turbot Guardrails Enterprise (TE) CloudWatch
 dashboard.
 
 If the backlog is not consistent and can be co-related to an activity that was

@@ -14,16 +14,16 @@ consideration must be made when removing resources within the account, as once
 data is deleted, such as CloudTrail and logs in S3, it cannot be restored.
 
 Before the delete process is started, administrators will want to determine if
-they would like to keep Guardrails-managed resources in the account, such as S3 buckets, or CloudTrail. 
+they would like to keep Guardrails-managed resources in the account, such as S3 buckets, or CloudTrail.
 The following policies can be set at the AWS account within the Guardrails workspace to
 facilitate cleanup. Be sure to verify that the exceptions are being set ONLY on the account that will be removed.
 
 1. `AWS > Turbot > Permissions` set to `Enforce: None`. This will remove Guardrails-managed
-   IAM policies, groups, roles and users. 
+   IAM policies, groups, roles and users.
 2. `AWS > Turbot > Audit Trail` set to `Enforce: Not configured`. This will
    remove the Guardrails-managed CloudTrail.
 3. `AWS > Turbot > Event Handlers` set to `Enforce: Not configured`. This will
-   remove Guardrails-managed Cloudwatch Event Rules and SNS topics. Refer to the
+   remove Guardrails-managed CloudWatch Event Rules and SNS topics. Refer to the
    [Event Handler documentation](guides/aws/event-handlers) for additional
    context.
 4. `AWS > Turbot > Service Roles` set to `Enforce: Not configured`. This will

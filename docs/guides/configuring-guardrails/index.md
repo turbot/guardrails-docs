@@ -4,10 +4,13 @@ title: Configuring Guardrails
 
 # Configuring Guardrails
 
-This section provides how-to guides for common tasks.
+This section provides how-to guides for common tasks that will help you effectively set up, modify, and manage configurations within Guardrails. Each guide covers specific actions, from initial mod installations to complex policy management.
 
-| |
+| Guide | Description |
 | - | -
+| [Install Mod](guides/configuring-guardrails/install-mod) | Learn how to install mod in Guardrails console
+| [Update Mod](guides/configuring-guardrails/update-mod) |  Learn how to uninstall mod in Guardrails console
+| [Uninstall Windows](guides/configuring-guardrails/uninstall-mod) | Learn how to update mod in Guardrails console
 | [Change Windows](guides/configuring-guardrails/change-window) | Learn about Guardrails' Change Window mechanism
 | [Directories](guides/configuring-guardrails/directories) | Steps to configure Directories in Guardrails
 | [File](guides/configuring-guardrails/files) | Create and modify Guardrails Files for easy data reference across and environment

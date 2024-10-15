@@ -5,9 +5,9 @@ sidebar_label: "Troubleshooting"
 
 ## Troubleshooting
 
-The following workflows will assist with rapid resolution of common problems.  When the problem cannot be resolved, the instructions will include additional information to gather before escalating with Guardrails Customer Success.
+The following guides provide solutions for common issues encountered in Guardrails. If a problem cannot be resolved, the instructions include additional steps for gathering information before escalating to the Guardrails Customer Success team.
 
-### Event Handling
-- [AWS Console Troubleshooting](guides/troubleshooting/troubleshooting-event-handlers-aws-console)
-- [Guardrails Console Troubleshooting](guides/troubleshooting/troubleshooting-event-handlers-guardrails-console)
-- [Event Flood](guides/hosting-guardrails/troubleshooting/event-flood)
+- [Database Instance Not in Available State](/guardrails/docs/guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state)
+- [Enable Verbose Logging](/guardrails/docs/guides/hosting-guardrails/troubleshooting/enable-verbose-logging)
+- [Service Catalog Out of Sync](/guardrails/docs/guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync)
+- [Peer Mod Dependency Error](/guardrails/docs/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error)
