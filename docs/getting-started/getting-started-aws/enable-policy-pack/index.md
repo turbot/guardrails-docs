@@ -23,7 +23,7 @@ Check the properties of the bucket you created in [Observe AWS activity](/guardr
   
 You bookmarked the **Controls by State** report in [Connect an Account](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity), go there now.
 
-Set the `**Type** filter to **AWS > S3 > Bucket > Versioning** and search for your bucket. 
+Use the **Type** filter choose **AWS > S3 > Bucket > Versioning** and search for your bucket. 
 
 It is in the `skipped` state. There is not yet a Guardrails policy to check bucket versioning. 
 

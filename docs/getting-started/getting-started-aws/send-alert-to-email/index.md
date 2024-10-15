@@ -35,15 +35,19 @@ Choose **New Policy Setting**.
 
 ## Step 3: Enable notifications
 
-Choose **Turbot** as the **Resource, and choose the `Enabled` setting. Then select **Create**.
+Choose **Turbot** as the **Resource**, and choose the **Enabled** setting. Then select **Create**.
 
 <p><img alt="enable-notifications" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/enable-notifications.png"/></p>
 
-Step 4: View notifications policy setting  
+## Step 4: View notifications policy setting
+
+Observe that notifications are now enabled.
 
 <p><img alt="notifications-enabled" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/notifications-enabled.png"/></p>
 
-## Step 5: Locate the Turbot > Notifications > Rule-Based Routing policy typeReturn to the **Turbot > Notifications** policy type. select **Rule-Based Routing**, then select **New Policy Setting**.
+## Step 5: Locate the Turbot > Notifications > Rule-Based Routing policy type
+
+Return to the **Turbot > Notifications** policy type. select **Rule-Based Routing**, then select **New Policy Setting**.
 
 <p><img alt="locate-rule-based-routing" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/locate-rule-based-routing.png"/></p>
 

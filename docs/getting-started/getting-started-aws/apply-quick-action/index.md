@@ -38,7 +38,7 @@ Add this permission to the `turbot-service-readonly` role you set up in [the fir
 
 ## Step 2: Location Turbot > Quick Actions > Enabled
 
-Search Policies for `quick actions`. Select **Turbot > Quick Actions > Enabled**.
+Search **Policies** for `quick actions`. Select **Turbot > Quick Actions > Enabled**.
 
 <p><img alt="find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/find-quick-actions-policies.png"/></p>
 
@@ -57,7 +57,7 @@ Choose your account as the **Resource**, choose **Enabled`, and select **Create*
 ## Step 5: Find a bucket in Alarm for versioning
 
   
-In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we left your test bucket in the `Alarm` state. Locate it in **Controls by State** and select the control  
+In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we left your test bucket in the `Alarm` state. Locate it in **Controls by State** and select the control.  
 
 <p><img alt="aws_search_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-search-bucket-in-alarm-for-quick-action.png"/></p>
 

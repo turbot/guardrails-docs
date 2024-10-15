@@ -30,11 +30,15 @@ In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-st
 
 ## Step 2: View the policy setting
 
-View the current setting. It’s the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack).
+View the current setting. It’s the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception).
 
 <p><img alt="view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/view-policy-setting.png"/></p>
 
-## Step 3: Edit the policy setting Select the pencil icon to edit the setting, and select **Disable calculated mode** to return to basic mode.
+## Step 3: Edit the policy setting
+
+  
+  
+ Select the pencil icon to edit the setting, and select **Disable calculated mode** to return to basic mode.
 
 <p><img alt="edit-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/edit-policy-setting.png"/></p>
 
@@ -46,7 +50,7 @@ Choose **Enforce: Enable** and select **Update**.
 
 ## Step 5: Observe enforcement
 
-Revisit **Controls by State* and use the **Type** filter to choose **AWS > S3 > Bucket > Versioning**.  
+Revisit **Controls by State** and use the **Type** filter to choose **AWS > S3 > Bucket > Versioning**.  
 
 <p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/enforcement-happened.png"/></p>
 

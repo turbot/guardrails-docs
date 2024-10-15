@@ -48,7 +48,7 @@ Select `Enable calculated mode`.
 
 <p><img alt="enable-calculated-mode" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/enable-calculated-mode.png"/></p>
 
-## Step 6: Launch calculated policy builder.
+## Step 6: Launch calculated policy builder
 
 <p><img alt="launch-calculated-policy-builder" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/launch-calculated-policy-builder.png"/></p>
 
