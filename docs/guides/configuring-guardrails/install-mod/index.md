@@ -9,7 +9,7 @@ In this guide, you will:
 - Install a mod in the Guardrails workspace using the Guardrails UI.
 - Monitor and troubleshoot the mod install process.
 
-Guardrails is designed to enable organizations to selectively install policies, controls, and guardrails tailored to specific services. This collection of Guardrails resources is known as a Mod. Guardrails' published Mods are typically focused on a particular service within a specific cloud provider.
+Guardrails is designed to enable organizations to selectively install policies, controls, and guardrails tailored to specific services. This collection of Guardrails resources is known as a [Mod](/guardrails/docs/reference/glossary#mod). Guardrails published Mods are typically focused on a particular service within a specific cloud provider.
 
 ## Prerequisites
 
