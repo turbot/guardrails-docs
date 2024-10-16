@@ -5,7 +5,7 @@ sidebar_label: Install TEF
 
 # Install TEF
 
-This section provides detailed step-by-step instructions on how to install the Turbot Guardrails Enterprise Foundation (TEF) product:
+This section provides detailed, step-by-step instructions for installing the  Turbot Guardrails [Enterprise Foundation (TEF)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-foundation-tef) product:
 
 | | |
 | - | - |

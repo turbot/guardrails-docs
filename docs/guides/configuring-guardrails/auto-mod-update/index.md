@@ -74,7 +74,7 @@ Set the desired value in the schedule policy for `Turbot > Mod > Auto Update` co
 
 ![Schedule Policy Value](/images/docs/guardrails/guides/configuring-guardrails/auto-mod-update/guardrails-console-policies-auto-update-select-schedule-policy-value.png)
 
-> [!Note]
+> [!NOTE]
 > Turbot assumes UTC.
 > The format of this policy is a list of yaml object, each with a name, description, a start time, and duration (in hours).
 

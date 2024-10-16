@@ -12,7 +12,7 @@ In this guide, you will:
 
 Deleting old [Turbot Guardrails Enterprise (TE)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-te) versions declutters the environment, frees up resources for new deployments and reduces cloud costs.
 
-> [!Important]
+> [!IMPORTANT]
 > The TE stack and workspace stack will need to be updated in tandem! Do not delete the old TE stack until the new, updated stack has completed in CloudFormation
 
 ## Prerequisites

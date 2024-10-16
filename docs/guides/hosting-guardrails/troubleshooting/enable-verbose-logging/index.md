@@ -46,7 +46,7 @@ Choose the tenant parameter and verify if the **log_level** is set to `debug`, a
 
 Select **Edit** and update `log_level` to `verbose` in `Value` field. Then select **Save changes**.
 
-> [!Note] Ensure the parameter string is a valid JSON before saving. Keep all rest of the values as default.
+> [!NOTE] Ensure the parameter string is a valid JSON before saving. Keep all rest of the values as default.
 
 ![SSM Workspace Parameter With Verbose](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/enable-verbose-logging/aws-ssm-parameter-modifiy-verbose.png)
 
@@ -66,11 +66,11 @@ Toggle the `Deployment Trigger` between `Blue <> Green`, this will trigger the T
 
 ![Validate TE Stack Status](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/enable-verbose-logging/cfn-workspace-te-stack-validation.png)
 
-## Step 7: Search for Troubleshooting Data.
+## Step 7: Search for Troubleshooting Data
 
 With verbose logging now enabled, you can navigate to CloudWatch service and find the Log Group(s) for **/{turbot_prefix}/{te_version}/events** or **/{turbot_prefix}/{te_version}/api** to investigate generated events and check for required troubleshooting data.
 
-> [!Important]
+> [!IMPORTANT]
 > When troubleshooting is complete, turn off verbose logging. Go to the SSM Console and repeat steps 1 to 5. Edit the `log_level` back to `debug`.
 
 If you encounter any issues, please [Open Support Ticket](https://support.turbot.com) and attach the relevant information to assist you more efficiently.

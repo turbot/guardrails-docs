@@ -77,7 +77,7 @@ The required parameters for this installation option are as below
 
 ![Installation Parameter](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-and-new-vpc/service-catalog-tef-parameter-installation.png)
 
-> [!Note]
+> [!NOTE]
 > Each region must be given a different **Region Code** identifier, allowing the stacks to be automatically coordinated for peering etc. Select "alpha" as the **Region Code** for this first region.
 
 Proceed to `Logging` section leaving the `Turbot Guardrails License Key` field blank.

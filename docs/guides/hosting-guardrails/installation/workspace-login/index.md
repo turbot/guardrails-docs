@@ -88,7 +88,7 @@ Confirm deletion by selecting **Delete** button.
 
 ![Delete Access Key Action](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/delete-access-key-delete-action.png)
 
-> [!Note]
+> [!NOTE]
 > New access keys can be created if necessary.
 
 ## Next Steps

@@ -52,8 +52,8 @@ The number of messages received by the top tenant over a specified duration, alo
 
 With the workspace identified, navigate to **CloudWatch > Logs Insights**, select the appropriate worker log group for the TE version and choose the desired query duration to proceed to investigate further by analyzing events, event sources, and account IDs for the workspace.
 
-> [!NOTE]
-> Be aware that longer durations will increase the log group size and query time, which may result in higher billing costs for CloudWatch.
+> [!IMPORTANT]
+> Longer durations will increase the log group size and query time, which may result in higher billing costs for CloudWatch.
 
 ![View All Messages By Workspace](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights.png)
 
