@@ -343,7 +343,7 @@ The path is:
    to those that Turbot needs. (For example, if the `aws-cloudfront` mod is not
    installed, there's no need to get `cloudfront:*` events. Some events such as
    `s3:PutObject` can be extremely high volume but worthless to Turbot.)
-3. **SNS Topic**: After filtering by Cloudwatch Event Rules, events are placed
+3. **SNS Topic**: After filtering by CloudWatch Event Rules, events are placed
    on the `turbot_event_handler` SNS topic to send back to Turbot.
 4. **SNS Subscription**: An HTTPS subscription sends events back to the Turbot.
 5. **(optional) API Gateway and Events Proxy**: Some enterprise customers with

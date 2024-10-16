@@ -31,7 +31,7 @@ Guardrails + Security Hub Integration.
 - SQS
 - Lambda
 - Elasticache Memcached
-- Cloudwatch Logs
+- CloudWatch Logs
 - VPC
 
 ### Connectivity Requirements
@@ -53,7 +53,7 @@ a new VPC with NAT/IGWs.
 - Firehose SNS Topic &#8594; SQS
 - SQS &#8594; Security Hub Lambda
 - Security Hub Lambda &#8594; Memcached
-- Security Hub Lambda &#8594; Cloudwatch Logs
+- Security Hub Lambda &#8594; CloudWatch Logs
 - Security Hub Lambda &#8594; Security Hub API Endpoints
 - Security Hub Lambda &#8594; STS API Endpoints
 
@@ -203,7 +203,7 @@ following AWS services:
 - VPC
 - Elasticache (memcached)
 - Lambda
-- Cloudwatch Logs
+- CloudWatch Logs
 
 The user that deploys should have read/write permissions to the target Turbot
 workspace:
@@ -305,7 +305,7 @@ terraform destroy -var-file={environment}.tfvars
 
 ## Monitoring
 
-Watch the Cloudwatch logs and Function Monitoring for the integration lambda
+Watch the CloudWatch logs and Function Monitoring for the integration lambda
 `turbot-firehose-to-sec-hub-write-to-security-hub`.
 
 ## Troubleshooting

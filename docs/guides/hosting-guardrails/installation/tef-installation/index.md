@@ -44,6 +44,7 @@ will be shared by all workspaces.
    - For environments where wildcard certs are not allowed, the certification
    should include the base **Installation Domain Name**, all workspace domain
    names and any public API gateways.
+
    <div className="alert alert-warning">
    A wildcard certificate is highly recommended.  Without a wildcard cert, the certificate will need to be updated with the new workspaces as they are brought online.
    </div>
@@ -179,7 +180,7 @@ not use the proxy configuration since they are outside the VPC._
 #### Network - Security Groups
 
 If you are using a pre-defined VPC, you will need to create security groups
-that allow access appropriate to your environment.  The Guardrails-Samples repo 
+that allow access appropriate to your environment.  The Guardrails-Samples repo
 contains Cloudformation to [build these for you](https://github.com/turbot/guardrails-samples/blob/main/installation/security_groups.yml).
 Add additional ports to these three security group to meet your organizational needs.  Do not remove ports or security group
 relationships.

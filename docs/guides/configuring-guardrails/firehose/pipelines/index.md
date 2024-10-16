@@ -123,7 +123,7 @@ Guardrails &rarr; Firehose &rarr; SNS &rarr; SQS Queue (with time delay) &rarr; 
 
 
 ## Troubleshooting
-Refer to the Cloudwatch logs for `/aws/lambda/turbot-turbotfirehoseawssnssender-{hash}` if messages don't appear as expected. These logs only cover publishing to the topic by the firehose. Activity after publishing to the topic cannot be covered here.
+Refer to the CloudWatch logs for `/aws/lambda/turbot-turbotfirehoseawssnssender-{hash}` if messages don't appear as expected. These logs only cover publishing to the topic by the firehose. Activity after publishing to the topic cannot be covered here.
 
 ## Reference
 - [Firehose Installation Instructions](/guardrails/docs/mods/turbot/firehose-aws-sns#setup): Basic overview and capabilities
