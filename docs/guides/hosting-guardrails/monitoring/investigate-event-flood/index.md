@@ -31,19 +31,19 @@ Choose **Dashboards** from the left navigation menu.
 
 ## Step 3: Select Dashboard
 
-Select the Turbot Guardrails Enterprise (TE) CloudWatch dashboard, which is typically named after the TE version in use.
+In **Custom dashboards**, select the Turbot Guardrails Enterprise (TE) CloudWatch dashboard, which is typically named after the TE version in use.
 
 ![TE Dashboard](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-select-te-dashboard.png)
 
 ## Step 4: View Events Queue
 
-Select the duration and check the **Events Queue Backlog** graph in the TE CloudWatch dashboard that indicates the flood state.
+Select the desired duration and timezone by selecting the **calendar**. Check the **Events Queue Backlog** graph in the TE CloudWatch dashboard that indicates the flood state.
 
 ![Events Queue Backlog](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-dashboard-events-queue-backlog.png)
 
 ## Step 5: Identify Noisy Tenant
 
-In the **Activities** section of the TE Dashboard, use the **View All Messages By Workspace** widget to filter and identify the noisy tenant causing the issues.
+Scroll down in the same dashboard page to the **Activities** section, use the **View All Messages By Workspace** widget to filter and identify the noisy tenant causing the issues.
 The number of messages received by the top tenant over a specified duration, along with the difference between the top three tenants, can be a strong indicator of an event flood.
 
 ![View All Messages By Workspace](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-view-messages-by-workspace.png)
