@@ -1,9 +1,9 @@
 ---
-title: Uninstall Mod
-sidebar_label: Uninstall Mod
+title: Uninstall Mods
+sidebar_label: Uninstall Mods
 ---
 
-# Uninstall Mod
+# Uninstall a Mod
 
 In this guide, you will:
 - Uninstall a mod in the Guardrails workspace using the Guardrails UI.

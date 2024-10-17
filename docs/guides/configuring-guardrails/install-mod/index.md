@@ -1,9 +1,9 @@
 ---
-title: Install Mod
-sidebar_label: Install Mod
+title: Install Mods
+sidebar_label: Install Mods
 ---
 
-# Install Mod
+# Install a Mod
 
 In this guide, you will:
 - Install a mod in the Guardrails workspace using the Guardrails UI.

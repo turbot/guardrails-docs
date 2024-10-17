@@ -1,9 +1,9 @@
 ---
-title: Update Mod
-sidebar_label: Update Mod
+title: Update Mods
+sidebar_label: Update Mods
 ---
 
-# Update Mod
+# Update A Mod
 
 In this guide, you will:
 - Update a mod in the Guardrails workspace using the Guardrails UI.
