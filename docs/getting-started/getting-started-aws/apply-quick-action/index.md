@@ -6,22 +6,38 @@ sidebar_label: Apply a Quick Action
 
 # Apply a Quick Action
 
+In this guide we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations. In order to do that, you’ll need to add one permission to the Turbot IAM role.
+
+This is the eighth guide in the *Getting started with AWS series*.
+
+
 **Prerequisites**: 
 
-- [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
-- [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-- [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
-- [Review Account-Wide Bucket Versioning](/guardrails/docs/getting-started/getting-started-aws/review-account-wide/)
-- [Create a Static Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
-- [Create a Calculated Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
-- [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/)
+- Completion of the first seven guides.
 
+Until now we’ve operated Guardrails with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. 
 
-Until now we’ve operated Guardrails with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this guide we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations. In order to do that, you’ll need to add one permission to the Turbot role.
+## Step 1: Locate IAM role for Turbot Guardrails access
 
-## Step 1: Add the s3:PutBucketVersioning permission.
+In the AWS Console, find the role you created in the [first guide](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/) and select the link.
 
-Add this permission to the role you set up in [the first guide]([/](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)guardrails/docs/getting-started/getting-started-aws/connect-an-account). 
+<p><img alt="locate-iam-rule" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/locate-turbot-iam-role.png"/></p>
+
+## Step 2: Prepare to add a permission
+
+Expand the **Add permissions** dropdown.
+
+<p><img alt="locate-add-permissions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/locate-add-permissions.png"/></p>
+
+## Step 3: Open policy editor
+
+Choose **Create inline policy**.
+
+<p><img alt="choose-create-inline-policy" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/choose-create-inline-policy.png"/></p>
+
+## Step 4: Add the policy code
+
+Choose **JSON**. Copy and past this code.
 
 ```json
 {
@@ -36,50 +52,68 @@ Add this permission to the role you set up in [the first guide]([/](https://turb
 }
 ```
 
-## Step 2: Location Turbot > Quick Actions > Enabled
+ Select **Next**.
 
-Search **Policies** for `quick actions`. Select **Turbot > Quick Actions > Enabled**.
+<p><img alt="specify-permissions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/specify-permissions.png"/></p>
+
+## Step 5: Name and create the policy
+
+Assign a meaningful name, and select **Create policy**.
+
+<p><img alt="name-and-create-policy" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/name-and-create-policy.png"/></p>
+
+## Step 6: Find the Quick Actions policy type
+
+Select **Policies** from the top-level navigation. In the search box, type `quick actions`. Select the **Turbot > Quick Actions > Enabled** policy type.
 
 <p><img alt="find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/find-quick-actions-policies.png"/></p>
 
-## Step 3: View Turbot > Quick Actions > Enabled policy type
+## Step 7: Open the new policy setting dialog
 
 Select **New Policy Setting**.
 
 <p><img alt="view-quick-actions-enabled-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/view-quick-actions-enabled-policy-type.png"/></p>
 
-## Step 4: Enable Quick Actions
+## Step 8: Enable Quick Actions
 
-Choose your account as the **Resource**, choose **Enabled`, and select **Create**.  
+Choose **Sandbox** as the **Resource**, choose **Enabled**, and select **Create**.  
 
 <p><img alt="aws-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-enable-quick-actions.png"/></p>
 
-## Step 5: Find a bucket in Alarm for versioning
+## Step 9: Find a bucket in Alarm for versioning
 
-  
-In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-gcp/send-alert-to-email) we left your test bucket in the `Alarm` state. Locate it in **Controls by State** and select the control.  
+Navigate to the **Controls by State** report and filter on **AWS > S3 > Bucket > Versioning**.
 
-<p><img alt="aws_search_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-search-bucket-in-alarm-for-quick-action.png"/></p>
+<p><img alt="find_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/find-bucket-in-alarm-for-versioning.png"/></p>
 
-## Step 6: Prepare to take a Quick Action
+## Step 10: Select a bucket with the versioning control in `Alarm`.
 
-Select the **Actions** dropdown.
+Select the bucket's link.
 
-<p><img alt="aws-bucket-in-alarm-for-quick-action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-bucket-in-alarm-for-quick-action.png"/></p>
+<p><img alt="select_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/select-bucket-in-alarm-for-versioning.png"/></p>
 
-## Step 7: Take a Quick Action to enable versioning
+## Step 11: Take the Quick Action
 
-Choose **Enable Versioning**.  
+Select the **Actions** dropdown, and choose **Enable Versioning**.
 
+<p><img alt="expand-quick-actions-dropdown" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/expand-quick-actions-dropdown.png"/></p>
+
+## Step 12: Observe the updated control
 
 Guardrails reports that the action was successful, and the control goes to green.  
 
-<p><img alt="aws-quick-action-reports-success" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-quick-action-reports-success.png"/></p>
+<p><img alt="observe-updated-control" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/observe-updated-control.png"/></p>
 
-## Step 8: Review
+## Step 13: Confirm in the AWS console
 
-  
-Explore taking Quick Actions on other resources in your account. 
+Observe the result.
+
+<p><img alt="observe-aws-console-result" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/observe-aws-console-result.png"/></p>
+
+## Step 14: Review
+
+In this guide you've learned how Guardrails enables you to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations directly.
+
 
 ## Next Steps
 
