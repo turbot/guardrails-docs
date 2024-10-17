@@ -33,7 +33,7 @@ Under Controls, select **Alerts by Control Type**.
 
 ![Alerts by Control Type](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-select-controls-alerts.png)
 
-Filter for **Error** and **Invalid** states.
+Select **Invalid** and **Error** From State filter dropdown.
 
 ![Apply Filter](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-filter-error-invalid.png)
 
@@ -43,7 +43,7 @@ In **Reports**, under **Policies**, select **Policy Values by State**.
 
 ![Alerts by Policy Values](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-policy-values-by-state.png)
 
-Filter for **Error** and **Invalid** states.
+Select **Invalid** and **Error** From State filter dropdown.
 
 ![Apply Filter](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/filter-policy-error-invalid-state.png)
 
