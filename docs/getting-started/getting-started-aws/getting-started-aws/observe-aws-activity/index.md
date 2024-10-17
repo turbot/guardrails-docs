@@ -22,7 +22,7 @@ This is the second guide in the *Getting started with AWS* series.
 
 ## Step 1: Locate the Resource Activities report
  
-Select **Reports** from the top navigation bar.  Search for the word "resource" and select **Resource Activities**.
+Select **Reports** from the top navigation bar. Search for the word "resource" and select **Resource Activities**.
 
 <p><img alt="aws_search_resource_activities" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-search-resource-activities.png"/></p>
 

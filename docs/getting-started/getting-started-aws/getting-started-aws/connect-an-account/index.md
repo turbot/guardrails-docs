@@ -17,13 +17,13 @@ This is the first guide in the *Getting started with AWS* series.
 
 ## Step 1: Login to Guardrails
 
-Login to your Guardrails console and select the **CONNECT** option from the home page.  
+Login to your Guardrails console and select the **CONNECT** option from the home page. 
 
 <p><img alt="locate-top-level-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/locate-top-level-connect.png"/></p>
 
 ## Step 2: Download the CloudFormation template
 
-Select **AWS Account** from the left navigation and then click !SOMETHING! to download the CloudFormation template we will use to set up the required IAM role in your AWS account.  Leave this page open in a browser tab.
+Select **AWS Account** from the left navigation and then click !SOMETHING! to download the CloudFormation template we will use to set up the required IAM role in your AWS account. Leave this page open in a browser tab.
 
 You’ll need an IAM role that grants Guardrails permission to discover [resources](/guardrails/docs/reference/glossary#resource) in your AWS account and to monitor changes via event handlers. The CloudFormation template downloaded in this step has the minimum permissions necessary to create that role.
 
@@ -41,9 +41,9 @@ In AWS, create a CloudFormation stack using the template you downloaded. Provide
 
 ## Step 5: Verify AWS role
 
-When the stack is created, navigate to **IAM > Roles**, search for `turbot`, and verify that the role `turbot-guardrails-access-policy` exists in your account with these permissions:  
-  
-- ReadOnlyAccess  
+When the stack is created, navigate to **IAM > Roles**, search for `turbot`, and verify that the role `turbot-guardrails-access-policy` exists in your account with these permissions: 
+ 
+- ReadOnlyAccess 
 
 - turbot-guardrails-access-policy
 
@@ -82,15 +82,15 @@ Wait for the progress bar to complete. This process takes a while, and you’ll 
 
 ## Step 10: View Controls by State report
 
-Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list.  
+Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list. 
 
 <p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
 ## Step 11: Configure report filters
 
 From the filter bar, expand the **Type** dropdown. Then enable the checkbox next to **AWS** to limit the report to only show AWS controls.
-  
-Bookmark the **Controls by State** report, you’ll need it in subsequent guides.  
+ 
+Bookmark the **Controls by State** report, you’ll need it in subsequent guides. 
 
 <p><img alt="set-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-type-filter.png"/></p>
 
@@ -115,10 +115,7 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe
 | ERROR | One or more controls are in ERROR. | [tbd]() |
 | INVALID | One or more controls are INVALID. | [tbd]() |
 
-  
-
-
-
+ 
 ## Progress tracker
 
 - [x] **Connect an AWS Account to Guardrails**

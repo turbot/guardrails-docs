@@ -116,15 +116,8 @@ In this guide you've learned how to enable Quick Actions so you can fix cloud mi
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-aws/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.  
-  
-
-
-  
-  
-  
-
-
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously. 
+ 
 
 ## Progress tracker
 

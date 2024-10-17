@@ -36,7 +36,7 @@ Note the Versioning policy (`Check: Enabled`) created in [this guide](/guardrail
 
 ## Step 4: Choose Policy Type
 
-Search for `aws s3 bucket versioning` and enable the checkbox next to  **AWS > S3 > Bucket > Versioning**.
+Search for `aws s3 bucket versioning` and enable the checkbox next to **AWS > S3 > Bucket > Versioning**.
 
 <p><img alt="choose-policy-type-and-resource" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/choose-policy-type.png"/></p>
 

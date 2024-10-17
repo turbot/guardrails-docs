@@ -58,7 +58,7 @@ In the guide we've seen how to enable Guardrails to automatically enforce polici
 
 ## Next Steps
 
-This Getting Started series just scratches the surface.  Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
+This Getting Started series just scratches the surface. Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
 
 
 ## Progress tracker

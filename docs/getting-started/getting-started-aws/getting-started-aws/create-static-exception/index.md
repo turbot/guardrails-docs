@@ -9,9 +9,9 @@ Sidebar_label: Create a Policy Exception
 In this guide you’ll see a how policy pack governs resource across an account.
 
 This is the fifth guide in the *Getting started with AWS* series.
-  
-**Prerequisites**:   
-  
+ 
+**Prerequisites**: 
+ 
 - Completion of the first four guides.
 
 
@@ -73,13 +73,13 @@ This bucket is now exempt from the requirement to enable versioning. Select the 
 
 ## Step 10: View the hierarchy
 
-Select the **Hierarchy** tab. The account-level policy specifies **Check: Enabled**. You’ve overridden that with an exception that exempts this particular bucket from that policy.  
+Select the **Hierarchy** tab. The account-level policy specifies **Check: Enabled**. You’ve overridden that with an exception that exempts this particular bucket from that policy. 
 
 <p><img alt="view-hierarchy-tab" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/view-hierarchy-tab.png"/></p>
 
 ## Step 11: Review bucket activity
 
-Select the **Activity** tab and observe the history. When you created the bucket-level policy setting to make an exception for this bucket, the control reevaluated and set the status to `Skipped`.  
+Select the **Activity** tab and observe the history. When you created the bucket-level policy setting to make an exception for this bucket, the control reevaluated and set the status to `Skipped`. 
 
 <p><img alt="view-hierarchy-tab" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/view-bucket-activity.png"/></p>
 
