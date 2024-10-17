@@ -57,7 +57,7 @@ With the workspace identified, navigate to **CloudWatch > Logs Insights**, selec
 
 ![View All Messages By Workspace](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights.png)
 
-Use this query to identify **External Messages by Accounts in a Tenant**.
+Use the below query to identify **External Messages by Accounts in a Tenant**.
 
 ```
 fields @timestamp, @message
@@ -68,7 +68,7 @@ fields @timestamp, @message
 ```
 ![Accounts Generating Events](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights-events-by-account.png)
 
-Next, use this query to identify **External Messages by Source for a Tenant**.
+Next, use below query to identify specific event sources **External Messages by Source for a Tenant**.
 
 ```
 fields @timestamp, @message
