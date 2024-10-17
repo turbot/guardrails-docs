@@ -6,24 +6,19 @@ sidebar_label: Send an Alert to Email
 
 # Send an Alert to Email
 
-In [the previous guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
+In this guide you'll learn how to route Guardrails console notifications to email.
+
+This is the seventh guide in the *Getting started with AWS series*.
 
 **Prerequisites**: 
 
-- [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
-- [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-- [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
-- [Review Account-Wide Bucket Versioning](/guardrails/docs/getting-started/getting-started-aws/review-account-wide/)
-- [Create a Static Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
-- [Create a Calculated Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
+- Completion of the first six guides.
 
-
-In [the previous guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
 
 ## Step 1: Locate the Turbot > Notifications policy type
 
-  
-To enable notifications for your workspace, select **Policies** in the top navigation bar, and search for  `turbot notifications`. Select the **Turbot > Notifications** policy type.
+ 
+To enable notifications for your workspace, select **Policies** in the top navigation bar, and search for `turbot notifications`. Select the **Turbot > Notifications** policy type.
 
 <p><img alt="search-notifications-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/search-notifications-policy-type.png"/></p>
 
@@ -33,72 +28,77 @@ Choose **New Policy Setting**.
 
 <p><img alt="view-turbot-notifications-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/view-turbot-notifications-policy-type.png"/></p>
 
-## Step 3: Enable notifications
+## Step 3: Choose Turbot root level
 
-Choose **Turbot** as the **Resource**, and choose the **Enabled** setting. Then select **Create**.
+Choose **Turbot** as the resource.
+
+<p><img alt="view-turbot-notifications-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/choose-turbot-root.png"/></p>
+
+
+## Step 4: Enable notifications
+
+Choose the **Enabled** setting. Then select **Create**.
 
 <p><img alt="enable-notifications" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/enable-notifications.png"/></p>
 
-## Step 4: View notifications policy setting
+## Step 5: View notifications policy setting
 
-Observe that notifications are now enabled.
+Observe that the policy setting correctly reflects that notifications are enabled. Click on the word `Notifications` in the `Turbot > Notifications` breadcrumb.
 
 <p><img alt="notifications-enabled" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/notifications-enabled.png"/></p>
 
-## Step 5: Locate the Turbot > Notifications > Rule-Based Routing policy type
+## Step 6: View notifications policy type
 
-Return to the **Turbot > Notifications** policy type. select **Rule-Based Routing**, then select **New Policy Setting**.
+Select **Rule-Based Routing**.
 
-<p><img alt="locate-rule-based-routing" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/locate-rule-based-routing.png"/></p>
+<p><img alt="notifications-enabled" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/locate-rule-based-routing.png"/></p>
 
-## Step 6: Create a notification rule
+## Step 7: View rule-based routing policy type
 
-  
-Choose **Turbot** as the **Resource** and enter this rule, using one or more email addresses you want to notify.  
-  
+<p><img alt="notifications-enabled" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/view-rule-based-routing.png"/></p>
+
+Select **New Policy Setting**.
+
+## Step 8: Create a notification rule
+ 
+Choose **Turbot** as the **Resource**. Copy and paste this rule, using one or more email addresses you want to notify. 
+ 
 ```yaml
 - rules: |
    NOTIFY $.control.state:alarm $.controlType.uri:'tmod:@turbot/aws-s3#/control/types/bucketVersioning'
-  emails:
+   emails:
      - you@yourcompany.com
-```  
-  
-The rule will send an alert to the configured email address when any control enters the `Alarm` state for S3 bucket versioning.  
+``` 
+ 
+The rule will send an alert to the configured email address when any control enters the `Alarm` state for S3 bucket versioning. 
+
+
+Select **Create**.
 
 <p><img alt="create-notification-rule" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/create-notification-rule.png"/></p>
 
-## Step 7: Find the bucket skipped by your calculated policy
+## Step 9: Find the bucket skipped by your calculated policy
 
-At the end of [Create a calculated exception](/guardrails/getting-started/getting-started-aws/create_calculated_exception), your test bucket – the one you tagged with `environment:development` – was in a `Skipped` state for versioning. To verify, revisit **Controls by State**, choose the **Type** as **AWS > S3 > Bucket > Versioning**, and search for the bucket.
+Navigate to **Controls by State**, choose the **Type** as **AWS > S3 > Bucket > Versioning**, and search for the bucket.
 
 <p><img alt="find-skipped-bucket" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/find-skipped-bucket.png"/></p>
 
-## Step 8: Trigger the notification
+## Step 10: Trigger the notification
 
-Now, in the AWS console, remove the `environment:development` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: Enabled`.  And because you left the bucket’s versioning in the AWS default state – suspended – the bucket’s control for versioning now transitions to `Alarm`.   
+In the AWS console, change the tag to `environment:production` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: Enabled`.  And because you left the bucket’s versioning in the AWS default state – suspended – the bucket’s control for versioning now transitions to `Alarm`.   
 
 <p><img alt="observe-untagged-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/observe-untagged-bucket-in-alarm.png"/></p>
 
-## Step 9: Check email
+## Step 11: Check your email
 
-  
-Now check your email. The alarm reported in the Guardrails console also appears in your inbox. You can alternatively configure Guardrails to send alerts to [Slack]([guardrails/docs/guides/notifications/templates#example-slack-template](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)) or [MS Teams](/guardrails/docs/guides/notifications/templates#example-ms-teams-template).
+The alarm reported in the Guardrails console also appears in your inbox. You can alternatively configure Guardrails to send alerts to [Slack]([guardrails/docs/guides/notifications/templates#example-slack-template](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)) or [MS Teams](/guardrails/docs/guides/notifications/templates#example-ms-teams-template).
 
 <p><img alt="view-email-notification" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/view-email-notification.png"/></p>
 
-## Step 10: Review
+## Step 12: Review
 
-Update your notification rule to also handle transitions from `OK` to `Alarm`.
+In this guide you have learned how to route Guardrails console notifications to email.
 
-```yaml
-- rules: |
-   NOTIFY $.oldControl.state:skipped $.control.state:alarm $.controlType.uri:'tmod:@turbot/aws-s3#/control/types/bucketVersioning'
-   NOTIFY $.oldControl.state:ok $.control.state:alarm $.controlType.uri:'tmod:@turbot/aws-s3#/control/types/bucketVersioning'
-  emails:
-     - judell@turbot.com
-```  
-  
-Find a bucket that’s `OK` for versioning, disable versioning, and verify that you see the alarm both in the Guardrails console and in email.
 
 ## Next Steps
 
