@@ -244,12 +244,12 @@ Notes:
 - GraphQL permits multiple `resources()` queries when they have labels. The
   `trails:` label shows how this is done.
 - A full example can be found in the
-  [Guardrails Samples Repo](https://github.com/turbot/guardrails-samples/tree/master/calculated_policies/aws_s3_approved_static_website_hosting_requires_cloud_front).
+  [Guardrails Samples Repo](https://github.com/turbot/guardrails-samples/blob/main/policy_packs/aws/ec2/enforce_encryption_at_rest_is_enabled_for_ebs_volumes/README.md).
 
 ## Additional Information
 
 - [Calculated Policy 7 minute lab](7-minute-labs/calc-policy)
-- [Guardrails Samples Repo with calculated policy examples](https://github.com/turbot/guardrails-samples/tree/master/calculated_policies)
+- [Guardrails Samples Repo with calculated policy examples](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
 - [Policies concepts page](concepts/policies)
-- [Azure resource tagging example with calculated policies and Terraform](guides/managing-policies/config-examples/azure-tags)
-- [Calculated Policy FAQ](calculated-faq)
+- [AWS resource tagging example with calculated policies and Terraform](https://github.com/turbot/guardrails-samples/tree/main/policy_packs/aws/ec2/enforce_instances_use_amis_with_approved_tags)
+- [Calculated Policy FAQ](/guardrails/docs/concepts/policies/calculated-faq)

@@ -14,9 +14,13 @@ of the TEF stack. The policy should be set to the DNS name only, without the
 protocol or path. This is usually `gateway.{installation domain}` – for example
 if your installation domain is “turbot.mycompany.com”, the gateway would be
 “gateway.turbot.mycompany.com”.
-
+<!--
 <div className="alert alert-warning"> If you are using the API Gateway option, you <strong>must</strong> set the Turbot > Workspace Gateway Domain policy!  If you are <strong>NOT</strong> using a gateway (the default configuration), you should <strong>leave the policy blank!</strong>
-</div>
+</div> -->
+
+> [!WARNING]
+> If you are using the API Gateway option, you **must** set the `Turbot > Workspace Gateway Domain policy`.  If you are **NOT** using a gateway (the default configuration), **you should leave the policy blank**.
+
 
 ## Update DNS Records
 
@@ -43,8 +47,9 @@ load balancer for the new version after running workspace manager. You can
 obtain the version-specific load balancer DNS name from the `LoadBalancerDNS`
 variable in the TE output.
 
-<div className="alert alert-warning"> If you are managing your own DNS, you must update the dns alias for your workspace <strong>every time you update the workspace </strong> with a new version (after running Workspace Manager)!  
-</div>
+
+> [!WARNING]
+> If you are managing your own DNS, you must update the dns alias for your workspace <strong>every time you update the workspace</strong> with a new version (after running Workspace Manager).
 
 ## Update Turbot Mods
 
