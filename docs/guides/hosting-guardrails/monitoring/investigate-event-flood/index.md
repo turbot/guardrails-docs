@@ -37,7 +37,7 @@ In **Custom dashboards**, select the Turbot Guardrails Enterprise (TE) CloudWatc
 
 ## Step 4: View Events Queue
 
-Select the desired duration and timezone by selecting the **calendar**. Check the **Events Queue Backlog** graph in the TE CloudWatch dashboard that indicates the flood state.
+Select the desired duration from the time range option in the top-right corner, and check the **Events Queue Backlog** graph in the TE CloudWatch dashboard for spikes indicating a event flood state.
 
 ![Events Queue Backlog](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-dashboard-events-queue-backlog.png)
 
@@ -57,7 +57,7 @@ With the workspace identified, navigate to **CloudWatch > Logs Insights**, selec
 
 ![View All Messages By Workspace](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights.png)
 
-Use the below query to identify **External Messages by Accounts in a Tenant**.
+In the query editor, Use the below query to identify **External Messages by Accounts in a Tenant**.
 
 ```
 fields @timestamp, @message
