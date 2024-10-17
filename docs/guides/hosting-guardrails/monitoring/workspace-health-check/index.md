@@ -33,27 +33,27 @@ Under Controls, select **Alerts by Control Type**.
 
 ![Alerts by Control Type](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-select-controls-alerts.png)
 
-Select **Invalid** and **Error** From State filter dropdown.
+Select **Invalid** and **Error** From **State** filter dropdown.
 
 ![Apply Filter](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-filter-error-invalid.png)
 
 ## Step 3: View Policy Alerts
 
-In **Reports**, under **Policies**, select **Policy Values by State**.
+In **Reports**, scroll down to `Policies` section, select **Policy Values by State** option.
 
 ![Alerts by Policy Values](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-policy-values-by-state.png)
 
-Select **Invalid** and **Error** From State filter dropdown.
+Select **Invalid** and **Error** From **State** filter dropdown.
 
 ![Apply Filter](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/filter-policy-error-invalid-state.png)
 
 ## Step 4: Resolving Errors and Optimizing Controls
 
-Review the controls and errors currently in an error state and take the necessary actions.
+*Review the controls and errors* currently in an error state and take the necessary actions.
 
-If the error is due to policy misconfiguration, carefully adjust the settings and apply the changes as required. Ensure that all configurations align with the workspace's needs to resolve the issue effectively.
+*If the error is due to policy misconfiguration*, carefully adjust the settings and apply the changes as required. Ensure that all configurations align with the workspace's needs to resolve the issue effectively.
 
-For product-related issues, make sure to document and report them for further investigation.
+*For product-related issues*, make sure to document and report them for further investigation.
 
 Additionally, to maintain efficiency, resources or controls that are not a priority should be skipped to reduce noise and wastage.
 
