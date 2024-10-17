@@ -31,33 +31,38 @@ Choose **Dashboards** from the left navigation menu.
 
 ## Step 3: Select Dashboard
 
-Select the Turbot Guardrails Enterprise (TE) CloudWatch dashboard, which is typically named after the TE version in use.
+In **Custom dashboards**, select the Turbot Guardrails Enterprise (TE) CloudWatch dashboard, which is typically named after the TE version in use.
 
 ![TE Dashboard](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-select-te-dashboard.png)
 
 ## Step 4: View Events Queue
 
-Select the duration and check the **Events Queue Backlog** graph in the TE CloudWatch dashboard that indicates the flood state.
+Select the desired duration from the time range option in the top-right corner, and check the **Events Queue Backlog** graph in the TE CloudWatch dashboard for spikes indicating a event flood state.
 
 ![Events Queue Backlog](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-dashboard-events-queue-backlog.png)
 
 ## Step 5: Identify Noisy Tenant
 
-In the **Activities** section of the TE Dashboard, use the **View All Messages By Workspace** widget to filter and identify the noisy tenant causing the issues.
+Scroll down in the same dashboard page to the **Activities** section, use the **View All Messages By Workspace** widget to filter and identify the noisy tenant causing the issues.
 The number of messages received by the top tenant over a specified duration, along with the difference between the top three tenants, can be a strong indicator of an event flood.
 
 ![View All Messages By Workspace](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-view-messages-by-workspace.png)
 
-## Step 6: Identify Cause
+## Step 6: Analyze Log Insights
 
-With the workspace identified, navigate to **CloudWatch > Logs Insights**, select the appropriate worker log group for the TE version and choose the desired query duration to proceed to investigate further by analyzing events, event sources, and account IDs for the workspace.
+With the workspace identified from the above step, navigate to **CloudWatch > Logs Insights**, select the appropriate worker log group for the TE version(s) and choose the desired query duration to proceed to investigate further by analyzing events, event sources, and account IDs for the workspace. This will render the query editor with the selected log group(s).
 
 > [!IMPORTANT]
 > Longer durations will increase the log group size and query time, which may result in higher billing costs for CloudWatch.
 
 ![View All Messages By Workspace](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights.png)
 
-Use this query to identify **External Messages by Accounts in a Tenant**.
+> [!NOTE]
+> You can select multiple TE version log groups if required.
+
+## Step 7: External Messages by Accounts in a Tenant
+
+In the query editor, use the below query to identify AWS `AccountId(s)` contributing to the events.
 
 ```
 fields @timestamp, @message
@@ -68,7 +73,9 @@ fields @timestamp, @message
 ```
 ![Accounts Generating Events](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights-events-by-account.png)
 
-Next, use this query to identify **External Messages by Source for a Tenant**.
+## Step 8: External Messages by Source for a Tenant
+
+Use below query to identify specific event `Source` from the different services.
 
 ```
 fields @timestamp, @message
@@ -80,7 +87,9 @@ fields @timestamp, @message
 
 ![Event Source](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights-event.source.png)
 
-Use this query to further identify the specific event name for the source.
+## Step 9: External Messages by Event Name
+
+Use below query to identify the specific `EventName` associated with the service.
 
 ```
 fields @timestamp, @message
@@ -90,10 +99,9 @@ fields @timestamp, @message
 | sort Count desc | limit 5
 
 ```
-
 ![Specific Event Name](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights-source-breakdown.png)
 
-## Step 7: Measures To Fix Event Flood
+## Step 10: Measures To Fix Event Flood
 
 **Isolate the Noisy Workspace:** As an immediate fix, move the noisy workspace to a separate TE version to prevent performance issues or throttling for neighboring workspaces.
 

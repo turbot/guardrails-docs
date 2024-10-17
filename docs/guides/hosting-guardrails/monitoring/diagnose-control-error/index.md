@@ -53,19 +53,22 @@ Choose **Log Groups** from the left navigation menu.
 
 ## Step 6: Search Log Group
 
-Search for log groups with the prefix **/aws/lambda/turbot_** followed by the workspace version.
+Search for log groups with a key word based on the workspace version received from [Step 3](#step-3-view-logs), this will render list of matching Log group names with the prefix `/aws/lambda/turbot_` followed by the workspace version
 
 ![Search Log Group](/images/docs/guardrails/guides/hosting-guardrails/monitoring/diagnose-control-error/cloudwatch-log-groups-select.png)
 
 ## Step 7: Select Log Group
 
-Select the **worker** log group as indicated in the **type** field from the error log in the Guardrails console. Choose **Search all log steams**.
+Select the worker log group as indicated in the type field from the error log in the Guardrails console.  E.g. select `/aws/lambda/turbot_5_47_2_rc_1_worker`. Choose **Search all log steams**.
 
 ![Worker Log Group](/images/docs/guardrails/guides/hosting-guardrails/monitoring/diagnose-control-error/cloudwatch-select-search-all-log-streams.png)
 
 ## Step 8: Search Error
 
-Search using the **errorId** retrieved from the Guardrails console control error log.
+Search using the `errorId` from [Step 3](#step-3-view-logs) from the Guardrails console control error log.
+
+> [!NOTE]
+> Ensure to provide the errorId in double quotes e.g. "3423432-dfdsf-3e331-fgdfgd234234"
 
 ![Search with Error Id](/images/docs/guardrails/guides/hosting-guardrails/monitoring/diagnose-control-error/cloudwatch-loggroups-search-with-errorid.png)
 
