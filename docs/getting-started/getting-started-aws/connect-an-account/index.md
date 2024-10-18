@@ -26,7 +26,7 @@ Login to your Guardrails console and select the **CONNECT** option from the home
 
 ## Step 2: Download the CloudFormation template
 
-You’ll need an IAM role that grants Guardrails permission to discover [resources](/guardrails/docs/reference/glossary#resource) in your AWS account and to monitor changes via event handlers. The CloudFormation template downloaded in this step has the minimum permissions necessary to create that role.
+Guardrails needs an IAM role that grants permission to discover [resources](/guardrails/docs/reference/glossary#resource) in your account and to monitor changes via event handlers. The CloudFormation template downloaded in this step has the minimum permissions necessary to create that role.
 
 Select **AWS Account** from the left navigation and then click the blue **Download Cloudformation Template** button to download the CloudFormation template you will use to create the required IAM role in your AWS account. 
 
@@ -35,7 +35,7 @@ Select **AWS Account** from the left navigation and then click the blue **Downlo
 > [!IMPORTANT]
 > Leave this browser tab open while we do the next steps in a different tab. Closing and reopening this page will cause a new random ExternalID to be generated.
 
-## Step 3: Create the CloudFormation stack
+## Step 3: Create the stack
 
 Open a new tab and login to your AWS account. Navigate to the Cloudformation service and create a stack with new resources.
 
@@ -67,76 +67,73 @@ On the next page of the stack wizard, scroll to the bottom, click the acknowlege
 
 On the final page of the wizard, scroll to the bottom of the page and select the **Submit** button.
 
-## Step 5: Verify the stack was created
+## Step 6: Verify the stack
 
 Wait for the stack to complete and for the status of the stack to change to "Create Complete"
 
 <p><img alt="verify-stack-created" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/stack-created.png"/></p>
 
-## Step 6: View stack outputs
+## Step 7: View stack outputs
 
 Select the **Outputs** tab and copy the ARN of the Guardrails IAM role.
 
 <p><img alt="stack-outputs" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/stack-outputs.png"/></p>
 
-## Step 7: Select import location
+## Step 8: Select import location
 
 Navigate back to the tab you opened in step 2. Use the **Parent Resource** dropdown to select the **Sandbox** folder as the location to import the account.
 
 <p><img alt="set-parent-resource" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-parent-resource.png"/></p>
 
-## Step 8: Update account details
+## Step 9: Update account details
 
 Paste the role ARN from step 6 into the **IAM Role ARN** field.  Also, enter your AWS account ID into the **Account ID** field.
 
 <p><img alt="ready-to-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/ready-to-connect.png"/></p>
 
-## Step 9: Import the account
+## Step 10: Import the account
 
 Triple-check that the **IAM Role External ID** matches the value from the CloudFormation template. If not, overwrite the current value with the one from the Cloudformation output. Select **Connect** to import your account.
 
 <p><img alt="finish-and-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/finish-and-connect.png"/></p>
 
-## Step 10: Observe progress
+## Step 11: Observe progress
 
-Wait for the progress bar to complete. This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.
+Wait for the progress bar to complete. The time this takes will depend on how many resources are in the account; you will see the progress bar fluctuate as new types of resources are discovered.
 
 <p><img alt="aws-progress-bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-progress-bar.png"/></p>
 
-## Step 11: View Controls by State report
+## Step 12: View Controls by state
 
 Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list. 
 
 <p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
-## Step 12: Configure report filters
+## Step 13: Configure report filters
 
-From the filter bar, expand the **Type** dropdown. Then enable the checkbox next to **AWS** to limit the report to only show AWS controls.
+From the filter bar, expand the **Type** dropdown. Then select the checkbox next to **AWS** to limit the report to only show AWS controls.
  
 Bookmark the **Controls by State** report, you’ll need it in subsequent guides. 
 
 <p><img alt="set-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-type-filter.png"/></p>
 
-## Step 13: View the report
+## Step 14: View the report
 
 Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account. If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
 
 <p><img alt="aws-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-controls-by-state.png"/></p>
 
-## Step 14: Review
+## Step 15: Review
 
-In this guide you've learned how to deploy an AWS role that grants minimal permissions to Guardrails, then import an AWS account into Guardrails.
+In this guide you've learned how to deploy an AWS role that grants minimal permissions to Guardrails, and imported the account into Guardrails.
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches your account and reacts to resource changes.
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity) we’ll see how Guardrails watches cloud events and reacts to resource changes.
 
 ## Troubleshooting
 
-| Issue | Description | Guide |
-|--|--|--|
-| ERROR | One or more controls are in ERROR. | [tbd]() |
-| INVALID | One or more controls are INVALID. | [tbd]() |
+If you run into issues following this guide, jump in the `#guardrails` channel in the [Turbot Community Slack](https://turbot.com/community/join), or [open a support ticket](https://support.turbot.com/hc/en-us/requests/new).
 
 ## Progress tracker
 
