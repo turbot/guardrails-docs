@@ -27,7 +27,7 @@ Click into the resource, switch to the `Policies` tab, and search for `storage a
 
 <p><img alt="azure_tls_version_find_new_policy_setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/azure-tls-version-find-new-policy-setting.png"/></p>
 
-Note that the storage account  inherits `Check: TLS 1.2` from the policy pack attached to the `Sandbox` folder. 
+Note that the storage account  inherits `Check: TLS 1.2` from the policy pack attached to the `Sandbox` folder. 
 
   
 Now click `New Policy Setting`.
@@ -56,7 +56,7 @@ Click into the storage account, then select the `Activity` tab.
 
 Here you can see the whole history, reading from the bottom up.
 
- - When you attached the policy that requires TLS 1.2,  the storage account went into `Alarm`. The alarm state represents the difference between what the policy asserts and the actual state of the bucket.
+ - When you attached the policy that requires TLS 1.2,  the storage account went into `Alarm`. The alarm state represents the difference between what the policy asserts and the actual state of the bucket.
 
 - When you upgraded the storage account to TLS 1.2, the status changed from `Alarm` to `OK`.  
   

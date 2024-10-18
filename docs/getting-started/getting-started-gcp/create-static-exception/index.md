@@ -6,7 +6,7 @@ sidebar_label: Create a Policy Exception
 
 # Create a Static Exception to a Guardrails GCP Policy
 
-You’ve seen how to enable a policy pack to access control for all buckets. Now let’s explore how to create exceptions to that policy.  In this guide we’ll create an exception for a single bucket.
+You’ve seen how to enable a policy pack to access control for all buckets. Now let’s explore how to create exceptions to that policy.  In this guide we’ll create an exception for a single bucket.
 
 **Prerequisites**:   
   
@@ -20,7 +20,7 @@ Now that we have set our GCP bucket access control policy, we can track which GC
 
 ## Step 1: Locate a bucket in Alarm for access control
 
-In **Controls by State**, use the **Type** filter to choose  **GCP > Storage > Bucket > Access Control**, and the **State** filter to choose **Alarm**. Select the bucket control.  
+In **Controls by State**, use the **Type** filter to choose  **GCP > Storage > Bucket > Access Control**, and the **State** filter to choose **Alarm**. Select the bucket control.  
 
 <p><img alt="find-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-static-exception/find-bucket-in-alarm.png"/></p>
 

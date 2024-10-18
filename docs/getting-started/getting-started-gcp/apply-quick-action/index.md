@@ -41,7 +41,7 @@ Select **New Policy Setting**.
 
 ## Step 4: Enable Quick Actions
 
-Choose your project as the **Resource**, choose **Enabled`, and select **Create**.  
+Choose your project as the **Resource**, choose **Enabled`, and select **Create**.  
 
 <p><img alt="gcp-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-gcp/apply-quick-action/gcp-enable-quick-actions.png"/></p>
 

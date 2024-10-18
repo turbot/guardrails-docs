@@ -22,11 +22,11 @@ sidebar_label: Enable Automatic Enforcement
 
 In the [previous guide](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action) we showed how to add the single permission that enables you to take a **Quick Action** on bucket access control. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
 
-In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`. Locate it on the `Policies` page, and select the link.
+In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`. Locate it on the `Policies` page, and select the link.
 
 ## Step 1: Locate the Policy Pack
 
-In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack) we enabled `Enforce Uniform Access Is Enabled for GCP Storage Buckets`. Locate it in **Policies** and select the link.
+In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack) we enabled `Enforce Uniform Access Is Enabled for GCP Storage Buckets`. Locate it in **Policies** and select the link.
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/locate-policy-pack.png"/></p>
 
@@ -52,7 +52,7 @@ Choose **Enforce: Uniform** and select **Update**.
 
 ## Step 5: Observe enforcement
 
-Revisit **Controls by State** and use the **Type**  filter to choose **GCP > Storage > Bucket > Access Control**. All your buckets are now green, except the one you exempted in [Create a static exception](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception).   
+Revisit **Controls by State** and use the **Type**  filter to choose **GCP > Storage > Bucket > Access Control**. All your buckets are now green, except the one you exempted in [Create a static exception](/guardrails/docs/getting-started/getting-started-gcp/create-static-exception).   
 
 <p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-enforcement/enforcement-happened.png"/></p>
 
@@ -62,7 +62,7 @@ Try switching a bucket back to fine-grained access control. It won’t stay that
 
 ## Next Steps
 
-This Getting Started series just scratches the surface.  Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
+This Getting Started series just scratches the surface.  Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
 
 
 ## Progress tracker

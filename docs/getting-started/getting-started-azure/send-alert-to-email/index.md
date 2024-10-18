@@ -15,12 +15,12 @@ sidebar_label: Send an Alert to Email
 - [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-calculated-exception/)
 
 
-In [the previous runbook](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
+In [the previous runbook](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
 
 ## Step 1: Enable your workspace for notifications
 
   
-To enable notifications for your workspace, search top-level `Policies` for `turbot notifications` and click into the `Turbot > Notifications` policy type.  
+To enable notifications for your workspace, search top-level `Policies` for `turbot notifications` and click into the `Turbot > Notifications` policy type.  
 
 <p><img alt="azure_notifications_policy_type" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-notifications-policy-type.png"/></p>
 
@@ -38,9 +38,9 @@ Enter this rule, along with one or more email addresses you want to notify.
   
 ```yaml
 - rules: |
-          NOTIFY $.control.state:alarm
-  emails:
-  - you@yourcompany.com  
+          NOTIFY $.control.state:alarm
+  emails:
+  - you@yourcompany.com  
 ```  
 
 <p><img alt="aws_start_6_create_notification_rule" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/aws-start-6-create-notification-rule.png"/></p>
@@ -56,7 +56,7 @@ At the end of [Create a calculated exception](/guardrails/docs/runbooks/getting-
 
 <p><img alt="azure_refind_storage_account_tls_version_control" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-refind-storage-account-tls-version-control.png"/></p>
 
-Now, in the Azure portal, remove the `environment:development` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: TLS 1.2`.  And because you left the storage account in a different state  – TLS v1.1  – the storage account’s control for versioning now transitions to `Alarm`.   
+Now, in the Azure portal, remove the `environment:development` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: TLS 1.2`.  And because you left the storage account in a different state  – TLS v1.1  – the storage account’s control for versioning now transitions to `Alarm`.   
 
 <p><img alt="azure_observe_storage_account_in_alarm" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-observe-storage-account-in-alarm.png"/></p>
 

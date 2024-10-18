@@ -6,7 +6,7 @@ sidebar_label: Send an Alert to Email
 
 # Send an Alert to Email
 
-In [the previous runbook](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
+In [the previous runbook](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
 
 **Prerequisites**: 
 
@@ -18,12 +18,12 @@ In [the previous runbook](/guardrails/docs/runbooks/getting-started-gcp/create-c
 - [Create a Calculated Exception to a Guardrails GCP Policy](/guardrails/docs/getting-started/getting-started-gcp/create-calculated-exception/)
 
 
-In [the previous runbook](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
+In [the previous runbook](/guardrails/docs/runbooks/getting-started-gcp/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
 
 ## Step 1: Locate the Turbot > Notifications policy type
 
   
-To enable notifications for your workspace, select **Policies** in the top navigation bar, and search for  `turbot notifications`. Select the **Turbot > Notifications** policy type.  
+To enable notifications for your workspace, select **Policies** in the top navigation bar, and search for  `turbot notifications`. Select the **Turbot > Notifications** policy type.  
 
 <p><img alt="search-notifications-policy-type" src="/images/docs/guardrails/getting-started/getting-started-gcp/send-alert-to-email/search-notifications-policy-type.png"/></p>
 
@@ -58,9 +58,9 @@ Choose **Turbot** as the **Resource** and enter this rule, using one or more ema
   
 ```yaml
 - rules: |
-   NOTIFY $.oldControl.state:skipped $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
-  emails:
-     - you@yourcompany.com
+   NOTIFY $.oldControl.state:skipped $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
+  emails:
+     - you@yourcompany.com
 ```  
 
 <p><img alt="create_notification_rule" src="/images/docs/guardrails/getting-started/getting-started-gcp/send-alert-to-email/create-notification-rule.png"/></p>
@@ -78,7 +78,7 @@ At the end of [Create a calculated exception](/guardrails/getting-started/gettin
 
 ## Step 8: Trigger the notification
 
-Now, in the GCP console, remove the `environment:development` label. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: Uniform`.  And because you left the bucket’s access control in the fine-grained state, the bucket’s control for access control now transitions to `Alarm`.   
+Now, in the GCP console, remove the `environment:development` label. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: Uniform`.  And because you left the bucket’s access control in the fine-grained state, the bucket’s control for access control now transitions to `Alarm`.   
 
 <p><img alt="observe-unlabeled-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/send-alert-to-email/observe-unlabeled-bucket-in-alarm.png"/></p>
 
@@ -95,10 +95,10 @@ Update your notification rule to handle transitions from `OK` to `Alarm`.
 
 ```yaml
 - rules: |
-   NOTIFY $.oldControl.state:skipped $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
-   NOTIFY $.oldControl.state:ok $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
-  emails:
-     - judell@turbot.com
+   NOTIFY $.oldControl.state:skipped $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
+   NOTIFY $.oldControl.state:ok $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
+  emails:
+     - judell@turbot.com
 ```  
   
 Find a bucket that’s `OK` for access control, set it to fine-grained, and verify that you see the alarm both in the Guardrails console and in email.  

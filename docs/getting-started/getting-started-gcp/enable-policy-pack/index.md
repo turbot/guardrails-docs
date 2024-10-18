@@ -16,7 +16,7 @@ Now that we can track resource configuration drift, we can create policies to al
 
 ## Step 1: Check bucket access control in GCP
 
-Check the configuration of the bucket you created in [Observe GCP activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity). In that  guide you switched your test bucket from uniform to fine-grained access. Verify that’s still the case.
+Check the configuration of the bucket you created in [Observe GCP activity](/guardrails/docs/runbooks/getting-started-gcp/observe-gcp-activity). In that  guide you switched your test bucket from uniform to fine-grained access. Verify that’s still the case.
 
 ## Step 2: Check the Guardrails control for access control
 
@@ -45,7 +45,7 @@ In **Edit policy pack attachments**, choose `Enforce Uniform Access is Enabled f
 ## Step 5: Review
 
   
- In **Controls by State** use the **Type** filter to select **GCP > Storage > Bucket > Access Control**, then search for your bucket. Now, instead of skipping the access control check, Guardrails runs it. Your bucket is red because you turned off uniform access in [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-aws-activity)  but the policy requires it.
+ In **Controls by State** use the **Type** filter to select **GCP > Storage > Bucket > Access Control**, then search for your bucket. Now, instead of skipping the access control check, Guardrails runs it. Your bucket is red because you turned off uniform access in [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-aws-activity)  but the policy requires it.
 
 <p><img alt="gcp-search-bucket-access-control-again" src="/images/docs/guardrails/getting-started/getting-started-gcp/enable-policy-pack/gcp-search-bucket-access-control-again.png"/></p>
 

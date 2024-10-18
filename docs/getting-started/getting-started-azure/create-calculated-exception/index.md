@@ -89,7 +89,7 @@ Click into the resource, choose the `Controls` tab, and set the `Type` filter to
 
 <p><img alt="azure_filter_storage_account_to_tls_version_policy_type" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-filter-storage-account-to-tls-version-policy-type.png"/></p>
 
-The storage account is in `Alarm` because the TLS version you set, 1.1, does not  comply with policy. Now, tag it with `environment:development` to activate the calculated policy you created in this runbook.  
+The storage account is in `Alarm` because the TLS version you set, 1.1, does not  comply with policy. Now, tag it with `environment:development` to activate the calculated policy you created in this runbook.  
 
 <p><img alt="azure_tag_the_storage_account" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-tag-the-storage-account.png"/></p>
 

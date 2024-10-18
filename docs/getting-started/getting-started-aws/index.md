@@ -5,10 +5,9 @@ sidebar_label: Getting Started with AWS
 
 # Getting Started with AWS
 
-This section provides detailed step-by-step instructions on how to use Guardrails features for an AWS account.
+This series of guides provides a curated experience to import your first AWS account and learn how to use Turbot Guardrails. If you are brand-new to Guardrails, we highly recommend that you walk through the guides in order and follow each step. Once you are familar with the concepts presented here, you can then focus in on a specific use case important to your organization.  You can browse our library of use case examples on [The Guardrails Hub](https://hub.guardrails.turbot.com/)
 
-
-| |
+| Guide | Description
 | - | - |
 | [Connect an Account](getting-started/getting-started-aws/connect-an-account) | Import an AWS account. |
 | [Observe Resource Activity](getting-started/getting-started-aws/observe-aws-activity) | Monitor AWS [resource](guardrails/docs/reference/glossary#resource) activities. |

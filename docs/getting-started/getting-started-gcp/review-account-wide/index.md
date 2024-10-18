@@ -19,7 +19,7 @@ In this guide you’ll see how the policy pack you enabled in [Enable a Guardrai
 
 In **Controls by State**, use the **Resource Type** filter to choose **AWS > Storage > Bucket > Access Control**.  
   
-In the [previous guide](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s Access Control control from `Skipped` to `Alarm`,  because you switched to fine-grained access in [Observe AWS Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity).  
+In the [previous guide](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s Access Control control from `Skipped` to `Alarm`,  because you switched to fine-grained access in [Observe AWS Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity).  
   
 Other buckets created in the default state, with uniform access enabled, are green: in policy.
 
@@ -27,7 +27,7 @@ Other buckets created in the default state, with uniform access enabled, are gre
 
 ## Step 2: Review
 
-To further explore the policy pack you’ve enabled, create a new bucket, observe that it shows up here in `OK`  for uniform access, then switch to fine-grained access control and observe that it transitions to `Alarm`.
+To further explore the policy pack you’ve enabled, create a new bucket, observe that it shows up here in `OK`  for uniform access, then switch to fine-grained access control and observe that it transitions to `Alarm`.
 
 ## Next Steps
 

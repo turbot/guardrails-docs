@@ -95,7 +95,7 @@ The Turbot Guardrails Enterprise Foundation setup can create the VPC to host Tur
 
 > [!IMPORTANT]
 > Any subnet with an empty CIDR will NOT be created. For each subnet type, there are 3 possible subnets that corresponds to 3 different availability zones. If you wish to create a 2 AZ network, only enter CIDRs for subnets #1 and #2.
-> Enter the desired **NAT Gateway High Availability** configuration.  For a production deployment, you should choose **Multi-AZ**.
+> Enter the desired **NAT Gateway High Availability** configuration.  For a production deployment, you should choose **Multi-AZ**.
 
 ![Network Created in Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-and-new-vpc/service-catalog-tef-parameter-network-create-in-stack.png)
 
