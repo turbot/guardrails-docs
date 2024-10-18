@@ -57,13 +57,13 @@ Navigate back to **Cloud Formation > Stacks**, select **Outputs**, and verify th
 
 ## Step 7: Select import location
 
-Navigate back to the tab you opened in step 2. Use the **Parent Resource** dropdown to select the **Sandbox**  folder as the location to import the account.
+Navigate back to the tab you opened in step 2. Use the **Parent Resource** dropdown to select the **Sandbox**  folder as the location to import the account.
 
 <p><img alt="set-parent-resource" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-parent-resource.png"/></p>
 
 ## Step 8: Update account details
 
-Paste the role ARN from step 6 into the **IAM Role ARN** field.  Also, enter your AWS account ID into the **Account ID** field.
+Paste the role ARN from step 6 into the **IAM Role ARN** field.  Also, enter your AWS account ID into the **Account ID** field.
 
 <p><img alt="ready-to-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/ready-to-connect.png"/></p>
 
@@ -82,7 +82,7 @@ Wait for the progress bar to complete. This process takes a while, and you’ll 
 
 ## Step 10: View Controls by State report
 
-Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list. 
+Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list. 
 
 <p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
@@ -96,7 +96,7 @@ Bookmark the **Controls by State** report, you’ll need it in subsequent guides
 
 ## Step 13: View the report
 
-Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account.  If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
+Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account.  If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
 
 <p><img alt="aws-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-controls-by-state.png"/></p>
 

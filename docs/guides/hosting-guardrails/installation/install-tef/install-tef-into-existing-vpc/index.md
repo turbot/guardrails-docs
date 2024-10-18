@@ -78,7 +78,7 @@ The required parameters for this installation option are as below
 > **Manager DNS records in Route 53** It is highly recommended that you allow Turbot to manage DNS records in Route53. If you choose not to do so, you must manually update DNS records every time you install a new version in your workspaces.
 
 > [!IMPORTANT]
-> Enter the desired **NAT Gateway High Availability** configuration.  For a production deployment, you should choose **Multi-AZ**.
+> Enter the desired **NAT Gateway High Availability** configuration.  For a production deployment, you should choose **Multi-AZ**.
 
 ![Installation Parameter](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/with-guardrail-vpc/service-catalog-tef-parameter-installation.png)
 

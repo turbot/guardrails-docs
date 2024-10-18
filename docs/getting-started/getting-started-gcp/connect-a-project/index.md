@@ -59,7 +59,7 @@ Login to your Guardrails console and select the **CONNECT** option from the home
 
 ## Step 5: Select import location
 
-Use the **Parent Resource** dropdown to select the **Sandbox**  folder as the location to import the project. 
+Use the **Parent Resource** dropdown to select the **Sandbox**  folder as the location to import the project. 
 
 <p><img alt="select-import-location" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/select-import-location.png"/></p>
 
@@ -80,7 +80,7 @@ This process takes a while, and you’ll see the bars fluctuate. The number of r
 
 ## Step 8: View Controls by State report
 
-Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list.  
+Select **Reports** from the top navigation menu.  Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list.  
 
 <p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-a-project/search-for-controls-reports.png"/></p>
 
@@ -92,7 +92,7 @@ Select the **Type** dropdown from the filters bar. Then enable the check box nex
 
 ## Step 10: Review Controls
 
-Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account.  If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
+Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account.  If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
 
   
 Bookmark the **Controls by State** report, you’ll need it in subsequent guides.

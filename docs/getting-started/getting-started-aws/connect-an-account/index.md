@@ -23,7 +23,7 @@ Switch back to the Guardrails console **Account Import** browser tab you opened 
 
 ## Step 2: Update account details
 
-Paste the role ARN you obtained from step 7 in the previous guide into the **IAM Role ARN** field.  Also, enter the AWS account ID into the **Account ID** field.
+Paste the role ARN you obtained from step 7 in the previous guide into the **IAM Role ARN** field.  Also, enter the AWS account ID into the **Account ID** field.
 
 <p><img alt="ready-to-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/ready-to-connect.png"/></p>
 
@@ -55,7 +55,7 @@ Bookmark the **Controls by State** report, you’ll need it in subsequent guides
 
 ## Step 7: View the report
 
-Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account. If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
+Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account. If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
 
 <p><img alt="aws-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-controls-by-state.png"/></p>
 

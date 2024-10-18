@@ -29,7 +29,7 @@ You bookmarked the **Controls by State** report in [Connect an Account](/guardra
 
 ## Step 3: Find your bucket
 
-Search for your bucket.  It is in the `Skipped` state. There is not yet a Guardrails policy to check bucket versioning. 
+Search for your bucket.  It is in the `Skipped` state. There is not yet a Guardrails policy to check bucket versioning. 
 
 <p><img alt="aws-search-bucket-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/search-filtered-versioning-controls.png"/></p>
 

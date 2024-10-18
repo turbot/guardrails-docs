@@ -105,7 +105,7 @@ To have TEF create the Turbot VPC, enter the required information in <b>Network 
    <div class = "alert alert-warning"> Any subnet with an empty CIDR will NOT be created.
    </div>
 
-1. Enter the desired **NAT Gateway High Availability** configuration.  For a
+1. Enter the desired **NAT Gateway High Availability** configuration.  For a
    production deployment, you should choose **Multi-AZ**.
 
 #### Network - This Region [Option B - Predefined]

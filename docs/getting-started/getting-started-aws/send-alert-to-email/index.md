@@ -18,7 +18,7 @@ This is the seventh guide in the *Getting started with AWS series*.
 ## Step 1: Locate the Turbot > Notifications policy type
 
  
-To enable notifications for your workspace, select **Policies** in the top navigation bar, and search for `turbot notifications`. Select the **Turbot > Notifications** policy type.
+To enable notifications for your workspace, select **Policies** in the top navigation bar, and search for `turbot notifications`. Select the **Turbot > Notifications** policy type.
 
 <p><img alt="search-notifications-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/search-notifications-policy-type.png"/></p>
 
@@ -65,9 +65,9 @@ Choose **Turbot** as the **Resource**. Copy and paste this rule, using one or mo
  
 ```yaml
 - rules: |
-   NOTIFY $.control.state:alarm $.controlType.uri:'tmod:@turbot/aws-s3#/control/types/bucketVersioning'
-   emails:
-     - you@yourcompany.com
+   NOTIFY $.control.state:alarm $.controlType.uri:'tmod:@turbot/aws-s3#/control/types/bucketVersioning'
+   emails:
+     - you@yourcompany.com
 ``` 
  
 The rule will send an alert to the configured email address when any control enters the `Alarm` state for S3 bucket versioning. 
@@ -85,7 +85,7 @@ Navigate to **Controls by State**, choose the **Type** as **AWS > S3 > Bucket > 
 
 ## Step 10: Trigger the notification
 
-In the AWS console, change the tag to `environment:production` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: Enabled`.  And because you left the bucket’s versioning in the AWS default state – suspended – the bucket’s control for versioning now transitions to `Alarm`.   
+In the AWS console, change the tag to `environment:production` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: Enabled`.  And because you left the bucket’s versioning in the AWS default state – suspended – the bucket’s control for versioning now transitions to `Alarm`.   
 
 <p><img alt="observe-untagged-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/observe-untagged-bucket-in-alarm.png"/></p>
 

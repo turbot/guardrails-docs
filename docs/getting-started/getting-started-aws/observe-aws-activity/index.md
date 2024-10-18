@@ -6,34 +6,45 @@ sidebar_label: Observe Resource Activity
 
 # Observe AWS Resource Activity
 
-In this guide, you will learn now Guardrails detects and reacts to new and changed resources in your AWS account.
+In this guide, you will learn how Guardrails detects and reacts to events in your AWS account, by creating and modifying an AWS S3 bucket.
 
 This is the second guide in the *Getting started with AWS* series.
 
 ## Prerequisites
 
 - Completion of the first guide.
-
-- An S3 bucket with the default setting for versioning: disabled.
+- Console access to an AWS account and the ability to create and modify S3 buckets.
 
 > [!NOTE]
-> We'll use `bucket-example-01`, but use your own name.
+> We will be using the bucket name `bucket-example-01`, in this guide. Bucket names in AWS must be globally unique, so please change the default name for your testing.
  
+## Step 1: Create an S3 bucket
 
-## Step 1: Locate the Resource Activities report
+After logging into the AWS console, navigate to S3 and select the Create Bucket button.
+
+<p><img alt="create-bucket-1" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/create-bucket-1.png"/></p>
+
+Give your bucket a name that is easy to remember.
+
+<p><img alt="create-bucket-2" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/create-bucket-2.png"/></p>
+
+Accept all defaults for the remaining configuration choices and then select the **Create Bucket** button.
+
+<p><img alt="create-bucket-3" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/create-bucket-3.png"/></p>
+
+## Step 2: Resource Activities report
  
-Select **Reports** from the top navigation bar.  Search for the word "resource" and select **Resource Activities**.
+Select **Reports** from the top navigation bar. Search for the word "resource" and select **Resource Activities**.
 
 <p><img alt="aws_search_resource_activities" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-search-resource-activities.png"/></p>
 
-## Step 2: Open the Resource Type filter
+## Step 3: Open the Resource Type filter
 
 From the filter bar, expand the **Resource Type** dropdown.
 
 <p><img alt="aws-resource-type-dropdown" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-type-dropdown.png"/></p>
 
 ## Step 3: Filter on Resource Type
-
  
 Set the filter to **AWS > S3 > Bucket**. You can do this by typing `aws s3 bucket` into the search box, as shown here. When you see *AWS > S3 > Bucket* appear in the list, select the checkbox next to it.
 
@@ -41,45 +52,50 @@ Set the filter to **AWS > S3 > Bucket**. You can do this by typing `aws s3 bucke
 
 ## Step 4: Observe notifications on the bucket
 
-You can scope the resource activity report to a specific bucket by searching for the name of your bucket. To do this, type its name into the search field. Guardrails will show all notifications related to the bucket. `RESOURCE CREATED` indicates discovery of the bucket. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
+You can scope the resource activity report to a specific bucket by searching for the name of your bucket. To do this, type its name into the search field. Guardrails will show all notifications related to the bucket. In the screen below, the `RESOURCE CREATED` activity represents Guardrails discovery of the bucket and `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
 
 <p><img alt="aws-resource-activities-initial-notifications" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-activities-initial-notifications.png"/></p>
 
 ## Step 5: Enable versioning on the bucket
 
-In the AWS console, edit the bucket's versioning property, choose **Enabled**, and select **Save changes**.
+In the AWS console, click on the name of your bucket from the list of all buckets. Select the **Properties** tab and then select the **Edit** button in the **Bucket Versioning** section.
 
-<p><img alt="enable-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/enable-versioning.png"/></p>
+<p><img alt="enable-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/enable-versioning-1.png"/></p>
 
-## Step 6: See Guardrails react to a bucket change
+In the Versioning dialog box, choose **Enabled**, and select **Save changes**.
 
-Guardrails will soon notice the change, and a new `RESOURCE UPDATED` notification will appear. Select tthat new notification's link.
+<p><img alt="enable-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/enable-versioning-2.png"/></p>
+
+## Step 6: Guardrails event handling
+
+Switch back to the Guardrails console browser tab. Guardrails' event processing system will soon pickup the change, and a new `RESOURCE UPDATED` notification will appear in the list. Select that new notification from the Activities list.
 
 <p><img alt="aws-resource-activities-with-change-detected" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-resource-activities-with-change-detected.png"/></p>
 
-## Step 6: Observe the difference
+## Step 7: Audit the changed resource
 
-Scroll down in the diff to see the change that Guardrails has recorded. 
+On the notifications detail page, you can see metadata about the change and even audit the changes in configuration between the previous known state and the observed change. Scroll down in the **DIFF** section to observe the changes that Guardrails has recorded. 
 
 <p><img alt="aws-diff-the-first-change" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-diff-the-first-change.png"/></p>
 
-## Step 7: Review
+## Step 8: Review
 
-In this guide you have seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource.
+In this guide you changed the versioning property of an S3 bucket and observed how Guardrails recorded the change.
 
 ## Next Steps
 
-Next we’ll explore [how to enable a  policy pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) that requires buckets to enable versioning.
+Next we’ll explore [how to enable a policy pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) that requires buckets to enable versioning.
 
 
 ## Progress tracker
 
-- [x] Connect an AWS Account to Guardrails
-- [x] **Observe AWS Resource Activity**
-- [ ] Enable Your First Policy Pack
-- [ ] Review Account-Wide Bucket Versioning
-- [ ] Create a Static Exception to a Guardrails Policy
-- [ ] Create a Calculated Exception to a Guardrails Policy
-- [ ] Send an Alert to Email
-- [ ] Apply a Quick Action
-- [ ] Enable Automatic Enforcement
+- Prepare an AWS Account for import to Guardrails
+- Connect an AWS Account to Guardrails
+- **Observe AWS Resource Activity**
+- Enable Your First Policy Pack
+- Review Account-Wide Bucket Versioning
+- Create a Static Exception to a Guardrails Policy
+- Create a Calculated Exception to a Guardrails Policy
+- Send an Alert to Email
+- Apply a Quick Action
+- Enable Automatic Enforcement

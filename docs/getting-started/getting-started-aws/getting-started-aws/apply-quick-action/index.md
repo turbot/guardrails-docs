@@ -41,14 +41,14 @@ Choose **JSON**. Copy and past this code.
 
 ```json
 {
-        "Version": "2012-10-17",
-        "Statement": [
-                {
-                        "Effect": "Allow",
-                        "Action": "s3:PutBucketVersioning",
-                        "Resource": "*"
-                }
-        ]
+        "Version": "2012-10-17",
+        "Statement": [
+                {
+                        "Effect": "Allow",
+                        "Action": "s3:PutBucketVersioning",
+                        "Resource": "*"
+                }
+        ]
 }
 ```
 
@@ -76,7 +76,7 @@ Select **New Policy Setting**.
 
 ## Step 8: Enable Quick Actions
 
-Choose **Sandbox** as the **Resource**, choose **Enabled**, and select **Create**.  
+Choose **Sandbox** as the **Resource**, choose **Enabled**, and select **Create**.  
 
 <p><img alt="aws-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-enable-quick-actions.png"/></p>
 

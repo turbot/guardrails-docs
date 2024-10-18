@@ -20,7 +20,7 @@ This is the last guide in the *Getting started with AWS series*.
 
 ## Step 1: Locate the Policy Pack
 
-In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`. Select **Policies** from the top-level navigation bar, then choose that policy pack from the list.
+In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`. Select **Policies** from the top-level navigation bar, then choose that policy pack from the list.
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/locate-policy-pack.png"/></p>
 
