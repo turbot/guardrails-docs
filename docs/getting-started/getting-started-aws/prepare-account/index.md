@@ -1,6 +1,6 @@
 ---
-title: Connect an AWS Account to Guardrails
-sidebar_label: Connect an AWS Account
+title: Prepare an AWS Account for import to Guardrails
+sidebar_label: Prepare the AWS Account
 ---
 
 # Prepare an AWS Account for import to Guardrails
