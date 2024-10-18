@@ -54,6 +54,7 @@
         "id": "getting-started-aws",
         "link": "getting-started/getting-started-aws",
         "items": [
+          "getting-started/getting-started-aws/prepare-account",
           "getting-started/getting-started-aws/connect-an-account",
           "getting-started/getting-started-aws/observe-aws-activity",
           "getting-started/getting-started-aws/enable-policy-pack",
