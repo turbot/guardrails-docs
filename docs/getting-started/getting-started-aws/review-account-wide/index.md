@@ -17,13 +17,13 @@ This is the fifth guide in the *Getting started with AWS* series.
 
 ## Step 1: Open the Controls by State report
 
-Navigate back to the **Controls by State** report (or use your saved bookmark), expand the **Type** dropdown, and search for `aws s3 bucket versioning`. Enable the checkbox next to **AWS > S3 > Bucket > Versioning** to set the filter. 
+Navigate back to the **Controls by State** report (or use your saved bookmark), expand the **Type** dropdown, and search for `bucket versioning`. Enable the checkbox next to **AWS > S3 > Bucket > Versioning** to set the filter. 
 
 <p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/search-type-filter.png"/></p>
 
 ## Step 2: Filter on bucket versioning controls
 
-Your test bucket is green: compliant with the policy. Buckets in the default state, with versioning disabled, are red: not compliant.
+Your first testing bucket is in **Ok** (green) state, meaning it is compliant with the policy.
 
 <p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/filter-applied.png"/></p>
 
