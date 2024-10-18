@@ -46,6 +46,7 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-
 
 ## Progress tracker
 
+- [x] Prepare an AWS Account for import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
 - [x] Enable Your First Policy Pack

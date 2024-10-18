@@ -63,6 +63,7 @@ This Getting Started series just scratches the surface. Try installing more [pol
 
 ## Progress tracker
 
+- [x] Prepare an AWS Account for import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
 - [x] Enable Your First Policy Pack

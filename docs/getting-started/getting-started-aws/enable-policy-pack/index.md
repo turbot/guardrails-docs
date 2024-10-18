@@ -53,8 +53,6 @@ On the account resource page, select the **Detail** sub-tab.
 
 ## Step 5: Attach the Policy Pack
 
-Your Guardrails workspace should have the policy pack [Enforce Versioning Is Enabled for AWS S3 Buckets](https://hub.guardrails.turbot.com/policy-packs/aws_s3_enforce_versioning_is_enabled_for_buckets) pre-installed.
-
 Select the **Manage Link** next to **Policy Packs** ui widget.
 
 <p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-locate-policy-pack-manage.png"/></p>
@@ -64,6 +62,8 @@ Select the **Manage Link** next to **Policy Packs** ui widget.
 In the **Edit policy pack attachments** dialog box, select **Add**.
 
 <p><img alt="aws-edit-attachments-select-enforce-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/enforce-versioning-1.png"/></p>
+
+Your Guardrails workspace should have the policy pack [Enforce Versioning Is Enabled for AWS S3 Buckets](https://hub.guardrails.turbot.com/policy-packs/aws_s3_enforce_versioning_is_enabled_for_buckets) pre-installed.
 
 Select the policy pack from the dropdown `Enforce Versioning is Enabled for AWS S3 Buckets`. Then click **Save**.
 
@@ -86,13 +86,13 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/review-
 
 ## Progress tracker
 
-- Prepare an AWS Account for import to Guardrails
-- Connect an AWS Account to Guardrails
-- Observe AWS Resource Activity
-- **Enable Your First Policy Pack**
-- Review Account-Wide Bucket Versioning
-- Create a Static Exception to a Guardrails Policy
-- Create a Calculated Exception to a Guardrails Policy
-- Send an Alert to Email
-- Apply a Quick Action
-- Enable Automatic Enforcement
+- [x] Prepare an AWS Account for import to Guardrails
+- [x] Connect an AWS Account to Guardrails
+- [x] Observe AWS Resource Activity
+- [x] **Enable Your First Policy Pack**
+- [ ] Review Account-Wide Bucket Versioning
+- [ ] Create a Static Exception to a Guardrails Policy
+- [ ] Create a Calculated Exception to a Guardrails Policy
+- [ ] Send an Alert to Email
+- [ ] Apply a Quick Action
+- [ ] Enable Automatic Enforcement
