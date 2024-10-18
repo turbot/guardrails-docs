@@ -8,12 +8,12 @@ sidebar_label: Create a Calculated Exception
 
 In this guide you’ll learn how to make dynamic policy exceptions based on resource tags
 
-This is the sixth guide in the *Getting started with AWS* series.
-
+This is the seventh guide in the *Getting started with AWS* series.
 
 **Prerequisites**: 
  
-- Completion of the first five guides.
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privlidges.
 
 ## Step 1: Open the policy packs
 

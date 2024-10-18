@@ -6,13 +6,14 @@ sidebar_label: Review Bucket Versioning
 
 # Review Account-Wide Bucket Versioning
 
-In this guide you’ll see how a policy pack governs resource across an account.
+In this guide you’ll see how a single policy pack can govern all resources across an account.
 
-This is the fourth guide in the *Getting started with AWS* series.
+This is the fifth guide in the *Getting started with AWS* series.
 
 ## Prerequisites
 
-- Completion of the first three guides.
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privlidges.
 
 ## Step 1: Open the Controls by State report
 

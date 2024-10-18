@@ -12,7 +12,8 @@ This is the third guide in the *Getting started with AWS* series.
 
 ## Prerequisites
 
-- Completion of the first guide.
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privlidges.
 - Console access to an AWS account and the ability to create and modify S3 buckets.
 
 > [!NOTE]

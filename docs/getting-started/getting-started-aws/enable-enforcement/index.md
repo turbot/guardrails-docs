@@ -10,10 +10,10 @@ In this guide we’ll show how you can enable Guardrails to act autonomously.
 
 This is the last guide in the *Getting started with AWS series*.
 
-
 **Prerequisites**: 
 
-- Completion of the first eight guides.
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privlidges.
 
 > [!NOTE]
 > In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a **Quick Action** on S3 bcket versioning. That’s needed here too.

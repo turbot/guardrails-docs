@@ -8,12 +8,12 @@ Sidebar_label: Create a Policy Exception
 
 In this guide you’ll learn how to exempt a specific resource from an account-wide policy
 
-This is the fifth guide in the *Getting started with AWS* series.
+This is the sixth guide in the *Getting started with AWS* series.
   
 **Prerequisites**:   
   
-- Completion of the first four guides.
-
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privlidges.
 
 ## Step 1: Open the Controls by State report
 

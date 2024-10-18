@@ -12,7 +12,6 @@ This is the second guide in the *Getting started with AWS* series.
 ## Prerequisites
 
 - Completed the previous guide: **Prepare an AWS Account for import to Guardrails**.
-
 - Access to the Turbot Guardrails console with admin privilege.
 
 ## Step 1: Select import location

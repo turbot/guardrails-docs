@@ -8,12 +8,12 @@ sidebar_label: Send an Alert to Email
 
 In this guide you'll learn how to route Guardrails console notifications to email.
 
-This is the seventh guide in the *Getting started with AWS series*.
+This is the eighth guide in the *Getting started with AWS series*.
 
 **Prerequisites**: 
 
-- Completion of the first six guides.
-
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privlidges.
 
 ## Step 1: Locate the Turbot > Notifications policy type
 

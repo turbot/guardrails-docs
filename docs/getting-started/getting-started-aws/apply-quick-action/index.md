@@ -3,17 +3,16 @@ title: Apply a Quick Action
 sidebar_label: Apply a Quick Action
 ---
 
-
 # Apply a Quick Action
 
 In this guide we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations. In order to do that, you’ll need to add one permission to the Turbot IAM role.
 
-This is the eighth guide in the *Getting started with AWS series*.
-
+This is the ninth guide in the *Getting started with AWS series*.
 
 **Prerequisites**: 
 
-- Completion of the first seven guides.
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privlidges.
 
 Until now we’ve operated Guardrails with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. 
 
