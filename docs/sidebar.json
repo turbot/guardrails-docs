@@ -25,6 +25,23 @@
       },
       {
         "type": "category",
+        "id": "getting-started-aws",
+        "link": "getting-started/getting-started-aws",
+        "items": [
+          "getting-started/getting-started-aws/prepare-account",
+          "getting-started/getting-started-aws/connect-an-account",
+          "getting-started/getting-started-aws/observe-aws-activity",
+          "getting-started/getting-started-aws/enable-policy-pack",
+          "getting-started/getting-started-aws/review-account-wide",
+          "getting-started/getting-started-aws/create-static-exception",
+          "getting-started/getting-started-aws/create-calculated-exception",
+          "getting-started/getting-started-aws/send-alert-to-email",
+          "getting-started/getting-started-aws/apply-quick-action",
+          "getting-started/getting-started-aws/enable-enforcement"
+        ]
+      },
+      {
+        "type": "category",
         "id": "your-guardrails-org",
         "link": "getting-started/your-guardrails-org",
         "items": [
