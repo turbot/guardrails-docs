@@ -3,67 +3,66 @@ title: Enable Automatic Enforcement
 sidebar_label: Enable Automatic Enforcement
 ---
 
-  
-
 
 # Enable Automatic Enforcement
 
-**Prerequisites**:  
-  
-- [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
-- [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-- [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
-- [Review Account-Wide Bucket Versioning](/guardrails/docs/getting-started/getting-started-aws/review-account-wide/)
-- [Create a Static Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-static-exception/)
-- [Create a Calculated Exception to a Guardrails Policy](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception/)
-- [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-aws/send-alert-to-email/)
-- [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action/)
+In this guide we’ll show how you can enable Guardrails to act autonomously. For large cloud footprints, it is often desireable to have Guardrails take automated actions based on your organizations compliance and security posture. Guardrails controls can take a number of different automated enforcement actions, including deleting resources, changing the configuration of a resource or tagging a resource.
 
+This is the last guide in the *Getting started with AWS series*.
 
-In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a **Quick Action** on S3 bucket versioning. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
+**Prerequisites**: 
 
-## Step 1: Locate the Policy Pack
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privlidges.
 
-In  [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) we enabled `Enforce Versioning is Enabled for AWS S3 Buckets`. Locate it in **Policies**  and select the link.
+> [!NOTE]
+> In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a **Quick Action** on S3 bcket versioning. This guide also requires that permission, so you can not proceed if you didn't follow the steps in the previous guide.
+
+## Step 1: Open the Policy Pack
+
+In the guide titled [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) you enabled `Enforce Versioning is Enabled for AWS S3 Buckets`. Select **Policies** from the top-level navigation bar, then choose that policy pack from the list.
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/locate-policy-pack.png"/></p>
 
-## Step 2: View the policy setting
+## Step 2: Edit the policy setting
 
-View the current setting. It’s the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception).
+Select the pencil icon next to the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception).
 
 <p><img alt="view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/view-policy-setting.png"/></p>
 
-## Step 3: Edit the policy setting
+## Step 3: Disable calculated mode
 
-  
-Select the pencil icon to edit the setting, and select **Disable calculated mode** to return to basic mode.
+Select **Disable calculated mode** to return to standard policy mode. 
 
 <p><img alt="edit-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/edit-policy-setting.png"/></p>
 
 ## Step 4: Enable enforcement
 
-Choose **Enforce: Enable** and select **Update**.
+Choose **Enforce: Enabled** from the list of policy options and then select **Update**.
 
 <p><img alt="aws-update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/aws-update-policy-setting.png"/></p>
 
-## Step 5: Observe enforcement
+## Step 5: Observe Guardrails in action
 
-Revisit **Controls by State** and use the **Type** filter to choose **AWS > S3 > Bucket > Versioning**. All your buckets are now green, except the one you exempted in [Create a static exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception).   
+Use your bookmark to navigate back to **Controls by State** report, and use the **Type** filter to choose **AWS > S3 > Bucket > Versioning**. In a few minutes all of your buckets in this account are now either **Ok** or **Skipped** (except the one you created an exception for in the [Create a static exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) guide). 
+
+Try suspending versioning on a bucket. It won’t stay that way for long!
 
 <p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-enforcement/enforcement-happened.png"/></p>
 
 ## Step 6: Review
 
-Try suspending versioning on a bucket. It won’t stay that way for long!
+In this guide series you learned the basics of importing AWS accounts into Guardrails, enabling policy packs, creating exceptions and notifications, and even more mischief.
 
 ## Next Steps
 
-This Getting Started series just scratches the surface.  Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
-
+This Getting Started series just scratches the surface of what you can do with Guardrails. Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
 
 ## Progress tracker
 
+**Congratulations!  You did it!**
+
+- [x] Prepare an AWS Account for import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
 - [x] Enable Your First Policy Pack

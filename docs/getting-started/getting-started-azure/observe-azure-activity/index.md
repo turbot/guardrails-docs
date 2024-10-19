@@ -11,9 +11,9 @@ sidebar_label: Observe Resource Activity
 - [Connect an Azure Account to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-a-subscription/)
 
 
- 
+ 
 
-Now that you’ve connected an Azure subscription, you can explore your resource inventory.  To visualize activity, go to `Reports`,  find `Resource activities`, then click that link. 
+Now that you’ve connected an Azure subscription, you can explore your resource inventory.  To visualize activity, go to `Reports`,  find `Resource activities`, then click that link. 
 
 The following steps will show how to observe Azure resource activity in real-time.
 
@@ -41,7 +41,7 @@ Guardrails reports two notifications related to the storage account creation. `R
 
 ## Step 3: See Guardrails react to a storage account change
 
-   
+   
 Now visit your storage account in the Azure portal and downgrade to TLS 1.0.
 
 <p><img alt="azure_downgrade_to_tls_to_observe_change" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/azure-downgrade-to-tls-to-observe-change.png"/></p>

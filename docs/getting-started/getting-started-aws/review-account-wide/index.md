@@ -1,41 +1,62 @@
 ---
-title: Review Account-Wide Bucket Versioning
-sidebar_label: Review Bucket Versioning
+title: Review Account-wide governance
+sidebar_label: Account-wide governance
 ---
 
 
-# Review Account-Wide Bucket Versioning
+# Review Account-wide governance
 
-In this guide you’ll see how the policy pack you enabled in [Enable a Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) governs all the S3 buckets in your account.
+In this guide you’ll see how a single policy pack can govern all resources across an account.
+
+This is the fifth guide in the *Getting started with AWS* series.
 
 ## Prerequisites
 
-- [Connect an AWS Account to Guardrails](/guardrails/docs/getting-started/getting-started-aws/connect-an-account/)
-- [Observe AWS Resource Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity/)
-- [Enable Your First Policy Pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack/)
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privlidges.
+
+## Step 1: Open the Controls by State report
+
+Navigate back to the **Controls by State** report (or use your saved bookmark), expand the **Type** dropdown, and search for `bucket versioning`. Enable the checkbox next to **AWS > S3 > Bucket > Versioning** to set the filter. 
+
+<p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/search-type-filter.png"/></p>
+
+## Step 2: Filter on bucket versioning controls
+
+Your first testing bucket is in **Ok** (green) state, meaning it is compliant with the policy. Other buckets in the account, with versioning disabled, are red: not compliant.
+
+<p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/filter-applied.png"/></p>
 
 
-## Step 1: Open Controls by State and limit to S3 bucket versioning
+## Step 3: Create test s3 buckets
 
-In **Controls by State**, use the **Resource Type** filter to choose **AWS > S3 > Bucket > Versioning**.  
-  
-In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s Versioning control from `Skipped` to `OK`, because you turned on versioning in [Observe AWS Activity](/guardrails/docs/getting-started/getting-started-aws/observe-aws-activity). Other buckets created in the default state, with versioning disabled, are red: out of policy.  
+Return to the AWS console and (as you did in the **Observe Resource Activity** guide) create 3 new buckets without versioning enabled.  For the example, we will create the following new buckets to sit along side our first test bucket:
 
-<p><img alt="aws-account-wide-1" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/aws-account-wide-1.png"/></p>
+- bucket-example-02
+- bucket-example-03
+- bucket-example-04
 
-## Step 2: Review
+Keeping the naming similar and consistent will allow us easily filter and see all buckets at the same time for the purpose of the guide.
 
-To further explore the policy pack you’ve enabled, create a new bucket, observe that it shows up here in `Alarm`  for versioning, then enable versioning and observe that it transitions to `OK`.
+## Step 4: View newly created buckets
+
+As you create the new buckets, Guardrails detects them and evaluates their configuration vs your policies. By changing our search string we can see all buckets at the same time.
+
+<p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/new-buckets-in-alarm.png"/></p>
+
+The new buckets are in **Alarm** state, because bucket versioning is not enabled.
+
+## Step 5: Review
+
+In this guide you created three new S3 buckets and observed how the policy pack added at the account level evaluates their governance status.
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we’ll learn how to create an exception so that a bucket can be exempt from the versioning requirement.  
-  
-
-
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we’ll learn how to create a static exception so that a bucket can be exempt from the versioning requirement. 
 
 ## Progress tracker
 
+- [x] Prepare an AWS Account for import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
 - [x] Enable Your First Policy Pack

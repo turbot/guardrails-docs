@@ -23,9 +23,9 @@ Click `New Registration`.
 
 Name the application. The name ought to be recognizable as a Guardrails registration and relevant to the subscription to be imported. Turbot recommends the naming convention `Guardrails - {Name of the subscription}`.
 
-The Redirect URI is optional.  The Guardrails integration doesn’t use the redirect URL as a part of authentication. If you would like to include your Guardrails workspace hostname, this is a handy reference location.   
+The Redirect URI is optional.  The Guardrails integration doesn’t use the redirect URL as a part of authentication. If you would like to include your Guardrails workspace hostname, this is a handy reference location.   
   
-Capture the Application (client) ID from the Overview tab.  Copy the Application (client) ID and Directory (tenant) IDs.  You will need them later.  
+Capture the Application (client) ID from the Overview tab.  Copy the Application (client) ID and Directory (tenant) IDs.  You will need them later.  
 
 
 ## Step 2: Create a secret
@@ -35,7 +35,7 @@ Under the `Manage` sidebar item, go to `Certificates & secrets`.
 
 Go to the `Client Secrets` tab.   
   
-Create a new secret and capture its Value.  Don’t use the Secret ID!
+Create a new secret and capture its Value.  Don’t use the Secret ID!
 
 ## Step 3: Create a ReadOnly role
 
@@ -43,24 +43,24 @@ Click the `Shell icon` in the portal at top right, next to the search bar.
 
 Select `Bash`.
 
-In the cloud shell, create `turbot_reader_role.json`, swapping in your subscription id.  The Azure default `Reader` role does not include permissions to read `KeyVault Secrets` metadata (not the secret itself), so they are included here.   
+In the cloud shell, create `turbot_reader_role.json`, swapping in your subscription id.  The Azure default `Reader` role does not include permissions to read `KeyVault Secrets` metadata (not the secret itself), so they are included here.   
   
 ```json
 {
-  "Name": "turbot_reader",
-  "Description": "Basic Permissions needed for Reader access",
-  "Actions": [
-    "*/read",
-    "Microsoft.Storage/storageAccounts/listkeys/action",
-    "Microsoft.KeyVault/vaults/secrets/read",
-    "Microsoft.KeyVault/vaults/read"
-  ],
-  "NotActions": [],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<<YOUR_SUBSCRIPTION_ID>>"
-  ]
+  "Name": "turbot_reader",
+  "Description": "Basic Permissions needed for Reader access",
+  "Actions": [
+    "*/read",
+    "Microsoft.Storage/storageAccounts/listkeys/action",
+    "Microsoft.KeyVault/vaults/secrets/read",
+    "Microsoft.KeyVault/vaults/read"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<<YOUR_SUBSCRIPTION_ID>>"
+  ]
 }  
 ```
 

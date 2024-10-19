@@ -25,7 +25,7 @@ In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/ena
 
 ## Step 2: Review
 
-To further explore the policy pack you’ve enabled, create a new bucket, observe that it shows up here in `Alarm`  for versioning, then enable versioning and observe that it transitions to `OK`.
+To further explore the policy pack you’ve enabled, create a new bucket, observe that it shows up here in `Alarm`  for versioning, then enable versioning and observe that it transitions to `OK`.
 
 ## Next Steps
 

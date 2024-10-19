@@ -38,7 +38,7 @@ To attach it, click top-level `Resources`, navigate to your `Sandbox` folder, se
 
 <p><img alt="azure_find_policy_packs_manage" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-policy-pack/azure-find-policy-packs-manage.png"/></p>
 
-In the `Edit policy pack attachments` dialog, select `Enforce Secure TLS Version for Azure Storage Accounts` and  click `Save`.
+In the `Edit policy pack attachments` dialog, select `Enforce Secure TLS Version for Azure Storage Accounts` and  click `Save`.
 
 <p><img alt="azure_edit_attachments_select_enforce_versioning" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-policy-pack/azure-edit-attachments-select-enforce-versioning.png"/></p>
 
@@ -48,11 +48,11 @@ Do a top-level search for the name of your bucket, switch to the `Controls` tab,
 
 <p><img alt="azure_observe_tls_version_alarm" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-policy-pack/azure-observe-tls-version-alarm.png"/></p>
 
-Now, in the Azure portal,  set the minimum TLS version back to the default, `1.2`.
+Now, in the Azure portal,  set the minimum TLS version back to the default, `1.2`.
 
 <p><img alt="azure_tls_version_ok" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-policy-pack/azure-tls-version-ok.png"/></p>
 
-With the minimum TLS version set back to the default, `1.2`, the storage account now complies with the `Check: TLS 1.2` policy setting so Guardrails puts the storage account  into the `OK` state for that policy.  
+With the minimum TLS version set back to the default, `1.2`, the storage account now complies with the `Check: TLS 1.2` policy setting so Guardrails puts the storage account  into the `OK` state for that policy.  
   
 You can override policies at any level. In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/create-static-exception), we’ll create an exception that enables your test storage account to skip this check. 
 
