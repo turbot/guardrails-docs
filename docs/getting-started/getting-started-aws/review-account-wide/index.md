@@ -23,7 +23,7 @@ Navigate back to the **Controls by State** report (or use your saved bookmark), 
 
 ## Step 2: Filter on bucket versioning controls
 
-Your first testing bucket is in **Ok** (green) state, meaning it is compliant with the policy.
+Your first testing bucket is in **Ok** (green) state, meaning it is compliant with the policy. Other buckets in the account, with versioning disabled, are red: not compliant.
 
 <p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/filter-applied.png"/></p>
 

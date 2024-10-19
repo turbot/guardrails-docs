@@ -1,8 +1,7 @@
 ---
 title: Create a Static Exception to a Guardrails Policy
-Sidebar_label: Create a Policy Exception
+Sidebar_label: Create a policy exception
 ---
-
 
 # Create a Static Exception to a Guardrails AWS Policy
 
@@ -34,44 +33,44 @@ You can also filter by **State**. Expand that dropdown, and enable the checkbox 
 
 <p><img alt="find_bucket_in_alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/expand-state-filter.png"/></p>
 
-## Step 4: Select a bucket control in Alarm
+## Step 4: Choose a bucket
 
 Pick a control, here `bucket-example-03`, and click its linked name.
 
 <p><img alt="open-bucket-control" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/select-bucket-link.png"/></p>
 
-## Step 5: Select the bucket Resource
+## Step 5: View resource details
 
-Select the bucket's **Resource** link.
+Because we were viewing the **Controls by State** report, our action landed us on the **Control Details** page. We can switch to the **Resource Detail** view by using the blue **Resource** link next to the sub-tab bar.
 
 <p><img alt="open-bucket-control" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/open-bucket-control.png"/></p>
 
-## Step 6: Select the Policies subtab
+## Step 6: Open the new policy dialog
 
-Select **Policies**, and select **New Policy Setting**.
+Now you are are viewing the **Resource Detail** for the selected bucket. We want to create an exception for this resource, and we do that via a new policy setting. To do so, select the **Policies** sub-tab, and click the green **New Policy Setting** button.
 
 <p><img alt="switch-to-policies" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/switch-to-policies-tab.png"/></p>
 
-## Step 7: Find the policy setting
+## Step 7: Select the policy type
 
 In the **Search policy types...** input box, type `aws s3 bucket versioning`, and enable the checkbox next to **AWS > S3 > Bucket > Versioning**.
 
 <p><img alt="find policy setting" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/find-policy-setting.png"/></p>
 
-## Step 8: Configure the policy setting
+## Step 8: Create the policy exception
 
 Choose the **Skip** setting, and select **Create**.
 
 <p><img alt="create-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/create-policy-setting.png"/></p>
 
-## Step 9: View the policy setting
+## Step 9: Confirm the setting
 
-This bucket is now exempt from the requirement to enable versioning. Select the **Hierarchy** tab.
+This bucket is now exempt from the requirement to enable versioning.
 
 <p><img alt="create-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/view-policy-setting.png"/></p>
 
 
-## Step 10: View the hierarchy
+## Step 10: View in context
 
 Select the **Hierarchy** tab. The account-level policy specifies **Check: Enabled**. You’ve overridden that with an exception that exempts this particular bucket from that policy.  
 
@@ -85,13 +84,11 @@ Select the **Activity** tab and observe the history. When you created the bucket
 
 ## Step 12: Review
 
-In this guide you seen how to exempt a specific resource from an account-wide policy.
-
+In this guide you created a resource level exception for the Bucket Versioning control.
 
 ## Next Steps
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.
-
 
 ## Progress tracker
 
