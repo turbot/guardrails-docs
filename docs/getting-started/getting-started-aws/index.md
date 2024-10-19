@@ -9,6 +9,7 @@ This series of guides provides a curated experience to import your first AWS acc
 
 | Guide | Description
 | - | - |
+| [Prepare an Account](getting-started/getting-started-aws/prepare-account) | Prepare an AWS account for import into Guardrails. |
 | [Connect an Account](getting-started/getting-started-aws/connect-an-account) | Import an AWS account. |
 | [Observe Resource Activity](getting-started/getting-started-aws/observe-aws-activity) | Monitor AWS [resource](guardrails/docs/reference/glossary#resource) activities. |
 | [Enable a Policy Pack](getting-started/getting-started-aws/enable-policy-pack) | Attach a [Policy Pack](guardrails/docs/concepts/policy-packs) to enforce security and compliance. |
