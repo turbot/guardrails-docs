@@ -9,7 +9,7 @@ nav:
 # Event Handlers
 
 <div className="alert alert-warning">
-This section details the steps required to set up Azure Event Handlers. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_eventing">azure_setup baseline</a>, which automates this process.
+This section details the steps required to set up Azure Event Handlers. Alternatively, you can use the <a href="https://hub.guardrails.turbot.com/policy-packs/azure_guardrails_enable_event_poller">azure_setup baseline</a>, which automates this process.
 </div>
 
 The event handler infrastructure is configured by a Turbot Stack in each region.
@@ -29,7 +29,7 @@ installed and up to date in the environment:
 
 When configuring event handlers, specific roles must be assigned (or created) to
 ensure functionality. Review the section on
-[Role access grants for Turbot Discovery](guides/azure/import#turbot-mode)
+[Role access grants for Turbot Discovery](integrations/azure/import#turbot-mode)
 and note the requirement of a custom role for `Read-Only` Turbot mode using
 event handlers.
 
@@ -69,7 +69,7 @@ policy:
 # Create Event through Event Handler
 # Azure > Turbot > Event Handlers
 resource "turbot_policy_setting" "eventHandlers" {
-  resource    = "id of parent folder or policy pack"   //highlight-line
+  resource    = "id of parent folder or smart folder"   //highlight-line
   type            = "tmod:@turbot/azure#/policy/types/eventHandlers"
   value           = "Enforce: Configured"
 }

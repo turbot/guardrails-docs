@@ -69,20 +69,3 @@ This is the information required to import an GCP Project.
 #### Advanced import
 
 ![New GCP Project Advanced](/images/docs/guardrails/turbot_new_project_advanced.png)
-
-## Terraform
-
-### AWS
-
-Navigate to the
-[AWS Integrations page](guides/aws/import-aws-account#importing-the-account-via-terraform)
-and simply copy the code and paste into a configuration file, replacing the
-necessary values.
-
-<div className="alert alert-info">
-Check out our <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_account_import">AWS Account Import Baseline</a> on the Guardrails Samples Repo.
-</div>
-
-### Azure
-
-Guardrails supports the import of an Azure [Tenant]()

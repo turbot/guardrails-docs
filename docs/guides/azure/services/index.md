@@ -9,7 +9,7 @@ nav:
 # Enabling Azure Services in Turbot
 
 <div className="alert alert-warning">
-This section details the steps required to enable services for a Azure Subscription. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_services">azure_services baseline</a> and <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_provider_registration">Azure Provider Registration Baseline</a> which automate this process.
+This section details the steps required to enable services for a Azure Subscription. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_service_enabled">azure_services baseline</a> which can help automate this process.
 </div>
 
 ## Enabling Services
@@ -37,7 +37,7 @@ For example, to enable the Azure Storage service:
 ```hcl
 # Azure > Storage > Enabled
 resource "turbot_policy_setting" "azure_storage_enabled" {
-  resource    = "id of sub or parent folder/policy pack"   //highlight-line
+  resource    = "id of sub or parent folder/smart folder"   //highlight-line
   type        = "tmod:@turbot/azure-storage#/policy/types/storageEnabled"
   value       = "Enabled"
 }
@@ -67,7 +67,7 @@ For example, to enable the storage provider:
 ```hcl
 # Azure > Provider > Storage > Registered
 resource "turbot_policy_setting" "provider_registration_enable" {
-  resource    = "id of sub or parent folder/policy pack"   //highlight-line
+  resource    = "id of sub or parent folder/smart folder"   //highlight-line
   type        = "tmod:@turbot/azure-provider#/policy/types/storageRegistered"
   value       = "Enforce: Registered"
 }

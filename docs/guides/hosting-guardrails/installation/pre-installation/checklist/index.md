@@ -9,6 +9,7 @@ sidebar_label: Pre-install Checklist
 1. **Installation Domain Name**: Decide on the base domain for your environment.  (e.g. `.cloudportal.company.com`, `.guardrails.acme.com`)
 1. **Console Name**: Decide on the name of your web console. (e.g. `prod` => `https://prod.cloudportal.company.com` or `console` => `https://console.guardrails.acme.com`)
 1. **ACM Certificate**: Use Amazon Certificate Manager (ACM) to create a wildcard SSL/TLS certificate for your chosen domain (e.g. `*.cloudportal.company.com`), or have the certificate issued by your certificate authority and then upload into ACM.
+    - **Wildcards**: If wildcards are not allowed for the Guardrails TLS certificate, you must add at least two domains to the certificate:  `gateway.cloudportal.company.com` and `{workspace_name}.cloudportal.company.com`. For environments that host more than one workspace, a domain will need to be added to the certificate for each workspace.
 1. **HA/DR Config**: Decide on your HA/DR configuration.  Guardrails can be installed in up to 3 availability zones across 3 regions for mission critical production applications or in a single region/az for dev/sandbox environments.
 1. **Networking**: Decide on how you will configure your networking. Turbot Support recommends that you use the Turbot Guardrails Enterprise Foundation (TEF) product to create the VPC and necessary Security Groups for your initial deployment.  After successful initial install of the environment you can then progressively harden the VPC to enterprise standards.  If you choose to install Guardrails into a custom VPC, it must be set up BEFORE installation starts.
 1. **Security Groups**: If using a custom VPC, the Guardrails Samples repo contains a [CloudFormation template](https://github.com/turbot/guardrails-samples/blob/master/installation/security_groups.yml) to create the three required security groups with the required ports.  If a proxy is in use, the security group rule for the proxy port must be added to the `OutboundInternetSecurityGroup` resource.
@@ -18,7 +19,10 @@ sidebar_label: Pre-install Checklist
 1. **Turbot License Key**: Turbot Support will provide a license key for the Guardrails installation.
 
 ## AWS AutoScaling Role
-Ensure that the IAM service role called `AWSServiceRoleForAutoScaling` already exists in the account. If it doesn't, create then immediately destroy a throw-away autoscaling group to have AWS create it for you. Manually creating a service role will generate a role named `AWSServiceRoleForAutoScaling_{some number}` which Guardrails won't use.
+Ensure that the IAM service role called `AWSServiceRoleForAutoScaling` already exists in the account. If it doesn't, run the following aws cli command to create it prior to TEF installation:  
+```sh
+aws iam create-service-linked-role --aws-service-name autoscaling.amazonaws.com
+```
 
 ## Custom network pre-install checklist
 1. **Network Infrastructure as Code** - Turbot Support recommends building the Custom VPC via Terraform or Cloudformation to ensure accuracy and repeatability. Building the Guardrails security groups with the [CloudFormation template](https://github.com/turbot/guardrails-samples/blob/master/installation/security_groups.yml) works best. Any changes to the configuration should be updated in the source template and redeployed to prevent errors and to allow the template to be shared with Turbot Support for troubleshooting.

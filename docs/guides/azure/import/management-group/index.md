@@ -1,27 +1,27 @@
 ---
-title: "Import Azure Management Group into Turbot"
+title: "Import Azure Management Group into Guardrails"
 template: Documentation
 nav:
   title: "Management Group"
   order: 3
 ---
 
-# Import Azure Management Group into Turbot
+# Import Azure Management Group into Guardrails
 
-[Proper setup in the Azure tenant](guides/azure/import) is required for
-import of an Azure Management Group into Turbot.
+[Proper setup in the Azure tenant](integrations/azure/import) is required for
+import of an Azure Management Group into Guardrails.
 
 All child resources of the Management Group in Azure will be discovered and
-subsequently entered into the Turbot CMDB, if permissions allow.
+subsequently entered into the Guardrails CMDB.
 
 While you can import an Azure Management Group at the Turbot level, it is
-recommended that you import accounts into Turbot Folders, as it provides greater
+recommended that you import accounts into Guardrails Folders, as it provides greater
 flexibility and ease of management. Define a Folder hierarchy prior to import.
 
-## Importing Azure Management Group via Turbot Console (UI)
+## Importing Azure Management Group via Guardrails Console
 
-1. At the main Turbot screen after logging in with `Turbot/Admin` permissions,
-   click the **IMPORT** card in the top right.
+1. At the main Guardrails screen after logging in with `Turbot/Admin` permissions,
+   click the purple **IMPORT** card in the top right.
 2. Select **Azure Management Group** on the left.
 3. Use the **Parent Resource** dropdown menu to select where the Azure
    Management Group will be imported to.
@@ -31,29 +31,16 @@ flexibility and ease of management. Define a Folder hierarchy prior to import.
 5. Congratulations! The management group is now added as a child resource of the
    folder.
 
-CMDB and Discovery controls are enabled by default and Turbot will begin
+CMDB and Discovery controls are enabled by default and Guardrails will begin
 discovering the resources in the Azure Management Group. Resources will start
 appearing right away, and resource discovery will continue to run in the
 background.
 
 ## Management Group Event Pollers
 
-To ensure that Turbot receives events such as new subscriptions in the
-management group, ensure that Management Group event pollers are enabled. Do
-this by:
+Guardrails uses Management Group event pollers to detect new, updated or deleted subscriptions in the
+management group.  Management Group event pollers are enabled by default. No action is required. 
 
-1. Go to a level high enough in the resource hierarchy to affect all imported
-   Management Groups.
-2. Create a new policy setting for
-   [Azure > Turbot > Management Group Event Poller](https://turbot.com/guardrails/docs/mods/azure/azure/policy#azure--turbot--management-group-event-poller)
-   then set it to `Enabled`
-3. Management Group event polling will kick off. Ensure correct operation by
-   checking the
-   [Management Group Event Poller](https://turbot.com/guardrails/docs/mods/azure/azure/control#azure--turbot--management-group-event-poller)
-   control in at least one Management Group. The default interval is every 12
-   hours but can be as little as one hour with the
-   [Azure > Turbot > Management Group Event Poller > Interval](https://turbot.com/guardrails/docs/mods/azure/azure/policy#azure--turbot--management-group-event-poller--interval)
-   policy.
 
 ## Import Management Group via Terraform
 
@@ -61,13 +48,8 @@ Administrators can easily import Management Group using Terraform. If your
 Terraform environment has not been setup, head on over to the
 [Terraform Setup Page](reference/terraform/setup).
 
-The Turbot Development Kit is a public repository that contains the necessary
-Terraform files to import a Management Group into Turbot:
-
-- [Azure Management Group Import Baseline](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_management_group_import)
-
 ```hcl
-# Create the Azure > Management Group resource in Turbot
+# Create the Azure > Management Group resource in Guardrails
 resource "turbot_resource" "management_group_resource" {
   parent = var.parent_resource
   type   = "tmod:@turbot/azure#/resource/types/managementGroup"
@@ -84,7 +66,7 @@ resource "turbot_resource" "management_group_resource" {
   })
 }
 
-# Set the credentials for the Management Group via Turbot policies
+# Set the credentials for the Management Group via Guardrails policies
 
 resource "turbot_policy_setting" "environment" {
   resource = turbot_resource.management_group_resource.id

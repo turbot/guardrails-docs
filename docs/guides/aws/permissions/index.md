@@ -122,12 +122,10 @@ You can use Modifiers to:
 
 - Change what permissions levels a specific API path is assigned
 - Remove access at a given permissions level
-- Add access to APIs that are not defined by Guardrails
 
 Modifier example use-cases:
 
 - I want to add access to a new API in S3 that Guardrails hasn’t added yet
-- I want to add an entirely new service that Guardrails hasn’t added yet
 - I want to add a capability for my EC2 Operators that Guardrails normally reserves
   for Admins
 - Guardrails assigns an AWS permission to EC2/Operator that I consider
@@ -136,9 +134,9 @@ Modifier example use-cases:
 Modifiers leverage the existing Guardrails rules engine to modify the policies that
 Guardrails generates. They do not generate separate policies.
 
-Modifiers can add, remove, and change permissions for any AWS service to any
-standard permission level. Modifiers effectively redefine (override) the
-permission level to which an API operation is defined.
+Modifiers can add, remove, and change permissions for any AWS service that 
+Guardrails currently supports to any standard permission level. Modifiers 
+effectively redefine (override) the permission level to which an API operation is defined.
 
 - Permissions defined in the Modifiers policy override the Guardrails defaults
 - Permissions defined in the Modifiers policy override the Guardrails Capability
@@ -482,7 +480,10 @@ as explained above.
 ##### I want to allow permissions for a service that Guardrails does not support, or for which I have not installed a Guardrails mod
 
 - Add the APIs to the `AWS > Turbot > Permissions > Lockdown > API Boundary`
-  policy. This will allow the API in both the boundary and lockdown policies.
+  policy. This will allow the API in both the boundary and lockdown policies. Adding the API to
+  the boundary policy is a necessary but insufficient step to enable acces.  The user must also have access granted to them. 
+- (Optional) Use [Custom Roles](#custom-role-levels) or [Custom Groups](#custom-group-levels) to grant access to the service to the user.
+- (Optional) Open a feature request with [Turbot Support](mailto:help@turbot.com) to request a permissions-only mod for this service. 
 
 ##### I want to only enable specific regions. I do not want anyone, including Guardrails to be able to use them.
 

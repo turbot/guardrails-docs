@@ -13,7 +13,7 @@ account, and add a prefix so the log files are put into a folder called
 `Access-Logs`.
 
 <div class = "alert alert-warning">
-This example, along with just about any control objective in Guardrails, can be deployed using Terraform. Check it out at the <a href="https://github.com/turbot/guardrails-samples/tree/master/control_objectives/aws_s3_access_logging" target="_blank">Guardrails Samples Repo</a>.
+This example, along with just about any control objective in Guardrails, can be deployed using Terraform. Check it out at the <a href="https://hub.guardrails.turbot.com/policy-packs/aws_s3_enforce_access_logging_is_enabled_for_buckets" target="_blank">Guardrails Samples Repo</a>.
 </div>
 
 The Guardrails mod `aws-s3` being installed is a prerequisite of this guide.

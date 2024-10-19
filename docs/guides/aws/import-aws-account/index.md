@@ -9,7 +9,7 @@ nav:
 # Importing an AWS account into Guardrails
 
 <div className="alert alert-warning">
-This section details the steps required to import an AWS Account into a Guardrails Folder. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_account_import">aws_account_import baseline</a> which automates this process.
+This section details the steps required to import an AWS Account into a Guardrails Folder.
 </div>
 
 ## Overview
@@ -32,8 +32,7 @@ Consider that Turbot Guardrails is hosted only in AWS commercial accounts. There
 
 - We can import AWS commercial partition accounts directly by the IAM Role only.
 - To import
-  [AWS China or AWS GovCloud accounts](guides/aws/import-aws-account/gov-cloud)
-  requires an IAM User Access key pair along with the IAM Role.
+  [AWS China or AWS GovCloud accounts](guides/aws/import-aws-account/gov-cloud) requires hosting of guardrails in the same partition as those account or using access keys for each account outside of the current AWS Partition.
 
 <div className="alert alert-info" role="alert"><b>NOTICE</b>: Free Tier AWS accounts cannot be used with Guardrails. If this is attempted, Guardrails will fail to properly discover resources in the account and will generate errors in the Guardrails console.
 </div>
@@ -169,6 +168,171 @@ Give the role a meaningful name such as `turbot-service-readonly` (read only) or
 To simplify setup, you can use the Turbot-provided CloudFormation template. For
 EU customers, use `255798382450`.
 
+#### ReadOnly + Global Event Handlers
+
+Reccommended starting point for new installations
+
+This represents the minimum privileges required for Guardrails to discover all AWS
+resources and configure **global** event handlers.
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterLabels:
+      AccessRoleName:
+        default: "Guardrails Access Role Name"
+      AccessPolicyName:
+        default: "Guardrails Access Policy Name"
+      GuardrailsIamPath:
+        default: "IAM Path"
+      GuardrailsSaasAccountId:
+        default: "Guardrails SaaS Host AWS Account ID"
+      AccessRoleExternalId:
+        default: "Role Trust Policy External ID"
+    ParameterGroups:
+      - Label:
+          default: "Default Parameters"
+        Parameters:
+          - AccessRoleName
+          - AccessPolicyName
+          - AccessRoleExternalId
+          - EventHanderRoleName
+          - GuardrailsIamPath
+          - GuardrailsSaasAccountId
+Parameters:
+  AccessRoleName:
+    Type: String
+    Default: turbot_guardrails_access_role
+    Description: The role that Turbot uses to connect to this account
+  AccessPolicyName:
+    Type: String
+    Default: turbot_guardrails_access_policy
+    Description: The name for the policy for SNS and Events write access.
+  AccessRoleExternalId:
+    Type: String
+    Description: The AWS External ID to add to the trust policy of the Turbot role
+  EventHanderRoleName:
+    Type: String
+    Default: turbot_guardrails_events_role
+    Description: The role that Turbot uses to connect to this account
+  GuardrailsIamPath:
+    Type: String
+    Default: "/"
+    Description: >
+      The IAM path to use for all IAM roles created in this stack. 
+      The path must either be a single forward slash "/" or
+      alphanumeric characters with starting and ending forward slashes "/my-path/".
+  GuardrailsSaaSAccountId:
+    Type: String
+    Default: '287590803701'
+    Description: >
+      The AWS Account ID where Guardrails is installed. This will be added to the
+      cross accout trust policy of the access role. The default value of '287590803701'
+      refers to the account ID of the Turbot Guardrails SaaS environment. Do not change
+      the value if importing your account into Guardrails SaaS.
+Resources:
+  GuardrailsAccessRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub "arn:aws:iam::${GuardrailsSaaSAccountId}:root"
+            Action:
+              - "sts:AssumeRole"
+            Condition:
+              StringEquals:
+                "sts:ExternalId": !Ref AccessRoleExternalId
+      Path: !Ref GuardrailsIamPath
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/ReadOnlyAccess"
+      RoleName: !Ref AccessRoleName
+  GuardrailsAccessPolicy:
+    Type: "AWS::IAM::Policy"
+    Properties:
+      PolicyName: !Ref AccessPolicyName
+      Roles:
+        - !Ref AccessRoleName
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Sid: PassRoleToAWS
+            Effect: Allow
+            Action:
+              - "iam:PassRole"
+              - "iam:GetRole"
+            Resource:
+              - !GetAtt EventHandlersGlobalRole.Arn
+          - Sid: TurbotEvents
+            Effect: Allow
+            Action:
+              - "events:PutEvents"
+              - "events:EnableRule"
+              - "events:DisableRule"
+              - "events:PutRule"
+              - "events:DeleteRule"
+              - "events:PutTargets"
+              - "events:RemoveTargets"
+              - "events:TagResource"
+              - "events:UntagResource"
+            Resource:
+              - !Sub "arn:aws:events:*:${AWS::AccountId}:rule/turbot_aws_api_events*"
+          - Sid: TurbotSNS
+            Effect: Allow
+            Action:
+              - "sns:TagResource"
+              - "sns:UntagResource"
+              - "sns:CreateTopic"
+              - "sns:DeleteTopic"
+              - "sns:SetTopicAttributes"
+              - "sns:Publish"
+              - "sns:Subscribe"
+              - "sns:ConfirmSubscription"
+              - "sns:AddPermission"
+              - "sns:RemovePermission"
+              - "sns:Unsubscribe"
+            Resource:
+              - !Sub "arn:aws:sns:*:${AWS::AccountId}:turbot_aws_api_handler*"
+              - !Sub "arn:aws:sns:*:${AWS::AccountId}:turbot_aws_api_handler*:*"
+    DependsOn:
+      - GuardrailsAccessRole
+  EventHandlersGlobalRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      RoleName: !Ref EventHanderRoleName
+      Path: !Ref GuardrailsIamPath
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Action: "sts:AssumeRole"
+            Effect: "Allow"
+            Principal:
+              Service: "events.amazonaws.com"
+      Policies:
+        - PolicyName: "aws_api_events_policy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "events:PutEvents"
+                Resource: !Sub "arn:aws:events:*:${AWS::AccountId}:event-bus/default"
+Outputs:
+  AccessRoleArnOutput:
+    Description: "ARN of the Guardrails IAM role"
+    Value: !GetAtt GuardrailsAccessRole.Arn
+    Export:
+      Name: "GuardrailsAccessRoleArn" 
+  AccessRoleExternalIdOutput:
+    Description: "External ID used in the Access Role"
+    Value: !Ref AccessRoleExternalId
+    Export:
+      Name: "AccessRoleExternalId" 
+```
+
 #### Full AdministratorAccess
 
 ```yaml
@@ -215,10 +379,12 @@ Resources:
       RoleName: !Ref RoleName
 ```
 
-#### ReadOnly + Event Handlers
+
+
+#### ReadOnly + Regional Event Handlers
 
 This represents the minimum privileges required for Guardrails to discover all AWS
-resources and configure event handlers.
+resources and configure **regional** event handlers.
 
 ```yaml
 AWSTemplateFormatVersion: 2010-09-09
@@ -494,21 +660,19 @@ A collection of GraphQL, Terraform and Python to assist developers with
 integrating Guardrails into account onboarding pipelines.
 
 - **Account Import GraphQL**:
-  [account_import graphql](https://github.com/turbot/guardrails-samples/blob/master/api_examples/graphql/queries/aws_account_import.graphql)
-- **Account Import Terraform**:
-  [account_import Terraform](https://github.com/turbot/guardrails-samples/tree/master/baselines/aws/aws_account_import)
+  [account_import graphql](https://github.com/turbot/guardrails-samples/blob/main/queries/aws/aws_account_import.graphql)
 - **Policies Stuck in TBD**: Use the
-  [run_policies](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_policies)
+  [run_policies](https://github.com/turbot/guardrails-samples/tree/main/api_examples/python/run_policies)
   script with this filter to rerun policy values in `tbd`:
   `--filter "resourceId:'<ARNofAccount>' state:tbd"`
 - **Controls Stuck in TBD**: Use the
-  [run_controls](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls)
+  [run_controls](https://github.com/turbot/guardrails-samples/tree/main/api_examples/python/paging-mutation-example/run_controls.py)
   or
-  [run_controls_batches](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls_batches)
+  [run_controls_batches](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches)
   scripts with this filter to rerun controls in `tbd`:
   `--filter "resourceId:'<ARNofAccount>' state:tbd"`
 - **Event Handler Controls not in OK**: Use the Guardrails Samples
-  [run_controls_batches](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls_batches)
+  [run_controls_batches](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches)
   script with this filter:
   `--filter "resourceId:'<ARNofAccount>' controlTypeId:'tmod:@turbot/aws#/control/types/eventHandlers','tmod:@turbot/aws-sns#/control/types/topicConfigured','tmod:@turbot/aws-sns#/control/types/subscriptionConfigured','tmod:@turbot/aws-event#s/control/types/targetConfigured','tmod:@turbot/aws-events#/control/types/ruleConfigured' state:tbd,error,invalid"`
 
