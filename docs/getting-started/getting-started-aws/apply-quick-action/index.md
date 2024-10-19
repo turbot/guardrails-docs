@@ -106,7 +106,7 @@ Open a tab to the AWS console, and navigate to the S3 bucket.  Confirm the Guard
 
 <p><img alt="observe-aws-console-result" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/observe-aws-console-result.png"/></p>
 
-## Step 14: Review
+## Step 12: Review
 
 In this guide you increased the permissions scope for your cross account role, enabled Guardrails Quick Actions and used a Quick Action to change a bucket's versioning property.
 
