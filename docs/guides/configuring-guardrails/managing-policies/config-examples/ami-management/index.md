@@ -96,7 +96,7 @@ the **Controls** subtab to see a list of control states and their applicable
 resource.
 
 See our example calculated policies using Terraform over in our
-[Guardrails Samples Repo](https://github.com/turbot/guardrails-samples/tree/master/calculated_policies),
+[Guardrails Samples Repo](https://github.com/turbot/guardrails-samples/tree/main/policy_packs),
 as well as our [Calculated Policy 7 minute lab](7-minute-labs/calc-policy) for a
 more detailed walk through.
 

@@ -9,7 +9,7 @@ nav:
 # Import a GCP Project into Guardrails
 
 <div className="alert alert-warning">
-This section details the steps required to import Google Cloud Platform resources into a Guardrails Folder. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/gcp/gcp_project_import">GCP Import Baseline</a> which automates this process.
+This section details the steps required to import Google Cloud Platform resources into a Guardrails Folder. 
 </div>
 
 ## Process Overview
@@ -294,13 +294,6 @@ for more information regarding the billing API.
    If you see a large amount of errors, refer to the
    [troubleshooting](#troubleshooting) instructions below.
 
-#### Importing the Project via Terraform
-
-Customers wishing to import GCP projects using Terraform should refer to the
-Guardrails Samples repo. A
-[complete set of .tf and .tfvars](https://github.com/turbot/guardrails-samples/tree/master/baselines/gcp/gcp_project_import)
-describe the Guardrails resources and policy settings required for GCP Project import.
-
 ## Troubleshooting
 
 ### Access Denied
@@ -327,10 +320,10 @@ may be a large number of Discovery controls in `error`. These can be resolved in
 one of two ways. First, simply delete the project and reimport it with proper
 credentials. Second, keep the project imported but rerun each control in `error`
 using the run_controls scripts in the Guardrails Samples Repo available in
-[Python](https://github.com/turbot/guardrails-samples/tree/master/api_examples/python/run_controls),
-[Javascript](https://github.com/turbot/guardrails-samples/tree/master/api_examples/node/run-controls)
+[Python](https://github.com/turbot/guardrails-samples/tree/main/api_examples/python/run_controls),
+[Javascript](https://github.com/turbot/guardrails-samples/tree/main/api_examples/node/run-controls)
 or
-[shell](https://github.com/turbot/guardrails-samples/tree/master/api_examples/shell/run-controls).
+[shell](https://github.com/turbot/guardrails-samples/tree/main/api_examples/shell/run-controls).
 The filter of `state:error` to rerun all controls in `error`.
 
 ### GCP Service API Enabled policies aren't set

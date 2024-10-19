@@ -31,7 +31,7 @@ resource and a Nunjucks template to specify the business logic. The resource
 data feeds into the template, which outputs strings that match policy values.
 Calculated policies are always run from the context of the resource itself. The
 Guardrails Samples Repo has
-[examples](https://github.com/turbot/guardrails-samples/tree/master/calculated_policies) of
+[examples](https://github.com/turbot/guardrails-samples/tree/main/policy_packs) of
 what can be done.
 
 On resource discovery or an event, Guardrails will evaluate a calculated policy in
@@ -242,6 +242,6 @@ terraform resource definition in the calculated policy template:
 ## Additional Reading
 
 - [Calculated Policy 7 minute lab](7-minute-labs/calc-policy)
-- [Guardrails Samples Repo with calculated policy examples](https://github.com/turbot/guardrails-samples/tree/main/calculated_policies)
+- [Guardrails Samples Repo with Policy Packs](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
 - [Policies concepts page](concepts/policies)
 - [Azure resource tagging example with calculated policies and Terraform](guides/managing-policies/config-examples/azure-tags)

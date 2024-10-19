@@ -39,17 +39,6 @@ Administrators can easily import subscriptions using Terraform. If your
 Terraform environment has not been set up, head on over to the
 [Terraform Setup Page](reference/terraform/setup).
 
-The [Guardrails Samples Repo (GSR)](https://github.com/turbot/guardrails-samples)  is a public repository that contains the necessary
-Terraform files to import an Azure Subscription into Guardrails:
-
-- [Azure Subscription Import Baseline](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_import)
-
-Note that the linked baseline is for existing Azure subscriptions, but there are
-also baselines available that:
-
-- [Create an Azure subscription and import into Guardrails](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_create_then_import)
-- [Create an Azure subscription and import into Guardrails with Read Only rights](https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_sub_create_then_import_ro)
-
 ```hcl
 # Create the Azure > Subscription resource in Guardrails
 resource "turbot_resource" "subscription_resource" {

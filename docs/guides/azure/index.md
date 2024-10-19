@@ -39,5 +39,5 @@ Turbot Guardrails is deeply integrated with
 
 - Explore [Azure Mods](mods/)
 - Set up Turbot Azure policies with
-  [Terraform Control Objectives](https://github.com/turbot/guardrails-samples/tree/master/control_objectives)
+  [Terraform Policy Packs](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
 - Learn more about [permissions in Guardrails](concepts/iam/permissions)

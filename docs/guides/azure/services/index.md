@@ -9,7 +9,7 @@ nav:
 # Enabling Azure Services in Turbot
 
 <div className="alert alert-warning">
-This section details the steps required to enable services for a Azure Subscription. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_services">azure_services baseline</a> and <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_provider_registration">Azure Provider Registration Baseline</a> which automate this process.
+This section details the steps required to enable services for a Azure Subscription. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/main/baselines/azure/azure_service_enabled">azure_services baseline</a> which can help automate this process.
 </div>
 
 ## Enabling Services

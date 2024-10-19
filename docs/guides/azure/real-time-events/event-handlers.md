@@ -9,7 +9,7 @@ nav:
 # Event Handlers
 
 <div className="alert alert-warning">
-This section details the steps required to set up Azure Event Handlers. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_eventing">azure_setup baseline</a>, which automates this process.
+This section details the steps required to set up Azure Event Handlers. Alternatively, you can use the <a href="https://hub.guardrails.turbot.com/policy-packs/azure_guardrails_enable_event_poller">azure_setup baseline</a>, which automates this process.
 </div>
 
 The event handler infrastructure is configured by a Turbot Stack in each region.

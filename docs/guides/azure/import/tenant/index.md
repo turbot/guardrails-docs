@@ -45,11 +45,6 @@ Administrators can easily import tenant using Terraform. If your Terraform
 environment has not been setup, head on over to the
 [Terraform Setup Page](reference/terraform/setup).
 
-The [Guardrails Samples Repo (GSR)](https://github.com/turbot/guardrails-samples)  is a public repository that contains the necessary
-Terraform files to import an Azure Tenant into Guardrails:
-
-- [Azure Tenant Import Baseline](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_tenant_import)
-
 ```hcl
 # Create the Azure > Tenant resource in Guardrails
 resource "turbot_resource" "tenant_resource" {

@@ -249,7 +249,7 @@ Notes:
 ## Additional Information
 
 - [Calculated Policy 7 minute lab](7-minute-labs/calc-policy)
-- [Guardrails Samples Repo with calculated policy examples](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
+- [Guardrails Samples Repo with Policy Packs](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
 - [Policies concepts page](concepts/policies)
 - [AWS resource tagging example with calculated policies and Terraform](https://github.com/turbot/guardrails-samples/tree/main/policy_packs/aws/ec2/enforce_instances_use_amis_with_approved_tags)
 - [Calculated Policy FAQ](/guardrails/docs/concepts/policies/calculated-faq)

@@ -10,8 +10,8 @@ The Turbot [Guardrails Samples Repo](https://github.com/turbot/guardrails-sample
 
 - [Code Examples](https://github.com/turbot/guardrails-samples/tree/main/api_examples) in Python, NodeJs and Shell
 - [GraphQL](https://github.com/turbot/guardrails-samples/tree/main/queries)
-- [Getting Started Baseline Policies](https://github.com/turbot/guardrails-samples/tree/master/baselines/getting_started)
-- [Calculated Policies](https://github.com/turbot/guardrails-samples/tree/master/calculated_policies)
+- [Getting Started Baseline Policies](https://github.com/turbot/guardrails-samples/tree/main/baselines/getting_started)
+- [Calculated Policies](https://github.com/turbot/guardrails-samples/tree/main/policy_packs)
 - [Workspace Usage](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/workspace_usage)
 
 If you'd like to make contributions to the Guardrails Samples Repo, please follow the [contribution guidelines](https://github.com/turbot/guardrails-samples/wiki#contribution-guide).

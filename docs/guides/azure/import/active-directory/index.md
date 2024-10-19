@@ -43,11 +43,6 @@ Administrators can easily import Active Directory using Terraform. If your
 Terraform environment has not been setup, head on over to the
 [Terraform Setup Page](reference/terraform/setup).
 
-The [Guardrails Samples Repo (GSR)](https://github.com/turbot/guardrails-samples) is a public repository that contains the necessary
-Terraform files to import an Azure Active Directory into Guardrails:
-
-- [Azure Active Directory Import Baseline](https://github.com/turbot/guardrails-samples/tree/master/baselines/azure/azure_active_directory_import)
-
 ```hcl
 # Create the Azure > Active Directory resource in Guardrails
 # Notice that "id" and tenantId" are the same value

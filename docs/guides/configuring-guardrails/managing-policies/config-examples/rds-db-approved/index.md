@@ -11,7 +11,7 @@ that will check any new and existing RDS databases for approved instance types
 and database engines. Any instance not in compliance will generate an alarm.
 
 <div class = "alert alert-warning">
-This example, along with just about any control objective in Guardrails, can be deployed using Terraform. Check it out at the <a href="https://github.com/turbot/guardrails-samples/tree/master/control_objectives/aws_rds_db_approved" target="_blank">Guardrails Samples Repo</a>.
+This example, along with just about any control objective in Guardrails, can be deployed using Terraform. Check it out at the <a href="https://hub.guardrails.turbot.com/policy-packs/aws_rds_enforce_db_cluster_manual_snapshots_are_shared_with_approved_accounts" target="_blank">Enforce AWS RDS DB Cluster Manual Snapshots Are Shared With Approved Accounts</a>.
 </div>
 
 The Guardrails mod [aws-rds](/guardrails/docs/mods/aws/aws-rds) must be
