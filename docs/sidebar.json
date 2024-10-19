@@ -20,37 +20,36 @@
           "getting-started/7-minute-labs/cli",
           "getting-started/7-minute-labs/custom-mod",
           "getting-started/7-minute-labs/graphql",
-          "getting-started/7-minute-labs/terraform",
+          "getting-started/7-minute-labs/terraform"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "your-guardrails-org",
+        "link": "getting-started/your-guardrails-org",
+        "items": [
           {
             "type": "category",
-            "id": "your-guardrails-org",
-            "link": "getting-started/your-guardrails-org",
+            "id": "user",
+            "link": "getting-started/your-guardrails-org/user",
             "items": [
-              {
-                "type": "category",
-                "id": "user",
-                "link": "getting-started/your-guardrails-org/user",
-                "items": [
-                  "getting-started/your-guardrails-org/user/sign-up",
-                  "getting-started/your-guardrails-org/user/profile"
-                ]
-              },
-              {
-                "type": "category",
-                "id": "organizations",
-                "link": "getting-started/your-guardrails-org/organizations",
-                "items": [
-                  "getting-started/your-guardrails-org/organizations/setup",
-                  "getting-started/your-guardrails-org/organizations/team",
-                  "getting-started/your-guardrails-org/organizations/profile"
-                ]
-              }
+              "getting-started/your-guardrails-org/user/sign-up",
+              "getting-started/your-guardrails-org/user/profile"
+            ]
+          },
+          {
+            "type": "category",
+            "id": "organizations",
+            "link": "getting-started/your-guardrails-org/organizations",
+            "items": [
+              "getting-started/your-guardrails-org/organizations/setup",
+              "getting-started/your-guardrails-org/organizations/team",
+              "getting-started/your-guardrails-org/organizations/profile"
             ]
           }
         ]
       },
       "getting-started/terraform-for-everything",
-
       "getting-started/faq"
     ]
   },
