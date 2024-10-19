@@ -37,7 +37,7 @@ For example, to enable the Azure Storage service:
 ```hcl
 # Azure > Storage > Enabled
 resource "turbot_policy_setting" "azure_storage_enabled" {
-  resource    = "id of sub or parent folder/policy pack"   //highlight-line
+  resource    = "id of sub or parent folder/smart folder"   //highlight-line
   type        = "tmod:@turbot/azure-storage#/policy/types/storageEnabled"
   value       = "Enabled"
 }
@@ -67,7 +67,7 @@ For example, to enable the storage provider:
 ```hcl
 # Azure > Provider > Storage > Registered
 resource "turbot_policy_setting" "provider_registration_enable" {
-  resource    = "id of sub or parent folder/policy pack"   //highlight-line
+  resource    = "id of sub or parent folder/smart folder"   //highlight-line
   type        = "tmod:@turbot/azure-provider#/policy/types/storageRegistered"
   value       = "Enforce: Registered"
 }

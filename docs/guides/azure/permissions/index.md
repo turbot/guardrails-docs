@@ -29,7 +29,7 @@ To set this policy via Terraform:
 
 ```hcl
 resource "turbot_policy_setting" "azure_permissions" {
-  resource        = "id of subscription or parent folder or policy pack"   //highlight-line
+  resource        = "id of subscription or parent folder or smart folder"   //highlight-line
   type            = "tmod:@turbot/azure-iam#/policy/types/permissions"
   value           = "Enforce: Role Mode"
 }
@@ -151,7 +151,7 @@ Alternatively, you can set the policy with Terraform:
 
 ```hcl
 resource "turbot_policy_setting" "azure_permissions_modifiers" {
-  resource        = "id of subscription or parent folder or policy pack"   //highlight-line
+  resource        = "id of subscription or parent folder or smart folder"   //highlight-line
   type            = "tmod:@turbot/azure-iam#/policy/types/permissionsLevelsModifiers"
   value           =  jsonencode([
                         {"microsoft.sql/locations/longtermretentionbackups/read": "operator"},
@@ -201,7 +201,7 @@ Alternatively, you can set the policy with Terraform:
 
 ```hcl
 resource "turbot_policy_setting"  "azure_permissions_custom_levels" {
-  resource        = "id of subscription or parent folder or policy pack"   //highlight-line
+  resource        = "id of subscription or parent folder or smart folder"   //highlight-line
   type            = "tmod:@turbot/azure-iam#/policy/types/permissionsCustomLevelsSubscription"
   value           =  jsonencode([
                         "My Custom Role",
