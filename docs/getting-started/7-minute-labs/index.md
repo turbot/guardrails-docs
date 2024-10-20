@@ -17,8 +17,8 @@ oriented control objectives.
 <br />
 
 
-| 7-Minute Lab                                                      | Description                                                                                                                                                         |
-|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 7-Minute Lab | Description |
+| - | - |
 | [Calculated Policies in 7 minutes](7-minute-labs/calc-policy)     | Learn how to use Calculated Policies to set policy values dynamically                                                                                               |
 | [CLI in 7 minutes](7-minute-labs/cli)                             | Learn how to query your workspace from the command line. Build and upload your first custom mod                                                                     |
 | [Custom Mod Install, Build, and Deploy](7-minute-labs/custom-mod) | Learn how to clone, install, build, and deploy a custom mod from the <a href="https://github.com/turbot/guardrails-samples" target="_blank">Guardrails Samples Repo</a> |
