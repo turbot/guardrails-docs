@@ -6,7 +6,7 @@ title: Guides
 
 This section provides detailed step-by-step instructions on how to use Guardrails features, organized by subject area:
 
-| |
+| Section | Description
 | - | -
 | [Governing AWS](guides/aws) | Guides to import AWS accounts and configure AWS specific Guardrails features.
 | [Governing Azure](guides/azure) | Guides to import AWS accounts and configure AWS specific Guardrails features.

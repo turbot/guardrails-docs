@@ -13,7 +13,7 @@ The Guardrails Enterprise installation is highly customizable, allowing you to d
 - Guardrails was designed as a multi-tenant application, providing logical and physical separation of workspaces.
 - Guardrails leverages AWS native services, containers, and serverless compute to minimize costs and administrative overhead.
 
-| |
+| Section | Description
 | - | -
 | [Architecture Guide](guides/hosting-guardrails/architecture) | Detailed logical, physical, network and application architecture information on hosting guardrails.
 | [Installation Guides](guides/hosting-guardrails/installation) | Guides to install Guardrails in your AWS account.

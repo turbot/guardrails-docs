@@ -9,7 +9,7 @@ sidebar_label: Guardrails Docs
 
 Turbot Guardrails is a full-stack governance platform that automates discovery and remediation of your organization’s compliance, security, and operational objectives.
 
-| |
+| Section | Description
 | - | -
 | [Getting Started](getting-started/) | Jump into guardrails and learn by doing.
 | [Core Concepts](concepts/) | Understand the components of and theory behind the Guardrails governance platform.

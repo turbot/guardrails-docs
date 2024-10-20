@@ -8,7 +8,7 @@ Turbot Guardrails provides enterprise guardrails for infrastructure platforms, i
 
 Balancing agility with controls requires a clear and simple set of beliefs guiding our designs and trade-off decisions. This section outlines how Guardrails thinks about enterprise controls for infrastructure governance and outlines the beliefs, models and assumptions Turbot Guardrails has defined to create those guardrails - providing organizations with a working balance between agility and compliance.
 
-|                                                      |
+|  Section  | Description |
 | ---------------------------------------------------- | ------------------------------------------------------------------------------|
 | [Activities](concepts/activities)                    | Activity provides visibility into the changes that are occurring in your environment                                            |
 | [Controls](concepts/controls)                        | Controls enforce policies                                                     |

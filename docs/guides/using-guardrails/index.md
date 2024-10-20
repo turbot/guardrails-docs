@@ -6,7 +6,7 @@ title: Using Guardrails
 
 This section provides how-to guides for common tasks.
 
-| |
+| Section | Description
 | - | -
 | [Console](guides/console) | Navigate the Guardrails Console user interface
 | [GraphQL](guides/graphql) | Tips and Tricks for GraphQL
