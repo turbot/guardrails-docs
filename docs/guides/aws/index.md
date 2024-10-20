@@ -1,5 +1,5 @@
 ---
-title: AWS
+title: Governing AWS
 template: Documentation
 nav:
   order: 10

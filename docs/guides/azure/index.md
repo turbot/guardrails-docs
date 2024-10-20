@@ -1,5 +1,5 @@
 ---
-title: Azure
+title: Governing Azure
 template: Documentation
 nav:
   order: 10
