@@ -445,7 +445,9 @@
             "link": "guides/hosting-guardrails/disaster-recovery",
             "items": [
               "guides/hosting-guardrails/disaster-recovery/restore",
-              "guides/hosting-guardrails/disaster-recovery/dr-testing"
+              "guides/hosting-guardrails/disaster-recovery/dr-testing",
+              "guides/hosting-guardrails/disaster-recovery/storage-optimization",
+              "guides/hosting-guardrails/disaster-recovery/upgrade"
             ]
           }
         ]
