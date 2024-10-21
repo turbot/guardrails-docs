@@ -33,7 +33,7 @@ not using the AWS default).
 ## Common Scenarios
 
 DR plans addresses scenarios where some or all operating components of the Guardrails application fail or are
-destroyed.  
+destroyed.
 Here is a list of common scenarios:
 
 - **AWS Region**:  Depends on if this is a temporary or permanent loss. The organization will need to decide on the
@@ -49,10 +49,16 @@ Here is a list of common scenarios:
 
 Most of the scenarios above depend on whether the loss is considered "temporary" or "permanent". In most scenarios, recovering from an outage requires nothing more than waiting and resyncing Guardrails to the environment afterward.
 
-The complexity and expense of Guardrails DR prep depends completely on the organization's RTO and RPO objectives. 
+The complexity and expense of Guardrails DR prep depends completely on the organization's RTO and RPO objectives.
+
+This section provides detailed step-by-step instructions on how to use DR features,
+
+| Guide | Description
+| - | -
+| [Hive Restore](guides/hosting-guardrails/disaster-recovery/restore) | Guides to restore a Guardrails database from RDS snapshot.
+| [DR Testing](guides/hosting-guardrails/disaster-recovery/dr-testing) | Guides to restore  a destroyed workspace.
 
 ## Additional Assistance
-
 
 Turbot Support is happy to consult with Enterprise customers to help
 determine a strategy to manage these scenarios. Contact us at

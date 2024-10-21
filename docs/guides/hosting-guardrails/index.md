@@ -18,5 +18,5 @@ The Guardrails Enterprise installation is highly customizable, allowing you to d
 | [Architecture Guide](guides/hosting-guardrails/architecture) | Detailed logical, physical, network and application architecture information on hosting guardrails.
 | [Installation Guides](guides/hosting-guardrails/installation) | Guides to install Guardrails in your AWS account.
 | [Monitoring Guides](guides/hosting-guardrails/monitoring) | How to proactively monitor your Guardrails infrastructure.
-| [Recovery Guides](guides/hosting-guardrails/restore) | How to recover a Guardrails environment from backup.
+| [Recovery Guides](guides/hosting-guardrails/disaster-recovery) | How to recover a Guardrails environment from backup.
 | [Troubleshooting Guides](guides/hosting-guardrails/troubleshooting) | How to assess and fix common hosting issues.
