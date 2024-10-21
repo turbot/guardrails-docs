@@ -1,5 +1,5 @@
 ---
-title: "Guardrails DR Considerations"
+title: "Restore and Recovery"
 template: Documentation
 nav:
   order: 70

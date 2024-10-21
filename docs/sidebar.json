@@ -415,14 +415,6 @@
               "guides/hosting-guardrails/updating-stacks/general-purpose-gp3"
             ]
           },
-          {
-            "type": "category",
-            "id": "restore",
-            "link": "guides/hosting-guardrails/restore",
-            "items": [
-              "guides/hosting-guardrails/restore/disaster-recovery-exercise"
-            ]
-          },
           "guides/hosting-guardrails/FAQ",
           {
             "type": "category",
@@ -568,4 +560,3 @@
     "label": "Changelog"
   }
 ]
- 
