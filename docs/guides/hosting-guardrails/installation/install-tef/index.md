@@ -9,5 +9,5 @@ This section provides detailed, step-by-step instructions for installing the  Tu
 
 | Guide                                            | Description
 | ------------------------------------------------ | -------------------------------------------------------------------------------- |
-| [Install TEF and New VPC](guides/hosting-guardrails/installation/install-tef/install-tef-into-new-vpc) | Guide for installing TEF using Guardrails-managed VPC. |
+| [Install TEF into a new VPC](guides/hosting-guardrails/installation/install-tef/install-tef-into-new-vpc) | Guide for installing TEF using Guardrails-managed VPC. |
 | [Install TEF into Existing VPC](guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc) | Guide for installing TEF using existing VPC. |
