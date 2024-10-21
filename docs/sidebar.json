@@ -383,7 +383,7 @@
                 "id": "install-tef",
                 "link": "guides/hosting-guardrails/installation/install-tef",
                 "items": [
-                  "guides/hosting-guardrails/installation/install-tef/install-tef-and-new-vpc",
+                  "guides/hosting-guardrails/installation/install-tef/install-tef-into-new-vpc",
                   "guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc"
                 ]
               },

@@ -1,5 +1,5 @@
 ---
-title: With Existing VPC
+title: Install TEF into Existing VPC
 sidebar_label: Install TEF into Existing VPC
 ---
 
