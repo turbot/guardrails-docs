@@ -17,7 +17,7 @@ With your user account you can:
   infrastructure.
 - Create and publish mods.
 
-|                                                      |
+| Guide                                       | Description
 | ---------------------------------------------------- | ----------------------------------- |
 | [Sign up](guardrails.turbot.com/user/sign-up)        | Create your Turbot.com user account |
 | [Organizations](guardrails.turbot.com/organizations) | Collaborate with your team          |

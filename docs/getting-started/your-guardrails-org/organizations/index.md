@@ -17,7 +17,7 @@ Organizations include:
 - Mods to develop, share and extend your governance.
 - Billing, license and usage management.
 
-|                                               |
+| Guide                                         | Description
 | --------------------------------------------- | ----------------------------------------- |
 | [Setup](turbot.com/organizations/setup)       | Setup an organization                     |
 | [Team & Roles](turbot.com/organizations/team) | Manage team members and their permissions |

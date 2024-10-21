@@ -7,7 +7,7 @@ nav:
 
 # Reference
 
-|                                                  |
+| Section                                          | Description
 | ------------------------------------------------ | -------------------------------------------------------------------------------- |
 | [Command Line Interface (CLI)](reference/cli)    | Manage Turbot Guardrails from the command line. Develop, build, and test your own mods      |
 | [Turbot Guardrails Terraform Provider](reference/terraform) | Manage your Turbot Guardrails infrastructure as code with Terraform             |
