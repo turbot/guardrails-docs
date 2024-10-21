@@ -74,7 +74,7 @@ Select **Create**.
 
 <p><img alt="create-notification-rule" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/create-notification-rule.png"/></p>
 
-## Step 8: Find  bucket skipped by your calculated policy
+## Step 8: Find a bucket skipped by your calculated policy
 
 Navigate to your bookmark for the **Controls by State** report, select the **Type** dropdown from the filter bar, and verify that the bucket you tagged in the [calculated policy guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) is still in the `Skipped` state.
 
@@ -84,10 +84,9 @@ Navigate to your bookmark for the **Controls by State** report, select the **Typ
 
 In the AWS console, update the tag value for the `environment` tag. Change its value from `development` to  `production`.  
 
-The calculated policy setting, which had previously evaluated to `Skip`, now evaluates to `Check: Enabled`. Because you left the bucket’s versioning in the AWS default state – suspended – the bucket’s control for versioning now transitions to `Alarm`.  
-
 <p><img alt="observe-untagged-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/observe-untagged-bucket-in-alarm.png"/></p>
 
+The calculated policy setting, which had previously evaluated to `Skip`, now evaluates to `Check: Enabled`. Because you left the bucket’s versioning in the AWS default state – suspended – the bucket’s control for versioning now transitions to `Alarm`.  
 
 ## Step 10: Check your email
 

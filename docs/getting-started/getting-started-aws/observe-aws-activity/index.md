@@ -6,7 +6,7 @@ sidebar_label: Observe Resource Activity
 
 # Observe AWS Resource Activity
 
-In this guide you will learn how Guardrails detects and reacts to events in your AWS account. In this case the events will be creation and modification of an AWS S3 bucket.
+In this guide you will learn how Guardrails detects and reacts to events in your AWS account. You will manually create and modify an S3 bucket in your accounbt and explore how to view that activity in the Guardrails' console.
 
 This is the third guide in the *Getting started with AWS* series.
 

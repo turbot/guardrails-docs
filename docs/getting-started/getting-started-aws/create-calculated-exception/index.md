@@ -8,6 +8,15 @@ sidebar_label: Create a Calculated Exception
 
 In this guide you'll learn how to make dynamic policy exceptions based on resource tags. These [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy) enable you to implement business logic when designing your governance controls. This guide will walk you through a typical calculated policy based on resource tags.
 
+
+In this guide you’ll learn how to make dynamic policy exceptions based on resource tags. These types of policy exceptions in Guardrails are named [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy). Calculated polices enable you to implement business logic to create policy exceptions when designing your governance controls. Some typical examples of how to use calculated polices are: 
+
+- Dynamic tagging of resources based on resource metadata.
+- Creating policy exceptions for different classes of resources.
+- Taking enforcement action for based on resource tags.
+
+This guide will walk you through a simple calculated policy based on resource tags.
+
 This is the seventh guide in the *Getting started with AWS* series.
 
 **Prerequisites**: 
@@ -24,13 +33,13 @@ Choose **Policies** from the top navigation bar. Select the **Enforce Versioning
 
 ## Step 2: Modify the policy setting
 
-In [the previous guide](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) (*Create a Static Exception*) you set the bucket versioning policy to `Check: Enabled`. Use the pencil icon on the right side of the policy setting to edit the policy.
+The bucket versioning policy is currently statically set to `Check: Enabled`. Use the pencil icon on the right side of the policy setting to edit the policy.
 
 <p><img alt="view-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/bucket-versioning-policy-settings.png"/></p>
 
 ## Step 3: Enable calculated mode
 
-Select **Enable calculated mode**.
+Select the blue **Launch calculated policy builder** link.
 
 <p><img alt="enable-calculated-mode" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/enable-calculated-mode.png"/></p>
 
@@ -75,7 +84,7 @@ And paste it into the template pane.
 
 <p><img alt="template-active" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/template-active.png"/></p>
 
-Guardrails immediately evaluates the template in the context of the chosen **Test Resource**. The template output, `Check: Enabled`, is the calculated policy value that will govern any bucket’s **AWS > S3 > Bucket > Versioning** policy if the bucket is tagged with `environment:development`. Buckets with that tag will be exempted from the versioning governance control. Buckets that lack the tag, and that do not enable versioning, will be in the `Alarm` state.
+Guardrails immediately evaluates the template in the context of the chosen **Test Resource**. The template output, `Check: Enabled`, is the calculated policy value that will govern any bucket’s **AWS > S3 > Bucket > Versioning** policy if the bucket is tagged with `environment:development`. For all others buckets, Guardrails will go into Alarm state if versioning is not enabled.
  
 The result we see for our test resource confirms that `Check: Enabled` is the applicable setting for this bucket. Why? Because the test bucket does not have a tag `{ "environment": "development" }`.
 

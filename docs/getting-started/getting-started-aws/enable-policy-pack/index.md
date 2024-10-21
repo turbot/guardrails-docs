@@ -42,7 +42,7 @@ Control-click on the **Guardrails** logo on the top of the page to open a new ho
 
 <p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/navigate-1.png"/></p>
 
-Select the **Accounts** sub-tab from the homepage and then select the account you onboarded in the [Connect an AWS Account](/guardrails/docs/getting-started/getting-started-aws/connect-an-account) guide.
+Click on the **Accounts** sub-tab from the homepage and then select the AWS account you are using for testing from the list.
 
 <p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/navigate-2.png"/></p>
 
@@ -53,7 +53,7 @@ On the account resource page, select the **Detail** sub-tab.
 
 ## Step 5: Attach the Policy Pack
 
-Select the **Manage Link** next to **Policy Packs**.
+Select the **Manage Link** next to **Policy Packs** UI widget.
 
 <p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-locate-policy-pack-manage.png"/></p>
 
@@ -65,13 +65,13 @@ In the **Edit policy pack attachments** dialog box, select **Add**.
 
 Your Guardrails workspace should have the Policy Pack [Enforce Versioning Is Enabled for AWS S3 Buckets](https://hub.guardrails.turbot.com/policy-packs/aws_s3_enforce_versioning_is_enabled_for_buckets) pre-installed.
 
-In the dropdown, select `Enforce Versioning is Enabled for AWS S3 Buckets`. Then select **Save**.
+In the dropdown, select the Policy Pack named `Enforce Versioning is Enabled for AWS S3 Buckets`. Then select **Save**.
 
 <p><img alt="aws-edit-attachments-select-enforce-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/enforce-versioning-2.png"/></p>
 
 ## Step 7: Observe policy effect
 
-Return to your open browser tab (or bookmark) for the **Controls by State** report. Observe that your bucket is now green, in the `OK` state, with *Versioning set correctly to Enabled*. That's because the Policy Pack you added has enabled a control that tests for that condition.
+Return to your open browser tab (or bookmark) for the **Controls by State** report. Observe that the control state for your test bucket changes from `Skip` to `Ok`. It is in `Ok` state because the policy pack you added has enabled the control to test for that condition.
 
 <p><img alt="aws-search-bucket-versioning-again" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-search-bucket-versioning-again.png"/></p>
 

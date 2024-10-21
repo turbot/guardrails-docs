@@ -6,7 +6,7 @@ sidebar_label: Enable Automatic Enforcement
 
 # Enable Automatic Enforcement
 
-In this guide we’ll show how you can enable Guardrails to act autonomously. For large cloud footprints, it is often desirable to have Guardrails take automated actions based on your organization's compliance and security posture. Such actions include deleting resources, changing the configuration of a resource, and tagging a resource.
+In this guide we’ll show how you can enable Guardrails to act autonomously. For large cloud footprints, it is often desirable to have Guardrails take automated actions based on your organization's compliance and security posture. Guardrails' controls can take a number of different automated enforcement actions, including deleting resources, changing the configuration of a resource, and tagging a resource.
 
 This is the last guide in the *Getting started with AWS series*.
 
