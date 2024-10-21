@@ -6,7 +6,7 @@ sidebar_label: Send an Alert to Email
 
 # Send an Alert to Email
 
-In this guide you'll learn how to enable Guardrails notifications and configure the notification rules to send email notifications. Similar configuration options exist to send notifications to Slack or Teams channels, and to generic webhooks.  To see notifications in action, please checkout our [launch week annoucment blog post]().
+In this guide you'll learn how to enable Guardrails notifications and configure the notification rules to send email notifications. Similar configuration options exist to send notifications to Slack or Teams channels, and to generic webhooks. Our [launch week announcement blog post](/guardrails/blog/2023/10/guardrails-notifications) includes a demo of notifications in action.
 
 This is the eighth guide in the *Getting started with AWS series*.
 
@@ -52,11 +52,13 @@ Select the **Rule-Based Routing** policy type from the list of policies.
 
 <p><img alt="notifications-enabled" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/locate-rule-based-routing.png"/></p>
 
+## Step 6: View the policy
+
 Select **New Policy Setting**.
 
 <p><img alt="notifications-enabled" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/view-rule-based-routing.png"/></p>
- 
-## Step 6: Create notification rule
+
+## Step 7: Create notification rule
 
 Again choose **Turbot** as the **Resource**. Copy and paste this rule, using one or more email addresses you want to notify. 
  
@@ -72,13 +74,13 @@ Select **Create**.
 
 <p><img alt="create-notification-rule" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/create-notification-rule.png"/></p>
 
-## Step 7: Find  bucket skipped by your calculated policy
+## Step 8: Find a bucket skipped by your calculated policy
 
-Navigate to your bookmark for the **Controls by State** report, select the **Type** dropdown from the filter bar and verify that the bucket you tagged in the in the calculated policy guide is still in **Skipped** state.
+Navigate to your bookmark for the **Controls by State** report, select the **Type** dropdown from the filter bar, and verify that the bucket you tagged in the [calculated policy guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) is still in the `Skipped` state.
 
 <p><img alt="find-skipped-bucket" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/find-skipped-bucket.png"/></p>
 
-## Step 8: Trigger the notification
+## Step 9: Trigger the notification
 
 In the AWS console, update the tag value for the `environment` tag. Change its value from `development` to  `production`.  
 
@@ -86,13 +88,13 @@ In the AWS console, update the tag value for the `environment` tag. Change its v
 
 The calculated policy setting, which had previously evaluated to `Skip`, now evaluates to `Check: Enabled`. Because you left the bucket’s versioning in the AWS default state – suspended – the bucket’s control for versioning now transitions to `Alarm`.  
 
-## Step 9: Check your email
+## Step 10: Check your email
 
 The alarm reported in the Guardrails console also appears in your inbox. You can alternatively configure Guardrails to send alerts to [Slack]([guardrails/docs/guides/notifications/templates#example-slack-template](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)) or [MS Teams](/guardrails/docs/guides/notifications/templates#example-ms-teams-template).
 
 <p><img alt="view-email-notification" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/view-email-notification.png"/></p>
 
-## Step 12: Review
+## Step 11: Review
 
 In this guide you configured a simple notification rule and triggered a notification event.
 

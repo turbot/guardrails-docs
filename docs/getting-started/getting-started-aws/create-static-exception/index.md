@@ -47,7 +47,7 @@ Because we were viewing the **Controls by State** report, our action landed us o
 
 ## Step 6: Open the new policy dialog
 
-Now you are are viewing the **Resource Detail** for the selected bucket. We want to create an exception for this resource, and we do that via a new policy setting. To do so, select the **Policies** sub-tab, and click the green **New Policy Setting** button.
+Now you are are viewing the **Resource Detail** for the selected bucket, create an exception for this resource. To do that you will create a new policy setting. Select the **Policies** sub-tab and click the green **New Policy Setting** button.
 
 <p><img alt="switch-to-policies" src="/images/docs/guardrails/getting-started/getting-started-aws/create-static-exception/switch-to-policies-tab.png"/></p>
 
@@ -84,7 +84,7 @@ Select the **Activity** tab and observe the history. When you created the bucket
 
 ## Step 12: Review
 
-In this guide you created a resource level exception for the Bucket Versioning control.
+In this guide you created a resource-level exception for the Bucket Versioning control.
 
 ## Next Steps
 

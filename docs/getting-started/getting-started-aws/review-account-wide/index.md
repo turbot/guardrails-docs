@@ -6,7 +6,7 @@ sidebar_label: Account-wide governance
 
 # Review Account-wide governance
 
-In this guide you’ll see how a single policy pack can govern all resources across an account.
+In this guide you’ll see how a single Policy Pack can govern all resources across an account.
 
 This is the fifth guide in the *Getting started with AWS* series.
 
@@ -23,32 +23,32 @@ Navigate back to the **Controls by State** report (or use your saved bookmark), 
 
 ## Step 2: Filter on bucket versioning controls
 
-Your first testing bucket is in **Ok** (green) state, meaning it is compliant with the policy. Other buckets in the account, with versioning disabled, are red: not compliant.
+Your first test bucket is in the **OK** (green) state: it complies with the policy. Other buckets in the account with versioning disabled will show in the **Alarm** state (red): not compliant.
 
 <p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/filter-applied.png"/></p>
 
 
 ## Step 3: Create test s3 buckets
 
-Return to the AWS console and (as you did in the **Observe Resource Activity** guide) create 3 new buckets without versioning enabled.  For the example, we will create the following new buckets to sit along side our first test bucket:
+Return to the AWS console and (as you did in the **Observe Resource Activity** guide) create 3 new buckets without versioning enabled.  For the example, we will create the following new buckets:
 
 - bucket-example-02
 - bucket-example-03
 - bucket-example-04
 
-Keeping the naming similar and consistent will allow us easily filter and see all buckets at the same time for the purpose of the guide.
+Keep your names similar and consistent so you can easily filter and see all your test buckets together.
 
 ## Step 4: View newly created buckets
 
-As you create the new buckets, Guardrails detects them and evaluates their configuration vs your policies. By changing our search string we can see all buckets at the same time.
+As you create the new buckets, Guardrails detects them and evaluates their configuration relative to your policies. By changing our search string we can see all buckets at the same time.
 
 <p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/new-buckets-in-alarm.png"/></p>
 
-The new buckets are in **Alarm** state, because bucket versioning is not enabled.
+The new buckets are in the **Alarm** state because bucket versioning is not enabled. The current policy requires all buckets to have versioing enabled.
 
 ## Step 5: Review
 
-In this guide you created three new S3 buckets and observed how the policy pack added at the account level evaluates their governance status.
+In this guide you created three new S3 buckets and observed how the Policy Pack added at the account level evaluates their governance status.
 
 ## Next Steps
 
