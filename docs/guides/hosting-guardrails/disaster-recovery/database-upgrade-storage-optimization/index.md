@@ -8,27 +8,26 @@ sidebar_label: "Database Upgrade and Storage Optimization"
 In this guide, you will
 
 - Resize and/or upgrade a database engine version with minimal downtime using AWS and PostgreSQL tools.
-- Set up logical replication between the source and target databases.
-- Monitor the progress of data migration and verify database synchronization.
-- Rename and clean up database instances after the resizing or upgrade process is complete.
+  <!-- - Set up logical replication between the source and target databases. -->
+  <!-- - Monitor the progress of data migration and verify database synchronization. -->
+  <!-- - Rename and clean up database instances after the resizing or upgrade process is complete. -->
 
 Efficient management of database resources ensures optimal storage utilization, minimizes costs, and enhances performance by reducing unused storage. This process also ensures seamless version upgrades with minimal disruption.
 
 ## Prerequisites
 
-- Access to AWS Console
-- Admin privileges on the database
-- PostgreSQL client installed on the bastion host
+- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
+- PostgreSQL client installed on the [bastion host](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host).
 - Ensure logical replication is supported and enabled on the database engine
 - Knowledge of the current database usage (storage and version)
 
 ## Step 1: Spin up a new TED
 
-- Create a new TED with the same name as the original, but add `-blue` or `-green` as a suffix.
-- Set the custom hive key to the original KMS key.
-- Set the allocated storage equal to the current disk usage (e.g., if 210 GB out of 500 GB is used, set the allocated storage to 210 GB).
-- Set the max allocated storage to an appropriate value.
-- Use the upgraded version for version upgrades, if applicable.
+- Create a new TED with the same name as the original, appending `-blue` or `-green` to the end.
+- If performing a database version upgrade, use the `DB Engine Version` and `Read Replica DB Engine Version` parameters under the "Database - Advanced - Engine" section. Set the appropriate `DB Engine Parameter Group Family` and the `Hive RDS Parameter Group` under the "Database - Advanced - Parameters" section.
+- Set the allocated storage to match the current disk usage (e.g., if 210 GB out of 500 GB is used, set allocated storage to 210 GB) using the `Allocated Storage in GB` parameter under the "Database - Advanced - Storage" section.
+- Set the maximum allocated storage to a suitable value using the `Maximum Allocated Storage limit in GB` parameter under the "Database - Advanced - Storage" section.
+- Configure encryption by setting the `Use AWS KMS DB Encryption` and `Encryption method for Redis` parameters to use the original KMS key under the "Database - Advanced - Encryption" section.
 - Keep the other parameters the same.
 
 ## Step 2: Enable Logical Replication
@@ -57,7 +56,7 @@ sudo dnf install postgresql15.x86_64 postgresql15-server -y
 
 - For [PostgreSQL 16](https://aws.amazon.com/blogs/database/synopsis-of-several-compelling-features-in-postgresql-16):
 
-```shel
+```shell
 sudo yum install -y gcc readline-devel libicu-devel zlib-devel openssl-devel
 sudo wget https://ftp.postgresql.org/pub/source/v16.3/postgresql-16.3.tar.gz
 sudo tar -xvzf postgresql-16.3.tar.gz
@@ -130,18 +129,18 @@ set local search_path to <workspace_schema>, public;
 ```
 
 ```sql
-set local search_path to $turbot_schema;
-create trigger control_category_path_au after update on $turbot_schema.control_categories for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'control_category_id', 'control_category_path');
-create trigger control_resource_category_path_au after update on $turbot_schema.resource_categories  for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'resource_category_id', 'resource_category_path');
-create trigger control_resource_types_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'resource_type_id', 'resource_type_path');
-create trigger control_types_path_au after update on $turbot_schema.control_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'control_type_id', 'control_type_path');
-create trigger policy_category_path_au after update on $turbot_schema.control_categories  for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'control_category_id', 'control_category_path');
-create trigger policy_resource_category_path_au after update on $turbot_schema.resource_categories  for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'resource_category_id', 'resource_category_path');
-create trigger policy_resource_types_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'resource_type_id', 'resource_type_path');
-create trigger policy_types_path_au after update on $turbot_schema.policy_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'policy_type_id', 'policy_type_path');
-create trigger resource_resource_category_path_au after update on $turbot_schema.resource_categories for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('resources', 'resource_category_id', 'resource_category_path');
-create trigger resource_resource_type_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('resources', 'resource_type_id', 'resource_type_path');
-create trigger resource_types_500_rt_path_update_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.update_types_path();
+set local search_path to <workspace_schema>;
+create trigger control_category_path_au after update on control_categories for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'control_category_id', 'control_category_path');
+create trigger control_resource_category_path_au after update on resource_categories  for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'resource_category_id', 'resource_category_path');
+create trigger control_resource_types_path_au after update on resource_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'resource_type_id', 'resource_type_path');
+create trigger control_types_path_au after update on control_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'control_type_id', 'control_type_path');
+create trigger policy_category_path_au after update on control_categories  for each row when (old.path is distinct from new.path) execute procedure types_path_au('policy_values', 'control_category_id', 'control_category_path');
+create trigger policy_resource_category_path_au after update on resource_categories  for each row when (old.path is distinct from new.path) execute procedure types_path_au('policy_values', 'resource_category_id', 'resource_category_path');
+create trigger policy_resource_types_path_au after update on resource_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('policy_values', 'resource_type_id', 'resource_type_path');
+create trigger policy_types_path_au after update on policy_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('policy_values', 'policy_type_id', 'policy_type_path');
+create trigger resource_resource_category_path_au after update on resource_categories for each row when (old.path is distinct from new.path) execute procedure types_path_au('resources', 'resource_category_id', 'resource_category_path');
+create trigger resource_resource_type_path_au after update on resource_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('resources', 'resource_type_id', 'resource_type_path');
+create trigger resource_types_500_rt_path_update_au after update on resource_types for each row when (old.path is distinct from new.path) execute procedure update_types_path();
 ```
 
 ## Step 11: Create Subscription in the New DB Instance
