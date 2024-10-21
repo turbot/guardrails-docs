@@ -77,5 +77,3 @@ Congrats! Now that you have signed in (and optionally added a team member to the
 workspace), we need to import a cloud account for Turbot to manage. Click the
 following link to get going! Additionally, you can use the nav bar on the left
 to jump to a specific subsection.
-
-\[[Account Imports and Reports](getting-started/imports-and-reports)\]

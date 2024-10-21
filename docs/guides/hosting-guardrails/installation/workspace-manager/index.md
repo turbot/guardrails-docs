@@ -76,7 +76,7 @@ Click on **Submit** and wait for the stack creation to complete.
 
 ## Step 7: Login New Workspace
 
-Now you can [login to newly provisioned Workspace](/guides/hosting-guardrails/installation/workspace-login#workspace-login) and initiate credential rotation.
+Now you can [login to newly provisioned Workspace](/guardrails/docs/guides/hosting-guardrails/installation/workspace-login) and initiate credential rotation.
 
 ## Next Steps
 
