@@ -27,7 +27,7 @@ Efficient management of database resources ensures optimal storage utilization, 
 - If performing a database version upgrade, use the `DB Engine Version` and `Read Replica DB Engine Version` parameters under the "Database - Advanced - Engine" section. Set the appropriate `DB Engine Parameter Group Family` and the `Hive RDS Parameter Group` under the "Database - Advanced - Parameters" section.
 - Set the allocated storage to match the current disk usage (e.g., if 210 GB out of 500 GB is used, set allocated storage to 210 GB) using the `Allocated Storage in GB` parameter under the "Database - Advanced - Storage" section.
 - Set the maximum allocated storage to a suitable value using the `Maximum Allocated Storage limit in GB` parameter under the "Database - Advanced - Storage" section.
-- Configure encryption by setting the `Use AWS KMS DB Encryption` and `Encryption method for Redis` parameters to use the original KMS key under the "Database - Advanced - Encryption" section.
+- Set up encryption by configuring the `Custom Hive Key` parameter to use the original KMS key under the "Advanced - Infrastructure" section. This should be the Key ID, typically formatted as: 1111233-abcd-4444-2322-123456789012.
 - Keep the other parameters the same.
 
 ## Step 2: Enable Logical Replication
