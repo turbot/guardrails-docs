@@ -11,11 +11,8 @@ nav:
 All of these tutorials are designed to get you up and going immediately with simple, practical examples. Get started
 fast, and learn as you go! Each lab is a core concept in Turbot Guardrails, and a firm understanding of each will enable
 agile development while ensuring that the cloud is secure. Check out
-the [Example Policy Configuration](guides/managing-policies/config-examples) page for detailed explanations for customer
+the [Example Policy Packs](https://hub.guardrails.turbot.com/policy-packs) page for detailed explanations for customer
 oriented control objectives.
-
-<br />
-
 
 | 7-Minute Lab | Description |
 | - | - |
