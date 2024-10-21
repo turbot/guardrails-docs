@@ -21,7 +21,6 @@ oriented control objectives.
 | - | - |
 | [Calculated Policies in 7 minutes](7-minute-labs/calc-policy)     | Learn how to use Calculated Policies to set policy values dynamically                                                                                               |
 | [CLI in 7 minutes](7-minute-labs/cli)                             | Learn how to query your workspace from the command line. Build and upload your first custom mod                                                                     |
-| [Custom Mod Install, Build, and Deploy](7-minute-labs/custom-mod) | Learn how to clone, install, build, and deploy a custom mod from the <a href="https://github.com/turbot/guardrails-samples" target="_blank">Guardrails Samples Repo</a> |
 | [GraphQL in 7 minutes](7-minute-labs/graphql)                     | Learn to query Turbot Guardrails via GraphQL, the native syntax of the Turbot Guardrails API                                                                        |j
 | [Policy Settings in 7 minutes](7-minute-labs/set-policy)          | Learn how to create and view Policy Settings                                                                                                                        |
 | [Terraform in 7 minutes](7-minute-labs/terraform)                 | Learn how to manage your Turbot Guardrails infrastructure as code using Terraform                                                                                   |
