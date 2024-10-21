@@ -1,13 +1,13 @@
 ---
-title: "Storage Optimization"
-sidebar_label: "Storage Optimization"
+title: "Database Upgrade and Storage Optimization"
+sidebar_label: "Database Upgrade and Storage Optimization"
 ---
 
-# Database Upgrade or Resizing Exercise
+# Database Upgrade and Storage Optimization
 
 In this guide, you will
 
-- Resize and/or upgrade a database with minimal downtime using AWS and PostgreSQL tools.
+- Resize and/or upgrade a database engine version with minimal downtime using AWS and PostgreSQL tools.
 - Set up logical replication between the source and target databases.
 - Monitor the progress of data migration and verify database synchronization.
 - Rename and clean up database instances after the resizing or upgrade process is complete.
