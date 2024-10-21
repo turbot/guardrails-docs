@@ -1,6 +1,6 @@
 ---
-title: With Guardrail VPC
-sidebar_label: Install TEF and New VPC
+title: Install TEF into New VPC
+sidebar_label: Install TEF into New VPC
 ---
 
 # Install TEF and New VPC
