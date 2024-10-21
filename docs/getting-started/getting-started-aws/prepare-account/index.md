@@ -5,7 +5,7 @@ sidebar_label: Prepare the AWS Account
 
 # Prepare an AWS Account for import to Guardrails
 
-In this guide, you will prepare you AWS account to be imported into Guardrails by deploying an IAM access role using a CloudFormation template.
+In this guide, you will prepare an AWS account to be imported into Guardrails by deploying an IAM access role using a CloudFormation template.
 
 This is the first guide in the *Getting started with AWS* series.
 
@@ -28,7 +28,7 @@ Login to your Guardrails console and select the **CONNECT** option from the home
 
 Guardrails needs an IAM role that grants permission to discover [resources](/guardrails/docs/reference/glossary#resource) in your account and to monitor changes via event handlers. The CloudFormation template downloaded in this step has the minimum permissions necessary to create that role.
 
-Select **AWS Account** from the left navigation and then click the blue **Download Cloudformation Template** button to download the CloudFormation template you will use to create the required IAM role in your AWS account. 
+Select **AWS Account** from the left navigation and then click the blue **Download CloudFormation Template** button to download the CloudFormation template you will use to create the required IAM role in your AWS account. Note the IAM Role External ID, you'll need this in step 5.
 
 <p><img alt="initial-connect-screen" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/initial-connect-screen.png"/></p>
 
@@ -37,13 +37,13 @@ Select **AWS Account** from the left navigation and then click the blue **Downlo
 
 ## Step 3: Create the stack
 
-Open a new tab and login to your AWS account. Navigate to the Cloudformation service and create a stack with new resources.
+Open a new tab and login to your AWS account. Navigate to the CloudFormation service and create a stack with new resources.
 
 <p><img alt="create-stack" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/create-stack.png"/></p>
 
 ## Step 4: Upload the template
 
-On the **Create Stack** page, select **Upload a template file** and then click the **Choose file** button.
+On the **Create Stack** page, select **Upload a template file** and then select the **Choose file** button.
 
 <p><img alt="create-stack" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/choose-template-file.png"/></p>
 
@@ -53,7 +53,7 @@ Use the file dialog to find and upload the file you downloaded in step 2, then s
 
 ## Step 5: Launch the stack
 
-In the Stack Name field, enter `guardrails-import` and then scroll down the page.
+In the Stack Name field, enter `guardrails-import`, copy/paste the external ID from step 2, then scroll down the page.
 
 <p><img alt="specify-stack-details" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/specify-stack-details.png"/></p>
 
@@ -61,7 +61,7 @@ Review the rest of the default values (no changes should be needed), and then se
 
 <p><img alt="specify-stack-details" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/specify-stack-details-2.png"/></p>
 
-On the next page of the stack wizard, scroll to the bottom, click the acknowlegement checkbox and then the **Next** button.
+On the next page of the stack wizard, scroll to the bottom, enable the acknowlegement checkbox and then the **Next** button.
 
 <p><img alt="specify-stack-details" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/specify-stack-details-3.png"/></p>
 
@@ -69,23 +69,24 @@ On the final page of the wizard, scroll to the bottom of the page and select the
 
 ## Step 6: Verify the stack
 
-Wait for the stack to complete and for the status of the stack to change to "Create Complete"
+Wait for the stack to complete and for the status of the stack to change to **CREATE_COMPLETE**.
 
 <p><img alt="verify-stack-created" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/stack-created.png"/></p>
 
 ## Step 7: Review stack outputs
 
-Select the **Outputs** tab and copy the ARN of the Guardrails IAM role.
-
-## Step 8: Review
-
-In this guide you've learned how to deploy an AWS role that grants minimal permissions to Guardrails using the AWS Cloudformation service.
+Select the **Outputs** tab and copy the ARN of the Guardrails IAM role. Verify the external ID matches what Guardrails generated in step 2.
 
 <p><img alt="stack-outputs" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/stack-outputs.png"/></p>
 
+## Step 8: Review
+
+In this guide you've learned how to deploy an AWS role that grants minimal permissions to Guardrails using the AWS CloudFormation service.
+
+
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-aws/connect-an-account) you will use the IAM role you just created to import the account into Guardrails.
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/connect-an-account) you will use the IAM role you just created to import an AWS account into Guardrails.
 
 ## Troubleshooting
 

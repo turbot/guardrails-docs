@@ -34,7 +34,7 @@ Triple-check that the **IAM Role External ID** matches the value from the CloudF
 
 ## Step 4: Observe progress
 
-Wait for the progress bar to complete. The time this takes will depend on how many resources are in the account; it is normal for the progress bar to fluctuate in size as new types of resources are discovered.
+Wait for the progress bar to complete. The time this takes will depend on how many resources are in the account; it is normal for the progress bar to grow and shrink as new types of resources are discovered.
 
 <p><img alt="aws-progress-bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-progress-bar.png"/></p>
 

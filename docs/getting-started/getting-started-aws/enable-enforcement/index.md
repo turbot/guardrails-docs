@@ -6,7 +6,7 @@ sidebar_label: Enable Automatic Enforcement
 
 # Enable Automatic Enforcement
 
-In this guide we’ll show how you can enable Guardrails to act autonomously. For large cloud footprints, it is often desireable to have Guardrails take automated actions based on your organizations compliance and security posture. Guardrails controls can take a number of different automated enforcement actions, including deleting resources, changing the configuration of a resource or tagging a resource.
+In this guide we’ll show how you can enable Guardrails to act autonomously. For large cloud footprints, it is often desirable to have Guardrails take automated actions based on your organization's compliance and security posture. Such actions include deleting resources, changing the configuration of a resource, and tagging a resource.
 
 This is the last guide in the *Getting started with AWS series*.
 
@@ -44,7 +44,7 @@ Choose **Enforce: Enabled** from the list of policy options and then select **Up
 
 ## Step 5: Observe Guardrails in action
 
-Use your bookmark to navigate back to **Controls by State** report, and use the **Type** filter to choose **AWS > S3 > Bucket > Versioning**. In a few minutes all of your buckets in this account are now either **Ok** or **Skipped** (except the one you created an exception for in the [Create a static exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) guide). 
+Use your bookmark to navigate back to **Controls by State** report, and use the **Type** filter to choose **AWS > S3 > Bucket > Versioning**. In a few minutes all of your buckets in this account are now either `OK` or `Skipped` (except the one you created an exception for in the [Create a static exception](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) guide). 
 
 Try suspending versioning on a bucket. It won’t stay that way for long!
 

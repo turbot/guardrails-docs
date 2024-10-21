@@ -5,7 +5,7 @@ sidebar_label: Apply a Quick Action
 
 # Apply a Quick Action
 
-In this guide we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations. Quick actions allow administrators to quickly fix misconfiguration by applying a change to the underlying AWS resource.  In order to do that, the cross account role used by Guardrails will need additional permissions to perform those actions.
+In this guide we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations. A Quick Action empowers an administrator to apply a change directly to an underlying AWS resource. In order to do that for S3 bucket versioning, we will add one permission to the cross-account role you created in the first guide.
 
 This is the ninth guide in the *Getting started with AWS series*.
 
@@ -96,7 +96,7 @@ Select the **Actions** dropdown, and choose **Enable Versioning**.
 
 ## Step 10: Observe the change
 
-Guardrails reports that the action was successful, and the control goes to **Ok** state.  
+Guardrails reports that the action was successful, and the control goes to the `OK` state.  
 
 <p><img alt="observe-updated-control" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/observe-updated-control.png"/></p>
 
@@ -108,7 +108,7 @@ Open a tab to the AWS console, and navigate to the S3 bucket.  Confirm the Guard
 
 ## Step 12: Review
 
-In this guide you increased the permissions scope for your cross account role, enabled Guardrails Quick Actions and used a Quick Action to change a bucket's versioning property.
+In this guide you added one permission to your cross-account role, enabled Guardrails Quick Actions, and used a Quick Action to change a bucket's versioning property.
 
 ## Next Steps
 
