@@ -36,13 +36,13 @@ To enable verbose event logging, first identify the workspace(s) you want to con
 
 ![SSM Workspace Parameter](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/enable-verbose-logging/ssm-workspace-parameter-search.png)
 
-## Step 3: Verify Parameter Value
+## Step 4: Verify Parameter Value
 
 Choose the tenant parameter and verify if the **log_level** is set to `debug`, as this is the default setting.
 
 ![SSM Workspace Parameter Value](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/enable-verbose-logging/aws-ssl-parameter-value-default-settings.png)
 
-## Step 4: Modify Parameter Value
+## Step 5: Modify Parameter Value
 
 Select **Edit** and update `log_level` to `verbose` in `Value` field. Then select **Save changes**.
 
@@ -50,7 +50,7 @@ Select **Edit** and update `log_level` to `verbose` in `Value` field. Then selec
 
 ![SSM Workspace Parameter With Verbose](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/enable-verbose-logging/aws-ssm-parameter-modifiy-verbose.png)
 
-## Step 5: Enable Verbose Logging in Service Catalog
+## Step 6: Enable Verbose Logging in Service Catalog
 
 Navigate to the **Service Catalog** service and select the **Turbot Guardrails Enterprise (TE)** provisioned product where verbose logging is required. Then, select Actions and choose Update.
 
@@ -60,13 +60,13 @@ Toggle the `Deployment Trigger` between `Blue <> Green`, this will trigger the T
 
 ![Service Catalog TE Deployment Trigger](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/enable-verbose-logging/service-catalog-deployment-trigger.png)
 
-## Step 6: Review Cloud Formation Stack
+## Step 7: Review Cloud Formation Stack
 
 - [ ] The TED CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
 ![Validate TE Stack Status](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/enable-verbose-logging/cfn-workspace-te-stack-validation.png)
 
-## Step 7: Search for Troubleshooting Data
+## Step 8: Search for Troubleshooting Data
 
 With verbose logging now enabled, you can navigate to CloudWatch service and find the Log Group(s) for **/{turbot_prefix}/{te_version}/events** or **/{turbot_prefix}/{te_version}/api** to investigate generated events and check for required troubleshooting data.
 
