@@ -6,7 +6,7 @@ sidebar_label: Enable Policy Pack
 
 # Enable Your First Policy Pack
 
-In this guide, you will learn how to attach a Guardrails [policy pack](https://turbot.com/guardrails/docs/guides/configuring-guardrails/policy-packs) to enable governance controls.
+In this guide, you will learn how to attach a Guardrails [Policy Pack](https://turbot.com/guardrails/docs/guides/configuring-guardrails/policy-packs) to enable governance controls.
 
 This is the fourth guide in the *Getting started with AWS* series.
 
@@ -63,9 +63,9 @@ In the **Edit policy pack attachments** dialog box, select **Add**.
 
 <p><img alt="aws-edit-attachments-select-enforce-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/enforce-versioning-1.png"/></p>
 
-Your Guardrails workspace should have the policy pack [Enforce Versioning Is Enabled for AWS S3 Buckets](https://hub.guardrails.turbot.com/policy-packs/aws_s3_enforce_versioning_is_enabled_for_buckets) pre-installed.
+Your Guardrails workspace should have the Policy Pack [Enforce Versioning Is Enabled for AWS S3 Buckets](https://hub.guardrails.turbot.com/policy-packs/aws_s3_enforce_versioning_is_enabled_for_buckets) pre-installed.
 
-In the dropdown, select the policy pack `Enforce Versioning is Enabled for AWS S3 Buckets`. Then select **Save**.
+In the dropdown, select `Enforce Versioning is Enabled for AWS S3 Buckets`. Then select **Save**.
 
 <p><img alt="aws-edit-attachments-select-enforce-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/enforce-versioning-2.png"/></p>
 
@@ -77,7 +77,7 @@ Return to your open browser tab (or bookmark) for the **Controls by State** repo
 
 ## Step 8: Review
 
-In this guide you’ve attached a policy pack to your AWS account to check S3 bucket versioning, and observed how the policy affects the Versioning control for your S3 bucket.
+In this guide you’ve attached a Policy Pack to your AWS account to check S3 bucket versioning, and observed how the policy affects the Versioning control for your S3 bucket.
 
 ## Next Steps
 
