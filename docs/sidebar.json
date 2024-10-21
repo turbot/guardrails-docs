@@ -373,7 +373,9 @@
                   "guides/hosting-guardrails/installation/pre-installation/networking",
                   "guides/hosting-guardrails/installation/pre-installation/service-catalog",
                   "guides/hosting-guardrails/installation/pre-installation/import-portfolio",
-                  "guides/hosting-guardrails/installation/pre-installation/external-role"
+                  "guides/hosting-guardrails/installation/pre-installation/external-role",
+                  "guides/hosting-guardrails/installation/pre-installation/admin-permissions",
+                  "guides/hosting-guardrails/installation/pre-installation/cost-estimate"
                 ]
               },
               {
@@ -408,7 +410,9 @@
             "items": [
               "guides/hosting-guardrails/updating-stacks/update-tef",
               "guides/hosting-guardrails/updating-stacks/update-ted",
-              "guides/hosting-guardrails/updating-stacks/update-workspace"
+              "guides/hosting-guardrails/updating-stacks/update-workspace",
+              "guides/hosting-guardrails/updating-stacks/domain-update",
+              "guides/hosting-guardrails/updating-stacks/general-purpose-gp3"
             ]
           },
           {
@@ -419,21 +423,7 @@
               "guides/hosting-guardrails/restore/disaster-recovery-exercise"
             ]
           },
-          {
-            "type": "category",
-            "id": "faq",
-            "link": "guides/hosting-guardrails/FAQ",
-            "items": [
-              "guides/hosting-guardrails/FAQ/admin-permissions",
-              "guides/hosting-guardrails/FAQ/cost-estimate",
-              "guides/hosting-guardrails/FAQ/general-purpose-gp3",
-              "guides/hosting-guardrails/FAQ/monitoring-alarms",
-              "guides/hosting-guardrails/FAQ/pause-events",
-              "guides/hosting-guardrails/FAQ/redis-caching",
-              "guides/hosting-guardrails/FAQ/disaster-recovery",
-              "guides/hosting-guardrails/FAQ/domain-update"
-            ]
-          },
+          "guides/hosting-guardrails/FAQ",
           {
             "type": "category",
             "id": "troubleshooting",
@@ -442,7 +432,8 @@
               "guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync",
               "guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state",
               "guides/hosting-guardrails/troubleshooting/enable-verbose-logging",
-              "guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error"
+              "guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error",
+              "guides/hosting-guardrails/troubleshooting/pause-events"
             ]
           },
           {
@@ -452,7 +443,17 @@
             "items": [
               "guides/hosting-guardrails/monitoring/investigate-event-flood",
               "guides/hosting-guardrails/monitoring/diagnose-control-error",
-              "guides/hosting-guardrails/monitoring/workspace-health-check"
+              "guides/hosting-guardrails/monitoring/workspace-health-check",
+              "guides/hosting-guardrails/monitoring/monitoring-alarms"
+            ]
+          },
+          {
+            "type": "category",
+            "id": "disaster-recovery",
+            "link": "guides/hosting-guardrails/disaster-recovery",
+            "items": [
+              "guides/hosting-guardrails/disaster-recovery/restore",
+              "guides/hosting-guardrails/disaster-recovery/dr-testing"
             ]
           }
         ]
