@@ -1,6 +1,6 @@
 ---
-title: "Disaster Recovery Exercise"
-sidebar_label: "Disaster Recovery Exercise"
+title: "DR Testing"
+sidebar_label: "DR Testing"
 ---
 
 # Disaster Recovery - Workspace Restoration
