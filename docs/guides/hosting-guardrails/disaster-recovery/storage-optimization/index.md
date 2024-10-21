@@ -44,7 +44,7 @@ Efficient management of database resources ensures optimal storage utilization, 
 ## Step 4: Setup and Connect to Bastion Host
 
 - Update the CloudFormation stack:
-- Set the bastion host image to /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64.
+- Set the bastion host image to `/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64`.
 - Set RootVolumeSize to a bit larger than the original DB size (e.g., if 300 GB is used, set RootVolumeSize to 350 GB).
 - Start a session (link in the Output section of the stack).
 - Install or update the PostgreSQL client:
@@ -55,7 +55,7 @@ Efficient management of database resources ensures optimal storage utilization, 
 sudo dnf install postgresql15.x86_64 postgresql15-server -y
 ```
 
-- For PostgreSQL 16:
+- For [PostgreSQL 16](https://aws.amazon.com/blogs/database/synopsis-of-several-compelling-features-in-postgresql-16):
 
 ```shel
 sudo yum install -y gcc readline-devel libicu-devel zlib-devel openssl-devel
@@ -116,11 +116,32 @@ nohup pg_restore -h $TARGET -U master --verbose --no-publications --no-subscript
 
 ## Step 10: Add Triggers
 
-Verify there are no errors in the restore log and add the necessary triggers:
+Check the restore log file (restore.log) and make sure there are only 11 entries per schema when you run the below -
+
+```bash
+cat restore.log | grep error
+```
+
+- Set local search path
 
 ```shell
 psql --host=$TARGET --username=master --dbname=turbot
 set local search_path to <workspace_schema>, public;
+```
+
+```sql
+set local search_path to $turbot_schema;
+create trigger control_category_path_au after update on $turbot_schema.control_categories for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'control_category_id', 'control_category_path');
+create trigger control_resource_category_path_au after update on $turbot_schema.resource_categories  for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'resource_category_id', 'resource_category_path');
+create trigger control_resource_types_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'resource_type_id', 'resource_type_path');
+create trigger control_types_path_au after update on $turbot_schema.control_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'control_type_id', 'control_type_path');
+create trigger policy_category_path_au after update on $turbot_schema.control_categories  for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'control_category_id', 'control_category_path');
+create trigger policy_resource_category_path_au after update on $turbot_schema.resource_categories  for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'resource_category_id', 'resource_category_path');
+create trigger policy_resource_types_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'resource_type_id', 'resource_type_path');
+create trigger policy_types_path_au after update on $turbot_schema.policy_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'policy_type_id', 'policy_type_path');
+create trigger resource_resource_category_path_au after update on $turbot_schema.resource_categories for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('resources', 'resource_category_id', 'resource_category_path');
+create trigger resource_resource_type_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('resources', 'resource_type_id', 'resource_type_path');
+create trigger resource_types_500_rt_path_update_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.update_types_path();
 ```
 
 ## Step 11: Create Subscription in the New DB Instance
@@ -129,7 +150,17 @@ Create a subscription in the target database:
 
 ```shell
 psql --host=$TARGET --username=master --dbname=turbot
-CREATE SUBSCRIPTION sub_blue CONNECTION 'host=<source_db_endpoint> port=5432 password=<master_password> user=master dbname=turbot' PUBLICATION pub_blue;
+CREATE SUBSCRIPTION sub_blue CONNECTION 'host=<source_db_endpoint> port=5432 password=<master_password> user=master dbname=turbot' PUBLICATION pub_blue WITH (
+        copy_data = false,
+        create_slot = false,
+        enabled = false,
+        synchronous_commit = false,
+        connect = true,
+        slot_name = 'rs_blue'
+    );
+SELECT * FROM pg_replication_origin;
+SELECT pg_replication_origin_advance('output_from_step_above','<output_from_replication_slot');
+ALTER SUBSCRIPTION sub_blue ENABLE;
 ```
 
 ## Step 12: Monitor Progress
@@ -150,11 +181,33 @@ Run the following queries to compare the count of functions, triggers, indexes, 
 SELECT count(trigger_name), trigger_schema FROM information_schema.triggers group by trigger_schema;
 ```
 
-- Indexes, Functions, and Constraints (similar queries for other objects).
+- Indexes:
+
+```sql
+SELECT n.nspname AS schema_name, COUNT(i.indexname) AS index_count FROM pg_catalog.pg_indexes i JOIN pg_catalog.pg_namespace n ON i.schemaname = n.nspname WHERE n.nspname NOT IN ('pg_catalog', 'information_schema') GROUP BY n.nspname ORDER BY index_count DESC;
+```
+
+- Functions:
+
+```sql
+SELECT n.nspname AS schema_name, COUNT(p.proname) AS function_count FROM pg_catalog.pg_proc p LEFT JOIN pg_catalog.pg_namespace n ON n.oid = p.pronamespace WHERE n.nspname NOT IN ('pg_catalog', 'information_schema') GROUP BY n.nspname ORDER BY function_count DESC;
+```
+
+- Constraints:
+
+```sql
+SELECT n.nspname AS schema_name, COUNT(c.conname) AS constraint_count FROM pg_catalog.pg_constraint c JOIN pg_catalog.pg_namespace n ON c.connamespace = n.oid WHERE n.nspname NOT IN ('pg_catalog', 'information_schema') GROUP BY n.nspname ORDER BY constraint_count DESC;
+```
+
+- Trigger count by status:
+
+```sql
+SELECT count(tgname), tgenabled FROM pg_trigger GROUP by tgenabled;
+```
 
 ## Step 14: Turn Off Events (Optional)
 
-Disable events as per the guidelines: Pause Events.
+Disable events as per the guidelines: [Pause Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
 
 ## Step 15: Rename DB Instances
 
@@ -163,7 +216,7 @@ Disable events as per the guidelines: Pause Events.
 
 ## Step 16: Turn On Events
 
-Refer to the documentation: Turn On Events.
+Refer to the documentation: [Turn On Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
 
 ## Step 17: Rename the Old Instance
 
@@ -175,7 +228,11 @@ Test the restored and new database instances to confirm the upgrade.
 
 ## Step 19: Clean Up
 
-Remove the new TED stack, delete the associated resources (S3 bucket, log groups, AWS Backup), and clean up replication slots and subscriptions.
+Delete the new TED stack, delete the associated resources listed below, and clean up replication slots and subscriptions.
+
+- S3 bucket
+- Log groups
+- AWS Backup
 
 ## Next Steps
 
