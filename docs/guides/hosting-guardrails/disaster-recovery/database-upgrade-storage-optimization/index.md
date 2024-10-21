@@ -18,12 +18,12 @@ Efficient management of database resources ensures optimal storage utilization, 
 
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - PostgreSQL client installed on the [bastion host](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host).
-- Ensure logical replication is supported and enabled on the database engine
-- Knowledge of the current database usage (storage and version)
+- Ensure logical replication is supported and enabled on the database engine.
+- Knowledge of the current database usage (storage and version).
 
 ## Step 1: Spin up a new TED
 
-- Create a new TED with the same name as the original, appending `-blue` or `-green` to the end.
+- Create a new [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) with the same name as the original, appending `-blue` or `-green` to the end.
 - If performing a database version upgrade, use the `DB Engine Version` and `Read Replica DB Engine Version` parameters under the "Database - Advanced - Engine" section. Set the appropriate `DB Engine Parameter Group Family` and the `Hive RDS Parameter Group` under the "Database - Advanced - Parameters" section.
 - Set the allocated storage to match the current disk usage (e.g., if 210 GB out of 500 GB is used, set allocated storage to 210 GB) using the `Allocated Storage in GB` parameter under the "Database - Advanced - Storage" section.
 - Set the maximum allocated storage to a suitable value using the `Maximum Allocated Storage limit in GB` parameter under the "Database - Advanced - Storage" section.
@@ -33,7 +33,7 @@ Efficient management of database resources ensures optimal storage utilization, 
 ## Step 2: Enable Logical Replication
 
 - Go to the AWS Console and navigate to the relevant parameter group.
-- Set `rds.logical_replical` to 1 if it’s not already set.
+- Set `rds.logical_replical` to **`1`** if it’s not already set.
 - Reboot the DB instance (expected downtime is ~50 seconds).
 
 ## Step 3: Set Master Password
@@ -48,13 +48,13 @@ Efficient management of database resources ensures optimal storage utilization, 
 - Start a session (link in the Output section of the stack).
 - Install or update the PostgreSQL client:
 
-- For PostgreSQL 15:
+For PostgreSQL 15:
 
 ```shell
 sudo dnf install postgresql15.x86_64 postgresql15-server -y
 ```
 
-- For [PostgreSQL 16](https://aws.amazon.com/blogs/database/synopsis-of-several-compelling-features-in-postgresql-16):
+For [PostgreSQL 16](https://aws.amazon.com/blogs/database/synopsis-of-several-compelling-features-in-postgresql-16):
 
 ```shell
 sudo yum install -y gcc readline-devel libicu-devel zlib-devel openssl-devel
@@ -69,7 +69,7 @@ sudo make -C src/interfaces install
 
 ## Step 5: Create a Temporary Folder for Migrations
 
-- Create a folder and set the necessary permissions:
+Create a folder and set the necessary permissions:
 
 ```shell
 sudo mkdir tmp_migrations
@@ -121,7 +121,7 @@ Check the restore log file (restore.log) and make sure there are only 11 entries
 cat restore.log | grep error
 ```
 
-- Set local search path
+Set local search path
 
 ```shell
 psql --host=$TARGET --username=master --dbname=turbot
@@ -170,35 +170,35 @@ Run the following in the source database to monitor the replication progress:
 SELECT slot_name, confirmed_flush_lsn as flushed, pg_current_wal_lsn(), (pg_current_wal_lsn() - confirmed_flush_lsn) AS lsn_distance FROM pg_catalog.pg_replication_slots WHERE slot_type = 'logical';
 ```
 
-## Step 13: Test the Data
+## Step 13: Test Data
 
 Run the following queries to compare the count of functions, triggers, indexes, and constraints between the source and target databases:
 
-- Triggers:
+**Triggers**:
 
 ```sql
 SELECT count(trigger_name), trigger_schema FROM information_schema.triggers group by trigger_schema;
 ```
 
-- Indexes:
+**Indexes**:
 
 ```sql
 SELECT n.nspname AS schema_name, COUNT(i.indexname) AS index_count FROM pg_catalog.pg_indexes i JOIN pg_catalog.pg_namespace n ON i.schemaname = n.nspname WHERE n.nspname NOT IN ('pg_catalog', 'information_schema') GROUP BY n.nspname ORDER BY index_count DESC;
 ```
 
-- Functions:
+**Functions**:
 
 ```sql
 SELECT n.nspname AS schema_name, COUNT(p.proname) AS function_count FROM pg_catalog.pg_proc p LEFT JOIN pg_catalog.pg_namespace n ON n.oid = p.pronamespace WHERE n.nspname NOT IN ('pg_catalog', 'information_schema') GROUP BY n.nspname ORDER BY function_count DESC;
 ```
 
-- Constraints:
+**Constraints**:
 
 ```sql
 SELECT n.nspname AS schema_name, COUNT(c.conname) AS constraint_count FROM pg_catalog.pg_constraint c JOIN pg_catalog.pg_namespace n ON c.connamespace = n.oid WHERE n.nspname NOT IN ('pg_catalog', 'information_schema') GROUP BY n.nspname ORDER BY constraint_count DESC;
 ```
 
-- Trigger count by status:
+**Trigger count by status**:
 
 ```sql
 SELECT count(tgname), tgenabled FROM pg_trigger GROUP by tgenabled;
