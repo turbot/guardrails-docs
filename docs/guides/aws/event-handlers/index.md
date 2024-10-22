@@ -8,9 +8,10 @@ nav:
 
 # Configuring Real-Time events
 
-<div className="alert alert-warning">
-This section details the steps required to set up AWS Event Handlers.
-</div>
+In this guide, you will:
+
+- Set up AWS Event Handlers.
+- Monitor the setup process and troubleshoot any errors.
 
 The Guardrails **Event Handlers** are responsible for conveying events from AWS
 CloudTrail back to Guardrails for processing. This is a requirement for Guardrails to
@@ -57,8 +58,8 @@ These mods are required only if using Guardrails to configure CloudTrail.
 
 ## Configuring CloudTrail
 
-<div className="alert alert-warning"> <strong>You are not required to use the Guardrails Audit Trail</strong> to configure CloudTrail, but <strong>there must be a CloudTrail configured in each region or a global trail.</strong>
-</div>
+> [!WARNING]
+> You are not required to use the Guardrails Audit Trail to configure CloudTrail, but there must be a CloudTrail configured in each region or a global trail.
 
 The [Guardrails Audit Trail](/guardrails/docs/mods/aws/aws/policy#aws--turbot--audit-trail)
 policy provides a convenient mechanism for setting up CloudTrail in AWS

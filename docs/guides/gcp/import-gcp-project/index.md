@@ -8,9 +8,8 @@ nav:
 
 # Import a GCP Project into Guardrails
 
-<div className="alert alert-warning">
-This section details the steps required to import Google Cloud Platform resources into a Guardrails Folder. 
-</div>
+> [!IMPORTANT]
+> This section details the steps required to import Google Cloud Platform resources into a Guardrails Folder.
 
 ## Process Overview
 
