@@ -7,23 +7,21 @@ sidebar_label: Getting Started
 
 Welcome to the wonderful world of Turbot Guardrails!
 
-The following getting started guide provides new Guardrails Admins a step by step
-walk through of how to learn the fundamentals of Turbot Guardrails. For those just getting started in a Free Trial, please follow the directions below to sign up. If you are already a customer of Turbot Guardrails, please reach out to your local Guardrails Admin for access to your current environment.
+These step-by-step guides help new Guardrails Admins learn the basics of Turbot Guardrails. For those just getting started in a Free Trial, please follow the directions below to sign up. If you are already a customer, please reach out to your local Guardrails Admin for access to your current environment.
 
 ## Guardrails Overview
 
 - Product Demo:
   [Turbot Guardrails Demo](https://www.youtube.com/watch?v=sHWDixKoz9g)
-- [Concepts](concepts): Overview of Turbot concepts such as
+- [Concepts](concepts): Overviews of core Turbot Guardrails concepts including 
   [Policies](concepts/policies), [Controls](concepts/controls), and
-  [Guardrails](concepts/guardrails). Each of these are fundamental cornerstones
-  to how Turbot functions!
-- [Cloud Integrations](integrations): Read about how you can connect your cloud
-  accounts to Turbot to begin automatically remediating and deploying resources!
+  [Guardrails](concepts/guardrails).
+- [Cloud Integrations](integrations): Learn how to connect and configure cloud
+  accounts. 
 
 ## Free Trial Information
 
-Guardrails offers a free trial to prospective organizations. Here's how to kickstart your experience:
+Guardrails offers a free trial to interested organizations. Here's how to kickstart your experience:
 
 1. [Sign up for your Turbot.com account](turbot.com/user/sign-up): This grants access to your Free Trial Guardrails Workspace. We only need one team member to sign up initially - more can join later.
 2. [Chat with Bob about your Free Trial onboarding](/start)
