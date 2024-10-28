@@ -6,11 +6,11 @@ sidebar_label: Prepare a GCP project
 
 # Prepare a GCP project for import to Guardrails
 
-In this guide, you will prepare an AWS account to be imported into Guardrails by deploying an IAM access role using a CloudFormation template.
+In this guide you will prepare a GCP project for import into Guardrails using the least-privileged roles, and minimal set of enabled APIs, necessary for the task.
 
 This is the first guide in the *Getting started with GCP* series.
 
-**Prerequisites**:
+**Prerequisites**
 
 - Access to the Turbot Guardrails console with admin privilege.
 
