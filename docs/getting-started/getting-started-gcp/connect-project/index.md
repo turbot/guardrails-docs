@@ -8,7 +8,7 @@ sidebar_label: Connect a GCP project
 
 In this guide you will connect a GCP account to Guardrails.
 
-This is the second guide in the *Getting started with AWS* series.
+This is the second guide in the *Getting started with GCP* series.
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ Select the **Type** dropdown from the filters bar. Then enable the check box nex
 
 ## Step 9: Review Controls
 
-Review the status of your controls for GCP.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account.  If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
+Review the status of your controls for GCP.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your project.  If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
   
 Bookmark the **Controls by State** report, you’ll need it in subsequent guides.
 
@@ -75,9 +75,9 @@ Bookmark the **Controls by State** report, you’ll need it in subsequent guides
 
 ## Next Steps
   
-You've now successfully connected your GCP project account to Guardrails.
+You've now successfully connected your GCP project to Guardrails.
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity) we’ll see how Guardrails watches your account and reacts to resource changes.  
+In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity) we’ll see how Guardrails watches your project and reacts to resource changes.  
 
 
 ## Progress tracker
