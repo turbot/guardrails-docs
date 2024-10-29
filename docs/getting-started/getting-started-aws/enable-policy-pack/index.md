@@ -13,7 +13,7 @@ This is the fourth guide in the *Getting started with AWS* series.
 ## Prerequisites
 
 - Completion of the previous guides in this series.
-- Access to the Guardrails console with administrative privlidges.
+- Access to the Guardrails console with administrative privileges.
 - Access to AWS console with the ability to create and modify S3 buckets.
 
 ## Step 1: Check bucket versioning in AWS
