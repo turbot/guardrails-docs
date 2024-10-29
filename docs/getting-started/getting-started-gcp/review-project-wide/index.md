@@ -8,7 +8,7 @@ sidebar_label: Project-Wide Governance
 
 In this guide you’ll see how a single Policy Pack can govern all resources across a project.
 
-This is the fifth guide in the *Getting started with GCP* series.d
+This is the fifth guide in the *Getting started with GCP* series.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ This is the fifth guide in the *Getting started with GCP* series.d
 
 ## Step 1: Open the Controls by State report
 
-Navigate back to the **Controls by State** report (or use your saved bookmark), expand the **Type** dropdown, and search for `bucket access control`. Enable the checkbox next to **GCP > Strorage > Bucket > Access Control** to set the filter.
+Navigate back to the **Controls by State** report (or use your saved bookmark), expand the **Type** dropdown, and search for `gcp storage bucket access control`. Enable the checkbox next to **GCP > Strorage > Bucket > Access Control** to set the filter.
 
 <p><img alt="filter-1" src="/images/docs/guardrails/getting-started/getting-started-gcp/review-project-wide/filter-1.png"/></p>
 
@@ -29,11 +29,7 @@ Your test bucket is in the `Alarm` (red) state: out of policy. Other buckets in 
 
 <p><img alt="filter-2" src="/images/docs/guardrails/getting-started/getting-started-gcp/review-project-wide/filter-2.png"/></p>
 
-## Step 2: Review
-
-To further explore the policy pack you’ve enabled, create a new bucket, observe that it shows up here in `OK`  for uniform access, then switch to fine-grained access control and observe that it transitions to `Alarm`.
-
-## Step 3: Create test s3 buckets
+## Step 3: Create test GCP buckets
 
 Return to the GCP console and (as you did in the **Observe Resource Activity** guide) create three new buckets with access control set to *Fine-grained*. For the example, we will create the following new buckets:
 
@@ -49,15 +45,11 @@ As you create the new buckets, Guardrails detects them and evaluates their confi
 
 <p><img alt="new-buckets-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/review-project-wide/new-buckets-in-alarm.png"/></p>
 
-The new buckets are in the `Alarm` state because you set access control set to *Fine-grained*. The current policy requires all buckets to have uniform access enabled.
+The new buckets are in the `Alarm` state because, as with the first one, you set access control set to *Fine-grained*. The current policy requires all buckets to have uniform access enabled.
 
 ## Step 5: Review
 
-In this guide you created three new GCP buckets and observed how the Policy Pack added at the account level evaluates their governance status.
-
-## Next Steps
-
-In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we’ll learn how to create a static exception so that a bucket can be exempt from the versioning requirement. 
+In this guide you created three new GCP buckets and observed how the Policy Pack added at the project level evaluates their governance status.
 
 
 ## Next Steps
