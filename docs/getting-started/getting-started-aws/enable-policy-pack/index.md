@@ -81,7 +81,7 @@ In this guide you’ve attached a Policy Pack to your AWS account to check S3 bu
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-aws/review-across-account) you will create some additional buckets to see how the Policy Pack responds to new resource creation.
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/review-account-wide) you will create some additional buckets to see how the Policy Pack responds to new resource creation.
 
 
 ## Progress tracker
