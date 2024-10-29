@@ -5,7 +5,9 @@ sidebar_label: Create a Calculated Exception
 
 # Create a Calculated Exception to a Guardrails AWS Policy
 
-In this guide you’ll learn how to make dynamic policy exceptions based on resource tags. These types of policy exceptions in Guardrails are named [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy). Calculated polices enable you to implement business logic to create policy exceptions when designing your governance controls. Some typical examples of how to use calculated polices are: 
+In this guide you'll learn how to make dynamic policy exceptions based on resource tags. These [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy) enable you to implement business logic when designing your governance controls. 
+
+Some typical examples of how to use calculated polices are: 
 
 - Dynamic tagging of resources based on resource metadata.
 - Creating policy exceptions for different classes of resources.
@@ -13,17 +15,15 @@ In this guide you’ll learn how to make dynamic policy exceptions based on reso
 
 This guide will walk you through a simple calculated policy based on resource tags.
 
-This is the seventh guide in the *Getting started with AWS* series.
+This is the seventh guide in the *Getting started with GCP* series.
 
-
-**Prerequisites**: 
+**Prerequisites**
  
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.
-- Access to the AWS console with permissions to tag S3 buckets.
+- Access to the AWS console with permissions to label GCP buckets.
 
-
-## Step 1: Open the policy pack
+## Step 1: Open the Policy Pack
 
 Choose **Policies** from the top navigation bar. Select the **Enforce Uniform Access is Enabled for GCP Storage Buckets** Policy Pack from the list on the right.
 
@@ -32,7 +32,7 @@ Choose **Policies** from the top navigation bar. Select the **Enforce Uniform Ac
 
 ## Step 2: Modify the policy setting
 
-The bucket's access control is currently statically set to `Check: Unifirm`. Use the pencil icon on the right side of the policy setting to edit the policy.
+The bucket's access control is currently statically set to `Check: Uniform`. Use the pencil icon on the right side of the policy setting to edit the policy.
 
 <p><img alt="view-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/view-policy-pack.png"/></p>
 
@@ -40,7 +40,7 @@ The bucket's access control is currently statically set to `Check: Unifirm`. Use
 
 Select the blue **Launch calculated policy builder** link.
 
-<p><img alt="enable-calculated-mode" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/enable-calculated-mode.png"/></p>
+<p><img alt="enable-calculated-mode" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/enable-calculated-mode.png"/></p>
 
 ## Step 4: Launch calculated policy builder
 
