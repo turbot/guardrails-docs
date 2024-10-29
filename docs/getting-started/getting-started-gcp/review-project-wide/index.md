@@ -1,33 +1,64 @@
 ---
-title: Review Project-Wide Bucket Access Control
-sidebar_label: Review Bucket Access Control
+title: Review Project-Wide Governance
+sidebar_label: Project-Wide Governance
 ---
 
 
-# Review Account-Wide Bucket Access Control
+# Review Project-Wide Bucket Access Control
 
-In this guide you’ll see how the policy pack you enabled in [Enable a Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/review-across-account) governs all the GCP buckets in your account.
+In this guide you’ll see how a single Policy Pack can govern all resources across a project.
+
+This is the fifth guide in the *Getting started with GCP* series.d
 
 ## Prerequisites
 
-- [Prepare a GCP project for import to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/prepare-project/)
-- [Connect a GCP project to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/connect-project/)
-- [Observe GCP Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity/)
-- [Enable Your First Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack/)
+- Completion of the previous guides in this series.
+
+- Access to the Guardrails console with administrative privileges.
 
 
-## Step 1: Open Controls by State and limit to GCP bucket access control
+## Step 1: Open the Controls by State report
 
-In **Controls by State**, use the **Resource Type** filter to choose **AWS > Storage > Bucket > Access Control**.  
-  
-In the [previous guide](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack), you saw how the policy pack you enabled there switched the status of your sample bucket’s Access Control control from `Skipped` to `Alarm`,  because you switched to fine-grained access in [Observe AWS Activity](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity).  
-  
-Other buckets created in the default state, with uniform access enabled, are green: in policy.
-<p><img alt="gcp-account-wide-1" src="/images/docs/guardrails/getting-started/getting-started-gcp/review-project-wide/gcp-account-wide-1.png"/></p>
+Navigate back to the **Controls by State** report (or use your saved bookmark), expand the **Type** dropdown, and search for `bucket access control`. Enable the checkbox next to **GCP > Strorage > Bucket > Access Control** to set the filter.
+
+<p><img alt="filter-1" src="/images/docs/guardrails/getting-started/getting-started-gcp/review-project-wide/filter-1.png"/></p>
+
+## Step 2: Filter on controls for bucket access control
+
+Your test bucket is in the `Alarm` (red) state: out of policy. Other buckets in the project, if created with the default uniform access, are in the `OK` (green) state: in policy.
+
+<p><img alt="filter-2" src="/images/docs/guardrails/getting-started/getting-started-gcp/review-project-wide/filter-2.png"/></p>
 
 ## Step 2: Review
 
 To further explore the policy pack you’ve enabled, create a new bucket, observe that it shows up here in `OK`  for uniform access, then switch to fine-grained access control and observe that it transitions to `Alarm`.
+
+## Step 3: Create test s3 buckets
+
+Return to the GCP console and (as you did in the **Observe Resource Activity** guide) create three new buckets with access control set to *Fine-grained*. For the example, we will create the following new buckets:
+
+- guardrails_bucket_bucket_02
+- guardrails_bucket_bucket_03
+- guardrails_bucket_bucket_04
+
+Keep your names similar and consistent so you can easily filter and see all your test buckets together.
+
+## Step 4: View newly created buckets
+
+As you create the new buckets, Guardrails detects them and evaluates their configuration relative to your policies. By changing our search string we can see all buckets at the same time.
+
+<p><img alt="new-buckets-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/review-project-wide/new-buckets-in-alarm.png"/></p>
+
+The new buckets are in the `Alarm` state because you set access control set to *Fine-grained*. The current policy requires all buckets to have uniform access enabled.
+
+## Step 5: Review
+
+In this guide you created three new GCP buckets and observed how the Policy Pack added at the account level evaluates their governance status.
+
+## Next Steps
+
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we’ll learn how to create a static exception so that a bucket can be exempt from the versioning requirement. 
+
 
 ## Next Steps
 
