@@ -13,7 +13,7 @@ This is the last guide in the *Getting started with AWS series*.
 **Prerequisites**: 
 
 - Completion of the previous guides in this series.
-- Access to the Guardrails console with administrative privlidges.
+- Access to the Guardrails console with administrative privileges.
 
 > [!NOTE]
 > In the [previous guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) we showed how to add the single permission that enables you to take a **Quick Action** on S3 bcket versioning. This guide also requires that permission, so you can not proceed if you didn't follow the steps in the previous guide.
