@@ -44,7 +44,7 @@ As you create the new buckets, Guardrails detects them and evaluates their confi
 
 <p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/new-buckets-in-alarm.png"/></p>
 
-The new buckets are in the **Alarm** state because bucket versioning is not enabled. The current policy requires all buckets to have versioing enabled.
+The new buckets are in the **Alarm** state because bucket versioning is not enabled. The current policy requires all buckets to have versioning enabled.
 
 ## Step 5: Review
 
