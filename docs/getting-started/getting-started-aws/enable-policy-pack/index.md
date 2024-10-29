@@ -51,13 +51,13 @@ On the account resource page, select the **Detail** sub-tab.
 <p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/navigate-3.png"/></p>
 
 
-## Step 5: Attach the Policy Pack
+## Step 5: Locate the Policy Pack manager
 
 Select the **Manage Link** next to **Policy Packs** UI widget.
 
 <p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-locate-policy-pack-manage.png"/></p>
 
-## Step 6: Attach the policy pack to your account
+## Step 6: Attach the Policy Pack to your account
 
 In the **Edit policy pack attachments** dialog box, select **Add**.
 
