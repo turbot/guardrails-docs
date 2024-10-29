@@ -6,9 +6,6 @@ sidebar_label: Create a Calculated Exception
 
 # Create a Calculated Exception to a Guardrails AWS Policy
 
-In this guide you'll learn how to make dynamic policy exceptions based on resource tags. These [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy) enable you to implement business logic when designing your governance controls. This guide will walk you through a typical calculated policy based on resource tags.
-
-
 In this guide you’ll learn how to make dynamic policy exceptions based on resource tags. These types of policy exceptions in Guardrails are named [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy). Calculated polices enable you to implement business logic to create policy exceptions when designing your governance controls. Some typical examples of how to use calculated polices are: 
 
 - Dynamic tagging of resources based on resource metadata.
@@ -27,7 +24,7 @@ This is the seventh guide in the *Getting started with AWS* series.
 
 ## Step 1: Open the policy pack
 
-Choose **Policies** from the top navigation bar. Select the **Enforce Versioning is Enabled for AWS S3 Buckets** policy pack from the list on the right.
+Choose **Policies** from the top navigation bar. Select the **Enforce Versioning is Enabled for AWS S3 Buckets** Policy Pack from the list on the right.
 
 <p><img alt="search-versioning" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/view-policy-packs.png"/></p>
 
@@ -51,7 +48,7 @@ Select **Launch calculated policy builder**.
 
 ## Step 5: Choose test resource
 
-Calculated policies work across all resources in scope of the policy setting. While building a calc policy it is useful to test the business logic against real resources in your environment. For this Guide, you will find and select one of the previously created test buckets, by searching for its name in the **Test Resource** field.
+Calculated policies work across all resources in scope of the policy setting. While building a calc policy it is useful to test the business logic against real resources in your environment. For this guide you will find and select one of the previously-created test buckets by searching for its name in the **Test Resource** field.
 
 <p><img alt="calc-policy-builder-launched" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/calc-policy-builder-launched.png"/></p>
 
@@ -100,13 +97,13 @@ Select **Update**.
 
 ## Step 10: Observe controls for bucket versioning
 
-Navigate back to the **Controls by State** report and set the **Type** filter to **AWS > S3 > Bucket > Versioning**. Buckets with versioning enabled will be in `OK` state. Find a bucket in the `Alarm` state to modify, and note its name.
+Navigate back to the **Controls by State** report and set the **Type** filter to **AWS > S3 > Bucket > Versioning**. Buckets with versioning enabled will be in the `OK` state. Find a bucket in the `Alarm` state to modify, and note its name.
 
 <p><img alt="revisit-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/revisit-controls-by-state.png"/></p>
 
 ## Step 11: Tag the bucket
 
-Open the AWS console in another tab, navigate to S3 find the bucket identified in the previous step, and assign the tag `environment:development` to it.
+Open the AWS console in another tab, navigate to the bucket identified in the previous step, and assign the tag `environment:development` to it.
 
 <p><img alt="tagged-bucket" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/tagged-bucket.png"/></p>
 
