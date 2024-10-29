@@ -22,7 +22,7 @@ This is the seventh guide in the *Getting started with AWS* series.
 **Prerequisites**: 
  
 - Completion of the previous guides in this series.
-- Access to the Guardrails console with administrative privlidges.
+- Access to the Guardrails console with administrative privileges.
 - Access to the AWS console with permissions to tag S3 buckets.
 
 ## Step 1: Open the policy pack
