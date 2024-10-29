@@ -3,10 +3,11 @@ title: Create a Calculated Exception to a Guardrails Policy
 sidebar_label: Create a Calculated Exception
 ---
 
-
 # Create a Calculated Exception to a Guardrails AWS Policy
 
-In this guide you’ll learn how to make dynamic policy exceptions based on resource tags. These types of policy exceptions in Guardrails are named [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy). Calculated polices enable you to implement business logic to create policy exceptions when designing your governance controls. Some typical examples of how to use calculated polices are: 
+In this guide you'll learn how to make dynamic policy exceptions based on resource tags. These [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy) enable you to implement business logic when designing your governance controls. 
+
+Some typical examples of how to use calculated polices are: 
 
 - Dynamic tagging of resources based on resource metadata.
 - Creating policy exceptions for different classes of resources.
@@ -16,11 +17,12 @@ This guide will walk you through a simple calculated policy based on resource ta
 
 This is the seventh guide in the *Getting started with AWS* series.
 
-**Prerequisites**: 
+**Prerequisites**
  
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.
 - Access to the AWS console with permissions to tag S3 buckets.
+
 
 ## Step 1: Open the policy pack
 
