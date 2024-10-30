@@ -83,14 +83,12 @@ In this guide you’ve attached a Policy Pack to your AWS account to check S3 bu
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/review-account-wide) you will create some additional buckets to see how the Policy Pack responds to new resource creation.
 
-
 ## Progress tracker
-
-- [x] Prepare an AWS Account for import to Guardrails
+- [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
+- [x] Review Account-Wide Governance
 - [x] **Enable Your First Policy Pack**
-- [ ] Review Account-Wide Bucket Versioning
 - [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails Policy
 - [ ] Send an Alert to Email

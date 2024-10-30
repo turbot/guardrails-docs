@@ -1,6 +1,6 @@
 ---
-title: Review Account-wide governance
-sidebar_label: Account-wide governance
+title: Review Account-Wide Governance
+sidebar_label: Account-Wide Governance
 ---
 
 
@@ -55,12 +55,11 @@ In this guide you created three new S3 buckets and observed how the Policy Pack 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we’ll learn how to create a static exception so that a bucket can be exempt from the versioning requirement. 
 
 ## Progress tracker
-
-- [x] Prepare an AWS Account for import to Guardrails
+- [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
-- [x] Enable Your First Policy Pack
-- [x] **Review Account-Wide Bucket Versioning**
+- [x] **Review Account-Wide Governance**
+- [ ] Enable Your First Policy Pack
 - [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails Policy
 - [ ] Send an Alert to Email

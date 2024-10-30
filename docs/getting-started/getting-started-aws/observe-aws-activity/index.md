@@ -85,14 +85,12 @@ In this guide you changed the versioning property of an S3 bucket and observed h
 
 Next we’ll explore [how to enable a policy pack](/guardrails/docs/getting-started/getting-started-aws/enable-policy-pack) that requires buckets to enable versioning.
 
-
 ## Progress tracker
-
-- [x] Prepare an AWS Account for import to Guardrails
+- [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] **Observe AWS Resource Activity**
+- [ ] Review Account-Wide Governance
 - [ ] Enable Your First Policy Pack
-- [ ] Review Account-Wide Bucket Versioning
 - [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails Policy
 - [ ] Send an Alert to Email

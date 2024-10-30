@@ -91,12 +91,11 @@ In this guide you created a resource-level exception for the Bucket Versioning c
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.
 
 ## Progress tracker
-
-- [x] Prepare an AWS Account for import to Guardrails
+- [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
+- [x] Review Account-Wide Governance
 - [x] Enable Your First Policy Pack
-- [x] Review Account-Wide Bucket Versioning
 - [x] **Create a Static Exception to a Guardrails Policy**
 - [ ] Create a Calculated Exception to a Guardrails Policy
 - [ ] Send an Alert to Email
