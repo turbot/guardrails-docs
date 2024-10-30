@@ -95,15 +95,13 @@ In this guide you've learned how to prepare the least-privileged credentials, an
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/connect-project) you will use those credentials to import a GCP project into Guardrails.
 
-
 ## Progress tracker
-
 - [x] **Prepare a GCP project for import to Guardrails**
 - [ ] Connect a GCP project to Guardrails
 - [ ] Observe GCP Activity
+- [ ] Review Project-Wide Governance
 - [ ] Enable Your First Guardrails Policy Pack
-- [ ] Review Project-Wide Bucket Access Control
-- [ ] Create a Static Exception to a Guardrails GCP Policy
+- [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails GCP Policy
 - [ ] Send an Alert to Email
 - [ ] Apply a Quick Action

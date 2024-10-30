@@ -65,15 +65,12 @@ In this guide series you learned the basics of importing GCP accounts into Guard
 This Getting Started series just scratches the surface of what you can do with Guardrails. Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
 
 ## Progress tracker
-
-**Congratulations! You did it!**
-
 - [x] Prepare a GCP project for import to Guardrails
 - [x] Connect a GCP project to Guardrails
 - [x] Observe GCP Activity
+- [x] Review Project-Wide Governance
 - [x] Enable Your First Guardrails Policy Pack
-- [x] Review Project-Wide Bucket Access Control
-- [x] Create a Static Exception to a Guardrails GCP Policy
+- [x] Create a Static Exception to a Guardrails Policy
 - [x] Create a Calculated Exception to a Guardrails GCP Policy
 - [x] Send an Alert to Email
 - [x] Apply a Quick Action

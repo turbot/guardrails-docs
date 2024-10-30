@@ -101,15 +101,13 @@ In this guide you configured a simple notification rule and triggered a notifica
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, directly uniform access on a bucket that’s now in the `Alarm` state and make it green.
 
-
 ## Progress tracker
-
 - [x] Prepare a GCP project for import to Guardrails
 - [x] Connect a GCP project to Guardrails
 - [x] Observe GCP Activity
+- [x] Review Project-Wide Governance
 - [x] Enable Your First Guardrails Policy Pack
-- [x] Review Project-Wide Bucket Access Control
-- [x] Create a Static Exception to a Guardrails GCP Policy
+- [x] Create a Static Exception to a Guardrails Policy
 - [x] Create a Calculated Exception to a Guardrails GCP Policy
 - [x] **Send an Alert to Email**
 - [ ] Apply a Quick Action

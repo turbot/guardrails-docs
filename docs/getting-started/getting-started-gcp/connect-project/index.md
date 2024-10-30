@@ -79,15 +79,13 @@ You've now successfully connected your GCP project to Guardrails.
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity) we’ll see how Guardrails watches your project and reacts to resource changes.  
 
-
 ## Progress tracker
-
 - [x] Prepare a GCP project for import to Guardrails
 - [x] **Connect a GCP project to Guardrails**
 - [ ] Observe GCP Activity
+- [ ] Review Project-Wide Governance
 - [ ] Enable Your First Guardrails Policy Pack
-- [ ] Review Project-Wide Bucket Access Control
-- [ ] Create a Static Exception to a Guardrails GCP Policy
+- [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails GCP Policy
 - [ ] Send an Alert to Email
 - [ ] Apply a Quick Action

@@ -112,15 +112,13 @@ In this guide you increased the permissions scope in GCP, enabled Guardrails Qui
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.  
 
-
 ## Progress tracker
-
 - [x] Prepare a GCP project for import to Guardrails
 - [x] Connect a GCP project to Guardrails
 - [x] Observe GCP Activity
+- [x] Review Project-Wide Governance
 - [x] Enable Your First Guardrails Policy Pack
-- [x] Review Project-Wide Bucket Access Control
-- [x] Create a Static Exception to a Guardrails GCP Policy
+- [x] Create a Static Exception to a Guardrails Policy
 - [x] Create a Calculated Exception to a Guardrails GCP Policy
 - [x] Send an Alert to Email
 - [x] **Apply a Quick Action**

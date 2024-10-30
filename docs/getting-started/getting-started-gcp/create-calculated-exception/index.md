@@ -122,13 +122,12 @@ In this guide you created your first calculated policy and tested it using the c
 In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams. 
 
 ## Progress tracker
-
 - [x] Prepare a GCP project for import to Guardrails
 - [x] Connect a GCP project to Guardrails
 - [x] Observe GCP Activity
+- [x] Review Project-Wide Governance
 - [x] Enable Your First Guardrails Policy Pack
-- [x] Review Project-Wide Bucket Access Control
-- [x] Create a Static Exception to a Guardrails GCP Policy
+- [x] Create a Static Exception to a Guardrails Policy
 - [x] **Create a Calculated Exception to a Guardrails GCP Policy**
 - [ ] Send an Alert to Email
 - [ ] Apply a Quick Action

@@ -83,16 +83,14 @@ In this guide you've attached a Policy Pack to your GCP account to check GCP buc
 ## Next Steps
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/review-project-wide) you will create some additional buckets to see how the Policy Pack responds to new resource creation.
-  
 
 ## Progress tracker
-
 - [x] Prepare a GCP project for import to Guardrails
 - [x] Connect a GCP project to Guardrails
 - [x] Observe GCP Activity
+- [x] Review Project-Wide Governance
 - [x] **Enable Your First Guardrails Policy Pack**
-- [ ] Review Project-Wide Bucket Access Control
-- [ ] Create a Static Exception to a Guardrails GCP Policy
+- [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails GCP Policy
 - [ ] Send an Alert to Email
 - [ ] Apply a Quick Action
