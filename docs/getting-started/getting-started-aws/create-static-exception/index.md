@@ -12,7 +12,7 @@ This is the sixth guide in the *Getting started with AWS* series.
 **Prerequisites**:   
   
 - Completion of the previous guides in this series.
-- Access to the Guardrails console with administrative privlidges.
+- Access to the Guardrails console with administrative privileges.
 
 ## Step 1: Open the Controls by State report
 

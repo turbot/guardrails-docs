@@ -21,7 +21,7 @@ This is the seventh guide in the *Getting started with AWS* series.
  
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.
-- Access to the AWS console with permissions to tag S3 buckets.
+- Access to the GCP console with permissions to tag S3 buckets.
 
 
 ## Step 1: Open the policy pack
@@ -38,7 +38,7 @@ The bucket versioning policy is currently statically set to `Check: Enabled`. Us
 
 ## Step 3: Enable calculated mode
 
-Select the blue **Launch calculated policy builder** link.
+Select the blue **Enable calculated mode** link.
 
 <p><img alt="enable-calculated-mode" src="/images/docs/guardrails/getting-started/getting-started-aws/create-calculated-exception/enable-calculated-mode.png"/></p>
 

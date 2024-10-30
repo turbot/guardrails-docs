@@ -4,7 +4,7 @@ sidebar_label: Account-Wide Governance
 ---
 
 
-# Review Account-wide governance
+# Review Account-Wide Governance
 
 In this guide you’ll see how a single Policy Pack can govern all resources across an account.
 
@@ -13,7 +13,7 @@ This is the fifth guide in the *Getting started with AWS* series.
 ## Prerequisites
 
 - Completion of the previous guides in this series.
-- Access to the Guardrails console with administrative privlidges.
+- Access to the Guardrails console with administrative privileges.
 
 ## Step 1: Open the Controls by State report
 
@@ -23,12 +23,12 @@ Navigate back to the **Controls by State** report (or use your saved bookmark), 
 
 ## Step 2: Filter on bucket versioning controls
 
-Your first test bucket is in the **OK** (green) state: it complies with the policy. Other buckets in the account with versioning disabled will show in the **Alarm** state (red): not compliant.
+Your first test bucket is in the `OK` (green) state: it complies with the policy. Other buckets in the account with versioning disabled will show in the `Alarm` state (red): not compliant.
 
 <p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/filter-applied.png"/></p>
 
 
-## Step 3: Create test s3 buckets
+## Step 3: Create test S3 buckets
 
 Return to the AWS console and (as you did in the **Observe Resource Activity** guide) create 3 new buckets without versioning enabled.  For the example, we will create the following new buckets:
 
@@ -44,7 +44,7 @@ As you create the new buckets, Guardrails detects them and evaluates their confi
 
 <p><img alt="search-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/review-account-wide/new-buckets-in-alarm.png"/></p>
 
-The new buckets are in the **Alarm** state because bucket versioning is not enabled. The current policy requires all buckets to have versioning enabled.
+The new buckets are in the `Alarm` state because bucket versioning is not enabled. The current policy requires all buckets to have versioning enabled.
 
 ## Step 5: Review
 

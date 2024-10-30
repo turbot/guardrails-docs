@@ -6,7 +6,7 @@ sidebar_label: Prepare a GCP Project
 
 # Prepare a GCP project for import to Guardrails
 
-In this guide you will prepare a GCP project for import into Guardrails using the least-privileged roles, and minimal set of enabled APIs, necessary for the task.
+In this guide you will prepare a GCP project for import into Guardrails using the least-privileged roles — and minimal set of enabled APIs — necessary for the task.
 
 This is the first guide in the *Getting started with GCP* series.
 
@@ -89,7 +89,7 @@ Navigate to **APIS & services** and review the list of enabled APIs. If any of t
 
 ## Step 11: Review
 
-In this guide you've learned how to prepare the least-privileged credentials, and enable the minimal set of APIs, that you'll need to import your project into Guardrails.
+In this guide you've learned how to prepare the least-privileged credentials — and enable the minimal set of APIs — needed to import your project into Guardrails.
 
 ## Next Steps
 

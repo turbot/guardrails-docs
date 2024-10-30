@@ -12,7 +12,7 @@ This is the second guide in the *Getting started with GCP* series.
 
 ## Prerequisites
 
-  - Completion of the previous guide: *Prepare an AWS Account for Import to Guardrails*.
+  - Completion of the previous guide: *Prepare an GCP Project for Import to Guardrails*.
   
   - Access to the Turbot Guardrails console with admin privilege.
 

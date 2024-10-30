@@ -33,9 +33,9 @@ Your test bucket is in the `Alarm` (red) state: out of policy. Other buckets in 
 
 Return to the GCP console and (as you did in the **Observe Resource Activity** guide) create three new buckets with access control set to *Fine-grained*. For the example, we will create the following new buckets:
 
-- guardrails_bucket_bucket_02
-- guardrails_bucket_bucket_03
-- guardrails_bucket_bucket_04
+- guardrails_bucket_example_02
+- guardrails_bucket_example_03
+- guardrails_bucket_example_04
 
 Keep your names similar and consistent so you can easily filter and see all your test buckets together.
 
@@ -45,7 +45,7 @@ As you create the new buckets, Guardrails detects them and evaluates their confi
 
 <p><img alt="new-buckets-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/review-project-wide/new-buckets-in-alarm.png"/></p>
 
-The new buckets are in the `Alarm` state because, as with the first one, you set access control set to *Fine-grained*. The current policy requires all buckets to have uniform access enabled.
+The new buckets are in the `Alarm` state because, as with the first one, you set access control to *Fine-grained*. The current policy requires all buckets to have uniform access enabled.
 
 ## Step 5: Review
 

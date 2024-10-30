@@ -14,7 +14,7 @@ This is the third guide in the *Getting started with GCP* series.
 
 - Completion of the previous guides in this series.
 
-- Access to the Guardrails console with administrative privlidges.
+- Access to the Guardrails console with administrative privileges.
 
 - Console access to a GCP project the ability to create and modify S3 buckets.
 
@@ -56,7 +56,7 @@ Enable the checkbox to limit the report to only GCP buckets.
 
 ## Step 5: Observe activity
 
-Guardrails reports two notifications related to the bucket creation. `RESOURCE CREATED` indicates discovery of the bucket. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
+You can scope the resource activity report to a specific bucket by searching for the name of your bucket. To do this, type its name into the search field. Guardrails will show all notifications related to the bucket. In the screen below, the `RESOURCE CREATED` activity represents Guardrails discovery of the bucket and `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about the bucket.
 
 <p><img alt="see notifications" src="/images/docs/guardrails/getting-started/getting-started-gcp/observe-gcp-activity/filter-3.png"/></p>
 

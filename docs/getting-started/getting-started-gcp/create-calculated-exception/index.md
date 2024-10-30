@@ -38,7 +38,7 @@ The bucket's access control is currently statically set to `Check: Uniform`. Use
 
 ## Step 3: Enable calculated mode
 
-Select the blue **Launch calculated policy builder** link.
+Select the blue **Enable calculated mode** link.
 
 <p><img alt="enable-calculated-mode" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/enable-calculated-mode.png"/></p>
 
@@ -97,7 +97,7 @@ Select **Update**.
 
 <p><img alt="update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/update-setting.png"/></p>
 
-## Step 10: Observe controls for bucket versioning
+## Step 10: Observe controls for bucket access control
 
 Navigate back to the **Controls by State** report and set the **Type** filter to **GCP > Storage > Bucket > Access Control**. Buckets with uniform access enabled will be in the `OK` state. Find a bucket in the `Alarm` state to modify, and note its name.
 
@@ -106,6 +106,9 @@ Navigate back to the **Controls by State** report and set the **Type** filter to
 ## Step 11: Label the bucket
 
 Open the GCP console in another tab, navigate to the bucket identified in the previous step, and assign the tag `environment:development` to it.
+
+<p><img alt="label-bucket" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/label-the-bucket.png"/></p>
+
 
 ## Step 12: Observe the effect
 

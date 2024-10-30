@@ -52,7 +52,7 @@ Try suspending versioning on a bucket. It won’t stay that way for long!
 
 ## Step 6: Review
 
-In this guide series you learned the basics of importing AWS accounts into Guardrails, enabling policy packs, creating exceptions and notifications, and even more mischief.
+In this guide series you learned the basics of importing AWS accounts into Guardrails, enabling Policy Packs, creating exceptions and notifications, and even more mischief.
 
 ## Next Steps
 

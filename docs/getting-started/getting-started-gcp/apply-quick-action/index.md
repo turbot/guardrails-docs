@@ -6,7 +6,7 @@ sidebar_label: Apply a Quick Action
 
 # Apply a Quick Action
 
-In this guide we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations. A Quick Action empowers an administrator to quickly fix misconfigurations by applying a change directly to an underlying AWS resource. In order to use this feature,  Guardrails will need one additional permission. This guide will show you how to change the permissions specific to GCP bucket public access, other Quick Actions will require different permission grants.
+In this guide we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations. A Quick Action empowers an administrator to quickly fix misconfigurations by applying a change directly to an underlying GCP resource. In order to use this feature,  Guardrails will need one additional permission. This guide will show you how to change the permissions specific to GCP bucket public access, other Quick Actions will require different permission grants.
 
 This is the ninth guide in the *Getting started with GCP series*.
 
@@ -14,7 +14,7 @@ This is the ninth guide in the *Getting started with GCP series*.
 
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.
-- Access to an AWS account with administrative privileges to add permissions to the Guardrails cross-account role.
+- Access to a GCP account with administrative privileges to add permissions to the Guardrails service account.
 
 
 ## Step 1: Begin role creation
@@ -106,7 +106,7 @@ Open a tab to the GCP console, and navigate to the bucket. Confirm the Guardrail
 
 ## Step 14: Review
 
-In this guide you increased the permissions scope in GCP, enabled Guardrails Quick Actions and, used a Quick Action to change a bucket's access control property.
+In this guide you increased the permissions scope in GCP, enabled Guardrails Quick Actions, and used a Quick Action to change a bucket's access control property.
 
 ## Next Steps
 

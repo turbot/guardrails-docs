@@ -63,7 +63,8 @@ Select **New Policy Setting**.
 Again choose **Turbot** as the **Resource**. Copy and paste this rule, using one or more email addresses you want to notify. 
  
 ```yaml
-- rules: NOTIFY $.oldControl.state:skipped $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
+- rules: NOTIFY $.control.state:alarm $.control.state:alarm $.controlType.uri:'tmod:@turbot/gcp-storage#/control/types/bucketAccessControl'
+  emails:
     - you@yourcompany.com
 ``` 
  
@@ -81,7 +82,7 @@ At the end of [Create a calculated exception](/guardrails/getting-started/gettin
 
 ## Step 9: Trigger the notification
 
-Now, in the GCP console, change the label `environment:development` to `environment:production`. The calculated policy setting, which had evaluated to `Skip`,  label. The calculated policy setting, which had evaluated to `Skip`,  now evaluates to `Check: Uniform`.  And because you left the bucket’s access control in the fine-grained state, the bucket’s control for access control now transitions to `Alarm`.   
+Now, in the GCP console, change the label `environment:development` to `environment:production`. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: Uniform`. And because you left the bucket’s access control in the fine-grained state, the bucket’s control for access control now transitions to `Alarm`.   
 
 <p><img alt="observe-unlabeled-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/send-alert-to-email/bucket-in-alarm.png"/></p>  
 
@@ -99,7 +100,7 @@ In this guide you configured a simple notification rule and triggered a notifica
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, directly uniform access on a bucket that’s now in the `Alarm` state and make it green.
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, directly enable uniform access on a bucket that’s now in the `Alarm` state and make it green.
 
 ## Progress tracker
 - [x] Prepare a GCP Project for Import to Guardrails
