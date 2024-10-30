@@ -81,7 +81,7 @@ At the end of [Create a calculated exception](/guardrails/getting-started/gettin
 
 ## Step 9: Trigger the notification
 
-Now, in the GCP console, remove the `environment:development` label. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: Uniform`.  And because you left the bucket’s access control in the fine-grained state, the bucket’s control for access control now transitions to `Alarm`.   
+Now, in the GCP console, change the label `environment:development` to `environment:production`. The calculated policy setting, which had evaluated to `Skip`,  label. The calculated policy setting, which had evaluated to `Skip`,  now evaluates to `Check: Uniform`.  And because you left the bucket’s access control in the fine-grained state, the bucket’s control for access control now transitions to `Alarm`.   
 
 <p><img alt="observe-unlabeled-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-gcp/send-alert-to-email/bucket-in-alarm.png"/></p>  
 

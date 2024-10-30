@@ -82,7 +82,7 @@ Navigate to your bookmark for the **Controls by State** report, select the **Typ
 
 ## Step 9: Trigger the notification
 
-In the AWS console, update the tag value for the `environment` tag. Change its value from `development` to  `production`.  
+In the AWS console, update the tag value for the `environment` tag. Change its value from `development` to `production`.  
 
 <p><img alt="observe-untagged-bucket-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-aws/send-alert-to-email/observe-untagged-bucket-in-alarm.png"/></p>
 

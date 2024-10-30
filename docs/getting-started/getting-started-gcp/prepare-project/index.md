@@ -18,7 +18,7 @@ This is the first guide in the *Getting started with GCP* series.
 
 ## Step 1: Locate IAM & Admin > Service Accounts
 
-Log in to the Google Cloud console, select the project Guardrails will connect to, navigate to **IAM & Admin > Service Accounts**, and select **Create Service Account**.
+Log in to the Google Cloud console, select the project Guardrails will connect to, navigate to **IAM & Admin** and select **Service Accounts**.
 
 <p><img alt="service-account-1" src="/images/docs/guardrails/getting-started/getting-started-gcp/prepare-project/service-account-1.png"/></p>
 
