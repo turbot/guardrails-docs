@@ -122,8 +122,8 @@ In this guide you created your first calculated policy and tested it using the c
 In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams. 
 
 ## Progress tracker
-- [x] Prepare a GCP project for import to Guardrails
-- [x] Connect a GCP project to Guardrails
+- [x] Prepare a GCP Project for Import to Guardrails
+- [x] Connect a GCP Project to Guardrails
 - [x] Observe GCP Activity
 - [x] Review Project-Wide Governance
 - [x] Enable Your First Guardrails Policy Pack

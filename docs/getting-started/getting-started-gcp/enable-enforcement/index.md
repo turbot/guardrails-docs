@@ -65,8 +65,8 @@ In this guide series you learned the basics of importing GCP accounts into Guard
 This Getting Started series just scratches the surface of what you can do with Guardrails. Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
 
 ## Progress tracker
-- [x] Prepare a GCP project for import to Guardrails
-- [x] Connect a GCP project to Guardrails
+- [x] Prepare a GCP Project for Import to Guardrails
+- [x] Connect a GCP Project to Guardrails
 - [x] Observe GCP Activity
 - [x] Review Project-Wide Governance
 - [x] Enable Your First Guardrails Policy Pack

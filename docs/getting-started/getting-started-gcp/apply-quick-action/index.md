@@ -113,8 +113,8 @@ In this guide you increased the permissions scope in GCP, enabled Guardrails Qui
 In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.  
 
 ## Progress tracker
-- [x] Prepare a GCP project for import to Guardrails
-- [x] Connect a GCP project to Guardrails
+- [x] Prepare a GCP Project for Import to Guardrails
+- [x] Connect a GCP Project to Guardrails
 - [x] Observe GCP Activity
 - [x] Review Project-Wide Governance
 - [x] Enable Your First Guardrails Policy Pack

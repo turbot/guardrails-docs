@@ -102,8 +102,8 @@ In this guide you configured a simple notification rule and triggered a notifica
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, directly uniform access on a bucket that’s now in the `Alarm` state and make it green.
 
 ## Progress tracker
-- [x] Prepare a GCP project for import to Guardrails
-- [x] Connect a GCP project to Guardrails
+- [x] Prepare a GCP Project for Import to Guardrails
+- [x] Connect a GCP Project to Guardrails
 - [x] Observe GCP Activity
 - [x] Review Project-Wide Governance
 - [x] Enable Your First Guardrails Policy Pack

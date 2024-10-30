@@ -88,8 +88,8 @@ In this guide you changed the access control property of a GCP bucket and observ
 Next we'll explore [how to enable a  policy pack](/guardrails/docs/getting-started/getting-started-gcp/enable-policy-pack) that requires buckets to enable uniform access.
 
 ## Progress tracker
-- [x] Prepare a GCP project for import to Guardrails
-- [x] Connect a GCP project to Guardrails
+- [x] Prepare a GCP Project for Import to Guardrails
+- [x] Connect a GCP Project to Guardrails
 - [x] **Observe GCP Activity**
 - [ ] Review Project-Wide Governance
 - [ ] Enable Your First Guardrails Policy Pack

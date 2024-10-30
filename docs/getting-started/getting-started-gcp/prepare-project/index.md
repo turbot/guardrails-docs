@@ -1,6 +1,6 @@
 ---
-title: Prepare a GCP project for import to Guardrails
-sidebar_label: Prepare a GCP project
+title: Prepare a GCP Project for Import to Guardrails
+sidebar_label: Prepare a GCP Project
 ---
 
 
@@ -96,8 +96,8 @@ In this guide you've learned how to prepare the least-privileged credentials, an
 In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/connect-project) you will use those credentials to import a GCP project into Guardrails.
 
 ## Progress tracker
-- [x] **Prepare a GCP project for import to Guardrails**
-- [ ] Connect a GCP project to Guardrails
+- [x] **Prepare a GCP Project for Import to Guardrails**
+- [ ] Connect a GCP Project to Guardrails
 - [ ] Observe GCP Activity
 - [ ] Review Project-Wide Governance
 - [ ] Enable Your First Guardrails Policy Pack

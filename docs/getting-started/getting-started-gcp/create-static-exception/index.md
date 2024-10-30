@@ -95,8 +95,8 @@ In this guide you created a resource-level exception for the control that govern
 In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/create-calculated-exception) we’ll see how to dynamically calculate an exception based on a resource tag.
 
 ## Progress tracker
-- [x] Prepare a GCP project for import to Guardrails
-- [x] Connect a GCP project to Guardrails
+- [x] Prepare a GCP Project for Import to Guardrails
+- [x] Connect a GCP Project to Guardrails
 - [x] Observe GCP Activity
 - [x] Review Project-Wide Governance
 - [x] Enable Your First Guardrails Policy Pack
