@@ -54,7 +54,7 @@ Wait for the progress bar to complete. This process takes a while, and you’ll 
 <p><img alt="gcp_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/gcp-progress-bar.png"/></p>  
 
 
-## Step 7: View Controls by state
+## Step 7: View Controls by State
 
 Select **Reports** from the top navigation menu. Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list. 
 
