@@ -38,7 +38,7 @@ Wait for the progress bar to complete. The time this takes will depend on how ma
 
 <p><img alt="aws-progress-bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-progress-bar.png"/></p>
 
-## Step 5: View Controls by state
+## Step 5: View Controls by State
 
 Select **Reports** from the top navigation menu. Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list. 
 
