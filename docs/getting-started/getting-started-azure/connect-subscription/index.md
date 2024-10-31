@@ -6,140 +6,81 @@ sidebar_label: Connect an Azure Subscription
 
 # Connect an Azure Subscription to Guardrails
 
-  
-In this guide, you’ll connect an Azure subscription to Guardrails. Then, in following guides, you’ll work through a series of exploratory exercises to learn the basics of cloud governance with Guardrails.
+In this guide you will connect a subscription to Guardrails.
 
-**Prerequisites**:
+This is the second guide in the *Getting started with Azure* series.
 
-Access to the Guardrails console with admin privilege, and a top-level `Sandbox` folder.
+## Prerequisites
 
-## Step 1: Register an app
+- Completed the previous guide: **Prepare an Azure Subscription for Import to Guardrails**.
 
-Login to the Azure portal.
+- Access to the Turbot Guardrails console with admin privilege.
 
-Navigate to `App Registrations`.
+## Step 1: Login to Guardrails
 
-Click `New Registration`.
+Login to your Guardrails console and select the **CONNECT** option from the home page.
 
-Name the application. The name ought to be recognizable as a Guardrails registration and relevant to the subscription to be imported. Turbot recommends the naming convention `Guardrails - {Name of the subscription}`.
+<p><img alt="login" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/login.png"/></p>
 
-The Redirect URI is optional.  The Guardrails integration doesn’t use the redirect URL as a part of authentication. If you would like to include your Guardrails workspace hostname, this is a handy reference location.   
-  
-Capture the Application (client) ID from the Overview tab.  Copy the Application (client) ID and Directory (tenant) IDs.  You will need them later.  
+## Step 2: Select Azure Subscription
 
+<p><img alt="connect-1" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/connect-1.png"/></p>
 
-## Step 2: Create a secret
+## Step 3: Select import location
 
-  
-Under the `Manage` sidebar item, go to `Certificates & secrets`. 
+Use the **Parent Resource** dropdown to select the **Sandbox** folder as the location to import the subscription.
 
-Go to the `Client Secrets` tab.   
-  
-Create a new secret and capture its Value.  Don’t use the Secret ID!
+<p><img alt="connect-2" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/connect-2.png"/></p>
 
-## Step 3: Create a ReadOnly role
+## Step 4: Enter details
 
-Click the `Shell icon` in the portal at top right, next to the search bar.
+If you forgot to save all these details when completing the first guide, you can find them as follows:
 
-Select `Bash`.
+- Subscription ID. The **Home > Subscriptions** page has your *Subscription ID*
 
-In the cloud shell, create `turbot_reader_role.json`, swapping in your subscription id.  The Azure default `Reader` role does not include permissions to read `KeyVault Secrets` metadata (not the secret itself), so they are included here.   
-  
-```json
-{
-  "Name": "turbot_reader",
-  "Description": "Basic Permissions needed for Reader access",
-  "Actions": [
-    "*/read",
-    "Microsoft.Storage/storageAccounts/listkeys/action",
-    "Microsoft.KeyVault/vaults/secrets/read",
-    "Microsoft.KeyVault/vaults/read"
-  ],
-  "NotActions": [],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<<YOUR_SUBSCRIPTION_ID>>"
-  ]
-}  
-```
+- Tenant ID and *Client ID. The **Home > App registrations** page has *Directory (tenant) ID* and *Application (client) ID*.
 
-Save this in a file called `turbot_reader_role.json`.  
-  
-Run this command to create the role.  
-  
-```
-az role definition create --role-definition turbot_reader_role.json  
-```
+- Client Key. If you forgot to save the value of the secret you created in the first guide, you can use **Home > App registrations > YOUR_APP_NAME > Certificates & secrets** to create a new one. Use the *Value* (not the *Secret ID*).
 
-## Step 4: Assign the role to the app
+Select your environment (likely *Global Cloud*). 
 
-Go to the subscription that will be imported into Guardrails.  
-  
-Select `Add > Add role assignment`.
+Select **Connect**.
 
-Find the `turbot_reader` custom role, select it, click `Next`.  
-  
-Click `Select members`.
+<p><img alt="connect-3" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/connect-3.png"/></p>
 
-Search for the name of your registered app, click `Select`.  
-  
-Complete the `Review + assign` flow.  
+## Step 5: Observe progress
 
+Wait for the progress bar to complete. The time this takes will depend on how many resources are in the account; it is normal for the progress bar to fluctuate in size as new types of resources are discovered.
 
-## Step 5: Initiate the Connect
+<p><img alt="progress" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/progress-bar.png"/></p>
 
-On the Guardrails home page, hover on `Connect`.
-<p><img alt="locate_top_level_connect" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/locate-top-level-connect.png"/></p>
+## Step 6: View Controls by State
 
-Click to open the `Connect` screen.
+Select **Reports** from the top navigation menu. Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list. 
 
-## Step 6: Connect your subscription
+<p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
-Choose `Azure Subscription`.
+## Step 7: Configure report filters
 
-Use the `Parent Resource` dropdown to select your Sandbox.  
-  
-Enter your subscription ID and tenant ID.
+From the filter bar, expand the **Type** dropdown. Then select the checkbox next to **Azure** to limit the report to only show Azure controls.
+ 
+Bookmark the **Controls by State** report, you’ll need it in subsequent guides. 
 
-For client ID use the Application (client) ID of your registered Turbot app.   
-  
-For client key, use the Value (not the id) of the secret you created for the app.  
-  
-Select your environment (likely Global Cloud).
-<p><img alt="finish-and-connect" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/finish-and-connect.png"/></p>
+<p><img alt="filter-1" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-type-filter.png"/></p>
 
-Click `Connect`.
+## Step 7: View the report
 
-## Step 7: Observe progress
-<p><img alt="azure_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/azure-progress-bar.png"/></p>
+Review the status of your controls for Azure.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your subscription. If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
 
-This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.
+<p><img alt="filter-2" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/filter-2.png"/></p>
 
-## Step 8: Locate the Controls by State report
-<p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/search-for-controls-reports.png"/></p>
+## Step 8: Review
 
-## Step 9: Review
+In this guide you successfully imported an Azure account into Guardrails.
 
-You’ve now successfully connected your Azure subscription to Guardrails.
-<p><img alt="azure-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/azure-controls-by-state.png"/></p>
+## Next Steps
 
-Bookmark the `Controls by State` report, you’ll need it in subsequent guides.
-
-> [!NOTE]
-> It’s normal for the `Controls by State` report to show controls in `Alarm` and/or `TBD`. If controls are in `Error` or `Invalid`, you should check with your administrator to resolve these issues. See [Troubleshooting](#troubleshooting).  
-  
-Next Steps
-
-In the [next guide](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity) we’ll see how Guardrails watches your subscription and reacts to resource changes.
-
-## Troubleshooting
-
-| Issue | Description | Guide |
-|--|--|--|
-| ERROR | One or more controls are in ERROR. | [tbd]() |
-| INVALID | One or more controls are INVALID. | [tbd]() |
-
+In the [next guide](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity) we’ll see how Guardrails monitors cloud events and reacts to resource changes.
 
 ## Progress tracker
 
