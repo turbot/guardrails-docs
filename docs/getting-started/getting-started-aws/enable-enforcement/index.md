@@ -62,8 +62,8 @@ This Getting Started series just scratches the surface of what you can do with G
 - [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
-- [x] Review Account-Wide Governance
 - [x] Enable Your First Policy Pack
+- [x] Review Account-Wide Governance
 - [x] Create a Static Exception to a Guardrails Policy
 - [x] Create a Calculated Exception to a Guardrails Policy
 - [x] Send an Alert to Email

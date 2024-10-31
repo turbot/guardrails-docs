@@ -129,8 +129,8 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/send-al
 - [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
-- [x] Review Account-Wide Governance
 - [x] Enable Your First Policy Pack
+- [x] Review Account-Wide Governance
 - [x] Create a Static Exception to a Guardrails Policy
 - [x] **Create a Calculated Exception to a Guardrails Policy**
 - [ ] Send an Alert to Email

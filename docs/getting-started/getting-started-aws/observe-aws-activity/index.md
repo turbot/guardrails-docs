@@ -89,8 +89,8 @@ Next we’ll explore [how to enable a policy pack](/guardrails/docs/getting-star
 - [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] **Observe AWS Resource Activity**
-- [ ] Review Account-Wide Governance
 - [ ] Enable Your First Policy Pack
+- [ ] Review Account-Wide Governance
 - [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails Policy
 - [ ] Send an Alert to Email

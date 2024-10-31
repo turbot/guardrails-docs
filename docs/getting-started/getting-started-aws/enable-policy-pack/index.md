@@ -87,8 +87,8 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/review-
 - [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
-- [x] Review Account-Wide Governance
 - [x] **Enable Your First Policy Pack**
+- [ ] Review Account-Wide Governance
 - [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails Policy
 - [ ] Send an Alert to Email
