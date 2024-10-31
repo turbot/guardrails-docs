@@ -59,14 +59,11 @@ In this guide series you learned the basics of importing AWS accounts into Guard
 This Getting Started series just scratches the surface of what you can do with Guardrails. Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
 
 ## Progress tracker
-
-**Congratulations!  You did it!**
-
-- [x] Prepare an AWS Account for import to Guardrails
+- [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
+- [x] Review Account-Wide Governance
 - [x] Enable Your First Policy Pack
-- [x] Review Account-Wide Bucket Versioning
 - [x] Create a Static Exception to a Guardrails Policy
 - [x] Create a Calculated Exception to a Guardrails Policy
 - [x] Send an Alert to Email

@@ -13,7 +13,7 @@ This is the ninth guide in the *Getting started with AWS series*.
 
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.
-- Access to an AWS account with administrative privlidges to add permissions to the Guardrails cross-account role.
+- Access to an AWS account with administrative privileges to add permissions to the Guardrails cross-account role.
 
 
 ## Step 1: Locate the IAM role
@@ -114,14 +114,12 @@ In this guide you increased the permissions scope for your cross-account role, e
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.  
 
-
 ## Progress tracker
-
-- [x] Prepare an AWS Account for import to Guardrails
+- [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
+- [x] Review Account-Wide Governance
 - [x] Enable Your First Policy Pack
-- [x] Review Account-Wide Bucket Versioning
 - [x] Create a Static Exception to a Guardrails Policy
 - [x] Create a Calculated Exception to a Guardrails Policy
 - [x] Send an Alert to Email

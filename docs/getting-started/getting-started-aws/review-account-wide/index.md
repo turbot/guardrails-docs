@@ -1,10 +1,10 @@
 ---
-title: Review Account-wide governance
-sidebar_label: Account-wide governance
+title: Review Account-Wide Governance
+sidebar_label: Account-Wide Governance
 ---
 
 
-# Review Account-wide governance
+# Review Account-wide Governance
 
 In this guide you’ll see how a single Policy Pack can govern all resources across an account.
 
@@ -13,7 +13,7 @@ This is the fifth guide in the *Getting started with AWS* series.
 ## Prerequisites
 
 - Completion of the previous guides in this series.
-- Access to the Guardrails console with administrative privlidges.
+- Access to the Guardrails console with administrative privileges.
 
 ## Step 1: Open the Controls by State report
 
@@ -55,12 +55,11 @@ In this guide you created three new S3 buckets and observed how the Policy Pack 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/create-static-exception) we’ll learn how to create a static exception so that a bucket can be exempt from the versioning requirement. 
 
 ## Progress tracker
-
-- [x] Prepare an AWS Account for import to Guardrails
+- [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
-- [x] Enable Your First Policy Pack
-- [x] **Review Account-Wide Bucket Versioning**
+- [x] **Review Account-Wide Governance**
+- [ ] Enable Your First Policy Pack
 - [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails Policy
 - [ ] Send an Alert to Email
