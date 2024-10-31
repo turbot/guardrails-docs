@@ -99,8 +99,8 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/connect
 - [x] **Prepare a GCP Project for Import to Guardrails**
 - [ ] Connect a GCP Project to Guardrails
 - [ ] Observe GCP Activity
-- [ ] Review Project-Wide Governance
 - [ ] Enable Your First Guardrails Policy Pack
+- [ ] Review Project-Wide Governance
 - [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails GCP Policy
 - [ ] Send an Alert to Email
