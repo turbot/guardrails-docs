@@ -41,6 +41,23 @@
       },
       {
         "type": "category",
+        "id": "getting-started-azure",
+        "link": "getting-started/getting-started-azure",
+        "items": [
+          "getting-started/getting-started-azure/prepare-subscription",
+          "getting-started/getting-started-azure/connect-subscription",
+          "getting-started/getting-started-azure/observe-azure-activity",
+          "getting-started/getting-started-azure/enable-policy-pack",
+          "getting-started/getting-started-azure/review-subscription-wide",
+          "getting-started/getting-started-azure/create-static-exception",
+          "getting-started/getting-started-azure/create-calculated-exception",
+          "getting-started/getting-started-azure/send-alert-to-email",
+          "getting-started/getting-started-azure/apply-quick-action",
+          "getting-started/getting-started-azure/enable-enforcement"
+        ]
+      },
+      {
+        "type": "category",
         "id": "your-guardrails-org",
         "link": "getting-started/your-guardrails-org",
         "items": [
