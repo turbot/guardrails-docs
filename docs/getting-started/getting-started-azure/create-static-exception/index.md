@@ -45,7 +45,7 @@ Because we were viewing the **Controls by State** report, our action landed us o
 
 Now that you are are viewing the **Resource Detail** for the selected bucket, you can create an exception for this resource. To do that you will create a new policy setting. Select the **Policies** sub-tab and click the green **New Policy Setting** button.
 
-<p><img alt="switch-to-policies" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-policies-sub-tab.png"/></p>
+<p><img alt="switch-to-policies" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/policies-sub-tab.png"/></p>
 
 
 ## Step 6: Select the policy type
