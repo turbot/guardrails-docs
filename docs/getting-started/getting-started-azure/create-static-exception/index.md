@@ -25,14 +25,14 @@ Navigate to the **Controls by State** report, expand the **Type** dropdown, and 
 
 You can also filter by **State**. Expand that dropdown, and enable the checkbox next to **Alarm**.
 
-<p><img alt="filter 3" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-filter-3.png"/></p>
+<p><img alt="filter 3" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/filter-3.png"/></p>
 
 
 ## Step 3: Choose a storage account
 
 Pick a control, here `guardrailsazurestorage1`, and select its linked name.
 
-<p><img alt="choose-storage-account" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-choose-storage-account.png"/></p>
+<p><img alt="choose-storage-account" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/choose-storage-account.png"/></p>
 
 
 ## Step 4: View resource details
@@ -50,15 +50,15 @@ Now that you are are viewing the **Resource Detail** for the selected bucket, yo
 
 ## Step 6: Select the policy type
 
-In the **Type** dropdown, search for `azure storage account tls`, and enable the checkbox next to **Azure > Storage > Storage Account > Minimum TLS Version**.
+In the **Type** dropdown, search for `azure storage tls version`, and enable the checkbox next to **Azure > Storage > Storage Account > Minimum TLS Version**.
 
-<p><img alt="find policy setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-select-policy-type.png"/></p>
+<p><img alt="find policy setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/select-policy-type.png"/></p>
 
 ## Step 7: Create the policy exception
 
 Choose the **Skip** setting, and select **Create**.
 
-<p><img alt="create-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-create-policy-setting.png"/></p>
+<p><img alt="create-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/create-policy-setting.png"/></p>
 
 ## Step 8: Confirm the setting
 
