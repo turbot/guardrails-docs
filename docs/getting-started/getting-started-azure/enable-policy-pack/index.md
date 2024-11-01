@@ -13,7 +13,7 @@ This is the fourth guide in the *Getting started with Azure* series.
 
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.
-- Access to the Azure console with the ability to create and modify storage accounts.
+- Access to the Azure portal with the ability to create and modify storage accounts.
 
 ## Step 1: Check storage account TLS setting in Azure
 

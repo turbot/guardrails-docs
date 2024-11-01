@@ -29,7 +29,7 @@ Your test storage account is in the `Alarm` (red) state: out of policy. Others, 
 
 ## Step 3: Create test storage accounts
 
-Return to the Azure console and (as you did in the **Observe Resource Activity** guide) create several new buckets with TLS version downgraded to 1.0. For the example, we will create the following:
+Return to the Azure portal and (as you did in the **Observe Resource Activity** guide) create several new buckets with TLS version downgraded to 1.0. For the example, we will create the following:
 
 - guardrailsazurestorage2
 - guardrailsazurestorage3

@@ -6,43 +6,74 @@ sidebar_label: Create a Calculated Exception
 
 # Create a Calculated Exception to a Guardrails Azure Policy
 
-**Prerequisites**:   
+
+In this guide you'll learn how to make dynamic policy exceptions based on resource tags. These [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy) enable you to implement business logic when designing your governance controls. 
+
+Some typical examples of how to use calculated polices are: 
+
+- Dynamic tagging of resources based on resource metadata.
+- Creating policy exceptions for different classes of resources.
+- Taking enforcement action for based on resource tags.
+
+This guide will walk you through a simple calculated policy based on resource tags.
+
+This is the seventh guide in the *Getting started with Azure* series.
+
+**Prerequisites**
+ 
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privileges.
+- Access to the Azure portal with permissions to tag storage accounts
+
+## Step 1: Open the Policy Pack
+
+Choose **Policies** from the top navigation bar. Select the **Enforce Secure TLS Version for Azure Storage Accounts** Policy Pack from the list on the right.
+
+<p><img alt="view-policy-packs" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/view-policy-packs.png"/></p>
+
+
+## Step 2: Modify the policy setting
+
+The TLS policy is currently `Check: TLS 1.2`. Use the pencil icon on the right side of the policy setting to edit the policy.
+
+<p><img alt="view-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/view-policy-pack.png"/></p>
+
+## Step 3: Enable calculated mode
+
+Select the blue **Enable calculated mode** link.
+
+<p><img alt="enable-calculated-mode" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/enable-calculated-mode.png"/></p>
+
+## Step 4: Launch calculated policy builder
+
+Select **Launch calculated policy builder**.
+
+<p><img alt="launch-calculated-policy-builder" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/launch-builder.png"/></p>
+
+
+## Step 5: Choose test resource
+
+Calculated policies work across all resources in scope of the policy setting. While building a calc policy it is useful to test the business logic against real resources in your environment. For this guide you will find and select one of the previously-created storage accounts by searching in the **Test Resource** field.
+
+<p><img alt="choose test resource" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/choose-resource.png"/></p>
+
+## Step 6: Build query
+
+In the **Query Input** field we will use **Select Snippet** to prepopulate our [GraphQL](/guardrails/docs/reference/glossary#graphql) query. Choose **Get storage account** from the dropdown.
+
+<p><img alt="snippet-dropdown-open" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/open-snippet-dropdown.png"/></p>
+
+## Step 7: View query result
+
+Guardrails inserts a GraphQL query for bucket tags into the **Input** pane, and then runs the query against the selected test resource. The result, in the **Output** pane, shows there are no tags on the bucket.
+
+<p><img alt="snippet-active" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/snippet-active.png"/></p>
+
+## Step 8: Add the Jinja2 template
+
+Our business logic is created in the `Template` section, using [Nunjucks syntax](https://mozilla.github.io/nunjucks/templating.html).
   
-- [Prepare an Azure Subscription for Import to Guardrails](/guardrails/docs/getting-started/getting-started-azure/prepare-subscription/)
-- [Connect an Azure Subscription to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-subscription/)
-- [Observe Azure Resource Activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity/)
-- [Enable Your First Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-azure/enable-policy-pack/)
-- [Review Subscription-Wide Governance](/guardrails/docs/getting-started/getting-started-azure/review-account-wide/)
-- [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-static-exception/)
-
-
-In the [previous runbook](guardrails/docs/runbooks/getting-started-azure/create_static_exception) we showed how to create a static exception. In this one, we’ll show how to make exceptions dynamically, based on resource tags. Start by creating another test storage account (we’ll use `guardrailsazurestorage2`). , and set the TLS version to 1.1 so it won’t comply with policy that requires version 1.2. Don’t set any tags on the storage account yet.
-
-## Step 1: Go to the Azure > Storage > Storage Account > Minimum TLS Version policy
-
-Choose the top-level `Policies` tab, and search policy types for `azure storage minimum tls`.  
-<p><img alt="azure_find_tls_versioning_policy" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-find-tls-versioning-policy.png"/></p>
-
-Click into the `Azure > Storage > Storage Account > Minimum TLS Version` policy type, choose the `Settings` tab.
-<p><img alt="azure_tls_versioning_policy_settings" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-tls-versioning-policy-settings.png"/></p>
-
-Note the Versioning policy (`Check: TLS 1.2`) created in [Attach a policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy), and the storage-account-level policy (`Skip`) created in [Create a static exception](/guardrails/docs/runbooks/getting-started-azure/create-static-exception).   
-  
-Click `New Policy Setting`.
-
-## Step 2: Create a calculated exception
-<p><img alt="azure_begin_calc_exception" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-begin-calc-exception.png"/></p>
-
-Click `Enable calculated mode`, then `Launch calculated policy builder`. For the `Test Resource`, choose the bucket you created at the start of this runbook.
-<p><img alt="azure_calc_policy_builder_launched" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-calc-policy-builder-launched.png"/></p>
-
-Open the `Select snippet` dropdown and choose `Get storageAccount`.
-<p><img alt="azure_snippet_dropdown_open" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-snippet-dropdown-open.png"/></p>  
-  
-Guardrails inserts a GraphQL query for storage account tags in the `Input` pane. The result, in the `Output` pane, shows there are no tags on the bucket.
-<p><img alt="azure_snippet_active" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-snippet-active.png"/></p>
-
-Now copy this template code:  
+Copy this template code:  
   
 ```nunjucks
 {% if $.storageAccount.turbot.tags.environment == "development" %}
@@ -52,51 +83,48 @@ Now copy this template code:
 {% endif %}
 ```
 
-And paste it into the template pane.  
-<p><img alt="azure_template_active" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-template-active.png"/></p>  
+And paste it into the template pane.
+
+<p><img alt="template-active" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/template-active.png"/></p>
+
+Guardrails evaluates the template in the context of the chosen **Test Resource**. The template output, `Check: TLS`, is the calculated policy value that will govern any storage account’s **Azure > Storage > Storage Account > Minumum TLS Version** policy if it is tagged with `environment:development`. Only these tagged buckets will be required to have TLS 1.2 enabled. Others will be skipped, whether or not they enable TLS 1.2.
   
+The result confirms that `Check: TLS 1.2` is valid for this policy type.  Why? Because the test storage accountbucket does not have a tag `{ "environment": "development" }`.
 
+Select **Update**
 
-Guardrails evaluates the step 3 template in the context of the chosen `Test Resource`. The step 3 output, `Check: TLS 1.2, is the calculated policy value that will apply to this bucket’s `Azure > Storage > Storage Account > Minimum TLS Version` policy if the bucket is tagged with `environment:development`.   
-  
-The step 4 result confirms that `Check: TLS 1.2` is valid for this policy type.  
-  
-Click `Update` to update the policy.
+## Step 9: Save the calculated policy to the policy pack
+ 
+Select **Update**.
 
-## Step 3: Attach the calculated policy to your Azure subscription
+<p><img alt="update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/update-setting.png"/></p>
 
-To attach this policy to your Azure subscription, so it will apply to all storage accounts in the subscription, choose your subscription as the `Resource`.   
-<p><img alt="azure_attach_calc_policy_to_subscription" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-attach-calc-policy-to-subscription.png"/></p>
+## Step 10: Observe controls for storage account TLS version
 
-Then click `Create`. Guardrails takes you to the `Policy Setting` page. Choose the `Hierarchy` tab.  
-<p><img alt="azure_hierarchy_with_calc_policy_in_effect" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-hierarchy-with-calc-policy-in-effect.png"/></p>  
-  
+Navigate back to the **Controls by State** report and set the **Type** filter to **Azure > Storage > Storage Account > Minimum TLS Version**. Storage accounts with TLS 1.2 enabled will be in the `OK` state. Find one in the `Alarm` state to modify, and note its name.
 
+<p><img alt="revisit-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/revisit-controls-by-state.png"/></p>
 
-For the Sandbox, the default is overridden from `Skip` to `Check: TLS 1.2`. For the subscription, that setting is overridden by the calculated policy you just created. And finally, at the bottom of the hierarchy, your static exception for the original test storage account overrides back to skip.   
+## Step 11: Tag the storage account
 
+Open the Azure portal in another tab, navigate to the storage account identified in the previous step, and assign the tag `environment:development` to it.
 
-## Step 4: Observe storage account status
+<p><img alt="tag-storage-account" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/raw-tag-the-storage-account.png"/></p>
 
-To check the status of the second storage account, do a top-level search for it.
-<p><img alt="azure_refind_the_storage_account" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-refind-the-storage-account.png"/></p>  
-  
+## Step 12: Observe the effect
 
+Return to the **Controls by State** report in the previous browser tab.  Observe that Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status from `Alarm` to `Skipped`.
 
-Click into the resource, choose the `Controls` tab, and set the `Type` filter to `Azure > Storage > Storage Account > Minimum TLS Version`.  
-<p><img alt="azure_filter_storage_account_to_tls_version_policy_type" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-filter-storage-account-to-tls-version-policy-type.png"/></p>
+<p><img alt="tagged-now-skipped" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/tagged-now-skipped.png"/></p>
 
-The storage account is in `Alarm` because the TLS version you set, 1.1, does not  comply with policy. Now, tag it with `environment:development` to activate the calculated policy you created in this runbook.  
-<p><img alt="azure_tag_the_storage_account" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-tag-the-storage-account.png"/></p>  
-  
+## Step 13: Review
 
+In this guide you created your first calculated policy and tested it using the control that governs the TLS version for storage accounts.
 
-Guardrails notices the change, reevaluates the resource, runs the calculated policy, and changes the status to `Skipped`.
-<p><img alt="azure_tagged_storage_account_now_skipped" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/azure-tagged-storage-account-now-skipped.png"/></p>
+## Next Steps
 
-In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams. 
+In the [next guide](/guardrails/docs/getting-started/getting-started-azure/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams. 
 
-  
 
 
 
