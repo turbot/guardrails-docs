@@ -3,55 +3,82 @@ title: Observe Azure Resource Activity
 sidebar_label: Observe Resource Activity
 ---
 
+# Observe AWS Resource Activity
 
-# Observe Azure resource activity
+In this guide you will learn how Guardrails detects and reacts to events in your Azure subscription. You will manually create and modify a Azure storage account account and explore how to view that activity in the Guardrails console.
 
-**Prerequisites**: 
+This is the third guide in the *Getting started with Azure* series.
 
-- [Prepare an Azure Subscription for Import to Guardrails](/guardrails/docs/getting-started/getting-started-azure/prepare-subscription/)
-- [Connect an Azure Subscription to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-subscription/)
+## Prerequisites
 
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privlidges.
+- Console access to an Azure subscription and the ability to create and modify storage accounts.
 
- 
-
-Now that you’ve connected an Azure subscription, you can explore your resource inventory.  To visualize activity, go to `Reports`,  find `Resource activities`, then click that link. 
-
-The following steps will show how to observe Azure resource activity in real-time.
+> [!NOTE]
+> We will use the storage account name `guardrailsazurestorage1` in this guide.
 
 ## Step 1: Create an Azure storage account
 
-We’ll use the name `guardrailsazurestorage1`, choose your own name.  
-<p><img alt="azure_create_storage_account" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/azure-create-storage-account.png"/></p>  
+Navigate to **Home > Storage accounts**, select **Create**, assign a name, and select **Review + create**.
 
+<p><img alt="create storage 1" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/observe-azure-activity/create-storage-1.png"/></p>
 
-Accept the defaults, including this one for minimum TLS version which will be the focus of this series of runbooks.
-<p><img alt="azure_minimum_tls_version" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/azure-minimum-tls-version.png"/></p>
+On the next screen, select **Create**.
 
-## Step 2: See Guardrails discover the new storage account
+<p><img alt="create storage 2" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/observe-azure-activity/create-storage-2.png"/></p>  
 
-Select top-level `Reports`, search in the page for `Resource Activities`, and click the link.
-<p><img alt="azure_search_resource_activities" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/azure-search-resource-activities.png"/></p>
+## Step 2: Resource Activities report
+ 
+Select **Reports** from the top navigation bar. Search for the word "resource" and select **Resource Activities**.
 
-In the `Resource Activities` report, open the `Resource Type` filter, search for `azure storage account`, and select `Azure > Storage > Storage Account`.
+<p><img alt="aws_search_resource_activities" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-aws/observe-aws-activity/aws-search-resource-activities.png"/></p>
 
-Guardrails reports two notifications related to the storage account creation. `RESOURCE CREATED` indicates initial discovery. `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details.
-<p><img alt="azure_resource_activities_initial_notifications" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/azure-resource-activities-initial-notifications.png"/></p>
+## Step 3: Filter by type
 
-## Step 3: See Guardrails react to a storage account change
+From the filter bar, expand the **Resource Type** dropdown.
 
-   
-Now visit your storage account in the Azure portal and downgrade to TLS 1.0.
-<p><img alt="azure_downgrade_to_tls_to_observe_change" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/azure-downgrade-to-tls-to-observe-change.png"/></p>
+<p><img alt="filter 1" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/observe-azure-activity/filter-1.png"/></p>
 
-Revisit `Reports > Resource Activities`, and (if needed) reapply the `Resource Type` filter as `Azure > Storage > Storage Account`.  
-<p><img alt="azure_resource_activities_with_change_detected" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/azure-resource-activities-with-change-detected.png"/></p>
+Set the filter to **Azure > Storage > Storage Account**. You can do this by typing `azure storage account` into the search box, as shown here. When you see *Azure > Storage > Storage Account* appear in the list, select the checkbox next to it.
 
-Click into the new notification for your storage account, and scroll down in the diff to see the change that Guardrails has recorded.  
-<p><img alt="azure_diff_the_first_change" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/azure-diff-the-first-change.png"/></p>
+<p><img alt="filter 2" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/observe-azure-activity/filter-2.png"/></p>
 
-We’ve now seen how Guardrails detects the creation of a new resource in a connected account, and also notices and records changes to the configuration of that resource.  
-  
-Next we’ll explore [how to set a policy](/guardrails/docs/runbooks/getting-started-azure/attach-a-policy) that requires storage accounts to use TLS 1.2.
+## Step 4: Observe activity
+
+You can scope the resource activity report to a specific storage account by searching for the name of your storage account. To do this, type its name into the search field. Guardrails will show all notifications related to the storage account. In the screen below, the `RESOURCE CREATED` activity represents Guardrails discovery of the storage account and `RESOURCE UPDATED` indicates that Guardrails has updated the CMDB entry with additional details about it.
+
+<p><img alt="filter 3" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/observe-azure-activity/filter-3.png"/></p>
+
+## Step 5: Downgrade to TLS 1.0
+
+Azure storage accounts default to TLS 1.2. Select the link *Version 1.2* to open the configuration screen.
+
+<p><img alt="tls 1" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/observe-azure-activity/tls-1.png"/></p>
+
+Choose `TLS 1.0` and select **Save**.
+
+<p><img alt="tls 2" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/observe-azure-activity/tls-2.png"/></p>
+
+## Step 6: Observe events
+
+Switch back to the Guardrails console browser tab. Guardrails' event processing system will soon detect the change, and a new `RESOURCE UPDATED` notification will appear in the list. Select that new notification from the Activities list.
+
+<p><img alt="filter 4" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/observe-azure-activity/filter-4.png"/></p>
+
+## Step 7: Audit resource change
+
+On the notifications detail page, you can see metadata about the change and even audit the changes in configuration between the previous known state and the observed change. Scroll down in the **DIFF** section to observe the changes that Guardrails has recorded. 
+
+<p><img alt="diff" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/observe-azure-activity/diff.png"/></p>
+
+## Step 8: Review
+
+In this guide you changed the TLS property of an Azure storage account and observed how Guardrails recorded the change.
+
+## Next Steps
+
+Next we’ll explore [how to enable a policy pack](/guardrails/docs/getting-started/getting-started-azure/enable-policy-pack) that requires storage account to use TLS 1.2.
 
 
 ## Progress tracker
