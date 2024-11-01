@@ -19,13 +19,13 @@ An AWS Account to import into Guardrails.
 
 Select **App registrations**.
 
-<p><img alt="app registrations" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/locate-app-registrations.png"/></p>
+<p><img alt="app registrations" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/locate-app-registrations.png"/></p>
 
 ## Step 2: Begin new registration
 
 Select **New registration**.
 
-<p><img alt="new registration" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/new-registration.png"/></p>
+<p><img alt="new registration" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/new-registration.png"/></p>
 
 ## Step 3: Register the app
 
@@ -33,19 +33,19 @@ Name the application. The name ought to be recognizable as a Guardrails registra
 
 Select **Register**.
 
-<p><img alt="register app" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/name-and-create.png"/></p>
+<p><img alt="register app" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/name-and-create.png"/></p>
 
 ## Step 4: Capture details
 
 Capture the Application (client) ID and Directory (tenant) IDs, you will need them later. Select the linked name of your subscription.
 
-<p><img alt="capture details" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/registered-app.png"/></p>
+<p><img alt="capture details" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/registered-app.png"/></p>
 
 ## Step 5: Locate Certificates & secrets.
 
 Select **Certificates & secrets**.
 
-<p><img alt="locate secrets" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/secrets-1.png"/></p>
+<p><img alt="locate secrets" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/secrets-1.png"/></p>
 
 ## Step 6: Create secret
 
@@ -53,13 +53,13 @@ Select **Create new secret**, write a description, and select **Add**.
 
 Capture the Value (not the Secret ID) for use later.
 
-<p><img alt="create secret" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/secrets-2.png"/></p>
+<p><img alt="create secret" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/secrets-2.png"/></p>
 
 ## Step 7: Launch cloud shell
 
 Select the cloud shell icon.
 
-<p><img alt="launch cloud shell" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/cloudshell-1.png"/></p>
+<p><img alt="launch cloud shell" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/cloudshell-1.png"/></p>
 
 ## Step 8: Create a ReadOnly role
 
@@ -89,7 +89,7 @@ In the cloudshell, launch a text editor (e.g. `nano guardrails_reader_role.json`
 
 If using `nano`, the commands to save and exit are **CTRL-O** (Write Out), **Enter** (to save), and **CTRL-X** (to exit).
 
-<p><img alt="create json filel" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/cloudshell-2.png"/></p>
+<p><img alt="create json filel" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/cloudshell-2.png"/></p>
 
 
 Run this command to create the role.  
@@ -104,29 +104,29 @@ Run this command to verify the role was created.
 az role definition list --name "guardrails_reader"
 ```
 
-<p><img alt="launch cloud shell" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/cloudshell-3.png"/></p>
+<p><img alt="launch cloud shell" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/cloudshell-3.png"/></p>
 
 ## Step 9: Assign the role to the app
 
 Navigate to the portal home page, select **Subscriptions**, select your subscription, then select **Access control (IAM)**.
 
-<p><img alt="assign role 1" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/assign-role-1.png"/></p>
+<p><img alt="assign role 1" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/assign-role-1.png"/></p>
 
 Expand the **Add** dropdown and choose **Add role assignment**.
 
-<p><img alt="assign role 2" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/assign-role-2.png"/></p>
+<p><img alt="assign role 2" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/assign-role-2.png"/></p>
 
 Search for the role you created, click to select it, and select **Next**.
 
-<p><img alt="assign role 3" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/assign-role-3.png"/></p>
+<p><img alt="assign role 3" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/assign-role-3.png"/></p>
 
 Select **Select members**, search for your registered app, and **Select** it.
 
-<p><img alt="assign role 4" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/assign-role-4.png"/></p>
+<p><img alt="assign role 4" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/assign-role-4.png"/></p>
 
 Select **Review + assign**.
 
-<p><img alt="assign role 5" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/prepare-subscription/assign-role-5.png"/></p>
+<p><img alt="assign role 5" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/assign-role-5.png"/></p>
 
 ## Step 10: Review
 

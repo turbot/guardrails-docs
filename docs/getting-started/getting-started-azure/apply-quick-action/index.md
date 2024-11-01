@@ -28,28 +28,28 @@ In the Azure portal, go to the resource group that contains the storage accounts
 Click `Add role assignment`.
 
 Search for and select `Azure Storage Contributor`.
-<p><img alt="azure-search-select-azure-storage-contributor" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-search-select-azure-storage-contributor.png"/></p>
+<p><img alt="azure-search-select-azure-storage-contributor" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/azure-search-select-azure-storage-contributor.png"/></p>
 
 Click `Next`.
 
   
 Click `Select members`, search for your registered app, and click `Select`.
-<p><img alt="azure-select-registered-app-for-role-assignment" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-select-registered-app-for-role-assignment.png"/></p>
+<p><img alt="azure-select-registered-app-for-role-assignment" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/azure-select-registered-app-for-role-assignment.png"/></p>
 
 Click `Review and assign` to assign the role.
 
 ## Step 2: Enable Quick Actions
 
 Do a top-level search for `quick actions` and click into the `Turbot > Quick Actions > Enabled` setting.
-<p><img alt="azure_find_quick_actions_policies" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-find-quick-actions-policies.png"/></p>
+<p><img alt="azure_find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/azure-find-quick-actions-policies.png"/></p>
 
 It’s disabled by default. On its Policy Type page, click `New Policy Setting`, choose your Sandbox as the target resource, choose `Enabled`, and click `Create`.  
-<p><img alt="azure_ready_to_enable_quick_actions" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-ready-to-enable-quick-actions.png"/></p>
+<p><img alt="azure_ready_to_enable_quick_actions" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/azure-ready-to-enable-quick-actions.png"/></p>
 
 ## Step 3: Find a storage account in Alarm for TLS version
 
 In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-azure/send-alert-to-email) we left your test bucket in the `Alarm` state. Search for it, click into the resource, switch to the `Controls` tab, and search for `tls`.   
-<p><img alt="find_azure_search_storage_account_in_alarm_for_quick_action" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/find-azure-search-storage-account-in-alarm-for-quick-action.png"/></p>  
+<p><img alt="find_azure_search_storage_account_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/find-azure-search-storage-account-in-alarm-for-quick-action.png"/></p>  
 
 
 ## Click into the control and expand the `Actions` dropdown.[image: azure_versioning_quick_action_dropdown]Step 4: Take a Quick Action to enforce minimum TLS version
@@ -59,10 +59,10 @@ In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-azure/sen
 Choose `Set Minimum TLS Version`.
 
 Guardrails reports that the action was successful, and the control goes to green.  
-<p><img alt="azure_quick_action_reports_success" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-quick-action-reports-success.png"/></p>  
+<p><img alt="azure_quick_action_reports_success" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/azure-quick-action-reports-success.png"/></p>  
   
 For more detail about what happened here, go to the top-level `Reports` tab, search in the page for `Activity Ledger`, and filter on `Control Type` == `Azure > Storage > Storage Account`.  
-<p><img alt="azure_quick_action_report_detail" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-quick-action-report-detail.png"/></p>
+<p><img alt="azure_quick_action_report_detail" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/azure-quick-action-report-detail.png"/></p>
 
 The flow of notifications tells the story. Reading from the bottom up, Guardrails:  
   
