@@ -12,7 +12,7 @@ This is the ninth guide in the *Getting started with AWS series*.
 **Prerequisites**: 
 
 - Completion of the previous guides in this series.
-- Access to the Guardrails console with administrative privlidges.
+- Access to the Guardrails console with administrative privileges.
 - Access to an AWS account with administrative privlidges to add permissions to the Guardrails cross-account role.
 
 

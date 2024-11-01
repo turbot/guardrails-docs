@@ -13,7 +13,7 @@ This is the fourth guide in the *Getting started with AWS* series.
 ## Prerequisites
 
 - Completion of the previous guides in this series.
-- Access to the Guardrails console with administrative privlidges.
+- Access to the Guardrails console with administrative privileges.
 - Access to AWS console with the ability to create and modify S3 buckets.
 
 ## Step 1: Check bucket versioning in AWS
@@ -51,13 +51,13 @@ On the account resource page, select the **Detail** sub-tab.
 <p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/navigate-3.png"/></p>
 
 
-## Step 5: Attach the Policy Pack
+## Step 5: Locate the Policy Pack manager
 
 Select the **Manage Link** next to **Policy Packs** UI widget.
 
 <p><img alt="aws-locate-policy-pack-manage" src="/images/docs/guardrails/getting-started/getting-started-aws/enable-policy-pack/aws-locate-policy-pack-manage.png"/></p>
 
-## Step 6: Attach the policy pack to your account
+## Step 6: Attach the Policy Pack to your account
 
 In the **Edit policy pack attachments** dialog box, select **Add**.
 
@@ -81,7 +81,7 @@ In this guide you’ve attached a Policy Pack to your AWS account to check S3 bu
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-aws/review-across-account) you will create some additional buckets to see how the Policy Pack responds to new resource creation.
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/review-account-wide) you will create some additional buckets to see how the Policy Pack responds to new resource creation.
 
 
 ## Progress tracker
