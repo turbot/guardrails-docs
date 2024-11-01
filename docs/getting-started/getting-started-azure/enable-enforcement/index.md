@@ -30,15 +30,15 @@ In the Azure portal,  set the minimum TLS version for your original test bucket
 ## Step 2: Find the TLS version policy for the storage account
 
 Search for the storage account. In  [Create a static  exception](/guardrails/docs/runbooks/getting-started-azure/create-static-exception) we set its TLS versioning policy to `Skip`.  
-<p><img alt="azure_find_storage_account_tls_versioning_policy_setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/azure-find-storage-account-tls-versioning-policy-setting.png"/></p>  
+<p><img alt="azure_find_storage_account_tls_versioning_policy_setting" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/enable-enforcement/azure-find-storage-account-tls-versioning-policy-setting.png"/></p>  
   
 Step 3: Update the policy setting  
   
 Click into the Policy Setting, click `Edit`. Originally we had an exception to "Skip" the bucket from checking the TLS version.  Now we will automatically enforce the minimum secure version, 1.2.  Choose `Enforce: TLS 1.2` and click `Update`.  
-<p><img alt="azure_enforce_tls_1.2" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/azure-enforce-tls-1.2.png"/></p>  
+<p><img alt="azure_enforce_tls_1.2" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/enable-enforcement/azure-enforce-tls-1.2.png"/></p>  
   
 On the Policy Setting page, switch to the `Activity` tab.  
-<p><img alt="azure_enforcement_happened" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/azure-enforcement-happened.png"/></p>
+<p><img alt="azure_enforcement_happened" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/enable-enforcement/azure-enforcement-happened.png"/></p>
 
 Here you can see the whole history. Reading from the bottom up:
 

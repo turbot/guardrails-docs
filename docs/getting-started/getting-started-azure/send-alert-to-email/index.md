@@ -6,70 +6,102 @@ sidebar_label: Send an Alert to Email
 
 # Send an Alert to Email
 
+In this guide you'll learn how to enable Guardrails notifications and configure the notification rules to send email notifications. Similar configuration options exist to send notifications to Slack or Teams channels, and to generic webhooks. Our [launch week announcement blog post](/guardrails/blog/2023/10/guardrails-notifications) includes a demo of notifications in action.
+
+This is the eighth guide in the *Getting started with Azure series*.
+
 **Prerequisites**: 
 
-- [Prepare an Azure Subscription for Import to Guardrails](/guardrails/docs/getting-started/getting-started-azure/prepare-subscription/)
-- [Connect an Azure Subscription to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-subscription/)
-- [Observe Azure Resource Activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity/)
-- [Enable Your First Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-azure/enable-policy-pack/)
-- [Review Subscription-Wide Governance](/guardrails/docs/getting-started/getting-started-azure/review-account-wide/)
-- [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-static-exception/)
-- [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-calculated-exception/)
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privileges.
+
+## Step 1: Create policy setting
+
+To enable notifications for your workspace, select **Policies** in the top navigation bar, and then search for `turbot notifications`. Select the **Turbot > Notifications** policy type.
+
+<p><img alt="search-notifications-policy-type" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-aws/send-alert-to-email/search-notifications-policy-type.png"/></p>
+
+Select the **New Policy Setting** button.
+
+<p><img alt="view-turbot-notifications-policy-type" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-aws/send-alert-to-email/view-turbot-notifications-policy-type.png"/></p>
+
+## Step 2: Choose level
+
+Select the **Turbot** root node as the resource.
+
+> [!NOTE]
+> Notifications polices may only be created at the root level (aka Turbot level) of the resource hierarchy.
+
+<p><img alt="view-turbot-notifications-policy-type" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-aws/send-alert-to-email/choose-turbot-root.png"/></p>
+
+## Step 3: Choose setting
+
+Choose the **Enabled** setting. Then select **Create**.
+
+<p><img alt="enable-notifications" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-aws/send-alert-to-email/enable-notifications.png"/></p>
+
+## Step 4: List notifications policies
+
+Navigate back to the list of Notification policies by clicking on the word `Notifications` in the `Turbot > Notifications` breadcrumb.
+
+<p><img alt="notifications-enabled" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-aws/send-alert-to-email/notifications-enabled.png"/></p>
+
+## Step 5: Select Rules policy
+
+Select the **Rule-Based Routing** policy type from the list of policies.
+
+<p><img alt="notifications-enabled" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-aws/send-alert-to-email/locate-rule-based-routing.png"/></p>
+
+## Step 6: View the policy
+
+Select **New Policy Setting**.
+
+<p><img alt="notifications-enabled" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-aws/send-alert-to-email/view-rule-based-routing.png"/></p>
 
 
-In [the previous runbook](/guardrails/docs/runbooks/getting-started-azure/create-calculated-exception) we saw notifications happening in the Guardrails console. Now let’s see how to receive those messages in  email. 
+## Step 7: Create notification rule
 
-## Step 1: Enable your workspace for notifications
-
-  
-To enable notifications for your workspace, search top-level `Policies` for `turbot notifications` and click into the `Turbot > Notifications` policy type.  
-<p><img alt="azure_notifications_policy_type" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-notifications-policy-type.png"/></p>  
-
-
-Open the `Settings`, click into the `Turbot > Notifications` setting, click `Edit`, switch to `Enabled`, and click `Update`.  
-<p><img alt="aws_start_6_update_turbot_notifications_setting" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/aws-start-6-update-turbot-notifications-setting.png"/></p>
-
-## Step 2: Create a notification rule
-
-Search top-level `Policies` for `rule-based routing`, click into the policy type `Turbot > Notifications > Rule-Based Routing`, and click `New Policy Setting`.  
-  
-Select `Turbot` as the resource. This policy must apply at that level.  
-  
-Enter this rule, along with one or more email addresses you want to notify.  
-  
+Again choose **Turbot** as the **Resource**. Copy and paste this rule, using one or more email addresses you want to notify. 
+ 
 ```yaml
-- rules: |
-          NOTIFY $.control.state:alarm
-  emails:
-  - you@yourcompany.com  
-```  
-<p><img alt="aws_start_6_create_notification_rule" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/aws-start-6-create-notification-rule.png"/></p>
+- rules: NOTIFY $.control.state:alarm $.control.state:alarm $.controlType.uri:'tmod:@turbot/azure-storage#/policy/types/storageAccountMinimumTlsVersion'
+  emails:
+    - you@yourcompany.com
+``` 
+ 
+The rule will send an alert to the configured email address when any control enters the `Alarm` state for storage account TLS version.
 
-Click `Update`.  
+Select **Create**.
+
+<p><img alt="create-rule" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/send-alert-to-email/raw-create-notification-rule.png"/></p>
+
+## Step 8: Find the storage account skipped by your calculated policy
+
+At the end of [Create a calculated exception](/guardrails/getting-started/getting-started-gcp/create_calculated_exception), your test storage account – the one you tagged with `environment:development` – was in a `Skipped` state for access control. To verify, revisit **Controls by State**, choose the **Type** as **Azure > Storage > Storage Account > Minimum TLS Version**, and search for the bucket.
+
+<p><img alt="find-skipped" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/send-alert-to-email/raw-find-skipped.png"/></p>
+
+## Step 9: Trigger the notification
+
+Now, in the Azure portal console, change the tag `environment:development` to `environment:production`. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: TLS 1.2`. And because you left the setting at TLS 1.0, the control for that setting now transitions to `Alarm`.   
+
+<p><img alt="observe-untagged" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-gcp/send-alert-to-email/raw-storage-account-in-alarm.png"/></p>  
 
 
-The rule will send an alert to the configured email address when any control enters the `Alarm` state.
-
-## Step 3: Trigger the notification rule
-
-At the end of [Create a calculated exception](/guardrails/docs/runbooks/getting-started-azure/create_calculated_exception), your test storage account – the one you tagged with `environment:development` – was in a `Skipped` state for TLS version. To verify, do a top-level search for the storage account, click into the resource, choose the `Controls` tab, and search for `azure storage tls version`.
-<p><img alt="azure_refind_storage_account_tls_version_control" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-refind-storage-account-tls-version-control.png"/></p>
-
-Now, in the Azure portal, remove the `environment:development` tag. The calculated policy setting, which had evaluated to `Skip`, now evaluates to `Check: TLS 1.2`.  And because you left the storage account in a different state  – TLS v1.1  – the storage account’s control for versioning now transitions to `Alarm`.   
-<p><img alt="azure_observe_storage_account_in_alarm" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-observe-storage-account-in-alarm.png"/></p>  
-
-
-## Step 4: Check email
-
-  
-Now check your email.
-<p><img alt="azure_view_email_notification" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/azure-view-email-notification.png"/></p>
+## Step 10: Check your email
 
 The alarm reported in the Guardrails console also appears in your inbox. You can alternatively configure Guardrails to send alerts to [Slack]([guardrails/docs/guides/notifications/templates#example-slack-template](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)) or [MS Teams](/guardrails/docs/guides/notifications/templates#example-ms-teams-template).
 
-Now that we have successfully alerted on controls, you can repeat this exercise with other Policy Packs from the [Guardrails Hub](hub.guardrails.com). 
+<p><img alt="view-email-notification" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/send-alert-to-email/view-email-notification.png"/></p>
 
-In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, correct the TLS version for the storage account that’s now in the `Alarm` state and make it green.
+## Step 11: Review
+
+In this guide you configured a simple notification rule and triggered a notification event.
+
+
+## Next Steps
+
+In the [next guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, directly enable uniform access on a bucket that’s now in the `Alarm` state and make it green.
 
 
 ## Progress tracker
