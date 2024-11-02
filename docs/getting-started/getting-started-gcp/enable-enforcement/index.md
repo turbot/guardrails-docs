@@ -66,7 +66,7 @@ This Getting Started series just scratches the surface of what you can do with G
 
 ## Progress tracker
 
-*Congratulations! You did it!**
+**Congratulations! You did it!**
 
 - [x] Prepare a GCP Project for Import to Guardrails
 - [x] Connect a GCP Project to Guardrails
