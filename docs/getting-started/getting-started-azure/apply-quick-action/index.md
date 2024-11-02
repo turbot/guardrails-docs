@@ -3,74 +3,80 @@ title: Apply a Quick Action
 sidebar_label: Apply a Quick Action
 ---
 
+In this guide we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations. A Quick Action empowers an administrator to quickly fix misconfigurations by applying a change directly to an underlying Azure resource. In order to use this feature, the role used by Guardrails will need additional permissions to perform those actions. This guide will instruct you how to change the permissions specific to storage accounts, other types of quick actions will require different permission grants.
 
+This is the ninth guide in the *Getting started with Azure series*.
+
+**Prerequisites
+
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privileges.
+- Access to a the Azure portal with administrative privlidges to add permissions to the Guardrails role.
   
-Until now we’ve operated Guardrails in read-only mode, with the minimal permissions needed to discover resources, track changes, and alert on misconfigurations. In this runbook we’ll show how you can enable Guardrails to perform [Quick Actions](/guardrails/docs/guides/quick-actions) that fix misconfigurations.
+## Step 1: Locate the resource group
 
-# Apply a Quick Action
+In the Azure portal, navigate to **Resource Groups** and select the storage accounts you’re using in this series.
 
-**Prerequisites**: 
+<p><img alt="permissions 1" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/permissions-1.png"/></p>
 
-- [Prepare an Azure Subscription for Import to Guardrails](/guardrails/docs/getting-started/getting-started-azure/prepare-subscription/)
-- [Connect an Azure Subscription to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-subscription/)
-- [Observe Azure Resource Activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity/)
-- [Enable Your First Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-azure/enable-policy-pack/)
-- [Review Subscription-Wide Governance](/guardrails/docs/getting-started/getting-started-azure/review-account-wide/)
-- [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-static-exception/)
-- [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-calculated-exception/)
-- [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-azure/send-alert-to-email/)
-  
-  
-Step 1: Assign the `Storage Account Contributor` role to your registered app
+## Step 2: Open **Access Control (IAM)**.
 
-In the Azure portal, go to the resource group that contains the storage accounts you’re using in this series.   
-  
-Click `Add role assignment`.
+<p><img alt="permissions 2" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/permissions-2.png"/></p>
 
-Search for and select `Azure Storage Contributor`.
-<p><img alt="azure-search-select-azure-storage-contributor" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-search-select-azure-storage-contributor.png"/></p>
+## Step 3: Begin role assignment
 
-Click `Next`.
+Expand the **Add** dropdown and choose **Add role assignment**.
 
-  
-Click `Select members`, search for your registered app, and click `Select`.
-<p><img alt="azure-select-registered-app-for-role-assignment" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-select-registered-app-for-role-assignment.png"/></p>
+<p><img alt="permissions 3" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/permissions-3.png"/></p>
 
-Click `Review and assign` to assign the role.
+## Step 4: Search for the role
 
-## Step 2: Enable Quick Actions
+Seach for `storage account contributor`, select it, and select **Next**.
 
-Do a top-level search for `quick actions` and click into the `Turbot > Quick Actions > Enabled` setting.
-<p><img alt="azure_find_quick_actions_policies" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-find-quick-actions-policies.png"/></p>
+<p><img alt="permissions 4" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/permissions-4.png"/></p>
 
-It’s disabled by default. On its Policy Type page, click `New Policy Setting`, choose your Sandbox as the target resource, choose `Enabled`, and click `Create`.  
-<p><img alt="azure_ready_to_enable_quick_actions" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-ready-to-enable-quick-actions.png"/></p>
+## Step 5: Search for registered app
 
-## Step 3: Find a storage account in Alarm for TLS version
+Select **Select members**, search for the name of your registered app, and **Select** it.
 
-In [Send an alert to email]( /guardrails/docs/runbooks/getting-started-azure/send-alert-to-email) we left your test bucket in the `Alarm` state. Search for it, click into the resource, switch to the `Controls` tab, and search for `tls`.   
-<p><img alt="find_azure_search_storage_account_in_alarm_for_quick_action" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/find-azure-search-storage-account-in-alarm-for-quick-action.png"/></p>  
+<p><img alt="permissions 5" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/permissions-5.png"/></p>
 
+## Step 6: Review and assign
 
-## Click into the control and expand the `Actions` dropdown.[image: azure_versioning_quick_action_dropdown]Step 4: Take a Quick Action to enforce minimum TLS version
+<p><img alt="permissions 6" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/permissions-6.png"/></p>
 
-  
-  
-Choose `Set Minimum TLS Version`.
+## Step 5: Find Quick Actions
 
-Guardrails reports that the action was successful, and the control goes to green.  
-<p><img alt="azure_quick_action_reports_success" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-quick-action-reports-success.png"/></p>  
-  
-For more detail about what happened here, go to the top-level `Reports` tab, search in the page for `Activity Ledger`, and filter on `Control Type` == `Azure > Storage > Storage Account`.  
-<p><img alt="azure_quick_action_report_detail" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/apply-quick-action/azure-quick-action-report-detail.png"/></p>
+Select **Policies** from the top-level navigation. In the search box, type `quick actions`, then select the **Turbot > Quick Actions > Enabled** policy type.
 
-The flow of notifications tells the story. Reading from the bottom up, Guardrails:  
-  
-- performs the action  
-  
-- notices the updated bucket  
-  
-- reevaluates the control.
+<p><img alt="find_quick_actions_policies" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/find-quick-actions-policies.png"/></p>
+
+Select the green **New Policy Setting** button.
+
+<p><img alt="view-quick-actions-enabled-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/view-quick-actions-enabled-policy-type.png"/></p>
+
+## Step 6: Enable Quick Actions
+
+Choose **Sandbox** as the **Resource**, and then select **Enabled**, and click the green **Create** button.  
+
+<p><img alt="aws-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-enable-quick-actions.png"/></p>
+
+## Step 7: Find a storage account in Alarm
+
+STUCK HERE WITH BALKY AZURE
+
+## Step 8: Select a bucket in Alarm
+
+## Step 9: Use a Quick Action
+
+## Step 10: Observe the change
+
+## Step 11: Verify that it workede
+
+## Step 12: Review
+
+In this guide you increased the permissions scope for your role, enabled Guardrails Quick Actions and, used a Quick Action to change a storage account's TLS setting.
+
 
 In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.
 

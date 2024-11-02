@@ -19,65 +19,65 @@ This is the sixth guide in the *Getting started with Azure* series.
 
 Navigate to the **Controls by State** report, expand the **Type** dropdown, and search for `azure storage account tls`. Enable the checkbox next to **Azure > Storage > Storage Account > Minimum TLS Version** to filter by **Type**.
 
-<p><img alt="filter 1" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/review-subscription-wide/filter-1.png"/></p>
+<p><img alt="filter 1" src="/images/docs/guardrails/getting-started/getting-started-azure/review-subscription-wide/filter-1.png"/></p>
 
 ## Step 2: Set the State filter
 
 You can also filter by **State**. Expand that dropdown, and enable the checkbox next to **Alarm**.
 
-<p><img alt="filter 3" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/create-static-exception/filter-3.png"/></p>
+<p><img alt="filter 3" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/filter-3.png"/></p>
 
 
 ## Step 3: Choose a storage account
 
 Pick a control, here `guardrailsazurestorage1`, and select its linked name.
 
-<p><img alt="choose-storage-account" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/create-static-exception/choose-storage-account.png"/></p>
+<p><img alt="choose-storage-account" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/choose-storage-account.png"/></p>
 
 
 ## Step 4: View resource details
 
 Because we were viewing the **Controls by State** report, our action landed us on the **Control Details** page. We can switch to the **Resource Detail** view by using the blue **Resource** link next to the sub-tab bar.
 
-<p><img alt="open-control" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/create-static-exception/raw-open-control.png"/></p>
+<p><img alt="open-control" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-open-control.png"/></p>
 
 ## Step 5: View polices for the storage account
 
 Now that you are are viewing the **Resource Detail** for the selected bucket, you can create an exception for this resource. To do that you will create a new policy setting. Select the **Policies** sub-tab and click the green **New Policy Setting** button.
 
-<p><img alt="switch-to-policies" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/create-static-exception/policies-sub-tab.png"/></p>
+<p><img alt="switch-to-policies" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/policies-sub-tab.png"/></p>
 
 
 ## Step 6: Select the policy type
 
 In the **Type** dropdown, search for `azure storage tls version`, and enable the checkbox next to **Azure > Storage > Storage Account > Minimum TLS Version**.
 
-<p><img alt="find policy setting" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/create-static-exception/select-policy-type.png"/></p>
+<p><img alt="find policy setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/select-policy-type.png"/></p>
 
 ## Step 7: Create the policy exception
 
 Choose the **Skip** setting, and select **Create**.
 
-<p><img alt="create-policy-setting" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/create-static-exception/create-policy-setting.png"/></p>
+<p><img alt="create-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/create-policy-setting.png"/></p>
 
 ## Step 8: Confirm the setting
 
 This bucket is now exempt from the requirement to enable uniform access.
 
-<p><img alt="confirm setting" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/create-static-exception/raw-confirm-policy-setting.png"/></p>
+<p><img alt="confirm setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-confirm-policy-setting.png"/></p>
 
   
 ## Step 9: View in context
 
 Select the **Hierarchy** tab. The project-level policy specifies **Check: Uniform**. You’ve overridden that with an exception that exempts this particular bucket from that policy.  
 
-<p><img alt="view-hierarchy" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/create-static-exception/raw-view-hierarchy.png"/></p>
+<p><img alt="view-hierarchy" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-view-hierarchy.png"/></p>
 
 ## Step 10: Review storage account activity
 
 Select the **Activity** tab and observe the history. When you created the storage-account-level policy setting to make an exception for this storage account, the control reevaluated and set the status to `Skipped`.  
 
-<p><img alt="review-activity" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/create-static-exception/raw-view-activity.png"/></p>
+<p><img alt="review-activity" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-view-activity.png"/></p>
 
 ## Step 11: Review
 

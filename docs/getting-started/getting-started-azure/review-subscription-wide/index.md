@@ -19,13 +19,13 @@ This is the fifth guide in the *Getting started with GCP* series.
 
 Navigate back to the **Controls by State** report (or use your saved bookmark), expand the **Type** dropdown, and search for `azure storage account tls`. Enable the checkbox next to **Azure > Storage > Storage Account > Minimum TLS Version** to set the filter.
 
-<p><img alt="filter-1" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/review-subscription-wide/filter-1.png"/></p>
+<p><img alt="filter-1" src="/images/docs/guardrails/getting-started/getting-started-azure/review-subscription-wide/filter-1.png"/></p>
 
 ## Step 2: Filter on controls for TLS version
 
 Your test storage account is in the `Alarm` (red) state: out of policy. Others, if created with the default TLS setting, are in the `OK` (green) state: in policy.
 
-<p><img alt="filter-2" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/review-subscription-wide/filter-2.png"/></p>
+<p><img alt="filter-2" src="/images/docs/guardrails/getting-started/getting-started-azure/review-subscription-wide/filter-2.png"/></p>
 
 ## Step 3: Create test storage accounts
 
@@ -40,7 +40,7 @@ Keep your names similar and consistent so you can easily filter and see all your
 
 As you create the storage accounts, Guardrails detects them and evaluates their configuration relative to your policies. By changing our search string we can see all at the same time.
 
-<p><img alt="new-in-alarm" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/review-subscription-wide/storage-accounts-in-alarm.png"/></p>
+<p><img alt="new-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-azure/review-subscription-wide/storage-accounts-in-alarm.png"/></p>
 
 The new storage accounts are in the `Alarm` state because, as with the first one, you downgraded TLS to 1.0. The current policy requires all storage accounts to have a minumum version of 1.2.
 

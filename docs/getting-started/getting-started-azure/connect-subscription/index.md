@@ -20,17 +20,17 @@ This is the second guide in the *Getting started with Azure* series.
 
 Login to your Guardrails console and select the **CONNECT** option from the home page.
 
-<p><img alt="login" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/connect-subscription/login.png"/></p>
+<p><img alt="login" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/login.png"/></p>
 
 ## Step 2: Select Azure Subscription
 
-<p><img alt="connect-1" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/connect-subscription/connect-1.png"/></p>
+<p><img alt="connect-1" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/connect-1.png"/></p>
 
 ## Step 3: Select import location
 
 Use the **Parent Resource** dropdown to select the **Sandbox** folder as the location to import the subscription.
 
-<p><img alt="connect-2" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/connect-subscription/connect-2.png"/></p>
+<p><img alt="connect-2" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/connect-2.png"/></p>
 
 ## Step 4: Enter details
 
@@ -38,7 +38,7 @@ If you forgot to save all these details when completing the first guide, you can
 
 - Subscription ID. The **Home > Subscriptions** page has your *Subscription ID*
 
-- Tenant ID and *Client ID. The **Home > App registrations** page has *Directory (tenant) ID* and *Application (client) ID*.
+- Tenant ID and Client ID. The **Home > App registrations** page has *Directory (tenant) ID* and *Application (client) ID*.
 
 - Client Key. If you forgot to save the value of the secret you created in the first guide, you can use **Home > App registrations > YOUR_APP_NAME > Certificates & secrets** to create a new one. Use the *Value* (not the *Secret ID*).
 
@@ -46,19 +46,19 @@ Select your environment (likely *Global Cloud*).
 
 Select **Connect**.
 
-<p><img alt="connect-3" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/connect-subscription/connect-3.png"/></p>
+<p><img alt="connect-3" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/connect-3.png"/></p>
 
 ## Step 5: Observe progress
 
 Wait for the progress bar to complete. The time this takes will depend on how many resources are in the account; it is normal for the progress bar to fluctuate in size as new types of resources are discovered.
 
-<p><img alt="progress" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/connect-subscription/progress-bar.png"/></p>
+<p><img alt="progress" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/progress-bar.png"/></p>
 
 ## Step 6: View Controls by State
 
 Select **Reports** from the top navigation menu. Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list. 
 
-<p><img alt="search-for-controls-reports" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
+<p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
 ## Step 7: Configure report filters
 
@@ -66,17 +66,17 @@ From the filter bar, expand the **Type** dropdown. Then select the checkbox next
  
 Bookmark the **Controls by State** report, you’ll need it in subsequent guides. 
 
-<p><img alt="filter-1" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-aws/connect-an-account/set-type-filter.png"/></p>
+<p><img alt="filter-1" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-an-account/set-type-filter.png"/></p>
 
 ## Step 7: View the report
 
 Review the status of your controls for Azure.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your subscription. If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
 
-<p><img alt="filter-2" src="/home/jon/guardrails-docs/docs/getting-started/getting-started-azure/connect-subscription/filter-2.png"/></p>
+<p><img alt="filter-2" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/filter-2.png"/></p>
 
 ## Step 8: Review
 
-In this guide you successfully imported an Azure account into Guardrails.
+In this guide you successfully imported an Azure subscription into Guardrails.
 
 ## Next Steps
 
