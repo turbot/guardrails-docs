@@ -3,60 +3,66 @@ title: Enable Automatic Enforcement
 sidebar_label: Enable Automatic Enforcement
 ---
 
-  
-  
-In the [previous runbook](/guardrails/docs/runbooks/getting-started-azure/apply-quick-action) we showed how to assign a role thatt enables you to take a `Quick Action` on the minimum TLS version for a storage account. That’s needed here as well, as we explore how to empower Guardrails to take such actions autonomously.
-
 # Enable Automatic Enforcement
 
-**Prerequisites**:  
-  
-- [Prepare an Azure Subscription for Import to Guardrails](/guardrails/docs/getting-started/getting-started-azure/prepare-subscription/)
-- [Connect an Azure Subscription to Guardrails](/guardrails/docs/getting-started/getting-started-azure/connect-subscription/)
-- [Observe Azure Resource Activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity/)
-- [Enable Your First Guardrails Policy Pack](/guardrails/docs/getting-started/getting-started-azure/enable-policy-pack/)
-- [Review Subscription-Wide Governance](/guardrails/docs/getting-started/getting-started-azure/review-account-wide/)
-- [Create a Static Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-static-exception/)
-- [Create a Calculated Exception to a Guardrails Azure Policy](/guardrails/docs/getting-started/getting-started-azure/create-calculated-exception/)
-- [Send an Alert to Email](/guardrails/docs/getting-started/getting-started-azure/send-alert-to-email/)
-- [Apply a Quick Action](/guardrails/docs/getting-started/getting-started-azure/apply-quick-action/)
+In this guide we’ll show how you can enable Guardrails to act autonomously. For large cloud footprints, it is often desirable to have Guardrails take automated actions based on your organization's compliance and security posture. Guardrails' controls can take a number of different automated enforcement actions, including deleting resources, changing the configuration of a resource, and tagging a resource.
+
+This is the last guide in the *Getting started with Azure series*.
+
+**Prerequisites**:
+
+- Completion of the previous guides in this series.
+- Access to the Guardrails console with administrative privileges.
+
+> [!NOTE]
+> In the [previous guide](/guardrails/docs/getting-started/getting-started-azure/apply-quick-action) we showed how to add the permission that enables you to take a **Quick Action** on Azure storage accounts. This guide also requires that permission.
 
 
-Step 1: Lower the minimum TLS version
+## Step 1: Open the Policy Pack
 
-In the Azure portal,  set the minimum TLS version for your original test bucket, in our case `guardrailsazurestorage1`, to 1.0.  
+In the guide titled [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-azure/enable-policy-pack) you enabled `Enforce Secure TLS Version for Azure Storage Accounts`. Select **Policies** from the top-level navigation bar, then choose that Policy Pack from the list.
 
+<p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/raw-locate-policy-pack.png"/></p>
 
-## Step 2: Find the TLS version policy for the storage account
+## Step 2: Edit the policy setting
 
-Search for the storage account. In  [Create a static  exception](/guardrails/docs/runbooks/getting-started-azure/create-static-exception) we set its TLS versioning policy to `Skip`.  
-<p><img alt="azure_find_storage_account_tls_versioning_policy_setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/azure-find-storage-account-tls-versioning-policy-setting.png"/></p>  
-  
-Step 3: Update the policy setting  
-  
-Click into the Policy Setting, click `Edit`. Originally we had an exception to "Skip" the bucket from checking the TLS version.  Now we will automatically enforce the minimum secure version, 1.2.  Choose `Enforce: TLS 1.2` and click `Update`.  
-<p><img alt="azure_enforce_tls_1.2" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/azure-enforce-tls-1.2.png"/></p>  
-  
-On the Policy Setting page, switch to the `Activity` tab.  
-<p><img alt="azure_enforcement_happened" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/azure-enforcement-happened.png"/></p>
+Select the pencil icon next to the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-gcp/create-calculated-exception).
 
-Here you can see the whole history. Reading from the bottom up:
+<p><img alt="view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/raw-view-policy-setting.png"/></p>
 
-- you updated the policy setting
-
-- Guardrails reevaluated and found the storage account to be out-of-policy
-
-- Guardrails autonomously did what you did with a `Quick Action` in the previous runbook: enforce the minimum secure version, TLS 1.2
+## Step 3: Disable calculated mode
 
   
-- Guardrails noticed the bucket’s changed status
+Select **Disable calculated mode** to return to standard policy mode.
 
-- Guardrails reevaluated and found that the bucket now complies with policy
+<p><img alt="edit-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/raw-edit-policy-setting.png"/></p>  
 
-For fun, try lowering the minimum TLS version again. It won’t stay that way for long!
+## Step 4: Enable enforcement
 
-This Getting Started series just scratches the surface.  Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
+Choose **Enforce: TLS 1.2** and select **Update**.
 
+<p><img alt="update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/raw-choose-setting.png"/></p>
+
+## Step 5: Observe Guardrails in action
+
+Use your bookmark to navigate back to **Controls by State** report, and use the **Type** filter to choose **Azure > Storage > Storage Account > Minimum TLS Version**. In a few minutes all of your storage accounts in this subscription are now either `OK` or `Skipped`.
+
+Try downgrading the TLS version on a storage account. It won’t stay that way for long!
+
+<p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/all-ok-or-skipped.png"/></p>
+
+## Step 6: Review
+
+In this guide series you learned the basics of importing GCP accounts into Guardrails, enabling Policy Packs, creating exceptions and notifications, and even more mischief.
+
+## Next Steps
+
+This Getting Started series just scratches the surface of what you can do with Guardrails. Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
+
+## Progress tracker
+
+*Congratulations! You did it!**
+  
 
 ## Progress tracker
 
