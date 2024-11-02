@@ -22,26 +22,26 @@ This is the last guide in the *Getting started with Azure series*.
 
 In the guide titled [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-azure/enable-policy-pack) you enabled `Enforce Secure TLS Version for Azure Storage Accounts`. Select **Policies** from the top-level navigation bar, then choose that Policy Pack from the list.
 
-<p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/raw-locate-policy-pack.png"/></p>
+<p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/locate-policy-pack.png"/></p>
 
 ## Step 2: Edit the policy setting
 
 Select the pencil icon next to the calculated policy you created [earlier](/guardrails/docs/getting-started/getting-started-gcp/create-calculated-exception).
 
-<p><img alt="view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/raw-view-policy-setting.png"/></p>
+<p><img alt="view-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/view-policy-setting.png"/></p>
 
 ## Step 3: Disable calculated mode
 
   
 Select **Disable calculated mode** to return to standard policy mode.
 
-<p><img alt="edit-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/raw-edit-policy-setting.png"/></p>  
+<p><img alt="edit-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/edit-policy-setting.png"/></p>  
 
 ## Step 4: Enable enforcement
 
 Choose **Enforce: TLS 1.2** and select **Update**.
 
-<p><img alt="update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/raw-choose-setting.png"/></p>
+<p><img alt="update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/choose-setting.png"/></p>
 
 ## Step 5: Observe Guardrails in action
 
@@ -49,11 +49,13 @@ Use your bookmark to navigate back to **Controls by State** report, and use the 
 
 Try downgrading the TLS version on a storage account. It won’t stay that way for long!
 
+AZURE IS STUCK HERE 
+
 <p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/all-ok-or-skipped.png"/></p>
 
 ## Step 6: Review
 
-In this guide series you learned the basics of importing GCP accounts into Guardrails, enabling Policy Packs, creating exceptions and notifications, and even more mischief.
+In this guide series you learned the basics of importing Azure subscriptions into Guardrails, enabling Policy Packs, creating exceptions and notifications, and even more mischief.
 
 ## Next Steps
 
@@ -61,11 +63,8 @@ This Getting Started series just scratches the surface of what you can do with G
 
 ## Progress tracker
 
-*Congratulations! You did it!**
+**Congratulations! You did it!**
   
-
-## Progress tracker
-
 - [x] Prepare an Azure Subscription for Import to Guardrails
 - [x] Connect an Azure Subscription to Guardrails
 - [x] Observe Azure Resource Activity
