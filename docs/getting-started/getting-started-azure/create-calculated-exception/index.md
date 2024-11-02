@@ -89,7 +89,7 @@ And paste it into the template pane.
 
 Guardrails evaluates the template in the context of the chosen **Test Resource**. The template output, `Check: TLS`, is the calculated policy value that will govern any storage account’s **Azure > Storage > Storage Account > Minumum TLS Version** policy if it is tagged with `environment:development`. Only these tagged buckets will be required to have TLS 1.2 enabled. Others will be skipped, whether or not they enable TLS 1.2.
   
-The result confirms that `Check: TLS 1.2` is valid for this policy type.  Why? Because the test storage accountbucket does not have a tag `{ "environment": "development" }`.
+The result confirms that `Check: TLS 1.2` is valid for this policy type.  Why? Because the test storage account does not have a tag `{ "environment": "development" }`.
 
 Select **Update**
 

@@ -51,11 +51,11 @@ Select **Certificates & secrets**.
 
 Select **Create new secret**, write a description, and select **Add**.
 
-Capture the Value (not the Secret ID) for use later.
-
 <p><img alt="create secret" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/secrets-2.png"/></p>
 
 ## Step 7: Launch cloud shell
+
+Capture the Value of the secret (not the Secret ID) for use later.
 
 Select the cloud shell icon.
 

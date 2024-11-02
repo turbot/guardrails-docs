@@ -66,15 +66,15 @@ From the filter bar, expand the **Type** dropdown. Then select the checkbox next
  
 Bookmark the **Controls by State** report, you’ll need it in subsequent guides. 
 
-<p><img alt="filter-1" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-an-account/set-type-filter.png"/></p>
+<p><img alt="filter-1" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/filter-1.png"/></p>
 
-## Step 7: View the report
+## Step 8: View the report
 
 Review the status of your controls for Azure.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your subscription. If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
 
 <p><img alt="filter-2" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/filter-2.png"/></p>
 
-## Step 8: Review
+## Step 9: Review
 
 In this guide you successfully imported an Azure subscription into Guardrails.
 

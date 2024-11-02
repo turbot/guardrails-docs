@@ -19,7 +19,7 @@ In the Azure portal, navigate to **Resource Groups** and select the storage acco
 
 <p><img alt="permissions 1" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/permissions-1.png"/></p>
 
-## Step 2: Open **Access Control (IAM)**.
+## Step 2: Open Access Control (IAM)
 
 <p><img alt="permissions 2" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/permissions-2.png"/></p>
 
@@ -45,7 +45,7 @@ Select **Select members**, search for the name of your registered app, and **Sel
 
 <p><img alt="permissions 6" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/permissions-6.png"/></p>
 
-## Step 5: Find Quick Actions
+## Step 7: Find Quick Actions
 
 Select **Policies** from the top-level navigation. In the search box, type `quick actions`, then select the **Turbot > Quick Actions > Enabled** policy type.
 
@@ -55,25 +55,25 @@ Select the green **New Policy Setting** button.
 
 <p><img alt="view-quick-actions-enabled-policy-type" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/view-quick-actions-enabled-policy-type.png"/></p>
 
-## Step 6: Enable Quick Actions
+## Step 8: Enable Quick Actions
 
 Choose **Sandbox** as the **Resource**, and then select **Enabled**, and click the green **Create** button.  
 
 <p><img alt="aws-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-enable-quick-actions.png"/></p>
 
-## Step 7: Find a storage account in Alarm
+## Step 9: Find a storage account in Alarm
 
 STUCK HERE WITH BALKY AZURE
 
-## Step 8: Select a bucket in Alarm
+## Step 10: Select a bucket in Alarm
 
-## Step 9: Use a Quick Action
+## Step 11: Use a Quick Action
 
-## Step 10: Observe the change
+## Step 12: Observe the change
 
-## Step 11: Verify that it workede
+## Step 13: Verify that it worked
 
-## Step 12: Review
+## Step 14: Review
 
 In this guide you increased the permissions scope for your role, enabled Guardrails Quick Actions and, used a Quick Action to change a storage account's TLS setting.
 
