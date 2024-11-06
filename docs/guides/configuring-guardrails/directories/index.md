@@ -5,12 +5,9 @@ sidebar_label: Single Sign-on
 
 # Guardrails and Single Sign-on Directories
 
-Guardrails supports SAML and Google OAuth2 for authentication into a Guardrails workspace. Common SAML directories
-include Azure Entra ID (formerly, Azure AD), Okta and PingID.
+Guardrails supports SAML and Google OAuth2 for authentication into a Guardrails workspace. Common SAML directories include Azure Entra ID (formerly, Azure AD), Okta, and PingID.
 
-User and Group sync is supported by LDAP/LDAPS group. Note that LDAP/LDAPS directories CANNOT be used to authenticate
-into the Guardrails application - it is used to pull groups from an on premise or cloud Active Directory and pair them
-with SAML profiles. This allows simple, widespread management of Guardrails permissions across a large number of users.
+User and Group sync is supported by LDAP/LDAPS group. Note that LDAP/LDAPS directories CANNOT be used to authenticate into the Guardrails application - it is used to pull groups from an on-premise or cloud Active Directory and pair them with SAML profiles. This allows simple, widespread management of Guardrails permissions across a large number of users.
 
 ## Local Directories
 
@@ -31,27 +28,35 @@ with SAML profiles. This allows simple, widespread management of Guardrails perm
 
 * [LDAP/LDAPS](guides/configuring-guardrails/directories/ldap-ldaps)
 
-----------
+### Sync Active Directory Groups to SAML Created Profiles with LDAP as Parent Directory
 
-### Sync Active Directory Groups to SAML Created Profiles
+To centralize identity and permission management, configure LDAP as the parent directory and set up SAML directories as child directories using GraphQL or Terraform. This setup allows Guardrails to consistently map profiles across multiple SAML providers, with LDAP managing group sync and permissions.
 
-Guardrails uses the concept of a **Profile ID Template** to map user attributes to a common Guardrails profile.
+* **Profile ID Template:** To unify user profiles, define a Profile ID Template in LDAP (e.g., based on `email`). Configure SAML directories with the same template for consistent identity mapping. Example:
+  `profile_id_template = "{{profile.email}}"`
 
-Both the Active Directory and SAML Directory directories have an attribute called **Profile ID Template** - an attribute
-pulled directly from the response received by Guardrails when a user authenticates.
+* **Attribute Mapping Consistency**: Ensure attributes like `email` and `username` are mapped consistently across both LDAP and SAML directories to prevent profile mismatches.
 
-To sync groups across directories, simply define the **Profile ID Template** in both the LDAP/LDAPS directory and the
-desired authentication directory. While this particular section is focused on SAML and AD sync, note that any directory
-type can have groups mapped - simply match Profile ID Templates!
+* **LDAP Synchronization Policy:** Enable group synchronization by setting the **Turbot > IAM > Profile > LDAP Synchronization** policy, ideally at the root level. Use `Enforce: Active` or the best practice setting, `Enforce: Delete inactive with 30 days warning`; the 30-day grace period allows for administrators to reactivate profiles without having to re-create if issues arise, such as incomplete or incorrect user name changes.
 
-To enable LDAP Sync, it is also necessary to set the policy **Turbot > IAM > Profile > LDAP Synchronization**. A simple
-solution is to set the policy at the root Turbot level to `Enforce: Active`. This policy can be set at the individual
-profile level, allowing group syncing for some users, but not others.
+Refer to the [LDAP directory guide](guides/configuring-guardrails/directories/ldap-ldaps) and one of the [SAML directory guides](https://turbot.com/guardrails/docs/guides/configuring-guardrails/directories#saml-providers) for initial setup instructions.
 
-However, best practice recommendation is to use the setting `Enforce: Delete inactive with 30 days warning`. When a user
-is disabled in Active Directory, the user is also disabled in Guardrails. However, the 30 day grace period allows for
-administrators to reactivate profiles without having to re-create if issues arise, such as incomplete or incorrect user
-name changes.
+#### Example Configuration Using Terraform
+
+Example Terraform snippet for creating a SAML directory under an LDAP parent:
+
+```hcl
+resource "turbot_saml_directory" "okta_login" {
+  parent              = "<LDAP_directory_resource_id>"
+  title               = "Okta Login"
+  profile_id_template = "{{profile.email}}"
+  description         = "Test Directory to login with Okta"
+  entry_point         = "https://turbot.com/test/saml"
+  certificate         = "-----BEGIN CERTIFICATE-----"
+}
+```
+
+Replace `<LDAP_directory_resource_id>` with the resource ID from the LDAP setup.
 
 ## SAML Directory Security Options
 
