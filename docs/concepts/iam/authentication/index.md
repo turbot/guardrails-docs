@@ -26,7 +26,7 @@ Guardrails currently allows user/group access from 3 different sources:
 | LDAP/ LDAPS                | Guardrails can use a LDAP/ LDAPS directory to sync groups and users and map them to existing profiles.                                                                                                                                                                                                                                                                                                                       |
 
 To setup a new directory or if there are questions regarding LDAP group sync,
-head on over to our [Directories guide](guides/directories).
+head on over to our [Directories guide](guides/configuring-guardrails/directories).
 
 To get right in and assign grants to user profiles on existing directories,
 check out our
