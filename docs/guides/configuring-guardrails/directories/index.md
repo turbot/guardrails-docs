@@ -14,22 +14,22 @@ with SAML profiles. This allows simple, widespread management of Guardrails perm
 
 ## Local Directories
 
-* [Local Directory](guides/directories/local)
+* [Local Directory](guides/configuring-guardrails/directories/local)
 
 ## Google Directories
 
-* [Google Directory](guides/directories/google)
+* [Google Directory](guides/configuring-guardrails/directories/google)
 
 ## SAML Providers
 
-* [AWS SSO](guides/directories/aws-sso)
-* [Azure AD](guides/directories/azure-ad)
-* [Okta](guides/directories/okta)
-* [OneLogin](guides/directories/onelogin)
+* [AWS SSO](guides/configuring-guardrails/directories/aws-sso)
+* [Azure AD](guides/configuring-guardrails/directories/azure-ad)
+* [Okta](guides/configuring-guardrails/directories/okta)
+* [OneLogin](guides/configuring-guardrails/directories/onelogin)
 
 ## LDAP/ LDAPS Synchronization
 
-* [LDAP/LDAPS](guides/directories/ldap-ldaps)
+* [LDAP/LDAPS](guides/configuring-guardrails/directories/ldap-ldaps)
 
 ----------
 
