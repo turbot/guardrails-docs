@@ -17,7 +17,7 @@ The [Authentication](concepts/iam/authentication) concepts page details
 different ways to grant users access to the Guardrails console - Turbot directory
 (local or via an organization directory), SAML (Azure AD, Okta, Ping, etc), and
 Google. Guardrails does support
-[LDAP/LDAPS directories](guides/directories/ldap-ldaps). These directories can
+[LDAP/LDAPS directories](guides/configuring-guardrails/directories/ldap-ldaps). These directories can
 be created to sync active directory groups with Guardrails profiles.
 
 [Identities](concepts/iam/identity) is the mapping of events in the cloud to
@@ -32,7 +32,7 @@ grant users access to a broad and/or specific set of resources.
 
 |                                                                             |                                                                                                                                                                                          |
 | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Setting up a directory](guides/directories)                                | This page includes instructions on creating a Local directory (both a local and organizational directory), Google, Okta, Azure AD, as well as configuring LDAP/LDAPS to sync groups.     |
+| [Setting up a directory](guides/configuring-guardrails/directories)                                | This page includes instructions on creating a Local directory (both a local and organizational directory), Google, Okta, Azure AD, as well as configuring LDAP/LDAPS to sync groups.     |
 | [Best practice for Guardrails provisioned admin](guides/iam/administrators) | Upon workspace creation, a local administrator is provisioned in the local directory. This guide details the steps to take after initial login.                                          |
 | [Adding users to a local Turbot directory](guides/iam/user-mgt)             | SAML and Google directories in Guardrails automatically provision profiles when users login, but administrators must create profiles for a local Turbot directory.                       |
 | [API Access keys](guides/iam/access-keys)                                   | Create API access keys in Guardrails.                                                                                                                                                    |
