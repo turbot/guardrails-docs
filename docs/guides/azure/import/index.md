@@ -33,7 +33,7 @@ management groups, Entra ID Directories or subscriptions.
 
 1. Login to the [Azure portal](https://portal.azure.com/).
 2. Navigate to
-   [Azure Active Directory > App Registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
+   [Microsoft Entra ID > App Registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 
     - Click **New registration**.
     - Name the application. For example, **Guardrails Application**.
@@ -52,7 +52,8 @@ management groups, Entra ID Directories or subscriptions.
 
 ## Create Client Secret
 
-1. Go to the "Certificats and Secrets" sidebar item.
+2. Navigate to [Microsoft Entra ID > App Registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) and select your Guardrails app registration.
+1. Go to the "Certificates & secrets" sidebar item.
 2. Click on the "Client Secrets" tab
 3. Click "+ New client secret". Provide a description and expiration period that matches organizational policy.
 4. Save the Client Secret Value for later use. The Secret ID is not used by Guardrails.
@@ -62,7 +63,7 @@ management groups, Entra ID Directories or subscriptions.
 API permissions are required when importing a Tenant, Management Group or EntraID Directory. Skip this section if import
 a subscription.
 
-1. Navigate to the **Azure Active Directory** service, select the Guardrails app registration.
+2. Navigate to [Microsoft Entra ID > App Registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) and select your Guardrails app registration.
 2. Click **API Permissions** on the left side. If there are any existing permissions,
    remove them by clicking the three dot menu icon and selecting **Remove Permission**.
 3. Add the following API Permissions using the **+ Add a permission** button.
