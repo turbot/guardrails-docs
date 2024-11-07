@@ -177,7 +177,7 @@ below.
       be changed unless the directory is new.
 
 6. Expand the **Groups** section. If SAML group syncing is desired, follow the
-   [Entra ID group sync directions](./group-sync).
+   [Entra ID group sync directions](guides/configuring-guardrails/directories/azure-ad/group-sync).
 7. **Name ID Format** can generally be left as `unspecified`. This can be flipped to `Email Address` as
    needed.
 8. The **Signature** section can be used to sign requests with a private
