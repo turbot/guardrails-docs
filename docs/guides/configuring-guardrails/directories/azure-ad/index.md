@@ -10,7 +10,7 @@ directory in Guardrails. Administrator access in Entra ID and `Turbot/Owner`
 permissions in Guardrails are required for configuration.
 
 If SAML group syncing is desired, check out our
-[Entra ID Group Sync](guides/directories/azure-ad/group-sync) guide after the SAML application has
+[Entra ID Group Sync](guides/configuring-guardrails/directories/azure-ad/group-sync) guide after the SAML application has
 been verified to allow authentication.
 
 Configuring Entra ID for Guardrails is a three-phase process.
