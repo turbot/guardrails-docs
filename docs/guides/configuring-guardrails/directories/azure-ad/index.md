@@ -101,10 +101,12 @@ below.
 ![attributes](/images/docs/guardrails/attributes.jpg)
 
 2. Choose the **Name Identifier Value**. The default value is
-   _user.principalname_. The user identifier uniquely identifies each user
+   _user.userprincipalname_. The user identifier uniquely identifies each user
    within the application. If the email address is both the username and the
    unique identifier, set the value to _user.mail_. If you use AD usernames
    then the appropriate value might also be _sAMAccountName_.
+   In some environments, the _user.mail_ attribute may not be set and 
+   _user.userprincipalname_ contains the email address of the user.
 3. To configure group claims, select the **Edit** icon for the **Groups returned
    in claim** field. For details, see
    [Configure group claims](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-fed-group-claims).
@@ -124,11 +126,11 @@ below.
 
 | Attribute Name | Source                                     | Source Attribute                                          | Example          |
 |----------------|--------------------------------------------|-----------------------------------------------------------|------------------|
-| email          | Email Address                              | user.mail                                                 | jdoe@company.com |
-| nameId         | userPrincipalName, email or sAMAccountName | user.userprincipalname, user.mail, or user.samaccountname | jdoe             |
-| displayName    | userPrincipalName or displayName           | user.userprincipalname or user.displayname                | John Doe         |
+| email          | Email Address                              | user.userprincipalname or user.mail                       | jsmith@company.com |
+| nameId         | userPrincipalName, email or sAMAccountName | user.userprincipalname, user.mail, or user.samaccountname | jsmith             |
+| displayName    | userPrincipalName or displayName           | user.userprincipalname or user.displayname                | John Smith         |
 | firstName      | Givenname                                  | user.givenname                                            | John             |
-| lastName       | Surname (sn)                               | user.surname                                              | Doe              |
+| lastName       | Surname (sn)                               | user.surname                                              | Smith              |
 
 **Before**
 
