@@ -15,4 +15,4 @@ nav:
 
 
 
-Get `workspace` realted data.
+Get `workspace` related data.
