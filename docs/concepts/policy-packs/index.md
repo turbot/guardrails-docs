@@ -86,7 +86,6 @@ administrators can maintain those policy settings in a single location.
 
 ### Further Reading
 
-- [Working with Policy Packs](guides/policy-packs) - Learn how to
-  attach and detach a policy pack.
+- [Working with Policy Packs](guides/configuring-guardrails/policy-packs) - Learn how to attach and detach a policy pack.
 - [Guardrails Hub](https://hub.guardrails.turbot.com) - A catalog of example policy packs for common control objectives. Each set of policies is deployed via Terraform.
   pack.
