@@ -20,12 +20,16 @@ Efficient management of database resources ensures optimal storage utilization, 
 - PostgreSQL client installed on the [bastion host](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host).
 - Ensure logical replication is supported and enabled on the database engine.
 - Knowledge of the current database usage (storage and version).
+- TED stack version is atleast 1.45.0.
+
+## Warnings -
+1. After creating replication slots (steps #7 below), we won't be able to upgrade any existing workspaces or create a new one till the end of the process. Basically, no DDL changes.
 
 ## Step 1: Spin up a new TED
 
 - Create a new [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) with the same name as the original, appending `-blue` or `-green` to the end.
 - If performing a database version upgrade, use the `DB Engine Version` and `Read Replica DB Engine Version` parameters under the "Database - Advanced - Engine" section. Set the appropriate `DB Engine Parameter Group Family` and the `Hive RDS Parameter Group` under the "Database - Advanced - Parameters" section.
-- Set the allocated storage to match the current disk usage (e.g., if 210 GB out of 500 GB is used, set allocated storage to 210 GB) using the `Allocated Storage in GB` parameter under the "Database - Advanced - Storage" section.
+- Set the allocated storage to match the current disk usage using the `Allocated Storage in GB` parameter under the "Database - Advanced - Storage" section. For example - if 210 GB out of 500 GB is used, set allocated storage to 210 GB. Check the `FreeStorageSpace` metrics to get the size.
 - Set the maximum allocated storage to a suitable value using the `Maximum Allocated Storage limit in GB` parameter under the "Database - Advanced - Storage" section.
 - Set up encryption by configuring the `Custom Hive Key` parameter to use the original KMS key under the "Advanced - Infrastructure" section. This should be the Key ID, typically formatted as: 1111233-abcd-4444-2322-123456789012.
 - Keep the other parameters the same.
@@ -34,6 +38,7 @@ Efficient management of database resources ensures optimal storage utilization, 
 
 - Go to the AWS Console and navigate to the relevant parameter group.
 - Set `rds.logical_replical` to **`1`** if it’s not already set.
+- Turn off events - https://turbot.com/guardrails/docs/enterprise/FAQ/pause-events
 - Reboot the DB instance (expected downtime is ~50 seconds).
 
 ## Step 3: Set Master Password
@@ -105,6 +110,11 @@ Use pg_dump to create a dump of the source database:
 nohup pg_dump -h $SOURCE -U master -F c -b -v -f data.dump turbot > dump.log 2>&1
 ```
 
+Check for errors in the dump file
+```shell
+cat dump.log | grep error
+```
+
 ## Step 9: Restore the Dump in the Target DB
 
 Restore the database in the target instance:
@@ -129,7 +139,7 @@ set local search_path to <workspace_schema>, public;
 ```
 
 ```sql
-set local search_path to <workspace_schema>;
+set local search_path to <workspace_schema>, public;
 create trigger control_category_path_au after update on control_categories for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'control_category_id', 'control_category_path');
 create trigger control_resource_category_path_au after update on resource_categories  for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'resource_category_id', 'resource_category_path');
 create trigger control_resource_types_path_au after update on resource_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'resource_type_id', 'resource_type_path');
@@ -204,7 +214,7 @@ SELECT n.nspname AS schema_name, COUNT(c.conname) AS constraint_count FROM pg_ca
 SELECT count(tgname), tgenabled FROM pg_trigger GROUP by tgenabled;
 ```
 
-## Step 14: Turn Off Events (Optional)
+## Step 14: Turn Off Events
 
 Disable events as per the guidelines: [Pause Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
 
@@ -212,6 +222,16 @@ Disable events as per the guidelines: [Pause Events](https://turbot.com/guardrai
 
 - Rename the primary instance by appending -green.
 - Rename the new instance by removing the -blue suffix.
+
+## Step 16: Disable and delete subscription
+
+- Delete subscription and replication slots
+```sql
+SELECT subname AS "Subscription Name", subowner AS "Owner ID", subenabled AS "Is Enabled", subpublications AS "Publications" FROM pg_subscription;
+alter subscription <subscription_name> disable;
+alter subscription <subscription_name> set (slot_name=NONE);
+drop subscription <subscription_name>;
+```
 
 ## Step 16: Turn On Events
 
