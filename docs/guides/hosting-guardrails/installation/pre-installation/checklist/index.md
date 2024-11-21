@@ -15,7 +15,7 @@ sidebar_label: Pre-install Checklist
 1. **Security Groups**: If using a custom VPC, the Guardrails Samples repo contains a [CloudFormation template](https://github.com/turbot/guardrails-samples/blob/master/installation/security_groups.yml) to create the three required security groups with the required ports.  If a proxy is in use, the security group rule for the proxy port must be added to the `OutboundInternetSecurityGroup` resource.
 1. **Event Handling**: Plan out how events will get from the managed cloud accounts back to Guardrails for processing.  Turbot Support recommends using an API Gateway when the Guardails console is only reachable from internal networks.
 1. **DNS**: Guardrails can use Route53 or third party DNS resolution. Turbot Support recommends Route53 for ease of maintenance during upgrades. Private Route53 hosted zones may be used with proper inbound resolvers.
-1. **Custom IAM Roles**: If the organization requires custom external roles not created by Guardrails, refer to the guide for creating [Custom Guardrails IAM Roles](pre-installation/external-role).
+1. **Custom IAM Roles**: If the organization requires custom external roles not created by Guardrails, refer to the guide for creating [Custom Guardrails IAM Roles](/guardrails/docs/guides/hosting-guardrails/installation/pre-installation/external-role).
 1. **Turbot License Key**: Turbot Support will provide a license key for the Guardrails installation.
 
 ## AWS AutoScaling Role
