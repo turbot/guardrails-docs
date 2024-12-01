@@ -164,7 +164,7 @@
             "type": "category",
             "id": "event-handlers",
             "link": "guides/aws/event-handlers",
-            "items": ["guides/aws/event-handlers/poller"]
+            "items": ["guides/aws/event-handlers/poller", "guides/aws/event-handlers/migration"]
           },
           "guides/aws/services",
           {
