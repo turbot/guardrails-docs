@@ -71,11 +71,11 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/observe
 If you run into issues following this guide, jump in the `#guardrails` channel in the [Turbot Community Slack](https://turbot.com/community/join), or [open a support ticket](https://support.turbot.com/hc/en-us/requests/new).
 
 ## Progress tracker
-
-- [x] Prepare an AWS Account for import to Guardrails
+- [x] Prepare an AWS Account for Import to Guardrails
 - [x] **Connect an AWS Account to Guardrails**
+- [ ] Observe AWS Resource Activity
 - [ ] Enable Your First Policy Pack
-- [ ] Review Account-Wide Bucket Versioning
+- [ ] Review Account-Wide Governance
 - [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails Policy
 - [ ] Send an Alert to Email
