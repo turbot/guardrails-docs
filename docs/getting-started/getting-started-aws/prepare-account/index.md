@@ -1,9 +1,9 @@
 ---
-title: Prepare an AWS Account for import to Guardrails
+title: Prepare an AWS Account for Import to Guardrails
 sidebar_label: Prepare the AWS Account
 ---
 
-# Prepare an AWS Account for import to Guardrails
+# Prepare an AWS Account for Import to Guardrails
 
 In this guide, you will prepare an AWS account to be imported into Guardrails by deploying an IAM access role using a CloudFormation template.
 
@@ -93,12 +93,11 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/connect
 If you run into issues following this guide, jump in the `#guardrails` channel in the [Turbot Community Slack](https://turbot.com/community/join), or [open a support ticket](https://support.turbot.com/hc/en-us/requests/new).
 
 ## Progress tracker
-
-- [x] **Prepare an AWS Account for import to Guardrails**
+- [x] **Prepare an AWS Account for Import to Guardrails**
 - [ ] Connect an AWS Account to Guardrails
 - [ ] Observe AWS Resource Activity
 - [ ] Enable Your First Policy Pack
-- [ ] Review Account-Wide Bucket Versioning
+- [ ] Review Account-Wide Governance
 - [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails Policy
 - [ ] Send an Alert to Email
