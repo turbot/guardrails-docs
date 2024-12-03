@@ -24,5 +24,5 @@ pushed to the SNS Topic `turbot_<hive>_alarms` (example:
 
 Details for each product.
 
-- [TE](enterprise/FAQ/monitoring-alarms/te)
-- [TED](enterprise/FAQ/monitoring-alarms/ted)
+- [TE](/guardrails/docs/guides/hosting-guardrails/monitoring/monitoring-alarms/te)
+- [TED](/guardrails/docs/guides/hosting-guardrails/monitoring/monitoring-alarms/ted)
