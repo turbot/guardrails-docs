@@ -11,4 +11,5 @@ The following guides provide detailed instructions for effectively monitoring Gu
 | - | - |
 | [Diagnose Control Error](/guardrails/docs/guides/hosting-guardrails/monitoring/diagnose-control-error) | Provides steps to identify and resolve control errors in Guardrails. |
 | [Investigate Event Flood](/guardrails/docs/guides/hosting-guardrails/monitoring/investigate-event-flood) | Outlines the process for diagnosing and managing event floods. |
+| [Monitoring and Alarms](/guardrails/docs/guides/hosting-guardrails/monitoring/monitoring-alarms) | Guides for assessing various CloudWatch metrics provided in TE and TED stack. |
 | [Workspace Health Check](/guardrails/docs/guides/hosting-guardrails/monitoring/workspace-health-check) | Guides for assessing the health of your Guardrails workspace. |
