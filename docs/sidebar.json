@@ -425,7 +425,9 @@
               "guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state",
               "guides/hosting-guardrails/troubleshooting/enable-verbose-logging",
               "guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error",
-              "guides/hosting-guardrails/troubleshooting/pause-events"
+              "guides/hosting-guardrails/troubleshooting/pause-events",
+              "guides/hosting-guardrails/troubleshooting/troubleshooting-event-handlers-aws-console",
+              "guides/hosting-guardrails/troubleshooting/troubleshooting-event-handlers-guardrails-console"
             ]
           },
           {
@@ -451,15 +453,7 @@
           }
         ]
       },
-      {
-        "type": "category",
-        "id": "troubleshooting",
-        "link": "guides/troubleshooting",
-        "items": [
-          "guides/troubleshooting/troubleshooting-event-handlers-aws-console",
-          "guides/troubleshooting/troubleshooting-event-handlers-guardrails-console"
-        ]
-      }
+      "guides/troubleshooting"
     ]
   },
   {
