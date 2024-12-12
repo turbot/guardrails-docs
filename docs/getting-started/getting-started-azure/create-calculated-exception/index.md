@@ -19,7 +19,7 @@ This guide will walk you through a simple calculated policy based on resource ta
 
 This is the seventh guide in the *Getting started with Azure* series.
 
-**Prerequisites**
+## Prerequisites
  
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.

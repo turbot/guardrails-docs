@@ -7,7 +7,7 @@ sidebar_label: Subscription-Wide Governance
 
 In this guide you’ll see how a single Policy Pack can govern all resources across a project.
 
-This is the fifth guide in the *Getting started with GCP* series.
+This is the fifth guide in the *Getting started with Azure* series.
 
 ## Prerequisites
 

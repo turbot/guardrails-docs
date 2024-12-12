@@ -10,7 +10,7 @@ In this guide you'll learn how to enable Guardrails notifications and configure 
 
 This is the eighth guide in the *Getting started with Azure series*.
 
-**Prerequisites**: 
+## Prerequisites 
 
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.

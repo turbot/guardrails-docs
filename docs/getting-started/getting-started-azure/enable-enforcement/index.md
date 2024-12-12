@@ -9,7 +9,7 @@ In this guide we’ll show how you can enable Guardrails to act autonomously. Fo
 
 This is the last guide in the *Getting started with Azure series*.
 
-**Prerequisites**:
+## Prerequisites
 
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.

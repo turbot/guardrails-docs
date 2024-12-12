@@ -9,7 +9,7 @@ In this guide you’ll learn how to exempt a specific resource from a subscripti
 
 This is the sixth guide in the *Getting started with Azure* series.
 
-**Prerequisites**
+## Prerequisites
 
 - Completion of the previous guides in this series.
 
