@@ -5,7 +5,7 @@ sidebar_label: Getting Started with Azure
 
 # Getting Started with Azure
 
-This series of guides provides a curated experience to import your first Azure subscription and learn how to use Turbot Guardrails. If you are brand-new to Guardrails, we highly recommend that you walk through the gazurees in order and follow each step. Once you are familar with the concepts presented here, you can then focus in on a specific use case important to your organization.  You can browse our library of use case examples on [The Guardrails Hub](https://hub.guardrails.turbot.com/)
+This series of guides provides a curated experience to import your first Azure subscription and learn how to use Turbot Guardrails. If you are brand-new to Guardrails, we highly recommend that you walk through the guides in order and follow each step. Once you are familar with the concepts presented here, you can then focus in on a specific use case important to your organization.  You can browse our library of use case examples on [The Guardrails Hub](https://hub.guardrails.turbot.com/)
 
 | Guide | Description
 | - | - |
