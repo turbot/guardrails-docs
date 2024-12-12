@@ -3,11 +3,11 @@ title: Create a Calculated Exception to a Guardrails GCP Policy
 sidebar_label: Create a Calculated Exception
 ---
 
-# Create a Calculated Exception to a Guardrails AWS Policy
+# Create a Calculated Exception to a Guardrails GCP Policy
 
-In this guide you'll learn how to make dynamic policy exceptions based on resource tags. These [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy) enable you to implement business logic when designing your governance controls. 
+In this guide you'll learn how to make dynamic policy exceptions based on resource tags. These [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy) enable you to implement business logic when designing your governance controls.
 
-Some typical examples of how to use calculated polices are: 
+Some typical examples of how to use calculated polices are:
 
 - Dynamic tagging of resources based on resource metadata.
 - Creating policy exceptions for different classes of resources.
@@ -18,10 +18,10 @@ This guide will walk you through a simple calculated policy based on resource ta
 This is the seventh guide in the *Getting started with GCP* series.
 
 **Prerequisites**
- 
+
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.
-- Access to the AWS console with permissions to label GCP buckets.
+- Access to the GCP console with permissions to label GCP buckets.
 
 ## Step 1: Open the Policy Pack
 
@@ -70,9 +70,9 @@ Guardrails inserts a GraphQL query for bucket tags into the **Input** pane, and 
 ## Step 8: Add the Jinja2 template
 
 Our business logic is created in the `Template` section, using [Nunjucks syntax](https://mozilla.github.io/nunjucks/templating.html).
-  
-Copy this template code:  
-  
+
+Copy this template code:
+
 ```nunjucks
 {% if $.bucket.turbot.tags.environment == "development" %}
 'Skip'
@@ -85,14 +85,14 @@ And paste it into the template pane.
 
 <p><img alt="template-active" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/template-active.png"/></p>
 
-Guardrails evaluates the template in the context of the chosen **Test Resource**. The template output, `Check: Uniform`, is the calculated policy value that will govern any bucket’s **GCP > Storage > Bucket > Access Control** policy if the bucket is labeled with `environment:development`. Only these labeled buckets will be required to have uniform access enabled. Others will be skipped, whether or not they enable uniform access.  
-  
+Guardrails evaluates the template in the context of the chosen **Test Resource**. The template output, `Check: Uniform`, is the calculated policy value that will govern any bucket’s **GCP > Storage > Bucket > Access Control** policy if the bucket is labeled with `environment:development`. Only these labeled buckets will be required to have uniform access enabled. Others will be skipped, whether or not they enable uniform access.
+
 The result confirms that `Check: Uniform` is valid for this policy type.  Why? Because the test bucket does not have a tag `{ "environment": "development" }`.
 
 Select **Update**
 
 ## Step 9: Save the calculated policy to the policy pack
- 
+
 Select **Update**.
 
 <p><img alt="update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-gcp/create-calculated-exception/update-setting.png"/></p>
@@ -122,7 +122,7 @@ In this guide you created your first calculated policy and tested it using the c
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams. 
+In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams.
 
 ## Progress tracker
 - [x] Prepare a GCP Project for Import to Guardrails
