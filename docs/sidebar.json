@@ -338,7 +338,14 @@
             "id": "console",
             "link": "guides/using-guardrails/console",
             "items": [
-              "guides/using-guardrails/console/reports",
+              {
+                "type": "category",
+                "id": "reports",
+                "link": "guides/using-guardrails/console/reports",
+                "items": [
+                  "guides/using-guardrails/console/reports/check-tbd-policy-values"
+                ]
+              },
               "guides/using-guardrails/console/detail-pages"
             ]
           },
