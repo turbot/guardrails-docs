@@ -49,9 +49,7 @@ Use your bookmark to navigate back to **Controls by State** report, and use the 
 
 Try downgrading the TLS version on a storage account. It won’t stay that way for long!
 
-AZURE IS STUCK HERE 
-
-<p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/all-ok-or-skipped.png"/></p>
+<p><img alt="enforcement-happened" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/raw-all-ok-or-skipped.png"/></p>
 
 ## Step 6: Review
 
