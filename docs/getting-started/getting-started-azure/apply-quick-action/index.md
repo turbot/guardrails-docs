@@ -63,22 +63,41 @@ Choose **Sandbox** as the **Resource**, and then select **Enabled**, and click t
 
 ## Step 9: Find a storage account in Alarm
 
-STUCK HERE WITH BALKY AZURE
+Use your bookmark to navigate back to the **Controls by State** report and filter on **Azure > Storage > Storage Account > Minimum TLS Version**.
+
+<p><img alt="find_storage_account_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/raw-find-storage-account-in-alarm-for-versioning.png"/></p>
 
 ## Step 10: Select a bucket in Alarm
 
+Select a bucket in `Alarm` state from the list of buckets.
+
+<p><img alt="select_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/raw-select-storage-account-in-alarm-for-versioning.png"/></p>
+
 ## Step 11: Use a Quick Action
+
+Select the **Actions** dropdown, and choose **Set Minimum TLS Version*.
+
+<p><img alt="expand-quick-actions-dropdown" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/raw-expand-quick-actions-dropdown.png"/></p>
 
 ## Step 12: Observe the change
 
-## Step 13: Verify that it worked
+Guardrails reports that the action was successful, and the control goes to the `OK` state.  
+
+<p><img alt="observe-updated-control" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/raw-observe-updated-control.png"/></p>
+
+## Step 13: Check if it worked
+
+Open a tab to the Azure portal and navigate to the storage account.  Confirm the Guardrails Quick Action has correctly set the minimum TLS version.
+
+<p><img alt="observe-azure-console-result" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/raw-observe-azure-console-result.png"/></p>
 
 ## Step 14: Review
 
-In this guide you increased the permissions scope for your role, enabled Guardrails Quick Actions and, used a Quick Action to change a storage account's TLS setting.
+In this guide you enabled Guardrails Quick Actions and used a Quick Action to change a storage account's policy for minimum TLS version.
 
+## Next Steps
 
-In the [next runbook](/guardrails/docs/runbooks/getting-started-azure/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.
+In the [next guide](/guardrails/docs/getting-started/getting-started-azure/enable-enforcement) we’ll set Guardrails to automatically enforce these actions continuously.  
 
 
 ## Progress tracker
