@@ -77,7 +77,7 @@ Select **Create**.
 
 ## Step 8: Find the storage account skipped by your calculated policy
 
-At the end of [Create a calculated exception](/guardrails/getting-started/getting-started-gcp/create_calculated_exception), your test storage account – the one you tagged with `environment:development` – was in a `Skipped` state for access control. To verify, revisit **Controls by State**, choose the **Type** as **Azure > Storage > Storage Account > Minimum TLS Version**, and search for the bucket.
+At the end of [Create a calculated exception](/guardrails/getting-started/getting-started-gcp/create_calculated_exception), your test storage account – the one you tagged with `environment:development` – was in a `Skipped` state for access control. To verify, revisit **Controls by State**, choose the **Type** as **Azure > Storage > Storage Account > Minimum TLS Version**, and search for the storage account.
 
 <p><img alt="find-skipped" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/raw-find-skipped.png"/></p>
 
@@ -103,7 +103,7 @@ In this guide you configured a simple notification rule and triggered a notifica
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-azure/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, directly enable uniform access on a bucket that’s now in the `Alarm` state and make it green.
+In the [next guide](/guardrails/docs/getting-started/getting-started-azure/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, directly enforce TLS 1.2 on a storage account that’s now in the `Alarm` state and make it green.
 
 
 ## Progress tracker

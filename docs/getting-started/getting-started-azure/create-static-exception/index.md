@@ -43,7 +43,7 @@ Because we were viewing the **Controls by State** report, our action landed us o
 
 ## Step 5: View polices for the storage account
 
-Now that you are are viewing the **Resource Detail** for the selected bucket, you can create an exception for this resource. To do that you will create a new policy setting. Select the **Policies** sub-tab and click the green **New Policy Setting** button.
+Now that you are are viewing the **Resource Detail** for the selected storage account, you can create an exception for this resource. To do that you will create a new policy setting. Select the **Policies** sub-tab and click the green **New Policy Setting** button.
 
 <p><img alt="switch-to-policies" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/policies-sub-tab.png"/></p>
 
@@ -62,14 +62,14 @@ Choose the **Skip** setting, and select **Create**.
 
 ## Step 8: Confirm the setting
 
-This bucket is now exempt from the requirement to enable uniform access.
+This storage account is now exempt from the requirement to enforce TLS 1.2.
 
 <p><img alt="confirm setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-confirm-policy-setting.png"/></p>
 
   
 ## Step 9: View in context
 
-Select the **Hierarchy** tab. The project-level policy specifies **Check: Uniform**. You’ve overridden that with an exception that exempts this particular bucket from that policy.  
+Select the **Hierarchy** tab. The project-level policy specifies **Check: TLS 1.2**. You’ve overridden that with an exception that exempts this particular storage account from that policy.  
 
 <p><img alt="view-hierarchy" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-view-hierarchy.png"/></p>
 

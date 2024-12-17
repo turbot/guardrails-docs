@@ -17,7 +17,7 @@ This is the fourth guide in the *Getting started with Azure* series.
 
 ## Step 1: Check storage account TLS setting in Azure
 
-Check the properties of the bucket you created in the previous guide ([Observe Azure activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity)). Verify that TLS still set to 1.0 on the test storage account you created.
+Check the properties of the storage account you created in the previous guide ([Observe Azure activity](/guardrails/docs/getting-started/getting-started-azure/observe-azure-activity)). Verify that TLS still set to 1.0 on the test storage account you created.
 
 <p><img alt="tls setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-policy-pack/tls-setting.png"/></p>
 
@@ -30,7 +30,7 @@ You bookmarked the **Controls by State** report in [Connect a Subscription](/gua
 
 ## Step 3: Find your storage account
 
-Search for your bucket by typing its name into the search field. It should be in the `Skipped` state, because Guardrails has not been configured to check the TLS version on storage accounts.
+Search for your storage account by typing its name into the search field. It should be in the `Skipped` state, because Guardrails has not been configured to check the TLS version on storage accounts.
 
 <p><img alt="filter 2" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-policy-pack/filter-2.png"/></p>
 
@@ -78,7 +78,7 @@ Return to your open browser tab (or bookmark) for the **Controls by State** repo
 
 ## Step 8: Review
 
-In this guide you've attached a Policy Pack to your Azure subscription to check the TLS setting on storage accounts, and observed how the policy affects your bucket's control for Minimum TLS Version.
+In this guide you've attached a Policy Pack to your Azure subscription to check the TLS setting on storage accounts, and observed how the policy affects your storage account's control for Minimum TLS Version.
 
 
 ## Progress tracker

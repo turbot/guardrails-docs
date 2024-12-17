@@ -67,11 +67,11 @@ Use your bookmark to navigate back to the **Controls by State** report and filte
 
 <p><img alt="find_storage_account_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/raw-find-storage-account-in-alarm-for-versioning.png"/></p>
 
-## Step 10: Select a bucket in Alarm
+## Step 10: Select a storage account in Alarm
 
-Select a bucket in `Alarm` state from the list of buckets.
+Select a storage account in `Alarm` state from the list of storage accounts.
 
-<p><img alt="select_bucket_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/raw-select-storage-account-in-alarm-for-versioning.png"/></p>
+<p><img alt="select_storage account_in_alarm_for_quick_action" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/raw-select-storage-account-in-alarm-for-versioning.png"/></p>
 
 ## Step 11: Use a Quick Action
 
