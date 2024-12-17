@@ -3,7 +3,7 @@ title: Create a Static Exception to a Guardrails Azure Policy
 sidebar_label: Create a Policy Exception
 ---
 
-# Create a Static Exception to a Guardrails GCP Policy
+# Create a Static Exception to a Guardrails Azure Policy
 
 In this guide you’ll learn how to exempt a specific resource from a subscription-wide policy
 

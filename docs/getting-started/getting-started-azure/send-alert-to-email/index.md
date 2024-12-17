@@ -94,7 +94,7 @@ Now, in the Azure portal console, change the tag `environment:development` to `e
 
 The alarm reported in the Guardrails console also appears in your inbox. You can alternatively configure Guardrails to send alerts to [Slack]([guardrails/docs/guides/notifications/templates#example-slack-template](https://turbot.com/guardrails/docs/guides/notifications/templates#example-slack-template)) or [MS Teams](/guardrails/docs/guides/notifications/templates#example-ms-teams-template).
 
-<p><img alt="view-email-notification" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/view-email-notification.png"/></p>
+<p><img alt="view-email-notification" src="/images/docs/guardrails/getting-started/getting-started-azure/send-alert-to-email/raw-view-email-notification.png"/></p>
 
 ## Step 11: Review
 
