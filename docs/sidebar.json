@@ -355,6 +355,14 @@
               "guides/using-guardrails/iam/advanced"
             ]
           },
+          {
+            "type": "category",
+            "id": "troubleshooting",
+            "link": "guides/using-guardrails/troubleshooting",
+            "items": [
+              "guides/using-guardrails/troubleshooting/identify-fix-invalid-controls"
+            ]
+          },
 
           {
             "type": "category",
