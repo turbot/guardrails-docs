@@ -54,6 +54,10 @@
           "getting-started/getting-started-azure/send-alert-to-email",
           "getting-started/getting-started-azure/apply-quick-action",
           "getting-started/getting-started-azure/enable-enforcement"
+        ]
+      },
+      {
+        "type": "category",
         "id": "getting-started-gcp",
         "link": "getting-started/getting-started-gcp",
         "items": [
