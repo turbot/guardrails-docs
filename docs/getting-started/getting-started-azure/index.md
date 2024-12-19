@@ -10,9 +10,9 @@ This series of guides provides a curated experience to import your first Azure s
 | Guide | Description
 | - | - |
 | [Prepare a Subscription](getting-started/getting-started-azure/prepare-subscription) | Prepare a subscription for import into Guardrails. |
-| [Connect a Subscription](getting-started/getting-started-azure/connect-an-subscription) | Import an Azure subscription. |
+| [Connect a Subscription](getting-started/getting-started-azure/connect-subscription) | Import an Azure subscription. |
 | [Observe Resource Activity](getting-started/getting-started-azure/observe-azure-activity) | Monitor Azure [resource](/guardrails/docs/reference/glossary#resource) activities. |
-| [Enable a Policy Pack](getting-azurerted/getting-started-azure/enable-policy-pack) | Attach a [Policy Pack](/guardrails/docs/concepts/policy-packs) to enforce security and compliance. |
+| [Enable a Policy Pack](getting-started/getting-started-azure/enable-policy-pack) | Attach a [Policy Pack](/guardrails/docs/concepts/policy-packs) to enforce security and compliance. |
 | [Review subscription-Wide Activity](getting-started/getting-started-azure/review-subscription-wide) | Observe the effect of a Policy Pack across your subscription. |
 | [Create a Static Exception](getting-started/getting-started-azure/create-static-exception) | Create a static policy exception for a specific resource. |
 | [Create a Calculated Exception](getting-started/getting-started-azure/create-calculated-exception) | Create a [Calculated Policy](/guardrails/docs/reference/glossary#calculated-policy) that use [CMDB](/guardrails/docs/reference/glossary#cmdb) data, a [GraphQL](/guardrails/docs/reference/glossary#graphql) query, and a Nunjucks template to dynamically generate resource-specific policy values. |
