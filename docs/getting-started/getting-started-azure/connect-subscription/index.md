@@ -48,7 +48,6 @@ Select **Connect**.
 
 <p><img alt="connect-3" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/connect-3.png"/></p>
 
-
 ## Step 5: Observe progress
 
 Wait for the progress bar to complete. The time this takes will depend on how many resources are in the account; it is normal for the progress bar to fluctuate in size as new types of resources are discovered.
