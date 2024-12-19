@@ -279,6 +279,7 @@
           "guides/configuring-guardrails/auto-mod-update",
           "guides/configuring-guardrails/mod-lambda-cleanup",
           "guides/configuring-guardrails/account-imports",
+          "guides/configuring-guardrails/associate-policy-pack-to-resource",
           {
             "type": "category",
             "id": "directories",
