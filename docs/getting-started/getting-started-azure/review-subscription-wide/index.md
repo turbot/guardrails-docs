@@ -23,7 +23,7 @@ Navigate back to the **Controls by State** report (or use your saved bookmark), 
 
 ## Step 2: Filter on controls for TLS version
 
-Your test storage account is in the `Alarm` (red) state: out of policy. Others, if created with the default TLS setting, are in the `OK` (green) state: in policy.
+Your test storage account is in the `Alarm` (red) state out of policy. Others, if created with the default TLS setting, are in the `OK` (green) state: in policy.
 
 <p><img alt="filter-2" src="/images/docs/guardrails/getting-started/getting-started-azure/review-subscription-wide/filter-2.png"/></p>
 
@@ -42,7 +42,7 @@ As you create the storage accounts, Guardrails detects them and evaluates their 
 
 <p><img alt="new-in-alarm" src="/images/docs/guardrails/getting-started/getting-started-azure/review-subscription-wide/storage-accounts-in-alarm.png"/></p>
 
-The new storage accounts are in the `Alarm` state because, as with the first one, you downgraded TLS to 1.0. The current policy requires all storage accounts to have a minumum version of 1.2.
+The new storage accounts are in the `Alarm` state because, as with the first one, you downgraded TLS to 1.0. The current policy requires all storage accounts to have a minimum version of 1.2.
 
 ## Step 5: Review
 
@@ -51,9 +51,9 @@ In this guide you created new Azure storage accounts and observed how the Policy
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-azure/create-static-exception) we’ll learn how to create an exception so that a storage account can be exempt from the access control requirement.  
+In the [next guide](/guardrails/docs/getting-started/getting-started-azure/create-static-exception) we’ll learn how to create an exception so that a storage account can be exempt from the access control requirement.
 
-  
+
 # Review Subscription-Wide Governance
 
 
