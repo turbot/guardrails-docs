@@ -23,7 +23,7 @@ Navigate back to the **Controls by State** report (or use your saved bookmark), 
 
 ## Step 2: Filter on controls for TLS version
 
-Your test storage account is in the `Alarm` (red) state out of policy. Others, if created with the default TLS setting, are in the `OK` (green) state: in policy.
+Your test storage account is in the Alarm (red) state out: of policy. Others, if created with the default TLS setting, are in the `OK` (green) state: in policy.
 
 <p><img alt="filter-2" src="/images/docs/guardrails/getting-started/getting-started-azure/review-subscription-wide/filter-2.png"/></p>
 

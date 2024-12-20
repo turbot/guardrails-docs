@@ -3,7 +3,6 @@ title: Connect an Azure Subscription to Guardrails
 sidebar_label: Connect an Azure Subscription
 ---
 
-
 # Connect an Azure Subscription to Guardrails
 
 In this guide you will connect a subscription to Guardrails.
@@ -26,7 +25,7 @@ Login to your Guardrails console and select the **CONNECT** option from the home
 
 <p><img alt="connect-1" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/connect-1.png"/></p>
 
-## Step 3: Select import location
+## Step 3: Select location
 
 Use the **Parent Resource** dropdown to select the **Sandbox** folder as the location to import the subscription.
 
@@ -70,7 +69,11 @@ Bookmark the **Controls by State** report, you’ll need it in subsequent guides
 
 ## Step 8: View the report
 
-Review the status of your controls for Azure.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your subscription. If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.
+Review the status of your controls for Azure.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your subscription.
+
+> [!IMPORTANT]
+> The controls in `Error` or `Invalid` states must be cleared before moving further into these guides.
+> It takes few mins depending on various factors. We suggest to wait and report to [Turbot support](help@turbot.com), in case these errors are not cleared up automatically.
 
 <p><img alt="filter-2" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/filter-2.png"/></p>
 

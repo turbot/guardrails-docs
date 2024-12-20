@@ -12,11 +12,11 @@ This is the third guide in the *Getting started with Azure* series.
 ## Prerequisites
 
 - Completion of the previous guides in this series.
-- Access to the Guardrails console with administrative privlidges.
+- Access to the Guardrails console with administrative privileges.
 - Console access to an Azure subscription and the ability to create and modify storage accounts.
 
 > [!NOTE]
-> We will use the storage account name `guardrailsazurestorage1` in this guide.
+> We will use storage account names like `guardrailsazurestorage1` in this guide
 
 ## Step 1: Create an Azure storage account
 
@@ -26,10 +26,10 @@ Navigate to **Home > Storage accounts**, select **Create**, assign a name, and s
 
 On the next screen, select **Create**.
 
-<p><img alt="create storage 2" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/create-storage-2.png"/></p>  
+<p><img alt="create storage 2" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/create-storage-2.png"/></p>
 
 ## Step 2: Resource Activities report
- 
+
 Select **Reports** from the top navigation bar. Search for the word "resource" and select **Resource Activities**.
 
 <p><img alt="aws_search_resource_activities" src="/images/docs/guardrails/getting-started/getting-started-aws/observe-aws-activity/aws-search-resource-activities.png"/></p>
@@ -62,13 +62,13 @@ Choose `TLS 1.0` and select **Save**.
 
 ## Step 6: Observe events
 
-Switch back to the Guardrails console browser tab. Guardrails' event processing system will soon detect the change, and a new `RESOURCE UPDATED` notification will appear in the list. Select that new notification from the Activities list.
+Switch back to the Guardrails console browser tab. Guardrails’ event processing system will detect the change once Azure emits the events and they are processed. A new `RESOURCE UPDATED` notification will then appear in the `Activities` list. Select the new notification from the list.
 
 <p><img alt="filter 4" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/filter-4.png"/></p>
 
 ## Step 7: Audit resource change
 
-On the notifications detail page, you can see metadata about the change and even audit the changes in configuration between the previous known state and the observed change. Scroll down in the **DIFF** section to observe the changes that Guardrails has recorded. 
+On the notifications detail page, you can see metadata about the change and even audit the changes in configuration between the previous known state and the observed change. Scroll down in the **DIFF** section to observe the changes that Guardrails has recorded.
 
 <p><img alt="diff" src="/images/docs/guardrails/getting-started/getting-started-azure/observe-azure-activity/diff.png"/></p>
 

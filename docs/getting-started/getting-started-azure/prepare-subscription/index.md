@@ -29,7 +29,7 @@ Select **New registration**.
 
 ## Step 3: Register the app
 
-Name the application. The name ought to be recognizable as a Guardrails registration and relevant to the subscription to be imported. Turbot recommends the naming convention `Guardrails - {Name of the subscription}`. The Redirect URI is optional.  The Guardrails integration doesn’t use the redirect URL as a part of authentication. If you would like to include your Guardrails workspace hostname, this is a handy reference location.   
+Name the application. The name ought to be recognizable as a Guardrails registration and relevant to the subscription to be imported. Turbot recommends the naming convention `Guardrails - {Name of the subscription}`. The Redirect URI is optional.  The Guardrails integration doesn’t use the redirect URL as a part of authentication. If you would like to include your Guardrails workspace hostname, this is a handy reference location.
 
 Select **Register**.
 
@@ -41,7 +41,7 @@ Capture the Application (client) ID and Directory (tenant) IDs, you will need th
 
 <p><img alt="capture details" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/registered-app.png"/></p>
 
-## Step 5: Locate Certificates & secrets.
+## Step 5: Locate certificates & secrets.
 
 Select **Certificates & secrets**.
 
@@ -63,7 +63,10 @@ Select the cloud shell icon.
 
 ## Step 8: Create a ReadOnly role
 
-In the cloudshell, launch a text editor (e.g. `nano guardrails_reader_role.json`) and paste this JSON code, swapping in your subscription ID. (If needed you can use `az account show --query id --output tsv` to print the ID.) 
+In the cloudshell, launch a text editor (e.g. `nano guardrails_reader_role.json`) and paste this JSON code, swapping in your subscription ID. (If needed you can use `az account show --query id --output tsv` to print the ID.)
+
+> [!NOTE]
+> You can use vim instead of nano
 
 ```json
 {
@@ -92,10 +95,10 @@ If using `nano`, the commands to save and exit are **CTRL-O** (Write Out), **Ent
 <p><img alt="create json filel" src="/images/docs/guardrails/getting-started/getting-started-azure/prepare-subscription/cloudshell-2.png"/></p>
 
 
-Run this command to create the role.  
+Run this command to create the role.
 
 ```bash
-az role definition create --role-definition guardrails_reader_role.json  
+az role definition create --role-definition guardrails_reader_role.json
 ```
 
 Run this command to verify the role was created.

@@ -23,7 +23,7 @@ Check the properties of the storage account you created in the previous guide ([
 
 ## Step 2: Filter controls
 
-You bookmarked the **Controls by State** report in [Connect a Subscription](/guardrails/docs/getting-started/getting-started-azure/connect-subscription), go there now. From the filter bar open the **Type** dropdown and search for `azure storage account tls`. Select the checkbox next to `Azure > Storage > Storage Account > Minimum TLS Version`. 
+You bookmarked the **Controls by State** report in [Connect a Subscription](/guardrails/docs/getting-started/getting-started-azure/connect-subscription), go there now. From the filter bar open the **Type** dropdown and search for `azure storage account tls`. Select the checkbox next to `Azure > Storage > Storage Account > Minimum TLS Version`.
 
 <p><img alt="filter 1" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-policy-pack/filter-1.png"/></p>
 
@@ -36,7 +36,7 @@ Search for your storage account by typing its name into the search field. It sho
 
 ## Step 4: Navigate to your account
 
-Control-click on the **Guardrails** logo on the top of the page to open a new homepage browser tab.
+Right-click the **Guardrails** logo at the top of the page and open the page in a new browser tab
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-policy-pack/filter-3.png"/></p>
 
@@ -48,13 +48,11 @@ On the subscription resource page, select the **Detail** sub-tab.
 
 <p><img alt="locate-policy-pack-manage-3" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-policy-pack/locate-policy-pack-manage-3.png"/></p>
 
-
 ## Step 5: Locate the Policy Pack manager
 
-Select the **Manage Link** next to **Policy Packs** UI widget.
+Select the **MANAGE** next to **Policy Packs** UI widget.
 
 <p><img alt="locate-policy-pack-manage-4" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-policy-pack/locate-policy-pack-manage-4.png"/></p>
-
 
 ## Step 6: Attach the Policy Pack to your subscription
 

@@ -27,19 +27,17 @@ You can also filter by **State**. Expand that dropdown, and enable the checkbox 
 
 <p><img alt="filter 3" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/filter-3.png"/></p>
 
-
 ## Step 3: Choose a storage account
 
 Pick a control, here `guardrailsazurestorage1`, and select its linked name.
 
 <p><img alt="choose-storage-account" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/choose-storage-account.png"/></p>
 
-
 ## Step 4: View resource details
 
 Because we were viewing the **Controls by State** report, our action landed us on the **Control Details** page. We can switch to the **Resource Detail** view by using the blue **Resource** link next to the sub-tab bar.
 
-<p><img alt="open-control" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-open-control.png"/></p>
+<p><img alt="open-control" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/open-control.png"/></p>
 
 ## Step 5: View polices for the storage account
 
@@ -66,16 +64,15 @@ This storage account is now exempt from the requirement to enforce TLS 1.2.
 
 <p><img alt="confirm setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-confirm-policy-setting.png"/></p>
 
-  
 ## Step 9: View in context
 
-Select the **Hierarchy** tab. The project-level policy specifies **Check: TLS 1.2**. You’ve overridden that with an exception that exempts this particular storage account from that policy.  
+Select the **Hierarchy** tab. The project-level policy specifies **Check: TLS 1.2**. You’ve overridden that with an exception that exempts this particular storage account from that policy.
 
 <p><img alt="view-hierarchy" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-view-hierarchy.png"/></p>
 
 ## Step 10: Review storage account activity
 
-Select the **Activity** tab and observe the history. When you created the storage-account-level policy setting to make an exception for this storage account, the control reevaluated and set the status to `Skipped`.  
+Select the **Activity** tab and observe the history. When you created the storage-account-level policy setting to make an exception for this storage account, the control reevaluated and set the status to `Skipped`.
 
 <p><img alt="review-activity" src="/images/docs/guardrails/getting-started/getting-started-azure/create-static-exception/raw-view-activity.png"/></p>
 

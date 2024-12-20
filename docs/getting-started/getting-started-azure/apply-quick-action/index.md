@@ -13,7 +13,7 @@ This is the ninth guide in the *Getting started with Azure series*.
 
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.
-- Access to a the Azure portal with administrative privlidges to add permissions to the Guardrails role.
+- Access to the Azure portal with administrative privileges to add permissions to the Guardrails role.
 
 ## Step 1: Locate the resource group
 
@@ -59,7 +59,7 @@ Select the green **New Policy Setting** button.
 
 ## Step 8: Enable Quick Actions
 
-Choose **Sandbox** as the **Resource**, and then select **Enabled**, and click the green **Create** button.
+Choose **Sandbox** as the **Resource**, and then select **Enabled**, and select the green **Create** button.
 
 <p><img alt="aws-enable-quick-actions" src="/images/docs/guardrails/getting-started/getting-started-aws/apply-quick-action/aws-enable-quick-actions.png"/></p>
 
@@ -77,7 +77,7 @@ Select a storage account in `Alarm` state from the list of storage accounts.
 
 ## Step 11: Use a Quick Action
 
-Select the **Actions** dropdown, and choose **Set Minimum TLS Version*.
+Select the **Actions** dropdown, and choose *Set Minimum TLS Version*.
 
 <p><img alt="expand-quick-actions-dropdown" src="/images/docs/guardrails/getting-started/getting-started-azure/apply-quick-action/expand-quick-actions-dropdown.png"/></p>
 

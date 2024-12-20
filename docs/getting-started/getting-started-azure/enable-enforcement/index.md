@@ -20,7 +20,7 @@ This is the last guide in the *Getting started with Azure series*.
 
 ## Step 1: Open the Policy Pack
 
-In the guide titled [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-azure/enable-policy-pack) you enabled `Enforce Secure TLS Version for Azure Storage Accounts`. Select **Policies** from the top-level navigation bar, then choose that Policy Pack from the list.
+In [Enable your First Policy Pack](/guardrails/docs/getting-started/getting-started-azure/enable-policy-pack) you enabled `Enforce Secure TLS Version for Azure Storage Accounts`. Select **Policies** from the top-level navigation bar, then choose that Policy Pack from the list.
 
 <p><img alt="locate-policy-pack" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/locate-policy-pack.png"/></p>
 
@@ -32,10 +32,10 @@ Select the pencil icon next to the calculated policy you created [earlier](/guar
 
 ## Step 3: Disable calculated mode
 
-  
+
 Select **Disable calculated mode** to return to standard policy mode.
 
-<p><img alt="edit-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/edit-policy-setting.png"/></p>  
+<p><img alt="edit-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/enable-enforcement/edit-policy-setting.png"/></p>
 
 ## Step 4: Enable enforcement
 
@@ -57,12 +57,12 @@ In this guide series you learned the basics of importing Azure subscriptions int
 
 ## Next Steps
 
-This Getting Started series just scratches the surface of what you can do with Guardrails. Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do. 
+This Getting Started series just scratches the surface of what you can do with Guardrails. Try installing more [policy packs](https://hub.guardrails.com) into your workspace, and run through this series again to explore the breadth and variety of what Guardrails can do.
 
 ## Progress tracker
 
 **Congratulations! You did it!**
-  
+
 - [x] Prepare an Azure Subscription for Import to Guardrails
 - [x] Connect an Azure Subscription to Guardrails
 - [x] Observe Azure Resource Activity

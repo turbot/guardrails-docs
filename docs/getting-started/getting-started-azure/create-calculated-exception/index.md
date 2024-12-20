@@ -7,20 +7,20 @@ sidebar_label: Create a Calculated Exception
 # Create a Calculated Exception to a Guardrails Azure Policy
 
 
-In this guide you'll learn how to make dynamic policy exceptions based on resource tags. These [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy) enable you to implement business logic when designing your governance controls. 
+In this guide you'll learn how to make dynamic policy exceptions based on resource tags. These [Calculated Policies](/guardrails/docs/reference/glossary#calculated-policy) enable you to implement business logic when designing your governance controls.
 
-Some typical examples of how to use calculated polices are: 
+Some typical examples of how to use calculated polices are:
 
 - Dynamic tagging of resources based on resource metadata.
 - Creating policy exceptions for different classes of resources.
-- Taking enforcement action for based on resource tags.
+- Taking enforcement action based on resource tags.
 
 This guide will walk you through a simple calculated policy based on resource tags.
 
 This is the seventh guide in the *Getting started with Azure* series.
 
 ## Prerequisites
- 
+
 - Completion of the previous guides in this series.
 - Access to the Guardrails console with administrative privileges.
 - Access to the Azure portal with permissions to tag storage accounts
@@ -72,9 +72,9 @@ Guardrails inserts a GraphQL query for storage account tags into the **Input** p
 ## Step 8: Add the Jinja2 template
 
 Our business logic is created in the `Template` section, using [Nunjucks syntax](https://mozilla.github.io/nunjucks/templating.html).
-  
-Copy this template code:  
-  
+
+Copy this template code:
+
 ```nunjucks
 {% if $.storageAccount.turbot.tags.environment == "development" %}
 'Skip'
@@ -88,13 +88,13 @@ And paste it into the template pane.
 <p><img alt="template-active" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/template-active.png"/></p>
 
 Guardrails evaluates the template in the context of the chosen **Test Resource**. The template output, `Check: TLS`, is the calculated policy value that will govern any storage account’s **Azure > Storage > Storage Account > Minumum TLS Version** policy if it is tagged with `environment:development`. Only these tagged storage accounts will be required to have TLS 1.2 enabled. Others will be skipped, whether or not they enable TLS 1.2.
-  
+
 The result confirms that `Check: TLS 1.2` is valid for this policy type.  Why? Because the test storage account does not have a tag `{ "environment": "development" }`.
 
 Select **Update**
 
-## Step 9: Save the calculated policy to the policy pack
- 
+## Step 9: Save the calculated policy to the Policy Pack
+
 Select **Update**.
 
 <p><img alt="update-policy-setting" src="/images/docs/guardrails/getting-started/getting-started-azure/create-calculated-exception/update-setting.png"/></p>
@@ -123,7 +123,7 @@ In this guide you created your first calculated policy and tested it using the c
 
 ## Next Steps
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-azure/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams. 
+In the [next guide](/guardrails/docs/getting-started/getting-started-azure/send-alert-to-email) we’ll see how to subscribe to these status alerts via email, Slack, or MS Teams.
 
 
 
