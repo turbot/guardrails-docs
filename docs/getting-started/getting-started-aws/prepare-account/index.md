@@ -20,7 +20,7 @@ This is the first guide in the *Getting started with AWS* series.
 
 ## Step 1: Login to Guardrails
 
-Login to your Guardrails console and select the **CONNECT** option from the home page. 
+Login to your Guardrails console and select the **CONNECT** option from the home page.
 
 <p><img alt="locate-top-level-connect" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/locate-top-level-connect.png"/></p>
 
@@ -28,7 +28,7 @@ Login to your Guardrails console and select the **CONNECT** option from the home
 
 Guardrails needs an IAM role that grants permission to discover [resources](/guardrails/docs/reference/glossary#resource) in your account and to monitor changes via event handlers. The CloudFormation template downloaded in this step has the minimum permissions necessary to create that role.
 
-Select **AWS Account** from the left navigation and then click the blue **Download CloudFormation Template** button to download the CloudFormation template you will use to create the required IAM role in your AWS account. 
+Select **AWS Account** from the left navigation and then click the blue **Download CloudFormation Template** button to download the CloudFormation template you will use to create the required IAM role in your AWS account.
 
 <p><img alt="initial-connect-screen" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/initial-connect-screen.png"/></p>
 
@@ -82,7 +82,6 @@ Select the **Outputs** tab and copy the ARN of the Guardrails IAM role.
 ## Step 8: Review
 
 In this guide you've learned how to deploy an AWS role that grants minimal permissions to Guardrails using the AWS CloudFormation service.
-
 
 ## Next Steps
 
