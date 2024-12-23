@@ -360,7 +360,8 @@
             "id": "troubleshooting",
             "link": "guides/using-guardrails/troubleshooting",
             "items": [
-              "guides/using-guardrails/troubleshooting/identify-fix-invalid-controls"
+              "guides/using-guardrails/troubleshooting/identify-fix-invalid-controls",
+              "guides/using-guardrails/troubleshooting//how-to-get-control-failure-log"
             ]
           },
 
