@@ -8,9 +8,10 @@ nav:
 
 # Importing an AWS account into Guardrails
 
-<div className="alert alert-warning">
-This section details the steps required to import an AWS Account into a Guardrails Folder.
-</div>
+In this guide, you will:
+
+- Import an AWS Account into a Guardrails Folder.
+
 
 ## Overview
 
@@ -34,8 +35,8 @@ Consider that Turbot Guardrails is hosted only in AWS commercial accounts. There
 - To import
   [AWS China or AWS GovCloud accounts](guides/aws/import-aws-account/gov-cloud) requires hosting of guardrails in the same partition as those account or using access keys for each account outside of the current AWS Partition.
 
-<div className="alert alert-info" role="alert"><b>NOTICE</b>: Free Tier AWS accounts cannot be used with Guardrails. If this is attempted, Guardrails will fail to properly discover resources in the account and will generate errors in the Guardrails console.
-</div>
+> [!IMPORTANT]
+> Free Tier AWS accounts cannot be used with Guardrails. If this is attempted, Guardrails will fail to properly discover resources in the account and will generate errors in the Guardrails console.
 
 ## Prerequisites to import AWS Commercial Account
 
@@ -108,10 +109,12 @@ conforms to your requirements.
             - SNS topics and subscriptions matching:
                 - `arn:aws:sns:*:${AccountId}:turbot_aws_api_handler`
                 - `arn:aws:sns:*:${AccountId}:turbot_aws_api_handler:*`
-                - Note that the default resource prefix is `turbot_`. If changes are
+                > [!NOTE]
+                > The default resource prefix is `turbot_`. If changes are
                   made to the "Event Rule Name Prefix" or "SNS Topic Name Prefix"
                   policies, then the IAM policy must be updated to match. This is an
                   uncommon requirement. See policy details below.
+
                     - [AWS > Turbot > Event Handlers > Events > Rules > Name Prefix](/guardrails/docs/mods/aws/aws/policy#aws--turbot--event-handlers--events--rules--name-prefix)
                     - [AWS > Turbot > Event Handlers > SNS > Topic > Name Prefix](/guardrails/docs/mods/aws/aws/policy#aws--turbot--event-handlers--sns--topic--name-prefix)
                 - Adjust the partition from `aws` to `aws-us-gov` and `aws-cn` as
@@ -220,7 +223,7 @@ Parameters:
     Type: String
     Default: "/"
     Description: >
-      The IAM path to use for all IAM roles created in this stack. 
+      The IAM path to use for all IAM roles created in this stack.
       The path must either be a single forward slash "/" or
       alphanumeric characters with starting and ending forward slashes "/my-path/".
   GuardrailsSaaSAccountId:
@@ -325,12 +328,12 @@ Outputs:
     Description: "ARN of the Guardrails IAM role"
     Value: !GetAtt GuardrailsAccessRole.Arn
     Export:
-      Name: "GuardrailsAccessRoleArn" 
+      Name: "GuardrailsAccessRoleArn"
   AccessRoleExternalIdOutput:
     Description: "External ID used in the Access Role"
     Value: !Ref AccessRoleExternalId
     Export:
-      Name: "AccessRoleExternalId" 
+      Name: "AccessRoleExternalId"
 ```
 
 #### Full AdministratorAccess
@@ -555,7 +558,7 @@ Recommended Mods (in order of installation):
 
 Importing accounts into Folders offers increased flexibility and easier
 management over importing directly under the Turbot level. Define a
-[Folder hierarchy](getting-started/configure_workspace) prior to import.
+[Folder hierarchy](/guardrails/docs/concepts/resources/hierarchy) prior to import.
 
 #### Importing the account via the Guardrails Console
 
@@ -676,7 +679,8 @@ integrating Guardrails into account onboarding pipelines.
   script with this filter:
   `--filter "resourceId:'<ARNofAccount>' controlTypeId:'tmod:@turbot/aws#/control/types/eventHandlers','tmod:@turbot/aws-sns#/control/types/topicConfigured','tmod:@turbot/aws-sns#/control/types/subscriptionConfigured','tmod:@turbot/aws-event#s/control/types/targetConfigured','tmod:@turbot/aws-events#/control/types/ruleConfigured' state:tbd,error,invalid"`
 
-Note that Terraform cannot verify anything beyond the existence and
+> [!NOTE]
+> Terraform cannot verify anything beyond the existence and
 configuration of the Account resource in Turbot, along with the Turbot IAM role
 and External ID policies. Fully automated, lights-out account import requires
 additional verification steps after import.
