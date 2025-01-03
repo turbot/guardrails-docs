@@ -338,17 +338,12 @@
             "id": "console",
             "link": "guides/using-guardrails/console",
             "items": [
-              {
-                "type": "category",
-                "id": "reports",
-                "link": "guides/using-guardrails/console/reports",
-                "items": [
-                  "guides/using-guardrails/console/reports/export-smart-folder-as-csv"
-                ]
-              },
-              "guides/using-guardrails/console/detail-pages"
+              "guides/using-guardrails/console/reports",
+              "guides/using-guardrails/console/detail-pages",
+              "guides/using-guardrails/console/reports/export-smart-folder-as-csv"
             ]
           },
+          
           "guides/using-guardrails/graphql",
           {
             "type": "category",

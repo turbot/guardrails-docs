@@ -1,9 +1,9 @@
 ---
-title: Export Smart Folder As CSV
-sidebar_label: Export Smart Folder As CSV
+title: Export Smart Folder as CSV
+sidebar_label: Export Smart Folder as CSV
 ---
 
-# Export Smart Folder As CSV
+# Export Smart Folder as CSV
 
 In this guide, you will:
 - Use the Guardrails console to review policies in a TBD state.
