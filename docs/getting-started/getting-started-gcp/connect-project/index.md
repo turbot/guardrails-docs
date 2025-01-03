@@ -13,18 +13,18 @@ This is the second guide in the *Getting started with GCP* series.
 ## Prerequisites
 
   - Completion of the previous guide: *Prepare an GCP Project for Import to Guardrails*.
-  
+
   - Access to the Turbot Guardrails console with admin privilege.
 
 ## Step 1: Login to Guardrails
-  
-Login to your Guardrails console and select the **CONNECT** option from the home page.  
+
+Login to your Guardrails console and select the **CONNECT** option from the home page.
 <p><img alt="locate-top-level-connect" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/locate-top-level-connect.png"/></p>
 
 ## Step 2: Select GCP
 
 Select **GCP** from the import options.
-  
+
 <p><img alt="choose-gcp" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/choose-gcp.png"/></p>
 
 ## Step 3: Select import location
@@ -42,42 +42,46 @@ In the previous guide you created and downloaded a JSON-format key file. Locate 
 
 ## Step 5: Connect
 
-Select the **Connect** button. 
+Select the **Connect** button.
 
-<p><img alt="select-connect" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/connect.png"/></p>  
-  
+<p><img alt="select-connect" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/connect.png"/></p>
+
 
 ## Step 6: Observe progress
-  
+
 Wait for the progress bar to complete. This process takes a while, and you’ll see the bars fluctuate. The number of resources will grow as Guardrails discovers them.
 
-<p><img alt="gcp_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/gcp-progress-bar.png"/></p>  
+<p><img alt="gcp_progress_bar" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/gcp-progress-bar.png"/></p>
 
 
 ## Step 7: View Controls by state
 
-Select **Reports** from the top navigation menu. Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list. 
+Select **Reports** from the top navigation menu. Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list.
 
 <p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
 ## Step 8: Configure report filter
 
-Select the **Type** dropdown from the filters bar. Then enable the check box next to **GCP** to limit the report to only show GCP controls.  
+Select the **Type** dropdown from the filters bar. Then enable the check box next to **GCP** to limit the report to only show GCP controls.
 <p><img alt="set-type-filter" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/configure-report-filter.png"/></p>
 
 ## Step 9: Review Controls
 
-Review the status of your controls for GCP.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your project.  If you see controls in `Error` or `Invalid` states, those must be cleared before moving further into these guides.  
-  
+Review the status of your controls for GCP.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your project. 
+
+> [!IMPORTANT]
+> The controls in `Error` or `Invalid` states must be cleared before moving further into these guides.
+> It takes few mins depending on various factors. We suggest to wait and report to [Turbot support](help@turbot.com), in case these errors are not cleared up automatically.
+
 Bookmark the **Controls by State** report, you’ll need it in subsequent guides.
 
 <p><img alt="gcp-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/gcp-controls-by-state.png"/></p>
 
 ## Next Steps
-  
+
 You've now successfully connected your GCP project to Guardrails.
 
-In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity) we’ll see how Guardrails watches your project and reacts to resource changes.  
+In the [next guide](/guardrails/docs/getting-started/getting-started-gcp/observe-gcp-activity) we’ll see how Guardrails watches your project and reacts to resource changes.
 
 ## Progress tracker
 - [x] Prepare a GCP Project for Import to Guardrails
