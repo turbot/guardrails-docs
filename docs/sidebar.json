@@ -340,10 +340,10 @@
             "items": [
               "guides/using-guardrails/console/reports",
               "guides/using-guardrails/console/detail-pages",
-              "guides/using-guardrails/console/reports/export-smart-folder-as-csv"
+              "guides/using-guardrails/console/export-policy-pack-as-csv"
             ]
           },
-          
+
           "guides/using-guardrails/graphql",
           {
             "type": "category",
