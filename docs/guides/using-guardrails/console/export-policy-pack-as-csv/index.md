@@ -41,7 +41,7 @@ Select the required resource from the **Resource** filter dropdown. Here the sel
 
 ## Step 5: Export CSV
 
-Click the **Export to CSV** link at the top of the page to download the smart folder in CSV format.
+Select the **Export to CSV** link at the top of the page to download the smart folder in CSV format. This will store the file in your local drive.
 
 ![Review Cause](/images/docs/guardrails/guides/using-guardrails/console/export-policy-pack-as-csv/guardrails-export-to-csv.png)
 
