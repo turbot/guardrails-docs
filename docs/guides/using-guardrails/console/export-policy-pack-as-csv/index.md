@@ -27,9 +27,9 @@ Choose **Reports** from the top navigation menu.
 
 ![Navigate to Reports](/images/docs/guardrails/guides/using-guardrails/console/export-policy-pack-as-csv/guardrails-navigate-to-reports.png)
 
-## Step 3: Select Policy
+## Step 3: Select Policies
 
-Under Policies, select **Policy Settings by Resource Type**.
+Under `Policies`, select **Policy Settings by Resource Type**.
 
 ![Policy Settings by Resource Type](/images/docs/guardrails/guides/using-guardrails/console/export-policy-pack-as-csv/guardrails-select-policy-setting-by-resource-type.png)
 
