@@ -1,9 +1,9 @@
 ---
-title: How To Get Control Failure Log
-sidebar_label: How To Get Control Failure Log
+title: Get Control Failure Log
+sidebar_label: Get Control Failure Log
 ---
 
-# How To Get Control Failure Log
+# Get Control Failure Log
 
 In this guide, you will:
 - Use Guardrails console to get a control failure log.
@@ -19,25 +19,25 @@ Controls enforce policies to maintain cloud resource compliance and ensure the p
 
 Log into the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/using-guardrails/troubleshooting/how-to-get-control-failure-log/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/using-guardrails/troubleshooting/get-control-failure-log/guardrails-console-login.png)
 
 ## Step 2: Navigate to Control
 
 Navigate to the control page to inspect the failure details. Select **VIEW LOG**.
 
-![Navigate to Control Page](/images/docs/guardrails/guides/using-guardrails/troubleshooting/how-to-get-control-failure-log/guardrails-control-page.png)
+![Navigate to Control Page](/images/docs/guardrails/guides/using-guardrails/troubleshooting/get-control-failure-log/guardrails-control-page.png)
 
 ## Step 3: Select Log Level
 
 From **Level:** dropdown filter, choose **Debug and above**.
 
-![Select Debug Log Level](/images/docs/guardrails/guides/using-guardrails/troubleshooting/how-to-get-control-failure-log/guardrails-select-debug-level.png)
+![Select Debug Log Level](/images/docs/guardrails/guides/using-guardrails/troubleshooting/get-control-failure-log/guardrails-select-debug-level.png)
 
 ## Step 4: Copy Logs
 
 Select the **Copy to clipboard** button and save the logs in a `.txt` file.
 
-![Copy Logs](/images/docs/guardrails/guides/using-guardrails/troubleshooting/how-to-get-control-failure-log/guardrails-copy-logs.png)
+![Copy Logs](/images/docs/guardrails/guides/using-guardrails/troubleshooting/get-control-failure-log/guardrails-copy-logs.png)
 
 >[!NOTE]
 >  If debug logs are unavailable, rerun the control to generate the logs.
