@@ -18,6 +18,71 @@ Guardrails is designed to enable organizations to selectively install policies, 
 - Familiarity with Guardrails console.
 - EventBridge IAM role required in GEH secondary regions, which helps to pass events to the primary region.
 
+## Configuring CloudTrail
+
+<div className="alert alert-warning"> <strong>You are not required to use the Guardrails Audit Trail</strong> to configure CloudTrail, but <strong>there must be a CloudTrail configured in each region or a global trail.</strong>
+</div>
+
+The [Guardrails Audit Trail](/guardrails/docs/mods/aws/aws/policy#aws--turbot--audit-trail)
+policy provides a convenient mechanism for setting up CloudTrail in AWS
+accounts.
+
+### Creating logging buckets using the default configuration
+
+CloudTrail requires an S3 bucket to store logs. The Guardrails Logging Bucket policy
+can simplify creation of logging buckets.
+
+To set up logging buckets in the default configuration, simply set the
+[AWS > Turbot > Logging > Bucket](/guardrails/docs/mods/aws/aws/policy#aws--region--logging-bucket-default)
+policy to **Enforce: Configured**.
+
+```hcl
+# Create AWS logging buckets
+# AWS > Turbot > Logging > Bucket
+resource "turbot_policy_setting" "loggingBucket" {
+  resource    = "id of parent folder or policy pack"   //highlight-line
+  type        = "tmod:@turbot/aws#/policy/types/loggingBucket"
+  value       = "Enforce: Configured"
+}
+```
+
+The default configuration will create a logging bucket in each region of your
+AWS account. If desired, you can modify the behavior of this stack to match your
+logging strategy through the **AWS > Turbot > Logging > Bucket > \***
+sub-policies.
+
+Verify the state of **AWS > Turbot > Logging > Bucket** control for each region.
+They will be in the **OK** state when completed.
+
+**Note**: If using `AWS > Turbot > Logging > Bucket` in preparation for
+`AWS > Turbot > Audit Trail`, be aware that logging buckets will be deployed in
+all regions specified in the
+[AWS > Account > Approved Regions \[Default\]](/guardrails/docs/mods/aws/aws/policy#aws--account--approved-regions-default)
+policy. The Turbot Audit Trail will only be deployed in a single region. Use
+[AWS > Turbot > Logging > Bucket > Regions](/guardrails/docs/mods/aws/aws/policy#aws--turbot--logging--bucket--regions)
+to specify which regions will get logging buckets.
+
+### Set up CloudTrail with the default configuration
+
+Once the logging buckets have been created, it is time to set up the **Audit
+Trail** stack:
+
+```hcl
+# AWS > Turbot > Audit Trail
+resource "turbot_policy_setting" "auditTrail" {
+  resource    = "id of parent folder or policy pack"   //highlight-line
+  type        = "tmod:@turbot/aws#/policy/types/auditTrail"
+  value       = "Enforce: Configured"
+}
+```
+
+The default configuration will create a global trail in **us-east-1**, though
+users can use the **AWS > Turbot > Audit Trail > \*** sub-policies to customize
+the CloudTrail configuration to meet requirements.
+
+Verify the state of **AWS > Turbot > Audit Trail** control for each region. They
+will be in the **OK** state when completed.
+
 ## Step 1: Login Guardrail Console
 
 Log into the Guardrails console.
