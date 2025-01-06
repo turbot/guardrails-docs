@@ -6,7 +6,8 @@ sidebar_label: Global Event Handler
 # Setup Global Event Handler(GEH)
 
 In this guide, you will:
-- Update a mod in the Guardrails workspace using the Guardrails UI.
+
+- Setup Global Event Handlers in the Guardrails workspace using the Guardrails UI.
 - Monitor and troubleshoot the GEH update process.
 
 Guardrails is designed to enable organizations to selectively install policies, controls, and guardrails tailored to specific services. The Global [Event Handler](/guardrails/docs/reference/glossary#event-handler) simplifies cloud management by providing a unified framework for responding to and managing events, ensuring proactive governance and security across cloud environments.
@@ -21,19 +22,53 @@ Guardrails is designed to enable organizations to selectively install policies, 
 
 Log into the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-mod/guardrails-console-login.png)
+![Guardrails Console Login](guardrails-console-login.png)
 
 ## Step 2: Enable Service Role
 
 IAM role is required for Global Event handler. This can be created manually by customer or can be done by AWS Turbot Service Role
 
-![Enable Service Role](/images/docs/guides/configuring-guardrails/global-event-handler/1-geh-aws-turbot-service-roles.png)
+![Enable Service Role](1-geh-aws-turbot-service-roles.png)
 
 Check if all the related controls are in `OK` state
 
-![Service Role Control](/images/docs/guides/configuring-guardrails/global-event-handler/2-geh-check-control-status.png)
+![Service Role Control](2-geh-check-control-status.png)
 
-## Step 3: Enable Global Event Handler Control
+If you wish to create the IAM Roles manually, please make sure the Role contains the policies shown in below Terraform sample.
+
+```
+resource "aws_iam_role" "event-handlers-global-role" {
+  name = "turbot_aws_api_events_global"
+  path = "/turbot/"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "events.amazonaws.com"
+        }
+      },
+    ]
+  })
+  inline_policy {
+    name = "aws_api_events_policy"
+    policy = jsonencode({
+      Version = "2012-10-17"
+      Statement = [
+        {
+          Action   = ["events:PutEvents"]
+          Effect   = "Allow"
+          Resource = "arn:${PARTITION}:events:${GLOBAL_EVENTS_PRIMARY_REGION}:${AWS_ACCOUNT_ID}:event-bus/default"
+        },
+      ]
+    })
+  }
+}
+```
+
+## Step 3: Enable Global Event Handler
 
 ![Enable GEH](3-gen-aws-turbot-event-handler-global-enabled.png)
 
@@ -41,56 +76,26 @@ Validate that the setting is applied successfully
 
 ![Validate Setting](4-validate-post-setting.png)
 
+Check if all the related controls for `AWS > Turbot > Event Handlers [Global]` are in `OK` state
 
-## Step 4: Enable Global Event Handler Control
+### Verify
 
+Congrats! Global Event handlers are now configured in the target account. To verify that they are working correctly, create a new resource or change an existing resource in both Primary region and Secondary region. Turbot will receive the event which will trigger relevant controls. If resource creation or modification events do not get picked up by Turbot, feel free to reach out to [help@turbot.com](mailto:help@turbot.com)
 
-## Step 2: Navigate to Mods
+### Troubleshooting
 
-Choose **Admin** from the top right corner.
+The best source of troubleshooting information is in the **AWS > Turbot > Event
+Handler** control logs.
 
-![Navigate To Admin](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-mod/guardrails-navigate-admin-panel.png)
-
-Select the **Mods** tab.
-
-![Mods](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-mod/guardrails-navigate-mods.png)
-
-## Step 3: Find Mod
-
-From the **Mods** page, search the mod to be updated. The availability of an update is typically indicated by the `UPDATE AVAILABLE` Status.
-
-![Mod Search](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-mod/guardrails-mod-search.png)
-
-## Step 4: Update Mod
-
-Select the mod and choose **Update**.
-
-![Select Update](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-mod/guardrails-select-update.png)
-
-Select the version to update, with the latest version recommended. choose **Update Mod**.
-
-![Update Mod Action](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-mod/guardrails-update-mod-action.png)
-
-## Step 5: Review
-
-- [ ] The Updated mod appears in the list with the latest version and indicated by the `LATEST` Status.
-
-![Mod Update Latest](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-mod/guardrails-update-latest.png)
-
-- [ ] Select the mod and verify that the health is in an **OK** state, indicating the mod is healthy.
-
-![Mod Health OK](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-mod/guardrails-mod-health-ok.png)
-
-## Next Steps
-
-Please see the following resources to learn more about Turbot Guardrails Enterprise:
-
-- Learn more about [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
-- Learn about [Installing a Mod](/guardrails/docs/guides/hosting-guardrails/installation/install-mod#install-mod).
-
-## Troubleshooting
-
-| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
-|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| Mod Dependency               | If the mod installation fails due the dependent/parent mod not installed.                                           | [Troubleshoot Mod Peer Dependency Error](/guardrails/docs/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error#peer-mod-dependency-error)                            |
-| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
+- Permissions Issues: If the permissions granted to the Turbot IAM role do not
+  allow configuration of event rules and SNS topics, then the logs will indicate
+  access denied.
+- SCP Regional Restrictions: Many enterprises use Service Control Policies to
+  restrict region usage. SCPs restrictions will appear as "Access Denied" errors
+  in the Turbot console. Work with your SCP admins to determine which regions
+  are permitted then update the
+  [AWS > Account > Regions](/guardrails/docs/mods/aws/aws/policy#aws--account--approved-regions-default)
+  policy to match.
+- SNS Subscription won't confirm: Check the various **Turbot > Workspace**
+  policies that they are properly configured. Ensure that resources in the
+  Turbot Master VPC can resolve the ALB's hostname.
