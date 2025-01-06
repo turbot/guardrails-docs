@@ -22,17 +22,17 @@ Guardrails is designed to enable organizations to selectively install policies, 
 
 Log into the Guardrails console.
 
-![Guardrails Console Login](guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-mod/guardrails-console-login.png)
 
 ## Step 2: Enable Service Role
 
 IAM role is required for Global Event handler. This can be created manually by customer or can be done by AWS Turbot Service Role
 
-![Enable Service Role](1-geh-aws-turbot-service-roles.png)
+![Enable Service Role](/images/docs/guides/configuring-guardrails/global-event-handler/1-geh-aws-turbot-service-roles.png)
 
 Check if all the related controls are in `OK` state
 
-![Service Role Control](2-geh-check-control-status.png)
+![Service Role Control](/images/docs/guides/configuring-guardrails/global-event-handler/2-geh-check-control-status.png)
 
 If you wish to create the IAM Roles manually, please make sure the Role contains the policies shown in below Terraform sample.
 
@@ -70,11 +70,11 @@ resource "aws_iam_role" "event-handlers-global-role" {
 
 ## Step 3: Enable Global Event Handler
 
-![Enable GEH](3-gen-aws-turbot-event-handler-global-enabled.png)
+![Enable GEH](/images/docs/guides/configuring-guardrails/global-event-handler/3-gen-aws-turbot-event-handler-global-enabled.png)
 
 Validate that the setting is applied successfully
 
-![Validate Setting](4-validate-post-setting.png)
+![Validate Setting](/images/docs/guides/configuring-guardrails/global-event-handler/4-validate-post-setting.png)
 
 Check if all the related controls for `AWS > Turbot > Event Handlers [Global]` are in `OK` state
 
