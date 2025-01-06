@@ -82,10 +82,7 @@
             "type": "category",
             "id": "user",
             "link": "getting-started/your-guardrails-org/user",
-            "items": [
-              "getting-started/your-guardrails-org/user/sign-up",
-              "getting-started/your-guardrails-org/user/profile"
-            ]
+            "items": ["getting-started/your-guardrails-org/user/sign-up", "getting-started/your-guardrails-org/user/profile"]
           },
           {
             "type": "category",
@@ -146,11 +143,7 @@
         "type": "category",
         "id": "iam",
         "link": "concepts/iam",
-        "items": [
-          "concepts/iam/authentication",
-          "concepts/iam/identity",
-          "concepts/iam/permissions"
-        ]
+        "items": ["concepts/iam/authentication", "concepts/iam/identity", "concepts/iam/permissions"]
       },
       {
         "type": "category",
@@ -170,11 +163,7 @@
         "type": "category",
         "id": "resources",
         "link": "concepts/resources",
-        "items": [
-          "concepts/resources/hierarchy",
-          "concepts/resources/types-categories",
-          "concepts/resources/discovery"
-        ]
+        "items": ["concepts/resources/hierarchy", "concepts/resources/types-categories", "concepts/resources/discovery"]
       }
     ]
   },
@@ -269,11 +258,7 @@
         "type": "category",
         "id": "kubernetes",
         "link": "guides/kubernetes",
-        "items": [
-          "guides/kubernetes/import-kubernetes-cluster",
-          "guides/kubernetes/configure-queries",
-          "guides/kubernetes/decommission"
-        ]
+        "items": ["guides/kubernetes/import-kubernetes-cluster", "guides/kubernetes/configure-queries", "guides/kubernetes/decommission"]
       },
       {
         "type": "category",
@@ -319,6 +304,7 @@
             "link": "guides/configuring-guardrails/firehose",
             "items": ["guides/configuring-guardrails/firehose/pipelines"]
           },
+          "guides/configuring-guardrails/global-event-handler",
           {
             "type": "category",
             "id": "managing-policies",
@@ -354,10 +340,7 @@
             "type": "category",
             "id": "console",
             "link": "guides/using-guardrails/console",
-            "items": [
-              "guides/using-guardrails/console/reports",
-              "guides/using-guardrails/console/detail-pages"
-            ]
+            "items": ["guides/using-guardrails/console/reports", "guides/using-guardrails/console/detail-pages"]
           },
           "guides/using-guardrails/graphql",
           {
@@ -377,10 +360,7 @@
             "type": "category",
             "id": "notifications",
             "link": "guides/using-guardrails/notifications",
-            "items": [
-              "guides/using-guardrails/notifications/filter-rules",
-              "guides/using-guardrails/notifications/templates"
-            ]
+            "items": ["guides/using-guardrails/notifications/filter-rules", "guides/using-guardrails/notifications/templates"]
           },
           "guides/using-guardrails/nunjucks",
           "guides/using-guardrails/quick-actions",
@@ -565,12 +545,7 @@
         "type": "category",
         "id": "reference/filter",
         "link": "reference/filter",
-        "items": [
-          "reference/filter/resources",
-          "reference/filter/policies",
-          "reference/filter/controls",
-          "reference/filter/notifications"
-        ]
+        "items": ["reference/filter/resources", "reference/filter/policies", "reference/filter/controls", "reference/filter/notifications"]
       },
       "reference/ocl",
       {
