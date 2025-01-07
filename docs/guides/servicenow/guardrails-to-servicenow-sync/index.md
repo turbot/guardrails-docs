@@ -10,7 +10,7 @@ nav:
 
 ## Prerequisites
 
-Before you get started, if you have not already completed, follow the [Importing a ServiceNow instance into Guardrails](/guardrails/docs/integrations/import-servicenow-instance) integration guide to associate your ServiceNow instance to Turbot Guardrails.
+Before you get started, if you have not already completed, follow the [Importing a ServiceNow instance into Guardrails](/guardrails/docs/guides/servicenow/import-servicenow-instance) integration guide to associate your ServiceNow instance to Turbot Guardrails.
 
 ### Install Turbot Guardrails ServiceNow Cloud Mods
 
@@ -418,6 +418,6 @@ An import set will be then be created that contains the data above so the `statu
 ## Next Steps
 
 1. Additional context and a demo about the feature is in the announcement post [Continuous Cloud CMDB Sync with ServiceNow & Turbot Guardrails](https://turbot.com/guardrails/blog/2023/12/cmdb-sync-guardrails-servicenow-integration).
-2. Consider integrating ServiceNow to Guardrails. Follow the [Enable ServiceNow sync to Guardrails](https://turbot.com/guides/servicenow/servicenow-to-guardrails-sync) integration guide to configure real-time syncing of ServiceNow resource to Turbot Guardrails.
+2. Consider integrating ServiceNow to Guardrails. Follow the [Enable ServiceNow sync to Guardrails](https://turbot.com/guardrails/docs/guides/servicenow/servicenow-to-guardrails-sync) integration guide to configure real-time syncing of ServiceNow resource to Turbot Guardrails.
 
 We want to hear from you! Join our [Slack Community](https://turbot.com/community/join) `#guardrails` channel to ask questions and share feedback.
