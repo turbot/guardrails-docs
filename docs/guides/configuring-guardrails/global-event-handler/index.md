@@ -17,150 +17,70 @@ Guardrails is designed to enable organizations to selectively install policies, 
 - **Turbot/Owner** permissions at the Turbot resource level.
 - Familiarity with Guardrails console.
 - EventBridge IAM role required in GEH secondary regions, which helps to pass events to the primary region.
+- CloudTrail should be configured. See [here](/guardrails/docs/guides/aws/event-handlers#configuring-cloudtrail) for more details.
 
-## Configuring CloudTrail
+## Step 1: Login Guardrails Console
 
-<div className="alert alert-warning"> <strong>You are not required to use the Guardrails Audit Trail</strong> to configure CloudTrail, but <strong>there must be a CloudTrail configured in each region or a global trail.</strong>
-</div>
+Log into the Guardrails console with provided local credentials or by using any SAML based login.
 
-The [Guardrails Audit Trail](/guardrails/docs/mods/aws/aws/policy#aws--turbot--audit-trail)
-policy provides a convenient mechanism for setting up CloudTrail in AWS
-accounts.
+![Guardrails Console Login](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/guardrails-console-login.png)
 
-### Creating logging buckets using the default configuration
-
-CloudTrail requires an S3 bucket to store logs. The Guardrails Logging Bucket policy
-can simplify creation of logging buckets.
-
-To set up logging buckets in the default configuration, simply set the
-[AWS > Turbot > Logging > Bucket](/guardrails/docs/mods/aws/aws/policy#aws--region--logging-bucket-default)
-policy to **Enforce: Configured**.
-
-```hcl
-# Create AWS logging buckets
-# AWS > Turbot > Logging > Bucket
-resource "turbot_policy_setting" "loggingBucket" {
-  resource    = "id of parent folder or policy pack"   //highlight-line
-  type        = "tmod:@turbot/aws#/policy/types/loggingBucket"
-  value       = "Enforce: Configured"
-}
-```
-
-The default configuration will create a logging bucket in each region of your
-AWS account. If desired, you can modify the behavior of this stack to match your
-logging strategy through the **AWS > Turbot > Logging > Bucket > \***
-sub-policies.
-
-Verify the state of **AWS > Turbot > Logging > Bucket** control for each region.
-They will be in the **OK** state when completed.
-
-**Note**: If using `AWS > Turbot > Logging > Bucket` in preparation for
-`AWS > Turbot > Audit Trail`, be aware that logging buckets will be deployed in
-all regions specified in the
-[AWS > Account > Approved Regions \[Default\]](/guardrails/docs/mods/aws/aws/policy#aws--account--approved-regions-default)
-policy. The Turbot Audit Trail will only be deployed in a single region. Use
-[AWS > Turbot > Logging > Bucket > Regions](/guardrails/docs/mods/aws/aws/policy#aws--turbot--logging--bucket--regions)
-to specify which regions will get logging buckets.
-
-### Set up CloudTrail with the default configuration
-
-Once the logging buckets have been created, it is time to set up the **Audit
-Trail** stack:
-
-```hcl
-# AWS > Turbot > Audit Trail
-resource "turbot_policy_setting" "auditTrail" {
-  resource    = "id of parent folder or policy pack"   //highlight-line
-  type        = "tmod:@turbot/aws#/policy/types/auditTrail"
-  value       = "Enforce: Configured"
-}
-```
-
-The default configuration will create a global trail in **us-east-1**, though
-users can use the **AWS > Turbot > Audit Trail > \*** sub-policies to customize
-the CloudTrail configuration to meet requirements.
-
-Verify the state of **AWS > Turbot > Audit Trail** control for each region. They
-will be in the **OK** state when completed.
-
-## Step 1: Login Guardrail Console
-
-Log into the Guardrails console.
-
-![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-mod/guardrails-console-login.png)
 
 ## Step 2: Enable Service Role
 
 IAM role is required for Global Event handler. This can be created manually by customer or can be done by AWS Turbot Service Role
 
-![Enable Service Role](/images/docs/guides/configuring-guardrails/global-event-handler/1-geh-aws-turbot-service-roles.png)
+![Enable Service Role](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-aws-turbot-service-roles.png)
 
-Check if all the related controls are in `OK` state
+Check if all the `AWS > Turbot > Service Roles`controls in all AWS accounts are in `OK` state
 
-![Service Role Control](/images/docs/guides/configuring-guardrails/global-event-handler/2-geh-check-control-status.png)
+![Service Role Control](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-check-control-status.png)
 
-If you wish to create the IAM Roles manually, please make sure the Role contains the policies shown in below Terraform sample.
+## Step 3: Check Service Role Source Policy
 
-```
-resource "aws_iam_role" "event-handlers-global-role" {
-  name = "turbot_aws_api_events_global"
-  path = "/turbot/"
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Principal = {
-          Service = "events.amazonaws.com"
-        }
-      },
-    ]
-  })
-  inline_policy {
-    name = "aws_api_events_policy"
-    policy = jsonencode({
-      Version = "2012-10-17"
-      Statement = [
-        {
-          Action   = ["events:PutEvents"]
-          Effect   = "Allow"
-          Resource = "arn:${PARTITION}:events:${GLOBAL_EVENTS_PRIMARY_REGION}:${AWS_ACCOUNT_ID}:event-bus/default"
-        },
-      ]
-    })
-  }
-}
-```
+Select  any one of the control from the above step and navigate to **Policies**, select **Source** to validate the created policy.
 
-## Step 3: Enable Global Event Handler
+![Service Role Source Policy](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-service-role-source-policy.png)
 
-![Enable GEH](/images/docs/guides/configuring-guardrails/global-event-handler/3-gen-aws-turbot-event-handler-global-enabled.png)
+> [!NOTE]
+> You can create these roles manually and use the same. Open a [Support Ticket](https://support.turbot.com) to help you with the process in case you need to create these roles manually as per your compliance need.
 
-Validate that the setting is applied successfully
+## Step 4: Enable Global Event Handler
 
-![Validate Setting](/images/docs/guides/configuring-guardrails/global-event-handler/4-validate-post-setting.png)
+In the Guardrails's console navigate to the **Policies** and search for `AWS > Turbot > Service Roles > Event Handlers [Global]` policy. Select **New Policy Setting**
 
-Check if all the related controls for `AWS > Turbot > Event Handlers [Global]` are in `OK` state
+![Event Handlers [Global] Policy](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-policy.png)
 
-### Verify
+Choose **Resource** as `Turbot` and **Setting** as `Enabled`
 
-Congrats! Global Event handlers are now configured in the target account. To verify that they are working correctly, create a new resource or change an existing resource in both Primary region and Secondary region. Turbot will receive the event which will trigger relevant controls. If resource creation or modification events do not get picked up by Turbot, feel free to reach out to [help@turbot.com](mailto:help@turbot.com)
+![Enable GEH](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/gen-aws-turbot-event-handler-global-enabled.png)
 
-### Troubleshooting
 
-The best source of troubleshooting information is in the **AWS > Turbot > Event
-Handler** control logs.
+## Step 5: Review
 
-- Permissions Issues: If the permissions granted to the Turbot IAM role do not
-  allow configuration of event rules and SNS topics, then the logs will indicate
-  access denied.
-- SCP Regional Restrictions: Many enterprises use Service Control Policies to
-  restrict region usage. SCPs restrictions will appear as "Access Denied" errors
-  in the Turbot console. Work with your SCP admins to determine which regions
-  are permitted then update the
-  [AWS > Account > Regions](/guardrails/docs/mods/aws/aws/policy#aws--account--approved-regions-default)
-  policy to match.
-- SNS Subscription won't confirm: Check the various **Turbot > Workspace**
-  policies that they are properly configured. Ensure that resources in the
-  Turbot Master VPC can resolve the ALB's hostname.
+Validate that the setting is applied successfully. While in **Settings** tab, select **Event Handler [Global]** value.
+
+![Select Value](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/select-value.png)
+
+Ensure the value is shown as `Enabled`. Select no of values circled to validate the number of account where the policy is applied.
+
+![Validate Post Setting Values](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/validate-post-setting-values.png)
+
+Check if all the related controls for `AWS > Turbot > Event Handlers [Global]` are in `OK` state. You can browse to the **Reports** tab, navigate to `Controls by State`, select `AWS > Turbot > Event Handlers [Global]` in *`Types`*. Ensure all controls are in `OK` state.
+
+![Report Event Handler Global](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/event-handler-global-controls.png)
+
+## Step 6: Verify Events
+
+Global Event handlers are now configured in the target account. To verify that they are working correctly, create a new resource or change an existing resource in both Primary region and secondary region. Turbot will receive the event which will trigger relevant controls. If resource creation or modification events do not get picked up by Turbot's Guardrails, reach out to [help@turbot.com](mailto:help@turbot.com)
+
+
+## Troubleshooting
+
+| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Permission Issues                        | If the permissions granted to the Turbot IAM role do not allow configuration of event rules and SNS topics, then the logs will indicate access denied.   | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators)             |
+| [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) Regional Restrictions                        | SCPs restrictions will appear as `Access Denied` errors in the Guardrails console.    |  Work with your SCP admins to determine which regions are permitted then update the [AWS > Account > Regions](/guardrails/docs/mods/awsaws/policy#aws--account--approved-regions-default) policy to match.|
+| SNS Subscription won't confirm                       | | Check the various Turbot > Workspace policies that they are properly configured. Ensure that resources in the Guardrails primary hosting AWS account master VPC can resolve the ALB's hostname   |
+| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
+
