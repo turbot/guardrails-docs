@@ -22,37 +22,37 @@ Mods may need to be uninstalled when requirements change or when there is no lon
 
 Log into the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/installation/uninstall-mod/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/configuring-guardrails/uninstall-mod/guardrails-console-login.png)
 
 ## Step 2: Navigate to Mods
 
 Choose **Admin** from the top right corner.
 
-![Navigate To Admin](/images/docs/guardrails/guides/hosting-guardrails/installation/uninstall-mod/guardrails-navigate-admin-panel.png)
+![Navigate To Admin](/images/docs/guardrails/guides/configuring-guardrails/uninstall-mod/guardrails-navigate-admin-panel.png)
 
 Select the **Mods** tab.
 
-![Mods](/images/docs/guardrails/guides/hosting-guardrails/installation/uninstall-mod/guardrails-navigate-mods.png)
+![Mods](/images/docs/guardrails/guides/configuring-guardrails/uninstall-mod/guardrails-navigate-mods.png)
 
 ## Step 3: Uninstall Mod
 
 The **Mods** page displays the list of mods that are installed in your workspace. Search and select the mod to be uninstalled.
 
-![Mod List](/images/docs/guardrails/guides/hosting-guardrails/installation/uninstall-mod/guardrails-mod-search.png)
+![Mod List](/images/docs/guardrails/guides/configuring-guardrails/uninstall-mod/guardrails-mod-search.png)
 
 Select the **Uninstall** option from the top right.
 
-![Uninstall Mod](/images/docs/guardrails/guides/hosting-guardrails/installation/uninstall-mod/guardrails-select-uninstall.png)
+![Uninstall Mod](/images/docs/guardrails/guides/configuring-guardrails/uninstall-mod/guardrails-select-uninstall.png)
 
 Enter the mod name to confirm and select **Uninstall**.
 
-![Confirm Uninstall](/images/docs/guardrails/guides/hosting-guardrails/installation/uninstall-mod/guardrails-uninstall-confirm.png)
+![Confirm Uninstall](/images/docs/guardrails/guides/configuring-guardrails/uninstall-mod/guardrails-uninstall-confirm.png)
 
 ## Step 4: Review
 
 - [ ] Verify the mod is no longer listed among the installed mods.
 
-![Control Type](/images/docs/guardrails/guides/hosting-guardrails/installation/uninstall-mod/guardrails-uninstall-verify.png)
+![Control Type](/images/docs/guardrails/guides/configuring-guardrails/uninstall-mod/guardrails-uninstall-verify.png)
 
 ## Next Steps
 
