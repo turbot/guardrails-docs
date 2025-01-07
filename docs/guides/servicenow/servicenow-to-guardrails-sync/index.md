@@ -12,7 +12,7 @@ nav:
 
 ### Associate your ServiceNow instance to Turbot Guardrails
 
-Before you get started, if you have not already completed, follow the [Importing a ServiceNow instance into Guardrails](/guardrails/docs/integrations/import-servicenow-instance) integration guide to associate your ServiceNow instance to Turbot Guardrails.
+Before you get started, if you have not already completed, follow the [Importing a ServiceNow instance into Guardrails](https://turbot.com/guardrails/docs/guides/servicenow/import-servicenow-instance) integration guide to associate your ServiceNow instance to Turbot Guardrails.
 
 ### Turbot Guardrails Mods to be installed
 
