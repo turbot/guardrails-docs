@@ -17,7 +17,7 @@ Before you get started, your Turbot Guardrails workspace will require [mods](htt
 #### Install the ServiceNow Turbot Guardrails Mod
 
 Guardrails requires a number of mods for the ServiceNow integration to work.  Install these mods:
-1. **ServiceNow Mod**: Install the `turbot/servicenow` mod.  This mod is required by all other ServiceNow mods.  The `turbot/servicenow` mod is required to import ServiceNow instances into a Guardrails workspace. It must be [installed](https://turbot.com/guardrails/docs/mods/guide/install) before a ServiceNow instance import can start. Ensure it is installed and the Mod installed control is in the green `ok` state.
+1. **ServiceNow Mod**: Install the `turbot/servicenow` mod.  This mod is required by all other ServiceNow mods.  The `turbot/servicenow` mod is required to import ServiceNow instances into a Guardrails workspace. It must be [installed](https://turbot.com/guardrails/docs/guides/configuring-guardrails/install-mod#install-a-mod) before a ServiceNow instance import can start. Ensure it is installed and the Mod installed control is in the green `ok` state.
 2. **Cloud Platform ServiceNow Mods**: Install the platform specific ServiceNow mods relevant to your organization:
    - AWS: `turbot/servicenow-aws`
    - Azure: `turbot/servicenow-azure`
