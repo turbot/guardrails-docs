@@ -29,8 +29,8 @@ Each AWS region independently handles events using its own infrastructure. Event
 
 Resources Deployed Per Region
 
-- **CloudWatch Event Rules**: Filters specific API events.
-- **CloudWatch Event Targets**: Routes events to SNS topics.
+- **EventBridge Rules**: Filters specific API events.
+- **EventBridge Targets**: Routes events to SNS topics.
 - **SNS Topics and Subscriptions**: Publish and forward events to Guardrails.
 
 ### Global Event Handlers (GEH)
@@ -39,21 +39,22 @@ A designated primary AWS region manages all event processing, while secondary re
 
 Resources Deployed
 
-- IAM Role for EventBridge Targets created in secondary regions. This will enable seamless event forwarding from all GEH secondary regions to the primary region.
+- **IAM Role for Cross-Region Event Forwarding**: Enables seamless event forwarding from all GEH secondary regions to the primary region.
 
 - Primary Region
 
-  - **EventBridge Rules and Targets**: Custom event patterns and sources, targeting an SNS Topic.
+  - **EventBridge Rules**: Define custom event patterns and sources.
+  - **EventBridge Targets**: Direct events to an SNS Topic.
   - **SNS Topics and Subscriptions**: Publish and forward events to Guardrails.
 
 - Secondary Regions
 
-  - **EventBridge Rule**: Captures event sources (default and custom) and forwards them to the primary region.
+  - **EventBridge Rule**: Captures event sources and forwards them to the primary region.
   - **EventBridge Target**: Sends events to the EventBridge bus in the primary region.
 
 Thus, by migrating to Global Event Handlers, organizations can achieve cost optimization, operational efficiency, and a streamlined approach to event management in AWS.
 
-## Key Steps in Migration
+## Migration Process Overview
 
 1. Deploy the EventBridge IAM Role to support global event handling
 2. Configure the IAM Role ARN policy setting for Event Forwarding
@@ -68,7 +69,6 @@ To enable seamless data transfer between regional event buses, the EventBridge I
 ### Options for Creating the EventBridge IAM Role
 
 1. **Role Creation by Turbot**: Turbot can create the required IAM roles for you. Simply enable the `AWS > Turbot > Service Roles` control, and Turbot will handle the setup seamlessly.
-
 
 > [!NOTE]
 > The Turbot Service Roles control is designed to configure various roles required for multiple dependent controls. If you are using Turbot Service Roles exclusively for Global Event Handlers, you can disable the other Service Roles that are not needed.
@@ -123,7 +123,7 @@ Attach the following IAM policy to grant necessary permissions to the EventBridg
 
 Terraform Example for the same.
 
-```terraform
+```hcl
 resource "aws_iam_role" "event_handlers_global_role" {
   name = "${var.event_handlers_global_role_name}"
   path = "${var.service_roles_path}"
@@ -161,7 +161,7 @@ If you are using Turbot Service Roles, this step is automatically handled, and n
 
 The following Terraform resource sets the IAM Role ARN policy for EventBridge in Global Event Handlers:
 
-```terraform
+```hcl
 resource "turbot_policy_setting" "aws_event_handlers_global_events_target_iam_role_arn" {
   resource       = "RESOURCE_ID" # or the policy pack that holds the other GEH policies
   type           = "tmod:@turbot/aws#/policy/types/eventHandlersGlobalEventsTargetIamRoleArn"
@@ -195,7 +195,7 @@ EOT
 1. In the Guardrails console navigate to the **Policies** and search for `AWS > Turbot > Event Handlers [Global]` policy. Select **New Policy Setting**
 2. Choose Resource as `Turbot` and Setting as `Enforce: Configured`
 3. Validate the deployment using the Global Event Handler Report link
-    https://{workspace}/apollo/reports/controls-by-state?filter=controlTypeId%3A%27tmod%3A%40turbot%2Faws%23%2Fcontrol%2Ftypes%2FeventHandlersGlobal%27
+   `https://{workspace}/apollo/reports/controls-by-state?filter=controlTypeId%3A%27tmod%3A%40turbot%2Faws%23%2Fcontrol%2Ftypes%2FeventHandlersGlobal%27`
 4. Ensure all GEH controls are in the ok state with the message "All required resources exist".
 
 ## Step 4. Decommission Regional Event Handlers (EH)
@@ -206,7 +206,7 @@ EOT
 > Setting the event handlers to `Skip` at this point will leave event handler infrastructure deployed concurrent to global event handlers; effectively doubling the events sent back to Guardrails for processing.
 
 2. Validate the cleanup using the Event Handler Report link
-    ```https://{workspace}/apollo/reports/controls-by-state?filter=controlTypeId%3A%27tmod%3A%40turbot%2Faws%23%2Fcontrol%2Ftypes%2FeventHandlers%27```
+   `https://{workspace}/apollo/reports/controls-by-state?filter=controlTypeId%3A%27tmod%3A%40turbot%2Faws%23%2Fcontrol%2Ftypes%2FeventHandlers%27`
 3. Ensure all `AWS > Turbot > Event Handlers` controls are in the ok state with the message ""Empty configuration - no action needed".
 4. Delete the Event Handler policy settings to complete decommissioning. This will change the Event Handler controls to `Skipped`.
 
@@ -218,8 +218,8 @@ EOT
 
 ## Troubleshooting
 
-| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
-|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| Residual EH Resources in CMDB                        | In case of the earlier event handler resources are not cleared up.             |[Rerun CMDB controls](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches) using this filter `controlTypeId:'tmod:@turbot/aws-sns#/control/types/topicCmdb','tmod:@turbot/aws-events#/control/types/ruleCmdb'`|
-| Missed Events from Regions                       | In case the events are not flowing to Guardrails.                                                  | [1] Verify CloudTrail is active and correctly configured. [2] Check permissions for the EventBridge IAM role. [3] Confirm SNS encryption policies allow proper event handling.   |
-| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
+| Issue                         | Description                                                                                                                           | Guide                                                                                                                                                                                                                                                                    |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Residual EH Resources in CMDB | In case of the earlier event handler resources are not cleared up.                                                                    | [Rerun CMDB controls](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches) using this filter `controlTypeId:'tmod:@turbot/aws-sns#/control/types/topicCmdb','tmod:@turbot/aws-events#/control/types/ruleCmdb'` |
+| Missed Events from Regions    | In case the events are not flowing to Guardrails.                                                                                     | [1] Verify CloudTrail is active and correctly configured. [2] Check permissions for the EventBridge IAM role. [3] Confirm SNS encryption policies allow proper event handling.                                                                                           |
+| Further Assistance            | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently. | [Open Support Ticket](https://support.turbot.com)                                                                                                                                                                                                                        |
