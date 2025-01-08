@@ -11,7 +11,7 @@ In this guide, you will:
 - Decommission Regional Event Handler (REH).
 - Monitor and troubleshoot the installation process.
 
-Global Event Handlers (GEH) simplify event management by consolidating event handling into a single primary AWS region while enabling coverage across all regions.
+Global Event Handlers (GEH) simplify event management by consolidating event handling into a single primary AWS region while enabling coverage across all regions. By migrating to Global Event Handlers, organizations can achieve cost optimization, operational efficiency, and a streamlined approach to event management in AWS.
 
 ## Prerequisites
 
@@ -51,16 +51,6 @@ Resources Deployed
 
   - **EventBridge Rule**: Captures event sources and forwards them to the primary region.
   - **EventBridge Target**: Sends events to the EventBridge bus in the primary region.
-
-Thus, by migrating to Global Event Handlers, organizations can achieve cost optimization, operational efficiency, and a streamlined approach to event management in AWS.
-
-## Migration Process Overview
-
-1. Deploy the EventBridge IAM Role to support global event handling
-2. Configure the IAM Role ARN policy setting for Event Forwarding
-3. Deploy Global Event Handlers (GEH)
-4. Decommission Regional Event Handlers (EH)
-5. Validate the migration
 
 ## Step 1. Deploying the EventBridge IAM Role
 
