@@ -5,11 +5,9 @@ sidebar_label: "Troubleshooting"
 
 ## Troubleshooting
 
-This section provides links to specific troubleshooting guides, helping you quickly navigate and resolve common issues.
+This section offers links to specific troubleshooting guides, enabling you to quickly navigate and address common issues.
 
-
-- [Hosting Guardrails > Troubleshooting](/guardrails/docs/guides/hosting-guardrails/troubleshooting)
-  Learn how to resolve common issues when hosting Guardrails.
-
-<!-- - [Using Guardrails > Troubleshooting](/guardrails/docs/guides/using-guardrails/troubleshooting)
-  Guidance for troubleshooting issues related to Guardrails usage. -->
+  | Section | Description
+  | - | -
+  | [Hosting Guardrails > Troubleshooting](/guardrails/docs/guides/hosting-guardrails/troubleshooting) | Learn how to troubleshoot and resolve common issues when hosting Guardrails..
+  | [Using Guardrails > Troubleshooting](/guardrails/docs/guides/using-guardrails/troubleshooting) | Learn how to troubleshoot and resolve common issues when using Guardrails.
