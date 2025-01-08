@@ -6,11 +6,7 @@ nav:
   order: 30
 ---
 
-# Migrating to Global Event Handlers in AWS
-
-<div className="alert alert-warning">
-This guide outlines the steps to migrate AWS Event Handlers (EH) to AWS Global Event Handlers (GEH) to streamline event handling across AWS regions.
-</div>
+# Migrating to Global Event Handlers
 
 ## Overview
 
