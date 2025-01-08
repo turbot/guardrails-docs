@@ -1,42 +1,39 @@
 ---
-title: "Migrating to Global Event Handlers"
-template: Documentation
-nav:
-  title: "Migrating to Global Event Handlers"
-  order: 30
+title: Migrating to Global Event Handlers
+sidebar_label: Migrating to Global Event Handlers
 ---
 
 # Migrating to Global Event Handlers
 
-## Overview
+In this guide, you will:
 
-Global Event Handlers (GEH) simplify event management by consolidating event handling into a single primary AWS region while enabling coverage across all regions. This guide provides a step-by-step approach for deploying GEH, decommissioning Event Handlers, and validating the setup.
+- You will migrate to Global Event Handlers (GEH) from Regional [Event Handler] (REH).
+- Decommission Regional Event Handler (REH).
+- Monitor and troubleshoot the installation process.
 
-### Prerequisites
+Global Event Handlers (GEH) simplify event management by consolidating event handling into a single primary AWS region while enabling coverage across all regions.
+
+## Prerequisites
 
 Before proceeding, ensure the following:
 
 - Access to an AWS account with permissions to create IAM roles and policies.
-
 - A primary region designated for GEH (default is us-east-1).
-
 - Active CloudTrail trails for capturing events.
 
-### Regional vs Global Event Handlers
+## Regional vs Global Event Handlers
 
-#### Regional Event Handlers (REH)
+### Regional Event Handlers (REH)
 
 Each AWS region independently handles events using its own infrastructure. Events are processed regionally and sent directly to the Guardrails event ingestion endpoint.
 
 Resources Deployed Per Region
 
 - **CloudWatch Event Rules**: Filters specific API events.
-
 - **CloudWatch Event Targets**: Routes events to SNS topics.
-
 - **SNS Topics and Subscriptions**: Publish and forward events to Guardrails.
 
-#### Global Event Handlers (GEH)
+### Global Event Handlers (GEH)
 
 A designated primary AWS region manages all event processing, while secondary regions forward their events to the primary region for centralized handling. By default, the primary region is set to `us-east-1`, but this can be customized by configuring the policy `AWS > Turbot > Event Handlers [Global] > Primary Region` with the desired region value.
 
@@ -47,18 +44,16 @@ Resources Deployed
 - Primary Region
 
   - **EventBridge Rules and Targets**: Custom event patterns and sources, targeting an SNS Topic.
-
   - **SNS Topics and Subscriptions**: Publish and forward events to Guardrails.
 
 - Secondary Regions
 
   - **EventBridge Rule**: Captures event sources (default and custom) and forwards them to the primary region.
-
   - **EventBridge Target**: Sends events to the EventBridge bus in the primary region.
 
 Thus, by migrating to Global Event Handlers, organizations can achieve cost optimization, operational efficiency, and a streamlined approach to event management in AWS.
 
-### Key Steps in Migration
+## Key Steps in Migration
 
 1. Deploy the EventBridge IAM Role to support global event handling
 2. Configure the IAM Role ARN policy setting for Event Forwarding
@@ -66,15 +61,19 @@ Thus, by migrating to Global Event Handlers, organizations can achieve cost opti
 4. Decommission Regional Event Handlers (EH)
 5. Validate the migration
 
-## Deploying the EventBridge IAM Role
+## Step 1. Deploying the EventBridge IAM Role
 
 To enable seamless data transfer between regional event buses, the EventBridge IAM role is a critical component of the Global Event Handlers (GEH) setup. This role allows secondary regions to forward events to the primary region for centralized processing. GEH will only use the `default` event bus. There is no need to create second event bus exclusively for GEH.
 
-#### Options for Creating the EventBridge IAM Role
+### Options for Creating the EventBridge IAM Role
 
 1. **Role Creation by Turbot**: Turbot can create the required IAM roles for you. Simply enable the `AWS > Turbot > Service Roles` control, and Turbot will handle the setup seamlessly.
 
-**NOTE**: The Turbot Service Roles control is designed to configure various roles required for multiple dependent controls. If you are using Turbot Service Roles exclusively for Global Event Handlers, you can disable the other Service Roles that are not needed. Below is a list of policies to enable or disable:
+
+> [!NOTE]
+> The Turbot Service Roles control is designed to configure various roles required for multiple dependent controls. If you are using Turbot Service Roles exclusively for Global Event Handlers, you can disable the other Service Roles that are not needed.
+
+Below is a list of policies to enable or disable:
 
 | Policy Type                                                           | Policy Setting      |
 | --------------------------------------------------------------------- | ------------------- |
@@ -154,7 +153,7 @@ resource "aws_iam_role" "event_handlers_global_role" {
 }
 ```
 
-## Configure the IAM Role ARN policy setting for Event Forwarding
+## Step 2. Configure the IAM Role ARN Policy Setting for Event Forwarding
 
 If you are using Turbot Service Roles, this step is automatically handled, and no further action is required. However, if you are manually creating the roles, you need to configure the `AWS > Turbot > Event Handlers [Global] > Events > Target > IAM Role ARN` policy. This can be done through the Turbot UI or using the Terraform configuration provided below.
 
@@ -191,7 +190,7 @@ EOT
 }
 ```
 
-## Deploy Global Event Handlers (GEH)
+## Step 3. Deploy Global Event Handlers (GEH)
 
 1. In the Guardrails console navigate to the **Policies** and search for `AWS > Turbot > Event Handlers [Global]` policy. Select **New Policy Setting**
 2. Choose Resource as `Turbot` and Setting as `Enforce: Configured`
@@ -199,7 +198,7 @@ EOT
     https://{workspace}/apollo/reports/controls-by-state?filter=controlTypeId%3A%27tmod%3A%40turbot%2Faws%23%2Fcontrol%2Ftypes%2FeventHandlersGlobal%27
 4. Ensure all GEH controls are in the ok state with the message "All required resources exist".
 
-## Decommission Regional Event Handlers (EH)
+## Step 4. Decommission Regional Event Handlers (EH)
 
 1. Set the `AWS > Turbot > Event Handlers` policy to `Enforce: Not configured` to trigger cleanup of legacy event handler infrastructure.
 
@@ -210,20 +209,16 @@ EOT
 3. Ensure all `AWS > Turbot > Event Handlers` controls are in the ok state with the message ""Empty configuration - no action needed".
 4. Delete the Event Handler policy settings to complete decommissioning. This will change the Event Handler controls to `Skipped`.
 
-## Validate the migration
+## Step 5. Verify
 
-1. Event Handler Cleanup: Confirm that legacy EH resources are removed from the Guardrails CMDB.
-2. Primary Region Testing: Create a resource in the primary region and verify its detection in the Guardrails console.
-3. Secondary Region Testing: Create a resource in a secondary region and verify its detection.
+1. `Event Handler Cleanup`: Confirm that legacy EH resources are removed from the Guardrails CMDB.
+2. `Primary Region Testing`: Create a resource in the primary region and verify its detection in the Guardrails console.
+3. `Secondary Region Testing`: Create a resource in a secondary region and verify its detection.
 
-### Troubleshooting
+## Troubleshooting
 
-- Residual EH Resources in CMDB:
-
-  - [Rerun CMDB controls](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches) using this filter `controlTypeId:'tmod:@turbot/aws-sns#/control/types/topicCmdb','tmod:@turbot/aws-events#/control/types/ruleCmdb'`
-
-- Missed Events from Regions:
-
-  - Verify CloudTrail is active and correctly configured.
-  - Check permissions for the EventBridge IAM role.
-  - Confirm SNS encryption policies allow proper event handling.
+| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Residual EH Resources in CMDB                        | In case of the earlier event handler resources are not cleared up.             |[Rerun CMDB controls](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches) using this filter `controlTypeId:'tmod:@turbot/aws-sns#/control/types/topicCmdb','tmod:@turbot/aws-events#/control/types/ruleCmdb'`|
+| Missed Events from Regions                       | In case the events are not flowing to Guardrails.                                                  | [1] Verify CloudTrail is active and correctly configured. [2] Check permissions for the EventBridge IAM role. [3] Confirm SNS encryption policies allow proper event handling.   |
+| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
