@@ -382,6 +382,15 @@
               "guides/using-guardrails/iam/advanced"
             ]
           },
+          {
+            "type": "category",
+            "id": "troubleshooting",
+            "link": "guides/using-guardrails/troubleshooting",
+            "items": [
+              "guides/using-guardrails/troubleshooting/fix-invalid-controls",
+              "guides/using-guardrails/troubleshooting/access-control-logs"
+            ]
+          },
 
           {
             "type": "category",
