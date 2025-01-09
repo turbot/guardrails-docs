@@ -1,3 +1,4 @@
+
 ---
 title: Fix Invalid Controls
 sidebar_label: Fix Invalid Controls
@@ -77,4 +78,4 @@ If you encounter any issues, please [Open a Support Ticket](https://support.turb
 
 - A screenshot of the Guardrails control in an invalid state.
 - A screenshot of the Guardrails policy in an invalid state.
-- Provide the control log. Refer [here](/guardrails/docs/guides/using-guardrails/troubleshooting/access-control-logs) to extract the log.
+- Provide the control log. Refer [here](/guardrails/docs/guides/using-guardrails/troubleshooting/get-control-failure-log) to extract the log.

@@ -381,7 +381,7 @@
             "link": "guides/using-guardrails/troubleshooting",
             "items": [
               "guides/using-guardrails/troubleshooting/fix-invalid-controls",
-              "guides/using-guardrails/troubleshooting/get-control-failure-log"
+              "guides/using-guardrails/troubleshooting/access-control-logs"
             ]
           },
 
