@@ -5,7 +5,9 @@ sidebar_label: "Troubleshooting"
 
 ## Troubleshooting
 
-The following workflows will assist with rapid resolution of common problems.  When the problem cannot be resolved, the instructions will include additional information to gather before escalating with Guardrails Customer Success.
+This section offers links to specific troubleshooting guides, enabling you to quickly navigate and address common issues.
 
-- [AWS Console Troubleshooting](guides/troubleshooting/troubleshooting-event-handlers-aws-console)
-- [Guardrails Console Troubleshooting](guides/troubleshooting/troubleshooting-event-handlers-guardrails-console)
+  | Section | Description
+  | - | -
+  | [Common Troubleshooting Guides](/guardrails/docs/guides/using-guardrails/troubleshooting) | Learn how to troubleshoot and resolve common issues when using Guardrails.
+  | [Hosting Troubleshooting Guides](/guardrails/docs/guides/hosting-guardrails/troubleshooting) | Learn how to troubleshoot and resolve common issues when hosting Guardrails.
