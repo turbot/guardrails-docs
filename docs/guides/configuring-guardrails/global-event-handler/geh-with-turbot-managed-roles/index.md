@@ -1,6 +1,6 @@
 ---
-title: Global Event Handler
-sidebar_label: Global Event Handler
+title: Setup Global Event Handler
+sidebar_label: Setup Global Event Handler
 ---
 
 # Setup with Managed Roles
