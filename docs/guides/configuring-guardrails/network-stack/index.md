@@ -5,6 +5,10 @@ sidebar_label: Network Stacks
 
 # Managing Network Configurations with Stacks
 
+> [!IMPORTANT] 
+> The `Stack` and `Configured` controls have been deprecated and will be removed in a future version of Guardrails.  Please migrate to the [Stack [Native] Controls](/guardrails/docs/concepts/guardrails/stacks)
+
+
 ## Overview
 
 Network controls and guardrails have been an essential part of Guardrails since

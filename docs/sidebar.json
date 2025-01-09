@@ -127,6 +127,7 @@
           "concepts/guardrails/public-access",
           "concepts/guardrails/scheduling",
           "concepts/guardrails/configured",
+          "concepts/guardrails/stacks",
           {
             "type": "category",
             "id": "guardrails/tagging",

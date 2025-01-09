@@ -5,6 +5,10 @@ sidebar_label: Stack/Configured
 
 # Stacks and the Configured Guardrails
 
+> [!IMPORTANT] 
+> The `Stack` and `Configured` controls have been deprecated and will be removed in a future version of Guardrails.  Please migrate to the [Stack [Native] Controls](/guardrails/docs/concepts/guardrails/stacks)
+
+
 ## Overview
 
 Guardrails provides a mechanism for managing resource configuration using Terraform.
