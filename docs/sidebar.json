@@ -199,8 +199,7 @@
             "id": "event-handlers",
             "link": "guides/aws/event-handlers",
             "items": [
-              "guides/aws/event-handlers/poller",
-              "guides/aws/event-handlers/migrate-to-global-event-handlers"
+              "guides/aws/event-handlers/poller"
           ]
           },
           "guides/aws/services",
@@ -297,6 +296,15 @@
           "guides/configuring-guardrails/update-mod",
           "guides/configuring-guardrails/uninstall-mod",
           "guides/configuring-guardrails/auto-mod-update",
+          {
+            "type": "category",
+            "id": "global-event-handler",
+            "link": "guides/configuring-guardrails/global-event-handler",
+            "items": [
+              "guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles",
+              "guides/configuring-guardrails/global-event-handler/migrate-to-global-event-handlers"
+            ]
+          },
           "guides/configuring-guardrails/mod-lambda-cleanup",
           "guides/configuring-guardrails/account-imports",
           {

@@ -1,0 +1,85 @@
+---
+title: Global Event Handler
+sidebar_label: Global Event Handler
+---
+
+# Setup with Managed Roles
+
+In this guide, you will:
+
+- Setup Global Event Handlers in the Guardrails workspace using the Guardrails UI.
+- Monitor and troubleshoot the GEH update process.
+
+Guardrails is designed to enable organizations to selectively install policies, controls, and guardrails tailored to specific services. The Global [Event Handler](/guardrails/docs/reference/glossary#event-handler) simplifies cloud management by providing a unified framework for responding to and managing events, ensuring proactive governance and security across cloud environments.
+
+## Prerequisites
+
+- **Turbot/Owner** permissions at the Turbot resource level.
+- Familiarity with Guardrails console.
+- EventBridge IAM role required in GEH secondary regions, which helps to pass events to the primary region.
+- CloudTrail should be configured. See [here](/guardrails/docs/guides/aws/event-handlers#configuring-cloudtrail) for more details.
+
+## Step 1: Login Guardrails Console
+
+Log into the Guardrails console with provided local credentials or by using any SAML based login.
+
+![Guardrails Console Login](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles/guardrails-console-login.png)
+
+
+## Step 2: Enable Service Role
+
+IAM role is required for Global Event handler. This can be created manually by customer or can be done by AWS Turbot Service Role
+
+![Enable Service Role](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles/geh-aws-turbot-service-roles.png)
+
+Check if all the `AWS > Turbot > Service Roles`controls in all AWS accounts are in `OK` state
+
+![Service Role Control](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles/geh-check-control-status.png)
+
+## Step 3: Check Service Role Source Policy
+
+Select  any one of the control from the above step and navigate to **Policies**, select **Source** to validate the created policy.
+
+![Service Role Source Policy](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles/geh-service-role-source-policy.png)
+
+> [!NOTE]
+> You can create these roles manually and use the same. Open a [Support Ticket](https://support.turbot.com) to help you with the process in case you need to create these roles manually as per your compliance need.
+
+## Step 4: Enable Global Event Handler
+
+In the Guardrails's console navigate to the **Policies** and search for `AWS > Turbot > Service Roles > Event Handlers [Global]` policy. Select **New Policy Setting**
+
+![Event Handlers [Global] Policy](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles/geh-policy.png)
+
+Choose **Resource** as `Turbot` and **Setting** as `Enabled`
+
+![Enable GEH](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles/gen-aws-turbot-event-handler-global-enabled.png)
+
+
+## Step 5: Review
+
+Validate that the setting is applied successfully. While in **Settings** tab, select **Event Handler [Global]** value.
+
+![Select Value](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles/select-value.png)
+
+Ensure the value is shown as `Enabled`. Select no of values circled to validate the number of account where the policy is applied.
+
+![Validate Post Setting Values](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles/validate-post-setting-values.png)
+
+Check if all the related controls for `AWS > Turbot > Event Handlers [Global]` are in `OK` state. You can browse to the **Reports** tab, navigate to `Controls by State`, select `AWS > Turbot > Event Handlers [Global]` in *`Types`*. Ensure all controls are in `OK` state.
+
+![Report Event Handler Global](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles/event-handler-global-controls.png)
+
+## Step 6: Verify Events
+
+Global Event handlers are now configured in the target account. To verify that they are working correctly, create a new resource or change an existing resource in both Primary region and secondary region. Turbot will receive the event which will trigger relevant controls. If resource creation or modification events do not get picked up by Turbot's Guardrails, reach out to [help@turbot.com](mailto:help@turbot.com)
+
+
+## Troubleshooting
+
+| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Permission Issues                        | If the permissions granted to the Turbot IAM role do not allow configuration of event rules and SNS topics, then the logs will indicate access denied.   | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators)             |
+| [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) Regional Restrictions                        | SCPs restrictions will appear as `Access Denied` errors in the Guardrails console.    |  Work with your SCP admins to determine which regions are permitted then update the [AWS > Account > Regions](/guardrails/docs/mods/awsaws/policy#aws--account--approved-regions-default) policy to match.|
+| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
+
