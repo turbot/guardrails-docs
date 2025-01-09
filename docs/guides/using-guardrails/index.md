@@ -14,6 +14,6 @@ This section provides how-to guides for common tasks.
 | [Nunjucks](guides/nunjucks) | Tips and tricks for using Nunjucks, including troubleshooting
 | [Quick Actions](guides/quick-actions) | Configuration options for Quick Actions
 | [Searching and Filtering](guides/searching-filtering) |  Getting started with Filters in Guardrails
-| [Troubleshooting](/guides/using-guardrails/troubleshooting) |  Learn how to troubleshoot and resolve common issues when using Guardrails.
+| [Troubleshooting](/guardrails/docs/guides/using-guardrails/troubleshooting) |  Learn how to troubleshoot and resolve common issues when using Guardrails.
 
 
