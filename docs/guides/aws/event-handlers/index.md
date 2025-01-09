@@ -10,7 +10,7 @@ nav:
 
 
 In this guide, you will:
-- You will Event Handler.
+- You will setup AWS Event Handlers.
 
 The Guardrails [Event Handler](/guardrails/docs/reference/glossary#event-handler) are responsible for conveying events from AWS
 CloudTrail back to Guardrails for processing. This is a requirement for Guardrails to

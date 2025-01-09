@@ -7,7 +7,7 @@ sidebar_label: Migrating to Global Event Handlers
 
 In this guide, you will:
 
-- You will migrate to Global Event Handlers (GEH) from Regional [Event Handler] (REH).
+- You will migrate to Global Event Handlers (GEH) from Regional Event Handler (REH).
 - Decommission Regional Event Handler (REH).
 - Monitor and troubleshoot the installation process.
 
@@ -105,7 +105,7 @@ Attach the following IAM policy to grant necessary permissions to the EventBridg
     {
       "Effect": "Allow",
       "Action": ["events:PutEvents"],
-      "Resource": "arn:${partition}:events:${GLOBAL_EVENTS_PRIMARY_REGION}:${AWS_ACCOUNT_ID}:event-bus/default"
+      "Resource": "arn:<PARTITION>:events:<GLOBAL_EVENTS_PRIMARY_REGION>:<AWS_ACCOUNT_ID>:event-bus/default"
     }
   ]
 }
@@ -121,25 +121,32 @@ resource "aws_iam_role" "event_handlers_global_role" {
     Version = "2012-10-17",
     Statement = [
       {
-        Effect = "Allow",
+        Effect    = "Allow",
         Principal = { Service = "events.amazonaws.com" },
-        Action = "sts:AssumeRole"
+        Action    = "sts:AssumeRole"
       }
     ]
   })
-  inline_policy {
-    name   = "aws_api_events_policy"
-    policy = jsonencode({
-      Version = "2012-10-17",
-      Statement = [
-        {
-          Effect   = "Allow",
-          Action   = ["events:PutEvents"],
-          Resource = "arn:${var.partition}:events:${var.primary_region}:${var.account_id}:event-bus/default"
-        }
-      ]
-    })
-  }
+}
+
+resource "aws_iam_policy" "turbot_guardrails_geh_eventbridge_policy" {
+  name = "${var.event_handlers_global_policy_name}"
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect   = "Allow",
+        Action   = ["events:PutEvents"],
+        Resource = "arn:${var.partition}:events:${var.primary_region}:${var.account_id}:event-bus/default"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "turbot_guardrails_role_policy_attachment" {
+  role       = aws_iam_role.event_handlers_global_role.name
+  policy_arn = aws_iam_policy.turbot_guardrails_geh_eventbridge_policy.arn
 }
 ```
 
@@ -160,7 +167,7 @@ resource "turbot_policy_setting" "aws_event_handlers_global_events_target_iam_ro
   account
   {
     # Look for the name of the EventBridge IAM role.
-    event_bridge_role: children(filter:"$.RoleName:${EVENTBRIDGE_IAM_ROLE}"){
+    event_bridge_role: children(filter:"$.RoleName:${var.EVENTBRIDGE_IAM_ROLE} resourceTypeId:tmod:@turbot/aws-iam#/resource/types/role level:self"){
       role:items
       {
         akas

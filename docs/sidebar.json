@@ -301,7 +301,8 @@
             "id": "global-event-handler",
             "link": "guides/configuring-guardrails/global-event-handler",
             "items": [
-              "guides/configuring-guardrails/global-event-handler/geh-with-turbot-managed-roles",
+              "guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role",
+              "guides/configuring-guardrails/global-event-handler/setup-with-custom-iam-role",
               "guides/configuring-guardrails/global-event-handler/migrate-to-global-event-handlers"
             ]
           },
