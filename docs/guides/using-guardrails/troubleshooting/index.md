@@ -5,7 +5,7 @@ sidebar_label: "Troubleshooting"
 
 ## Troubleshooting
 
-The following workflows will assist with rapid resolution of common problems.  When the problem cannot be resolved, the instructions will include additional information to gather before escalating with Guardrails Customer Success.
+The following guides will assist with the self-resolution of common problems. If the issue cannot be resolved, the instructions include details on gathering additional information to escalate the matter to Guardrails Support.
 
-- [AWS Console Troubleshooting](guides/troubleshooting/troubleshooting-event-handlers-aws-console)
-- [Guardrails Console Troubleshooting](guides/troubleshooting/troubleshooting-event-handlers-guardrails-console)
+- [Access Control Logs](/guardrails/docs/guides/using-guardrails/troubleshooting/access-control-logs)
+- [Fix Invalid Controls](/guardrails/docs/guides/using-guardrails/troubleshooting/fix-invalid-controls)
