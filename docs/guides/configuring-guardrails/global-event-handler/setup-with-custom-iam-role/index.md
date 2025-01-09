@@ -3,7 +3,7 @@ title: Setup with Custom IAM Role
 sidebar_label: Setup with Custom IAM Role
 ---
 
-# Setting Up Global Event Handlers with Custom IAM Role
+# Setting Up With Custom IAM Role
 
 In this guide, you will:
 
@@ -68,7 +68,7 @@ The following IAM policy grants permissions for forwarding events to the default
 - Go to **IAM > Roles > Create Role** in the AWS Management Console.
 - Select **AWS Service > EventBridge**.
 - Attach the **Assume Role Policy** and **IAM Policy** created above.
-- Name the role (e.g., turbot_guardrails_geh_eventbridge_role).
+- Name the role (e.g. turbot_guardrails_geh_eventbridge_role).
 
 Terraform Example for the same.
 
@@ -118,7 +118,7 @@ You need to set the IAM Role ARN for cross-region forwarding in Guardrails. This
 1. Navigate to the AWS Account in Turbot Guardrails Console.
 2. Click on the Policies tab of the Account resource in the Turbot Console.
 3. Search for the policy `AWS > Turbot > Event Handlers [Global] > Events > Target > IAM Role ARN`.
-4. Set the policy to the ARN of the manually created role (e.g., arn:<PARTITION>:iam::<AWS_ACCOUNT_ID>:role/turbot_guardrails_geh_eventbridge_role).
+4. Set the policy to the ARN of the manually created role (e.g. `arn:<PARTITION>:iam::<AWS_ACCOUNT_ID>:role/turbot_guardrails_geh_eventbridge_role`).
 
 ### Option 2: Configure Using Terraform
 
