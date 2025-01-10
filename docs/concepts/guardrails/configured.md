@@ -5,6 +5,10 @@ sidebar_label: Stack/Configured
 
 # Stacks and the Configured Guardrails
 
+> [!IMPORTANT] 
+> This document pertains to the legacy `Stack` and `Configured` controls.  Consider migrating to the [Stack [Native] Controls](/guardrails/docs/concepts/guardrails/stacks) for [even more power and flexibility!](/guardrails/docs/concepts/guardrails/stacks#stack-native-controls-vs-legacy-stacks--configured-controls).
+
+
 ## Overview
 
 Guardrails provides a mechanism for managing resource configuration using Terraform.
