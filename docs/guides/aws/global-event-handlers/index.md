@@ -10,5 +10,3 @@ Global Event Handlers (GEH) simplify event management by consolidating event han
 - [Setup Global Event Handlers(GEH) with Turbot-Managed IAM Role](guides/aws/global-event-handlers/setup-with-turbot-managed-iam-role)
 - [Setup Global Event Handlers(GEH) with Custom IAM Role](guides/aws/global-event-handlers/setup-with-custom-iam-role)
 - [Migrating to Global Event Handlers](guides/aws/global-event-handlers/migrate-to-global-event-handlers)
-
-docs/guides/aws/global-event-handlers

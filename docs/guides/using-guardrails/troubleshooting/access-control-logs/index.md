@@ -1,9 +1,9 @@
 ---
-title: Access Logs for a Guardrails' Control
+title: Access Control Logs
 sidebar_label: Access Control Logs
 ---
 
-# Access Logs for a Guardrails' Control
+# Access Control Logs
 
 In this guide, you will:
 - Learn how to retrieve and analyze access logs to investigate control failures in the Guardrails console.
@@ -19,14 +19,14 @@ Control logs are essential for tracking activities and operations within a Guard
 - Familiarity with the Guardrails console.
 
 
-## Step 1: Log in to the Guardrails Console
+## Step 1: Login to Guardrails Console
 
 Log in to the Guardrails console.
 
 ![Guardrails Console Login](/images/docs/guardrails/guides/using-guardrails/troubleshooting/access-control-logs/guardrails-console-login.png)
 
 
-## Step 2: Navigate to the Control
+## Step 2: Navigate to Control
 
 Navigate to the control page to inspect the failure details. Select **VIEW LOG**.
 
