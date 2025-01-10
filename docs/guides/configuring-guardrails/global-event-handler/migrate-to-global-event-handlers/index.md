@@ -52,7 +52,7 @@ Resources Deployed
   - **EventBridge Rule**: Captures event sources and forwards them to the primary region.
   - **EventBridge Target**: Sends events to the EventBridge bus in the primary region.
 
-## Step 1. Deploying the EventBridge IAM Role
+## Step 1: Deploying the EventBridge IAM Role
 
 To enable seamless data transfer between regional event buses, the EventBridge IAM role is a critical component of the Global Event Handlers (GEH) setup. This role allows secondary regions to forward events to the primary region for centralized processing. GEH will only use the `default` event bus. There is no need to create second event bus exclusively for GEH.
 
@@ -105,7 +105,7 @@ Attach the following IAM policy to grant necessary permissions to the EventBridg
     {
       "Effect": "Allow",
       "Action": ["events:PutEvents"],
-      "Resource": "arn:<PARTITION>:events:<GLOBAL_EVENTS_PRIMARY_REGION>:<AWS_ACCOUNT_ID>:event-bus/default"
+      "Resource": "arn:{PARTITION}:events:{GLOBAL_EVENTS_PRIMARY_REGION}:{AWS_ACCOUNT_ID}:event-bus/default"
     }
   ]
 }
@@ -150,7 +150,7 @@ resource "aws_iam_role_policy_attachment" "turbot_guardrails_role_policy_attachm
 }
 ```
 
-## Step 2. Configure the IAM Role ARN Policy Setting for Event Forwarding
+## Step 2: Configure the IAM Role ARN Policy Setting for Event Forwarding
 
 If you are using Turbot Service Roles, this step is automatically handled, and no further action is required. However, if you are manually creating the roles, you need to configure the `AWS > Turbot > Event Handlers [Global] > Events > Target > IAM Role ARN` policy. This can be done through the Turbot UI or using the Terraform configuration provided below.
 
@@ -187,7 +187,7 @@ EOT
 }
 ```
 
-## Step 3. Deploy Global Event Handlers (GEH)
+## Step 3: Deploy Global Event Handlers (GEH)
 
 1. In the Guardrails console navigate to the **Policies** and search for `AWS > Turbot > Event Handlers [Global]` policy. Select **New Policy Setting**
 2. Choose Resource as `Turbot` and Setting as `Enforce: Configured`
@@ -195,7 +195,7 @@ EOT
    `https://{workspace}/apollo/reports/controls-by-state?filter=controlTypeId%3A%27tmod%3A%40turbot%2Faws%23%2Fcontrol%2Ftypes%2FeventHandlersGlobal%27`
 4. Ensure all GEH controls are in the ok state with the message "All required resources exist".
 
-## Step 4. Decommission Regional Event Handlers (EH)
+## Step 4: Decommission Regional Event Handlers (EH)
 
 1. Set the `AWS > Turbot > Event Handlers` policy to `Enforce: Not configured` to trigger cleanup of legacy event handler infrastructure.
 
@@ -207,7 +207,7 @@ EOT
 3. Ensure all `AWS > Turbot > Event Handlers` controls are in the ok state with the message ""Empty configuration - no action needed".
 4. Delete the Event Handler policy settings to complete decommissioning. This will change the Event Handler controls to `Skipped`.
 
-## Step 5. Verify
+## Step 5: Verify
 
 1. `Event Handler Cleanup`: Confirm that legacy EH resources are removed from the Guardrails CMDB.
 2. `Primary Region Testing`: Create a resource in the primary region and verify its detection in the Guardrails console.
