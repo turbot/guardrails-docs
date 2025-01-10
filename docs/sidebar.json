@@ -126,8 +126,8 @@
           "concepts/guardrails/encryption-in-transit",
           "concepts/guardrails/public-access",
           "concepts/guardrails/scheduling",
-          "concepts/guardrails/configured",
           "concepts/guardrails/stacks",
+          "concepts/guardrails/configured",
           {
             "type": "category",
             "id": "guardrails/tagging",
