@@ -163,10 +163,15 @@ Once the IAM Role is configured, enable and deploy Global Event Handlers.
    `https://{workspace}/apollo/reports/controls-by-state?filter=controlTypeId%3A%27tmod%3A%40turbot%2Faws%23%2Fcontrol%2Ftypes%2FeventHandlersGlobal%27`
 4. Ensure all GEH controls are in the ok state with the message "All required resources exist".
 
-## Step 4: Verify
+## Step 4: Verify Events
 
-1. `Primary Region Testing`: Create a resource in the primary region and verify its detection in the Guardrails console.
-2. `Secondary Region Testing`: Create a resource in a secondary region and verify its detection.
+The global event handlers are now configured in the target account. To verify they are functioning correctly:
+
+1. **Primary Region Testing**:
+   Create a resource in the primary region and verify its detection. Confirm that the associated controls are triggered and executed based on the policies set in the Guardrails console.
+
+2. **Secondary Region Testing**:
+   Create a resource in a secondary region and verify its detection. Ensure that the associated controls are triggered and executed according to the policies set in the Guardrails console.
 
 ## Troubleshooting
 

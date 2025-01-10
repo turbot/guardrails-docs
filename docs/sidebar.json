@@ -299,11 +299,11 @@
           {
             "type": "category",
             "id": "global-event-handler",
-            "link": "guides/configuring-guardrails/global-event-handler",
+            "link": "guides/configuring-guardrails/global-event-handlers",
             "items": [
-              "guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role",
-              "guides/configuring-guardrails/global-event-handler/setup-with-custom-iam-role",
-              "guides/configuring-guardrails/global-event-handler/migrate-to-global-event-handlers"
+              "guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role",
+              "guides/configuring-guardrails/global-event-handlers/setup-with-custom-iam-role",
+              "guides/configuring-guardrails/global-event-handlers/migrate-to-global-event-handlers"
             ]
           },
           "guides/configuring-guardrails/mod-lambda-cleanup",

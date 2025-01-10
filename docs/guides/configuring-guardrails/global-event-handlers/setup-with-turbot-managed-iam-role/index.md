@@ -23,23 +23,23 @@ Guardrails is designed to enable organizations to selectively install policies, 
 
 Log into the Guardrails console with provided local credentials or by using any SAML based login.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role/guardrails-console-login.png)
 
 ## Step 2: Enable Service Role
 
 IAM role is required for Global Event handler. This can be created manually by customer or can be done by AWS Turbot Service Role
 
-![Enable Service Role](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role/geh-aws-turbot-service-roles.png)
+![Enable Service Role](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role/geh-aws-turbot-service-roles.png)
 
 Check if all the `AWS > Turbot > Service Roles`controls in all AWS accounts are in `OK` state
 
-![Service Role Control](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role/geh-check-control-status.png)
+![Service Role Control](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role/geh-check-control-status.png)
 
 ## Step 3: Check Service Role Source Policy
 
 Select any one of the control from the above step and navigate to **Policies**, select **Source** to validate the created policy.
 
-![Service Role Source Policy](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role/geh-service-role-source-policy.png)
+![Service Role Source Policy](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role/geh-service-role-source-policy.png)
 
 > [!NOTE]
 > You can create these roles manually and use the same. Open a [Support Ticket](https://support.turbot.com) to help you with the process in case you need to create these roles manually as per your compliance need.
@@ -48,29 +48,36 @@ Select any one of the control from the above step and navigate to **Policies**, 
 
 In the Guardrails's console navigate to the **Policies** and search for `AWS > Turbot > Service Roles > Event Handlers [Global]` policy. Select **New Policy Setting**
 
-![Event Handlers [Global] Policy](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role/geh-policy.png)
+![Event Handlers [Global] Policy](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role/geh-policy.png)
 
 Choose **Resource** as `Turbot` and **Setting** as `Enabled`
 
-![Enable GEH](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role/gen-aws-turbot-event-handler-global-enabled.png)
+![Enable GEH](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role/gen-aws-turbot-event-handler-global-enabled.png)
 
 ## Step 5: Review
 
 Validate that the setting is applied successfully. While in **Settings** tab, select **Event Handler [Global]** value.
 
-![Select Value](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role/select-value.png)
+![Select Value](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role/select-value.png)
 
 Ensure the value is shown as `Enabled`. Select no of values circled to validate the number of account where the policy is applied.
 
-![Validate Post Setting Values](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role/validate-post-setting-values.png)
+![Validate Post Setting Values](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role/validate-post-setting-values.png)
 
 Check if all the related controls for `AWS > Turbot > Event Handlers [Global]` are in `OK` state. You can browse to the **Reports** tab, navigate to `Controls by State`, select `AWS > Turbot > Event Handlers [Global]` in _`Types`_. Ensure all controls are in `OK` state.
 
-![Report Event Handler Global](/images/docs/guardrails/guides/configuring-guardrails/global-event-handler/setup-with-turbot-managed-iam-role/event-handler-global-controls.png)
+![Report Event Handler Global](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role/event-handler-global-controls.png)
 
 ## Step 6: Verify Events
 
-Global Event handlers are now configured in the target account. To verify that they are working correctly, create a new resource or change an existing resource in both Primary region and secondary region. Turbot will receive the event which will trigger relevant controls. If resource creation or modification events do not get picked up by Turbot's Guardrails, reach out to [help@turbot.com](mailto:help@turbot.com)
+The global event handlers are now configured in the target account. To verify they are functioning correctly:
+
+1. **Primary Region Testing**:
+   Create a resource in the primary region and verify its detection. Confirm that the associated controls are triggered and executed based on the policies set in the Guardrails console.
+
+2. **Secondary Region Testing**:
+   Create a resource in a secondary region and verify its detection. Ensure that the associated controls are triggered and executed according to the policies set in the Guardrails console.
+
 
 ## Troubleshooting
 

@@ -199,6 +199,11 @@ EOT
 
 1. Set the `AWS > Turbot > Event Handlers` policy to `Enforce: Not configured` to trigger cleanup of legacy event handler infrastructure.
 
+> [!IMPORTANT]
+> In the **Resource** dropdown selection allows you to choose `Turbot` or specific accounts. If `Turbot` is selected, then it applies the settings across all the AWS accounts.
+
+![Disable Event Handlers](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/migrate-to-global-event-handlers/disable-regional-event-handlers.png)
+
 > [!WARNING]
 > Setting the event handlers to `Skip` at this point will leave event handler infrastructure deployed concurrent to global event handlers; effectively doubling the events sent back to Guardrails for processing.
 
@@ -207,11 +212,18 @@ EOT
 3. Ensure all `AWS > Turbot > Event Handlers` controls are in the ok state with the message ""Empty configuration - no action needed".
 4. Delete the Event Handler policy settings to complete decommissioning. This will change the Event Handler controls to `Skipped`.
 
-## Step 5: Verify
+## Step 5: Verify Events
 
-1. `Event Handler Cleanup`: Confirm that legacy EH resources are removed from the Guardrails CMDB.
-2. `Primary Region Testing`: Create a resource in the primary region and verify its detection in the Guardrails console.
-3. `Secondary Region Testing`: Create a resource in a secondary region and verify its detection.
+The global event handlers are now configured in the target account. To verify they are functioning correctly:
+
+1. **Primary Region Testing**:
+   Create a resource in the primary region and verify its detection. Confirm that the associated controls are triggered and executed based on the policies set in the Guardrails console.
+
+2. **Secondary Region Testing**:
+   Create a resource in a secondary region and verify its detection. Ensure that the associated controls are triggered and executed according to the policies set in the Guardrails console.
+
+3. **Event Handler Cleanup**: Confirm that legacy EH resources are removed from the Guardrails CMDB.
+
 
 ## Troubleshooting
 
