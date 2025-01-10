@@ -16,8 +16,7 @@ Guardrails is designed to enable organizations to selectively install policies, 
 
 - **Turbot/Owner** permissions at the Turbot resource level.
 - Familiarity with Guardrails console.
-<!-- - EventBridge IAM role required in GEH secondary regions, which helps to pass events to the primary region. -->
-- Turbot Guardrails configured IAM role should have required IAM permissions.
+- Turbot Guardrails configured IAM role should have required IAM permissions to create IAM role and policy.
 - CloudTrail should be configured. See [here](/guardrails/docs/guides/aws/event-handlers#configuring-cloudtrail) for more details.
 
 ## Step 1: Login Guardrails Console
