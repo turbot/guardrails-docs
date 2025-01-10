@@ -202,6 +202,16 @@
               "guides/aws/event-handlers/poller"
           ]
           },
+          {
+            "type": "category",
+            "id": "global-event-handler",
+            "link": "guides/aws/global-event-handlers",
+            "items": [
+              "guides/aws/global-event-handlers/setup-with-turbot-managed-iam-role",
+              "guides/aws/global-event-handlers/setup-with-custom-iam-role",
+              "guides/aws/global-event-handlers/migrate-to-global-event-handlers"
+            ]
+          },
           "guides/aws/services",
           {
             "type": "category",
@@ -296,16 +306,6 @@
           "guides/configuring-guardrails/update-mod",
           "guides/configuring-guardrails/uninstall-mod",
           "guides/configuring-guardrails/auto-mod-update",
-          {
-            "type": "category",
-            "id": "global-event-handler",
-            "link": "guides/configuring-guardrails/global-event-handlers",
-            "items": [
-              "guides/configuring-guardrails/global-event-handlers/setup-with-turbot-managed-iam-role",
-              "guides/configuring-guardrails/global-event-handlers/setup-with-custom-iam-role",
-              "guides/configuring-guardrails/global-event-handlers/migrate-to-global-event-handlers"
-            ]
-          },
           "guides/configuring-guardrails/mod-lambda-cleanup",
           "guides/configuring-guardrails/account-imports",
           {

@@ -202,7 +202,7 @@ EOT
 > [!IMPORTANT]
 > In the **Resource** dropdown selection allows you to choose `Turbot` or specific accounts. If `Turbot` is selected, then it applies the settings across all the AWS accounts.
 
-![Disable Event Handlers](/images/docs/guardrails/guides/configuring-guardrails/global-event-handlers/migrate-to-global-event-handlers/disable-regional-event-handlers.png)
+![Disable Event Handlers](/images/docs/guardrails/guides/aws/global-event-handlers/migrate-to-global-event-handlers/disable-regional-event-handlers.png)
 
 > [!WARNING]
 > Setting the event handlers to `Skip` at this point will leave event handler infrastructure deployed concurrent to global event handlers; effectively doubling the events sent back to Guardrails for processing.
