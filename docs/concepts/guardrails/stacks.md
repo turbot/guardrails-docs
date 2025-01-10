@@ -19,7 +19,6 @@ Guardrails provides many `Stack [Native]` controls in multiple mods.  These stac
 - Resource stacks target individual resources, allowing you to configure standard resources that should be associated with them.
 
 
-### Stack Controls Instances
 <table>
   <thead>
     <tr>
@@ -237,9 +236,9 @@ Guardrails native stack containers include standard cloud [providers](https://op
 
 | Feature                 | Stack/Configured          | Stack [Native]
 |-------------------------|---------------------------|----------------------------
-| **Version**             | Terraform 1.5 and earlier | OpenTofu 1.8.3 and later
+| **Version**             | Terraform 0.15 and earlier | OpenTofu 1.8.3 and later
 | **Triggering**          | Resource update           | Resource update, interval
 | **CMDB Required?**      | Yes                       | No
 | **Resources Supported** | Only resources supported in Guardrails | Any resource supported by the [provider](https://opentofu.org/docs/language/providers/)
-| **Support for `count`, `for-each` **| No             | Yes
+| **Support for `count`, `for_each` **| No             | Yes
 
