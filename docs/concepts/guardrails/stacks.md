@@ -3,7 +3,7 @@ title: Stack [Native] Guardrails
 sidebar_label: Stack [Native]
 ---
 
-# Stack [Native] Guardrails 
+# Stack [Native] Guardrails
 
 ## Overview
 
@@ -133,7 +133,7 @@ Create a policy setting for the `AWS > IAM > Stack [Native]` policy on an accoun
 
 Stack behavior is controlled by the `Stack [Native]` policy and sub-policies.
 
-| Policy                                | Description 
+| Policy                                | Description
 |---------------------------------------|-----------------------------------------------------------------------
 | **Stack [Native]** | Determine whether to run the stack in check mode, enforce mode, or skip
 | **Stack [Native] > Source** | The OpenTofu HCL configuration source code that should be applied
@@ -143,9 +143,9 @@ Stack behavior is controlled by the `Stack [Native]` policy and sub-policies.
 
 The `Stack [Native]` primary policy determines what action the control will take:
 
-| Value                   | Description 
+| Value                   | Description
 | ----------------------- | -----------------------------------------------------------------------------------
-| **Skip** | The control will not run 
+| **Skip** | The control will not run
 | **Check: Configured** | An OpenTofu plan will be generated.  If the planned configuration does not match the current configuration, the control will alarm.
 | **Enforce: Configured** | An OpenTofu plan will be generated.  If the planned configuration does not match the current configuration, the control will apply the configuration.
 
@@ -189,13 +189,13 @@ You may also choose to trigger the stack to run when resources change, but:
 ### Drift Detection Policies
 Drift detection behavior is controlled by the following sub-policies.
 
-| Policy                                | Description 
+| Policy                                | Description
 |---------------------------------------|-----------------------------------------------------------------------
 | **Stack [Native] > Drift Detection** | Specify the mechanism for drift detection.
 | **Stack [Native] > Drift Detection > Interval** | Specify the interval at which to run the stack, in minutes.
 
 
-The `Stack [Native] > Drift Detection` policy allows you to specify the mechanism for drift detection.  You may run the stack at regular intervals to keep the resources up to date, and/or automatically trigger the stack to run whenever a resource that it created is modified.  Note that resource triggering will only be available for resources that exist in the Guardrails CMDB; you may install the supporting mods and enable the CMDB for those resources. 
+The `Stack [Native] > Drift Detection` policy allows you to specify the mechanism for drift detection.  You may run the stack at regular intervals to keep the resources up to date, and/or automatically trigger the stack to run whenever a resource that it created is modified.  Note that resource triggering will only be available for resources that exist in the Guardrails CMDB; you may install the supporting mods and enable the CMDB for those resources.
 
 
 The `Stack [Native] > Drift Detection > Interval ` allows you to specify the interval at which to run the stack, in minutes.  The default is `1440` (Once a day).
@@ -205,9 +205,9 @@ The `Stack [Native] > Drift Detection > Interval ` allows you to specify the int
 
 The `Stack [Native] > Version` policy allows you to select which OpenTofu version Turbot should use for the stack.
 
-The policy supports semver semantics, allowing you to use new versions automatically, or to pin to specific versions, depending on your preference. 
+The policy supports semver semantics, allowing you to use new versions automatically, or to pin to specific versions, depending on your preference.
 
-By default this policy uses the global default value set in the `Turbot > Stack > Native Stack Version [Default]` policy.  The shared default allows you to change only a single setting to change your default version, but still migrate versions over time on a per-stack basis. 
+By default this policy uses the global default value set in the `Turbot > Stack > Native Stack Version [Default]` policy.  The shared default allows you to change only a single setting to change your default version, but still migrate versions over time on a per-stack basis.
 
 Guardrails native stack containers include standard cloud [providers](https://opentofu.org/docs/language/providers/).  These providers are bundled in the container image, so in practice, the provider versions are tied to the OpenTofu version.  The following versions are currently supported:
 
