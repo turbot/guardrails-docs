@@ -16,7 +16,7 @@ Guardrails provides many `Stack [Native]` controls in multiple mods.  These stac
 - Account/Project/Subscription stacks allow you to manage resources that are global to the account.
 - Regional stacks allow you to manage regionally scoped resources.
 - Service stacks let you organize and separate your stack configurations by the types of resources that they manage.  The service stacks target the region or resource group for regional services and the "global" region for global services like IAM.
-- Resource stacks target individual resources, allowing you to configure standard resources that should be associated with them.
+- Resource stacks target individual resources, allowing you to configure standard resources that should be associated with them.  Resource stacks will run for every resource of that type, and will run whenever new resources of that type are discovered.
 
 
 <table>
@@ -151,7 +151,7 @@ The `Stack [Native]` primary policy determines what action the control will take
 
 The `Source` policy contains the OpenTofu configuration code that should be applied.
 
-Note that the stack expects to continue to manage any resources that were created in the stack - if you delete a resource from the OpenTofu configuration in the `Source` policy, the stack control will destroy the resource.  For example, if you wish to destroy all the objects created by the stack, set the `Source` policy to `{}`, and leave the `Stack` policy set to `Enforce: Configured`.
+Note that the stack expects to continuously manage any resources that were created in the stack - if you delete a resource from the OpenTofu configuration in the `Source` policy, the stack control will destroy the resource.  For example, if you wish to destroy all the objects created by the stack, set the `Source` policy to `{}`, and leave the `Stack` policy set to `Enforce: Configured`.
 
 Like the The `Source` policy, the `Modifier` policy may also contain OpenTofu HCL code.  While it may contain any HCL code, its purpose is to allow you to separate instance-specific configuration code, such as [resource import blocks](https://opentofu.org/docs/language/import/), from your standard source definition.
 
@@ -164,11 +164,10 @@ The `Variables` and `Secret Variables` policies are merged into a single set of 
 
 The `Variables` and `Secret Variables` are not required, however separating the variables from the configuration will simplify using stacks in Guardrails:
 
-- As a best practice, you should only enter an immediate value in the `Source`.  If calculated policies are required to get input data for the stack, the `Variables` or `Secret Variables` should use a calculated policy to get the data and pass it in as OpenTofu variables.
-
+- As a best practice, you should avoid using a calculated policy in the `Source`.  If you need to get context dynamically from the CMDB, you should instead use calculated policies to set the `Variables` or `Secret Variables` policy.
   - This makes the source easily testable outside of Guardrails, as it is not a calculated policy
   - Rendering the input variables in nunjucks is much simpler than rendering the whole OpenTofu source
-  - This allows you to separate your OpenTofu logic in the `Source` policy from the OpenTofu HCL logic in the `Variables` policies
+  - This allows you to separate your OpenTofu HCL logic in the `Source` policy from the nunjucks logic in the `Variables` policies
 
 - Using map or object variables allows you to create a map policy in the `Variables` with configuration information that can be used in all child resource stacks.  If a new item is added, the variables can be updated without updating the OpenTofu configuration.
 
