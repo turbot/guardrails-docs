@@ -7,7 +7,7 @@ sidebar_label: Migrating to Global Event Handlers
 
 In this guide, you will:
 
-- You will migrate to Global Event Handlers (GEH) from Regional [Event Handler] (REH).
+- You will migrate to Global Event Handlers (GEH) from Regional Event Handler (REH).
 - Decommission Regional Event Handler (REH).
 - Monitor and troubleshoot the installation process.
 
@@ -52,7 +52,7 @@ Resources Deployed
   - **EventBridge Rule**: Captures event sources and forwards them to the primary region.
   - **EventBridge Target**: Sends events to the EventBridge bus in the primary region.
 
-## Step 1. Deploying the EventBridge IAM Role
+## Step 1: Deploying the EventBridge IAM Role
 
 To enable seamless data transfer between regional event buses, the EventBridge IAM role is a critical component of the Global Event Handlers (GEH) setup. This role allows secondary regions to forward events to the primary region for centralized processing. GEH will only use the `default` event bus. There is no need to create second event bus exclusively for GEH.
 
@@ -105,7 +105,7 @@ Attach the following IAM policy to grant necessary permissions to the EventBridg
     {
       "Effect": "Allow",
       "Action": ["events:PutEvents"],
-      "Resource": "arn:${partition}:events:${GLOBAL_EVENTS_PRIMARY_REGION}:${AWS_ACCOUNT_ID}:event-bus/default"
+      "Resource": "arn:{PARTITION}:events:{GLOBAL_EVENTS_PRIMARY_REGION}:{AWS_ACCOUNT_ID}:event-bus/default"
     }
   ]
 }
@@ -121,29 +121,36 @@ resource "aws_iam_role" "event_handlers_global_role" {
     Version = "2012-10-17",
     Statement = [
       {
-        Effect = "Allow",
+        Effect    = "Allow",
         Principal = { Service = "events.amazonaws.com" },
-        Action = "sts:AssumeRole"
+        Action    = "sts:AssumeRole"
       }
     ]
   })
-  inline_policy {
-    name   = "aws_api_events_policy"
-    policy = jsonencode({
-      Version = "2012-10-17",
-      Statement = [
-        {
-          Effect   = "Allow",
-          Action   = ["events:PutEvents"],
-          Resource = "arn:${var.partition}:events:${var.primary_region}:${var.account_id}:event-bus/default"
-        }
-      ]
-    })
-  }
+}
+
+resource "aws_iam_policy" "turbot_guardrails_geh_eventbridge_policy" {
+  name = "${var.event_handlers_global_policy_name}"
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect   = "Allow",
+        Action   = ["events:PutEvents"],
+        Resource = "arn:${var.partition}:events:${var.primary_region}:${var.account_id}:event-bus/default"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "turbot_guardrails_role_policy_attachment" {
+  role       = aws_iam_role.event_handlers_global_role.name
+  policy_arn = aws_iam_policy.turbot_guardrails_geh_eventbridge_policy.arn
 }
 ```
 
-## Step 2. Configure the IAM Role ARN Policy Setting for Event Forwarding
+## Step 2: Configure the IAM Role ARN Policy Setting for Event Forwarding
 
 If you are using Turbot Service Roles, this step is automatically handled, and no further action is required. However, if you are manually creating the roles, you need to configure the `AWS > Turbot > Event Handlers [Global] > Events > Target > IAM Role ARN` policy. This can be done through the Turbot UI or using the Terraform configuration provided below.
 
@@ -160,7 +167,7 @@ resource "turbot_policy_setting" "aws_event_handlers_global_events_target_iam_ro
   account
   {
     # Look for the name of the EventBridge IAM role.
-    event_bridge_role: children(filter:"$.RoleName:${EVENTBRIDGE_IAM_ROLE}"){
+    event_bridge_role: children(filter:"$.RoleName:${var.EVENTBRIDGE_IAM_ROLE} resourceTypeId:tmod:@turbot/aws-iam#/resource/types/role level:self"){
       role:items
       {
         akas
@@ -180,7 +187,7 @@ EOT
 }
 ```
 
-## Step 3. Deploy Global Event Handlers (GEH)
+## Step 3: Deploy Global Event Handlers (GEH)
 
 1. In the Guardrails console navigate to the **Policies** and search for `AWS > Turbot > Event Handlers [Global]` policy. Select **New Policy Setting**
 2. Choose Resource as `Turbot` and Setting as `Enforce: Configured`
@@ -188,9 +195,14 @@ EOT
    `https://{workspace}/apollo/reports/controls-by-state?filter=controlTypeId%3A%27tmod%3A%40turbot%2Faws%23%2Fcontrol%2Ftypes%2FeventHandlersGlobal%27`
 4. Ensure all GEH controls are in the ok state with the message "All required resources exist".
 
-## Step 4. Decommission Regional Event Handlers (EH)
+## Step 4: Decommission Regional Event Handlers (EH)
 
 1. Set the `AWS > Turbot > Event Handlers` policy to `Enforce: Not configured` to trigger cleanup of legacy event handler infrastructure.
+
+> [!IMPORTANT]
+> In the **Resource** dropdown selection allows you to choose `Turbot` or specific accounts. If `Turbot` is selected, then it applies the settings across all the AWS accounts.
+
+![Disable Event Handlers](/images/docs/guardrails/guides/aws/global-event-handlers/migrate-to-global-event-handlers/disable-regional-event-handlers.png)
 
 > [!WARNING]
 > Setting the event handlers to `Skip` at this point will leave event handler infrastructure deployed concurrent to global event handlers; effectively doubling the events sent back to Guardrails for processing.
@@ -200,11 +212,18 @@ EOT
 3. Ensure all `AWS > Turbot > Event Handlers` controls are in the ok state with the message ""Empty configuration - no action needed".
 4. Delete the Event Handler policy settings to complete decommissioning. This will change the Event Handler controls to `Skipped`.
 
-## Step 5. Verify
+## Step 5: Verify Events
 
-1. `Event Handler Cleanup`: Confirm that legacy EH resources are removed from the Guardrails CMDB.
-2. `Primary Region Testing`: Create a resource in the primary region and verify its detection in the Guardrails console.
-3. `Secondary Region Testing`: Create a resource in a secondary region and verify its detection.
+The global event handlers are now configured in the target account. To verify they are functioning correctly:
+
+1. **Primary Region Testing**:
+   Create a resource in the primary region and verify its detection. Confirm that the associated controls are triggered and executed based on the policies set in the Guardrails console.
+
+2. **Secondary Region Testing**:
+   Create a resource in a secondary region and verify its detection. Ensure that the associated controls are triggered and executed according to the policies set in the Guardrails console.
+
+3. **Event Handler Cleanup**: Confirm that legacy EH resources are removed from the Guardrails CMDB.
+
 
 ## Troubleshooting
 
