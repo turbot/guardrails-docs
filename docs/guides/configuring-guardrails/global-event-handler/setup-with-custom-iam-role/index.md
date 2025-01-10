@@ -1,6 +1,6 @@
 ---
-title: Setup with Custom IAM Role
-sidebar_label: Setup with Custom IAM Role
+title: Setup With Custom IAM Role
+sidebar_label: Setup With Custom IAM Role
 ---
 
 # Setting Up With Custom IAM Role

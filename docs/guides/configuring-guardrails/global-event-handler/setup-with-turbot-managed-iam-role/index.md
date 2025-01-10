@@ -1,6 +1,6 @@
 ---
-title: Setup with Turbot-Managed IAM Role
-sidebar_label: Setup with Turbot-Managed IAM Role
+title: Setup With Turbot-Managed IAM Role
+sidebar_label: Setup With Turbot-Managed IAM Role
 ---
 
 # Setting Up With Turbot-Managed IAM Role
