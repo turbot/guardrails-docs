@@ -7,7 +7,7 @@ sidebar_label: Guardrails Docs
 
 # Turbot Guardrails
 
-Turbotsss Guardrails is a full-stack governance platform that automates discovery and remediation of your organization’s compliance, security, and operational objectives.
+Turbot Guardrails is a full-stack governance platform that automates discovery and remediation of your organization’s compliance, security, and operational objectives.
 
 | Section | Description
 | - | -
