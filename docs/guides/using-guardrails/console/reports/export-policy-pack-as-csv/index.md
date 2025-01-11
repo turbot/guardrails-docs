@@ -3,46 +3,57 @@ title: Export Policy Pack as CSV
 sidebar_label: Export Policy Pack as CSV
 ---
 
-# Export Policy Pack as CSV
+# Exporting Policy Pack as CSV
 
 In this guide, you will:
-- Use the Guardrails console to review policies in a TBD state.
+- Use the Guardrails console to export policy settings as a CSV file.
 
-Sharing Turbot Guardrails policy settings is essential for collaboration and ensuring accurate reviews. Terraform code can be shared, providing a solution for technical teams who lack access to the Guardrails console. For broader accessibility, export the settings as a CSV file by following these instructions.
+Sharing Turbot Guardrails policy settings is essential for collaboration and ensuring accurate reviews. While Terraform code is useful for technical teams without access to the Guardrails console, exporting settings as a CSV file provides broader accessibility. Follow these instructions to export policy packs.
 
 ## Prerequisites
 
 - **Turbot/Operator** permissions at the Turbot resource level.
-- Familiarity with Guardrails console.
+- Familiarity with the Guardrails console.
 
-## Step 1: Login to Guardrails Console
+## Step 1: Log In to the Guardrails Console
 
-Log into the Guardrails console.
+Log in to the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/using-guardrails/console/export-policy-pack-as-csv/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/using-guardrails/console/reports/export-policy-pack-as-csv/guardrails-console-login.png)
 
-## Step 2: Navigate to Reports
+## Step 2: Access Reports
 
 Choose **Reports** from the top navigation menu.
 
-![Navigate to Reports](/images/docs/guardrails/guides/using-guardrails/console/export-policy-pack-as-csv/guardrails-navigate-to-reports.png)
+![Navigate to Reports](/images/docs/guardrails/guides/using-guardrails/console/reports/export-policy-pack-as-csv/guardrails-navigate-to-reports.png)
 
 ## Step 3: Select Policies
 
-Under `Policies`, select **Policy Settings by Resource Type**.
+Under **Policies**, select **Policy Settings by Resource Type**.
 
-![Policy Settings by Resource Type](/images/docs/guardrails/guides/using-guardrails/console/export-policy-pack-as-csv/guardrails-select-policy-setting-by-resource-type.png)
+![Policy Settings by Resource Type](/images/docs/guardrails/guides/using-guardrails/console/reports/export-policy-pack-as-csv/guardrails-select-policy-setting-by-resource-type.png)
 
-## Step 4: Select Resource
+## Step 4: Choose Resource
 
-Select the required resource from the **Resource** filter dropdown. Here the selected resource is the `Policy Pack`.
+Select the required resource from the **Resource** filter dropdown. For this guide, the selected resource is the `Policy Pack`.
 
-![Select Resource](/images/docs/guardrails/guides/using-guardrails/console/export-policy-pack-as-csv/guardrails-select-resource.png)
+![Select Resource](/images/docs/guardrails/guides/using-guardrails/console/reports/export-policy-pack-as-csv/guardrails-select-resource.png)
 
 ## Step 5: Export CSV
 
-Select the **Export to CSV** link at the top of the page to download the smart folder in CSV format. This will store the file in your local drive.
+Click the **Export to CSV** link at the top of the page to download the policy pack as a CSV file. The file will be stored in your local drive.
 
-![Review Cause](/images/docs/guardrails/guides/using-guardrails/console/export-policy-pack-as-csv/guardrails-export-to-csv.png)
+![Export to CSV](/images/docs/guardrails/guides/using-guardrails/console/reports/export-policy-pack-as-csv/guardrails-export-to-csv.png)
 
-If you encounter any issues, please [Open Support Ticket](https://support.turbot.com) and attach the relevant information to assist you more efficiently.
+## Next Steps
+
+Explore the following resources to learn more about Guardrails’ Policies feature:
+
+- Learn about [Policy Packs](/guardrails/docs/concepts/policy-packs)
+- Learn about [Managing Policies](/guardrails/docs/guides/configuring-guardrails/managing-policies)
+
+## Troubleshooting
+
+| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |

@@ -373,7 +373,7 @@
                 "id": "reports",
                 "link": "guides/using-guardrails/console/reports",
                 "items": [
-                  "guides/using-guardrails/console/reports/check-tbd-policy-values",
+                  "guides/using-guardrails/console/reports/find-policies-in-tbd-state",
                   "guides/using-guardrails/console/reports/export-policy-pack-as-csv"
                 ]
               },
