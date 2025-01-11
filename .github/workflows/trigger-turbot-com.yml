@@ -8,7 +8,7 @@ on:
       - "main"
 
   pull_request:
-    types: [opened]
+    types: [opened, synchronize]
 
 jobs:
   update:
@@ -27,15 +27,15 @@ jobs:
   comment-link:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
+    if: ${{ github.event_name == 'pull_request'}}
     steps:
       - name: Get the deployment details
         id: get_deployment_details
-        if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
+        if: ${{ github.event_name == 'pull_request'}}
         uses: actions/github-script@v6
         with:
           script: |
-            const branchName = 'docs/${{ github.event.pull_request.head.ref }}';
+            const branchName = 'docs/guardrails/${{ github.event.pull_request.head.ref }}';
 
             const response = await fetch('https://turbot.com/api/service/deploy-details', {
               method: 'POST',
