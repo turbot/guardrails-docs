@@ -8,7 +8,7 @@ sidebar_label: Export Policy Pack as CSV
 In this guide, you will:
 - Use the Guardrails console to export policy settings as a CSV file.
 
-Sharing Turbot Guardrails policy settings is essential for collaboration and ensuring accurate reviews. While Terraform code is useful for technical teams without access to the Guardrails console, exporting settings as a CSV file provides broader accessibility. Follow these instructions to export policy packs.
+Exporting Turbot Guardrails policy settings as a CSV file enables collaboration and facilitates reviews. While Terraform code is a useful option for technical teams without access to the Guardrails console, exporting policy packs in CSV format provides a versatile approach to analyze and review settings efficiently. Follow these steps to export policy packs in CSV format.
 
 ## Prerequisites
 
