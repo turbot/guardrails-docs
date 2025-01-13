@@ -6,7 +6,12 @@ nav:
   order: 10
 ---
 
-# Importing a AWS Gov Cloud or AWS China account into Guardrails
+# Importing a AWS Gov Cloud or AWS China account
+
+In this guide, you will:
+
+- Import an AWS Account into a Guardrails Folder.
+
 
 ## Prerequisites to import AWS GovCloud or AWS China Account
 
@@ -30,7 +35,7 @@ create a user and a role using AWS IAM.
 }
 ```
 
-- If you wish to take advantage of every AWS integration offered by Guardrails 
+- If you wish to take advantage of every AWS integration offered by Guardrails
   (recommended), attach the Amazon Managed AdministratorAccess Policy to the
   Role:
   - `arn:aws:iam::aws:policy/AdministratorAccess`
@@ -92,8 +97,8 @@ Recommended Mods:
 
 While you can import an AWS account at the Turbot level, it is recommended that
 you import accounts into Guardrails Folders, as it provides greater flexibility and
-ease of management. 
-Define a [Folder hierarchy](getting-started/configure_workspace) prior to import.
+ease of management.
+Define a [Folder hierarchy](/guardrails/docs/concepts/resources/hierarchy) prior to import.
 
 #### Importing the account via Terraform
 

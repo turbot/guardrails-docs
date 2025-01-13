@@ -30,7 +30,7 @@ Syncing ServiceNow CMDB data brings critical context to your cloud resources in 
 
 **To get started:**
 * [Import a ServiceNow Instance](https://turbot.com/guardrails/docs/guides/servicenow/import-servicenow-instance) into a Guardrails Folder.
-* [Enable ServiceNow sync to Guardrails](https://turbot.com/guides/servicenow/servicenow-to-guardrails-sync) to configure real-time syncing.
+* [Enable ServiceNow sync to Guardrails](https://turbot.com/guardrails/docs/guides/servicenow/servicenow-to-guardrails-sync) to configure real-time syncing.
 
 Additional context about the feature is in the announcement post [ServiceNow + Guardrails: Context-aware cloud & security automation](https://turbot.com/guardrails/blog/2023/12/context-aware-guardrails-servicenow-integration).
 

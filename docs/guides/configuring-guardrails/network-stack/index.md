@@ -5,6 +5,11 @@ sidebar_label: Network Stacks
 
 # Managing Network Configurations with Stacks
 
+> [!IMPORTANT] 
+> This document pertains to the legacy `Stack` and `Configured` controls.  Consider migrating to the [Stack [Native] Controls](/guardrails/docs/concepts/guardrails/stacks) for [even more power and flexibility!](/guardrails/docs/concepts/guardrails/stacks#stack-native-controls-vs-legacy-stacks--configured-controls).
+
+
+
 ## Overview
 
 Network controls and guardrails have been an essential part of Guardrails since
