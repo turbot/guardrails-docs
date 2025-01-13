@@ -8,7 +8,6 @@ nav:
 
 # Configuring Real-Time events
 
-
 In this guide, you will:
 - You will setup AWS Event Handlers.
 
@@ -21,52 +20,41 @@ Pollers enable Guardrails' **Event-driven model** of operation.
 
 Guardrails uses the following infrastructure for event handling:
 
-- **CloudTrail** must be enabled in every region where events are to be sent
-  from. This can be done with regional, global or Organization trails. An
-  additional CloudTrail just for Guardrails' use is unnecessary cost.
-- **EventBridge** is enabled by default and requires no configuration. Guardrails
-  uses the 'default' bus.
-- **CloudWatch Event Rules** determine which API events to filter for.
-- **CloudWatch Event Targets** Direct the events from EventBridge to SNS.
-- **SNS Topic** Where the events are published.
-- **SNS Subscription** Forwards events to the event ingestion API endpoint where Guardrails will
-  process them.
+| **Infrastructure Service**  | **Description**                                                                                          |
+|-----------------------------|----------------------------------------------------------------------------------------------------------|
+| **CloudTrail**              | Must be enabled in every region where events are to be sent from. This can be done with regional, global, or Organization trails. An additional CloudTrail just for Guardrails' use is unnecessary cost. |
+| **EventBridge**             | Enabled by default and requires no configuration. Guardrails uses the 'default' bus.                    |
+| **CloudWatch Event Rules**  | Determine which API events to filter for.                                                               |
+| **CloudWatch Event Targets**| Direct the events from EventBridge to SNS.                                                              |
+| **SNS Topic**               | Where the events are published.                                                                         |
+| **SNS Subscription**        | Forwards events to the event ingestion API endpoint where Guardrails will process them.                 |
 
-## Guardrails Mods Required for Event Handling
+
+## Mods Required for Event Handling
 
 In order to configure real time eventing, the following set of mods must be
 installed and up to date in the environment:
 
-### Required for AWS Account Import
+| **Category**                           | **Required Mods**               |
+|----------------------------------------|----------------------------------|
+| AWS Account Import   | `aws`, `aws-iam`, `aws-kms`     |
+| Configuration of CloudTrail | `aws-cloudtrail`, `aws-s3`      |
+| Event Handler Configuration | `aws-events`, `aws-sns`         |
 
-- aws
-- aws-iam
-- aws-kms
-
-### Required for Guardrails configuration of CloudTrail
-
-These mods are required only if using Guardrails to configure CloudTrail.
-
-- aws-cloudtrail
-- aws-s3
-
-### Required for Event Handler configuration
-
-- aws-events
-- aws-sns
 
 ## Configuring CloudTrail
 
-<div className="alert alert-warning"> <strong>You are not required to use the Guardrails Audit Trail</strong> to configure CloudTrail, but <strong>there must be a CloudTrail configured in each region or a global trail.</strong>
-</div>
+> [!WARNING]
+> You are not required to use the Guardrails Audit Trail to configure CloudTrail, but there must be a CloudTrail configured in each region or a global trail.
+
 
 The [Guardrails Audit Trail](/guardrails/docs/mods/aws/aws/policy#aws--turbot--audit-trail)
 policy provides a convenient mechanism for setting up CloudTrail in AWS
 accounts.
 
-### Creating logging buckets using the default configuration
+### Creating Logging Buckets
 
-CloudTrail requires an S3 bucket to store logs. The Guardrails Logging Bucket policy
+CloudTrail requires an S3 bucket to store logs. The Guardrails `Logging Bucket policy`
 can simplify creation of logging buckets.
 
 To set up logging buckets in the default configuration, simply set the
@@ -99,7 +87,7 @@ policy. The Turbot Audit Trail will only be deployed in a single region. Use
 [AWS > Turbot > Logging > Bucket > Regions](/guardrails/docs/mods/aws/aws/policy#aws--turbot--logging--bucket--regions)
 to specify which regions will get logging buckets.
 
-### Set up CloudTrail with the default configuration:
+### Setup CloudTrail
 
 Once the logging buckets have been created, it is time to set up the **Audit
 Trail** stack:
@@ -204,7 +192,7 @@ region. Deployment often takes a minute or two per region. If not in `ok` then
 use the information in [How Event Handlers Work](#how-event-handlers-work) to
 get a sense of what may have gone wrong in the deployment.
 
-## Decomissioning Event Handlers
+## Decommissioning Event Handlers
 
 Event handlers can be shut-off by setting the
 [AWS > Turbot > Event Handler](/guardrails/docs/mods/aws/aws/policy#aws--turbot--event-handlers)
@@ -214,7 +202,7 @@ an AWS account out of Turbot will not automatically decommission the event
 handlers. Event Handlers must be set explicitly destroyed before removing the
 account from Turbot.
 
-## When to decommission Event Handlers
+## When to Decommission Event Handlers
 
 Event Handlers should be decommissioned before:
 

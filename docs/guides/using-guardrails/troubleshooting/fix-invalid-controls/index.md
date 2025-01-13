@@ -15,12 +15,11 @@ Controls enforce policies to ensure cloud resources remain compliant and Guardra
 - **Turbot/Operator** permissions at the Turbot resource level.
 - Familiarity with the Guardrails console.
 
-## Step 1: Log In to Guardrails Console
+## Step 1: Login to Guardrails Console
 
 Log in to the Guardrails console.
 
 ![Guardrails Console Login](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-invalid-controls/guardrails-console-login.png)
-
 
 ## Step 2: Navigate to Reports
 
@@ -64,7 +63,6 @@ Select the sub-policy, choose the desired setting, and click **Create** to apply
 The control re-evaluates the policies and transitions to an **OK** state if the settings are correctly applied.
 
 ![Control OK State](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-invalid-controls/guardrails-control-ok-state.png)
-
 
 ## Step 6: Optimizing Controls
 
