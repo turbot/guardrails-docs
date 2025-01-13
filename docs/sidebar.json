@@ -512,7 +512,7 @@
             "items": [
               "guides/hosting-guardrails/disaster-recovery/restore",
               "guides/hosting-guardrails/disaster-recovery/dr-testing",
-              "guides/hosting-guardrails/disaster-recovery/database-upgrade-storage-optimization"
+              "guides/hosting-guardrails/disaster-recovery/database-migration-storage-optimization"
             ]
           }
         ]
