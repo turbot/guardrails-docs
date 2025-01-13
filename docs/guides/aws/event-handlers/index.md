@@ -35,7 +35,7 @@ Guardrails uses the following infrastructure for event handling:
 In order to configure real time eventing, the following set of mods must be
 installed and up to date in the environment:
 
-| **Category**                           | **Required Mods**               |
+| **Functionality**                           | **Required Mods**               |
 |----------------------------------------|----------------------------------|
 | AWS Account Import   | `aws`, `aws-iam`, `aws-kms`     |
 | Configuration of CloudTrail | `aws-cloudtrail`, `aws-s3`      |
