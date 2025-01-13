@@ -8,18 +8,18 @@ nav:
 
 # Importing an AWS account into Guardrails
 
-<div className="alert alert-warning">
-This section details the steps required to import an AWS Account into a Guardrails Folder.
-</div>
+In this guide, you will:
 
-## Overview
+- Import an AWS Account into a Guardrails Folder.
+
+## Prerequisites
 
 Guardrails can get access to an AWS Account by one of the following ways:
 
 - Cross-Account IAM Role (Commercial Cloud)
 - IAM Role and User Access Key Pair (AWS China and AWS GovCloud)
 
-### Supported AWS Partitions
+## Supported AWS Partitions
 
 There are three account partitions that AWS offers and Guardrails supports. Valid
 partition names are:
@@ -34,10 +34,10 @@ Consider that Turbot Guardrails is hosted only in AWS commercial accounts. There
 - To import
   [AWS China or AWS GovCloud accounts](guides/aws/import-aws-account/gov-cloud) requires hosting of guardrails in the same partition as those account or using access keys for each account outside of the current AWS Partition.
 
-<div className="alert alert-info" role="alert"><b>NOTICE</b>: Free Tier AWS accounts cannot be used with Guardrails. If this is attempted, Guardrails will fail to properly discover resources in the account and will generate errors in the Guardrails console.
-</div>
+> [!IMPORTANT]
+> Free Tier AWS accounts cannot be used with Guardrails. If this is attempted, Guardrails will fail to properly discover resources in the account and will generate errors in the Guardrails console.
 
-## Prerequisites to import AWS Commercial Account
+## Import AWS Commercial Account
 
 A few steps must be completed before an account can be imported into a Guardrails workspace:
 
@@ -51,7 +51,7 @@ A few steps must be completed before an account can be imported into a Guardrail
   Guardrails can't see those resources. Refer to the  [Recommended Starting Mods](mods#recommended-starting-mods) for
   more information.
 
-### What Permissions to Grant
+## What Permissions to Grant
 
 What permissions you grant to the Guardrails IAM role will depend on your use
 case(s). Guardrails will use whichever role you specify and the permissions granted
@@ -123,7 +123,7 @@ conforms to your requirements.
         - `ce:getCostForecast`
         - `ce:GetCostAndUsage`
 
-### Cross Account Trust
+## Cross Account Trust
 
 The role must grant cross-account access for the Turbot Guardrails master AWS account to
 assume into your AWS account.
@@ -135,7 +135,7 @@ assume into your AWS account.
 - Turbot Guardrails Enterprise customers, enter the AWS Account ID of the AWS Account
   where you have installed the Turbot Guardrails Enterprise stacks.
 
-### External IDs
+## External IDs
 
 It is required that you set an External ID. There are two sources for the
 External ID:
@@ -156,12 +156,12 @@ External ID:
 - If you are setting your own external ID, be sure it follows
   [AWS character limits](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html).
 
-### Role Name
+## Role Name
 
 Give the role a meaningful name such as `turbot-service-readonly` (read only) or
 `turbot-service-superuser` (for full access), as well as an apt description.
 
-## Creating the Role
+### Create IAM Role
 
 ### Using CloudFormation
 
@@ -170,7 +170,7 @@ EU customers, use `255798382450`.
 
 #### ReadOnly + Global Event Handlers
 
-Reccommended starting point for new installations
+Recommended starting point for new installations
 
 This represents the minimum privileges required for Guardrails to discover all AWS
 resources and configure **global** event handlers.
@@ -220,7 +220,7 @@ Parameters:
     Type: String
     Default: "/"
     Description: >
-      The IAM path to use for all IAM roles created in this stack. 
+      The IAM path to use for all IAM roles created in this stack.
       The path must either be a single forward slash "/" or
       alphanumeric characters with starting and ending forward slashes "/my-path/".
   GuardrailsSaaSAccountId:
@@ -325,12 +325,12 @@ Outputs:
     Description: "ARN of the Guardrails IAM role"
     Value: !GetAtt GuardrailsAccessRole.Arn
     Export:
-      Name: "GuardrailsAccessRoleArn" 
+      Name: "GuardrailsAccessRoleArn"
   AccessRoleExternalIdOutput:
     Description: "External ID used in the Access Role"
     Value: !Ref AccessRoleExternalId
     Export:
-      Name: "AccessRoleExternalId" 
+      Name: "AccessRoleExternalId"
 ```
 
 #### Full AdministratorAccess
@@ -521,7 +521,7 @@ manually:
    `turbot-superuser` (for full access), as well as an apt description. Click
    **Create Role**.
 
-### Install desired mods
+### Install Desired Mods
 
 The `aws` mod is required to import AWS accounts into a Guardrails workspace. It must be
 installed before account imports can start. Ensure it is installed and the
@@ -555,9 +555,9 @@ Recommended Mods (in order of installation):
 
 Importing accounts into Folders offers increased flexibility and easier
 management over importing directly under the Turbot level. Define a
-[Folder hierarchy](getting-started/configure_workspace) prior to import.
+[Folder hierarchy](/guardrails/docs/concepts/resources/hierarchy) prior to import.
 
-#### Importing the account via the Guardrails Console
+### Importing Account via Guardrails Console
 
 1. At the main Guardrails console after logging in with `Turbot/Admin` permissions,
    click the purple **IMPORT** card in the top right.
@@ -578,7 +578,7 @@ management over importing directly under the Turbot level. Define a
    discovering the resources in your AWS account. Resources will start appearing
    right away, and resource discovery will continue to run in the background.
 
-#### Importing the account via Terraform
+### Importing Account via Terraform
 
 ```hcl
 
