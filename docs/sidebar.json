@@ -401,6 +401,14 @@
           },
           {
             "type": "category",
+            "id": "stacks",
+            "link": "guides/using-guardrails/stacks",
+            "items": [
+              "guides/using-guardrails/stacks/aws-vpc"
+            ]
+          },
+          {
+            "type": "category",
             "id": "troubleshooting",
             "link": "guides/using-guardrails/troubleshooting",
             "items": [
