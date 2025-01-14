@@ -20,7 +20,7 @@ In this guide, you will:
 > [!WARNING]
 > After creating replication slots in [Step 12](#step-12-create-publisher-and-replication-slot-in-original-instance), upgrading existing workspaces or creating new ones will not be possible until the process is complete. Additionally, no DDL changes can be performed during this time.
 
-## Step 1: Deploy a New TED
+## Step 1: Deploy New TED
 
 Navigate to service catalog and [deploy a new TED](/guardrails/docs/guides/hosting-guardrails/installation/install-ted) product.
 
@@ -89,7 +89,7 @@ Select **Modify DB Instance**.
 
 ![Select Modify DB Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-migration-storage-optimization/rds-select-modify-dbinstance.png)
 
-## Step 7: Create a Bastion Host
+## Step 7: Create Bastion Host
 
 Create a Bastion using the [CloudFormation Template](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host).
 
