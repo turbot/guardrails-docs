@@ -199,9 +199,7 @@
             "type": "category",
             "id": "event-handlers",
             "link": "guides/aws/event-handlers",
-            "items": [
-              "guides/aws/event-handlers/poller"
-          ]
+            "items": ["guides/aws/event-handlers/poller"]
           },
           {
             "type": "category",
@@ -309,7 +307,6 @@
           "guides/configuring-guardrails/auto-mod-update",
           "guides/configuring-guardrails/mod-lambda-cleanup",
           "guides/configuring-guardrails/account-imports",
-          "guides/configuring-guardrails/associate-policy-pack-to-resource",
           {
             "type": "category",
             "id": "directories",
@@ -344,7 +341,15 @@
             ]
           },
           "guides/configuring-guardrails/network-stack",
-          "guides/configuring-guardrails/policy-packs",
+          {
+            "type": "category",
+            "id": "policy-packs",
+            "link": "guides/configuring-guardrails/policy-packs",
+            "items": [
+              "guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource"
+            ]
+          },
+
           "guides/configuring-guardrails/regions",
           {
             "type": "category",
@@ -518,7 +523,7 @@
           }
         ]
       },
-    "guides/troubleshooting"
+      "guides/troubleshooting"
     ]
   },
   {

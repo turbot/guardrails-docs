@@ -8,11 +8,13 @@ sidebar_label: Policy Packs
 [Policy packs](concepts/resources/policy-packs) (previously named Smart Folders) enable administrators to apply one or more policies across multiple accounts and/or resources, thus automating what would otherwise be a time-consuming manual process. You create, delete, and rename a Policy Pack just like a regular Guardrails folder, then *attach* it to the Guardrails hierarchy. The policies it defines govern all resources below that point in the hierarchy.
 
 ## Create a Policy Pack
+
 1. Click on the "Policies" link in the top menu bar.
 1. Select the large grey "Policy Packs" button.
 1. Click on the green "New Policy Pack" button on the right side of the page
 1. Give the pack a name, description and a unique aka (if desired).
 1. Finish by clicking the green "Create" button
+
 
 ![](/images/docs/guardrails/policies-page.png)
 
@@ -24,6 +26,8 @@ sidebar_label: Policy Packs
 2. When you get there, click on the **Detail** tab.
 3. In the Policy Pack module on the right, click **Manage**.
 4. Click "Add" then select your policy pack.
+
+See detailed guide [here](/guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource)
 
 ## Detach a Policy Pack from a Resource
 
