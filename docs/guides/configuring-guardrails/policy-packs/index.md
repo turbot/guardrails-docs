@@ -26,6 +26,8 @@ sidebar_label: Policy Packs
 2. When you get there, click on the **Detail** tab.
 3. In the Policy Pack module on the right, click **Manage**.
 4. Click "Add" then select your policy pack.
+> [!NOTE]
+> See detailed guide [here](/guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource).
 
 > [!NOTE]
 > See detailed guide [here](/guardrails/docs/guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource).
