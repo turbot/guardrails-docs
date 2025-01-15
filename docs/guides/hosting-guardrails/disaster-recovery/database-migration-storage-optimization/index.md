@@ -17,8 +17,8 @@ In this guide, you will:
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS RDS, EC2, Service Catalog and CloudFormation services.
 - The entire process require minor downtime of two category,
-    - First, when DB instance is rebooted i.e. [Step 4](/guides/hosting-guardrails/disaster-recovery/database-migration-storage-optimization#step-4-reboot-db-instance) where the Guardrails console is still available to access in readonly mode i.e. you can browse all pages but prevented to process any events or running any controls for very short span of time.
-    - Second, when the DB endpoint change using TED stack update as specified in [Step 17](/guides/hosting-guardrails/disaster-recovery/database-migration-storage-optimization#step-17-pause-events) till [Step 21](/guides/hosting-guardrails/disaster-recovery/database-migration-storage-optimization#step-21-rename-db-instances)
+    - First, when DB instance is rebooted i.e. [Step 4](#step-4-reboot-db-instance) where the Guardrails console is still available to access in readonly mode i.e. you can browse all pages but prevented to process any events or running any controls for very short span of time.
+    - Second, when the DB endpoint change using TED stack update as specified in [Step 17](#step-17-pause-events) till [Step 21](#step-21-rename-db-instances)
 
 > [!WARNING]
 > After creating replication slots in [Step 12](#step-12-create-publisher-and-replication-slot-in-original-instance), upgrading existing workspaces or creating new ones will not be possible until the process is complete. Additionally, no DDL changes can be performed during this time.
