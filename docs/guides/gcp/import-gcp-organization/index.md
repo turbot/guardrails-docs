@@ -143,7 +143,7 @@ gcloud iam service-accounts add-iam-policy-binding SERVICE_ACCOUNT_NAME@PROJECT_
 gcloud iam service-accounts keys create key.json --iam-account=guardrails-sa@my-project.iam.gserviceaccount.com
 ```
 
-<details>
+</details>
 
 ### 2.3 Private Key
 
