@@ -17,14 +17,14 @@ nav:
 
 Importing a GCP Organization into Guardrails involves these key steps:
 
-1. **Configuring a GCP service account** with appropriate permissions at the **Organization** level.
-2. **Importing the organization** via the Guardrails Console.
+- **Configuring a GCP service account** with appropriate permissions at the **Organization** level.
+- **Importing the organization** via the Guardrails Console.
 
 Guardrails supports **three** credential methods for GCP Organization imports. **We strongly recommend Service Account Impersonation** (option #1 below), as it does **not** require downloading or managing a JSON key. The three methods are:
 
-1. **Service Account Impersonation** (recommended)
-2. **JSON File**
-3. **Private Key Text** (copy-paste of the JSON private key)
+- **Service Account Impersonation** (recommended)
+- **JSON File**
+- **Private Key Text** (copy-paste of the JSON private key)
 
 ---
 
@@ -34,21 +34,21 @@ Guardrails supports **three** credential methods for GCP Organization imports. *
 
 > **Important**: In GCP, **all service accounts belong to a specific project**, even if their permissions apply at the folder or organization level. For an **organization-level** import in Guardrails, you will:
 >
-> **Create the service account** in any single project under your organization.
-> **Assign the required roles** at the **organization** scope to that service account.
+> - **Create the service account** in any single project under your organization.
+> - **Assign the required roles** at the **organization** scope to that service account.
 
-1. In the [Google Cloud console](https://console.cloud.google.com), navigate to **IAM & Admin** > **Service Accounts**.
-2. Select the **project** in which you want to create this service account.
-3. Click **Create Service Account**.
-4. Enter a **Service account name**.
-5. Click **Create and continue**, then **skip** assigning roles at the **project** level if you only need them at the organization level. (Or if you prefer, you can assign basic roles at the project level here, but it’s not required if you plan to assign roles at the org level.)
-6. Click **Done** to finalize service account creation.
-7. **Assign organization-level permissions**:
-   - Go to **IAM & Admin** > **IAM**.
-   - Select your **organization** from the resource selector.
-   - Click **Grant Access**.
-   - Choose **Principal** = `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`.
-   - Assign roles at the **organization** (or folder) scope as described in [What Permissions to Grant](#what-permissions-to-grant).
+- In the [Google Cloud console](https://console.cloud.google.com), navigate to **IAM & Admin** > **Service Accounts**.
+- Select the **project** in which you want to create this service account.
+- Click **Create Service Account**.
+- Enter a **Service account name**.
+- Click **Create and continue**, then **skip** assigning roles at the **project** level if you only need them at the organization level. (Or if you prefer, you can assign basic roles at the project level here, but it’s not required if you plan to assign roles at the org level.)
+- Click **Done** to finalize service account creation.
+- **Assign organization-level permissions**:
+  - Go to **IAM & Admin** > **IAM**.
+  - Select your **organization** from the resource selector.
+  - Click **Grant Access**.
+  - Choose **Principal** = `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`.
+  - Assign roles at the **organization** (or folder) scope as described in [What Permissions to Grant](#what-permissions-to-grant).
 
 <details>
   <summary>CLI Example for Creating a Service Account & Assigning Org-Level Roles</summary>
@@ -67,9 +67,9 @@ gcloud organizations add-iam-policy-binding ORGANIZATION_ID --member="serviceAcc
 
 Guardrails needs access to the **Cloud Resource Manager** and **Service Management** APIs (at a minimum) to discover and manage organization-wide resources.
 
-1. From the [Google Cloud console](https://console.cloud.google.com), navigate to **APIs & Services** (for the same project in which your service account was created).
-2. Locate the **Cloud Resource Manager API** and **Service Management API**.
-3. If either is **disabled**, click **Enable**.
+- From the [Google Cloud console](https://console.cloud.google.com), navigate to **APIs & Services** (for the same project in which your service account was created).
+- Locate the **Cloud Resource Manager API** and **Service Management API**.
+- If either is **disabled**, click **Enable**.
 
 <details>
   <summary>CLI Commands</summary>
@@ -88,12 +88,12 @@ gcloud services enable servicemanagement.googleapis.com --project=PROJECT_ID
 
 If you plan to allow Guardrails to enable new APIs or create resources that may incur charges, ensure Billing is enabled at the **organization** level or for specific projects as needed.
 
-1. Go to the **API Console**.
-2. From the projects list, select the project.
-3. Open the console left side menu and select **Billing**.
-4. Click **Enable billing**. (If billing is already enabled then this option isn't available.)
-5. If you don't have a billing account, create one.
-6. Select your location, fill out the form, and click Submit and enable billing.
+- Go to the **API Console**.
+- From the projects list, select the project.
+- Open the console left side menu and select **Billing**.
+- Click **Enable billing**. (If billing is already enabled then this option isn't available.)
+- If you don't have a billing account, create one.
+- Select your location, fill out the form, and click Submit and enable billing.
 
 ## In the Guardrails Console
 
@@ -127,13 +127,13 @@ gcloud iam service-accounts add-iam-policy-binding SERVICE_ACCOUNT_NAME@PROJECT_
 
 **How to obtain the JSON file in the GCP Console**:
 
-1. In the [Google Cloud console](https://console.cloud.google.com), navigate to **IAM & Admin** > **Service Accounts**.
-2. Select the **project** where your service account resides.
-3. Locate the service account you created for Guardrails, and click on its **Actions** menu (three dots on the right).
-4. Select **Manage keys**.
-5. Click **Add key** > **Create new key**.
-6. Choose **JSON** as the **Key type**, and click **Create**.
-7. A JSON file will download automatically to your local machine. **Keep this file secure**.
+- In the [Google Cloud console](https://console.cloud.google.com), navigate to **IAM & Admin** > **Service Accounts**.
+- Select the **project** where your service account resides.
+- Locate the service account you created for Guardrails, and click on its **Actions** menu (three dots on the right).
+- Select **Manage keys**.
+- Click **Add key** > **Create new key**.
+- Choose **JSON** as the **Key type**, and click **Create**.
+- A JSON file will download automatically to your local machine. **Keep this file secure**.
 
 <details>
   <summary>Example: Using CLI Command</summary>
@@ -168,18 +168,18 @@ Pwd0PmmSB1U3h3+Ued/eDhw=
 
 **Steps in Guardrails**
 
-1. **Log in** to your Guardrails workspace with **Turbot/Owner** or **Turbot/Admin** permissions.
-2. Click the **Import** card, then select **GCP Organization**.
-3. On the import screen, **choose one of the three methods**:
-   - **Service Account Impersonation**
-     - Provide the **Service Account** email in the form `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`.
-   - **JSON File**
-     - Click **Upload JSON** and select your JSON file.
-   - **Private Key**
-     - Paste the entire contents of your JSON key (multi-line, including the `BEGIN` and `END` lines).
-4. Provide the **Organization ID** for your GCP Organization.
-5. Choose the **Parent Resource** in Guardrails (e.g., a folder or workspace) under which this GCP Organization should be placed.
-6. Click **Import** to begin the discovery and management process. Guardrails will create and run discovery controls for your GCP Organization, scanning each project and resource based on your configured policies.
+- **Log in** to your Guardrails workspace with **Turbot/Owner** or **Turbot/Admin** permissions.
+- Click the **Import** card, then select **GCP Organization**.
+- On the import screen, **choose one of the three methods**:
+  - **Service Account Impersonation**
+    - Provide the **Service Account** email in the form `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`.
+  - **JSON File**
+    - Click **Upload JSON** and select your JSON file.
+  - **Private Key**
+    - Paste the entire contents of your JSON key (multi-line, including the `BEGIN` and `END` lines).
+- Provide the **Organization ID** for your GCP Organization.
+- Choose the **Parent Resource** in Guardrails (e.g., a folder or workspace) under which this GCP Organization should be placed.
+- Click **Import** to begin the discovery and management process. Guardrails will create and run discovery controls for your GCP Organization, scanning each project and resource based on your configured policies.
 
 > **Note**: If you see `access denied` or other errors, verify that you have assigned the appropriate roles:
 >
