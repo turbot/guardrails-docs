@@ -28,14 +28,14 @@ Guardrails supports **three** credential methods for GCP Organization imports. *
 
 ---
 
-## 1. In the GCP Console
+## In the GCP Console
 
-### 1.1 Create or Select a Service Account
+### Create or Select a Service Account
 
 > **Important**: In GCP, **all service accounts belong to a specific project**, even if their permissions apply at the folder or organization level. For an **organization-level** import in Guardrails, you will:
 >
-> 1. **Create the service account** in any single project under your organization.
-> 2. **Assign the required roles** at the **organization** scope to that service account.
+> **Create the service account** in any single project under your organization.
+> **Assign the required roles** at the **organization** scope to that service account.
 
 1. In the [Google Cloud console](https://console.cloud.google.com), navigate to **IAM & Admin** > **Service Accounts**.
 2. Select the **project** in which you want to create this service account.
@@ -63,7 +63,7 @@ gcloud organizations add-iam-policy-binding ORGANIZATION_ID --member="serviceAcc
 
 </details>
 
-### 1.2 Enable Required APIs
+### Enable Required APIs
 
 Guardrails needs access to the **Cloud Resource Manager** and **Service Management** APIs (at a minimum) to discover and manage organization-wide resources.
 
@@ -84,7 +84,7 @@ gcloud services enable servicemanagement.googleapis.com --project=PROJECT_ID
 
 </details>
 
-### 1.3 Ensure Billing is Enabled
+### Ensure Billing is Enabled
 
 If you plan to allow Guardrails to enable new APIs or create resources that may incur charges, ensure Billing is enabled at the **organization** level or for specific projects as needed.
 
@@ -95,13 +95,13 @@ If you plan to allow Guardrails to enable new APIs or create resources that may 
 5. If you don't have a billing account, create one.
 6. Select your location, fill out the form, and click Submit and enable billing.
 
-## 2. In the Guardrails Console
+## In the Guardrails Console
 
 Guardrails provides **three** options to authenticate your GCP Organization import:
 
 Below, we detail each method. After choosing your method, follow the **Steps in Guardrails** to complete the import.
 
-### 2.1 Service Account Impersonation (Recommended)
+### Service Account Impersonation (Recommended)
 
 **What is Service Account Impersonation?**  
 Service Account Impersonation uses the [IAM Credentials API](https://cloud.google.com/iam/docs/impersonating-service-accounts) to grant **short-lived credentials** to Guardrails, allowing it to act as a specified service account **without** requiring a JSON key file. This reduces the security risk of storing or distributing long-lived credentials.
@@ -123,7 +123,7 @@ gcloud iam service-accounts add-iam-policy-binding SERVICE_ACCOUNT_NAME@PROJECT_
 
 </details>
 
-### 2.2 JSON File
+### JSON File
 
 **How to obtain the JSON file in the GCP Console**:
 
@@ -145,7 +145,7 @@ gcloud iam service-accounts keys create key.json --iam-account=guardrails-sa@my-
 
 </details>
 
-### 2.3 Private Key
+### Private Key
 
 The `private_key` in the `key.json` you generated is the **required secret** to import the GCP organization into a Guardrails workspace. Guardrails requires this key in **multi-line** format, **not** as a single, long string.
 
@@ -187,7 +187,7 @@ Pwd0PmmSB1U3h3+Ued/eDhw=
 > - Correct **JSON key** and **client_email** for **JSON File** / **Private Key**.
 > - Proper **organization-level** roles (e.g., `roles/resourcemanager.organizationAdmin`) on the service account for full remediation.
 
-## 3. What Permissions to Grant
+## What Permissions to Grant
 
 The permissions you grant to the service account depend on your organization’s security and compliance requirements. The **minimum** recommendation for organization-wide governance is:
 
@@ -202,9 +202,9 @@ The permissions you grant to the service account depend on your organization’s
 
 > **Tip**: If Guardrails is asked to do something (e.g., enable APIs, modify resources) and it lacks permissions, you will see `access denied` errors in Guardrails. Resolve these by granting the needed permissions or by adjusting Guardrails policies accordingly.
 
-## 4. Troubleshooting
+## Troubleshooting
 
-### 4.1 Access Denied
+### Access Denied
 
 Common causes of `access denied`:
 
@@ -219,13 +219,13 @@ Common causes of `access denied`:
   `access denied` errors will pop up for the GCP Discovery and CMDB controls in the Guardrails console. These should be
   resolved as quickly as possible.
 
-### 4.2 Lots of Controls in Error state
+### Lots of Controls in Error state
 
 If there were some initial problems with credentials after project import, there may be a large number of Discovery controls in `error`. These can be resolved in one of two ways. First, simply delete the project and reimport it with proper
 credentials. Second, keep the project imported but rerun each control in `error` using the run_controls scripts in the Guardrails Samples Repo available in [Python](https://github.com/turbot/guardrails-samples/tree/main/api_examples/python/run_controls), [Javascript](https://github.com/turbot/guardrails-samples/tree/main/api_examples/node/run-controls)
 or [shell](https://github.com/turbot/guardrails-samples/tree/main/api_examples/shell/run-controls). The filter of `state:error` to rerun all controls in `error`.
 
-### 4.3 GCP Service API Enabled policies aren't set
+### GCP Service API Enabled policies aren't set
 
 - If the `GCP > {Service} > API Enabled` policy has not been set to `Enforce: Enabled` then the Discovery and CMDB controls will go to `skipped` for that Service's resources. Enable the `API Enabled` policy to resolve.
 - If Guardrails does not have write permissions to enable APIs, then the applicable service API must be enabled manually.
