@@ -5,7 +5,7 @@ sidebar_label: Policy Packs
 
 # Policy Packs
 
-[Policy packs](concepts/resources/policy-packs) (previously named Smart Folders) enable administrators to apply one or more policies across multiple accounts and/or resources, thus automating what would otherwise be a time-consuming manual process. You create, delete, and rename a Policy Pack just like a regular Guardrails folder, then *attach* it to the Guardrails hierarchy. The policies it defines govern all resources below that point in the hierarchy.
+[Policy packs](concepts/policy-packs) (previously named **Smart Folders**) enable administrators to apply one or more policies across multiple accounts and/or resources, thus automating what would otherwise be a time-consuming manual process. You create, delete, and rename a Policy Pack just like a regular Guardrails folder, then *attach* it to the Guardrails hierarchy. The policies it defines govern all resources below that point in the hierarchy.
 
 ## Create a Policy Pack
 
