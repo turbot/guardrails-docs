@@ -1,17 +1,13 @@
 ---
-title: "Import a GCP Organization into Guardrails"
-template: Documentation
-nav:
-  title: "Import Organization"
-  order: 10
+title: Import GCP Organization
+sidebar_label: Import GCP Organization
 ---
 
-# Import a GCP Organization into Guardrails
+# Import GCP Organization
 
-<div class="alert alert-warning">
-  This guide details how to import an entire Google Cloud Platform (GCP) Organization into Guardrails. This process
-  allows Guardrails to discover and manage resources across all projects and folders under a single GCP Organization.
-</div>
+> [!IMPORTANT]
+> This guide details how to import an entire Google Cloud Platform (GCP) Organization into Guardrails. This process
+ allows Guardrails to discover and manage resources across all projects and folders under a single GCP Organization.
 
 ## Overview
 
@@ -25,8 +21,6 @@ Guardrails supports **three** credential methods for GCP Organization imports. *
 - **Service Account Impersonation** (recommended)
 - **JSON File**
 - **Private Key Text** (copy-paste of the JSON private key)
-
----
 
 ## In the GCP Console
 
@@ -103,7 +97,7 @@ Below, we detail each method. After choosing your method, follow the **Steps in 
 
 ### Service Account Impersonation (Recommended)
 
-**What is Service Account Impersonation?**  
+**What is Service Account Impersonation?**
 Service Account Impersonation uses the [IAM Credentials API](https://cloud.google.com/iam/docs/impersonating-service-accounts) to grant **short-lived credentials** to Guardrails, allowing it to act as a specified service account **without** requiring a JSON key file. This reduces the security risk of storing or distributing long-lived credentials.
 
 **Prerequisites**:
