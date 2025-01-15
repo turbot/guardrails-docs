@@ -15,7 +15,10 @@ In this guide, you will:
 ## Prerequisites
 
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
-- Familiarity with AWS RDS, EC2, Service Catalog and Cloudformation services.
+- Familiarity with AWS RDS, EC2, Service Catalog and CloudFormation services.
+- The entire process require minor downtime of two category,
+    - First, when DB instance is rebooted i.e. [Step 4](/guides/hosting-guardrails/disaster-recovery/database-migration-storage-optimization#step-4-reboot-db-instance) where the Guardrails console is still available to access in readonly mode i.e. you can browse all pages but prevented to process any events or running any controls for very short span of time.
+    - Second, when the DB endpoint change using TED stack update as specified in [Step 17](/guides/hosting-guardrails/disaster-recovery/database-migration-storage-optimization#step-17-pause-events) till [Step 21](/guides/hosting-guardrails/disaster-recovery/database-migration-storage-optimization#step-21-rename-db-instances)
 
 > [!WARNING]
 > After creating replication slots in [Step 12](#step-12-create-publisher-and-replication-slot-in-original-instance), upgrading existing workspaces or creating new ones will not be possible until the process is complete. Additionally, no DDL changes can be performed during this time.
@@ -30,7 +33,7 @@ Use the same name as the original, appending -blue or -green at the end, and set
 
 ![Append Name and Version](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-migration-storage-optimization/service-catalog-naming-version.png)
 
->[NOTE!]
+> [!NOTE]
 > If performing a database version upgrade, use the `DB Engine Version` and `Read Replica DB Engine Version` parameters under the `Database - Advanced - Engine` section. Set the appropriate `DB Engine Parameter Group Family` and the `Hive RDS Parameter Group` under the `Database - Advanced - Parameters` section.
 
 Set the allocated storage to match the current disk usage using the `Allocated Storage in GB` parameter (e.g., if 210 GB out of 500 GB is used, set it to 210 GB) and define the `Maximum Allocated Storage limit in GB` to a suitable value, both located under the `"Database - Advanced - Storage"` section; use the `FreeStorageSpace` metric to determine the size.
