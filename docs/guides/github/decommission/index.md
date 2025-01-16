@@ -3,6 +3,8 @@ title: Decommission GitHub Organization
 sidebar_label: Decommission GitHub Organization
 ---
 
+CHANGES TODO
+
 # Decommission GitHub Organization
 
 In this guide, you will:
@@ -12,9 +14,7 @@ Guardrails allows administrators to remove a GitHub organization from a workspac
 
 Before starting the process, administrators should determine whether Guardrails-managed resources (e.g., webhooks, event subscriptions) should remain in the organization. The following policies can be configured in Guardrails to facilitate cleanup. Ensure that these changes are applied **only to the target GitHub organization**.
 
-1. `GitHub > Turbot > Permissions` set to `Enforce: None`. This removes Guardrails-managed roles and permissions in the organization.
-2. `GitHub > Turbot > Event Handlers > Webhooks` set to `Enforce: Not Configured`. This removes Guardrails-configured webhooks.
-3. `GitHub > Turbot > Event Poller` set to `Disabled`. This disables the polling of events into Guardrails.
+1. `GitHub > Turbot > Event Handlers > Webhooks` set to `Enforce: Not Configured`. This removes Guardrails-configured webhooks.
 
 Once these policies have been applied and the associated controls have completed their cleanup, the GitHub organization can be safely removed from the Guardrails workspace. You can customize these policies to target specific resources while retaining essential audit data.
 
