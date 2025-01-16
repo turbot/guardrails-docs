@@ -5,7 +5,7 @@ sidebar_label: Real-Time Events
 
 # Configuring Real-Time Event Handlers
 
-CHANGE AS PER GITHUB
+CHANGES TODO
 
 Turbot Guardrails Event Handlers for GCP are responsible for conveying events from GCP
 Logging back to Guardrails for processing. Event Handlers are required for Guardrails to
