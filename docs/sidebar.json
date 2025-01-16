@@ -283,8 +283,8 @@
         "items": [
           "guides/github/import-github-organization",
           "guides/github/permissions",
-          "guides/gcp/decommission",
-          "guides/gcp/real-time-events"
+          "guides/github/decommission",
+          "guides/github/real-time-events"
         ]
       },
       {
