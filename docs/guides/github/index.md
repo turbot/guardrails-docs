@@ -24,7 +24,3 @@ Guardrails ensures effective management and real-time visibility into your GitHu
 | [Explore GitHub Mods](https://hub.guardrails.turbot.com/mods/github/mods) | A detailed list of available GitHub mods in Turbot Guardrails. |
 | [Set Up GitHub Policies](https://hub.guardrails.turbot.com/policy-packs?providers=github) | Learn how to configure Guardrails policies for GitHub. |
 | [Learn About Permissions](concepts/iam/permissions) | Information on managing permissions in Guardrails. |
-
----
-
-This structure aligns closely with the style and format of the **Hosting Guardrails** content, providing a professional and concise layout for easy navigation.

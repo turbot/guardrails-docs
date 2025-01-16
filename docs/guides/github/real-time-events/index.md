@@ -1,16 +1,11 @@
 ---
-title: "Real-Time Events"
-template: Documentation
-nav:
-  title: "Real-Time Events"
-  order: 130
+title: Real-Time Events
+sidebar_label: Real-Time Events
 ---
 
 # Configuring Real-Time Event Handlers
 
-<div className="alert alert-warning">
-This section details the steps required to set up GCP Event Handlers. Alternatively, you can use the <a href="https://github.com/turbot/guardrails-samples/tree/main/baselines/gcp/gcp_service_enabled">gcp_setup baseline</a> which automates this process.
-</div>
+CHANGE AS PER GITHUB
 
 Turbot Guardrails Event Handlers for GCP are responsible for conveying events from GCP
 Logging back to Guardrails for processing. Event Handlers are required for Guardrails to

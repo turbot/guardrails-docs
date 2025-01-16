@@ -11,28 +11,20 @@ In this guide, you will:
 
 Managing access to your GitHub organization is critical to ensure secure and compliant operations. Turbot Guardrails integrates seamlessly with GitHub to provide centralized control over permissions, roles, and access policies.
 
+## Enabling GCP permissions
 
-## Prerequisites
+### Permissions Modes
 
-Before you begin, ensure you have:
-- **Turbot/Operator** permissions in Guardrails.
-- Admin access to the GitHub organization you wish to manage.
+### Standard Levels
 
-## Step 1:
+## Modifiers (If any)
 
-## Step 2:
+## Capability Modifier Policies
 
-## Step 3:
-
-## Verify (If applicable)
+## Custom Levels
 
 ## Next Steps
 
 - Learn more about [GitHub Policies](guides/github/policies).
 - Explore [Audit Logs](guides/github/audit-logs) for detailed activity tracking.
 
-## Troubleshooting
-
-| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
-|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
