@@ -1,0 +1,90 @@
+{
+  "type": "category",
+  "id": "getting-started",
+  "link": "getting-started",
+  "items": [
+    {
+      "type": "placeholder",
+      "file": "getting-started/7-minute-labs/7mins-sidebar.json"
+    },
+    {
+      "type": "category",
+      "id": "getting-started-aws",
+      "link": "getting-started/getting-started-aws",
+      "items": [
+        "getting-started/getting-started-aws/prepare-account",
+        "getting-started/getting-started-aws/connect-an-account",
+        "getting-started/getting-started-aws/observe-aws-activity",
+        "getting-started/getting-started-aws/enable-policy-pack",
+        "getting-started/getting-started-aws/review-account-wide",
+        "getting-started/getting-started-aws/create-static-exception",
+        "getting-started/getting-started-aws/create-calculated-exception",
+        "getting-started/getting-started-aws/send-alert-to-email",
+        "getting-started/getting-started-aws/apply-quick-action",
+        "getting-started/getting-started-aws/enable-enforcement"
+      ]
+    },
+    {
+      "type": "category",
+      "id": "getting-started-gcp",
+      "link": "getting-started/getting-started-azure",
+      "items": [
+        "getting-started/getting-started-azure/prepare-subscription",
+        "getting-started/getting-started-azure/connect-subscription",
+        "getting-started/getting-started-azure/observe-azure-activity",
+        "getting-started/getting-started-azure/enable-policy-pack",
+        "getting-started/getting-started-azure/review-subscription-wide",
+        "getting-started/getting-started-azure/create-static-exception",
+        "getting-started/getting-started-azure/create-calculated-exception",
+        "getting-started/getting-started-azure/send-alert-to-email",
+        "getting-started/getting-started-azure/apply-quick-action",
+        "getting-started/getting-started-azure/enable-enforcement"
+      ]
+    },
+    {
+      "type": "category",
+      "id": "getting-started-gcp",
+      "link": "getting-started/getting-started-gcp",
+      "items": [
+        "getting-started/getting-started-gcp/prepare-project",
+        "getting-started/getting-started-gcp/connect-project",
+        "getting-started/getting-started-gcp/observe-gcp-activity",
+        "getting-started/getting-started-gcp/enable-policy-pack",
+        "getting-started/getting-started-gcp/review-project-wide",
+        "getting-started/getting-started-gcp/create-static-exception",
+        "getting-started/getting-started-gcp/create-calculated-exception",
+        "getting-started/getting-started-gcp/send-alert-to-email",
+        "getting-started/getting-started-gcp/apply-quick-action",
+        "getting-started/getting-started-gcp/enable-enforcement"
+      ]
+    },
+    {
+      "type": "category",
+      "id": "your-guardrails-org",
+      "link": "getting-started/your-guardrails-org",
+      "items": [
+        {
+          "type": "category",
+          "id": "user",
+          "link": "getting-started/your-guardrails-org/user",
+          "items": [
+            "getting-started/your-guardrails-org/user/sign-up",
+            "getting-started/your-guardrails-org/user/profile"
+          ]
+        },
+        {
+          "type": "category",
+          "id": "organizations",
+          "link": "getting-started/your-guardrails-org/organizations",
+          "items": [
+            "getting-started/your-guardrails-org/organizations/setup",
+            "getting-started/your-guardrails-org/organizations/team",
+            "getting-started/your-guardrails-org/organizations/profile"
+          ]
+        }
+      ]
+    },
+    "getting-started/terraform-for-everything",
+    "getting-started/faq"
+  ]
+}
