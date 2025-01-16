@@ -1,0 +1,11 @@
+{
+  "type": "category",
+  "id": "github",
+  "link": "guides/github",
+  "items": [
+    "guides/github/import-github-organization",
+    "guides/github/permissions",
+    "guides/github/decommission",
+    "guides/github/real-time-events"
+  ]
+}
