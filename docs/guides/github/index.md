@@ -11,7 +11,6 @@ Turbot Guardrails provides comprehensive governance for [GitHub](https://github.
 
 Guardrails ensures effective management and real-time visibility into your GitHub organizations with the following capabilities:
 - **Policy Management**: Offers a variety of GitHub mods with policies and controls to manage repositories, teams, and organizations.
-- **Permission Management**: Extensive IAM integration to manage GitHub permissions, ensuring appropriate user access to repositories and teams.
 - **Real-Time Event Handling**: Updates the Guardrails CMDB as repositories, teams, and permissions are created, modified, or deleted, enabling immediate policy enforcement.
 - **Activity Visibility**: Provides insights into all activity within GitHub organizations, including who made changes, what was changed, and when it occurred.
 
