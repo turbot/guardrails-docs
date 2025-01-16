@@ -1,0 +1,76 @@
+{
+  "type": "category",
+  "id": "concepts",
+  "link": "concepts",
+  "items": [
+    "concepts/activities",
+    "concepts/controls",
+    {
+      "type": "category",
+      "id": "guardrails",
+      "link": "concepts/guardrails",
+      "items": [
+        "concepts/guardrails/access-logging",
+        "concepts/guardrails/active",
+        "concepts/guardrails/approved",
+        "concepts/guardrails/audit-logging",
+        "concepts/guardrails/budget",
+        "concepts/guardrails/cmdb",
+        "concepts/guardrails/discovery",
+        "concepts/guardrails/encryption-at-rest",
+        "concepts/guardrails/encryption-in-transit",
+        "concepts/guardrails/public-access",
+        "concepts/guardrails/scheduling",
+        "concepts/guardrails/stacks",
+        "concepts/guardrails/configured",
+        {
+          "type": "category",
+          "id": "guardrails/tagging",
+          "link": "concepts/guardrails/tagging",
+          "items": [
+            "concepts/guardrails/tagging/dynamic-tags",
+            "concepts/guardrails/tagging/require-keys",
+            "concepts/guardrails/tagging/tag-casing",
+            "concepts/guardrails/tagging/tagging-helpers"
+          ]
+        },
+        "concepts/guardrails/trusted-access",
+        "concepts/guardrails/usage"
+      ]
+    },
+    {
+      "type": "category",
+      "id": "iam",
+      "link": "concepts/iam",
+      "items": [
+        "concepts/iam/authentication",
+        "concepts/iam/identity",
+        "concepts/iam/permissions"
+      ]
+    },
+    {
+      "type": "category",
+      "id": "policies",
+      "link": "concepts/policies",
+      "items": [
+        "concepts/policies/hierarchy",
+        "concepts/policies/types-categories",
+        "concepts/policies/values-settings",
+        "concepts/policies/taxonomy",
+        "concepts/policies/calculated-faq"
+      ]
+    },
+    "concepts/policy-packs",
+    "concepts/processes",
+    {
+      "type": "category",
+      "id": "resources",
+      "link": "concepts/resources",
+      "items": [
+        "concepts/resources/hierarchy",
+        "concepts/resources/types-categories",
+        "concepts/resources/discovery"
+      ]
+    }
+  ]
+}

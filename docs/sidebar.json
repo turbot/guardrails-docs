@@ -6,178 +6,12 @@
     "items": []
   },
   {
-    "type": "category",
-    "id": "getting-started",
-    "link": "getting-started",
-    "items": [
-      {
-        "type": "category",
-        "id": "7-minute-labs",
-        "link": "getting-started/7-minute-labs",
-        "items": [
-          "getting-started/7-minute-labs/set-policy",
-          "getting-started/7-minute-labs/calc-policy",
-          "getting-started/7-minute-labs/cli",
-          "getting-started/7-minute-labs/graphql",
-          "getting-started/7-minute-labs/terraform"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "getting-started-aws",
-        "link": "getting-started/getting-started-aws",
-        "items": [
-          "getting-started/getting-started-aws/prepare-account",
-          "getting-started/getting-started-aws/connect-an-account",
-          "getting-started/getting-started-aws/observe-aws-activity",
-          "getting-started/getting-started-aws/enable-policy-pack",
-          "getting-started/getting-started-aws/review-account-wide",
-          "getting-started/getting-started-aws/create-static-exception",
-          "getting-started/getting-started-aws/create-calculated-exception",
-          "getting-started/getting-started-aws/send-alert-to-email",
-          "getting-started/getting-started-aws/apply-quick-action",
-          "getting-started/getting-started-aws/enable-enforcement"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "getting-started-gcp",
-        "link": "getting-started/getting-started-azure",
-        "items": [
-          "getting-started/getting-started-azure/prepare-subscription",
-          "getting-started/getting-started-azure/connect-subscription",
-          "getting-started/getting-started-azure/observe-azure-activity",
-          "getting-started/getting-started-azure/enable-policy-pack",
-          "getting-started/getting-started-azure/review-subscription-wide",
-          "getting-started/getting-started-azure/create-static-exception",
-          "getting-started/getting-started-azure/create-calculated-exception",
-          "getting-started/getting-started-azure/send-alert-to-email",
-          "getting-started/getting-started-azure/apply-quick-action",
-          "getting-started/getting-started-azure/enable-enforcement"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "getting-started-gcp",
-        "link": "getting-started/getting-started-gcp",
-        "items": [
-          "getting-started/getting-started-gcp/prepare-project",
-          "getting-started/getting-started-gcp/connect-project",
-          "getting-started/getting-started-gcp/observe-gcp-activity",
-          "getting-started/getting-started-gcp/enable-policy-pack",
-          "getting-started/getting-started-gcp/review-project-wide",
-          "getting-started/getting-started-gcp/create-static-exception",
-          "getting-started/getting-started-gcp/create-calculated-exception",
-          "getting-started/getting-started-gcp/send-alert-to-email",
-          "getting-started/getting-started-gcp/apply-quick-action",
-          "getting-started/getting-started-gcp/enable-enforcement"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "your-guardrails-org",
-        "link": "getting-started/your-guardrails-org",
-        "items": [
-          {
-            "type": "category",
-            "id": "user",
-            "link": "getting-started/your-guardrails-org/user",
-            "items": [
-              "getting-started/your-guardrails-org/user/sign-up",
-              "getting-started/your-guardrails-org/user/profile"
-            ]
-          },
-          {
-            "type": "category",
-            "id": "organizations",
-            "link": "getting-started/your-guardrails-org/organizations",
-            "items": [
-              "getting-started/your-guardrails-org/organizations/setup",
-              "getting-started/your-guardrails-org/organizations/team",
-              "getting-started/your-guardrails-org/organizations/profile"
-            ]
-          }
-        ]
-      },
-      "getting-started/terraform-for-everything",
-      "getting-started/faq"
-    ]
+    "type": "placeholder",
+    "file": "getting-started/getting-started-sidebar.json"
   },
   {
-    "type": "category",
-    "id": "concepts",
-    "link": "concepts",
-    "items": [
-      "concepts/activities",
-      "concepts/controls",
-      {
-        "type": "category",
-        "id": "guardrails",
-        "link": "concepts/guardrails",
-        "items": [
-          "concepts/guardrails/access-logging",
-          "concepts/guardrails/active",
-          "concepts/guardrails/approved",
-          "concepts/guardrails/audit-logging",
-          "concepts/guardrails/budget",
-          "concepts/guardrails/cmdb",
-          "concepts/guardrails/discovery",
-          "concepts/guardrails/encryption-at-rest",
-          "concepts/guardrails/encryption-in-transit",
-          "concepts/guardrails/public-access",
-          "concepts/guardrails/scheduling",
-          "concepts/guardrails/stacks",
-          "concepts/guardrails/configured",
-          {
-            "type": "category",
-            "id": "guardrails/tagging",
-            "link": "concepts/guardrails/tagging",
-            "items": [
-              "concepts/guardrails/tagging/dynamic-tags",
-              "concepts/guardrails/tagging/require-keys",
-              "concepts/guardrails/tagging/tag-casing",
-              "concepts/guardrails/tagging/tagging-helpers"
-            ]
-          },
-          "concepts/guardrails/trusted-access",
-          "concepts/guardrails/usage"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "iam",
-        "link": "concepts/iam",
-        "items": [
-          "concepts/iam/authentication",
-          "concepts/iam/identity",
-          "concepts/iam/permissions"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "policies",
-        "link": "concepts/policies",
-        "items": [
-          "concepts/policies/hierarchy",
-          "concepts/policies/types-categories",
-          "concepts/policies/values-settings",
-          "concepts/policies/taxonomy",
-          "concepts/policies/calculated-faq"
-        ]
-      },
-      "concepts/policy-packs",
-      "concepts/processes",
-      {
-        "type": "category",
-        "id": "resources",
-        "link": "concepts/resources",
-        "items": [
-          "concepts/resources/hierarchy",
-          "concepts/resources/types-categories",
-          "concepts/resources/discovery"
-        ]
-      }
-    ]
+    "type": "placeholder",
+    "file": "concepts/concepts-sidebar.json"
   },
   {
     "type": "category",
@@ -193,13 +27,17 @@
             "type": "category",
             "id": "import-aws-account",
             "link": "guides/aws/import-aws-account",
-            "items": ["guides/aws/import-aws-account/gov-cloud"]
+            "items": [
+              "guides/aws/import-aws-account/gov-cloud"
+            ]
           },
           {
             "type": "category",
             "id": "event-handlers",
             "link": "guides/aws/event-handlers",
-            "items": ["guides/aws/event-handlers/poller"]
+            "items": [
+              "guides/aws/event-handlers/poller"
+            ]
           },
           {
             "type": "category",
@@ -216,7 +54,9 @@
             "type": "category",
             "id": "permissions",
             "link": "guides/aws/permissions",
-            "items": ["guides/aws/permissions/user-mode"]
+            "items": [
+              "guides/aws/permissions/user-mode"
+            ]
           },
           "guides/aws/security-hub",
           "guides/aws/decommission"
@@ -263,7 +103,9 @@
             "type": "category",
             "id": "import",
             "link": "guides/gcp/import-gcp-project",
-            "items": ["guides/gcp/import-gcp-project/service-accounts"]
+            "items": [
+              "guides/gcp/import-gcp-project/service-accounts"
+            ]
           },
           "guides/gcp/services",
           "guides/gcp/permissions",
@@ -272,7 +114,9 @@
             "type": "category",
             "id": "real-time-events",
             "link": "guides/gcp/real-time-events",
-            "items": ["guides/gcp/real-time-events/event-pollers"]
+            "items": [
+              "guides/gcp/real-time-events/event-pollers"
+            ]
           }
         ]
       },
@@ -328,7 +172,9 @@
             "type": "category",
             "id": "firehose",
             "link": "guides/configuring-guardrails/firehose",
-            "items": ["guides/configuring-guardrails/firehose/pipelines"]
+            "items": [
+              "guides/configuring-guardrails/firehose/pipelines"
+            ]
           },
           {
             "type": "category",
@@ -349,7 +195,6 @@
               "guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource"
             ]
           },
-
           "guides/configuring-guardrails/regions",
           {
             "type": "category",
@@ -408,7 +253,6 @@
               "guides/using-guardrails/troubleshooting/access-control-logs"
             ]
           },
-
           {
             "type": "category",
             "id": "notifications",
@@ -540,7 +384,9 @@
         "type": "category",
         "id": "faq/workspace-faq",
         "link": "faq/workspace-faq",
-        "items": ["faq/workspace-faq/key_rotation"]
+        "items": [
+          "faq/workspace-faq/key_rotation"
+        ]
       },
       "faq/guardrails-and-aws-scps"
     ]
@@ -589,7 +435,9 @@
         "type": "category",
         "id": "reference/terraform",
         "link": "reference/terraform",
-        "items": ["reference/terraform/setup"]
+        "items": [
+          "reference/terraform/setup"
+        ]
       },
       {
         "type": "category",
