@@ -44,13 +44,12 @@ Expand the **Parent Resource** dropdown and choose the **Sandbox** folder as the
 > Turbot Guardrails now supports three ways to enable access mode:
 > 1. Using a cross-account role
 > 2. Credential file with key type as JSON
-> 3. Private key using P12 format
 
 > This guide demonstrates the process using the key type as JSON format.
 
 In the previous guide you created and downloaded a JSON-format key file. Locate that file and drag it to the drop target.
 
-![Choose Upload Credential File](/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/choose-upload-credential-file.png)
+![Choose Upload Credential File](/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/choose-upload-crdential-file.png)
 
 
 ## Step 5: Connect
