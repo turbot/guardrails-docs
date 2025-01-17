@@ -41,9 +41,9 @@ Expand the **Parent Resource** dropdown and choose the **Sandbox** folder as the
 ## Step 4: Upload Key file
 
 > [!NOTE]
-> Turbot Guardrails now supports three ways to enable access mode:
-> 1. Using a cross-account role
-> 2. Credential file with key type as JSON
+> Turbot Guardrails now supports two ways to enable access authentication:
+> 1. Using Service Account Impersonation
+> 2. Credential file with key type as JSON or Private Key Text (copy-paste of the JSON private key)
 
 > This guide demonstrates the process using the key type as JSON format.
 
