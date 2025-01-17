@@ -10,9 +10,9 @@ In this guide, you will:
 - Learn how to import an entire Google Cloud Platform (GCP) Organization into Turbot Guardrails. This process allows Guardrails to discover and manage resources across all projects and folders under a single GCP Organization.
 - Monitor and troubleshoot the process.
 
-Importing a GCP Organization into Guardrails involves these key steps:
+Importing a [GCP Organization](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) into Guardrails involves these key steps:
 
-- Configuring a GCP service account with appropriate permissions at the Organization level.
+- Configuring a [GCP service account](https://cloud.google.com/iam/docs/service-account-overview) with appropriate permissions at the Organization level.
 - Importing the Organization via the Guardrails Console.
 
 ## Prerequisites
