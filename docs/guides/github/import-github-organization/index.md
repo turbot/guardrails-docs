@@ -27,6 +27,14 @@ Turbot Guardrails enables seamless integration with GitHub, allowing you to mana
 
 ## Permissions required
 
+To make sure all functionality of GitHub integration work, we suggest you to provide all the following permissions.
+
+- Organization Administration - Read and write
+- Organization Blocking users - Read and write
+- Organization Webhooks - Read and write
+- Repository Administration - Read and write
+- Repository Metadata - Read-only
+
 ## Step 1: Get GitHub Organization ID
 
 Run the following command to get the id of the organization you want to import
