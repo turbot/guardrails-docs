@@ -204,7 +204,7 @@ Setup impersonation. Select the [**Copy gcloud command**](#prerequisites-for-con
 > [!IMPORTANT]
 > This step is only applicable when you choose *Service Account impersonation*
 
-> `External ID label`created for this organization import must be retained in the respective GCP project.
+> The `External ID` label created for this organization import must be retained within the respective GCP project.
 
 ## Ensure Billing is Enabled
 
