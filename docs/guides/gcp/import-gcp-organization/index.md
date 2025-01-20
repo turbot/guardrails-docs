@@ -177,64 +177,56 @@ Pwd0PmmSB1U3h3+Ued/eDhw=
 > [!NOTE]
 > You may use one of the option either [Using Using JSON Credential File](#using-json-credential-file) or [Using Private Key](#using-private-key) or [Using Service Account Impersonation](#using-service-account-impersonation)
 
-## Import Organization in Guardrails Console
-(BELOW SECTION PENDING)
-- **Log in** to your Guardrails workspace console with **Turbot/Owner** or **Turbot/Admin** permissions.
-- Select the **Import** card, then select **GCP Organization**.
-- On the import screen, **choose one of the three methods**:
-  - **Service Account Impersonation**
-    - Provide the **Service Account** email in the form `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`.
-  - **JSON File**
-    - Click **Upload JSON** and select your JSON file.
-  - **Private Key**
-    - Paste the entire contents of your JSON key (multi-line, including the `BEGIN` and `END` lines).
-- Provide the **Organization ID** for your GCP Organization.
-- Choose the **Parent Resource** in Guardrails (e.g., a folder or workspace) under which this GCP Organization should be placed.
-- Click **Import** to begin the discovery and management process. Guardrails will create and run discovery controls for your GCP Organization, scanning each project and resource based on your configured policies.
+## Import Organization into Guardrails
 
-> **Note**: If you see `access denied` or other errors, verify that you have assigned the appropriate roles:
->
-> - `roles/iam.serviceAccountTokenCreator` for **Service Account Impersonation**.
-> - Correct **JSON key** and **client_email** for **JSON File** / **Private Key**.
-> - Proper **organization-level** roles (e.g., `roles/resourcemanager.organizationAdmin`) on the service account for full remediation.
+Login to your Guardrails workspace console and select the **CONNECT** card.
+
+![Select Connect](/images/docs/guardrails/guides/gcp/import-gcp-organization/select-connect.png)
+
+Select **GCP** then choose **GCP Organization** option.
+
+![Select GCP](/images/docs/guardrails/guides/gcp/import-gcp-organization/select-gcp.png)
+
+Select the `Import location` where to import your organization.
+
+![Choose Import Location](/images/docs/guardrails/guides/gcp/import-gcp-organization/choose-import-location.png)
+
+Choose one of the `Access mode` from the provided list. Here, `Service Account impersonation` is shown as example. Provide the `Organization ID` for your GCP organization and the `Client email`. This email ID will be used by Guardrails to impersonate.
+
+![Provide GCP Org Details](/images/docs/guardrails/guides/gcp/import-gcp-organization/gcp-org-details.png)
+
+Setup impersonation. Select the [**Copy gcloud command**](#prerequisites-for-configuration), provide `External ID label` and select **Connect** to begin the discovery and management process.
+
+![Setup Impersonate](/images/docs/guardrails/guides/gcp/import-gcp-organization/setup-impersonate.png)
+
+ Guardrails will create and run discovery controls for your GCP Organization, scanning each project and resource based on your configured policies.
+
+> [!IMPORTANT]
+> This step is only applicable when you choose *Service Account impersonation*
+
+> `External ID label`created for this organization import must be retained in the respective GCP project.
 
 ## Ensure Billing is Enabled
 
-If you plan to allow Guardrails to enable new APIs or create resources that may incur charges, ensure that billing is enabled at the **organization** level or for specific projects as required.
+If you plan to allow Guardrails to enable new APIs or create resources that may incur charges, ensure that billing is enabled at the **organization** level or for specific projects as required. Refer GCP guide [Manage your Cloud Billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account).
 
-1. Navigate to the **API Console** in the [Google Cloud console](https://console.cloud.google.com).
+<!-- 1. Navigate to the **API Console** in the [Google Cloud console](https://console.cloud.google.com).
 2. From the project list, select the desired project.
 3. Open the left-side menu and select **Billing**.
 4. If billing is not enabled, click **Enable Billing**. *(Note: If billing is already enabled, this option will not appear.)*
 5. If you don’t have a billing account, create one:
    - Select your location.
    - Complete the billing account setup form.
-   - Click **Submit** and **Enable Billing**.
+   - Click **Submit** and **Enable Billing**. -->
 
 ## Troubleshooting
 
-### Access Denied
-
-Common causes of `access denied`:
-
-- **Missing Token Creator Role** (for Impersonation): If using Service Account Impersonation, the impersonating user or workload must have `roles/iam.serviceAccountTokenCreator` on the service account.
-
-- **Malformed Secret Key**: Guardrails requires the multi-line format of the Secret Key. The beginning `-----BEGIN PRIVATE KEY-----` and ending `-----END PRIVATE KEY-----` are necessary.
-
-- **Improper Client Email**: Guardrails cannot use a non-service account email to get access to the project. The Client Email must be in the form of `{identifier}@{your-project-id}.iam.gserviceaccount.com`.
-
-- **Missing or Insufficient Permissions**: If Guardrails has been asked to discover,
-  track or remediate resources that it does not have permissions for, then
-  `access denied` errors will pop up for the GCP Discovery and CMDB controls in the Guardrails console. These should be
-  resolved as quickly as possible.
-
-### Lots of Controls in Error state
-
-If there were some initial problems with credentials after project import, there may be a large number of Discovery controls in `error`. These can be resolved in one of two ways. First, simply delete the project and reimport it with proper
-credentials. Second, keep the project imported but rerun each control in `error` using the run_controls scripts in the Guardrails Samples Repo available in [Python](https://github.com/turbot/guardrails-samples/tree/main/api_examples/python/run_controls), [Javascript](https://github.com/turbot/guardrails-samples/tree/main/api_examples/node/run-controls)
-or [shell](https://github.com/turbot/guardrails-samples/tree/main/api_examples/shell/run-controls). The filter of `state:error` to rerun all controls in `error`.
-
-### GCP Service API Enabled policies aren't set
-
-- If the `GCP > {Service} > API Enabled` policy has not been set to `Enforce: Enabled` then the Discovery and CMDB controls will go to `skipped` for that Service's resources. Enable the `API Enabled` policy to resolve.
-- If Guardrails does not have write permissions to enable APIs, then the applicable service API must be enabled manually.
+| **Issue**                                | **Description**                                                                                                                                                                                                                                      | **Guide**                                                                                                                                                          |
+|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Access Denied: Missing Token Creator Role | If using Service Account Impersonation, the impersonating user or workload must have `roles/iam.serviceAccountTokenCreator` on the service account.                                                                                                 | Refer to the [Service Account Token Creator Role Documentation](https://cloud.google.com/iam/docs/impersonating-service-accounts).                                 |
+| Access Denied: Malformed Secret Key  | Guardrails requires the multi-line format of the Secret Key. Ensure it includes the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` headers.                                                                                          |                                                                                                     |
+| Access Denied: Improper Client Email | Guardrails cannot use a non-service account email to access the project. Ensure the Client Email is in the form of `{identifier}@{your-project-id}.iam.gserviceaccount.com`.                                                                         | [Check GCP Service Account Documentation](https://cloud.google.com/iam/docs/service-accounts).                                                                                                         |
+| Access Denied: Missing or Insufficient Permissions | If Guardrails is asked to discover, track, or remediate resources without the necessary permissions, `access denied` errors will appear in the Discovery and CMDB controls in the Guardrails console. Resolve by granting the required permissions. |                                                                                   |
+| Lots of Controls in Error State      | If there were issues with credentials during project import, many Discovery controls may show an `error` state. You can either delete and reimport the project or rerun the controls in `error` using scripts provided in the Guardrails Samples Repo. | Use the [Python](https://github.com/turbot/guardrails-samples/tree/main/api_examples/python/run_controls), [Node](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches), or [Shell](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/shell_utils/run-controls) scripts. |
+| GCP Service API Enabled Policies Aren't Set | If the `GCP > {Service} > API Enabled` policy is not set to `Enforce: Enabled`, Discovery and CMDB controls will be `skipped`. Enable the applicable service APIs manually if Guardrails lacks permissions to do so.                                  | [Enable GCP APIs Documentation](https://cloud.google.com/apis).                                                                                                 |
+| Further Assistance                  | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                                                                               | [Open Support Ticket](https://support.turbot.com).                                                                                                               |
