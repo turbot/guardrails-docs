@@ -23,9 +23,10 @@ Importing a [GitHub Organization](https://docs.github.com/en/organizations/colla
 ## Prerequisites
 
 - Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
+- Familiarity with the GitHub.
 - GitHub mod should be installed in your Guardrails workspace.
-- Ensure access to [GitHub CLI](https://cli.github.com/) to fetch organization id.
-- Ensure GitHub organization has allowed access via personal access tokens. See [Setting a personal access token policy for your organization](https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization) for more information.
+- Ensure access to [GitHub CLI](https://cli.github.com/) to fetch organization ID.
+- Ensure GitHub organization has allowed access via personal access tokens. Refer [Setting a personal access token policy for your organization](https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization) for more information.
 
 <!-- ## Supported Authentication -->
 
@@ -51,20 +52,20 @@ To ensure full functionality of the GitHub integration, we recommend granting th
 
 ## Get GitHub Organization ID
 
-There are various ways to get the GitHub organization ID
+There are various ways to get the GitHub organization ID.
 
-Use [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/quickstart) and run the following command to get the id of the organization you want to import.
+Use [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/quickstart) and run the following command to get the ID of the organization you want to import.
 
 ```
 gh api orgs/<organization name> --jq '.id'
 ```
 
-Alternatively, you can use `curl` command to render the ID
+Alternatively, you can use `curl` command to get the organization ID.
 
 ```
 curl -H "Authorization: Bearer ghp_iio5FzBF4OLbbes3AKasdre5f4mps50s7YXE" https://api.github.com/orgs/<your-org-name>
 ```
-The result will be shown as below
+The result will be shown as below:
 
 ```json
 {
@@ -89,11 +90,11 @@ Choose the location where you want to import the organization. Typically this wo
 
 ![Choose Location](/images/docs/guardrails/guides/github/import-github-organization/choose-location.png)
 
-Provide `Organization Name`, `Organization ID`, `Personal Access Token` and choose **Connect**
+Provide `Organization Name`, `Organization ID`, `Personal Access Token` and choose **Connect**.
 
 ![Connect](/images/docs/guardrails/guides/github/import-github-organization/connect.png)
 
-Verify that the controls are executed by navigating to **Controls** tab and select GitHub
+Verify that the controls are executed by navigating to **Controls** tab and select GitHub.
 
 ![Verify Controls](/images/docs/guardrails/guides/github/import-github-organization/verify-github-controls.png)
 

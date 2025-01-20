@@ -3,49 +3,62 @@ title: Decommission GitHub Organization
 sidebar_label: Decommission GitHub Organization
 ---
 
-CHANGES TODO
-
 # Decommission GitHub Organization
 
 In this guide, you will:
 
 - Learn how to decommission a GitHub organization from a Guardrails workspace while managing associated resources effectively.
 
-Guardrails allows administrators to remove a GitHub organization from a workspace. The delete action removes all associated policies and references from the Guardrails database, but **does not delete any resources** from the target GitHub organization. Careful consideration should be made when managing resources such as webhooks, as once removed, these changes cannot be undone.
+Guardrails allows administrators to remove a [GitHub Organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations) from a workspace. The delete action removes all associated policies and references from the Guardrails database, but `does not delete any resources` from the target GitHub organization.
 
-Before starting the process, administrators should determine whether Guardrails-managed resources (e.g., webhooks) should remain in the organization. The following policies can be configured in Guardrails to facilitate cleanup. Ensure that these changes are applied **only to the target GitHub organization**.
+<!-- Careful consideration should be made when managing resources such as webhooks, as once removed, these changes cannot be undone. -->
 
-1. `GitHub > Organization > Event Handlers` set to `Enforce: Disabled`. This removes Guardrails-configured webhooks.
-
-Once these policies have been applied and the associated controls have completed their cleanup, the GitHub organization can be safely removed from the Guardrails workspace.
+> [!IMPORTANT]
+> Before starting the process, administrators should determine whether Guardrails-managed resources (e.g., webhooks) should remain in the organization. The following policies can be configured in Guardrails to facilitate cleanup. Ensure that these changes are applied **only to the target GitHub organization**.
 
 ## Prerequisites
 
 - **Turbot/Operator** permissions at the Turbot resource level.
 - Familiarity with the Guardrails console.
+- Familiarity with the GitHub.
 
-## Step 1: Remove Credentials Policies
+DISCUSS THE SEQUENCE, WEBHOOKS SETUP WITH SD
+
+## Disable Event Handlers
+
+Disable Event Handlers associated with `GitHub > Organization > Event Handlers` with value set to `Enforce: Disabled`. This removes Guardrails-configured webhooks. Once these policies have been applied and the associated controls have completed their cleanup, the GitHub organization can be safely removed from the Guardrails workspace.
+
+## Remove Credentials Policies
 
 Delete the policy `GitHub > Config > Personal Access Token` configured for the target GitHub organization. This ensures that Guardrails no longer has access to the organization.
 
-## Step 2: Log in to the Guardrails Console
+## Delete the Organization
 
-Log in to the Guardrails console.
+Login to the Guardrails console.
 
 ![Guardrails Console Login](/images/docs/guardrails/guides/github/decommission-github-organization/guardrails-console-login.png)
 
-## Step 3: Navigate to the Organization
+Navigate to the `Organization` that needs to be removed.
 
-Using the Guardrails console, navigate to the GitHub organization that needs to be removed.
+Image
 
-## Step 4: Delete the Organization
+Select the **Actions** button in the top-right corner and choose **Actions** button in the top-right corner.
 
-1. Click the **Actions** button in the top-right corner.
-2. Click the **Remove from Turbot** button in the top-right corner. If you don’t see this button, contact your Guardrails administrator for the required permissions.
-3. In the popup window, copy the organization ID and paste it into the text box.
-4. Click **Delete**. While the deletion is reversible by re-importing the organization, it can be resource-intensive. Double-check all configurations before proceeding.
+Image
 
-## Step 5: Verify Deletion
+Select the **Remove from Turbot**.
+
+> [!NOTE]
+> If you don’t see this button, contact your Guardrails administrator for the required permissions.
+
+In the popup window, copy the `Organization ID` and paste it into the text box. Select **Delete**.
+
+Image
+
+> [!IMPORTANT]
+> While the deletion is reversible by re-importing the organization, it can be resource-intensive. Double-check all configurations before proceeding.
+
+## Verify
 
 Guardrails will begin the deletion process. The time to complete the process depends on the number of policies and resources associated with the organization. Larger organizations may take longer.
 
