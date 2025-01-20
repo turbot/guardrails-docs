@@ -30,13 +30,12 @@ Guardrails provides support for *two credential methods* to import a GCP Organiz
 > [!NOTE]
 > We recommend `Service Account Impersonation`, as it eliminates the need to download or manage a JSON key, reducing security risks.
 
-## Create Service Account
+## Service Account
 
 For an Organization import in Guardrails, you will:
-
 Create the service account in any single project under your organization. Refer [Prepare a GCP project for import to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/prepare-project)
 
-## Grant Role(s)
+## Granting Role(s)
 
 > [!NOTE]
 > In GCP, service accounts belong to a specific project, even if their permissions apply at the project, folder, or organization level.
@@ -175,6 +174,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 Pwd0PmmSB1U3h3+Ued/eDhw=
 -----END PRIVATE KEY-----
 ```
+> [!NOTE]
+> You may use one of the option either [Using Using JSON Credential File](#using-json-credential-file) or [Using Private Key](#using-private-key) or [Using Service Account Impersonation](#using-service-account-impersonation)
 
 ## Import Organization in Guardrails Console
 (BELOW SECTION PENDING)
