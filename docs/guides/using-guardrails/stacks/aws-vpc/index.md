@@ -16,11 +16,7 @@ There are 2 classes of network stacks:
 - The `AWS > VPC > VPC > Stack [Native]` and `Azure > Network > Virtual Network > Stack [Native]` controls target the *VPC*, and is meant for creating standard resources that belong in *every* VPC.
 -->
 
-In this guide, we will use the `Deploy Landing Zone VPCs` Policy Pack to deploy a landing zone VPC via the `AWS > VPC > Stack [Native]` control:
-- Download the **Deploy Landing Zone VPCs** policy pack
-- View the stack source code
-- Set variables to customize the policy pack with the IP ranges for your environment
-- Install and attach the policy pack to run the stack
+In this guide, we will use the `Deploy Landing Zone VPCs` Policy Pack to deploy a landing zone VPC via the `AWS > VPC > Stack [Native]` control.
 
 
 ## Prerequisites
@@ -53,7 +49,7 @@ We only use 2 regions:
   - `us-west-2`
 
 
-## Step 1: Get the policy pack
+## Step 1: Get the Policy Pack
 
 The  **Deploy Landing Zone VPCs** policy pack resides in the `guardrails-samples` repo. Let's clone the repo and change to the directory containing the policy pack code:
 ```sh
@@ -61,27 +57,22 @@ git clone https://github.com/turbot/guardrails-samples.git
 cd guardrails-samples/policy_packs/aws/stack/deploy_landing_zone_vpc
 ```
 
-## Step 2: Review the stack source
-<!--
-## Step 3: Review the AWS > VPC > Stack [Native] > Source Policy
--->
-The `policies.tf` contains the policy settings for this policy pack.  The `AWS > VPC > VPC > Stack [Native] > Source` policy contains the OpenTofu configuration code that should be applied in each region. 
+## Step 2: Review the Stack Source
+
+The `policies.tf` contains the policy settings for this policy pack.  The `AWS > VPC > Stack [Native] > Source` policy contains the OpenTofu configuration code that should be applied in each region.
 
 In this policy pack, the source is read from the `stack-source.hcl`.  This file contains the OpenTofu source that we will use in our example to create our landing zone VPC.  The `Source` policy is just standard OpenTofu code. It uses data providers to determine which account and region it is running in, and uses that information to look up IP address range specific to this account/region in variables defined at the top of the configuration. This configuration will create a VPC, an internet gateway, as well public subnets, private subnets, and NAT gateways across multiple availability zones.
 
 You can, of course, extend this configuration to meet your specific needs - set up VPN connectivity, create VPC endpoints, security groups, transit gateway attachments, etc, all using standard OpenTofu!  For the purpose of this guide, however, we will run it as-is.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Note that the stack expects to continue to manage any resources that are created by the stack - if you delete a resource from the OpenTofu configuration in the `Source` policy, the stack control will destroy the resource. If you modify a resource in the `Source`, the control will modify that AWS resource accordingly.
 
 
 
-## Step 3: Set the stack variables
-<!--
-## Step 3: Set the AWS > VPC > Stack [Native] > Variables Policy
--->
+## Step 3: Set the Stack Variables
 
-The `policies.tf` contains the policy settings for this policy pack, including the `AWS > VPC > VPC > Stack [Native] > Variables` policy.  The `Variables` policy allows you to pass variables values to the stack; it is essentially a [tfvars](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files) for the stack control.
+The `policies.tf` contains the policy settings for this policy pack, including the `AWS > VPC > Stack [Native] > Variables` policy.  The `Variables` policy allows you to pass variables values to the stack; it is essentially a [tfvars](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files) for the stack control.
 
 Separating the configuration (`Source`) from the data (`Variables`) is
 considered best practice when using stacks:
@@ -116,13 +107,9 @@ ip_assignments = {
 By default, the policy pack will create 2 public subnets and 2 private subnets across 2 availability zones, and will prefix all resource names with `guardails_`, buy you can change these options by editing the variables.
 
 
-## Step 4: Enforce the stack
+## Step 4: Enforce the Stack
 
-<!--
-## Step 4: Review the `AWS > VPC > VPC > Stack [Native]` primary policy
--->
-
-The `AWS > VPC > VPC > Stack [Native]` policy is the primary policy for the control.  This policy determines the enforcement behavior:
+The `AWS > VPC > Stack [Native]` policy is the primary policy for the control.  This policy determines the enforcement behavior:
   - `Skip`:  Do not run this control
   - `Check: Configured`: Run the OpenTofu plan and compare the resources against the plan, but *do not modify them*.  If the cloud resources match the plan, the control will be in `OK` state.  If the resources do not match the plan, the control will go to `Alarm`.
   - `Enforce: Configured`: Run the OpenTofu plan and compare the resources against the plan, and if the cloud resources do not match the plan, then apply it.
@@ -142,7 +129,7 @@ resource "turbot_policy_setting" "aws_vpc_stack" {
 > If you prefer to preview the changes first, you can leave the setting in `Check: Configured` when you install the policy pack, then edit and re-apply later when you are ready to enforce
 
 
-## Step 5: Install the policy pack
+## Step 5: Install the Policy Pack
 <!--
 ***should these be opentofu commands instead of terraform??***
 -->
@@ -163,12 +150,12 @@ Then apply the changes:
 terraform apply
 ```
 
-## Step 6: Attach the policy pack
+## Step 6: Attach the Policy Pack
 
 > [!IMPORTANT]
 > Attaching this policy pack in Guardrails will result in creation of resources in the target account. However, it is easy to remove those resources later, by setting the contents of the Stack's `Source` policy to `{}`.
 
-Log into your Guardrails workspace and [attach the policy pack to a resource](https://turbot.com/guardrails/docs/guides/policy-packs#attach-a-policy-pack-to-a-resource).
+Log into your Guardrails workspace and [attach the policy pack to a resource](/guardrails/docs/guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource).
 
 If this policy pack is attached to a Guardrails folder, its policies will be applied to all accounts and resources in that folder. The policy pack can also be attached to multiple resources.
 
@@ -176,39 +163,25 @@ For more information, please see [Policy Packs](https://turbot.com/guardrails/do
 
 
 
-## Step 7: View the control run
+## Step 7: View the Control Run
 
 In a few seconds, the stack control will run for each region in scope, and will
-create new VPCs in each of the regions of all accounts in the folder that have been added to the `ip_assignments` map.  You can view the process logs for the control (even while its running!) to view the the OpenTofu output.
+create new VPCs in each of the regions of all accounts in the folder that have been added to the `ip_assignments` map.  You can [view the process logs for the control](/guardrails/docs/guides/using-guardrails/troubleshooting/access-control-logs) (even while its running!) to view the the OpenTofu output.
 
 From the control's detail page, click the `Last Run` link at the top to view the process logs, including the OpenTofu output. 
 
 ![AWS > VPS > Stack Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/aws-vpc/aws_vpc_landing_zone_stack_logs.png)
 
-<!--
-- how do we **find** an appropriate control  ?
-- link to a guide on viewing control process logs (cant find one??)
-
-Screenshot????  sanitize?  what accounts/ workspace, etc do we use for screenshots?
--->
-
 
 ## Step 8: Review
 
-
 After the stack has run, You can verify that VPCs have been created in the accounts and regions that you specified.  
-
 
 ![AWS > VPS > Stack Review](/images/docs/guardrails/guides/using-guardrails/stacks/aws-vpc/aws_vpc_landing_zone_stack_review.png)
 
 
-<!--
-view it in AWS.....  
-- in the UI?   or aws CLI commands?
--->
-
-
 ## Next Steps
+- Learn more about Guardrails [Stack controls](/guardrails/docs/concepts/guardrails/stacks)
 
 ## Troubleshooting
 

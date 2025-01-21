@@ -7,6 +7,9 @@ sidebar_label: Stacks
 
 Guardrails [Stack controls](/guardrails/docs/concepts/guardrails/stacks) provides a mechanism for managing resource configuration using OpenTofu, an open-source implementation of Terraform.  Guardrails can apply your configuration at regular intervals, or whenever resources change, enforcing your standards and preventing configuration drift.
 
+
+
+<!--
 ```
 Guides...
   by type:
@@ -21,6 +24,7 @@ Guides...
     Importing resources
     Migrating from legacy stacks 
     Using Secret Variables
+    using  calc policies to set variables
     Choosing an OpenTofu version
     using non-default providers to do multi-region stuff...
     exporting state ???
@@ -32,3 +36,6 @@ Best practices
 - Use `Variables` for non-sensitive information.  Using `Secret Variables` for non-sensitive inputs creates unnecessary operational complexity, as you will not be able to read the existing values.
 
 ```
+
+
+-->
