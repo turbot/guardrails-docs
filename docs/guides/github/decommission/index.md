@@ -22,7 +22,7 @@ Guardrails allows administrators to remove a [GitHub Organization](https://docs.
 - Familiarity with the Guardrails console.
 - Familiarity with the GitHub.
 
-DISCUSS THE SEQUENCE, WEBHOOKS SETUP WITH SD
+<!-- DISCUSS THE SEQUENCE, WEBHOOKS SETUP WITH SD -->
 
 ## Disable Event Handlers
 
