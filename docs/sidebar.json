@@ -265,6 +265,7 @@
             "link": "guides/gcp/import-gcp-project",
             "items": ["guides/gcp/import-gcp-project/service-accounts"]
           },
+          "guides/gcp/import-gcp-organization",
           "guides/gcp/services",
           "guides/gcp/permissions",
           "guides/gcp/decommission",
@@ -275,6 +276,10 @@
             "items": ["guides/gcp/real-time-events/event-pollers"]
           }
         ]
+      },
+      {
+        "type": "placeholder",
+        "file": "guides/github/github-sidebar.json"
       },
       {
         "type": "category",
