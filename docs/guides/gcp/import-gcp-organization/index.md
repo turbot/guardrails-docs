@@ -12,10 +12,9 @@ In this guide, you will:
 
 Importing a [GCP Organization](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) into Guardrails involves these key steps:
 
-- Configuring a [GCP service account](https://cloud.google.com/iam/docs/service-account-overview) with appropriate permissions at the Organization level.
-- Importing the Organization via the Guardrails Console.
-- Minimum TED version of v1.46.x is required. See [here](#enterprise-configuration) for more details.
-
+- Configuring a [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with appropriate permissions at the Organization level.
+- Importing the organization via the Guardrails console.
+- For any Enterprise hosting Guardrails refer [Enterprise Configuration](#enterprise-configuration) for more details.
 
 ## Prerequisites
 
@@ -181,47 +180,76 @@ Pwd0PmmSB1U3h3+Ued/eDhw=
 
 ## Enterprise Configuration
 
-GCP organization import feature needs TED v1.46.x, which introduces
-`gcp_service_account_private_key_ssm_parameter_name` as SSM parameter, which should be mapped to a manually created SSM parameter with credential JSON value. See [here](#enterprise-configuration) for more details to create SSM parameter.
+> [!NOTE]
+> This section applies only to Enterprise hosting Guardrails.
+
+The GCP organization import feature requires [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) `v1.46.x`, which introduces the `gcp_service_account_private_key_ssm_parameter_name` SSM parameter. This parameter must be mapped to a manually created SSM parameter containing the credential JSON value.
+
+### Prerequisites
+
+- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
+- Familiarity with the AWS Console, Service Catalog, and CloudFormation services.
 
 ### Create SSM Parameter
+
+Log in to the Guardrails primary AWS account and navigate to the `AWS Systems Manager` service.
+
+![Create Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/create-paramater.png)
+
+Create a `Secure String` with the `Tier` set to `Standard`.
+
+![Paste JSON Credential](/images/docs/guardrails/guides/gcp/import-gcp-organization/create-secure-standard-string.png)
+
+See [here](#using-json-credential-file) how to download JSON credential file.
+
+Paste the JSON credential content into the **Value** field and select **Create parameter**.
+
+![Paste JSON Value](/images/docs/guardrails/guides/gcp/import-gcp-organization/add-parameter-value-in-console.png)
+
+For more details, refer to the AWS guide on [Creating a Parameter Store parameter using the console](https://docs.aws.amazon.com/systems-manager/latest/userguide/create-parameter-in-console.html).
 
 
 ### Update TED Stack
 
+Follow the steps in [Update Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-ted).
+
+Navigate to the `GCP Service Account Private Key SSM Parameter` section of the TED stack (near the end) and update the manually created SSM parameter name as shown below. Select **Update** to proceed.
+
+![Update TED Stack Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/update-ted-stack-parameter.png)
 
 ## Import Organization into Guardrails
 
-Login to your Guardrails workspace console and select the **CONNECT** card.
+Log in to your Guardrails workspace console and select the **CONNECT** card.
 
 ![Select Connect](/images/docs/guardrails/guides/gcp/import-gcp-organization/select-connect.png)
 
-Select **GCP** then choose **GCP Organization** option.
+Select **GCP** and then choose the **GCP Organization** option.
 
 ![Select GCP](/images/docs/guardrails/guides/gcp/import-gcp-organization/select-gcp.png)
 
-Select the `Import location` where to import your organization.
+Select the `Import location` where the organization will be imported.
 
 ![Choose Import Location](/images/docs/guardrails/guides/gcp/import-gcp-organization/choose-import-location.png)
 
-Choose one of the `Access mode` from the provided list. Here, `Service Account impersonation` is shown as example. Provide the `Organization ID` for your GCP organization and the `Client email`. This email ID will be used by Guardrails to impersonate.
+Choose one of the `Access modes` from the provided list. In this example, **Service Account impersonation** is selected. Provide the `Organization ID` for your GCP organization and the `Client email`. Guardrails will use this email ID for impersonation.
 
 ![Provide GCP Org Details](/images/docs/guardrails/guides/gcp/import-gcp-organization/gcp-org-details.png)
 
-Setup impersonation. Select the [**Copy gcloud command**](#prerequisites-for-configuration), provide `External ID label` and select **Connect** to begin the discovery and management process.
+Set up impersonation. Select the [**Copy gcloud command**](#prerequisites-for-configuration), provide the `External ID label`, and select **Connect** to begin the discovery and management process.
 
 ![Setup Impersonate](/images/docs/guardrails/guides/gcp/import-gcp-organization/setup-impersonate.png)
 
- Guardrails will create and run discovery controls for your GCP Organization, scanning each project and resource based on your configured policies.
+Guardrails will create and execute discovery controls for your GCP Organization, scanning each project and resource based on the configured policies.
 
 > [!IMPORTANT]
-> This step is only applicable when you choose *Service Account impersonation*
-
+> This step applies only when you choose *Service Account impersonation*.
 > The `External ID` label created for this organization import must be retained within the respective GCP project.
+
 
 ## Ensure Billing is Enabled
 
-If you plan to allow Guardrails to enable new APIs or create resources that may incur charges, ensure that billing is enabled at the **organization** level or for specific projects as required. Refer GCP guide [Manage your Cloud Billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account).
+If you plan to allow Guardrails to enable new APIs or create resources that may incur charges, ensure that billing is enabled at the **organization** level or for specific projects as needed. For more details, refer to the GCP guide [Manage your Cloud Billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account).
+
 
 <!-- 1. Navigate to the **API Console** in the [Google Cloud console](https://console.cloud.google.com).
 2. From the project list, select the desired project.
