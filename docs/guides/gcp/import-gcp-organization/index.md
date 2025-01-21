@@ -14,8 +14,8 @@ Importing a [GCP Organization](https://cloud.google.com/resource-manager/docs/cl
 
 - Configuring a [GCP service account](https://cloud.google.com/iam/docs/service-account-overview) with appropriate permissions at the Organization level.
 - Importing the Organization via the Guardrails Console.
-- Minimum TED version of v1.46.x is required, which introduces gcp_service_account_private_key_ssm_parameter_name, which again mapped /turbot/hive/<name>/gcp_service_account_private_key
-TO DO
+- Minimum TED version of v1.46.x is required. See [here](#enterprise-configuration) for more details.
+
 
 ## Prerequisites
 
@@ -178,6 +178,17 @@ Pwd0PmmSB1U3h3+Ued/eDhw=
 ```
 > [!NOTE]
 > You may use one of the option either [Using Using JSON Credential File](#using-json-credential-file) or [Using Private Key](#using-private-key) or [Using Service Account Impersonation](#using-service-account-impersonation)
+
+## Enterprise Configuration
+
+GCP organization import feature needs TED v1.46.x, which introduces
+`gcp_service_account_private_key_ssm_parameter_name` as SSM parameter, which should be mapped to a manually created SSM parameter with credential JSON value. See [here](#enterprise-configuration) for more details to create SSM parameter.
+
+### Create SSM Parameter
+
+
+### Update TED Stack
+
 
 ## Import Organization into Guardrails
 
