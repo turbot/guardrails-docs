@@ -14,7 +14,7 @@ Guardrails allows administrators to remove a [GitHub Organization](https://docs.
 <!-- Careful consideration should be made when managing resources such as webhooks, as once removed, these changes cannot be undone. -->
 
 > [!IMPORTANT]
-> Before starting the process, administrators should determine whether Guardrails-managed resources (e.g., webhooks) should remain in the organization. The following policies can be configured in Guardrails to facilitate cleanup. Ensure that these changes are applied **only to the target GitHub organization**.
+> Before starting the process, administrators should determine whether Guardrails-managed resources (e.g., [webhooks](https://docs.github.com/en/webhooks/about-webhooks)) should remain in the organization. The following policies can be configured in Guardrails to facilitate cleanup. Ensure that these changes are applied **only to the target GitHub organization**.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Disable Event Handlers associated with `GitHub > Organization > Event Handlers` 
 
 Delete the policy `GitHub > Config > Personal Access Token` configured for the target GitHub organization. This ensures that Guardrails no longer has access to the organization.
 
-## Delete the Organization
+## Delete Organization
 
 Login to the Guardrails console.
 
