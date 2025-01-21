@@ -219,7 +219,7 @@ Navigate to the `GCP Service Account Private Key SSM Parameter` section of the T
 
 ## Import Organization into Guardrails
 
-Log in to your Guardrails workspace console and select the **CONNECT** card.
+Login to your Guardrails workspace console and select the **CONNECT** card.
 
 ![Select Connect](/images/docs/guardrails/guides/gcp/import-gcp-organization/select-connect.png)
 
