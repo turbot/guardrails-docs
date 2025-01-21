@@ -3,8 +3,6 @@ title: Governing GitHub
 sidebar_label: Governing GitHub
 ---
 
-TO REVIEW FURTHER TO CHANGE
-
 # Governing GitHub
 
 Turbot Guardrails provides comprehensive governance for [GitHub](https://github.com/), enabling secure, compliant, and efficient management of your GitHub resources.
@@ -19,6 +17,5 @@ Guardrails ensures effective management and real-time visibility into your GitHu
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | [Import a GitHub Organization](guides/github/import-github-organization)                  | Guide to importing a GitHub organization into a Guardrails folder. |
 | [Set Up GitHub Real-Time Events](guides/github/real-time-events)                          | How to configure Guardrails to process real-time GitHub events.    |
-| [Enable GitHub Features](guides/github/features)                                          | Steps to enable the GitHub features required for governance.       |
 | [Explore GitHub Mods](https://hub.guardrails.turbot.com/mods/github/mods)                 | A detailed list of available GitHub mods in Turbot Guardrails.     |
 | [Set Up GitHub Policies](https://hub.guardrails.turbot.com/policy-packs?providers=github) | Learn how to configure Guardrails policies for GitHub.             |
