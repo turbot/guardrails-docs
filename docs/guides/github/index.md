@@ -19,3 +19,4 @@ Guardrails ensures effective management and real-time visibility into your GitHu
 | [Set Up GitHub Real-Time Events](guides/github/real-time-events)                          | How to configure Guardrails to process real-time GitHub events.    |
 | [Explore GitHub Mods](https://hub.guardrails.turbot.com/mods/github/mods)                 | A detailed list of available GitHub mods in Turbot Guardrails.     |
 | [Set Up GitHub Policies](https://hub.guardrails.turbot.com/policy-packs?providers=github) | Learn how to configure Guardrails policies for GitHub.             |
+| [Decommission GitHub Organization](guides/github/decommission)                  | Guide to delete a GitHub organization from Guardrails. |

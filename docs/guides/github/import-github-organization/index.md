@@ -10,11 +10,6 @@ In this guide, you will:
 - Learn how to import an entire GitHub organization into Turbot Guardrails. This process allows Guardrails to discover and manage resources across your organization in real-time.
 - Monitor and troubleshoot the process.
 
-<!-- - Centralize governance for your GitHub resources within Guardrails.
-- Apply policies to enforce security, compliance, and operational best practices.
-- Monitor real-time activity within your organization.
-- Establish detailed audit logs to track all activities and changes for improved visibility and reporting. -->
-
 Importing a [GitHub Organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations) into Guardrails involves these key steps:
 
 - Configuring a GitHub with appropriate permissions at the Organization level.
