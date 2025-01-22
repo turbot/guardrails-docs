@@ -128,7 +128,7 @@ After the stack has run, check the status of the `AWS > IAM > Stack [Native]` co
 ![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/running/aws_iam_stack_controls_ok.png)
 
 
-You can verify that VPCs have been created in the accounts and regions that you specified.  
+You can verify that VPCs have been created in the accounts that you specified.  
 
 ```bash
 $ aws iam get-role --role-name read_only_role --profile dmi-scranton
