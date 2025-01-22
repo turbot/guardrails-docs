@@ -7,7 +7,6 @@ sidebar_label: Running Stacks
 
 Guardrails can help you centrally deploy, configure, and manage cloud resources using [Guardrails Stacks](/guardrails/docs/concepts/guardrails/stacks). With Guardrails stacks, you describe your configuration in OpenTofu, an open source Terraform implementation, and Guardrails applies it automatically.  Guardrails can re-apply the configuration at regular intervals or whenever resources change, enforcing your standards and preventing configuration drift.
 
-
 In this Guide we will use the **Deploy AWS IAM Stack** policy pack to deploy an IAM role via OpenTofu.
 
 The **Deploy AWS IAM Stack** policy pack uses the `AWS > IAM > Stack [Native]` control to create and subsequently manage IAM resources across your AWS accounts . This control targets an AWS account; regardless of what level you set the stack policies, the control actually runs once for each account in scope, in a single region:
@@ -67,7 +66,6 @@ trusted_principals = ["arn:aws:iam::123456789012:root"]
 ```
 
 
-
 ## Step 4: Enforce the Stack
 
 The `AWS > IAM > Stack [Native]` policy is the primary policy for the `AWS > IAM > Stack [Native]` control.  This policy determines the enforcement behavior:
@@ -120,9 +118,7 @@ For more information, please see [Policy Packs](https://turbot.com/guardrails/do
 
 In a few seconds, the stack control will run and create an IAM role for each account in scope.  You can [view the process logs for the control](/guardrails/docs/guides/using-guardrails/troubleshooting/access-control-logs) (even while its running!) to view the the OpenTofu output.
 
-
 ![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/running/aws_iam_stack_control_log_create_top.png)
-
 
 
 ## Step 8: Review
@@ -161,12 +157,11 @@ $ aws iam get-role --role-name read_only_role --profile dmi-scranton
 }
 ```
 
-
 ## Next Steps
 - Learn more about Guardrails [Stack controls](/guardrails/docs/concepts/guardrails/stacks) 
 
 ## Troubleshooting
 
 | Issue                      | Description                                                                                                                             | Guide                                |
-|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| Further Assistance         | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.   | [Open Support Ticket](https://support.turbot.com)   |
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------
+| Further Assistance         | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.   | [Open Support Ticket](https://support.turbot.com)
