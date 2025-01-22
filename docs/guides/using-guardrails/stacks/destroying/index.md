@@ -120,8 +120,7 @@ An error occurred (NoSuchEntity) when calling the GetRole operation: The role wi
 
 ## Next Steps
 
-
-- Learn more about Guardrails [Stack controls](/guardrails/docs/concepts/guardrails/stacks) 
+- Learn more about Guardrails [Stack controls](/guardrails/docs/concepts/guardrails/stacks)
 
 ## Troubleshooting
 
