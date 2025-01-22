@@ -37,7 +37,7 @@ Select the **Policies** tab. Search for `GitHub > Organization > Event Handlers`
 
 Set the policy to `Enforce: Disabled` and select **Update**.
 
-![Enforce Disabled](enforce-disabled.png)
+![Enforce Disabled](/images/docs/guardrails/guides/github/decommission/enforce-disabled.png)
 
 ## Step 3: Check GitHub Organization Webhooks
 
