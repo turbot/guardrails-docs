@@ -1,6 +1,6 @@
 ---
-title: Import GitHub Organization
-sidebar_label: Import GitHub Organization
+title: Import Organization
+sidebar_label: Import Organization
 ---
 
 # Import GitHub Organization
@@ -18,22 +18,25 @@ Importing a [GitHub Organization](https://docs.github.com/en/organizations/colla
 ## Prerequisites
 
 - Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
-- Familiarity with the GitHub.
-- GitHub mod should be installed in your Guardrails workspace.
-- Ensure access to [GitHub CLI](https://cli.github.com/) to fetch organization ID.
-- Ensure GitHub organization has allowed access via personal access tokens. Refer [Setting a personal access token policy for your organization](https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization) for more information.
+- Availability of [GitHub mod](https://hub.guardrails.turbot.com/mods/github/mods) in your Guardrails workspace.
+- Familiarity with the [GitHub](https://github.com/).
+- [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/quickstart) setup.
+- [Access to personal token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 <!-- ## Supported Authentication -->
 
-## What Permissions to Grant
+## Step 1: Setup Personal Token
 
-<!-- To make sure all functionality of GitHub integration work, we suggest you to provide all the following permissions.
+Turbot Guardrails supports both [Fine-grained](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens) or [Classic](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-tokens-classic) GitHub token. This token is available in the GitHub portal under Developer settings and provide secure access to your resources.
 
-- Organization Administration - Read and write
-- Organization Blocking users - Read and write
-- Organization Webhooks - Read and write
-- Repository Administration - Read and write
-- Repository Metadata - Read-only -->
+Follow the GitHub provided steps in [Creating a fine-grained personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)
+
+
+## Step 2: Grant Permission to Personal Token
+
+Once you create an fine-grained token, initially it may not have any associated permission. Tokens always include read-only access to all public repositories on GitHub.
+
+![Personal Token](/images/docs/guardrails/guides/github/import-organization/personal-token.png)
 
 To ensure full functionality of the GitHub integration, we recommend granting the following permissions:
 
@@ -45,7 +48,22 @@ To ensure full functionality of the GitHub integration, we recommend granting th
 | Repository Administration            | Read and write      | Grants Guardrails the ability to manage repository settings, including access controls and policies.  |
 | Repository Metadata                  | Read-only           | Provides Guardrails with visibility into repository metadata without modifying its content.           |
 
-## Get GitHub Organization ID
+<!-- Image / Steps to refer -->
+
+Select **Edit**, which allows to make edit in `Permissions` section.
+
+![Edit Personal Token](/images/docs/guardrails/guides/github/import-organization/edit-personal-token.png)
+
+Associated required permissions mentioned in the above table.
+
+![Associated Permission](/images/docs/guardrails/guides/github/import-organization/associated-permission.png)
+
+CHECK SD HOW WE ASSOCIATE ORG
+
+> [!IMPORTANT]
+> Regardless of the chosen policy, Personal access tokens will have access to public resources within the organization.
+
+## Step 3: Get Organization ID
 
 There are various ways to get the GitHub organization ID.
 
@@ -58,7 +76,7 @@ gh api orgs/<organization name> --jq '.id'
 Alternatively, you can use `curl` command to get the organization ID.
 
 ```
-curl -H "Authorization: Bearer ghp_iio5FzBF4OLbbes3AKasdre5f4mps50s7YXE" https://api.github.com/orgs/<your-org-name>
+curl https://api.github.com/orgs/<your-org-name>
 ```
 The result will be shown as below:
 
@@ -71,27 +89,29 @@ The result will be shown as below:
   ....
 }
 ```
-## Import Organization into Guardrails
+## Step 4: Import Organization in Guardrails Console
 
 Login to your Guardrails workspace console and select the **CONNECT** card.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/github/import-github-organization/select-connect-card.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/github/import-organization/select-connect-card.png)
 
 Select **GitHub** card from the connect panel.
 
-![Connect GitHub Card](/images/docs/guardrails/guides/github/import-github-organization/connect-github-card.png)
+![Connect GitHub Card](/images/docs/guardrails/guides/github/import-organization/connect-github-card.png)
 
 Choose the location where you want to import the organization. Typically this would be done at the `Turbot` root level of your hierarchy, however it can reside in a [Folder](/guardrails/docs/concepts/resources/hierarchy#folders) based on your use-case.
 
-![Choose Location](/images/docs/guardrails/guides/github/import-github-organization/choose-location.png)
+![Choose Location](/images/docs/guardrails/guides/github/import-organization/choose-location.png)
 
 Provide `Organization Name`, `Organization ID`, `Personal Access Token` and choose **Connect**.
 
-![Connect](/images/docs/guardrails/guides/github/import-github-organization/connect.png)
+![Connect](/images/docs/guardrails/guides/github/import-organization/connect.png)
 
-Verify that the controls are executed by navigating to **Controls** tab and select GitHub.
+## Step 5: Verify
 
-![Verify Controls](/images/docs/guardrails/guides/github/import-github-organization/verify-github-controls.png)
+Check that the controls are executed by navigating to **Controls** tab and select GitHub.
+
+![Verify Controls](/images/docs/guardrails/guides/github/import-organization/verify-github-controls.png)
 
 
 ## Troubleshooting

@@ -1,9 +1,9 @@
 ---
-title: Decommission GitHub Organization
-sidebar_label: Decommission GitHub Organization
+title: Decommission Organization
+sidebar_label: Decommission Organization
 ---
 
-# Decommission GitHub Organization
+# Decommission Organization
 
 In this guide, you will:
 
