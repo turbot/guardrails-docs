@@ -20,7 +20,7 @@ In this guide, you will:
 
 Log into the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-console-login.png)
 
 ## Step 2: Navigate to Policies
 
@@ -30,7 +30,7 @@ Select **Policies** from the top navigation menu.
 
 Choose **Turbot** from the list.
 
-![Select Turbot](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling/guardrails-select-turbot.png)
+![Select Turbot](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-select-turbot.png)
 
 ## Step 3: Select Quick Actions
 
