@@ -2,6 +2,14 @@
 title: Decommission Organization
 sidebar_label: Decommission Organization
 ---
+<!--
+## When to decommission Event Handlers
+
+Event Handlers should be decommissioned before:
+
+- Destroying the Github organization itself.
+- Removing the organization from Guardrails supervision.
+- Event Handling is no longer desired for this organization. -->
 
 # Decommission Organization
 
@@ -24,12 +32,9 @@ Guardrails enables administrators to remove a [GitHub Organization](https://docs
 
 Disable Event Handlers associated with `GitHub > Organization > Event Handlers` by setting the value to `Enforce: Disabled`. This action removes Guardrails-configured webhooks. Once these policies have been applied and the associated controls have completed their cleanup, the GitHub organization can be safely removed from the Guardrails workspace.
 
-
 ## Step 2: Remove Credentials Policies
 
 Delete the policy `GitHub > Config > Personal Access Token` configured for the target GitHub organization. This ensures that Guardrails no longer has access to the organization.
-
----
 
 ## Step 3: Delete Organization
 
@@ -54,7 +59,6 @@ Delete the policy `GitHub > Config > Personal Access Token` configured for the t
 
 > While the deletion is reversible by re-importing the organization, it can be resource-intensive. Double-check all configurations before proceeding.
 
-
 ## Step 4: Verify
 
 Guardrails will begin the deletion process. The time required to complete the process depends on the number of policies and resources associated with the organization. Larger organizations may take longer.
@@ -66,7 +70,6 @@ After completing the steps above, verify that the GitHub organization no longer 
 Please see the following resources to learn more about Turbot Guardrails:
 
 - Learn more about [Managing GitHub Organizations](guides/github/manage-organizations).
-
 
 ## Troubleshooting
 

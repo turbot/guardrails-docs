@@ -5,61 +5,71 @@ sidebar_label: Real-Time Events
 
 # Configuring Real-Time Event Handlers
 
-CHANGES TODO
+In this guide, you will:
 
-Turbot Guardrails Event Handlers for Github are responsible for conveying events from Github back to Guardrails for processing.
-Event Handlers are required for Guardrails to process and respond in real-time.
+- Set up Event Handlers in the Guardrails workspace using the Guardrails console.
+- Monitor and troubleshoot the Event Handlers setup process.
 
-The event handlers infrastructure is configured by `GitHub > Organization > Event Handlers` control in each organization.
-This control will configure the required infrastructure components:
+Guardrails enables organizations to selectively install policies, controls, and guardrails tailored to specific services. The [Event Handler](/guardrails/docs/reference/glossary#event-handler) simplifies cloud management by providing a unified framework for responding to and managing events, ensuring proactive governance and security across cloud environments. Event Handlers for GitHub are responsible for conveying events from GitHub back to Guardrails for processing.
 
-- **Webhook**: A webhook that filters events and sends them to Guardrails
+## Prerequisites
 
-## What Permissions to Grant
-
-To ensure full functionality of the GitHub integration, we recommend granting the following permissions:
-
-| **Permission**        | **Access Level** | **Description**                                                                                |
-| --------------------- | ---------------- | ---------------------------------------------------------------------------------------------- |
-| Organization Webhooks | Read and write   | Allows Guardrails to manage webhooks for capturing real-time events at the organization level. |
+- **Turbot/Operator** permissions at the Turbot resource level.
+- Familiarity with the Guardrails console.
+- The GitHub organization is successfully [imported](/guardrails/docs/guides/github/import-organization) into the Guardrails.
+- A GitHub personal access token with permissions to create [webhooks](https://docs.github.com/en/webhooks/about-webhooks).
 
 ---
 
-## Configuring the Event Handlers
+## Step 1: Required Permission
 
-### Workspace Configuration
+To ensure full functionality of the GitHub integration, grant the personal access token the `Organization Webhooks: Read and write` permission, which allows Guardrails to manage webhooks for capturing real-time events at the organization level.
 
-Here are the **Turbot > Workspace** policies relevant to event handling for SaaS
-and Enterprise customers. If desired, these policies should be configured before
-enabling event handling. Changes to these policies should be done with care as this may force a
-refresh of all Event Handling infrastructure in the workspace.
+Follow the steps provided in [Grant Permissions](/guardrails/docs/guides/github/import-organization#step-4-grant-permissions) of [Import GitHub Organization](/guardrails/docs/guides/github/import-organization#import-github-organization).
 
-- [Turbot > Workspace > Webhook Secrets > Rotation](/guardrails/docs/mods/turbot/turbot/policy#turbot--workspace--webhook-secrets--rotation) -
-  Instructs Guardrails to regularly rotate the secrets used to sign the JWTs.
-- [Turbot > Workspace > Webhook Secrets > Expiration Period](/guardrails/docs/mods/turbot/turbot/policy#turbot--workspace--webhook-secrets--expiration-period) -
-  Specifies the interval for secret rotation. Turbot Support recommends secret rotation
-  at least once a year.
-- [Turbot > Workspace > Webhook Secrets](/guardrails/docs/mods/turbot/turbot/policy#turbot--workspace--webhook-secrets) -
-  Use this policy only when there is a requirement for specific secrets to be
-  used. Otherwise, the default setting will auto-generate new secrets as
-  required.
+## Step 2: Login to Guardrails Console
 
-### Enabling Event Handlers
+Log in to the Guardrails console.
 
-To configure the GitHub Event Handlers using the default configuration, set the following policies:
+![Guardrails Console Login](/images/docs/guardrails/guides/github/real-time-events/guardrails-console-login.png)
 
-- Set [GitHub > Organization > Event Handlers](https://turbot.com/guardrails/docs/mods/github/github/policy#github--organization--event-handlers) to **Enforce: Configured**.
+## Step 3: Set Up Event Handlers Policy
 
-## Decommissioning Event Handlers
+The GitHub Event Handlers are configured using the `GitHub > Organization > Event Handlers` control for each organization. This control sets up the required [webhooks](https://docs.github.com/en/webhooks/about-webhooks) components for the organization.
 
-Event handlers can be shut-off by setting:
+Select the **Policies** tab. Search for `GitHub > Organization > Event Handlers` and select **New Policy Setting**.
 
-- Set [GitHub > Organization > Event Handlers](https://turbot.com/guardrails/docs/mods/github/github/policy#github--organization--event-handlers) to **Enforce: Not configured**.
+![Create Event Handler](/images/docs/guardrails/guides/github/real-time-events/create-event-handler.png)
 
-## When to decommission Event Handlers
+Select the `Resource` for the imported organization, set the policy to `Enforce: Enabled`, and select **Create**.
 
-Event Handlers should be decommissioned before:
+![Set Policy to Enforced](/images/docs/guardrails/guides/github/real-time-events/create-policy-setting.png)
 
-- Destroying the Github organization itself.
-- Removing the organization from Guardrails supervision.
-- Event Handling is no longer desired for this organization.
+## Step 4: Check Control Status
+
+Select the **Controls** tab. Search for `GitHub > Organization > Event Handlers` and check that the control status is `OK`.
+
+![Check Control Status](/images/docs/guardrails/guides/github/real-time-events/organization-event-handlers-control-status.png)
+
+
+## Step 5: Verify
+
+- [ ] Check that the control status for the respective organization is `OK` with the message `Configured`.
+
+   ![Check Control Configured](/images/docs/guardrails/guides/github/real-time-events/control-configured-ok.png)
+
+- [ ] Verify that the webhook has been created in the GitHub organization.
+
+   ![GitHub Webhook](/images/docs/guardrails/guides/github/real-time-events/validate-github-org-webhook.png)
+
+---
+
+## Troubleshooting
+
+| **Issue**                                                           | **Description**                                                                                                                                                   | **Guide**                                                                                                                                                                                                     |
+|----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Controls in Error**                                                | Controls may enter various states, including errors, which can impact their functionality.                                                                        | [Learn More About Control States](/guardrails/docs/concepts/controls#control-state)                                                                                                                         |
+| **Message: `Bad Credentials`**                                       | Guardrails GitHub controls may generate errors with a `Bad credentials` message, often caused by invalid or expired tokens.                                       | [Token Expiration and Revocation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)                                                           |
+| **Message: `forbids access via a personal access token with fine-grained permissions`** | Guardrails GitHub controls may generate this error when the personal token lacks the required permissions.                                                        | Check [Step 4 Grant Permissions](#step-4-grant-permissions) and [Permissions Required for Fine-Grained Personal Access Tokens](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28). |
+| **Message: `Resource not accessible by personal access token .. list-users-blocked-by-an-organization`** | Guardrails GitHub controls may generate this error if the personal token lacks required permissions for the organization.                                          | Check [Step 4 Grant Permissions](#step-4-grant-permissions) and [Permissions Required for Fine-Grained Personal Access Tokens](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28). |
+| **Further Assistance**                                               | If issues persist, please open a ticket with us and attach relevant details for more efficient troubleshooting.                                                   | [Open Support Ticket](https://support.turbot.com)                                                                                                                                                            |
