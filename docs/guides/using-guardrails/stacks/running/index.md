@@ -25,7 +25,7 @@ In this example, we will use the example source in the **Deploy AWS IAM Stack** 
 
 ## Prerequisites
 - Guardrails: [TE](https://turbot.com/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-workspace) 5.47+, with [aws-iam](https://hub.guardrails.turbot.com/mods/aws/mods/aws-iam) mod 5.39+
-- Tools:  [git(git-scm.com)], [Terraform](https://developer.hashicorp.com/terraform) or [OpenTofu](https://opentofu.org/), [Guardrails CLI credentials](https://turbot.com/guardrails/docs/reference/cli/installation#set-up-your-turbot-guardrails-credentials) configured
+- Tools:  [git](git-scm.com), [Terraform](https://developer.hashicorp.com/terraform) or [OpenTofu](https://opentofu.org/), [Guardrails CLI credentials](https://turbot.com/guardrails/docs/reference/cli/installation#set-up-your-turbot-guardrails-credentials) configured
 - [One or more AWS accounts imported](/guardrails/docs/guides/aws/import-aws-account)
 
 
@@ -41,7 +41,7 @@ cd guardrails-samples/policy_packs/aws/stack/deploy_iam_stack
 
 The `policies.tf` contains the policy settings for this policy pack.  The `AWS > IAM > Stack [Native] > Source` policy contains the OpenTofu configuration code that should be applied in each account. 
 
-In this policy pack, the source is read from the `stack/source.tf`.  This file contains the OpenTofu source that we will use in our example to create our IAM role.  The `Source` policy is just standard OpenTofu code that creates an IAM role.
+In this policy pack, the source is read from the `stack/source.tofu`.  This file contains the OpenTofu source that we will use in our example to create our IAM role.  The `Source` policy is just standard OpenTofu code that creates an IAM role.
 
 You can, of course, modify, extend, pr replace this configuration to meet your specific needs - set up IAM roles, users, policies, trust relationships, etc, all using standard OpenTofu!  For the purpose of this guide, however, we will run it as-is.
 
@@ -51,7 +51,7 @@ You can, of course, modify, extend, pr replace this configuration to meet your s
 
 ## Step 3: Set the Stack Variables
 
-Like the `Source` policy, the the `AWS > IAM > Stack [Native] > Variables` policy is configured in the `policies.tf`, which in turn reads its value from a file (`stack/terraform.tfvars`).  The `Variables` policy allows you to pass variable values to the stack; it is essentially a [tfvars](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files) for the stack control.
+Like the `Source` policy, the the `AWS > IAM > Stack [Native] > Variables` policy is configured in the `policies.tf`, which in turn reads its value from a file (`stack/variables.auto.tfvars`).  The `Variables` policy allows you to pass variable values to the stack; it is essentially a [tfvars](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files) for the stack control.
 
 Separating the configuration (`Source`) from the data (`Variables`) is
 considered best practice when using stacks:
@@ -60,7 +60,7 @@ considered best practice when using stacks:
   `Source` does not change.
 - You can separate the OpenTofu logic from the nunjucks logic when you need to use calculated policies.  At times, you may wish to use calculated policies to set the configuration based on other data in the Guardrails CMDB.  The best way to accomplish this is to us a calculated policy to set `Variables`, and use a static policy for the `Source`; rendering the input variables in nunjucks is much simpler than rendering the whole OpenTofu source.
 
-In this policy pack example, the source defines a single variable named `trusted_principals` that should contain list of principal ARNs that can assume the role. These will be added to the trust policy.  Edit the `stack/terraform.tfvars` file with the include the ARN for any role of users that you would like to be able to assume this role and then save the file:
+In this policy pack example, the source defines a single variable named `trusted_principals` that should contain list of principal ARNs that can assume the role. These will be added to the trust policy.  Edit the `stack/terraform.tfvars` file to include the ARN for any role or user that you would like to be able to assume this role, and then save the file:
 
 ```hcl
 trusted_principals = ["arn:aws:iam::123456789012:root"]
@@ -134,9 +134,32 @@ After the stack has run, check the status of the `AWS > IAM > Stack [Native]` co
 
 You can verify that VPCs have been created in the accounts and regions that you specified.  
 
-
-![AWS > IAM > Stack [Native] -- Review](/images/docs/guardrails/guides/using-guardrails/stacks/running/aws_iam_stack_review_bucket.png)
-
+```bash
+$ aws iam get-role --role-name read_only_role --profile dmi-scranton
+{
+    "Role": {
+        "Path": "/",
+        "RoleName": "read_only_role",
+        "RoleId": "AROAQ4Z73DOOGHNJRLKGK",
+        "Arn": "arn:aws:iam::061874051996:role/read_only_role",
+        "CreateDate": "2025-01-22T21:30:52+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": "arn:aws:iam::061874051996:root"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {}
+    }
+}
+```
 
 
 ## Next Steps
