@@ -25,47 +25,64 @@ Importing a [GitHub Organization](https://docs.github.com/en/organizations/colla
 
 <!-- ## Supported Authentication -->
 
-## Step 1: Setup Personal Token
+## Step 1: Setting Personal Access Token Policy for Your Organization
+
+Setup the a personal access token policy for your organization prior to importing the organization into Guardrails. Refer steps provided in the GitHub [guide](https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).
+
+Choose `Allow access via fine-grained personal access tokens`.
+
+![Allow Fine-grained Personal Access Tokens](/images/docs/guardrails/guides/github/import-organization/allow-fine-grained-personal-access-tokens.png)
+
+## Step 2: Create Personal Access Token
 
 Turbot Guardrails supports both [Fine-grained](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens) or [Classic](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-tokens-classic) GitHub token. This token is available in the GitHub portal under Developer settings and provide secure access to your resources.
 
 Follow the GitHub provided steps in [Creating a fine-grained personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)
 
+![Create Personal Token](/images/docs/guardrails/guides/github/import-organization/create-personal-token.png)
 
-## Step 2: Grant Permission to Personal Token
+Copy the personal access token.
 
-Once you create an fine-grained token, initially it may not have any associated permission. Tokens always include read-only access to all public repositories on GitHub.
+![Copy Token](/images/docs/guardrails/guides/github/import-organization/copy-personal-token.png)
 
-![Personal Token](/images/docs/guardrails/guides/github/import-organization/personal-token.png)
+> [!IMPORTANT]
+> Make sure to copy your personal access token during the creation step as you will not be able to see this again.
+
+## Step 3: Check Permission of Personal Access Token
+
+Once you create an fine-grained token, initially it may not have any associated permission.
+
+> [!TIP]
+> Regardless of the chosen policy, Personal access tokens will have access to public resources within the organization.
+
+![Personal Token with No Permission](/images/docs/guardrails/guides/github/import-organization/personal-token-with-no-permission.png)
+
+## Step 4: Grant Permissions
 
 To ensure full functionality of the GitHub integration, we recommend granting the following permissions:
 
 | **Permission**                       | **Access Level**    | **Description**                                                                                       |
 |--------------------------------------|---------------------|-------------------------------------------------------------------------------------------------------|
 | Organization Administration          | Read and write      | Allows Guardrails to manage settings and configurations at the organization level.                   |
-| Organization Blocking Users          | Read and write      | Enables Guardrails to block and unblock users within the organization.                               |
 | Organization Webhooks                | Read and write      | Allows Guardrails to manage webhooks for capturing real-time events at the organization level.        |
-| Repository Administration            | Read and write      | Grants Guardrails the ability to manage repository settings, including access controls and policies.  |
 | Repository Metadata                  | Read-only           | Provides Guardrails with visibility into repository metadata without modifying its content.           |
+| Repository Administration            | Read and write      | Grants Guardrails the ability to manage repository settings, including access controls and policies.  |
+| Organization Blocking Users          | Read and write      | Enables Guardrails to block and unblock users within the organization.                               |
 
-<!-- Image / Steps to refer -->
+> [!NOTE]
+> The minimum required permissions to import an organization are `Organization Administration` with `Read and write`, `Repository Metadata` with `Read-only`, and `Organization Webhooks` for configuring GitHub event handlers in Guardrails. Additional permissions may be required depending on specific control needs.
 
 Select **Edit**, which allows to make edit in `Permissions` section.
 
 ![Edit Personal Token](/images/docs/guardrails/guides/github/import-organization/edit-personal-token.png)
 
-Associated required permissions mentioned in the above table.
+Associate required permissions mentioned in the above table.
 
-![Associated Permission](/images/docs/guardrails/guides/github/import-organization/associated-permission.png)
+![Associated Permission](/images/docs/guardrails/guides/github/import-organization/associated-org-permission.png)
 
-CHECK SD HOW WE ASSOCIATE ORG
+## Step 5: Get Organization ID
 
-> [!IMPORTANT]
-> Regardless of the chosen policy, Personal access tokens will have access to public resources within the organization.
-
-## Step 3: Get Organization ID
-
-There are various ways to get the GitHub organization ID.
+Organization ID is mandatory input in Guardrails console. There are various ways to get the GitHub organization ID.
 
 Use [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/quickstart) and run the following command to get the ID of the organization you want to import.
 
@@ -73,7 +90,7 @@ Use [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/quickstart) an
 gh api orgs/<organization name> --jq '.id'
 ```
 
-Alternatively, you can use `curl` command to get the organization ID.
+Alternatively, you can use `curl` command.
 
 ```
 curl https://api.github.com/orgs/<your-org-name>
@@ -89,7 +106,7 @@ The result will be shown as below:
   ....
 }
 ```
-## Step 4: Import Organization in Guardrails Console
+## Step 6: Import Organization in Guardrails Console
 
 Login to your Guardrails workspace console and select the **CONNECT** card.
 
@@ -107,17 +124,17 @@ Provide `Organization Name`, `Organization ID`, `Personal Access Token` and choo
 
 ![Connect](/images/docs/guardrails/guides/github/import-organization/connect.png)
 
-## Step 5: Verify
+## Step 7: Verify
 
 Check that the controls are executed by navigating to **Controls** tab and select GitHub.
 
 ![Verify Controls](/images/docs/guardrails/guides/github/import-organization/verify-github-controls.png)
-
 
 ## Troubleshooting
 
 | **Issue**                | **Description**                                                                                                                      | **Guide**                                                                                                                                |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Controls in Error    | Controls may enter various states, including errors, which can impact their functionality.                                           | [Learn More About Control States](/guardrails/docs/concepts/controls#control-state)                                                     |
-| Message: `Bad Credentials` | Guardrails GitHub controls may generate errors with a `Bad credentials` message, often caused by invalid or expired tokens.                                | [Token Expiration and Revocation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation) |
+| Message: `Bad Credentials`  | Guardrails GitHub controls may generate errors with a `Bad credentials` message, often caused by invalid or expired tokens.                                | [Token Expiration and Revocation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation) |
+| Message: `forbids access via a personal access token with fine-grained permissions`  | Guardrails GitHub controls may generate errors with a `forbids access` error, often caused, in case the used personal token does not have any required permissions.                                | Check the required permissions at [Step 4 Grant Permissions](#step-4-grant-permissions)& [Permissions required for fine-grained personal access tokens](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28) |
 | Further Assistance   | If issues persist, please open a ticket with us and attach relevant details for more efficient troubleshooting.                      | [Open Support Ticket](https://support.turbot.com)                                                                                       |
