@@ -46,7 +46,7 @@ Ensure the `GitHub > Organization > Event Handlers` control status is `OK`, and 
 ![Removed Webhooks](/images/docs/guardrails/guides/github/decommission/removed-webhooks.png)
 
 
-## Step 4: Remove Credentials Policies
+## Step 4: Remove Credential Policy
 
 Delete the `GitHub > Config > Personal Access Token` policy configured for the target GitHub organization. This ensures that Guardrails no longer has access to the organization.
 
