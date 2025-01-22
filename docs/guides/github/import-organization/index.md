@@ -3,7 +3,7 @@ title: Import Organization
 sidebar_label: Import Organization
 ---
 
-# Import GitHub Organization
+# Import Organization
 
 In this guide, you will:
 
@@ -137,9 +137,12 @@ Check that the controls are executed by navigating to **Controls** tab and selec
 ![Verify Controls](/images/docs/guardrails/guides/github/import-organization/verify-github-controls.png)
 
 
-<!-- ## Next Steps
+## Next Steps
 
-Refer to the policy packs -->
+Please see the following resources to learn more about Turbot Guardrails:
+
+- Learn more about [Managing GitHub Organizations](guides/github/manage-organizations).
+- Explore the supported use cases in Guardrails with [Policy Packs](https://hub.guardrails.turbot.com/policy-packs?providers=github).
 
 ## Troubleshooting
 
