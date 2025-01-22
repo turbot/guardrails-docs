@@ -106,7 +106,13 @@ The result will be shown as below:
   ....
 }
 ```
-## Step 6: Import Organization in Guardrails Console
+## Step 6: Log in to Guardrails Console
+
+Log in to the Guardrails console.
+
+![Guardrails Console Login](/images/docs/guardrails/guides/github/import-organization/guardrails-console-login.png)
+
+## Step 7: Import Organization in Guardrails Console
 
 Login to your Guardrails workspace console and select the **CONNECT** card.
 
@@ -124,7 +130,7 @@ Provide `Organization Name`, `Organization ID`, `Personal Access Token` and choo
 
 ![Connect](/images/docs/guardrails/guides/github/import-organization/connect.png)
 
-## Step 7: Verify
+## Step 8: Verify
 
 Check that the controls are executed by navigating to **Controls** tab and select GitHub.
 

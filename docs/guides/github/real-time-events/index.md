@@ -26,7 +26,7 @@ To ensure full functionality of the GitHub integration, grant the personal acces
 
 Follow the steps provided in [Grant Permissions](/guardrails/docs/guides/github/import-organization#step-4-grant-permissions) of [Import GitHub Organization](/guardrails/docs/guides/github/import-organization#import-github-organization).
 
-## Step 2: Login to Guardrails Console
+## Step 2: Log in to Guardrails Console
 
 Log in to the Guardrails console.
 
