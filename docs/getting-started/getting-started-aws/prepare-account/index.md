@@ -1,9 +1,9 @@
 ---
-title: Prepare an AWS Account for import to Guardrails
+title: Prepare an AWS Account for Import to Guardrails
 sidebar_label: Prepare the AWS Account
 ---
 
-# Prepare an AWS Account for import to Guardrails
+# Prepare an AWS Account for Import to Guardrails
 
 In this guide, you will prepare an AWS account to be imported into Guardrails by deploying an IAM access role using a CloudFormation template.
 
@@ -20,7 +20,7 @@ This is the first guide in the *Getting started with AWS* series.
 
 ## Step 1: Login to Guardrails
 
-Login to your Guardrails console and select the **CONNECT** option from the home page. 
+Login to your Guardrails console and select the **CONNECT** option from the home page.
 
 <p><img alt="locate-top-level-connect" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/locate-top-level-connect.png"/></p>
 
@@ -28,7 +28,7 @@ Login to your Guardrails console and select the **CONNECT** option from the home
 
 Guardrails needs an IAM role that grants permission to discover [resources](/guardrails/docs/reference/glossary#resource) in your account and to monitor changes via event handlers. The CloudFormation template downloaded in this step has the minimum permissions necessary to create that role.
 
-Select **AWS Account** from the left navigation and then click the blue **Download CloudFormation Template** button to download the CloudFormation template you will use to create the required IAM role in your AWS account. 
+Select **AWS Account** from the left navigation and then click the blue **Download CloudFormation Template** button to download the CloudFormation template you will use to create the required IAM role in your AWS account.
 
 <p><img alt="initial-connect-screen" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/initial-connect-screen.png"/></p>
 
@@ -83,7 +83,6 @@ Select the **Outputs** tab and copy the ARN of the Guardrails IAM role.
 
 In this guide you've learned how to deploy an AWS role that grants minimal permissions to Guardrails using the AWS CloudFormation service.
 
-
 ## Next Steps
 
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/connect-an-account) you will use the IAM role you just created to import an AWS account into Guardrails.
@@ -93,12 +92,11 @@ In the [next guide](/guardrails/docs/getting-started/getting-started-aws/connect
 If you run into issues following this guide, jump in the `#guardrails` channel in the [Turbot Community Slack](https://turbot.com/community/join), or [open a support ticket](https://support.turbot.com/hc/en-us/requests/new).
 
 ## Progress tracker
-
-- [x] **Prepare an AWS Account for import to Guardrails**
+- [x] **Prepare an AWS Account for Import to Guardrails**
 - [ ] Connect an AWS Account to Guardrails
 - [ ] Observe AWS Resource Activity
 - [ ] Enable Your First Policy Pack
-- [ ] Review Account-Wide Bucket Versioning
+- [ ] Review Account-Wide Governance
 - [ ] Create a Static Exception to a Guardrails Policy
 - [ ] Create a Calculated Exception to a Guardrails Policy
 - [ ] Send an Alert to Email

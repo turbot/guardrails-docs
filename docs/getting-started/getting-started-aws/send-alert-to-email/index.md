@@ -104,12 +104,11 @@ In this guide you configured a simple notification rule and triggered a notifica
 In the [next guide](/guardrails/docs/getting-started/getting-started-aws/apply-quick-action) you’ll learn how to configure for [Quick Actions]([/guardrails/docs/guides/quick-actions](https://turbot.com/guardrails/docs/guides/quick-actions#enabling-quick-actions)) so you can, for example, directly enable versioning on a bucket that’s now in the `Alarm` state and make it green.
 
 ## Progress tracker
-
-- [x] Prepare an AWS Account for import to Guardrails
+- [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
 - [x] Enable Your First Policy Pack
-- [x] Review Account-Wide Bucket Versioning
+- [x] Review Account-Wide Governance
 - [x] Create a Static Exception to a Guardrails Policy
 - [x] Create a Calculated Exception to a Guardrails Policy
 - [x] **Send an Alert to Email**

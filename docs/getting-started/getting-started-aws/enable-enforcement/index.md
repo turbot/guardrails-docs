@@ -60,13 +60,13 @@ This Getting Started series just scratches the surface of what you can do with G
 
 ## Progress tracker
 
-**Congratulations!  You did it!**
+*Congratulations! You did it!**
 
-- [x] Prepare an AWS Account for import to Guardrails
+- [x] Prepare an AWS Account for Import to Guardrails
 - [x] Connect an AWS Account to Guardrails
 - [x] Observe AWS Resource Activity
 - [x] Enable Your First Policy Pack
-- [x] Review Account-Wide Bucket Versioning
+- [x] Review Account-Wide Governance
 - [x] Create a Static Exception to a Guardrails Policy
 - [x] Create a Calculated Exception to a Guardrails Policy
 - [x] Send an Alert to Email
