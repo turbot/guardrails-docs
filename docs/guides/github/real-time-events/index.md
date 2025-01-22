@@ -19,9 +19,8 @@ Guardrails enables organizations to selectively install policies, controls, and 
 - The GitHub organization is successfully [imported](/guardrails/docs/guides/github/import-organization) into the Guardrails.
 - A GitHub personal access token with permissions to create [webhooks](https://docs.github.com/en/webhooks/about-webhooks).
 
----
 
-## Step 1: Required Permission
+## Step 1: Assign Permission(s)
 
 To ensure full functionality of the GitHub integration, grant the personal access token the `Organization Webhooks: Read and write` permission, which allows Guardrails to manage webhooks for capturing real-time events at the organization level.
 
@@ -62,7 +61,7 @@ Select the **Controls** tab. Search for `GitHub > Organization > Event Handlers`
 
    ![GitHub Webhook](/images/docs/guardrails/guides/github/real-time-events/validate-github-org-webhook.png)
 
----
+
 
 ## Troubleshooting
 

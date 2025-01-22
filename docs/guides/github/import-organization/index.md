@@ -130,6 +130,11 @@ Check that the controls are executed by navigating to **Controls** tab and selec
 
 ![Verify Controls](/images/docs/guardrails/guides/github/import-organization/verify-github-controls.png)
 
+
+<!-- ## Next Steps
+
+Refer to the policy packs -->
+
 ## Troubleshooting
 
 | **Issue**                | **Description**                                                                                                                      | **Guide**                                                                                                                                |

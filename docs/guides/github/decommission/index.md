@@ -2,25 +2,16 @@
 title: Decommission Organization
 sidebar_label: Decommission Organization
 ---
-<!--
-## When to decommission Event Handlers
-
-Event Handlers should be decommissioned before:
-
-- Destroying the Github organization itself.
-- Removing the organization from Guardrails supervision.
-- Event Handling is no longer desired for this organization. -->
 
 # Decommission Organization
 
 In this guide, you will:
 
 - Learn how to safely remove a GitHub organization from a Guardrails workspace while managing associated resources.
+- Monitor and troubleshoot the Event deletion process.
 
 Guardrails enables administrators to remove a [GitHub Organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations) from a workspace. This action deletes all associated policies and references in the Guardrails database but **does not affect any resources** within the source GitHub organization.
 
-> [!WARNING]
-> Before starting the process, administrators should determine whether Guardrails-managed resources (e.g., [webhooks](https://docs.github.com/en/webhooks/about-webhooks)) should remain in the organization. The following policies can be configured in Guardrails to facilitate cleanup. Ensure that these changes are applied **only to the target GitHub organization**.
 
 ## Prerequisites
 
@@ -28,38 +19,64 @@ Guardrails enables administrators to remove a [GitHub Organization](https://docs
 - Familiarity with the Guardrails console.
 - Familiarity with GitHub.
 
-## Step 1: Disable Event Handlers
+## Step 1: Login to Guardrails Console
 
-Disable Event Handlers associated with `GitHub > Organization > Event Handlers` by setting the value to `Enforce: Disabled`. This action removes Guardrails-configured webhooks. Once these policies have been applied and the associated controls have completed their cleanup, the GitHub organization can be safely removed from the Guardrails workspace.
+Log in to the Guardrails console.
 
-## Step 2: Remove Credentials Policies
+![Guardrails Console Login](/images/docs/guardrails/guides/github/decommission/guardrails-console-login.png)
+
+
+## Step 2: Disable Event Handlers
+
+> [!WARNING]
+> Before starting the process, administrators should determine whether Guardrails-managed resources (e.g. [webhooks](https://docs.github.com/en/webhooks/about-webhooks)) should remain in the organization. This policy is configured in Guardrails to facilitate cleanup. Ensure that these changes are applied **only to the target GitHub organization**.
+
+Disable Event Handlers associated with `GitHub > Organization > Event Handlers` by setting the value to `Enforce: Disabled`. This action removes Guardrails-configured webhooks in your GitHub organization, it allows now safely remove organization from the Guardrails workspace.
+
+Select the **Policies** tab. Search for `GitHub > Organization > Event Handlers` and select **Setting** to check the current status as `Enforce: Enabled`. Select **Edit** button in top right corner.
+
+![Enforce Enabled](/images/docs/guardrails/guides/github/decommission/current-setting-enforce-enabled.png)
+<!-- Once these policies have been applied and the associated controls have completed their cleanup, the GitHub organization can be safely removed from the Guardrails workspace. -->
+
+Set the policy to `Enforce: Disabled` and select **Update**.
+
+![Enforce Disabled](enforce-disabled.png)
+
+## Step 3: Check GitHub Organization Webhooks
+
+Check the `GitHub > Organization > Event Handlers` control is moved to `OK` with your GitHub organization `Webhooks` does not have any webhook listed which as created part of setting up event handlers as provided [here](/guardrails/docs/guides/github/real-time-events#step-5-verify).
+
+![Removed Webhooks](/images/docs/guardrails/guides/github/decommission/removed-webhooks.png)
+
+## Step 4: Remove Credentials Policies
 
 Delete the policy `GitHub > Config > Personal Access Token` configured for the target GitHub organization. This ensures that Guardrails no longer has access to the organization.
 
-## Step 3: Delete Organization
+![Delete Personal Access Token policy](/images/docs/guardrails/guides/github/decommission/delete-github-config-pat-policy.png)
 
-1. Log in to the Guardrails console.
 
-   ![Guardrails Console Login](/images/docs/guardrails/guides/github/decommission-github-organization/guardrails-console-login.png)
+## Step 5: Delete Organization
 
-2. Navigate to the `Organization` that needs to be removed.
+Navigate to the `Organization` that needs to be removed. Select **Resources** tab and type your organization name to filter the resource in search box.
 
-   ![Navigate to Organization](/images/docs/guardrails/guides/github/decommission-github-organization/navigate-to-organization.png)
+[Locate Organization](/images/docs/guardrails/guides/github/decommission-github-organization/locate-organization.png)
 
-3. Select the **Actions** button in the top-right corner and choose **Remove from Turbot**.
+Select the **Actions** button in the top-right corner and choose **Remove from Turbot**.
 
-   ![Remove from Turbot](/images/docs/guardrails/guides/github/decommission-github-organization/remove-from-turbot.png)
+![Remove from Turbot](/images/docs/guardrails/guides/github/decommission/remove-from-turbot.png)
 
-4. In the popup window, copy the `Organization ID` and paste it into the text box. Select **Delete**.
+In the popup window, copy the `Organization ID` and paste it into the text box. Select **Delete**.
 
-   ![Delete Organization](/images/docs/guardrails/guides/github/decommission-github-organization/delete-organization.png)
+![Delete Organization](/images/docs/guardrails/guides/github/decommission/delete-organization.png)
+
+This should complete the deletion of organization from the Guardrails.
 
 > [!IMPORTANT]
 > If you don’t see the **Remove from Turbot** button, contact your Guardrails administrator to request the required permissions.
 
 > While the deletion is reversible by re-importing the organization, it can be resource-intensive. Double-check all configurations before proceeding.
 
-## Step 4: Verify
+## Step 6: Verify
 
 Guardrails will begin the deletion process. The time required to complete the process depends on the number of policies and resources associated with the organization. Larger organizations may take longer.
 
