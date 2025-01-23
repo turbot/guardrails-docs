@@ -26,7 +26,7 @@ Log into the Guardrails console.
 
 Select **Policies** from the top navigation menu.
 
-![Select Policies](/images/docs/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-select-policies.png)
+![Select Policies](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-select-policies.png)
 
 Choose **Turbot** from the list.
 
@@ -36,32 +36,32 @@ Choose **Turbot** from the list.
 
 Quick actions are `disabled` by default, To enable them, locate **Turbot > Quick Actions** policy.
 
-![Locate Quick Actions](/images/docs/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-search-quick-actions.png)
+![Locate Quick Actions](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-search-quick-actions.png)
 
 Select the **Turbot > Quick Actions > Enabled** policy.
 
-![Select Enabled Policy](/images/docs/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-select-quick-actions-enabled.png)
+![Select Enabled Policy](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-select-quick-actions-enabled.png)
 
 ## Step 4: Enable Quick Actions
 
 On the `Turbot > Quick Actions > Enabled` page, select **New Policy Setting**.
 
-![Select New Policy Setting](/images/docs/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-select-new-policy-setting.png)
+![Select New Policy Setting](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-select-new-policy-setting.png)
 
 Select the desired `Resource` to enable quick actions, set Setting to `Enabled`, and select **Create**. 
 Choose the `Turbot` resource level to apply changes across the entire environment or select an individual account for testing.
 
-![Create Setting](/images/docs/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-select-setting-click-create.png)
+![Create Setting](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-select-setting-click-create.png)
 
 The policy setting has been successfully created.
 
-![Create Setting](/images/docs/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-policy-setting-created.png)
+![Create Setting](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-policy-setting-created.png)
 
 ## Step 5: Verify Quick Actions
 
 To verify, navigate to any desired resource page, where the **Actions** button should be displayed along with the list of available actions.
 
-![Verify Quick Actions](/images/docs/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-verify-quick-actions.png)
+![Verify Quick Actions](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-verify-quick-actions.png)
 
 >[!NOTE] Excpetions/changes to the default permissions required for Quick Actions can be set using the `Turbot > Quick Actions > Permission Levels` policy.
 
