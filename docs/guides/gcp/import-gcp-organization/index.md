@@ -14,7 +14,7 @@ Importing a [GCP Organization](https://cloud.google.com/resource-manager/docs/cl
 
 - Configuring a [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with appropriate permissions at the organization level.
 - Importing the organization via the Guardrails console.
-- For enterprise hosting Guardrails, refer to [Enterprise Configuration](#optional-step-6-enterprise-configuration).
+- For enterprise hosting Guardrails, refer to [Enterprise Configuration](#step-7-setup-for-enterprise-configuration).
 
 ## Prerequisites
 
@@ -22,7 +22,6 @@ Importing a [GCP Organization](https://cloud.google.com/resource-manager/docs/cl
 - The `gcloud` CLI configured in your local environment.
 - Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
 - Minimum [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) version `1.46.x` or later for enterprise-hosted setups.
-
 
 ## Step 1: Choose Supported Authentication
 
