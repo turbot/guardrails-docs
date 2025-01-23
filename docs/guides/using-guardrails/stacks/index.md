@@ -9,6 +9,6 @@ Guardrails [Stack controls](/guardrails/docs/concepts/guardrails/stacks) provide
 
 | Section	          | Description
 |-------------------|-------------------------------------------
-| [Running Stacks](/guardrails/docs/guides/using-guardrails/stacks/running) | Setting up a stack control to create and manage resources.
-| [Destroying Stacks](/guardrails/docs/guides/using-guardrails/stacks/destroying) | Destroying resources managed by a stack.
+| [Deploy a Stack](/guardrails/docs/guides/using-guardrails/stacks/deploy) | Setting up a stack control to create and manage resources.
+| [Destroy  Stack](/guardrails/docs/guides/using-guardrails/stacks/destroy) | Destroying resources managed by a stack.
 

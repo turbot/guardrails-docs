@@ -404,9 +404,8 @@
             "id": "stacks",
             "link": "guides/using-guardrails/stacks",
             "items": [
-              "guides/using-guardrails/stacks/running",
-              "guides/using-guardrails/stacks/destroying",
-              "guides/using-guardrails/stacks/aws-vpc"
+              "guides/using-guardrails/stacks/deploy",
+              "guides/using-guardrails/stacks/destroy"
             ]
           },
           {
