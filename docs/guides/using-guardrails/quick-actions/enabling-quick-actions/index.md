@@ -34,7 +34,7 @@ Choose **Turbot** from the list.
 
 ## Step 3: Select Quick Actions
 
-Quick actions are `disabled` by default, To enable them, locate **Turbot > Quick Actions** policy.
+Quick actions are `Disabled` by default, To enable them, locate **Turbot > Quick Actions** policy.
 
 ![Locate Quick Actions](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-search-quick-actions.png)
 
@@ -59,7 +59,7 @@ The policy setting has been successfully created.
 
 ## Step 5: Verify Quick Actions
 
-To verify, navigate to any desired resource page, where the **Actions** button should be displayed along with the list of available actions.
+To verify, navigate to the desired resource page, where the **Actions** button should be displayed along with the list of available actions.
 
 ![Verify Quick Actions](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-verify-quick-actions.png)
 
