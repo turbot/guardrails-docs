@@ -173,10 +173,7 @@ The `Variables` and `Secret Variables` are not required, however separating the 
 
 
 
-
 ## Drift Detection
-
-> Coming Soon!
 
 Native stacks offer 2 mechanisms for drift detection and correction:
 - Run the stack at regular intervals
@@ -206,8 +203,6 @@ The `Stack [Native] > Drift Detection > Interval ` allows you to specify the int
 
 ## OpenTofu Version
 
-> Coming Soon!
-
 The `Stack [Native] > Version` policy allows you to select which OpenTofu version Turbot should use for the stack.
 
 The policy supports semver semantics, allowing you to use new versions automatically, or to pin to specific versions, depending on your preference. 
@@ -222,6 +217,23 @@ Guardrails native stack containers include standard cloud [providers](https://op
 | **1.8.3** | 5.72.0       | 4.9.0            | 6.10.0          | 3.0.2
 
 
+
+## Best practices
+- Avoid using calculated policies for the `Stack > Source`.  Instead, calculate the `Variables` and/or `Secret Variables` and use Terraform functions and control structures for conditional logic, iteration, etc.   This makes the stack easier to maintain and test.
+- Use `Secret Variables` for inputs that are secrets, like passwords or keys.
+- Use `Variables` for non-sensitive information.  Using `Secret Variables` for non-sensitive inputs creates unnecessary operational complexity, as you will not be able to read the existing values.
+
+
+<!--
+## Regions
+The **Deploy AWS IAM Stack** policy pack uses the `AWS > IAM > Stack [Native]` control to create and subsequently manage IAM resources across your AWS accounts . This control targets an AWS account; regardless of what level you set the stack policies, the control actually runs once for each account in scope, in a single region:
+
+| Partition Name | Partition Id | Region
+|----------------|--------------|---------------
+| Commercial     | `aws`        | `us-east-1`
+| GovCloud       | `aws-gov`    | `us-gov-west-1`
+| China          | `aws-cn`    | `cn-north-1`
+-->
 
 ## Stack [Native] Controls vs Legacy Stacks & Configured Controls
 

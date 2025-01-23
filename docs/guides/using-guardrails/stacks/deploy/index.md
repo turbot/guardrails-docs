@@ -1,23 +1,15 @@
 ---
-title: Running Stacks
-sidebar_label: Running Stacks
+title: Deploy a Stack
+sidebar_label: Deploy a Stack
 ---
 
-# Running Stacks
+# Deploy a Stack
 
 Guardrails can help you centrally deploy, configure, and manage cloud resources using [Guardrails Stacks](/guardrails/docs/concepts/guardrails/stacks). With Guardrails stacks, you describe your configuration in OpenTofu, an open source Terraform implementation, and Guardrails applies it automatically.  Guardrails can re-apply the configuration at regular intervals or whenever resources change, enforcing your standards and preventing configuration drift.
 
 In this Guide we will use the **Deploy AWS IAM Stack** policy pack to deploy an IAM role via OpenTofu.
 
-The **Deploy AWS IAM Stack** policy pack uses the `AWS > IAM > Stack [Native]` control to create and subsequently manage IAM resources across your AWS accounts . This control targets an AWS account; regardless of what level you set the stack policies, the control actually runs once for each account in scope, in a single region:
-
-| Partition Name | Partition Id | Region
-|----------------|--------------|---------------
-| Commercial     | `aws`        | `us-east-1`
-| GovCloud       | `aws-gov`    | `us-gov-west-1`
-| China          | `aws -cn`    | `cn-north-1`
-
-If you need to deploy non-IAM resources, you should use the appropriate service stack (`AWS > VPC > Stack [Native]`, etc) or the general account-level (`AWS > Account > Stack [Native]`) or region-level (`AWS > Region > Stack [Native]`) stack control.
+The **Deploy AWS IAM Stack** policy pack uses the `AWS > IAM > Stack [Native]` control to create and subsequently manage IAM resources across your AWS accounts . This control targets an AWS account; regardless of what level you set the stack policies, the control actually runs once for each account in scope, in a single region.  If you need to deploy non-IAM resources, you should use the appropriate service stack (`AWS > VPC > Stack [Native]`, etc) or the general account-level (`AWS > Account > Stack [Native]`) or region-level (`AWS > Region > Stack [Native]`) stack control.
 
 In this example, we will use the example source in the **Deploy AWS IAM Stack** policy pack to deploy a standard IAM role.  You can, however, modify the source, variables, and other policies to meet your needs.
 
@@ -42,7 +34,7 @@ The `policies.tf` contains the policy settings for this policy pack.  The `AWS >
 
 In this policy pack, the source is read from the `stack/source.tofu`.  This file contains the OpenTofu source that we will use in our example to create our IAM role.  The `Source` policy is just standard OpenTofu code that creates an IAM role.
 
-You can, of course, modify, extend, pr replace this configuration to meet your specific needs - set up IAM roles, users, policies, trust relationships, etc, all using standard OpenTofu!  For the purpose of this guide, however, we will run it as-is.
+You can, of course, modify, extend, or replace this configuration to meet your specific needs - set up IAM roles, users, policies, trust relationships, etc, all using standard OpenTofu!  For the purpose of this guide, however, we will run it as-is.
 
 > [!IMPORTANT]
 > Note that the stack expects to continue to manage any resources that are created by the stack - if you delete a resource from the OpenTofu configuration in the `Source` policy, the stack control will destroy the resource. If you modify a resource in the `Source`, the control will modify that AWS resource accordingly.
@@ -118,14 +110,14 @@ For more information, please see [Policy Packs](https://turbot.com/guardrails/do
 
 In a few seconds, the stack control will run and create an IAM role for each account in scope.  You can [view the process logs for the control](/guardrails/docs/guides/using-guardrails/troubleshooting/access-control-logs) (even while its running!) to view the the OpenTofu output.
 
-![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/running/aws_iam_stack_control_log_create_top.png)
+![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/deploy/aws_iam_stack_control_log_create_top.png)
 
 
 ## Step 8: Review
 
 After the stack has run, check the status of the `AWS > IAM > Stack [Native]` controls for the accounts in scope.  When the controls have all completed, they should be in the 'OK' state.
 
-![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/running/aws_iam_stack_controls_ok.png)
+![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/deploy/aws_iam_stack_controls_ok.png)
 
 
 You can verify that VPCs have been created in the accounts that you specified.  
