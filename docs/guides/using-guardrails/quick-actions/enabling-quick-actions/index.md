@@ -63,7 +63,7 @@ To verify, navigate to the desired resource page, where the **Actions** button s
 
 ![Verify Quick Actions](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-verify-quick-actions.png)
 
->[!NOTE] Excpetions/changes to the default permissions required for Quick Actions can be set using the `Turbot > Quick Actions > Permission Levels` policy.
+>[!NOTE] Exceptions/changes to the default permissions required for Quick Actions can be set using the `Turbot > Quick Actions > Permission Levels` policy.
 
 If you encounter any issues, please [Open Support Ticket](https://support.turbot.com) and attach the relevant information to assist you more efficiently.
 
