@@ -1,12 +1,9 @@
 ---
-title: "Importing an AWS organization into Guardrails"
-template: Documentation
-nav:
-  title: "Importing Organizations"
-  order: 15
+title: Import Organization
+sidebar_label: Import Organization
 ---
 
-# Importing an AWS organization into Guardrails
+# Importing an AWS organization
 
 In this guide, you will:
 
