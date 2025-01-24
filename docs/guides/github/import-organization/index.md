@@ -113,7 +113,7 @@ Provide `Personal Access Token` and Select **Connect**.
 
 ![Connect](/images/docs/guardrails/guides/github/import-organization/connect.png)
 
-## Step 6: Review
+## Step 7: Review
 
 - [ ] Check that the controls are executed by navigating to **Controls** tab and select GitHub. This should display the default controls for `Organization` and `Repository` in `OK` state.
 

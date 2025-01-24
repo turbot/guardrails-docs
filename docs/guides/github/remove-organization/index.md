@@ -52,7 +52,7 @@ Delete the `GitHub > Config > Personal Access Token` policy configured for the t
 ![Delete Personal Access Token Policy](/images/docs/guardrails/guides/github/remove-organization/delete-github-config-pat-policy.png)
 
 
-## Step 5: Delete Organization
+## Step 5: Remove Organization
 
 Select the **Resources** tab in Guardrails console and enter your organization name in the search box to locate the resource. Navigate to the `Organization` that needs to be removed.
 
