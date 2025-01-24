@@ -20,7 +20,7 @@ Guardrails enables administrators to remove a [GitHub Organization](https://docs
 
 ## Step 1: Log in to Guardrails Console
 
-Log in to the Guardrails console.
+Log into the Guardrails console with provided local credentials or by using any SAML based login.
 
 ![Guardrails Console Login](/images/docs/guardrails/guides/github/decommission/guardrails-console-login.png)
 
@@ -41,7 +41,7 @@ Set the policy to `Enforce: Disabled` and select **Update**.
 
 ## Step 3: Check GitHub Organization Webhooks
 
-Ensure the `GitHub > Organization > Event Handlers` control status is `OK`, and verify that your GitHub organization no longer has any webhooks created as part of the event handler setup. Refer to the verification steps provided [here](/guardrails/docs/guides/github/real-time-events#step-5-verify).
+Ensure the `GitHub > Organization > Event Handlers` control status is `OK`, and verify that your GitHub organization no longer has any webhooks created as part of the event handler setup. Refer to the verification steps provided in [Configuring Real-Time Event Handlers](/guardrails/docs/guides/github/real-time-events#step-5-verify).
 
 ![Removed Webhooks](/images/docs/guardrails/guides/github/decommission/removed-webhooks.png)
 
@@ -57,7 +57,7 @@ Delete the `GitHub > Config > Personal Access Token` policy configured for the t
 
 Select the **Resources** tab in Guardrails console and type your organization name in the search box to locate the resource. Navigate to the `Organization` that needs to be removed.
 
-![Locate Organization](/images/docs/guardrails/guides/github/decommission-github-organization/locate-organization.png)
+![Locate Organization](/images/docs/guardrails/guides/github/decommission/locate-organization.png)
 
 Select the **Actions** button in the top-right corner and choose **Remove from Turbot**.
 
@@ -81,13 +81,6 @@ Guardrails will begin the deletion process. The time required to complete the pr
 
 After completing the steps above, verify that the GitHub organization no longer appears in the Guardrails console. Ensure that no residual event handlers or configurations remain.
 
-
-## Next Steps
-
-Please see the following resources to learn more about Turbot Guardrails:
-
-- Learn more about [Managing GitHub Organizations](guides/github/manage-organizations).
-- Explore the supported use cases in Guardrails with [Policy Packs](https://hub.guardrails.turbot.com/policy-packs?providers=github).
 
 ## Troubleshooting
 

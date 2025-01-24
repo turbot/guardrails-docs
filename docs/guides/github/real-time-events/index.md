@@ -28,7 +28,7 @@ Follow the steps provided in [Grant Permissions](/guardrails/docs/guides/github/
 
 ## Step 2: Log in to Guardrails Console
 
-Log in to the Guardrails console.
+Log into the Guardrails console with provided local credentials or by using any SAML based login.
 
 ![Guardrails Console Login](/images/docs/guardrails/guides/github/real-time-events/guardrails-console-login.png)
 
@@ -53,6 +53,8 @@ Select the **Controls** tab. Search for `GitHub > Organization > Event Handlers`
 
 ## Step 5: Verify
 
+## Step 5: Verify
+
 - [ ] Check that the control status for the respective organization is `OK` with the message `Configured`.
 
    ![Check Control Configured](/images/docs/guardrails/guides/github/real-time-events/control-configured-ok.png)
@@ -61,7 +63,16 @@ Select the **Controls** tab. Search for `GitHub > Organization > Event Handlers`
 
    ![GitHub Webhook](/images/docs/guardrails/guides/github/real-time-events/validate-github-org-webhook.png)
 
+- [ ] To verify that the event handlers are working, create a repository in your GitHub organization. Then, check the control `GitHub > Repository > CMDB` and select **Descendant** to ensure the CMDB control displays the newly created repository.
 
+   ![Repository CMDB Controls](/images/docs/guardrails/guides/github/real-time-events/repository-cmdb-controls.png)
+
+## Next Steps
+
+Please see the following resources to learn more about Turbot Guardrails:
+
+- Learn more about [Managing GitHub Organizations](guides/github/manage-organizations).
+- Explore the GitHub supported use cases in Guardrails with [Policy Packs](https://hub.guardrails.turbot.com/policy-packs?providers=github).
 
 ## Troubleshooting
 

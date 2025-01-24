@@ -19,11 +19,9 @@ Importing a [GitHub Organization](https://docs.github.com/en/organizations/colla
 
 - Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
 - Availability of [GitHub mod](https://hub.guardrails.turbot.com/mods/github/mods) in your Guardrails workspace.
-- Familiarity with the [GitHub](https://github.com/).
+- Familiarity and access to the [GitHub](https://github.com/).
 - [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/quickstart) setup.
-- [Access to personal token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
-
-<!-- ## Supported Authentication -->
+- Workspace should be in TE `>=v5.48.x`.
 
 ## Step 1: Setting Personal Access Token Policy for Your Organization
 
@@ -69,50 +67,36 @@ To ensure full functionality of the GitHub integration, we recommend granting th
 | Repository Administration            | Read and write      | Grants Guardrails the ability to manage repository settings, including access controls and policies.  |
 | Organization Blocking Users          | Read and write      | Enables Guardrails to block and unblock users within the organization.                               |
 
-<!-- > [!NOTE]
-> The minimum required permissions to import an organization are `Organization Administration` with `Read and write`, `Repository Metadata` with `Read-only`, and `Organization Webhooks` for configuring GitHub event handlers in Guardrails. Additional permissions may be required depending on specific control needs. -->
 
 Select **Edit**, which allows to make edit in `Permissions` section.
 
 ![Edit Personal Token](/images/docs/guardrails/guides/github/import-organization/edit-personal-token.png)
 
-Associate required permissions mentioned in the above table.
+Associate required permissions mentioned in the above table by selecting **All repositories** and selecting each section for `Repository permissions` and `Organization permissions`.
 
-![Associated Permission](/images/docs/guardrails/guides/github/import-organization/associated-org-permission.png)
+![Associated Permission](/images/docs/guardrails/guides/github/import-organization/associate-org-permission.png)
 
-## Step 5: Get Organization ID
+## Step 5: Validate Personal Access Token at Organization
 
-Organization ID is mandatory input in Guardrails console. There are various ways to get the GitHub organization ID.
+Navigate to your GitHub organization URL e.g. `https://github.com/organizations/adapt-cloud-security` and select **Settings**.
 
-Use [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/quickstart) and run the following command to get the ID of the organization you want to import.
+![Organization Settings](/images/docs/guardrails/guides/github/import-organization/organization-settings.png)
 
-```
-gh api orgs/<organization name> --jq '.id'
-```
+Navigate to **Personal access tokens** in left side panel, select **Active tokens**.
 
-Alternatively, you can use `curl` command.
+![Org Personal Access Token](/images/docs/guardrails/guides/github/import-organization/select-active-tokens.png)
 
-```
-curl https://api.github.com/orgs/<your-org-name>
-```
-The result will be shown as below:
+It should display you the token created in the above step, select the token to check the required permissions are associated.
 
-```json
-{
-  "login": "your-org-name",
-  "id": 94844722,
-  "node_id": "O_kgDOBac5MQ",
-  "url": "https://api.github.com/orgs/your-org-name",
-  ....
-}
-```
+![Associated Permissions](/images/docs/guardrails/guides/github/import-organization/associated-permissions-in-pat.png)
+
 ## Step 6: Log in to Guardrails Console
 
-Log in to the Guardrails console.
+Log into the Guardrails console with provided local credentials or by using any SAML based login.
 
 ![Guardrails Console Login](/images/docs/guardrails/guides/github/import-organization/guardrails-console-login.png)
 
-## Step 7: Import Organization in Guardrails Console
+## Step 7: Import Organization into Guardrails
 
 Login to your Guardrails workspace console and select the **CONNECT** card.
 
@@ -122,27 +106,31 @@ Select **GitHub** card from the connect panel.
 
 ![Connect GitHub Card](/images/docs/guardrails/guides/github/import-organization/connect-github-card.png)
 
-Choose the location where you want to import the organization. Typically this would be done at the `Turbot` root level of your hierarchy, however it can reside in a [Folder](/guardrails/docs/concepts/resources/hierarchy#folders) based on your use-case.
+Choose the folder where you want to import the organization. Typically this would be done at the `Turbot` root level of your hierarchy, however it can reside in a [Folder](/guardrails/docs/concepts/resources/hierarchy#folders) based on your use-case.
 
 ![Choose Location](/images/docs/guardrails/guides/github/import-organization/choose-location.png)
 
-Provide `Organization Name`, `Organization ID`, `Personal Access Token` and choose **Connect**.
+Get organization URL from GitHub **Overview** section. Copy the URL and past it in `Organization URL` text box.
+
+![Get Org URL](/images/docs/guardrails/guides/github/import-organization/get-org-url.png)
+
+Provide `Personal Access Token` and Select **Connect**.
 
 ![Connect](/images/docs/guardrails/guides/github/import-organization/connect.png)
 
+
 ## Step 8: Verify
 
-Check that the controls are executed by navigating to **Controls** tab and select GitHub.
+- [ ] Check that the controls are executed by navigating to **Controls** tab and select GitHub. This should display the default controls for `Organization` and `Repository` in `OK` state.
 
 ![Verify Controls](/images/docs/guardrails/guides/github/import-organization/verify-github-controls.png)
-
 
 ## Next Steps
 
 Please see the following resources to learn more about Turbot Guardrails:
 
-- Learn more about [Managing GitHub Organizations](guides/github/manage-organizations).
-- Explore the supported use cases in Guardrails with [Policy Packs](https://hub.guardrails.turbot.com/policy-packs?providers=github).
+- Learn more about [GitHub Event Handlers](/guardrails/docs/guides/github/real-time-events).
+- Explore the GitHub supported use cases in Guardrails with [Policy Packs](https://hub.guardrails.turbot.com/policy-packs?providers=github).
 
 ## Troubleshooting
 
