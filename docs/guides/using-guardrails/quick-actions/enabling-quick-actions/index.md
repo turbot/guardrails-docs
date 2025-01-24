@@ -1,9 +1,9 @@
 ---
-title: Enabling Quick Actions in Your Environment
-sidebar_label: Enabling Quick Actions in Your Environment
+title: Enabling Quick Actions
+sidebar_label: Enabling Quick Actions
 ---
 
-# Enabling Quick Actions in Your Environment
+# Enabling Quick Actions
 
 In this guide, you will:
 - Use Guardrails console to enable quick actions in your environment.
