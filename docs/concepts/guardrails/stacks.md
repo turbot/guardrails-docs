@@ -224,16 +224,18 @@ Guardrails native stack containers include standard cloud [providers](https://op
 - Use `Variables` for non-sensitive information.  Using `Secret Variables` for non-sensitive inputs creates unnecessary operational complexity, as you will not be able to read the existing values.
 
 
-<!--
-## Regions
-The **Deploy AWS IAM Stack** policy pack uses the `AWS > IAM > Stack [Native]` control to create and subsequently manage IAM resources across your AWS accounts . This control targets an AWS account; regardless of what level you set the stack policies, the control actually runs once for each account in scope, in a single region:
+## Primary Regions
+
+Stack controls that target the account run in a single "primary" region. For AWS account-level stacks (`AWS > Account > Stack [Native]` and `AWS > IAM > Stack [Native]`), this  region varies depending on the partition:
 
 | Partition Name | Partition Id | Region
 |----------------|--------------|---------------
 | Commercial     | `aws`        | `us-east-1`
 | GovCloud       | `aws-gov`    | `us-gov-west-1`
-| China          | `aws-cn`    | `cn-north-1`
--->
+| China          | `aws-cn`     | `cn-north-1`
+
+The `GCP > Project > Stack [Native]` stack runs in `us-east1`.
+
 
 ## Stack [Native] Controls vs Legacy Stacks & Configured Controls
 

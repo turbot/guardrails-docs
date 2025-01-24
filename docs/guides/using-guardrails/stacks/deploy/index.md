@@ -9,7 +9,7 @@ Guardrails can help you centrally deploy, configure, and manage cloud resources 
 
 In this Guide we will use the **Deploy AWS IAM Stack** policy pack to deploy an IAM role via OpenTofu.
 
-The **Deploy AWS IAM Stack** policy pack uses the `AWS > IAM > Stack [Native]` control to create and subsequently manage IAM resources across your AWS accounts . This control targets an AWS account; regardless of what level you set the stack policies, the control actually runs once for each account in scope, in a single region.  If you need to deploy non-IAM resources, you should use the appropriate service stack (`AWS > VPC > Stack [Native]`, etc) or the general account-level (`AWS > Account > Stack [Native]`) or region-level (`AWS > Region > Stack [Native]`) stack control.
+The **Deploy AWS IAM Stack** policy pack uses the `AWS > IAM > Stack [Native]` control to create and subsequently manage IAM resources across your AWS accounts . This control targets an AWS account; regardless of what level you set the stack policies, the control actually runs once for each account in scope, [in a single region](/guardrails/docs/concepts/guardrails/stacks#primary-regions).  If you need to deploy non-IAM resources, you should use the appropriate service stack (`AWS > VPC > Stack [Native]`, etc) or the general account-level (`AWS > Account > Stack [Native]`) or region-level (`AWS > Region > Stack [Native]`) stack control.
 
 In this example, we will use the example source in the **Deploy AWS IAM Stack** policy pack to deploy a standard IAM role.  You can, however, modify the source, variables, and other policies to meet your needs.
 
@@ -45,7 +45,7 @@ You can, of course, modify, extend, or replace this configuration to meet your s
 Like the `Source` policy, the the `AWS > IAM > Stack [Native] > Variables` policy is configured in the `policies.tf`, which in turn reads its value from a file (`stack/variables.auto.tfvars`).  The `Variables` policy allows you to pass variable values to the stack; it is essentially a [tfvars](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files) for the stack control.
 
 Separating the configuration (`Source`) from the data (`Variables`) is
-considered best practice when using stacks:
+considered [best practice](/guardrails/docs/concepts/guardrails/stacks#best-practices) when using stacks:
 - This makes the source easily testable outside of Guardrails.
 - You can modify the behavior on a per-instance basis by simply editing the `Variables` - the
   `Source` does not change.
@@ -115,7 +115,7 @@ In a few seconds, the stack control will run and create an IAM role for each acc
 
 ## Step 8: Review
 
-After the stack has run, check the status of the `AWS > IAM > Stack [Native]` controls for the accounts in scope.  When the controls have all completed, they should be in the 'OK' state.
+After the stack has run, check the status of the `AWS > IAM > Stack [Native]` controls for the accounts in scope.  When the controls have all completed, they should be in the 'OK' state.  You can check their status individually from the [control detail page](/guardrails/docs/guides/using-guardrails/console/detail-pages#control-details), or view them all from the **Controls** tab by [searching or filtering on the `AWS > IAM > Stack [Native]` type](/guardrails/docs/guides/using-guardrails/searching-filtering). 
 
 ![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/deploy/aws_iam_stack_controls_ok.png)
 

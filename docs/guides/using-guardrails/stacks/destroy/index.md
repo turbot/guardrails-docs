@@ -65,6 +65,9 @@ terraform apply
 
 The `AWS > IAM > Stack [Native]` will run automatically because the policies have changed.  Since the AWS configuration no longer matches the `Source`, the controls will go to an `Alarm` state.  Because we set the primary control to `Check: Configured`, however, the stack will not delete the resources at this time. 
 
+You can check the control status individually from the [control detail page](/guardrails/docs/guides/using-guardrails/console/detail-pages#control-details), or view them all from the **Controls** tab by [searching or filtering on the `AWS > IAM > Stack [Native]` type](/guardrails/docs/guides/using-guardrails/searching-filtering). 
+
+
 ![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/destroy/aws_iam_stack_controls_alarm.png)
 
 You can [view the process logs for the control](/guardrails/docs/guides/using-guardrails/troubleshooting/access-control-logs) to view the the OpenTofu output and preview the deletion
@@ -106,6 +109,9 @@ In a few seconds, the stack control will run and destroy the IAM resources in ea
 ## Step 8: Review
 
 After the stack has run, check the status of the `AWS > IAM > Stack [Native]` controls for the accounts in scope.  When the controls have all finished running, they should be in the 'OK' state.
+
+You can check the control status individually from the [control detail page](/guardrails/docs/guides/using-guardrails/console/detail-pages#control-details), or view them all from the **Controls** tab by [searching or filtering on the `AWS > IAM > Stack [Native]` type](/guardrails/docs/guides/using-guardrails/searching-filtering). 
+
 
 ![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/deploy/aws_iam_stack_controls_ok.png)
 
