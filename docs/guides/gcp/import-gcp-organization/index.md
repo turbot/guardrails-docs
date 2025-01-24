@@ -19,9 +19,10 @@ Importing a [GCP Organization](https://cloud.google.com/resource-manager/docs/cl
 ## Prerequisites
 
 - Familiarity with the GCP Console, including admin privileges.
-- The `gcloud` CLI configured in your local environment.
+- The `gcloud` CLI configured on your local environment.
 - Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
-- Minimum [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) version `1.46.x` or later for enterprise-hosted setups.
+- The [GCP mod](https://hub.guardrails.turbot.com/mods/gcp/mods/gcp) installed in your Guardrails workspace.
+- A minimum [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) version of `1.46.x` or later for enterprise-hosted setups.
 
 ## Step 1: Choose Supported Authentication
 
@@ -29,10 +30,10 @@ Choose one of the following authentication methods for onboarding the GCP organi
 
 Guardrails supports two credential methods to import a GCP Organization:
 
-- **Service Account Impersonation**: Grants temporary credentials using [service account impersonation](https://cloud.google.com/iam/docs/impersonating-service-accounts).
+- **Service Account Impersonation**: Grants temporary credentials using GCP [Service account impersonation](https://cloud.google.com/iam/docs/impersonating-service-accounts).
 - **JSON Credential File**: Uses a downloaded JSON key file or requires copying and pasting the `private_key` section of the JSON file.
 
-> [!NOTE]
+> [!TIP]
 > We recommend **Service Account Impersonation**, as it eliminates the need to download or manage a JSON key, reducing security risks. This guide demonstrates **Service Account Impersonation**.
 
 > If you prefer to use the **JSON Credential File**, refer to the steps mentioned in [Connect a GCP Project](/guardrails/docs/getting-started/getting-started-gcp/connect-project#step-4-upload-key-file) in the `Getting Started with GCP` guide.
@@ -49,7 +50,7 @@ The table below outlines the minimum permissions required for organization-wide 
 | **Organization Viewer**| Allows read-only access to view metadata and monitor all resources at the organization level, enabling oversight without configuration changes.                                                  | [Organization Viewer](https://cloud.google.com/resource-manager/docs/access-control-org#resourcemanager.organizationViewer) `roles/resourcemanager.organizationViewer`.                                                                           |
 | **Project Viewer**      | Provides read-only access to view project-level metadata and resources, ensuring visibility without allowing any modifications.                                                                                     | `roles/viewer`.                                                                                                       |
 
-> [!IMPORTANT]
+> [!NOTE]
 > To import an organization, you need only `Organization Viewer`, `Project Viewer`, and `Folder Viewer` roles to allow the discovery of all resources under the organization.
 
 > If Guardrails attempts an action (e.g., enabling APIs, modifying resources) without sufficient permissions, you will encounter `access denied` errors. To resolve this, ensure the required permissions are granted or update the Guardrails policies to align with your organization's requirements.
@@ -113,89 +114,10 @@ gcloud organizations add-iam-policy-binding ORGANIZATION_ID --member="serviceAcc
 ```
 </details>
 
-## Step 5: Configure Service Account Impersonation
+## Step 5: Prepare Enterprise Configuration
 
-[Service Account Impersonation](https://cloud.google.com/iam/docs/service-account-impersonation#impersonation-overview) grants short-lived credentials to Guardrails, allowing it to act as a specified service account without requiring a JSON key file. This approach reduces the security risk of storing or distributing long-lived credentials.
-
-### Prerequisites
-
-- The **impersonating** user or service account (i.e. `the identity that runs Guardrails`) must have the **Service Account Token Creator** role (`roles/iam.serviceAccountTokenCreator`) on the target service account.
-
-- The **target** service account just created for organization importing purpose i.e. the one being impersonated must have the **required organization-level permissions** as as described in [What Permissions to Grant](#required-permissions-on-service-account) to discover or manage resources across your GCP Organization.
-
-> [!NOTE]
-> The CLI command for impersonation is generated in the Guardrails console during setup, when you choose `Access Mode` as `Service Account Impersonation`, provide `Organization ID` and `Client email`.
-
-<!-- Login to the Guardrails console, select **CONNECT** card, choose `GCP` card from the panel and select `GCP Organization` to proceed with the required details. -->
-
-Follow steps provided in [Step 7](#step-7-import-organization-into-guardrails) to generate the gcloud command.
-
-Refer to the image below for guidance:
-
-![Generate Service Account Impersonation](/images/docs/guardrails/guides/gcp/import-gcp-organization/generate-service-account-impersonation.png)
-
-Select **Copy gcloud command**.
-
-## Step 6: Execute gcloud CLI Command
-
-[Install the gcloud CLI](https://cloud.google.com/sdk/docs/install), guide provided by Google Cloud.
-
-The copied command from the [Step 5](#step-5-configure-service-account-impersonation) should be executed in your local setup.
-
-```bash
-# Replace SERVICE_ACCOUNT_NAME and PROJECT_ID with your service account's name/project
-# Replace IMPERSONATOR_EMAIL with the user or service account that will impersonate it
-
-gcloud iam service-accounts add-iam-policy-binding SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com --member="user:IMPERSONATOR_EMAIL" --role="roles/iam.serviceAccountTokenCreator"
-```
-
-<!-- ## Using JSON Credential File
-
-- In the [Google Cloud console](https://console.cloud.google.com), navigate to **IAM & Admin** > **Service Accounts**.
-- Select the **Project** where your service account resides.
-- Locate the service account you created for Guardrails, and select on its **Actions** menu (three dots on the right).
-- Select [Manage keys](/guardrails/docs/getting-started/getting-started-gcp/prepare-project#step-7-locate-key-manager).
-- Select [Add key and Create new key](/guardrails/docs/getting-started/getting-started-gcp/prepare-project#step-8-add-key)
-- Choose **JSON** as the **Key type**, and click **Create**.
-- A JSON file will download automatically to your local machine. **Keep this file secure**. E.g. Save this as `key.json`.
-
-<details>
-  <summary>Example: Using CLI Command</summary>
-
-```bash
-# This command will create a file named "key.json" in your current directory
-gcloud iam service-accounts keys create key.json --iam-account=guardrails-sa@my-project.iam.gserviceaccount.com
-```
-
-</details>
-
-## Using Private Key
-
-The `private_key` in the `key.json` you generated is the **required secret** to import the GCP organization into a Guardrails workspace. Guardrails requires this key in **multi-line** format, **not** as a single, long string.
-
-For example, after generating your JSON key file (`key.json`), you can extract the private key portion by running:
-
-```bash
-cat key.json | jq -r .private_key
------BEGIN PRIVATE KEY-----
-MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQClvph2e9f6Dl/H
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-<truncated>
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-Pwd0PmmSB1U3h3+Ued/eDhw=
------END PRIVATE KEY-----
-```
-> [!NOTE]
-> You may use one of the option either [Using Using JSON Credential File](#using-json-credential-file) or [Using Private Key](#using-private-key) or [Using Service Account Impersonation](#using-service-account-impersonation) -->
-
-## Step 7: Setup for Enterprise Configuration
-
-> [!NOTE]
-> This section applies only to Enterprise-hosted Guardrails setups.
+> [!IMPORTANT]
+> This step applies only to Enterprise-hosted Guardrails setups using Service Account Impersonation. Enterprise users using JSON credential based authentication need not proceed with this step.
 
 > For SaaS customers, this configuration is managed by Turbot.
 
@@ -203,7 +125,7 @@ The GCP organization import feature requires [TED](/guardrails/docs/reference/gl
 
 ### Prerequisites
 
-- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
+- Access to the Guardrails primary AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with the AWS Console, Service Catalog, and CloudFormation services.
 
 ### Create SSM Parameter
@@ -216,7 +138,7 @@ Create a `Secure String` with the `Tier` set to `Standard`.
 
 ![Paste JSON Credential](/images/docs/guardrails/guides/gcp/import-gcp-organization/create-secure-standard-string.png)
 
-See [here](#using-json-credential-file) how to download JSON credential file.
+See [**here**](/guardrails/docs/getting-started/getting-started-gcp/prepare-project#step-9-create-key) how to create and download JSON credential file.
 
 Paste the JSON credential content into the **Value** field and select **Create parameter**.
 
@@ -226,15 +148,16 @@ For more details, refer to the AWS guide on [Creating a Parameter Store paramete
 
 ### Update TED Stack
 
-Follow the steps in [Update Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-ted).
+It's time to update the created SSM parameter name in the TED. Follow the steps in [Update Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-ted).
 
-Navigate to the `GCP Service Account Private Key SSM Parameter` section of the TED stack (near the end) and update the manually created SSM parameter name as shown below. Select **Update** to proceed.
+Navigate to the `GCP Service Account Private Key SSM Parameter` section of the TED stack (towards the end) and update the manually created SSM parameter name as shown below. Select **Update** to proceed.
 
 ![Update TED Stack Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/update-ted-stack-parameter.png)
 
-## Step 7: Import Organization into Guardrails
 
-Log in to your Guardrails workspace console and select the **CONNECT** card.
+## Step 6: Import Organization into Guardrails
+
+Log into the Guardrails console with provided local credentials or by using any SAML based login and select the **CONNECT** card.
 
 ![Select Connect](/images/docs/guardrails/guides/gcp/import-gcp-organization/select-connect.png)
 
@@ -242,26 +165,68 @@ Select **GCP** and then choose the **GCP Organization** option.
 
 ![Select GCP](/images/docs/guardrails/guides/gcp/import-gcp-organization/select-gcp.png)
 
-Choose the folder where the organization will be imported.
 
-![Choose Import Location](/images/docs/guardrails/guides/gcp/import-gcp-organization/choose-import-location.png)
-
-Choose one of the `Access modes` from the provided list. In this example, **Service Account impersonation** is selected. Provide the `Organization ID` for your GCP organization and the `Client email`. Guardrails will use this email ID for impersonation.
+Choose the [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where the GCP organization will be imported.
+Choose one of the `Access modes` from the provided list. In this guide, **Service Account impersonation** is demonstrated.
+Provide the `Organization ID` for your GCP organization and the `Client email`. Guardrails will use this email ID for impersonation.
 
 ![Provide GCP Org Details](/images/docs/guardrails/guides/gcp/import-gcp-organization/gcp-org-details.png)
 
-Set up impersonation. Select the [**Copy gcloud command**](#prerequisites-for-configuration), provide the `External ID label`, and select **Connect** to begin the discovery and management process.
+Proceed to Step 7 for setting up Service Account Impersonation.
 
-![Setup Impersonate](/images/docs/guardrails/guides/gcp/import-gcp-organization/setup-impersonate.png)
+## Step 7: Setup Service Account Impersonation
+
+- The **impersonating** user or service account (i.e. `the identity that runs Guardrails`) must have the **Service Account Token Creator** role (`roles/iam.serviceAccountTokenCreator`) on the target service account.
+
+- The **target** service account just created for organization importing purpose i.e. the one being impersonated must have the **required organization-level permissions** as as described in [What Permissions to Grant](#required-permissions-on-service-account) to discover or manage resources across your GCP Organization.
+
+In the same page, select **Copy gcloud command**.
+
+![Generate Service Account Impersonation](/images/docs/guardrails/guides/gcp/import-gcp-organization/generate-service-account-impersonation.png)
+
+Now execute copied command using [gcloud CLI](https://cloud.google.com/sdk/docs/install) in your local environment.
+
+```bash
+# Replace SERVICE_ACCOUNT_NAME and PROJECT_ID with your service account's name/project
+# Replace IMPERSONATOR_EMAIL with the user or service account that will impersonate it
+
+gcloud iam service-accounts add-iam-policy-binding SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com --member="user:IMPERSONATOR_EMAIL" --role="roles/iam.serv
+```
+
+## Step 9: Create External ID Label
+
+The `External ID label` serves as a crucial service account identifier within the project that your service account belongs to. Create a label with the key `guardrails_external_id` and value: `turbot_162167737252865_r43r4r43`. This value is auto-populated by Guardrails.
+
+> [!NOTE]
+> The `Label` key and the highlighted portion of the text field (i.e., `turbot_162167737252865` in the format `turbot_{current workspace id}`) cannot be altered. However, you can customize only the third part of the text.
+
+> NEW IMAGE TO BE UPDATED
+> ![Generate External ID Label](/images/docs/guardrails/guides/gcp/import-gcp-organization/generate-external-id-label-and-create.png)
+
+Log in to the GCP console and navigate to the project where the configured service account resides. Select **Labels** from the side navigation panel, add `guardrails_external_id` as the label key, and `turbot_162167737252865_r43r4r43` as the value. Click **+Add label** to save the label.
+
+![Create GCP Label](/images/docs/guardrails/guides/gcp/import-gcp-organization/gcp-label-creation.png)
+
+Guardrails will use this label to verify that you have the correct permissions and are importing the appropriate organization.
+
+> [!IMPORTANT]
+> The `External ID` label created for this organization import must be retained within the respective GCP project.
+
+## Step 10: Initiate Connect
+
+Select **Connect**
+
+NEW IMAGE
 
 Guardrails will create and execute discovery controls for your GCP Organization, scanning each project and resource based on the configured policies.
 
-> [!IMPORTANT]
-> This step applies only when you choose *Service Account impersonation*.
-> The `External ID` label created for this organization import must be retained within the respective GCP project.
+## Verify
 
+- [ ] TO DO
 
-## (Optional)Step 8: Ensure Billing is Enabled
+- [ ] TO DO
+
+## (Optional)Step 11: Ensure Billing is Enabled
 
 If you plan to allow Guardrails to enable new APIs or create resources that may incur charges, ensure that billing is enabled at the **organization** level or for specific projects as needed. For more details, refer to the GCP guide [Manage your Cloud Billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account).
 
