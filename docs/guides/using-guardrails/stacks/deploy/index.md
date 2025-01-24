@@ -115,12 +115,12 @@ In a few seconds, the stack control will run and create an IAM role for each acc
 
 ## Step 8: Review
 
-After the stack has run, check the status of the `AWS > IAM > Stack [Native]` controls for the accounts in scope.  When the controls have all completed, they should be in the 'OK' state.  You can check their status individually from the [control detail page](/guardrails/docs/guides/using-guardrails/console/detail-pages#control-details), or view them all from the **Controls** tab by [searching or filtering on the `AWS > IAM > Stack [Native]` type](/guardrails/docs/guides/using-guardrails/searching-filtering). 
+- [ ] After the stack has run, check the status of the `AWS > IAM > Stack [Native]` controls for the accounts in scope.  When the controls have all completed, they should be in the 'OK' state.  You can check their status individually from the [control detail page](/guardrails/docs/guides/using-guardrails/console/detail-pages#control-details), or view them all from the **Controls** tab by [searching or filtering on the `AWS > IAM > Stack [Native]` type](/guardrails/docs/guides/using-guardrails/searching-filtering).
 
 ![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/deploy/aws_iam_stack_controls_ok.png)
 
 
-You can verify that VPCs have been created in the accounts that you specified.  
+- [ ] Verify that VPCs have been created in the accounts that you specified.
 
 ```bash
 $ aws iam get-role --role-name read_only_role --profile dmi-scranton
@@ -150,7 +150,7 @@ $ aws iam get-role --role-name read_only_role --profile dmi-scranton
 ```
 
 ## Next Steps
-- Learn more about Guardrails [Stack controls](/guardrails/docs/concepts/guardrails/stacks) 
+- Learn more about Guardrails [Stack controls](/guardrails/docs/concepts/guardrails/stacks)
 
 ## Troubleshooting
 
