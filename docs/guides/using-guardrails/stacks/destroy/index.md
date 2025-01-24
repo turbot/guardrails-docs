@@ -16,7 +16,7 @@ In this guide, you will configure stack policies to preview deletion and then de
 - Install and attach the **Deploy AWS IAM Stack** policy pack, per the [Running Stacks guide](/guardrails/docs/guides/using-guardrails/stacks/deploy)
 
 
-## Step 1: Change the Primary Policy to Preview the Deletion
+## Step 1: Change Primary Policy to Preview Deletion
 
 The `AWS > IAM > Stack [Native]` policy is the primary policy for the `AWS > IAM > Stack [Native]` control.  This policy determines the enforcement behavior.  To preview the changes before enforcing them, set the policy to the `Check: Configured`.
 
@@ -32,7 +32,7 @@ resource "turbot_policy_setting" "aws_account_stack" {
 }
 ```
 
-## Step 2: Change the Stack Source to an Empty Plan
+## Step 2: Change Stack Source to Empty Plan
 
 The `Source` policy setting for stack control contains the OpenTofu HCL that describes the resources to configure.  The stack control manages the OpenTofu state and expects to continue to manage any resources that it creates.  As a result, removing a resource from the source will cause it to be destroyed.  To destroy *all* resources that are managed by this stack control, simply remove them all from the plan and replace them with an empty plan.
 
@@ -52,7 +52,7 @@ resource "turbot_policy_setting" "aws_iam_stack_source" {
 }
 ```
 
-## Step 3: Apply the Updated Policy Pack
+## Step 3: Apply Updated Policy Pack
 
 When you are ready to update the policy pack, reapply the Terraform plan in your workspace:
 
@@ -61,7 +61,7 @@ terraform apply
 ```
 
 
-## Step 4: Preview the Deletion in the Control Process Log
+## Step 4: Preview Deletion in Control Process Log
 
 The `AWS > IAM > Stack [Native]` will run automatically because the policies have changed.  Since the AWS configuration no longer matches the `Source`, the controls will go to an `Alarm` state.  Because we set the primary control to `Check: Configured`, however, the stack will not delete the resources at this time. 
 
@@ -75,7 +75,7 @@ You can [view the process logs for the control](/guardrails/docs/guides/using-gu
 ![AWS > IAM > Stack [Native] -- Process Logs](/images/docs/guardrails/guides/using-guardrails/stacks/destroy/aws_iam_stack_control_log_delete_preview.png)
 
 
-## Step 5: Change the Primary Policy to Enforce the Deletion
+## Step 5: Change Primary Policy to Enforce Deletion
 
 Now, let's change the `AWS > IAM > Stack [Native]` policy to enforce the configuration and destroy the resources.  Edit the `policies.tf` for the **Deploy AWS IAM Stack** policy pack. Uncomment the `Enforce: Configured` value and comment out `Check: Configured`:
 
@@ -90,7 +90,7 @@ resource "turbot_policy_setting" "aws_account_stack" {
 ```
 
 
-## Step 6: Apply the Updated Policy Pack
+## Step 6: Apply Updated Policy Pack
 
 Reapply the Terraform plan in your workspace:
 
@@ -99,7 +99,7 @@ terraform apply
 ```
 
 
-## Step 7: View the Control Run
+## Step 7: View Control Run
 
 In a few seconds, the stack control will run and destroy the IAM resources in each account.  You can [view the process logs for the control](/guardrails/docs/guides/using-guardrails/troubleshooting/access-control-logs) to view the OpenTofu output and confirm.
 

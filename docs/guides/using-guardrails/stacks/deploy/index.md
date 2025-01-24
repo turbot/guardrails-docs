@@ -20,7 +20,7 @@ In this example, we will use the example source in the **Deploy AWS IAM Stack** 
 - [One or more AWS accounts imported](/guardrails/docs/guides/aws/import-aws-account)
 
 
-## Step 1: Get the Policy Pack
+## Step 1: Get Policy Pack
 
 The  **Deploy AWS IAM Stack** policy pack resides in the `guardrails-samples` repo. Let's clone the repo and change to the directory containing the policy pack code:
 ```sh
@@ -28,7 +28,7 @@ git clone https://github.com/turbot/guardrails-samples.git
 cd guardrails-samples/policy_packs/aws/stack/deploy_iam_stack
 ```
 
-## Step 2: Review the Stack Source
+## Step 2: Review Stack Source
 
 The `policies.tf` contains the policy settings for this policy pack.  The `AWS > IAM > Stack [Native] > Source` policy contains the OpenTofu configuration code that should be applied in each account. 
 
@@ -40,7 +40,7 @@ You can, of course, modify, extend, or replace this configuration to meet your s
 > Note that the stack expects to continue to manage any resources that are created by the stack - if you delete a resource from the OpenTofu configuration in the `Source` policy, the stack control will destroy the resource. If you modify a resource in the `Source`, the control will modify that AWS resource accordingly.
 
 
-## Step 3: Set the Stack Variables
+## Step 3: Set Stack Variables
 
 Like the `Source` policy, the the `AWS > IAM > Stack [Native] > Variables` policy is configured in the `policies.tf`, which in turn reads its value from a file (`stack/variables.auto.tfvars`).  The `Variables` policy allows you to pass variable values to the stack; it is essentially a [tfvars](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files) for the stack control.
 
@@ -58,7 +58,7 @@ trusted_principals = ["arn:aws:iam::123456789012:root"]
 ```
 
 
-## Step 4: Enforce the Stack
+## Step 4: Enforce Stack Control
 
 The `AWS > IAM > Stack [Native]` policy is the primary policy for the `AWS > IAM > Stack [Native]` control.  This policy determines the enforcement behavior:
   - `Skip`:  Do not run this control
@@ -81,7 +81,7 @@ resource "turbot_policy_setting" "aws_account_stack" {
 > If you prefer to preview the changes first, you can leave the setting in `Check: Configured` when you install the policy pack, then edit and re-apply later when you are ready to enforce
 
 
-## Step 5: Install the Policy Pack
+## Step 5: Install Policy Pack
 
 > [!IMPORTANT]
 > To run install the the policy pack via Terraform, you must [set up your Turbot Guardrails CLI credentials](https://turbot.com/guardrails/docs/reference/cli/installation#set-up-your-turbot-guardrails-credentials).
@@ -94,7 +94,7 @@ terraform plan
 terraform apply
 ```
 
-## Step 6: Attach the Policy Pack
+## Step 6: Attach Policy Pack
 
 > [!IMPORTANT]
 > Attaching this policy pack in Guardrails will result in creation of resources in the target account. However, it is easy to remove those resources later, by setting the contents of the Stack's `Source` policy to `{}`.
@@ -106,7 +106,7 @@ If this policy pack is attached to a Guardrails folder, its policies will be app
 For more information, please see [Policy Packs](https://turbot.com/guardrails/docs/concepts/policy-packs).
 
 
-## Step 7: View the Control Run
+## Step 7: View Control Run
 
 In a few seconds, the stack control will run and create an IAM role for each account in scope.  You can [view the process logs for the control](/guardrails/docs/guides/using-guardrails/troubleshooting/access-control-logs) (even while its running!) to view the the OpenTofu output.
 
