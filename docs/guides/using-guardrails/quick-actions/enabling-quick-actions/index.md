@@ -12,7 +12,7 @@ In this guide, you will:
 
 ## Prerequisites
 
-- **Turbot/Operator** permissions at the Turbot resource level.
+- **Turbot/Admin** permissions at the Turbot resource level.
 - Turbot Guardrails v5.39.0 or higher.
 - Familiarity with Guardrails console.
 
