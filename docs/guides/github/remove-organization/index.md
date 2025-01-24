@@ -69,7 +69,7 @@ In the popup window, copy the resource name i.e. organization name and paste it 
 This completes the deletion of the organization from Guardrails.
 
 
-## Step 6: Verify
+## Step 6: Review
 
 Guardrails will begin the deletion process. The time required to complete the process depends on the number of policies and resources associated with the organization. Larger organizations may take longer.
 
