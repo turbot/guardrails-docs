@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  TurbotGuardrailsRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: turbot_guardrails
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS:
+                - arn:aws:iam::316881668097:root
+            Action:
+              - sts:AssumeRole
+            Condition:
+              StringEquals:
+                sts:ExternalId: 'turbot:317452734766081:0f994d8c-d0b5-4cbe-aa0f-ae77a4623251'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/ReadOnlyAccess
