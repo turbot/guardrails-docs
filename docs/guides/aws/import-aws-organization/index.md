@@ -3,36 +3,58 @@ title: Import Organization
 sidebar_label: Import Organization
 ---
 
-# Importing an AWS organization
+# Importing an AWS Organization
 
 In this guide, you will:
 
-- Import an AWS organization into a Guardrails Folder.
+- Learn how to import an entire AWS Organization into Turbot Guardrails. This process enables Guardrails to discover, govern, and manage resources across all accounts under a single AWS Organization.
+- Monitor and troubleshoot the organization import process to ensure a seamless setup.
 
-## Supported AWS Partitions
+Importing an AWS Organization into Guardrails involves the following key steps:
 
-There are three partitions that AWS offers and Guardrails supports. Valid
-partition names are:
+- **Preparing AWS-Specific Configurations**: Ensure your AWS environment is correctly configured to support Guardrails integration e.g. Set up an IAM role with the necessary permissions for Guardrails to access and manage organizational resources securely.
+- **Importing the Organization via the Guardrails Console**: Use the Guardrails console to establish the connection and enable governance across the AWS Organization.
+<!-- - For enterprise hosting Guardrails, refer to Enterprise Configuration. -->
 
-- `aws` - Public AWS partition (Commercial)
-- `aws-cn` - AWS China
-- `aws-us-gov` - AWS GovCloud
+**RAJ WHAT ELSE -  TO DO**
 
-## Import AWS Organization
+## Prerequisites
+
+- Familiarity with the AWS Console, including admin privileges.
+- Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
+- The [`aws` mod](https://hub.guardrails.turbot.com/mods/aws/mods) installed.
+- Minimum TE version 5.48.x or later ?
+- A cross-account IAM role in the management account (which hosts the organization) and member accounts. Using [AWS IAM Role Delegation](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#delegate-using-roles) allows you to grant access to Guardrails without sharing security credentials like passwords or other secrets.
+
+**RAJ CHECK THE MIN TE/MOD version to be included here**
+
+## Step 1: Prepare AWS Side Configurations
+
+This section is to build understanding around key AWS requirements. The content provided here is reference from [Importing AWS Account](/guardrails/docs/guides/aws/import-aws-account).
+
+> [!Important]
+> Free Tier AWS accounts cannot be used with Guardrails. If this is attempted, Guardrails will fail to properly discover resources in the account and will generate errors in the Guardrails console.
+
+1. Choose [supported AWS Partitions](/guides/aws/import-aws-account#supported-aws-partitions)
+
+**RAJ: How this partition is done**
+
+2. Understand [What Permissions to Grant](/guardrails/docs/guides/aws/import-aws-account#what-permissions-to-grant)
+
+**RAJ: Is there any change**
+
+3. Understand need of [Cross Account Trust](/guardrails/docs/guides/aws/import-aws-account#cross-account-trust) in Turbot Guardrails. Refer AWS Guide [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) for more info.
+
+4. Use of [External IDs](/guardrails/docs/guides/aws/import-aws-account#external-ids). Refer AWS guide [Access to AWS accounts owned by third parties](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) for more info.
+
+<!-- ## Import AWS Organization
 
 A few steps must be completed before an organization can be imported into a Guardrails workspace:
 
-- A cross-account IAM role in the management account (which hosts the organization) and member accounts. Using
-  [AWS IAM Role Delegation](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#delegate-using-roles)
-  allows you to grant access to Guardrails without sharing security credentials like
-  passwords or other secrets.
-- The `aws` mod installed. This mod holds the resource definition for an AWS
-  organization. Additional mods may be desired. Remember that [Mods](https://hub.guardrails.turbot.com/#mods) enable
-  Guardrails to discovery and manage for various AWS services. If the mod isn't installed for a particular service,
-  Guardrails can't see those resources. Refer to the  [Recommended Starting Mods](mods#recommended-starting-mods) for
-  more information.
+- A cross-account IAM role in the management account (which hosts the organization) and member accounts. Using [AWS IAM Role Delegation](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#delegate-using-roles) allows you to grant access to Guardrails without sharing security credentials like passwords or other secrets.
+- The `aws` mod installed. This mod holds the resource definition for an AWS organization Additional mods may be desired. Remember that [Mods](https://hub.guardrails.turbot.com/#mods) enable Guardrails to discovery and manage for various AWS services. If the mod isn't installed for a particular service, Guardrails can't see those resources. Refer to the  [Recommended Starting Mods](mods#recommended-starting-mods) for more information. -->
 
-## What Permissions to Grant
+<!-- ## What Permissions to Grant
 
 What permissions you grant to the Guardrails IAM role will depend on your use
 case(s). Guardrails will use whichever role you specify and the permissions granted
@@ -102,9 +124,9 @@ conforms to your requirements.
   - Grant permissions to allow the **Budget** control to get the cost usage and
       forecast data:
     - `ce:getCostForecast`
-    - `ce:GetCostAndUsage`
+    - `ce:GetCostAndUsage` -->
 
-## Cross Account Trust
+<!-- ## Cross Account Trust
 
 The role must grant cross-account access for the Turbot Guardrails master AWS account to
 assume into your AWS management account and member accounts.
@@ -114,9 +136,9 @@ assume into your AWS management account and member accounts.
 - Guardrails Cloud EU customers, you must allow the Guardrails SaaS EU AWS Account ID:
   `255798382450`
 - Guardrails Guardrails Enterprise customers, enter the AWS Account ID of the AWS Account
-  where you have installed the Turbot Guardrails Enterprise stacks.
+  where you have installed the Turbot Guardrails Enterprise stacks. -->
 
-## External IDs
+<!-- ## External IDs
 
 It is required that you set an External ID. There are two sources for the
 External ID:
@@ -135,7 +157,7 @@ External ID:
   will be required to use the protected format for the Workspace.
 - Make sure you leave **Require MFA disabled** on the role.
 - If you are setting your own external ID, be sure it follows
-  [AWS character limits](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html).
+  [AWS character limits](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html). -->
 
 ## Role Name
 
