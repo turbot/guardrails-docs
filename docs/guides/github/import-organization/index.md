@@ -3,7 +3,7 @@ title: Import Organization
 sidebar_label: Import Organization
 ---
 
-# Import Organization
+# Importing GitHub Organization
 
 In this guide, you will:
 
@@ -17,14 +17,13 @@ Importing a [GitHub Organization](https://docs.github.com/en/organizations/colla
 
 ## Prerequisites
 
+- Turbot Enterprise (TE) version `>=v5.48.x`, with the [GitHub mod](https://hub.guardrails.turbot.com/mods/github/mods) installed.
+- Access to [GitHub](https://github.com/) and familiarity with its interface.
 - Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
-- Availability of the [GitHub mod](https://hub.guardrails.turbot.com/mods/github/mods) in your Guardrails workspace.
-- Familiarity with and access to [GitHub](https://github.com/).
-- The workspace should be on Turbot Enterprise (TE) version `>=v5.48.x`.
 
-## Step 1: Setting Personal Access Token Policy for Your Organization
+## Step 1: Set Personal Access Token Policy for Your Organization
 
-Setup the a personal access token policy for your organization prior to importing the organization into Guardrails. Refer steps provided in the GitHub [guide](https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).
+Setup the a personal access token policy for your organization prior to importing the organization into Guardrails. Refer steps provided in the GitHub [documentation](https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).
 
 Choose `Allow access via fine-grained personal access tokens`.
 
@@ -40,21 +39,19 @@ Follow the GitHub provided steps in [Creating a fine-grained personal access tok
 
 Copy the personal access token.
 
-![Copy Token](/images/docs/guardrails/guides/github/import-organization/copy-personal-token.png)
-
 > [!IMPORTANT]
 > Make sure to copy your personal access token during the creation step as you will not be able to see this again.
 
-## Step 3: Check Permission of Personal Access Token
+![Copy Token](/images/docs/guardrails/guides/github/import-organization/copy-personal-token.png)
 
-Once you create an fine-grained token, initially it may not have any associated permission.
 
-> [!TIP]
-> Regardless of the chosen policy, Personal access tokens will have access to public resources within the organization.
+## Step 3: Grant Permissions
+
+Once you create a fine-grained token, initially it does not have any associated permission.
 
 ![Personal Token with No Permission](/images/docs/guardrails/guides/github/import-organization/personal-token-with-no-permission.png)
 
-## Step 4: Grant Permissions
+### Required Permissions
 
 To ensure full functionality of the GitHub integration, we recommend granting the following permissions:
 
@@ -66,16 +63,15 @@ To ensure full functionality of the GitHub integration, we recommend granting th
 | Repository Administration            | Read and write      | Grants Guardrails the ability to manage repository settings, including access controls and policies.  |
 | Organization Blocking Users          | Read and write      | Enables Guardrails to block and unblock users within the organization.                               |
 
-
 Select **Edit**, which allows to make edit in `Permissions` section.
 
 ![Edit Personal Token](/images/docs/guardrails/guides/github/import-organization/edit-personal-token.png)
 
-Associate required permissions mentioned in the above table by selecting **All repositories** and selecting each section for `Repository permissions` and `Organization permissions`.
+Grant the [required permissions](#required-permissions) by selecting **All repositories** under `Repository access` and configuring the appropriate options in both **Repository permissions** and **Organization permissions** sections.
 
 ![Associated Permission](/images/docs/guardrails/guides/github/import-organization/associate-org-permission.png)
 
-## Step 5: Validate Personal Access Token at Organization
+## Step 4: Validate Personal Access Token at Organization
 
 Navigate to your GitHub organization URL e.g. `https://github.com/organizations/adapt-cloud-security` and select **Settings**.
 
@@ -89,19 +85,19 @@ It should display you the token created in the above step, select the token to c
 
 ![Associated Permissions](/images/docs/guardrails/guides/github/import-organization/associated-permissions-in-pat.png)
 
-## Step 6: Log in to Guardrails Console
+## Step 5: Log in to Guardrails Console
 
 Log into the Guardrails console with provided local credentials or by using any SAML based login.
 
 ![Guardrails Console Login](/images/docs/guardrails/guides/github/import-organization/guardrails-console-login.png)
 
-## Step 7: Import Organization into Guardrails
+## Step 6: Import Organization into Guardrails
 
 Login to your Guardrails workspace console and select the **CONNECT** card.
 
 ![Guardrails Console Login](/images/docs/guardrails/guides/github/import-organization/select-connect-card.png)
 
-Select **GitHub** card from the connect panel.
+Select **GitHub** card from the `Connect` panel.
 
 ![Connect GitHub Card](/images/docs/guardrails/guides/github/import-organization/connect-github-card.png)
 
@@ -109,7 +105,7 @@ Choose the folder where you want to import the organization. Typically this woul
 
 ![Choose Location](/images/docs/guardrails/guides/github/import-organization/choose-location.png)
 
-Get organization URL from GitHub **Overview** section. Copy the URL and past it in `Organization URL` text box.
+Get the Organization URL from GitHub **Overview** section. Copy the URL and past it in `Organization URL` text box.
 
 ![Get Org URL](/images/docs/guardrails/guides/github/import-organization/get-org-url.png)
 
@@ -117,7 +113,7 @@ Provide `Personal Access Token` and Select **Connect**.
 
 ![Connect](/images/docs/guardrails/guides/github/import-organization/connect.png)
 
-## Step 8: Verify
+## Step 6: Review
 
 - [ ] Check that the controls are executed by navigating to **Controls** tab and select GitHub. This should display the default controls for `Organization` and `Repository` in `OK` state.
 

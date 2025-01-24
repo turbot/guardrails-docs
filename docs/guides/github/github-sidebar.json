@@ -4,7 +4,7 @@
   "link": "guides/github",
   "items": [
     "guides/github/import-organization",
-    "guides/github/decommission",
-    "guides/github/real-time-events"
+    "guides/github/real-time-events",
+    "guides/github/remove-organization"
   ]
 }

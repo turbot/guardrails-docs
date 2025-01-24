@@ -14,17 +14,15 @@ Guardrails enables organizations to selectively install policies, controls, and 
 
 ## Prerequisites
 
-- **Turbot/Operator** permissions at the Turbot resource level.
-- Familiarity with the Guardrails console.
-- The GitHub organization is successfully [imported](/guardrails/docs/guides/github/import-organization) into the Guardrails.
-- A GitHub personal access token with permissions to create [webhooks](https://docs.github.com/en/webhooks/about-webhooks).
+- *Turbot/Operator* permissions at the Turbot level and familiarity with its interface.
+- The GitHub organization has been successfully [imported](/guardrails/docs/guides/github/import-organization) into Guardrails.
+- A GitHub personal access token with the necessary permissions to create [webhooks](https://docs.github.com/en/webhooks/about-webhooks).
 
+## Step 1: Grant Permission
 
-## Step 1: Assign Permission(s)
+The personal access token used for importing an organization requires the `Organization Webhooks: Read and write` permission. This permission enables Guardrails to manage webhooks for capturing real-time events at the organization level.
 
-To ensure full functionality of the GitHub integration, grant the personal access token the `Organization Webhooks: Read and write` permission, which allows Guardrails to manage webhooks for capturing real-time events at the organization level.
-
-Follow the steps provided in [Grant Permissions](/guardrails/docs/guides/github/import-organization#step-4-grant-permissions) of [Import GitHub Organization](/guardrails/docs/guides/github/import-organization#import-github-organization).
+This permission is already granted during the [Required Permissions](/guardrails/docs/guides/github/import-organization#required-permissions) step of [Importing GitHub Organization](/guardrails/docs/guides/github/import-organization).
 
 ## Step 2: Log in to Guardrails Console
 
@@ -50,22 +48,15 @@ Select the **Controls** tab. Search for `GitHub > Organization > Event Handlers`
 
 ![Check Control Status](/images/docs/guardrails/guides/github/real-time-events/organization-event-handlers-control-status.png)
 
-
-## Step 5: Verify
-
-## Step 5: Verify
+## Step 5: Review
 
 - [ ] Check that the control status for the respective organization is `OK` with the message `Configured`.
 
-   ![Check Control Configured](/images/docs/guardrails/guides/github/real-time-events/control-configured-ok.png)
+![Check Control Configured](/images/docs/guardrails/guides/github/real-time-events/control-configured-ok.png)
 
 - [ ] Verify that the webhook has been created in the GitHub organization.
 
-   ![GitHub Webhook](/images/docs/guardrails/guides/github/real-time-events/validate-github-org-webhook.png)
-
-- [ ] To verify that the event handlers are working, create a repository in your GitHub organization. Then, check the control `GitHub > Repository > CMDB` and select **Descendant** to ensure the CMDB control displays the newly created repository.
-
-   ![Repository CMDB Controls](/images/docs/guardrails/guides/github/real-time-events/repository-cmdb-controls.png)
+![GitHub Webhook](/images/docs/guardrails/guides/github/real-time-events/validate-github-org-webhook.png)
 
 ## Next Steps
 
