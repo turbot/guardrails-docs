@@ -18,10 +18,9 @@ Importing a [GitHub Organization](https://docs.github.com/en/organizations/colla
 ## Prerequisites
 
 - Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
-- Availability of [GitHub mod](https://hub.guardrails.turbot.com/mods/github/mods) in your Guardrails workspace.
-- Familiarity and access to the [GitHub](https://github.com/).
-- [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/quickstart) setup.
-- Workspace should be in TE `>=v5.48.x`.
+- Availability of the [GitHub mod](https://hub.guardrails.turbot.com/mods/github/mods) in your Guardrails workspace.
+- Familiarity with and access to [GitHub](https://github.com/).
+- The workspace should be on Turbot Enterprise (TE) version `>=v5.48.x`.
 
 ## Step 1: Setting Personal Access Token Policy for Your Organization
 
@@ -117,7 +116,6 @@ Get organization URL from GitHub **Overview** section. Copy the URL and past it 
 Provide `Personal Access Token` and Select **Connect**.
 
 ![Connect](/images/docs/guardrails/guides/github/import-organization/connect.png)
-
 
 ## Step 8: Verify
 
