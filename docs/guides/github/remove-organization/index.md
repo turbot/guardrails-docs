@@ -80,5 +80,5 @@ After completing the steps above, verify that the GitHub organization no longer 
 
 | **Issue**              | **Description**                                                                                                                            | **Guide**                                                                                   |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| **Deletion Errors**     | Errors may occur due to database locks or incomplete cleanup. Ensure all event handlers and policies have been removed before retrying.    | [Troubleshoot Deletion Issues](/guardrails/docs/github/troubleshooting#deletion-errors)     |
+| **Deletion Errors**     | Errors may occur due to database locks or incomplete cleanup. Ensure all event handlers and policies have been removed before retrying.    | [Troubleshooting](/guardrails/docs/guides/troubleshooting)     |
 | **Further Assistance**  | If issues persist after troubleshooting, open a support ticket with details such as screenshots and error messages for efficient resolution. | [Open Support Ticket](https://support.turbot.com)                                           |
