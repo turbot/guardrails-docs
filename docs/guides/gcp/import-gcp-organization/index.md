@@ -234,7 +234,7 @@ Navigate to the `GCP Service Account Private Key SSM Parameter` section of the T
 
 ## Step 7: Import Organization into Guardrails
 
-Login to your Guardrails workspace console and select the **CONNECT** card.
+Log in to your Guardrails workspace console and select the **CONNECT** card.
 
 ![Select Connect](/images/docs/guardrails/guides/gcp/import-gcp-organization/select-connect.png)
 
@@ -242,7 +242,7 @@ Select **GCP** and then choose the **GCP Organization** option.
 
 ![Select GCP](/images/docs/guardrails/guides/gcp/import-gcp-organization/select-gcp.png)
 
-Select the `Import location` where the organization will be imported.
+Choose the folder where the organization will be imported.
 
 ![Choose Import Location](/images/docs/guardrails/guides/gcp/import-gcp-organization/choose-import-location.png)
 
