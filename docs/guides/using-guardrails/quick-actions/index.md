@@ -3,7 +3,7 @@ title: Quick Actions
 sidebar_label: Quick Actions
 ---
 
-## Quick actions
+## Quick Actions
 
 Quick Actions allow users to initiate specific (one time) control enforcements on their cloud environment via the Guardrails UI. Cloud operations teams can use Quick Actions to remediate cloud configuration issues (e.g. enable encryption on a resource) or snooze Guardrails alarms for issues that we want to come back to later.
 
