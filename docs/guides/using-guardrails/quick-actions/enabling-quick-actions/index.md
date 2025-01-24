@@ -18,7 +18,7 @@ In this guide, you will:
 
 ## Step 1: Login to Guardrails Console
 
-Log into the Guardrails console.
+Log into the Guardrails console with provided local credentials or by using any SAML based login.
 
 ![Guardrails Console Login](/images/docs/guardrails/guides/using-guardrails/quick-actions/enabling-quick-actions/guardrails-console-login.png)
 
