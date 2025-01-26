@@ -255,27 +255,8 @@
         ]
       },
       {
-        "type": "category",
-        "id": "gcp",
-        "link": "guides/gcp",
-        "items": [
-          {
-            "type": "category",
-            "id": "import",
-            "link": "guides/gcp/import-gcp-project",
-            "items": ["guides/gcp/import-gcp-project/service-accounts"]
-          },
-          "guides/gcp/import-gcp-organization",
-          "guides/gcp/services",
-          "guides/gcp/permissions",
-          "guides/gcp/decommission",
-          {
-            "type": "category",
-            "id": "real-time-events",
-            "link": "guides/gcp/real-time-events",
-            "items": ["guides/gcp/real-time-events/event-pollers"]
-          }
-        ]
+        "type": "placeholder",
+        "file": "guides/gcp/gcp-sidebar.json"
       },
       {
         "type": "placeholder",

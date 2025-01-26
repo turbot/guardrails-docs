@@ -1,9 +1,6 @@
 ---
-title: "Import a GCP Project into Guardrails"
-template: Documentation
-nav:
-  title: "Import Project"
-  order: 10
+title: Import a GCP Project
+sidebar_label: Import a GCP Project
 ---
 
 # Import a GCP Project into Guardrails
