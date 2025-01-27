@@ -55,121 +55,123 @@ This section provides an overview of key AWS configuration requirements needed f
 
 Follow below steps to prepare AWS side configurations
 
-## Step 2: Prepare AWS Side Configurations
+## Step 2: Install Required Mods
 
-### Install Desired Mods
+> [!NOTE]
+> The required mods are applicable for both AWS account and organization imports.
 
->[!NOTE]
-> The desired mods are applicable for both AWS account and organization import.
+Refer to [Installing Desired Mods](/guardrails/docs/guides/aws/import-aws-account#install-desired-mods) for detailed instructions on installing the required mods.
 
-Refer [here](/guardrails/docs/guides/aws/import-aws-account#install-desired-mods) to to install desired mods.
+## Step 3: Get AWS Organization Management Account ID
 
-### Get AWS Organization ID
-
-To obtain the Account ID of the management account in your AWS Organization, you can either:
+AWS Organization management account ID is mandatory for organization import. To obtain the account ID of the management account in your AWS Organization, you can either:
 
 - Log in to the AWS Management Console and navigate to **AWS Organizations**, where the management account ID is displayed.
-- Use the AWS CLI by running the command described in the [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organization.html) with more details.
+- Use the AWS CLI by running the command described in the [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organization.html).
 
 Example AWS CLI Command:
 
 ```bash
 aws organizations describe-organization
 ```
-### Create Organization Management Account IAM Role
+---
+## Step 4: Log in to Guardrails Console
 
-You can create the required IAM role earlier or during the importing process in Guardrails import UI. We recommend to create the IAM roles prior to initiate the initiating the import process. This will help you to have this required IAM role created part of prerequisites
+Log in to the Guardrails console using your provided local credentials or through any SAML-based login method. Select the **CONNECT** card, then choose **AWS**.
 
-To do this, provide `Role Name`, `External ID` mentioned in [Step 4](#step-4-setup-access-to-your-organization-management-account). Download the CloudFormation template file, which will be updated with the two values you provided i.e. `Role Name`, `External ID`.
+![Select Connect](/images/docs/guardrails/guides/aws/import-aws-organization/select-connect.png)
+
+Next, select **AWS Organization** from the `Select your account type` options.
+
+![Select AWS Organization](/images/docs/guardrails/guides/aws/import-aws-organization/select-aws-organization.png)
+
+## Step 5: Choose Folder
+
+In the **Choose your folder** dropdown, select the Guardrails [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where you want to import your organization.
+
+![Choose Folder to Import](/images/docs/guardrails/guides/aws/import-aws-organization/choose-folder-to-import.png)
+
+## Step 6: Setup Access to Your Organization Management Account
+
+Provide your `Organization Account ID` obtained in Step 3, select the `Environment` (partition), and enter the IAM `Role Name` created in Step 4 along with the `External ID`.
+
+![Setup Organization Access](/images/docs/guardrails/guides/aws/import-aws-organization/setup-organization-access.png)
+
+### Create IAM Role in Management Account
+
+You can create the required IAM role beforehand or during the importing process in the Guardrails Import UI. However, it is recommended to create the IAM roles prior to initiating the import process. This ensures that the required IAM role is ready as part of the prerequisites.
+
+To create the IAM role:
+
+- Download the CloudFormation template file, which will be updated with the two values you provided (i.e., `Role Name` and `External ID`).
 
 ![Download Organization CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-management-account-iam-role-cfn-template.png)
 
-You can execute the downloaded template in the AWS management account CloudFormation template
+Execute the downloaded CloudFormation template in the AWS Management Account to create the IAM role.
 
-### Update Guardrails Hosted Account ID
+#### Update Guardrails Hosted Account ID
 
 > [!IMPORTANT]
-> This section is only for customers using enterprise hosted environment. SaaS customer need not update the `GuardrailsSaaSAccountId`
+> This section applies only to customers using an enterprise-hosted environment. SaaS customers do not need to update the `GuardrailsSaaSAccountId`.
 
-By default Turbot provides the SaaS account ID. While executing CloudFormation template, you must change `GuardrailsSaaSAccountId` to associate your Guardrails hosted primary account.
+By default, Turbot provides the SaaS account ID. While executing the CloudFormation template, you must update the `GuardrailsSaaSAccountId` to associate it with your Guardrails-hosted primary account.
 
-```
+```yaml
   GuardrailsSaaSAccountId:
     Type: String
     Default: '287590803701'
     Description: >
       The AWS Account ID where Guardrails is installed. This will be added to the
-      cross account trust policy of the access role. The default value of '287590803701'
+      cross-account trust policy of the access role. The default value of '287590803701'
       refers to the account ID of the Turbot Guardrails SaaS environment. Do not change
       the value if importing your account into Guardrails SaaS.
 ```
+## Step 7: Setup Access to Your Member Accounts
 
-### Create Member Accounts IAM Role
-
-You can create the required IAM role earlier or during the importing process in Guardrails import UI. We recommend to create the IAM roles prior to initiate the initiating the import process. This will help you to have this required IAM role created part of prerequisites
-
-To do this, provide `Role Name`, `External ID` mentioned in [Step 5](#step-5-setup-access-to-your-member-accounts). Download the CloudFormation template file, which will be updated with the two values you provided i.e. `Role Name`, `External ID`.
-
-![Download Member CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-member-account-iam-role-cfn-template.png)
-
-You can execute the downloaded template in the AWS management account CloudFormation template.
-
-Now you have all the required details collected, lets proceed to import organization in Guardrails console.
-
-## Step 3: Login to Guardrails Console
-
-Log into the Guardrails console with provided local credentials or by using any SAML based login and select the **CONNECT** card. Select **AWS**.
-
-![Select Connect](/images/docs/guardrails/guides/aws/import-aws-organization/select-connect.png)
-
-Choose the **AWS Organization** from `Select your account type` option.
-
-![Select AWS Organization](/images/docs/guardrails/guides/aws/import-aws-organization/select-aws-organization.png)
-
-## Step 3: Choose Folder
-
-Select the dropdown in **Choose the folder**  and select the Guardrails [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where you would like to import your organization.
-
-![Choose Folder to Import](/images/docs/guardrails/guides/aws/import-aws-organization/choose-folder-to-import.png)
-
-## Step 4: Setup Access to Your Organization Management Account
-
-Provide your `Organization Account ID` that you got from Step ??, select the `Environment` (called partition), provide the `IAM Role Name` created in the Step ?? (TO DO), provide `External ID`
-
-![Setup Organization Access](/images/docs/guardrails/guides/aws/import-aws-organization/setup-organization-access.png)
-
-## Step 5: Setup Access to Your Member Accounts
-
-Provide the `Role Name` created for each member accounts using Step ??, provide `External ID`
+Provide the `Role Name` created for each member account in [Step 5: Create IAM Role in Member Accounts](#step-5-create-iam-role-in-member-accounts) and the corresponding `External ID`.
 
 ![Setup Member Account Access](/images/docs/guardrails/guides/aws/import-aws-organization/setup-member-accounts-access.png)
 
-## Step 6: Exclude Accounts
+### Create IAM Role in Member Accounts
 
-This step is required if you wish to exclude specific AWS account or Organization Unit(OU) under organization from being imported into Guardrails.
+You can create the required IAM role beforehand or during the importing process in the Guardrails Import UI. However, it is recommended to create the IAM roles prior to initiating the import process. This ensures that the required IAM role is ready as part of the prerequisites.
+
+To create the IAM role:
+
+Download the CloudFormation template file, which will be pre-configured with the values you provided (i.e., `Role Name` and `External ID`).
+
+![Download Member CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-member-account-iam-role-cfn-template.png)
+
+Execute the downloaded CloudFormation template in the AWS Management Account to create the required IAM role.
+
+Once all the required details are collected, proceed to import the organization in the Guardrails console.
+
+## Step 8: Exclude Accounts and Organization Unit
+
+If you wish to exclude specific AWS accounts or Organizational Units (OUs) from being imported into Guardrails, this step is required.
 
 > [!IMPORTANT]
 > Existing accounts already connected individually in Guardrails will automatically move under the organization hierarchy. If you **do not wish to move them**, list them in the YAML exclusion list.
 
-Click the **Edit** button to provide a list of account IDs or OU names under the organization to be excluded.
+Click the **Edit** button to provide a list of account IDs or OU names to be excluded.
 
 ![Edit Exception List](/images/docs/guardrails/guides/aws/import-aws-organization/exception-list-with-connect.png)
 
-Click the **Preview** button to ensure no errors are displayed. Move to [Step 14](#step-7-initiate-connect).
+Click the **Preview** button to ensure no errors are displayed. Proceed to [Initiate Connect](#step-11-initiate-connect).
 
-## Step 7: Initiate Connect
+## Step 9: Initiate Connect
 
-Select **Connect** to begin the import process.
+Select **Connect** to start the import process.
 
-Guardrails will create and execute discovery controls for your AWS organization, scanning each account, organization units and resources under it.
+Guardrails will create and execute discovery controls for your AWS Organization, scanning each account, Organizational Unit, and resource under it.
 
-![Check Discovery process](/images/docs/guardrails/guides/aws/import-aws-organization/check-discovery-process.png)
+![Check Discovery Process](/images/docs/guardrails/guides/aws/import-aws-organization/check-discovery-process.png)
 
-## Step 8: Review
+## Step 10: Review
 
 - [ ] Confirm that the organization CMDB and discovery controls are in the `OK` state.
 
-Navigate to the **Resources** tab, search for the organization name, then select **Controls** tab besides to check the controls are on `OK` state.
+Navigate to the **Resources** tab, search for the organization name, and then select the **Controls** tab to check that the controls are in the `OK` state.
 
 ![Review Org CMDB and Discovery Controls](/images/docs/guardrails/guides/aws/import-aws-organization/review-org-cmdb-discovery-controls.png)
 
@@ -182,3 +184,25 @@ Navigate to the **Resources** tab, search for the organization name, then select
 |Event Handler Controls Not in OK       | Event handler controls may not be in the `OK` state, indicating configuration issues with event handlers, topics, or subscriptions.                     | Refer [Configuring Real-Time events](/guardrails/docs/guides/aws/event-handlers) for more information. |
 | Common errors.                     | Any common errors preventing controls to run   |Refer [Common Troubleshooting](/guardrails/docs/guides/troubleshooting) for more information.
 | Further Assistance                     | If issues persist or you require additional help, you can access detailed troubleshooting documentation or reach out to support.                        | Refer to the [Guardrails Troubleshooting Guide](/guardrails/docs/troubleshooting) or [Open a Support Ticket](https://support.turbot.com).                                                                                         |
+
+
+
+---
+
+
+<!-- ## Step 6: Log in to Guardrails Console
+
+Log in to the Guardrails console using your provided local credentials or through any SAML-based login method. Select the **CONNECT** card, then choose **AWS**.
+
+![Select Connect](/images/docs/guardrails/guides/aws/import-aws-organization/select-connect.png)
+
+Next, select **AWS Organization** from the `Select your account type` options.
+
+![Select AWS Organization](/images/docs/guardrails/guides/aws/import-aws-organization/select-aws-organization.png)
+
+## Step 7: Choose Folder
+
+In the **Choose your folder** dropdown, select the Guardrails [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where you want to import your organization.
+
+![Choose Folder to Import](/images/docs/guardrails/guides/aws/import-aws-organization/choose-folder-to-import.png) -->
+
