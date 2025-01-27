@@ -119,20 +119,6 @@ gcloud organizations add-iam-policy-binding ORGANIZATION_ID --member="serviceAcc
 ```
 </details>
 
-<!-- ## Step 6: Prepare Enterprise Configuration
-
-> [!IMPORTANT]
-> This step applies only to Enterprise-hosted Guardrails setups using Service Account Impersonation. Enterprise users using JSON credential based authentication need not proceed with this step.
-
-> For SaaS customers, this configuration is managed by Turbot.
-
-The GCP organization import feature requires [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) version `1.46.x` or later. This version introduces the `gcp_service_account_private_key_ssm_parameter_name` SSM parameter, which must be mapped to a manually created SSM parameter containing the credential JSON value. -->
-
-<!-- ### Prerequisites
-
-- Access to the Guardrails primary AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
-- Familiarity with the AWS Console, Service Catalog, and CloudFormation services. -->
-
 ## Step 6: Prepare Enterprise Configuration
 
 To import a GCP organization into an enterprise-hosted environment, the following activities must be completed:
@@ -172,7 +158,13 @@ Navigate to the `GCP Service Account Private Key SSM Parameter` section of the T
 
 ![Update TED Stack Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/update-ted-stack-parameter.png)
 
-## Step 9: Import Organization into Guardrails
+## Step 9: Get Organization ID
+
+In the GCP console, select your organization. Navigate to **All** to view the list of projects, folders, and the organization itself. Locate and copy the `ID` of the organization.
+
+![Get GCP Organization ID](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/get-gcp-org-id.png)
+
+## Step 10: Import Organization into Guardrails
 
 Log into the Guardrails console with provided local credentials or by using any SAML based login and select the **CONNECT** card.
 
@@ -188,9 +180,9 @@ Provide the `Organization ID` for your GCP organization and the `Client email`. 
 
 ![Provide GCP Org Details](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/gcp-org-details.png)
 
-Proceed to Step 10 for setting up Service Account Impersonation.
+Proceed to Step 11 for setting up Service Account Impersonation.
 
-## Step 10: Setup Service Account Impersonation
+## Step 11: Setup Service Account Impersonation
 
 - The **impersonating** user or service account (i.e. `the identity that runs Guardrails`) must have the **Service Account Token Creator** role (`roles/iam.serviceAccountTokenCreator`) on the target service account.
 
@@ -209,7 +201,28 @@ Now execute copied command using [gcloud CLI](https://cloud.google.com/sdk/docs/
 gcloud iam service-accounts add-iam-policy-binding SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com --member="user:IMPERSONATOR_EMAIL" --role="roles/iam.serv
 ```
 
-## Step 11: Create External ID Label
+Validate the output.
+
+```
+⇒ gcloud iam service-accounts add-iam-policy-binding mrk-sa-test@mrk-sandbox.iam.gserviceaccount.com --member=serviceAccount:integration-gcp@turbot-guardrails-dev.iam.gserviceaccount.com --role=roles/iam.serviceAccountTokenCreator --format=json
+Updated IAM policy for serviceAccount [mrk-sa-test@mrk-sandbox.iam.gserviceaccount.com].
+{
+  "bindings": [
+    {
+      "members": [
+        "serviceAccount:integration-gcp@turbot-guardrails-dev.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.serviceAccountTokenCreator"
+    }
+  ],
+  "etag": "BwYsqn0-odQ=",
+  "version": 1
+}
+```
+
+
+
+## Step 12: Create External ID Label
 
 The `External ID label` acts as a key service account identifier within the project that your service account belongs to. Create a label with the key `guardrails_external_id` and value: `turbot_162167737252865_f1da2779-92c8-46b1-83dd-95d629023211`. This value is randomly populated by Guardrails.
 
@@ -227,7 +240,7 @@ Guardrails will use this label to verify that you have the correct permissions a
 > [!IMPORTANT]
 > The `External ID` label created for this organization import, must be retained within the respective GCP project.
 
-## Step 12: Exclude Projects
+## Step 13: Exclude Projects
 
 This step is required if you wish to exclude specific projects or folder under organization from being imported into Guardrails.
 
@@ -238,24 +251,36 @@ Click the **Edit** button to provide a list of project IDs or folder names under
 
 ![Edit Exception List](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/exception-list-with-connect.png)
 
-Click the **Preview** button to ensure no errors are displayed. Move to [Step 13](#step-13-initiate-connect).
+Click the **Preview** button to ensure no errors are displayed. Move to [Step 14](#step-14-initiate-connect).
 
-## Step 13: Initiate Connect
+## Step 14: Initiate Connect
 
 Click **Connect** to begin the import process.
 
 ![Connect to Import](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/connect.png)
 
-Guardrails will create and execute discovery controls for your GCP Organization, scanning each project and resource based on the configured policies.
+Guardrails will create and execute discovery controls for your GCP Organization, scanning each folder, project and resources under it.
+
+![Check Discovery process](/images/docs/guardrails/guides/gcp/import-gcp-organization/check-discovery-process.png)
 
 ## (Optional) Ensure Billing is Enabled
 
 If you plan to allow Guardrails to enable new APIs or create resources that may incur charges, ensure that billing is enabled at the **organization** level or for specific projects as needed. For more details, refer to the GCP guide [Manage your Cloud Billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account).
 
-## Verify
+## Review
+
+- [ ] Confirm that the organization CMDB and discovery controls are in the `OK` state.
+
+Navigate to the **Resources** tab, search for the organization name, then select **Controls** tab besides to check the controls are on `OK` state.
+
+![Review Org CMDB and Discovery Controls](/images/docs/guardrails/guides/gcp/import-gcp-organization/review-org-cmdb-discovery-controls.png)
 
 - [ ] Verify that the projects and folders are successfully imported into Guardrails and match the GCP console.
-- [ ] Confirm that the controls are in the `OK` state.
+
+Navigate to the **Resources** tab, search for the organization name to check the list of resources the import process is discovered matching to the structure in GCp console.
+
+![Review GCP Org Resources](/images/docs/guardrails/guides/gcp/import-gcp-organization/review-gcp-org-resources-imported.png)
+
 
 ## Troubleshooting
 
@@ -265,6 +290,8 @@ If you plan to allow Guardrails to enable new APIs or create resources that may 
 | Access Denied: Malformed Secret Key  | Guardrails requires the multi-line format of the Secret Key. Ensure it includes the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` headers.                                                                                          |                                                                                                     |
 | Access Denied: Improper Client Email | Guardrails cannot use a non-service account email to access the project. Ensure the Client Email is in the form of `{identifier}@{your-project-id}.iam.gserviceaccount.com`.                                                                         | [Check GCP Service Account Documentation](https://cloud.google.com/iam/docs/service-accounts).                                                                                                         |
 | Access Denied: Missing or Insufficient Permissions | If Guardrails is asked to discover, track, or remediate resources without the necessary permissions, `access denied` errors will appear in the Discovery and CMDB controls in the Guardrails console. Resolve by granting the required permissions. |                                                                                   |
+| Bad Request: Error processing runnable input
+organizationcredentials	`Cloud Resource Manager API has not been used` in project 265919997400 before or it is disabled.| If Guardrails import process errors out in CMDB and discovery control run | Enable it by visiting https://console.developers.google.com/apis/api/cloudresourcemanager.googleapis.com/overview?project=265919997300 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.                                                                                  |
 | Lots of Controls in Error State      | If there were issues with credentials during project import, many Discovery controls may show an `error` state. You can either delete and reimport the project or rerun the controls in `error` using scripts provided in the Guardrails Samples Repo. | Use the [Python](https://github.com/turbot/guardrails-samples/tree/main/api_examples/python/run_controls), [Node](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches), or [Shell](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/shell_utils/run-controls) scripts. |
 | GCP Service API Enabled Policies Aren't Set | If the `GCP > {Service} > API Enabled` policy is not set to `Enforce: Enabled`, Discovery and CMDB controls will be `skipped`. Enable the applicable service APIs manually if Guardrails lacks permissions to do so.                                  | [Enable GCP APIs Documentation](https://cloud.google.com/apis).                                                                                                 |
 | Further Assistance                  | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                                                                               | [Open Support Ticket](https://support.turbot.com).                                                                                                               |
