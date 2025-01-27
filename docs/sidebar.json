@@ -235,7 +235,6 @@
             "items": [
               "guides/azure/import/tenant",
               "guides/azure/import/active-directory",
-              "guides/azure/import/management-group",
               "guides/azure/import/subscription"
             ]
           },
