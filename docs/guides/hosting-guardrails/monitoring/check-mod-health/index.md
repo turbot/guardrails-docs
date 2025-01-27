@@ -49,6 +49,15 @@ Alternatively, click on the message to navigate to the Mod Health control and ve
 
 ![Mod Health Page](/images/docs/guardrails/guides/hosting-guardrails/monitoring/check-mod-health/guardrails-mod-health.png)
 
-If you encounter any issues, please [Open Support Ticket](https://support.turbot.com) and attach the relevant information to assist you more efficiently.
+## Next Steps
 
-- A screenshot of the Guardrails mod health in error.
+Please see the following resources to learn more about Turbot Guardrails Enterprise:
+
+- Learn how to [Diagnose Control Errors](https://turbot.com/guardrails/docs/guides/hosting-guardrails/monitoring/diagnose-control-error).
+- Learn how to [Investigate an Event Flood](https://turbot.com/guardrails/docs/guides/hosting-guardrails/monitoring/investigate-event-flood).
+
+## Troubleshooting
+
+| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
