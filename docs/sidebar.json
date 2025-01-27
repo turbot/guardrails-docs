@@ -405,6 +405,15 @@
           },
           {
             "type": "category",
+            "id": "stacks",
+            "link": "guides/using-guardrails/stacks",
+            "items": [
+              "guides/using-guardrails/stacks/deploy",
+              "guides/using-guardrails/stacks/destroy"
+            ]
+          },
+          {
+            "type": "category",
             "id": "troubleshooting",
             "link": "guides/using-guardrails/troubleshooting",
             "items": [
