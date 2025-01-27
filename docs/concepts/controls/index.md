@@ -70,7 +70,11 @@ When a control is muted:
 - It will be displayed in the console with a gray  `MUTED [{state}]` state (e.g. `MUTED [ERROR]`).
 - It will not be "scored."   It will not be shown by default when the display is filtered by state, nor will it be included in the totals for its state.  For example, if the control is in an `ERROR` state but is muted, it will not be reflected in the count of `ERROR` controls, and the control will not appear when filtering on `state:error.`
 - Enforcement actions will not run.
+
+<!--
 - [Notifications](/guardrails/docs/guides/using-guardrails/notifications) will not be sent when the control changes state.
+
+-->
 
 You can mute or unmute a control from its [detail page](#control-detail-page).  You may mute the control indefinitely, set an expiration date and time, or mute the control until it changes to a specific state or states, e.g.:
 - Mute for 1 day
