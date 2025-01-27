@@ -23,7 +23,7 @@ Importing an AWS Organization into Guardrails involves the following key steps:
 - Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
 - The [`aws` mod](https://hub.guardrails.turbot.com/mods/aws/mods) `v5.36.0` or later installed.
 - Minimum Turbot Enterprise (TE) version `v5.48.0` or later.
-- A cross-account IAM role in the management account (hosting the organization) and all member accounts. Using [AWS IAM Role Delegation](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#delegate-using-roles) allows Guardrails to securely access AWS resources without sharing sensitive credentials like passwords or keys.
+- Cross-account IAM roles in the management account and member accounts to securely allow Guardrails access without sharing sensitive credentials.
 
 ## Step 1: Review AWS Side Requirements
 

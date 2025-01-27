@@ -21,6 +21,7 @@ Guardrails has a deep integration with [Amazon Web Services (AWS)](https://aws.a
 ## Getting started with Guardrails for AWS
 
 1. [Import an AWS Account](integrations/aws/import-aws-account) into a Guardrails  Folder.
+1. [Import an AWS Organization](guides/aws/import-aws-organization) into a Guardrails  Folder.
 1. [Set up the AWS Event Handlers](integrations/aws/event-handlers) to configure real-time events.
 1. [Enable AWS Services](integrations/aws/services) that you will use.
 1. [Configure Permissions Policies](integrations/aws/permissions) to allow Guardrails to manage
