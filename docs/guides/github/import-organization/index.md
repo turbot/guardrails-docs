@@ -71,7 +71,7 @@ Grant the [required permissions](#required-permissions) by selecting **All repos
 
 ![Associated Permission](/images/docs/guardrails/guides/github/import-organization/associate-org-permission.png)
 
-## Step 4: Validate Personal Access Token at Organization
+## Step 4: Validate Personal Access Token for Organization
 
 Navigate to your GitHub organization URL e.g. `https://github.com/organizations/adapt-cloud-security` and select **Settings**.
 
@@ -105,6 +105,7 @@ Choose the folder where you want to import the organization. Typically this woul
 
 ![Choose Location](/images/docs/guardrails/guides/github/import-organization/choose-location.png)
 
+
 Get the Organization URL from GitHub **Overview** section. Copy the URL and past it in `Organization URL` text box.
 
 ![Get Org URL](/images/docs/guardrails/guides/github/import-organization/get-org-url.png)
@@ -112,6 +113,8 @@ Get the Organization URL from GitHub **Overview** section. Copy the URL and past
 Provide `Personal Access Token` and Select **Connect**.
 
 ![Connect](/images/docs/guardrails/guides/github/import-organization/connect.png)
+
+![alt text](image.png)
 
 ## Step 7: Review
 
