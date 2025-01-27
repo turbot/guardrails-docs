@@ -185,24 +185,3 @@ Navigate to the **Resources** tab, search for the organization name, and then se
 | Common errors.                     | Any common errors preventing controls to run   |Refer [Common Troubleshooting](/guardrails/docs/guides/troubleshooting) for more information.
 | Further Assistance                     | If issues persist or you require additional help, you can access detailed troubleshooting documentation or reach out to support.                        | Refer to the [Guardrails Troubleshooting Guide](/guardrails/docs/troubleshooting) or [Open a Support Ticket](https://support.turbot.com).                                                                                         |
 
-
-
----
-
-
-<!-- ## Step 6: Log in to Guardrails Console
-
-Log in to the Guardrails console using your provided local credentials or through any SAML-based login method. Select the **CONNECT** card, then choose **AWS**.
-
-![Select Connect](/images/docs/guardrails/guides/aws/import-aws-organization/select-connect.png)
-
-Next, select **AWS Organization** from the `Select your account type` options.
-
-![Select AWS Organization](/images/docs/guardrails/guides/aws/import-aws-organization/select-aws-organization.png)
-
-## Step 7: Choose Folder
-
-In the **Choose your folder** dropdown, select the Guardrails [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where you want to import your organization.
-
-![Choose Folder to Import](/images/docs/guardrails/guides/aws/import-aws-organization/choose-folder-to-import.png) -->
-
