@@ -7,11 +7,11 @@ sidebar_label: Deploy a Stack
 
 Guardrails can help you centrally deploy, configure, and manage cloud resources using [Guardrails Stacks](/guardrails/docs/concepts/guardrails/stacks). With Guardrails stacks, you describe your configuration in OpenTofu, an open source Terraform implementation, and Guardrails applies it automatically.  Guardrails can re-apply the configuration at regular intervals or whenever resources change, enforcing your standards and preventing configuration drift.
 
-In this Guide we will use the **Deploy AWS IAM Stack** policy pack to deploy an IAM role via OpenTofu.
+In this Guide we will use the [Deploy AWS IAM Stack](https://hub.guardrails.turbot.com/policy-packs/aws_iam_deploy_aws_iam_stack) policy pack to deploy an IAM role via OpenTofu.
 
-The **Deploy AWS IAM Stack** policy pack uses the `AWS > IAM > Stack [Native]` control to create and subsequently manage IAM resources across your AWS accounts . This control targets an AWS account; regardless of what level you set the stack policies, the control actually runs once for each account in scope, [in a single region](/guardrails/docs/concepts/guardrails/stacks#primary-regions).  If you need to deploy non-IAM resources, you should use the appropriate service stack (`AWS > VPC > Stack [Native]`, etc) or the general account-level (`AWS > Account > Stack [Native]`) or region-level (`AWS > Region > Stack [Native]`) stack control.
+The `Deploy AWS IAM Stack` policy pack uses the `AWS > IAM > Stack [Native]` control to create and subsequently manage IAM resources across your AWS accounts . This control targets an AWS account; regardless of what level you set the stack policies, the control actually runs once for each account in scope, [in a single region](/guardrails/docs/concepts/guardrails/stacks#primary-regions).  If you need to deploy non-IAM resources, you should use the appropriate service stack (`AWS > VPC > Stack [Native]`, etc) or the general account-level (`AWS > Account > Stack [Native]`) or region-level (`AWS > Region > Stack [Native]`) stack control.
 
-In this example, we will use the example source in the **Deploy AWS IAM Stack** policy pack to deploy a standard IAM role.  You can, however, modify the source, variables, and other policies to meet your needs.
+In this example, we will use the example source in the `Deploy AWS IAM Stack` policy pack to deploy a standard IAM role.  You can, however, modify the source, variables, and other policies to meet your needs.
 
 
 ## Prerequisites
@@ -22,10 +22,10 @@ In this example, we will use the example source in the **Deploy AWS IAM Stack** 
 
 ## Step 1: Get Policy Pack
 
-The  **Deploy AWS IAM Stack** policy pack resides in the `guardrails-samples` repo. Let's clone the repo and change to the directory containing the policy pack code:
+The  [Deploy AWS IAM Stack](https://hub.guardrails.turbot.com/policy-packs/aws_iam_deploy_aws_iam_stack) policy pack resides in the `guardrails-samples` repo. Let's clone the repo and change to the directory containing the policy pack code:
 ```sh
 git clone https://github.com/turbot/guardrails-samples.git
-cd guardrails-samples/policy_packs/aws/stack/deploy_iam_stack
+cd guardrails-samples/policy_packs/aws/stack/deploy_aws_iam_stack
 ```
 
 ## Step 2: Review Stack Source

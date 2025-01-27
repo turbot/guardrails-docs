@@ -13,14 +13,14 @@ In this guide, you will configure stack policies to preview deletion and then de
 - Guardrails: [TE](https://turbot.com/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-workspace) 5.47+, with [aws-iam](https://hub.guardrails.turbot.com/mods/aws/mods/aws-iam) mod 5.39+
 - Tools: [git](git-scm.com), [Terraform](https://developer.hashicorp.com/terraform) or [OpenTofu](https://opentofu.org/), [Guardrails CLI credentials](https://turbot.com/guardrails/docs/reference/cli/installation#set-up-your-turbot-guardrails-credentials) configured
 - [One or more AWS accounts imported](/guardrails/docs/guides/aws/import-aws-account)
-- Install and attach the **Deploy AWS IAM Stack** policy pack, per the [Running Stacks guide](/guardrails/docs/guides/using-guardrails/stacks/deploy)
+- Install and attach the [Deploy AWS IAM Stack](https://hub.guardrails.turbot.com/policy-packs/aws_iam_deploy_aws_iam_stack) policy pack, per the [Running Stacks guide](/guardrails/docs/guides/using-guardrails/stacks/deploy)
 
 
 ## Step 1: Change Primary Policy to Preview Deletion
 
 The `AWS > IAM > Stack [Native]` policy is the primary policy for the `AWS > IAM > Stack [Native]` control.  This policy determines the enforcement behavior.  To preview the changes before enforcing them, set the policy to the `Check: Configured`.
 
-Edit the `policies.tf` for the **Deploy AWS IAM Stack** policy pack. Uncomment the `Check: Configured` value and comment out `Enforce: Configured`:
+Edit the `policies.tf` for the [Deploy AWS IAM Stack](https://hub.guardrails.turbot.com/policy-packs/aws_iam_deploy_aws_iam_stack) policy pack. Uncomment the `Check: Configured` value and comment out `Enforce: Configured`:
 
 ```hcl
 # AWS > IAM > Stack [Native]
@@ -77,7 +77,7 @@ You can [view the process logs for the control](/guardrails/docs/guides/using-gu
 
 ## Step 5: Change Primary Policy to Enforce Deletion
 
-Now, let's change the `AWS > IAM > Stack [Native]` policy to enforce the configuration and destroy the resources.  Edit the `policies.tf` for the **Deploy AWS IAM Stack** policy pack. Uncomment the `Enforce: Configured` value and comment out `Check: Configured`:
+Now, let's change the `AWS > IAM > Stack [Native]` policy to enforce the configuration and destroy the resources.  Edit the `policies.tf` for the `Deploy AWS IAM Stack` policy pack. Uncomment the `Enforce: Configured` value and comment out `Check: Configured`:
 
 ```hcl
 # AWS > IAM > Stack [Native]
