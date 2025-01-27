@@ -65,7 +65,15 @@ To verify, navigate to the desired resource page, where the **Actions** button s
 
 >[!NOTE] Exceptions/changes to the default permissions required for Quick Actions can be set using the `Turbot > Quick Actions > Permission Levels` policy.
 
-If you encounter any issues, please [Open Support Ticket](https://support.turbot.com) and attach the relevant information to assist you more efficiently.
+## Next Steps
 
-- A screenshot of the Quick Actions in error.
-- A screenshot of the Quick Actions policy settings created.
+Please see the following resources to learn more about Turbot Guardrails Enterprise:
+
+- Learn how to [Apply a Quick Action on a GCP Resource](https://turbot.com/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action#apply-a-quick-action).
+- Learn how to [Apply a Quick Action on an Azure Resource](https://turbot.com/guardrails/docs/getting-started/getting-started-azure/apply-quick-action)
+
+## Troubleshooting
+
+| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
