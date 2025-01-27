@@ -10,4 +10,6 @@ This section offers step-by-step guides for importing GCP organizations into Gua
 | **Section** | **Description** |
 |-------------|-----------------|
 | [Organization to Enterprise (Hosted) Workspace](guides/gcp/import-gcp-organization/enterprise-hosted-workspace) | Learn how to import a GCP organization into an enterprise-hosted workspace using the Guardrails Console. |
-| [Organization to SaaS Workspace](guides/gcp/import-gcp-organization/saas-workspace) | Learn how to import a GCP organization into a SaaS workspace using the Guardrails Console. |
+
+<!--
+| [Organization to SaaS Workspace](guides/gcp/import-gcp-organization/saas-workspace) | Learn how to import a GCP organization into a SaaS workspace using the Guardrails Console. | -->

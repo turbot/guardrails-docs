@@ -25,7 +25,7 @@ Metadata:
 Parameters:
   AccessRoleName:
     Type: String
-    Default: turbot_guardrails_access_role
+    Default: turbot_guardrails
     Description: The role that Turbot uses to connect to this account
   AccessPolicyName:
     Type: String
@@ -33,7 +33,7 @@ Parameters:
     Description: The name for the policy for SNS and Events write access.
   AccessRoleExternalId:
     Type: String
-    Default: 'turbot:317452734766081:302fdfa7-bea4-49ea-a5d6-1e276e5b8cda'
+    Default: turbot:317452734766081:363bd25d-c8e0-4524-b54e-97fbd37643fa
     Description: The AWS External ID to add to the trust policy of the Turbot role
   EventHandlerRoleName:
     Type: String
@@ -51,7 +51,7 @@ Parameters:
     Default: '287590803701'
     Description: >
       The AWS Account ID where Guardrails is installed. This will be added to the
-      cross accout trust policy of the access role. The default value of '287590803701'
+      cross account trust policy of the access role. The default value of '287590803701'
       refers to the account ID of the Turbot Guardrails SaaS environment. Do not change
       the value if importing your account into Guardrails SaaS.
 Resources:

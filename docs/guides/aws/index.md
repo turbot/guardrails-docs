@@ -1,23 +1,19 @@
 ---
 title: Governing AWS
-template: Documentation
-nav:
-  order: 10
+sidebar_label: Governing AWS
 ---
 
 # Amazon Web Services (AWS)
 
-## Overview
-
 Guardrails has a deep integration with [Amazon Web Services (AWS)](https://aws.amazon.com/).
 
-- Guardrails provides [dozens of AWS mods](https://hub.guardrails.turbot.com/mods/aws/mods), 
-  covering hundreds of AWS resources, with 
-  [thousands of policies](https://hub.guardrails.turbot.com/mods/aws/policies) 
+- Guardrails provides [dozens of AWS mods](https://hub.guardrails.turbot.com/mods/aws/mods),
+  covering hundreds of AWS resources, with
+  [thousands of policies](https://hub.guardrails.turbot.com/mods/aws/policies)
   and [controls](https://hub.guardrails.turbot.com/mods/aws/controls).
 - Guardrails' extensive IAM integration allows you to federate AWS access and
   manage your AWS permissions through the Guardrails console and API.
-- Guardrails' event handlers keep the CMDB up to date as AWS resources are created, 
+- Guardrails' event handlers keep the CMDB up to date as AWS resources are created,
   modified, and destroyed, allowing policy enforcement in real time.
 - Guardrails shows all activity in your AWS account - you can quickly see what
   happened, who made the change, when the activity occurred, and exactly what changed.

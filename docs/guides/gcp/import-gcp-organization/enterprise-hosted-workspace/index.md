@@ -219,9 +219,6 @@ Updated IAM policy for serviceAccount [mrk-sa-test@mrk-sandbox.iam.gserviceaccou
   "version": 1
 }
 ```
-
-
-
 ## Step 12: Create External ID Label
 
 The `External ID label` acts as a key service account identifier within the project that your service account belongs to. Create a label with the key `guardrails_external_id` and value: `turbot_162167737252865_f1da2779-92c8-46b1-83dd-95d629023211`. This value is randomly populated by Guardrails.
@@ -277,7 +274,7 @@ Navigate to the **Resources** tab, search for the organization name, then select
 
 - [ ] Verify that the projects and folders are successfully imported into Guardrails and match the GCP console.
 
-Navigate to the **Resources** tab, search for the organization name to check the list of resources the import process is discovered matching to the structure in GCp console.
+Navigate to the **Resources** tab, search for the organization name to check the list of resources the import process is discovered matching to the structure in GCP console.
 
 ![Review GCP Org Resources](/images/docs/guardrails/guides/gcp/import-gcp-organization/review-gcp-org-resources-imported.png)
 
