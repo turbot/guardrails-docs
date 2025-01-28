@@ -67,11 +67,11 @@ The table below outlines the minimum permissions required for organization-wide 
 
 Follow these steps to assign the required roles at the `Organization` scope to the service account:
 
-1. Navigate to **IAM & Admin** > **IAM** in the [Google Cloud console](https://console.cloud.google.com).
-2. Select your **Organization** from the resource selector.
-3. Select **Grant Access**.
-4. Enter the **Principal** as `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`, that you created part of previous step.
-5. Assign the required roles at the organization (or folder) scope as described in [Required Permissions on Service Account](#required-permissions).
+- Navigate to **IAM & Admin** > **IAM** in the [Google Cloud console](https://console.cloud.google.com).
+- Select your **Organization** from the resource selector.
+- Select **Grant Access**.
+- Enter the **Principal** as `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`, that you created part of previous step.
+- Assign the required roles at the organization (or folder) scope as described in [Required Permissions on Service Account](#required-permissions).
 
 Refer to the image below:
 
@@ -80,9 +80,7 @@ Refer to the image below:
 > [!NOTE]
 > To import an organization, you need only `Organization Viewer`, `Project Viewer`, and `Folder Viewer` roles to allow the discovery of all resources under the organization.
 
-Alternatively you can grant roles using command line interface as below.
-
-*CLI Reference:* Create a service account and assign organization-Level roles.
+Alternatively you can grant roles using `gcloud` command line interface as below.
 
 ```bash
 #  Create the service account in a specific project
@@ -147,9 +145,9 @@ Select **GCP** and then choose the **GCP Organization** option.
 
 ![Select GCP](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/select-gcp.png)
 
-Choose the [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where the GCP organization will be imported.
-Choose one of the `Access modes` from the provided list. In this guide, **Service Account impersonation** is demonstrated.
-Provide the `Organization ID` for your GCP organization and the `Client email`. Guardrails will use this email ID for impersonation.
+- Choose the [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where the GCP organization will be imported.
+- Choose one of the `Access modes` from the provided list. In this guide, **Service Account impersonation** is demonstrated.
+- Provide the `Organization ID` for your GCP organization and the `Client email`. Guardrails will use this email ID for impersonation.
 
 ![Provide GCP Org Details](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/gcp-org-details.png)
 
