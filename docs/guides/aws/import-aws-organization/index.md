@@ -49,7 +49,7 @@ Installation of additional mods will depend on your organization's control objec
 
 Follow the steps in [Install a Mod](/guides/configuring-guardrails/install-mod#install-mod-via-guardrails-console) to install mods via the Guardrails console.
 
-## Step 3: Get AWS Organization Management Account ID
+## Step 3: Get AWS Management Account or Delegated Account ID
 
 Account ID of the management account or a [delegated account with organization permissions](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) is mandatory for organization import. To obtain the account ID, you can either:
 
@@ -110,18 +110,20 @@ The permissions you grant to the Guardrails IAM role depend on your use case(s).
 
 Now as next steps:
 
-- Provide your `Organization Account ID` (obtained in Step 3).
+- Provide your `Organization Account ID` (Obtained in Step 3).
 - Select the `Environment`.
 - Enter the IAM `Role Name`.
 - Provide `External ID`.
 
-![Setup Organization Access](/images/docs/guardrails/guides/aws/import-aws-organization/setup-organization-access.png)
-
 > [!NOTE]
 > Other supported AWS Environments include `Commercial Cloud`, `US Government`, and `China Cloud`.
-> Give the role a meaningful name, such as `turbot-service-readonly` (read-only) or `turbot-service-superuser` (full access), along with an appropriate description.
 
-Proceed to create the IAM Role in the organization management account.
+> Give the role a meaningful name along with an appropriate description.
+
+![Setup Organization Access](/images/docs/guardrails/guides/aws/import-aws-organization/setup-organization-access.png)
+
+
+Proceed to create the IAM Role in the organization management or delegated account.
 
 ## Step 7: Create IAM Role in Management Account or Delegated Account
 
@@ -129,10 +131,9 @@ You can create the IAM role beforehand or during the importing process in the Gu
 
 To create the IAM role:
 
-- Download the CloudFormation template file, which will be updated with the two values you provided (i.e., `Role Name` and `External ID`) in previous [Step 6](#step-6-setup-access-to-your-organization-management-account).
+- Download the CloudFormation template file, which will be updated with the two values you provided (i.e., `Role Name` and `External ID`) in previous Step 6.
 
 ![Download Organization CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-management-account-iam-role-cfn-template.png)
-
 
 <details>
   <summary>Reference to downloaded CloudFormation Template with ReadOnlyAccess</summary>
@@ -161,11 +162,11 @@ Metadata:
 Parameters:
   AccessRoleName:
     Type: String
-    Default: turbot_guardrails
+    Default: turbot-org-readonly
     Description: The role that Turbot uses to connect to this account
   AccessRoleExternalId:
     Type: String
-    Default: turbot:317452734766081:363bd25d-c8e0-4524-b54e-97fbd37643fa
+    Default: turbot:193176180516865:1767af34-46d4-4ef7-9e9c-2b4968ccf0e4
     Description: The AWS External ID to add to the trust policy of the Turbot role
   GuardrailsIamPath:
     Type: String
