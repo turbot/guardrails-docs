@@ -1,9 +1,9 @@
 ---
-title: To Enterprise (Hosted) Workspace
-sidebar_label: To Enterprise (Hosted) Workspace
+title: Self-Hosted Workspace
+sidebar_label: Self-Hosted Workspace
 ---
 
-# Importing Organization to Enterprise (Hosted) Workspace
+# Importing GCP Organization to Self-Hosted Workspace
 
 In this guide, you will:
 
@@ -42,7 +42,7 @@ Guardrails requires access to the `Cloud Resource Manager` and `Service Manageme
 
 Refer to the image below as example using as example in GCP `Console`.
 
-![Enable API](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/enable-api.png)
+![Enable API](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/enable-api.png)
 
 ## Step 2: Create Service Account
 
@@ -75,7 +75,7 @@ Follow these steps to assign the required roles at the `Organization` scope to t
 
 Refer to the image below:
 
-![Service Account with Organization Scope](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/service-account-with-org-scope.png)
+![Service Account with Organization Scope](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/service-account-with-org-scope.png)
 
 > [!NOTE]
 > To import an organization, you need only `Organization Viewer`, `Project Viewer`, and `Folder Viewer` roles to allow the discovery of all resources under the organization.
@@ -93,7 +93,7 @@ Now, proceed with the following steps to prepare enterprise configurations.
 
 ## Step 4: Enterprise Configurations
 
-To import a GCP organization into an enterprise-hosted environment, the following activities must be completed:
+To import a GCP organization into an self-hosted(enterprise) environment, the following activities must be completed:
 
 ### Prerequisites
 
@@ -107,17 +107,17 @@ AWS Systems Manager (SSM) `Parameter Store` feature enables the creation of key-
 
 Log in to the Guardrails primary AWS account and navigate to the `AWS Systems Manager` service.
 
-![Create Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/create-paramater.png)
+![Create Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/create-paramater.png)
 
 Create a `Secure String` with the `Tier` set to `Standard`.
 
-![Paste JSON Credential](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/create-secure-standard-string.png)
+![Paste JSON Credential](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/create-secure-standard-string.png)
 
 See [**here**](/guardrails/docs/getting-started/getting-started-gcp/prepare-project#step-9-create-key) how to create and download JSON credential file.
 
 Paste the JSON credential content into the **Value** field and select **Create parameter**.
 
-![Paste JSON Value](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/add-parameter-value-in-console.png)
+![Paste JSON Value](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/add-parameter-value-in-console.png)
 
 For more details, refer to the AWS guide on [Creating a Parameter Store parameter using the console](https://docs.aws.amazon.com/systems-manager/latest/userguide/create-parameter-in-console.html).
 
@@ -127,29 +127,29 @@ It's time to update the created SSM parameter name in the TED. Follow the steps 
 
 Navigate to the `GCP Service Account Private Key SSM Parameter` section of the TED stack (towards the end) and update the manually created SSM parameter name as shown below. Select **Update** to proceed.
 
-![Update TED Stack Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/update-ted-stack-parameter.png)
+![Update TED Stack Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/update-ted-stack-parameter.png)
 
 ## Step 5: Get Organization ID
 
 In the GCP console, select your organization. Navigate to **All** to view the list of projects, folders, and the organization itself. Locate and copy the `ID` of the organization.
 
-![Get GCP Organization ID](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/get-gcp-org-id.png)
+![Get GCP Organization ID](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/get-gcp-org-id.png)
 
 ## Step 6: Import Organization into Guardrails
 
 Log into the Guardrails console with provided local credentials or by using any SAML based login and select the **CONNECT** card.
 
-![Select Connect](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/select-connect.png)
+![Select Connect](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/select-connect.png)
 
 Select **GCP** and then choose the **GCP Organization** option.
 
-![Select GCP](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/select-gcp.png)
+![Select GCP](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/select-gcp.png)
 
 - Choose the [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where the GCP organization will be imported.
 - Choose one of the `Access modes` from the provided list. In this guide, **Service Account impersonation** is demonstrated.
 - Provide the `Organization ID` for your GCP organization and the `Client email`. Guardrails will use this email ID for impersonation.
 
-![Provide GCP Org Details](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/gcp-org-details.png)
+![Provide GCP Org Details](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/gcp-org-details.png)
 
 Proceed for setting up Service Account Impersonation.
 
@@ -161,7 +161,7 @@ Proceed for setting up Service Account Impersonation.
 
 In the same page, select **Copy gcloud command**.
 
-![Generate Service Account Impersonation](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/generate-service-account-impersonation.png)
+![Generate Service Account Impersonation](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/generate-service-account-impersonation.png)
 
 Now execute copied command using [gcloud CLI](https://cloud.google.com/sdk/docs/install) in your local environment.
 
@@ -197,11 +197,11 @@ The `External ID label` acts as a key service account identifier within the proj
 > [!NOTE]
 > The `Label` key and the highlighted portion of the value (i.e., `turbot_162167737252865` in the format `turbot_{current workspace id}`) cannot be modified. However, the third part of the text can be customized by clicking the `Customize` icon.
 
-![Generate External ID Label](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/generate-external-id-label-and-create.png)
+![Generate External ID Label](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/generate-external-id-label-and-create.png)
 
 Log in to the GCP console and navigate to the project where the configured service account resides. Select **Labels** from the side navigation panel, add `guardrails_external_id` as the label key, and `turbot_162167737252865_f1da2779-92c8-46b1-83dd-95d629023211` as the value. Click **+Add label** to save the label.
 
-![Create GCP Label](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/gcp-label-creation.png)
+![Create GCP Label](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/gcp-label-creation.png)
 
 > [!WARNING]
 > The `External ID` label created for this organization import must be retained within the respective GCP project to prevent errors in Guardrails.
@@ -215,7 +215,7 @@ This step is required if you wish to exclude specific projects or folder under o
 
 Click the **Edit** button to provide a list of project IDs or folder names under the organization to be excluded.
 
-![Edit Exception List](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/exception-list-with-connect.png)
+![Edit Exception List](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/exception-list-with-connect.png)
 
 Click the **Preview** button to ensure no errors are displayed. Move to [Step 14](#step-14-initiate-connect).
 
@@ -223,7 +223,7 @@ Click the **Preview** button to ensure no errors are displayed. Move to [Step 14
 
 Click **Connect** to begin the import process.
 
-![Connect to Import](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/connect.png)
+![Connect to Import](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/connect.png)
 
 Guardrails will create and execute discovery controls for your GCP Organization, scanning each folder, project and resources under it.
 
@@ -239,13 +239,13 @@ If you plan to allow Guardrails to enable new APIs or create resources that may 
 
 Navigate to the **Resources** tab, search for the organization name, then select **Controls** tab besides to check the controls are on `OK` state.
 
-![Review Org CMDB and Discovery Controls](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/review-org-cmdb-discovery-controls.png)
+![Review Org CMDB and Discovery Controls](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/review-org-cmdb-discovery-controls.png)
 
 - [ ] Verify that the projects and folders are successfully imported into Guardrails and match the GCP console.
 
 Navigate to the **Resources** tab, search for the organization name to check the list of resources the import process is discovered matching to the structure in GCP console.
 
-![Review GCP Org Resources](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/review-gcp-org-resources-imported.png)
+![Review GCP Org Resources](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/review-gcp-org-resources-imported.png)
 
 ## Next Steps
 

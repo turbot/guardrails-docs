@@ -5,9 +5,6 @@ sidebar_label: Import Organization
 
 # Importing an AWS Organization
 
-> [!IMPORTANT]
-This guide is intended for use by customers running TE version `5.48.0` or higher.  If you are running an earlier version of Guardrails please use [Importing an AWS account](guides/aws/import-aws-account).
-
 In this guide, you will:
 
 - Learn how to import an entire AWS Organization into Turbot Guardrails, enabling Guardrails to discover, govern, and manage resources across all accounts under a single AWS Organization.

@@ -1,5 +1,5 @@
 ---
-title: "Import Azure Subscription into Guardrails"
+title: "Import Azure Subscription"
 template: Documentation
 nav:
   title: "Subscription"
@@ -61,19 +61,19 @@ resource "turbot_policy_setting" "environment" {
   resource = turbot_resource.subscription_resource.id
   type     = "tmod:@turbot/azure#/policy/types/environment"
   value    = "Global Cloud"
-  # value    = "US Government" 
+  # value    = "US Government"
 }
 # Azure > Client Key
 resource "turbot_policy_setting" "clientKey" {
   resource = turbot_resource.subscription_resource.id
   type     = "tmod:@turbot/azure#/policy/types/clientKey"
-  value    = "{turbot application client key}" 
+  value    = "{turbot application client key}"
 }
 # Azure > Client ID
 resource "turbot_policy_setting" "clientId" {
   resource = turbot_resource.subscription_resource.id
   type     = "tmod:@turbot/azure#/policy/types/clientId"
-  value    = "{turbot application client id}" 
+  value    = "{turbot application client id}"
 }
 # Azure > Tenant ID
 resource "turbot_policy_setting" "tenantId" {

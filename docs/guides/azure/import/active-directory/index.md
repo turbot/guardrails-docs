@@ -1,5 +1,5 @@
 ---
-title: "Import Azure Entra ID into Guardrails"
+title: "Import Azure Entra ID"
 template: Documentation
 nav:
   title: "Entra ID"
@@ -65,8 +65,8 @@ resource "turbot_resource" "active_directory_resource" {
 resource "turbot_policy_setting" "environment" {
   resource = turbot_resource.active_directory_resource.id
   type     = "tmod:@turbot/azure#/policy/types/environment"
-  value    = "Global Cloud" 
-  # value    = "US Government" 
+  value    = "Global Cloud"
+  # value    = "US Government"
 }
 
 resource "turbot_policy_setting" "clientKey" {

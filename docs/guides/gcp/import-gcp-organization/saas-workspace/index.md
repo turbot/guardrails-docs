@@ -1,9 +1,9 @@
 ---
-title: To SaaS Workspace
-sidebar_label: To SaaS Workspace
+title: SaaS Workspace
+sidebar_label: SaaS Workspace
 ---
 
-# Importing Organization to SaaS Workspace
+# Importing GCP Organization to SaaS Workspace
 
 In this guide, you will:
 
