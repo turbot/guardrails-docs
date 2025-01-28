@@ -185,96 +185,20 @@
     "link": "guides",
     "items": [
       {
-        "type": "category",
-        "id": "aws",
-        "link": "guides/aws",
-        "items": [
-          {
-            "type": "category",
-            "id": "import-aws-account",
-            "link": "guides/aws/import-aws-account",
-            "items": ["guides/aws/import-aws-account/gov-cloud"]
-          },
-          {
-            "type": "category",
-            "id": "event-handlers",
-            "link": "guides/aws/event-handlers",
-            "items": ["guides/aws/event-handlers/poller"]
-          },
-          {
-            "type": "category",
-            "id": "global-event-handler",
-            "link": "guides/aws/global-event-handlers",
-            "items": [
-              "guides/aws/global-event-handlers/setup-with-turbot-managed-iam-role",
-              "guides/aws/global-event-handlers/setup-with-custom-iam-role",
-              "guides/aws/global-event-handlers/migrate-to-global-event-handlers"
-            ]
-          },
-          "guides/aws/services",
-          {
-            "type": "category",
-            "id": "permissions",
-            "link": "guides/aws/permissions",
-            "items": ["guides/aws/permissions/user-mode"]
-          },
-          "guides/aws/security-hub",
-          "guides/aws/decommission"
-        ]
+        "type": "placeholder",
+        "file": "guides/aws/aws-sidebar.json"
       },
       {
-        "type": "category",
-        "id": "azure",
-        "link": "guides/azure",
-        "items": [
-          {
-            "type": "category",
-            "id": "import",
-            "link": "guides/azure/import",
-            "items": [
-              "guides/azure/import/tenant",
-              "guides/azure/import/active-directory",
-              "guides/azure/import/management-group",
-              "guides/azure/import/subscription"
-            ]
-          },
-          {
-            "type": "category",
-            "id": "real-time-events",
-            "link": "guides/azure/real-time-events",
-            "items": [
-              "guides/azure/real-time-events/ad-event-pollers",
-              "guides/azure/real-time-events/event-pollers",
-              "guides/azure/real-time-events/mgmt-event-pollers",
-              "guides/azure/real-time-events/event-handlers"
-            ]
-          },
-          "guides/azure/services",
-          "guides/azure/permissions",
-          "guides/azure/decommission"
-        ]
+        "type": "placeholder",
+        "file": "guides/azure/azure-sidebar.json"
       },
       {
-        "type": "category",
-        "id": "gcp",
-        "link": "guides/gcp",
-        "items": [
-          {
-            "type": "category",
-            "id": "import",
-            "link": "guides/gcp/import-gcp-project",
-            "items": ["guides/gcp/import-gcp-project/service-accounts"]
-          },
-          "guides/gcp/services",
-          "guides/gcp/permissions",
-          "guides/gcp/decommission",
-          {
-            "type": "category",
-            "id": "real-time-events",
-            "link": "guides/gcp/real-time-events",
-            "items": ["guides/gcp/real-time-events/event-pollers"]
-          }
-        ]
+        "type": "placeholder",
+        "file": "guides/gcp/gcp-sidebar.json"
+      },
+      {
+        "type": "placeholder",
+        "file": "guides/github/github-sidebar.json"
       },
       {
         "type": "placeholder",

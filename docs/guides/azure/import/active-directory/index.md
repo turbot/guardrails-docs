@@ -1,5 +1,5 @@
 ---
-title: "Import Azure Entra ID into Guardrails"
+title: "Import Azure Entra ID"
 template: Documentation
 nav:
   title: "Entra ID"
@@ -12,35 +12,33 @@ nav:
 import of a Microsoft Entra ID directory into Guardrails. Note that the [azure-activedirectory](https://hub.guardrails.turbot.com/mods/azure/mods/azure-activedirectory) mod is required to
 connect an Entra ID directory.
 
-All child resources of the Microsoft Entra ID directory will be discovered and
-subsequently entered into the Guardrails CMDB.
+All child resources of the Microsoft Entra ID directory will be discovered and subsequently entered into the Guardrails CMDB.
 
-While you can import an Entra ID directory at the Guardrails level, it is
-recommended that you import accounts into Guardrails Folders, as it provides greater
-flexibility and ease of management. Define a Folder hierarchy prior to import.
+While you can import an Entra ID directory at the Guardrails level, it is recommended that you import accounts into Guardrails Folders, as it provides greater flexibility and ease of management. Define a Folder hierarchy prior to import.
 
 ## Importing Microsoft Entra ID Directory via Guardrails Console
 
-1. On the main Guardrails landing page after logging in with `Turbot/Admin` permissions,
-   click the purple **IMPORT** card in the top right.
-2. Select **Azure Active Directory** on the left.
-3. Use the **Parent Resource** dropdown menu to select where the Azure Active
-   Directory will be imported to.
-4. Enter the **Directory ID**, **Tenant (directory) ID**, **Client (application)
-   ID**, and **Client Key (secret)**, as well as the **Environment** type then
-   click **Import**.
-5. Congratulations! The active directory is now added as a child resource of the
-   folder.
+Login to Guardrails workspace console in with `Turbot/Admin` permissions, select the  **CONNECT** card in the top right corner. Select **Microsoft Entra ID (formerly Azure Active Directory)** from the panel.
 
-CMDB and Discovery controls are enabled by default and Guardrails will begin
-discovering the resources in the Active Directory. Resources will start
-appearing right away, and resource discovery will continue to run in the
-background.
+![Select Azure](/images/docs/guardrails/guides/azure/import/active-directory/select-ms-entra-id.png)
+
+Provide the details as below:
+
+- Select **Choose your folder** dropdown menu to select the [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where you would like to import your Entra ID directory.
+- Provide the **Directory ID**.
+- Provide the **Tenant ID**.
+- **Client ID** and **Client Key (secret)** in `Client details`.
+- Provide **Environment** from the dropdown list.
+
+![Provide Details](/images/docs/guardrails/guides/azure/import/active-directory/active-directory-tenant-details.png)
+
+Select **Connect**.
+
+CMDB and Discovery controls are enabled by default and Guardrails will begin discovering the resources in the Azure Tenant. Resources will start appearing right away, and resource discovery will continue to run in the background.
 
 ## Import Active Directory via Terraform
 
-Administrators can easily import Active Directory using Terraform. If your
-Terraform environment has not been setup, head on over to the
+Administrators can easily import Active Directory using Terraform. If your Terraform environment has not been setup, head on over to the
 [Terraform Setup Page](reference/terraform/setup).
 
 ```hcl
@@ -65,8 +63,8 @@ resource "turbot_resource" "active_directory_resource" {
 resource "turbot_policy_setting" "environment" {
   resource = turbot_resource.active_directory_resource.id
   type     = "tmod:@turbot/azure#/policy/types/environment"
-  value    = "Global Cloud" 
-  # value    = "US Government" 
+  value    = "Global Cloud"
+  # value    = "US Government"
 }
 
 resource "turbot_policy_setting" "clientKey" {

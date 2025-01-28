@@ -1,5 +1,5 @@
 ---
-title: "Connect Azure Resources to Guardrails"
+title: "Connect Azure Resources"
 template: Documentation
 nav:
   title: "Import Azure Resources"
