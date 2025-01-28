@@ -25,7 +25,7 @@ Login to Guardrails workspace console in with `Turbot/Admin` permissions, select
 Provide the details as below:
 
 - Select **Choose your folder** dropdown menu to select the [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where you would like to import your Entra ID directory.
-- Provide the `Directory ID`.
+- Provide the **Directory ID**.
 - Provide the **Tenant ID**.
 - **Client ID** and **Client Key (secret)** in `Client details`.
 - Provide **Environment** from the dropdown list.

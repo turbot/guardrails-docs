@@ -16,16 +16,21 @@ While you can import an Azure Subscription at the Turbot level, it is recommende
 
 Login to Guardrails workspace console in with `Turbot/Admin` permissions, select the  **CONNECT** card in the top right corner. Select **Azure** from the panel.
 
-![Select Azure](/images/docs/guardrails/guides/azure/import/tenant/select-azure.png)
+![Select Azure](/images/docs/guardrails/guides/azure/import/subscription/select-azure.png)
 
 Provide the details as below:
 
 - Select **Azure Subscription** option.
 - Select the Guardrails [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where you would like to import your subscription from `Choose your folder`.
 - Provide the **Subscription ID**.
+
+![Import Subscription1](/images/docs/guardrails/guides/azure/import/subscription/import-subscription1.png)
+
 - Provide the **Tenant ID**.
 - Provide **Client ID** and **Client Key (secret)** in `Client details`.
 - Provide **Environment** from the dropdown list.
+
+![Import Subscription2 ](/images/docs/guardrails/guides/azure/import/subscription/import-subscription2.png)
 
 Select **Connect**.
 

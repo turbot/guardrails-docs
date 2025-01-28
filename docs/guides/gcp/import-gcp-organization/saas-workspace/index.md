@@ -87,47 +87,6 @@ gcloud iam service-accounts create SERVICE_ACCOUNT_NAME --project=PROJECT_ID --d
 # Assign roles at the organization level
 gcloud organizations add-iam-policy-binding ORGANIZATION_ID --member="serviceAccount:SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com" --role="ROLE_NAME"
 ```
-
-<!-- Now, proceed with the following steps to prepare enterprise configurations.
-
-## Step 4: Enterprise Configurations
-
-To import a GCP organization into an enterprise-hosted environment, the following activities must be completed:
-
-### Prerequisites
-
-- A minimum [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) version of `1.46.x` or later.
-- Access to the Guardrails primary AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
-- Familiarity with the AWS Console, Service Catalog, and CloudFormation services.
-
-### Create SSM Parameter
-
-AWS Systems Manager (SSM) `Parameter Store` feature enables the creation of key-value pairs to securely store application configurations, custom environment variables, product keys, and credentials in a centralized interface. Guardrails leverages this service to securely store your service account JSON credential file, ensuring seamless and secure resource governance processes.
-
-Log in to the Guardrails primary AWS account and navigate to the `AWS Systems Manager` service.
-
-![Create Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/saas-workspace/create-paramater.png)
-
-Create a `Secure String` with the `Tier` set to `Standard`.
-
-![Paste JSON Credential](/images/docs/guardrails/guides/gcp/import-gcp-organization/saas-workspace/create-secure-standard-string.png)
-
-See [**here**](/guardrails/docs/getting-started/getting-started-gcp/prepare-project#step-9-create-key) how to create and download JSON credential file.
-
-Paste the JSON credential content into the **Value** field and select **Create parameter**.
-
-![Paste JSON Value](/images/docs/guardrails/guides/gcp/import-gcp-organization/saas-workspace/add-parameter-value-in-console.png)
-
-For more details, refer to the AWS guide on [Creating a Parameter Store parameter using the console](https://docs.aws.amazon.com/systems-manager/latest/userguide/create-parameter-in-console.html).
-
-### Update TED Stack
-
-It's time to update the created SSM parameter name in the TED. Follow the steps in [Update Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-ted).
-
-Navigate to the `GCP Service Account Private Key SSM Parameter` section of the TED stack (towards the end) and update the manually created SSM parameter name as shown below. Select **Update** to proceed.
-
-![Update TED Stack Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/saas-workspace/update-ted-stack-parameter.png) -->
-
 ## Step 4: Get Organization ID
 
 In the GCP console, select your organization. Navigate to **All** to view the list of projects, folders, and the organization itself. Locate and copy the `ID` of the organization.
@@ -205,7 +164,7 @@ Log in to the GCP console and navigate to the project where the configured servi
 ![Create GCP Label](/images/docs/guardrails/guides/gcp/import-gcp-organization/saas-workspace/gcp-label-creation.png)
 
 > [!WARNING]
-> The `External ID` label created for this organization import must be retained within the respective GCP project to prevent errors in Guardrails.
+> The `External ID` label created in the GCP project for the organization import must be retained within the respective GCP project to prevent errors in Guardrails.
 
 ## Step 8: Exclude Projects
 
@@ -253,11 +212,11 @@ Navigate to the **Resources** tab, search for the organization name to check the
 
 | **Issue**                                | **Description**                                                                                                                                                                                                                                      | **Guide**                                                                                                                                                          |
 |------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Access Denied: Missing Token Creator Role | If using Service Account Impersonation, the impersonating user or workload must have `roles/iam.serviceAccountTokenCreator` on the service account.                                                                                                 | Refer to the [Service Account Token Creator Role Documentation](https://cloud.google.com/iam/docs/impersonating-service-accounts).                                 |
+| Access Denied: Missing Token Creator Role | If using Service Account Impersonation, the impersonating user or workload must have `roles/iam.serviceAccountTokenCreator` on the service account. | Refer to the [Service Account Token Creator Role Documentation](https://cloud.google.com/iam/docs/impersonating-service-accounts).                                 |
 | Access Denied: Malformed Secret Key  | Guardrails requires the multi-line format of the Secret Key. Ensure it includes the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` headers.                                                                                          |                                                          |
-| Access Denied: Improper Client Email | Guardrails cannot use a non-service account email to access the project. Ensure the Client Email is in the form of `{identifier}@{your-project-id}.iam.gserviceaccount.com`.                                                                         | [Check GCP Service Account Documentation](https://cloud.google.com/iam/docs/service-accounts).                                                                                                         |
-| Access Denied: Missing or Insufficient Permissions | If Guardrails is asked to discover, track, or remediate resources without the necessary permissions, `access denied` errors will appear in the Discovery and CMDB controls in the Guardrails console. Resolve by granting the required permissions. |                                                                                   |
+| Access Denied: Improper Client Email | Guardrails cannot use a non-service account email to access the project. Ensure the Client Email is in the form of `{identifier}@{your-project-id}.iam.gserviceaccount.com`.| [Check GCP Service Account Documentation](https://cloud.google.com/iam/docs/service-accounts). |
+| Access Denied: Missing or Insufficient Permissions | If Guardrails is asked to discover, track, or remediate resources without the necessary permissions, `access denied` errors will appear in the Discovery and CMDB controls in the Guardrails console. Resolve by granting the required permissions. |  Check [Required Permission](#required-permissions).|
 | Lots of Controls in Error State      | If there were issues with credentials during project import, many Discovery controls may show an `error` state. You can either delete and reimport the project or rerun the controls in `error` using scripts provided in the Guardrails Samples Repo. | Use the [Python](https://github.com/turbot/guardrails-samples/tree/main/api_examples/python/run_controls), [Node](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches), or [Shell](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/shell_utils/run-controls) scripts. |
-| GCP Service API Enabled Policies Aren't Set | If the `GCP > {Service} > API Enabled` policy is not set to `Enforce: Enabled`, Discovery and CMDB controls will be `skipped`. Enable the applicable service APIs manually if Guardrails lacks permissions to do so.                                  | [Enable GCP APIs Documentation](https://cloud.google.com/apis).
-| Bad Request: Error processing runnable input organizationcredentials	`Cloud Resource Manager API has not been used` in project 265919997400 before or it is disabled.| If Guardrails import process errors out in CMDB and discovery control run. | Enable it by visiting https://console.developers.google.com/apis/api/cloudresourcemanager.googleapis.com/overview?project=265919997300 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.|                                                                  |
+| GCP Service API Enabled Policies Aren't Set | If the `GCP > {Service} > API Enabled` policy is not set to `Enforce: Enabled`, Discovery and CMDB controls will be `skipped`. Enable the applicable service APIs manually if Guardrails lacks permissions to do so. | [Enable GCP APIs Documentation](https://cloud.google.com/apis).
+| Bad Request: Error processing runnable input organizationcredentials	`Cloud Resource Manager API has not been used` in project 265919995000 before or it is disabled.| If Guardrails import process errors out in CMDB and discovery control run. | Enable it by visiting https://console.developers.google.com/apis/api/cloudresourcemanager.googleapis.com/overview?project=265919995000 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.|                                                                  |
 | Further Assistance                  | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                                                                               | [Open Support Ticket](https://support.turbot.com).                                                                                                               |
