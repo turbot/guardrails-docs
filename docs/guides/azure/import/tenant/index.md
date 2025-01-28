@@ -8,30 +8,31 @@ nav:
 
 # Import Azure Tenant into Guardrails
 
-[Proper setup in the Azure tenant](integrations/azure/import) is required for
-import of an Azure Tenant into Guardrails.
+[Proper setup in the Azure tenant](integrations/azure/import) is required for import of an Azure Tenant into Guardrails.
 
-All child resources of the Azure Tenant will be discovered and subsequently
-entered into the Guardrails CMDB.
+All child resources of the Azure Tenant will be discovered and subsequently entered into the Guardrails CMDB.
 
-While you can import an Azure Tenant at the Turbot level, it is recommended that
-you import accounts into Guardrails Folders, as it provides greater flexibility and
-ease of management. Define a Folder hierarchy prior to import.
+While you can import an Azure Tenant at the Turbot level, it is recommended that you import accounts into Guardrails Folders, as it provides greater flexibility and ease of management. Define a Folder hierarchy prior to import.
 
 ## Import Azure Tenant via Guardrails Console
 
-1. At the main Guardrails landing page after logging in with `Turbot/Admin` permissions,
-   click the purple **CONNECT** card in the top right corner.
-2. Select **Azure** from the .
-3. Use the **Parent Resource** dropdown menu to select the parent resource for the Azure Tenant.
-4. Enter the **Tenant (directory) ID**, **Client (application) ID**, and
-   **Client Key (secret)**, as well as the **Environment** type then click
-   **Import**.
-5. Congratulations! The tenant is now added as a child resource of the folder.
+Login to Guardrails workspace console in with `Turbot/Admin` permissions, select the  **CONNECT** card in the top right corner. Select **Azure** from the panel.
 
-CMDB and Discovery controls are enabled by default and Guardrails will begin
-discovering the resources in the Azure Tenant. Resources will start appearing
-right away, and resource discovery will continue to run in the background.
+![Select Azure](/images/docs/guardrails/guides/azure/import/tenant/select-azure.png)
+
+Provide the details as below:
+
+- Select **Choose your folder** dropdown menu to select the [folder](/guardrails/docs/concepts/resources/hierarchy#folders) where you would like to import your tenant.
+- Enter the **Tenant ID**.
+- **Client ID** and **Client Key (secret)** in `Client details`.
+- Provide **Environment** from the dropdown list.
+- Provide YAML list of subscription or management group IDs.
+
+![Provide Details](/images/docs/guardrails/guides/azure/import/tenant/tenant-details.png)
+
+Select **Connect**.
+
+CMDB and Discovery controls are enabled by default and Guardrails will begin discovering the resources in the Azure Tenant. Resources will start appearing right away, and resource discovery will continue to run in the background.
 
 ## Management Group Event Pollers
 
