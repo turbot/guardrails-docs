@@ -17,10 +17,12 @@ Importing a [GCP Organization](https://cloud.google.com/resource-manager/docs/cl
 
 ## Prerequisites
 
-- Guardrails: Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level. [GCP mod](https://hub.guardrails.turbot.com/mods/gcp/mods/gcp) 5.30+ installed in your Guardrails workspace.
+- Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
+- Minimum Turbot Enterprise (TE) version `v5.48.0` or later.
+- [GCP mod](https://hub.guardrails.turbot.com/mods/gcp/mods/gcp) `5.30+` installed in your Guardrails workspace.
 - GCP Console: Familiarity with the GCP Console, including admin privileges.
-- Tools: The `gcloud` CLI configured on your local environment.
-- Enterprise Hosting: A minimum [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) version of `1.46.x` or later.
+- The `gcloud` CLI configured on your local environment.
+- [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) version of `1.46.x` or later updated.
 
 ### Supported Authentication
 
@@ -45,11 +47,6 @@ Refer to the image below as example using as example in GCP `Console`.
 ## Step 2: Create Service Account
 
 To import an organization into Guardrails, create the service account in any single project under your organization. [Prepare a GCP Project for Import to Guardrails](/guardrails/docs/getting-started/getting-started-gcp/prepare-project#step-1-locate-iam--admin--service-accounts). The step `Locate IAM & Admin > Service Accounts` elaborates the steps to create service account.
-
-<!-- > [!NOTE]
-> To import an organization, you need only `Organization Viewer`, `Project Viewer`, and `Folder Viewer` roles to allow the discovery of all resources under the organization.
-
-> If Guardrails attempts an action (e.g., enabling APIs, modifying resources) without sufficient permissions, you will encounter `access denied` errors. To resolve this, ensure the required permissions are granted or update the Guardrails policies to align with your organization's requirements. -->
 
 ## Step 3: Grant IAM Roles
 
@@ -79,6 +76,9 @@ Follow these steps to assign the required roles at the `Organization` scope to t
 Refer to the image below:
 
 ![Service Account with Organization Scope](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/service-account-with-org-scope.png)
+
+> [!NOTE]
+> To import an organization, you need only `Organization Viewer`, `Project Viewer`, and `Folder Viewer` roles to allow the discovery of all resources under the organization.
 
 Alternatively you can grant roles using command line interface as below.
 
@@ -206,7 +206,7 @@ Log in to the GCP console and navigate to the project where the configured servi
 ![Create GCP Label](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/gcp-label-creation.png)
 
 > [!WARNING]
-> The `External ID` label created for this organization import, must be retained within the respective GCP project.
+> The `External ID` label created for this organization import must be retained within the respective GCP project to prevent errors in Guardrails.
 
 ## Step 9: Exclude Projects
 
@@ -248,6 +248,11 @@ Navigate to the **Resources** tab, search for the organization name, then select
 Navigate to the **Resources** tab, search for the organization name to check the list of resources the import process is discovered matching to the structure in GCP console.
 
 ![Review GCP Org Resources](/images/docs/guardrails/guides/gcp/import-gcp-organization/enterprise-hosted-workspace/review-gcp-org-resources-imported.png)
+
+## Next Steps
+
+- Learn how to [Enable GCP Services in Guardrail](guides/gcp/services#enabling-gcp-services-in-guardrails).
+- Learn how to [Configure Real-Time Event Handlers](guides/gcp/real-time-events).
 
 ## Troubleshooting
 

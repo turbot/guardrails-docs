@@ -278,12 +278,15 @@ for more information regarding the billing API.
 ## Importing a GCP Project via the Guardrails Console
 
 1. Login to your Guardrails workspace as a **Turbot/Owner** or **Turbot/Admin**.
-2. Click the purple **CONNECT** card in the top right of the landing page.
-3. Click **GCP**.
+2. Select the **CONNECT** card in the top right of the landing page.
+3. Select **GCP**.
+3. Select **GCP Project**.
 4. Select the `Import location` (the imported project will be a child of this
    resource).
 5. Select the `Access mode` as `Upload a credential file`.
 6. Drop the JSON file saved in the above step into the account import screen.
+
+
 
 ![Import GCP Project](/images/docs/guardrails/guides/gcp/import-gcp-project/import-gcp-project.png)
 
