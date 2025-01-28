@@ -137,4 +137,5 @@ docs/mods/gcp
 docs/mods/servicenow
 docs/mods/osquery
 docs/mods/kubernetes
+docs/reference/graphql
 sidebar-generated.json
