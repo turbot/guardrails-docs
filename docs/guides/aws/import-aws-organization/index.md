@@ -5,6 +5,9 @@ sidebar_label: Import Organization
 
 # Importing an AWS Organization
 
+> [!IMPORTANT]
+This guide is intended for use by customers running TE version `5.48.0` or higher.  If you are running an earlier version of Guardrails please use [Importing an AWS account](guides/aws/import-aws-account).
+
 In this guide, you will:
 
 - Learn how to import an entire AWS Organization into Turbot Guardrails. This process enables Guardrails to discover, govern, and manage resources across all accounts under a single AWS Organization.
@@ -12,17 +15,16 @@ In this guide, you will:
 
 Importing an [AWS Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html) into Guardrails involves the following key steps:
 
-- **Preparing AWS Configurations**: Ensure your AWS environment is correctly configured to support Guardrails integration. Create IAM roles to meet the following requirements:
-  - Set up access to the **management account** with the necessary permissions for Guardrails to securely access and manage organizational resources.
-  - Set up access to **member accounts** in the organization to enable resource discovery.
-- **Importing the Organization via the Guardrails Console**: Use the Guardrails console to establish the connection and enable governance across the AWS Organization.
+- *Prepare AWS Configurations*: Configure your AWS environment by creating IAM roles for the management account and member accounts to enable secure access and resource discovery.
+- *Import the Organization via the Guardrails Console*: Establish a connection in the Guardrails console to enable governance across the AWS Organization.
+
 
 ## Prerequisites
 
-- Familiarity with the AWS Console, including admin privileges.
 - Access to the Guardrails console with *Turbot/Owner* or *Turbot/Admin* permissions at the Turbot resource level.
-- The [`aws` mod](https://hub.guardrails.turbot.com/mods/aws/mods) `v5.36.0` or later installed.
 - Minimum Turbot Enterprise (TE) version `v5.48.0` or later.
+- The [`aws` mod](https://hub.guardrails.turbot.com/mods/aws/mods) `v5.36.0` or later installed.
+- Familiarity with the AWS Console, including admin privileges.
 - Cross-account IAM roles in the management account and member accounts to securely allow Guardrails access without sharing sensitive credentials.
 
 ## Step 2: Install Recommended Mods
