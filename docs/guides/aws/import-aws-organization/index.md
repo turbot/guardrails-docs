@@ -10,14 +10,13 @@ This guide is intended for use by customers running TE version `5.48.0` or highe
 
 In this guide, you will:
 
-- Learn how to import an entire AWS Organization into Turbot Guardrails. This process enables Guardrails to discover, govern, and manage resources across all accounts under a single AWS Organization.
+- Learn how to import an entire AWS Organization into Turbot Guardrails, enabling Guardrails to discover, govern, and manage resources across all accounts under a single AWS Organization.
 - Monitor and troubleshoot the organization import process to ensure a seamless setup.
 
 Importing an [AWS Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html) into Guardrails involves the following key steps:
 
-- *Prepare AWS Configurations*: Configure your AWS environment by creating IAM roles for the management account and member accounts to enable secure access and resource discovery.
-- *Import the Organization via the Guardrails Console*: Establish a connection in the Guardrails console to enable governance across the AWS Organization.
-
+- **Prepare AWS Configurations**: Create IAM roles for the management or [delegated](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) account and member accounts to grant Guardrails the necessary permissions for secure access and resource discovery.
+- **Import the Organization via the Guardrails Console**: Use the Guardrails console to establish the connection and enable governance across the AWS Organization.
 
 ## Prerequisites
 
@@ -25,7 +24,7 @@ Importing an [AWS Organization](https://docs.aws.amazon.com/organizations/latest
 - Minimum Turbot Enterprise (TE) version `v5.48.0` or later.
 - The [`aws` mod](https://hub.guardrails.turbot.com/mods/aws/mods) `v5.36.0` or later installed.
 - Familiarity with the AWS Console, including admin privileges.
-- Cross-account IAM roles in the management account and member accounts to securely allow Guardrails access without sharing sensitive credentials.
+- Cross-account IAM roles in the management or delegated account and member accounts to securely allow Guardrails access without sharing sensitive credentials.
 
 ## Step 2: Install Recommended Mods
 
@@ -55,16 +54,18 @@ Follow the steps in [Install a Mod](/guides/configuring-guardrails/install-mod#i
 
 ## Step 3: Get AWS Organization Management Account ID
 
-AWS Organization management account ID is mandatory for organization import. To obtain the account ID of the management account in your AWS Organization, you can either:
+Account ID of the management account or a [delegated account with organization permissions](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) is mandatory for organization import. To obtain the account ID, you can either:
 
-- Log in to the AWS Management Console and navigate to **AWS Organizations**, where the management account ID is displayed.
-- Use the AWS CLI by running the command described in the [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organization.html).
+- Log in to the AWS management account and get the account ID from the top right corner drop-down menu.
+- Log in to the delegated account and get the account ID from the top right corner drop-down menu.
 
-Example AWS CLI Command:
-
+<!-- - Use the AWS CLI by running the command described in the [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organization.html). -->
+<!-- Example AWS CLI Command:
+(You need delegated account access to query)
 ```bash
-aws organizations describe-organization
-```
+TO DO LATER
+``` -->
+
 ## Step 4: Log in to Guardrails Console
 
 Log in to the Guardrails console using your provided local credentials or through any SAML-based login method. Select the **CONNECT** card, then choose **AWS**.
@@ -86,11 +87,11 @@ In the **Choose your folder** dropdown, select the Guardrails [folder](/guardrai
 In this step, Guardrails uses:
 
 - **`External ID`** ensures secure access between Guardrails and AWS accounts. Refer to AWS documentation on [Access to AWS accounts owned by third parties](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) for further information.
-- **`IAM Role` with `Cross Account Trust`** allows Turbot Guardrails to access resources across accounts. For additional context, see AWS's guide on [Cross-account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html).
+- **`IAM Role with Cross Account Trust`** allows Turbot Guardrails to access resources across accounts. For additional context, see AWS's guide on [Cross-account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html).
 
 ### Cross Account Trust
 
-The role must grant cross-account access for the Turbot Guardrails master AWS account to assume into your AWS account.
+The IAM role must grant cross-account access for the Turbot Guardrails main AWS account to assume into your AWS account.
 
 - Turbot Cloud customers, you must allow the Turbot SaaS US AWS Account ID: `287590803701`
 - Turbot Cloud EU customers, you must allow the Turbot SaaS EU AWS Account ID: `255798382450`
@@ -103,9 +104,12 @@ There are two sources for the External ID:
 1. **Auto-generated External ID**: Guardrails suggests a unique External ID for your Turbot Workspace (e.g., `turbot:123456789012345:foo`). Use this auto-generated ID when "External ID Protection" is enabled (e.g., the policy `AWS > Account > Turbot IAM Role > External ID > Protection` is set to `Protected`). This prevents the confused deputy problem. For more information, see our FAQ: [What is Guardrails AWS IAM External ID protection?](faq/general-faq#what-is-turbot-aws-iam-role-external-id-protection).
 2. **Custom External ID**: You can set the External ID to any valid value you prefer.
 
+> [!NOTE]
+> The default value for `AWS > Account > Turbot IAM Role > External ID > Protection` is set to `Open`
+
 ### Required Permissions to Grant
 
-The permissions you grant to the Guardrails IAM role depend on your use case(s). Guardrails will use the role you specify and the permissions granted to it. If Guardrails encounters an "Access Denied" error, adjust the permissions on the IAM role or modify your policies. Refer to [Required Permissions to Grant](/guardrails/docs/guides/aws/import-aws-account#what-permissions-to-grant) for various permission sets.
+The permissions you grant to the Guardrails IAM role depend on your use case(s). Guardrails will use the role you specify and the permissions granted to it. Refer to [Required Permissions to Grant](/guardrails/docs/guides/aws/import-aws-account#what-permissions-to-grant) for various permission sets.
 
 Now as next steps:
 
@@ -122,9 +126,9 @@ Now as next steps:
 
 Proceed to create the IAM Role in the organization management account.
 
-## Step 7: Create IAM Role in Management Account
+## Step 7: Create IAM Role in Management Account or Delegated Account
 
-You can create the IAM role beforehand or during the importing process in the Guardrails Import UI. However, it is recommended to create the IAM roles prior to initiating the import process. This ensures that the required IAM role is ready as part of the prerequisites.
+You can create the IAM role beforehand or during the importing process in the Guardrails import UI. However, it is recommended to create the IAM roles prior to initiating the import process. This ensures that the required IAM role is ready as part of the prerequisites.
 
 To create the IAM role:
 
@@ -233,27 +237,7 @@ By default, Turbot provides the SaaS account IDs as mentioned in [Cross Account 
       refers to the account ID of the Turbot Guardrails SaaS environment. Do not change
       the value if importing your account into Guardrails SaaS.
 ```
-Execute the downloaded CloudFormation template in the AWS Management Account to create the IAM role.
-
-<!-- ## Step 8: Setup Access to Your Member Accounts
-
-This steps also follows the similar process as Step 6.
-
-Provide the `Role Name` to be created for each member account the `External ID`.
-
-![Setup Member Account Access](/images/docs/guardrails/guides/aws/import-aws-organization/setup-member-accounts-access.png)
-
-### Create IAM Role in Member Accounts
-
-You can create the required IAM role beforehand or during the importing process in the Guardrails Import UI. However, it is recommended to create the IAM roles prior to initiating the import process. This ensures that the required IAM role is ready as part of the prerequisites.
-
-To create the IAM role:
-
-Download the CloudFormation template file, which will be pre-configured with the values you provided (i.e., `Role Name` and `External ID`).
-
-![Download Member CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-member-account-iam-role-cfn-template.png)
-
-Execute the downloaded CloudFormation template in the AWS management account using [CloudFormation StackSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create-self-managed.html#stacksets-getting-started-create-self-managed-console) to create the required IAM role cross the member accounts. -->
+Execute the downloaded CloudFormation template in the AWS management or delegated account to create the IAM role.
 
 ## Step 8: Setup Access to Your Member Accounts
 
@@ -273,11 +257,11 @@ To create the IAM role:
    ![Download Member CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-member-account-iam-role-cfn-template.png)
 
 **Execute the CloudFormation Template**:
-   Use [CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create-self-managed.html#stacksets-getting-started-create-self-managed-console) in the AWS management account to deploy the template across member accounts. This creates the required IAM role in each member account.
+   Use [CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create-self-managed.html#stacksets-getting-started-create-self-managed-console) in the AWS management or delegated account to deploy the template across member accounts. This creates the required IAM role in each member account.
 
 
 <details>
-  <summary>Reference to downloaded CloudFormation Template with Read Only + Event Handlers</summary>
+  <summary>Reference to downloaded CloudFormation Template with Read Only + Global Event Handlers</summary>
 
 ```yml
 AWSTemplateFormatVersion: '2010-09-09'
@@ -475,6 +459,7 @@ Navigate to the **Resources** tab, search for the organization name, and then se
 | Policies Stuck in TBD                  | Policies may remain in the `TBD` state, preventing them from being evaluated or applied.                                                               | See here [how to run policies in batches](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_policies_batches)                                                                                                                              |
 | Controls Stuck in TBD                  | Controls may remain in the `TBD` state, indicating they have not yet run or completed.                                                                 | See how to [run controls in batches](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches)                                                                                                 |
 |Event Handler Controls Not in OK       | Event handler controls may not be in the `OK` state, indicating configuration issues with event handlers, topics, or subscriptions.                     | Refer [Configuring Real-Time events](/guardrails/docs/guides/aws/event-handlers) for more information. |
+| Controls encounters an `Access Denied` error.                     | If Guardrails controls encounters an `Access Denied` error due to lack of permission to execute any action in AWs resources.  |Refer to [Required Permissions to Grant](/guardrails/docs/guides/aws/import-aws-account#what-permissions-to-grant) for various permission sets..
 | Common errors.                     | Any common errors preventing controls to run.   |Refer [Common Troubleshooting](/guardrails/docs/guides/troubleshooting) for more information.
 | Further Assistance                     | If issues persist or you require additional help, you can access detailed troubleshooting documentation or reach out to support.                        | Refer to the [Guardrails Troubleshooting Guide](/guardrails/docs/troubleshooting) or [Open a Support Ticket](https://support.turbot.com).                                                                                         |
 
