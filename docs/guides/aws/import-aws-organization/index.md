@@ -135,7 +135,7 @@ To create the IAM role:
 
 ![Download Organization CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-management-account-iam-role-cfn-template.png)
 
-<details>
+<!-- <details>
   <summary>Reference to downloaded CloudFormation Template with ReadOnlyAccess</summary>
 
 ```yml
@@ -214,7 +214,7 @@ Outputs:
     Export:
       Name: "AccessRoleExternalId"
 ```
-</details>
+</details> -->
 
 #### Update Guardrails Hosted Account ID
 
@@ -257,8 +257,7 @@ To create the IAM role:
 **Execute the CloudFormation Template**:
    Use [CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create-self-managed.html#stacksets-getting-started-create-self-managed-console) in the AWS management or delegated account to deploy the template across member accounts. This creates the required IAM role in each member account.
 
-
-<details>
+<!-- <details>
   <summary>Reference to downloaded CloudFormation Template with Read Only + Global Event Handlers</summary>
 
 ```yml
@@ -419,7 +418,7 @@ Outputs:
     Export:
       Name: "AccessRoleExternalId"
 ```
-</details>
+</details> -->
 
 ## Step 9: Exclude Accounts and Organization Units
 
