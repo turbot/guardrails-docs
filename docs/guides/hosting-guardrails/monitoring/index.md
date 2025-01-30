@@ -1,6 +1,6 @@
 ---
-title: "Monitoring"
-sidebar_label: "Monitoring"
+title: Monitoring
+sidebar_label: Monitoring
 ---
 
 ## Monitoring
