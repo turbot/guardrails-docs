@@ -345,7 +345,6 @@
               "guides/using-guardrails/troubleshooting/access-control-logs"
             ]
           },
-
           {
             "type": "category",
             "id": "notifications",
@@ -356,7 +355,14 @@
             ]
           },
           "guides/using-guardrails/nunjucks",
-          "guides/using-guardrails/quick-actions",
+          {
+            "type": "category",
+            "id": "quick-actions",
+            "link": "guides/using-guardrails/quick-actions",
+            "items": [
+              "guides/using-guardrails/quick-actions/enabling-quick-actions"
+            ]
+          },
           "guides/using-guardrails/searching-filtering"
         ]
       },
