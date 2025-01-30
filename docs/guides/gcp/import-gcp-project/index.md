@@ -1,16 +1,14 @@
 ---
-title: "Import a GCP Project into Guardrails"
-template: Documentation
-nav:
-  title: "Import Project"
-  order: 10
+title: Import a GCP Project
+sidebar_label: Import a GCP Project
 ---
 
 # Import a GCP Project into Guardrails
 
-<div className="alert alert-warning">
-This section details the steps required to import Google Cloud Platform resources into a Guardrails Folder. 
-</div>
+In this guide, you will:
+
+- Learn how to import a Google Cloud Platform (GCP) project into Turbot Guardrails. This process allows Guardrails to discover and manage resources across the project.
+- Monitor and troubleshoot the process.
 
 ## Process Overview
 
@@ -280,21 +278,24 @@ for more information regarding the billing API.
 ## Importing a GCP Project via the Guardrails Console
 
 1. Login to your Guardrails workspace as a **Turbot/Owner** or **Turbot/Admin**.
-2. Click the purple **Import** card in the top right of the landing page.
-3. Click **GCP Project**.
-4. Select the **Parent Resource** (the imported project will be a child of this
-   resource)
-5. Drop the JSON file saved in the above step into the account import screen.
-   Alternatively, details can be manually entered using the **Advanced** tab.
+2. Select the **CONNECT** card in the top right of the landing page.
+3. Select **GCP**.
+3. Select **GCP Project**.
+4. Select the `Import location` (the imported project will be a child of this
+   resource).
+5. Select the `Access mode` as `Upload a credential file`.
+6. Drop the JSON file saved in the above step into the account import screen.
 
-![](/images/docs/guardrails/cred-file.png)
 
-6. Click **Import** to start Guardrails discovery. You will be redirected to an
+
+![Import GCP Project](/images/docs/guardrails/guides/gcp/import-gcp-project/import-gcp-project.png)
+
+7. Select **Connect** to start Guardrails discovery. You will be redirected to an
    account import splash page that shows you resources discovered in real time.
    If you see a large amount of errors, refer to the
    [troubleshooting](#troubleshooting) instructions below.
 
-## Troubleshooting
+<!-- ## Troubleshooting
 
 ### Access Denied
 
@@ -332,4 +333,17 @@ The filter of `state:error` to rerun all controls in `error`.
   `Enforce: Enabled` then the Discovery and CMDB controls will go to `skipped`
   for that Service's resources. Enable the `API Enabled` policy to resolve.
 - If Guardrails does not have write permissions to enable APIs, then the applicable
-  service API must be enabled manually.
+  service API must be enabled manually. -->
+
+
+## Troubleshooting
+
+| **Issue**                                | **Description**                                                                                                                                                                                                                                      | **Guide**                                                                                                                                                          |
+|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Access Denied: Missing Token Creator Role | If using Service Account Impersonation, the impersonating user or workload must have `roles/iam.serviceAccountTokenCreator` on the service account.                                                                                                 | Refer to the [Service Account Token Creator Role Documentation](https://cloud.google.com/iam/docs/impersonating-service-accounts).                                 |
+| Access Denied: Malformed Secret Key  | Guardrails requires the multi-line format of the Secret Key. Ensure it includes the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` headers.                                                                                          |                                                                                                     |
+| Access Denied: Improper Client Email | Guardrails cannot use a non-service account email to access the project. Ensure the Client Email is in the form of `{identifier}@{your-project-id}.iam.gserviceaccount.com`.                                                                         | [Check GCP Service Account Documentation](https://cloud.google.com/iam/docs/service-accounts).                                                                                                         |
+| Access Denied: Missing or Insufficient Permissions | If Guardrails is asked to discover, track, or remediate resources without the necessary permissions, `access denied` errors will appear in the Discovery and CMDB controls in the Guardrails console. Resolve by granting the required permissions. |                                                                                   |
+| Lots of Controls in Error State      | If there were issues with credentials during project import, many Discovery controls may show an `error` state. You can either delete and reimport the project or rerun the controls in `error` using scripts provided in the Guardrails Samples Repo. | Use the [Python](https://github.com/turbot/guardrails-samples/tree/main/api_examples/python/run_controls), [Node](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/run_controls_batches), or [Shell](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/shell_utils/run-controls) scripts. |
+| GCP Service API Enabled Policies Aren't Set | If the `GCP > {Service} > API Enabled` policy is not set to `Enforce: Enabled`, Discovery and CMDB controls will be `skipped`. Enable the applicable service APIs manually if Guardrails lacks permissions to do so.                                  | [Enable GCP APIs Documentation](https://cloud.google.com/apis).                                                                                                 |
+| Further Assistance                  | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                                                                               | [Open Support Ticket](https://support.turbot.com).

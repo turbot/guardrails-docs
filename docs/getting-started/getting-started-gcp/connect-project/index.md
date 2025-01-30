@@ -19,33 +19,44 @@ This is the second guide in the *Getting started with GCP* series.
 ## Step 1: Login to Guardrails
 
 Login to your Guardrails console and select the **CONNECT** option from the home page.
+
 <p><img alt="locate-top-level-connect" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/locate-top-level-connect.png"/></p>
 
 ## Step 2: Select GCP
 
-Select **GCP** from the import options.
+Select **GCP** from the connect panel.
 
-<p><img alt="choose-gcp" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/choose-gcp.png"/></p>
+![Select GCP](/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/select-connect.png)
+
+Select **GCP** Project.
+
+![Select GCP Project](/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/select-gcp-project.png)
 
 ## Step 3: Select import location
 
 Expand the **Parent Resource** dropdown and choose the **Sandbox** folder as the import location.
 
-<p><img alt="select-import-location" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/choose-sandbox.png"/></p>
+![Choose Sandbox](/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/choose-sandbox.png)
 
-## Step 4: Add key file
+## Step 4: Upload Key file
+
+> [!NOTE]
+> Turbot Guardrails now supports two ways to enable access authentication:
+> 1. Using Service Account Impersonation
+> 2. Credential file with key type as JSON or Private Key Text (copy-paste of the JSON private key)
+
+> This guide demonstrates the process using the key type as JSON format.
 
 In the previous guide you created and downloaded a JSON-format key file. Locate that file and drag it to the drop target.
 
-<p><img alt="add-key-file" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/add-key-file.png"/></p>
+![Choose Upload Credential File](/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/choose-upload-crdential-file.png)
 
 
 ## Step 5: Connect
 
 Select the **Connect** button.
 
-<p><img alt="select-connect" src="/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/connect.png"/></p>
-
+![Connect](/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/connect.png)
 
 ## Step 6: Observe progress
 
@@ -67,7 +78,7 @@ Select the **Type** dropdown from the filters bar. Then enable the check box nex
 
 ## Step 9: Review Controls
 
-Review the status of your controls for GCP.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your project. 
+Review the status of your controls for GCP.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your project.
 
 > [!IMPORTANT]
 > The controls in `Error` or `Invalid` states must be cleared before moving further into these guides.

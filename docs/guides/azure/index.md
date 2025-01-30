@@ -28,7 +28,6 @@ Turbot Guardrails is deeply integrated with
 
     - [Import Azure Tenant](integrations/azure/import/tenant)
     - [Import Azure Active Directory](integrations/azure/import/active-directory)
-    - [Import Azure Management Group](integrations/azure/import/management-group)
     - [Import Azure Subscription](integrations/azure/import/subscription)
 
 2. [Enable Azure Services](integrations/azure/services) that you will use

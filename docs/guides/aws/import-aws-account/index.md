@@ -1,12 +1,9 @@
 ---
-title: "Importing an AWS account into Guardrails"
-template: Documentation
-nav:
-  title: "Importing Accounts"
-  order: 10
+title: Import AWS account
+sidebar_label: Import AWS account
 ---
 
-# Importing an AWS account into Guardrails
+# Importing an AWS account
 
 In this guide, you will:
 

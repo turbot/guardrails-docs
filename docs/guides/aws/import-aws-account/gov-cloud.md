@@ -1,9 +1,6 @@
 ---
-title: "Importing a Gov Cloud AWS account into Guardrails"
-template: Documentation
-nav:
-  title: "Importing GovCloud"
-  order: 10
+title: GovCloud & China Accounts
+sidebar_label: GovCloud & China Accounts
 ---
 
 # Importing a AWS Gov Cloud or AWS China account
