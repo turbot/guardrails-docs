@@ -201,10 +201,6 @@
         "file": "guides/github/github-sidebar.json"
       },
       {
-        "type": "placeholder",
-        "file": "guides/github/github-sidebar.json"
-      },
-      {
         "type": "category",
         "id": "kubernetes",
         "link": "guides/kubernetes",
