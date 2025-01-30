@@ -355,14 +355,7 @@
             ]
           },
           "guides/using-guardrails/nunjucks",
-          {
-            "type": "category",
-            "id": "quick-actions",
-            "link": "guides/using-guardrails/quick-actions",
-            "items": [
-              "guides/using-guardrails/quick-actions/enabling-quick-actions"
-            ]
-          },
+          "guides/using-guardrails/quick-actions",
           "guides/using-guardrails/searching-filtering"
         ]
       },
