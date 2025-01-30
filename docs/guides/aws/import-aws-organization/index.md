@@ -88,8 +88,8 @@ Enter the required information in the **Setup Access to your organization** sect
 ![Download Organization CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-management-account-iam-role-cfn-template.png)
 
 - Provide your `Organization Account ID` (Obtained in Step 3).
-- Select the AWS `Environment` (Partition).
-- Enter the IAM `Role Name`.  This role allows Turbot Guardrails to access the AWS Organizations API. 
+- Select the AWS `Environment`.
+- Enter the IAM `Role Name`.  This role allows Turbot Guardrails to access the AWS Organizations API.
   - It must allow [cross-account access](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) from the Turbot Guardrails management AWS account to assume into your AWS account.  Guardrails will determine the appropriate trust policy for your environment and set it in the Cloudformation template. If you choose to create the role manually, however, make sure you trust the appropriate account:
     - Turbot Cloud SaaS: `287590803701`
     - Turbot Cloud SaaS - EU: `255798382450`
@@ -220,19 +220,19 @@ Enter the required information in the **Setup Access to Your Member Accounts** s
 ![Setup Member Account Access](/images/docs/guardrails/guides/aws/import-aws-organization/setup-member-accounts-access.png)
 
 
-- Enter the IAM `Role Name`.  This role must be created in each of the member accounts to allow Turbot Guardrails to manage it. 
+- Enter the IAM `Role Name`.  This role must be created in each of the member accounts to allow Turbot Guardrails to manage it.
   - It must allow [cross-account access](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) from the Turbot Guardrails management AWS account to assume into your AWS account.  Guardrails will determine the appropriate trust policy for your environment and set it in the Cloudformation template. If you choose to create the role manually, however, make sure you trust the appropriate account:
     - Turbot Cloud SaaS: `287590803701`
     - Turbot Cloud SaaS - EU: `255798382450`
     - Turbot Guardrails Enterprise: The AWS Account ID where you have installed the Turbot Guardrails Enterprise stacks.
   - The permissions you grant to the Guardrails IAM role [will depend on your use-case](/guardrails/docs/guides/aws/import-aws-account#what-permissions-to-grant).  The Cloudformation template will assign the `arn:aws:iam::aws:policy/ReadOnlyAccess`, as well as additional permissions for the [event handlers](/guardrails/docs/guides/aws/event-handlers).
-  
+
 - Provide an `External ID` for the role.  The [External ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) provides an additional authentication assertion to avoid the [confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html).   Guardrails suggests a unique External ID for your Workspace in the [Guardrails protected format](/guardrails/docs/faq/general-faq#what-is-guardrails-aws-iam-role-external-id-protection) (e.g., `turbot:123456789012345:foo`).  You *must* use this format when [External ID Protection](https://hub.guardrails.turbot.com/mods/aws/policies/aws/turbotIamRoleExternalIdProtection) is enabled.  If desired, click the pencil icon to edit the external id.
 
   > [!IMPORTANT]
   > Enabling [External ID Protection](/guardrails/docs/faq/general-faq#how-does-guardrails-protect-my-aws-account-from-the-confused-deputy-problem) is **strongly recommended**, especially for SaaS customers!
 
-- After all the information has been entered, download the CloudFormation template to create the required IAM role in each member account. 
+- After all the information has been entered, download the CloudFormation template to create the required IAM role in each member account.
 
   ![Download Member CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-member-account-iam-role-cfn-template.png)
 
