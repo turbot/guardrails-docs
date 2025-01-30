@@ -23,11 +23,7 @@ Log into the Guardrails console with provided local credentials or by using any 
 
 ## Step 2: Navigate to Mods
 
-Select **Admin** from the top right corner.
-
-![Navigate to Reports](/images/docs/guardrails/guides/hosting-guardrails/monitoring/check-mod-health/guardrails-navigate-to-reports.png)
-
-Choose **Mods**.
+Select **Admin** from the top right corner. Choose **Mods**.
 
 ![Mods](/images/docs/guardrails/guides/hosting-guardrails/monitoring/check-mod-health/guardrails-navigate-mods.png)
 
@@ -41,7 +37,8 @@ From the mods list, select the desired mod—for example, the `azure-iam` mod.
 
 In the **Overview** tab of the mod page, a healthy Mod is indicated by an OK status with the message `Mod is healthy`.
 
-> [!NOTE] Mod health is determined by its Installed Control Types. If any installed control type is in an error state, the Mod will be marked as unhealthy with an Error status.
+> [!NOTE]
+> The health of a mod is determined by its **Installed Control Types**. If any installed control type is in an error state, the mod will be marked as unhealthy and display an **Error** status.
 
 ![Mod Overview](/images/docs/guardrails/guides/hosting-guardrails/monitoring/check-mod-health/guardrails-mod-overview.png)
 
