@@ -83,7 +83,7 @@ In the **Choose your folder** dropdown, select the Guardrails [folder](/guardrai
 
 To import your AWS Organization, Guardrails needs access to the [Organizations API](https://docs.aws.amazon.com/organizations/latest/APIReference/Welcome.html) from the management account or a [delegated account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html).  In this step, you will create a role in this account that trusts the guardrails master account and has the required permissions.
 
-Enter the required information in the **Setup Access to your organization** section.  After you fill in the required information, you will download and run a Cloudformation stack to create the role with options that you have selected.  Alternatively, you may create the role manually and then enter the information about the role that you have created.
+Enter the required information in the **Setup Access to your organization** section.  After you fill in the required information, you will download and run a CloudFormation stack to create the role with options that you have selected.  Alternatively, you may create the role manually and then enter the information about the role that you have created.
 
 ![Download Organization CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-management-account-iam-role-cfn-template.png)
 
@@ -200,7 +200,7 @@ Outputs:
 
 In the previous step, you created a role in the Organizations account that is used to discover your Organization, OUs, and Accounts.  Now you will create a role *in each of the member accounts* so that guardrails can manage them.
 
-Enter the required information in the **Setup Access to Your Member Accounts** section.  After you fill in the required information, you will download a Cloudformation template and run a stack set to create the role with options that you have selected.  Alternatively, you may create the roles manually and then enter the information about the roles that you have created.
+Enter the required information in the **Setup Access to Your Member Accounts** section.  After you fill in the required information, you will download a CloudFormation template and run a stack set to create the role with options that you have selected.  Alternatively, you may create the roles manually and then enter the information about the roles that you have created.
 
 ![Setup Member Account Access](/images/docs/guardrails/guides/aws/import-aws-organization/setup-member-accounts-access.png)
 
@@ -219,7 +219,7 @@ Enter the required information in the **Setup Access to Your Member Accounts** s
   > [!IMPORTANT]
   > Enabling [External ID Protection](/guardrails/docs/faq/general-faq#how-does-guardrails-protect-my-aws-account-from-the-confused-deputy-problem) is **strongly recommended**, especially for SaaS customers!
 
-- After all the information has been entered, download the CloudFormation template to create the required IAM role in each member account. 
+- After all the information has been entered, download the CloudFormation template to create the required IAM role in each member account.
 
   ![Download Member CFN Template](/images/docs/guardrails/guides/aws/import-aws-organization/download-member-account-iam-role-cfn-template.png)
 

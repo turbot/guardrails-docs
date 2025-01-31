@@ -201,10 +201,6 @@
         "file": "guides/github/github-sidebar.json"
       },
       {
-        "type": "placeholder",
-        "file": "guides/github/github-sidebar.json"
-      },
-      {
         "type": "category",
         "id": "kubernetes",
         "link": "guides/kubernetes",
@@ -444,6 +440,7 @@
             "items": [
               "guides/hosting-guardrails/monitoring/investigate-event-flood",
               "guides/hosting-guardrails/monitoring/diagnose-control-error",
+              "guides/hosting-guardrails/monitoring/check-mod-health",
               "guides/hosting-guardrails/monitoring/workspace-health-check",
               "guides/hosting-guardrails/monitoring/monitoring-alarms"
             ]
