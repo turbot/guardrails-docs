@@ -5,6 +5,9 @@ sidebar_label: Quick Actions
 
 # Quick Actions
 
+In this guide, you will:
+- Use Guardrails console to enable Quick Actions in your environment.
+
 [Quick Actions](/guardrails/docs/reference/glossary#quick-actions) allow users to perform one-time control enforcements on their cloud environment through the Guardrails UI, providing an efficient way to remediate cloud configuration issues (e.g., enabling encryption on a resource), snooze compliance alarms, and execute operational tasks via the Compliance Dashboard. These actions are tailored to specific cloud services, meaning available options vary based on the resource type (e.g., S3 Buckets vs. EC2 Instances). Once enabled in a workspace, Quick Actions can be accessed and executed through the Actions button on the resource detail page.
 
 This feature is currently supported across major AWS, Azure, and GCP mods. Below is the list of mods that support Quick Actions: -->
@@ -15,17 +18,13 @@ This feature is currently supported across major AWS, Azure, and GCP mods. Below
 | Azure            | Compute, IAM, Network, Storage                      |
 | GCP              | Bigtable, ComputeEngine, IAM, Storage               |
 
-## Enabling Quick Actions in Your Environment
-
-This section explains how to enable Quick Actions in your Guardrails environment. Quick Actions are controlled by two policies:
-`Turbot > Quick Actions > Enabled` and `Turbot > Quick Actions > Permission Levels`.
-
 >[!IMPORTANT] Quick Actions use the permissions granted to the Guardrails service user or cross-account role used to import your cloud service account into Guardrails. Execution of quick actions will fail if the underlying role prevents those actions from occurring.
 
 ## Prerequisites
 
 - **Turbot/Admin** permissions at the Turbot resource level.
 - Turbot Guardrails v5.39.0 or higher.
+- Familiarity with the Guardrails console.
 
 ## Step 1: Navigate to Policies
 
