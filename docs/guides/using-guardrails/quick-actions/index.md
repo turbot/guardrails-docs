@@ -3,39 +3,86 @@ title: Quick Actions
 sidebar_label: Quick Actions
 ---
 
-## Quick actions
+# Quick Actions
 
-Quick Actions allow users to initiate specific (one time) control enforcements on their cloud environment via the Guardrails UI. Cloud operations teams can use Quick Actions to remediate cloud configuration issues (e.g. enable encryption on a resource) or snooze Guardrails alarms for issues that we want to come back to later.
+In this guide, you will:
+- Use Guardrails console to enable Quick Actions in your environment.
 
-Action types are specific to the service and the resource, meaning that S3 Buckets will have different available action types than an EC2 instance. To see what actions are available for a given resource you can click the action button, which will reveal a dropdown menu with available actions, based on your settings and permissions:
 
-![](/images/docs/guardrails/quick_action_kms.png)
+[Quick Actions](/guardrails/docs/reference/glossary#quick-actions) enable users to perform one-time control enforcements within their cloud environment through the Guardrails UI. They provide an efficient way to remediate cloud configuration issues (e.g., enabling encryption on a resource), snooze compliance alarms, and execute operational tasks via the Compliance Dashboard.
 
-Currently this feature is only supported for `AWS` mods but we intend to increase coverage for Azure, GCP and other AWS resources in the coming months. The list of mods which support quick actions at launch are:
-- cloudtrail
-- ec2
-- kms
-- lambda
-- rds
-- s3
-- sns
-- sqs
-- vpc
+Quick Actions are tailored to specific cloud services, meaning available options vary based on the resource type (e.g., S3 Buckets vs. EC2 Instances). Once enabled in a workspace, Quick Actions can be accessed and executed via the **Actions** button on the resource detail page.
 
-## Enabling Quick Actions
+This feature is currently supported across major AWS, Azure, and GCP mods. Below is a list of mods that support Quick Actions:
 
-There are two policies that determine whether a user is allowed to run quick actions:
-- `Turbot > Quick Actions > Enabled`
-- `Turbot > Quick Actions > permissions Levels`
+| **Cloud Provider** | **Services**                                          |
+|-------------------|------------------------------------------------------|
+| AWS              | CloudTrail, EC2, KMS, Lambda, RDS, S3, SNS, SQS, VPC |
+| Azure            | Compute, IAM, Network, Storage                      |
+| GCP              | Bigtable, ComputeEngine, IAM, Storage               |
 
-Quick actions are disabled by default, to Enable Quick Actions set the `Turbot > Quick Actions > Enabled` policy to Enabled. This can be done at the Turbot level (to affect all accounts), or at the individual account level if you want to test on a specific account.
+>[!IMPORTANT] Quick Actions use the permissions granted to the Guardrails service user or cross-account role used to import your cloud service account into Guardrails. Execution of quick actions will fail if the underlying role prevents those actions from occurring.
 
-> [!IMPORTANT]
-> Quick Actions use the permissions granted to the Guardrails service user or cross-account role used to import your cloud service account into Guardrails. Execution of quick actions will fail if the underlying role prevents those actions from occurring.
+## Prerequisites
 
-Each action requires that the user has a specific Guardrails permission level. The default permission level needed is defined in the mod. Excpetions/changes to the default permissions required for Quick Actions can be set using the `Turbot > Quick Actions > Permission Levels` policy.
+- **Turbot/Admin** permissions at the Turbot resource level.
+- Turbot Guardrails v5.39.0 or higher.
+- Familiarity with the Guardrails console.
 
-To allow Turbot/Operator to set versioning on an S3 bucket, set the policy at the account level (or higher) like this:
+## Step 1: Navigate to Policies
+
+Log into the Guardrails console with provided local credentials or by using any SAML based login and Select **Policies** from the top navigation menu.
+
+![Select Policies](/images/docs/guardrails/guides/using-guardrails/quick-actions/guardrails-select-policies.png)
+
+Choose **Turbot** from the list.
+
+![Select Turbot](/images/docs/guardrails/guides/using-guardrails/quick-actions/guardrails-select-turbot.png)
+
+## Step 2: Select Quick Actions
+
+Quick actions are `Disabled` by default, To enable them, locate **Turbot > Quick Actions** policy.
+
+![Locate Quick Actions](/images/docs/guardrails/guides/using-guardrails/quick-actions/guardrails-search-quick-actions.png)
+
+Select the **Turbot > Quick Actions > Enabled** policy.
+
+![Select Enabled Policy](/images/docs/guardrails/guides/using-guardrails/quick-actions/guardrails-select-quick-actions-enabled.png)
+
+## Step 3: Enable Quick Actions
+
+On the `Turbot > Quick Actions > Enabled` page, select **New Policy Setting**.
+
+![Select New Policy Setting](/images/docs/guardrails/guides/using-guardrails/quick-actions/guardrails-select-new-policy-setting.png)
+
+Select the desired `Resource` to enable quick actions, set Setting to `Enabled`, and select **Create**.
+Choose the `Turbot` resource level to apply changes across the entire environment or `select an individual account for testing`.
+
+![Create Setting](/images/docs/guardrails/guides/using-guardrails/quick-actions/guardrails-select-setting-click-create.png)
+
+The policy setting has been successfully created.
+
+![Create Setting](/images/docs/guardrails/guides/using-guardrails/quick-actions/guardrails-policy-setting-created.png)
+
+## Step 4: Apply Quick Actions
+
+To apply, navigate to the desired resource page and select the appropriate action from the **Actions** button, which displays a list of available actions.
+
+![Apply Quick Actions](/images/docs/guardrails/guides/using-guardrails/quick-actions/guardrails-verify-quick-actions.png)
+
+## Enable Quick Actions Permissions
+
+This section is optional and can be configured based on specific use cases.
+
+Each Quick Action requires a designated Guardrails permission level, which is predefined within the respective mod. Any *exceptions or modifications* to these default permissions can be configured using the `Turbot > Quick Actions > Permission Levels` policy.
+
+For example, to grant `Turbot/Operator` the ability to enable versioning on an S3 bucket, set the policy at the account level (or higher) as shown in the example below.
+
+- Changing the `authorization` value from `permitted` to `forbidden` will **restrict all users** from performing the specified action.
+- Wildcard characters (`*`) can be used to apply permissions across multiple actions.
+
+![Quick Action Permission](/images/docs/guardrails/guides/using-guardrails/quick-actions/quick-actions-permissions.png)
+
 ```
 - rule: "tmod:@turbot/aws-s3#/action/types/s3BucketVersioningEnabledQuickAction"
   authorization: "forbidden"
@@ -46,9 +93,15 @@ To allow Turbot/Operator to set versioning on an S3 bucket, set the policy at th
     level: "tmod:@turbot/turbot-iam#/permission/levels/operator"
 ```
 
-Changing the value of `authorization` from `permitted` to `forbidden` will deny all users the ability to perform a specific action. The policy also allows for use of widcard characters `*` for rules to set permissions on multiple actions.
+## Next Steps
 
-Steps to enable Quick Actions on your environment:
-1. Update to the latest version of the `@turbot/turbot` mod.
-2. Set the policy `Turbot > Quick Actions > Enabled` to `Enabled`. This can be set per account or at the higher level. Setting it to Enabled at Turbot level will Enabled Quick Actions for all accounts.
-3. Set the override policy `Turbot > Quick Actions > permissions Levels` if you want to further restrict access to specific quick actions.
+Please see the following resources to learn more about Turbot Guardrails Enterprise:
+
+- Learn how to [Apply a Quick Action on a GCP Resource](/guardrails/docs/getting-started/getting-started-gcp/apply-quick-action#apply-a-quick-action).
+- Learn how to [Apply a Quick Action on an Azure Resource](/guardrails/docs/getting-started/getting-started-azure/apply-quick-action)
+
+## Troubleshooting
+
+| Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Further Assistance                       | If you encounter issues with Quick Actions, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
