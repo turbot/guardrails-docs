@@ -338,7 +338,8 @@
             "link": "guides/using-guardrails/troubleshooting",
             "items": [
               "guides/using-guardrails/troubleshooting/fix-invalid-controls",
-              "guides/using-guardrails/troubleshooting/access-control-logs"
+              "guides/using-guardrails/troubleshooting/access-control-logs",
+              "guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors"
             ]
           },
           {
