@@ -37,7 +37,7 @@ Select the effective **Calculated** policy setting.
 
 ![Effective Setting](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-select-effective-calc-policy.png)
 
-## Step 4: Edit Policy
+## Step 4: Edit Policy Setting
 
 Select **Edit** from the top right corner.
 
