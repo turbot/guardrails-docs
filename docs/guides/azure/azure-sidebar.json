@@ -10,7 +10,8 @@
       "items": [
         "guides/azure/import/tenant",
         "guides/azure/import/active-directory",
-        "guides/azure/import/subscription"
+        "guides/azure/import/subscription",
+        "guides/azure/import/skip-management-groups-and-subscriptions"
       ]
     },
     {
