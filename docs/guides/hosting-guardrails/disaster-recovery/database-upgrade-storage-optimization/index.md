@@ -105,7 +105,23 @@ SELECT \* FROM pg_create_logical_replication_slot('rs_blue', 'pgoutput');
 Use pg_dump to create a dump of the source database:
 
 ```shell
-nohup pg_dump -h $SOURCE -U master -F c -b -v -f data.dump turbot > dump.log 2>&1
+psql --host=$SOURCE --username=master --dbname=turbot
+SELECT pg_backup_start('dump_start'); // note the lsn
+exit
+nohup time pg_dump -h $SOURCE -U master -F c -b -v -f data.dump turbot > dump.log 2>&1
+```
+
+Dump might take several hours, so run ps aux periodically and look for the pg_dump process to check if it's still running, even if the connection to the bastion host is terminated, the process will keep running in the backgroud.
+
+```shell
+ps aux | grep pg_dump
+```
+
+Once the dump is complete, run pg_backup_stop.
+```shell
+psql --host=$SOURCE --username=master --dbname=turbot
+SELECT * FROM pg_backup_stop();
+exit
 ```
 
 ## Step 9: Restore the Dump in the Target DB
@@ -113,7 +129,13 @@ nohup pg_dump -h $SOURCE -U master -F c -b -v -f data.dump turbot > dump.log 2>&
 Restore the database in the target instance:
 
 ```shell
-nohup pg_restore -h $TARGET -U master --verbose --no-publications --no-subscriptions --clean --if-exists -d turbot data.dump > restore.log 2>&1
+nohup time pg_restore -h $TARGET -U master --verbose --no-publications --no-subscriptions --clean --if-exists -d turbot data.dump > restore.log 2>&1
+```
+
+Restore might take several hours, so run ps aux periodically and look for the pg_restore process to check if it's still running, even if the connection to the bastion host is terminated, the process will keep running in the backgroud.
+
+```shell
+ps aux | grep pg_restore
 ```
 
 ## Step 10: Add Triggers
@@ -161,7 +183,7 @@ CREATE SUBSCRIPTION sub_blue CONNECTION 'host=<source_db_endpoint> port=5432 pas
         slot_name = 'rs_blue'
     );
 SELECT * FROM pg_replication_origin;
-SELECT pg_replication_origin_advance('output_from_step_above','<output_from_replication_slot');
+SELECT pg_replication_origin_advance('output_from_step_above','output_from_pg_backup_start');
 ALTER SUBSCRIPTION sub_blue ENABLE;
 ```
 
@@ -207,7 +229,7 @@ SELECT n.nspname AS schema_name, COUNT(c.conname) AS constraint_count FROM pg_ca
 SELECT count(tgname), tgenabled FROM pg_trigger GROUP by tgenabled;
 ```
 
-## Step 14: Turn Off Events (Optional)
+## Step 14: Turn Off Events
 
 Disable events as per the guidelines: [Pause Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
 
