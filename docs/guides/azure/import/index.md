@@ -176,6 +176,6 @@ With the App registration, API permissions and Azure IAM permissions, you're rea
 Guardrails. Follow the appropriate instructions below.
 
 - [Connect Tenant](integrations/azure/import/tenant)
-- [Connect Management Group](integrations/azure/import/management-group)
 - [Connect Active Directory](integrations/azure/import/active-directory)
 - [Connect Subscriptions](integrations/azure/import/subscription)
+- [ Skip Management Groups & Subscriptions](integrations/azure/import/skip-management-groups-and-subscriptions)
