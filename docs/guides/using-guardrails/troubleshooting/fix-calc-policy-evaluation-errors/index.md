@@ -1,6 +1,6 @@
 ---
-title: Resolve Calculated Policy Evaluation Errors
-sidebar_label: Resolve Calculated Policy Evaluation Errors
+title: Resolve Calculated Policy Errors
+sidebar_label: Resolve Calculated Policy Errors
 ---
 
 # Resolve Calculated Policy Evaluation Errors
@@ -8,7 +8,7 @@ sidebar_label: Resolve Calculated Policy Evaluation Errors
 In this guide, you will:
 - Use Guardrails console to identify and resolve calculated policy evaluation errors.
 
-A [Calculated Policy](/guardrails/docs/reference/glossary#calculated-policy) dynamically determines policy settings by sourcing CMDB data, executing a GraphQL query, and applying a Nunjucks template to generate a resource-specific policy value. Any policy setting can be calculated, making policies more context-aware and adaptable.
+A [Calculated Policy](/guardrails/docs/reference/glossary#calculated-policy) dynamically determines policy settings by sourcing CMDB data, executing a GraphQL query, and applying a [Nunjucks](/guardrails/docs/guides/using-guardrails/nunjucks) template to generate a resource-specific policy value. Any policy setting can be calculated, making policies more context-aware and adaptable.
 
 However, calculated policies can sometimes encounter errors due to misconfigurations or data inconsistencies, leading to controls entering an error state. Ensuring these policies are properly configured and promptly fixed is crucial for maintaining compliance and system stability.
 
@@ -16,6 +16,7 @@ However, calculated policies can sometimes encounter errors due to misconfigurat
 
 - **Turbot/Admin** permissions at the Turbot resource level.
 - Familiarity with the Guardrails console.
+- Knowledge of the [Jinja2/Nunjucks](https://jinja.palletsprojects.com/en/stable/templates/) template language.
 
 ## Step 1: Navigate to Policies
 
