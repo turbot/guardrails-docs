@@ -9,3 +9,4 @@ The following guides will assist with the self-resolution of common problems. If
 
 - [Access Control Logs](/guardrails/docs/guides/using-guardrails/troubleshooting/access-control-logs)
 - [Fix Invalid Controls](/guardrails/docs/guides/using-guardrails/troubleshooting/fix-invalid-controls)
+- [Resolve Calculated Policy Errors](/guardrails/docs/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors)
