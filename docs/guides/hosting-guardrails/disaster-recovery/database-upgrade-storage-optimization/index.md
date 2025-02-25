@@ -97,18 +97,35 @@ Create a publication and replication slot:
 ```shell
 psql --host=$SOURCE --username=master --dbname=turbot
 CREATE PUBLICATION pub_blue FOR ALL TABLES;
-SELECT \* FROM pg_create_logical_replication_slot('rs_blue', 'pgoutput');
+SELECT * FROM pg_create_logical_replication_slot('rs_blue', 'pgoutput');
 ```
 
 ## Step 8: Dump the Entire Source DB
 
-Use pg_dump to create a dump of the source database:
+Start a session and set the transaction isolation level and export a snapshot. Note: this doesn't create an actual snapshot but captures the current state of the db and assigns an id to it.
 
 ```shell
 psql --host=$SOURCE --username=master --dbname=turbot
-SELECT pg_backup_start('dump_start'); // note the lsn
-exit
-nohup time pg_dump -h $SOURCE -U master -F c -b -v -f data.dump turbot > dump.log 2>&1
+BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+SELECT pg_current_wal_lsn(), pg_export_snapshot();
+```
+
+Keep this session open, in a new session, start pg_dump using the snapshot id returned by the above command:
+
+```shell
+nohup time pg_dump -h $SOURCE -U master --snapshot="0000001F-000007C1-1" -F c -b -v -f data.dump turbot > dump.log 2>&1
+```
+
+Wait for dump to start, you can do this by looking for table dump logs in the `dump.log` file - ex: `pg_dump: dumping contents of table "<table_name>"`:
+
+```shell
+cat dump.log
+```
+
+Once the dump has started, return to the first session in which transaction isolation was set and rollback the transactions.
+
+```sql
+ROLLBACK;
 ```
 
 Dump might take several hours, so run ps aux periodically and look for the pg_dump process to check if it's still running, even if the connection to the bastion host is terminated, the process will keep running in the backgroud.
@@ -117,11 +134,10 @@ Dump might take several hours, so run ps aux periodically and look for the pg_du
 ps aux | grep pg_dump
 ```
 
-Once the dump is complete, run pg_backup_stop.
+Once the dump is complete, look for erros in the dump file
+
 ```shell
-psql --host=$SOURCE --username=master --dbname=turbot
-SELECT * FROM pg_backup_stop();
-exit
+cat dump.log | grep error
 ```
 
 ## Step 9: Restore the Dump in the Target DB
@@ -151,21 +167,17 @@ Set local search path
 ```shell
 psql --host=$TARGET --username=master --dbname=turbot
 set local search_path to <workspace_schema>, public;
-```
-
-```sql
-set local search_path to <workspace_schema>;
-create trigger control_category_path_au after update on control_categories for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'control_category_id', 'control_category_path');
-create trigger control_resource_category_path_au after update on resource_categories  for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'resource_category_id', 'resource_category_path');
-create trigger control_resource_types_path_au after update on resource_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'resource_type_id', 'resource_type_path');
-create trigger control_types_path_au after update on control_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('controls', 'control_type_id', 'control_type_path');
-create trigger policy_category_path_au after update on control_categories  for each row when (old.path is distinct from new.path) execute procedure types_path_au('policy_values', 'control_category_id', 'control_category_path');
-create trigger policy_resource_category_path_au after update on resource_categories  for each row when (old.path is distinct from new.path) execute procedure types_path_au('policy_values', 'resource_category_id', 'resource_category_path');
-create trigger policy_resource_types_path_au after update on resource_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('policy_values', 'resource_type_id', 'resource_type_path');
-create trigger policy_types_path_au after update on policy_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('policy_values', 'policy_type_id', 'policy_type_path');
-create trigger resource_resource_category_path_au after update on resource_categories for each row when (old.path is distinct from new.path) execute procedure types_path_au('resources', 'resource_category_id', 'resource_category_path');
-create trigger resource_resource_type_path_au after update on resource_types for each row when (old.path is distinct from new.path) execute procedure types_path_au('resources', 'resource_type_id', 'resource_type_path');
-create trigger resource_types_500_rt_path_update_au after update on resource_types for each row when (old.path is distinct from new.path) execute procedure update_types_path();
+create trigger control_category_path_au after update on $turbot_schema.control_categories for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'control_category_id', 'control_category_path');
+create trigger control_resource_category_path_au after update on $turbot_schema.resource_categories  for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'resource_category_id', 'resource_category_path');
+create trigger control_resource_types_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'resource_type_id', 'resource_type_path');
+create trigger control_types_path_au after update on $turbot_schema.control_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'control_type_id', 'control_type_path');
+create trigger policy_category_path_au after update on $turbot_schema.control_categories  for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'control_category_id', 'control_category_path');
+create trigger policy_resource_category_path_au after update on $turbot_schema.resource_categories  for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'resource_category_id', 'resource_category_path');
+create trigger policy_resource_types_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'resource_type_id', 'resource_type_path');
+create trigger policy_types_path_au after update on $turbot_schema.policy_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('policy_values', 'policy_type_id', 'policy_type_path');
+create trigger resource_resource_category_path_au after update on $turbot_schema.resource_categories for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('resources', 'resource_category_id', 'resource_category_path');
+create trigger resource_resource_type_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('resources', 'resource_type_id', 'resource_type_path');
+create trigger resource_types_500_rt_path_update_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.update_types_path();
 ```
 
 ## Step 11: Create Subscription in the New DB Instance
@@ -174,7 +186,7 @@ Create a subscription in the target database:
 
 ```shell
 psql --host=$TARGET --username=master --dbname=turbot
-CREATE SUBSCRIPTION sub_blue CONNECTION 'host=<source_db_endpoint> port=5432 password=<master_password> user=master dbname=turbot' PUBLICATION pub_blue WITH (
+CREATE SUBSCRIPTION sub_blue CONNECTION 'host=spongebob-elsa.coaztwuilyxs.us-east-1.rds.amazonaws.com port=5432 password=postgres user=master dbname=turbot' PUBLICATION pub_blue WITH (
         copy_data = false,
         create_slot = false,
         enabled = false,
@@ -191,7 +203,8 @@ ALTER SUBSCRIPTION sub_blue ENABLE;
 
 Run the following in the source database to monitor the replication progress:
 
-```sql
+```shell
+psql --host=$SOURCE --username=master --dbname=turbot
 SELECT slot_name, confirmed_flush_lsn as flushed, pg_current_wal_lsn(), (pg_current_wal_lsn() - confirmed_flush_lsn) AS lsn_distance FROM pg_catalog.pg_replication_slots WHERE slot_type = 'logical';
 ```
 
@@ -214,7 +227,7 @@ SELECT n.nspname AS schema_name, COUNT(i.indexname) AS index_count FROM pg_catal
 **Functions**:
 
 ```sql
-SELECT n.nspname AS schema_name, COUNT(p.proname) AS function_count FROM pg_catalog.pg_proc p LEFT JOIN pg_catalog.pg_namespace n ON n.oid = p.pronamespace WHERE n.nspname NOT IN ('pg_catalog', 'information_schema') GROUP BY n.nspname ORDER BY function_count DESC;
+SELECT n.nspname AS schema_name, p.proname AS function_name FROM pg_catalog.pg_proc p LEFT JOIN pg_catalog.pg_namespace n ON n.oid = p.pronamespace WHERE n.nspname IN ('pg_catalog');
 ```
 
 **Constraints**:
@@ -257,6 +270,20 @@ Delete the new TED stack, delete the associated resources listed below, and clea
 - S3 bucket
 - Log groups
 - AWS Backup
+
+## Useful commands
+
+```sql
+select * from pg_publication;
+drop publication pub_blue;
+select * from pg_replication_slots;
+select * from pg_drop_replication_slot('rs_blue');
+select * from pg_subscription;
+alter subscription sub_blue disable;
+alter subscription sub_blue set (slot_name=none);
+drop subscription sub_blue;
+drop schema snoopy_turbot cascade;
+```
 
 ## Next Steps
 
