@@ -335,6 +335,17 @@
           },
           {
             "type": "category",
+            "id": "troubleshooting",
+            "link": "guides/using-guardrails/troubleshooting",
+            "items": [
+              "guides/using-guardrails/troubleshooting/fix-invalid-controls",
+              "guides/using-guardrails/troubleshooting/access-control-logs",
+              "guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors",
+              "guides/using-guardrails/troubleshooting/run-controls-using-scripts"
+            ]
+          },
+          {
+            "type": "category",
             "id": "notifications",
             "link": "guides/using-guardrails/notifications",
             "items": [
