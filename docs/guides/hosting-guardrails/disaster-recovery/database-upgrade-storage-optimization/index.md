@@ -242,9 +242,10 @@ SELECT n.nspname AS schema_name, COUNT(c.conname) AS constraint_count FROM pg_ca
 SELECT count(tgname), tgenabled FROM pg_trigger GROUP by tgenabled;
 ```
 
-## Step 14: Turn Off Events
+## Step 14: Turn Off Events and API and Events tasks.
 
-Disable events as per the guidelines: [Pause Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
+- Disable events as per the guidelines: [Pause Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
+- API and Events task can be turned off, by setting the task count to 0 in TE stack.
 
 ## Step 15: Rename DB Instances
 
