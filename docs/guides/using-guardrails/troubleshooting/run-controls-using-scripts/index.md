@@ -60,7 +60,7 @@ export TURBOT_SECRET_ACCESS_KEY=151b296b-0694-4a28-94c4-4b67fa82ab2c
 Execute this script using the Control Type URI from [Step 3](#step-3-retrieve-control-type-uri). The batch size is set to 25 to minimize database load.
 
 ```
-./run-controls.sh --filter 'state:error controlTypeId:tmod:@turbot/aws-rds#/control/types/snapshotActive' --batch-size 25
+./run-controls.sh --filter 'state:error controlTypeId:tmod:@turbot/turbot#/control/types/controlInstalled' --batch-size 25
 ```
 The script should start running and output results similar to below:
 
