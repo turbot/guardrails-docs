@@ -2,6 +2,9 @@
 title: "Database Upgrade and Storage Optimization"
 sidebar_label: "Database Upgrade and Storage Optimization"
 ---
+<!--
+THIS WILL BE UPDATED WITH NEW STEPS
+-->
 
 # Database Upgrade and Storage Optimization
 
