@@ -33,7 +33,7 @@ Here, the error occurs due to `TypeError: Cannot read properties of undefined (r
 
 ## Step 3: Select Calculated Policy
 
-Select the effective **Calculated** policy setting.
+Select the **Calculated** policy, with an ✅ `EFFECTIVE SETTING`.
 
 ![Effective Setting](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-select-effective-calc-policy.png)
 
@@ -57,7 +57,7 @@ Select the `Test Resource`, update the corrected Jinja2/Nunjucks template, and v
 
 ![Resolve Error](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-resolve-cal-policy.png)
 
-Select **Update** from the Update Policy Setting page. 
+Select **Update** from the Update Policy Setting page.
 
 ![Select Update](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-update-policy.png)
 
