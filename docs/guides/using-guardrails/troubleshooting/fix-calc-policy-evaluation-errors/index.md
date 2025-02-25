@@ -61,13 +61,13 @@ Select **Update** from the Update Policy Setting page.
 
 ![Select Update](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-update-policy.png)
 
-## Step 6: Verify Resolution
+## Step 6: Review
 
-Verify that the policy value transitions to an `OK` state, confirming the issue has been resolved successfully.
+- [ ] Verify that the policy value transitions to an `OK` state, confirming the issue has been resolved successfully.
 
 ![Policy Value State](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-policy-value-ok.png)
 
-The affected control transitions to an `OK` state.
+- [ ] Verify that the affected control transitions to an `OK` state.
 
 ![Control State](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-control-ok-state.png)
 
