@@ -154,7 +154,35 @@ Restore might take several hours, so run ps aux periodically and look for the pg
 ps aux | grep pg_restore
 ```
 
-## Step 10: Add Triggers
+## Step 10: Create Subscription in the New DB Instance
+
+Create a subscription in the target database:
+
+```shell
+psql --host=$TARGET --username=master --dbname=turbot
+CREATE SUBSCRIPTION sub_blue CONNECTION 'host=spongebob-elsa.coaztwuilyxs.us-east-1.rds.amazonaws.com port=5432 password=postgres user=master dbname=turbot' PUBLICATION pub_blue WITH (
+        copy_data = false,
+        create_slot = false,
+        enabled = false,
+        synchronous_commit = false,
+        connect = true,
+        slot_name = 'rs_blue'
+    );
+SELECT * FROM pg_replication_origin;
+SELECT pg_replication_origin_advance('output_from_step_above','output_from_pg_backup_start');
+ALTER SUBSCRIPTION sub_blue ENABLE;
+```
+
+## Step 11: Monitor Progress
+
+Run the following in the source database to monitor the replication progress:
+
+```shell
+psql --host=$SOURCE --username=master --dbname=turbot
+SELECT slot_name, confirmed_flush_lsn as flushed, pg_current_wal_lsn(), (pg_current_wal_lsn() - confirmed_flush_lsn) AS lsn_distance FROM pg_catalog.pg_replication_slots WHERE slot_type = 'logical';
+```
+
+## Step 12: Add Triggers
 
 Check the restore log file (restore.log) and make sure there are only 11 entries per schema when you run the below -
 
@@ -178,34 +206,6 @@ create trigger policy_types_path_au after update on $turbot_schema.policy_types 
 create trigger resource_resource_category_path_au after update on $turbot_schema.resource_categories for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('resources', 'resource_category_id', 'resource_category_path');
 create trigger resource_resource_type_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('resources', 'resource_type_id', 'resource_type_path');
 create trigger resource_types_500_rt_path_update_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.update_types_path();
-```
-
-## Step 11: Create Subscription in the New DB Instance
-
-Create a subscription in the target database:
-
-```shell
-psql --host=$TARGET --username=master --dbname=turbot
-CREATE SUBSCRIPTION sub_blue CONNECTION 'host=spongebob-elsa.coaztwuilyxs.us-east-1.rds.amazonaws.com port=5432 password=postgres user=master dbname=turbot' PUBLICATION pub_blue WITH (
-        copy_data = false,
-        create_slot = false,
-        enabled = false,
-        synchronous_commit = false,
-        connect = true,
-        slot_name = 'rs_blue'
-    );
-SELECT * FROM pg_replication_origin;
-SELECT pg_replication_origin_advance('output_from_step_above','output_from_pg_backup_start');
-ALTER SUBSCRIPTION sub_blue ENABLE;
-```
-
-## Step 12: Monitor Progress
-
-Run the following in the source database to monitor the replication progress:
-
-```shell
-psql --host=$SOURCE --username=master --dbname=turbot
-SELECT slot_name, confirmed_flush_lsn as flushed, pg_current_wal_lsn(), (pg_current_wal_lsn() - confirmed_flush_lsn) AS lsn_distance FROM pg_catalog.pg_replication_slots WHERE slot_type = 'logical';
 ```
 
 ## Step 13: Test Data
