@@ -75,4 +75,5 @@ The affected control transitions to an `OK` state.
 
 | Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Common errors.                     | Any common errors preventing controls to run.   |Refer [Common Troubleshooting](/guardrails/docs/guides/troubleshooting) for more information.
 | Further Assistance                       | If you encounter further issues with Calculated Policies, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
