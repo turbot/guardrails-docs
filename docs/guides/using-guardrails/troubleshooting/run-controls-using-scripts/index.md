@@ -101,18 +101,19 @@ The script should start running and output results similar to below:
 
 The command stops once all controls have successfully run.
 
-## Step 8: Verify Control Status
+## Step 8: Review
 
-Confirm that all controls have moved to an `OK` state.
+Check that all controls have moved to an `OK` state.
 
 ![Navigate to Reports](/images/docs/guardrails/guides/using-guardrails/troubleshooting/run-controls-using-scripts/guardrails-verify-control-status.png)
 
-**Additional Execution for Policies**
+> [!NOTE]
+> If you need to resolve policies that are not evaluating properly, you can use the same approach with the run-policies script instead.
 
-To resolve policies in an Error state, execute the run-policies script using the same approach.
 
 ## Troubleshooting
 
 | Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Common errors.                     | Any common errors preventing controls to run.   |Refer [Common Troubleshooting](/guardrails/docs/guides/troubleshooting) for more information.
 | Further Assistance                       | If you encounter further issues with Calculated Policies, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
