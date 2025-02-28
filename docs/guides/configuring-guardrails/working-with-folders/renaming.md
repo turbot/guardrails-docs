@@ -22,7 +22,7 @@ In this guide, you will:
 
 Log in to the Guardrails console using your local credentials or via SAML-based login.
 
-Select the **Resources** tab, navigate to the parent folder in this case it's `Turbot`, select the folder you wish to delete.
+Select the **Resources** tab, navigate to the **folders** section to select the folder you wish to rename.
 
 ![Find Folder](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/find-folder-from-resources.png)
 
