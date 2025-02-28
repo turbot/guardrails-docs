@@ -281,8 +281,8 @@
             "link": "guides/configuring-guardrails/working-with-folders",
             "items": [
               "guides/configuring-guardrails/working-with-folders/create",
-              "guides/configuring-guardrails/working-with-folders/delete",
-              "guides/configuring-guardrails/working-with-folders/renaming"
+              "guides/configuring-guardrails/working-with-folders/rename",
+              "guides/configuring-guardrails/working-with-folders/delete"
             ]
           },
           "guides/configuring-guardrails/change-window"
