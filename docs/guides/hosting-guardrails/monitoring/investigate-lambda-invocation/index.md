@@ -6,15 +6,16 @@ sidebar_label: Monitoring Lambda Invocation
 # Monitoring Lambda Invocation
 
 In this guide, you will:
-- Use the AWS console to monitor the lambda invocations.
+- Use the AWS console to monitor the lambda invocations in self-Hosted environments.
 
 Monitoring Lambda invocations is crucial for identifying performance bottlenecks, optimizing execution, and managing AWS costs. Worker Lambda functions process [events](/guardrails/docs/guides/azure/real-time-events#configuring-real-time-events), and prolonged execution times can result from high concurrency, database overload, or excessive SQS message throughput. When durations exceed defined thresholds, they increase costs and indicate inefficiencies. Proactive monitoring helps ensure smooth execution, efficient resource utilization, and minimized costs.
+
 
 ## Prerequisites
 
 - Access to the Guardrails AWS account with **ReadOnly** privileges.
 
-## Step 1: Login to Guardrails Console
+## Step 1: Login to AWS Console
 
 Open the AWS Console and navigate to the **Lambda** service in the region where Guardrails is deployed.
 
@@ -28,7 +29,7 @@ Choose **Dashboards** from the left navigation menu.
 
 ## Step 3: View Invocations
 
-From `Account-level metrics`, choose **Invocations** and and set the desired date range.
+From `Account-level metrics`, choose **Invocations** and set the desired date range.
 
 ![Select Invocations](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-lambda-invocation/aws-lambda-select-invocations.png)
 
@@ -38,16 +39,30 @@ Identify spikes in the graph for the selected time range. In this example, a spi
 
 ![Identify AWS Lambda Invocations Spike](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-lambda-invocation/aws-lambda-invocations-spike.png)
 
-## Step 5: Investigate and Resolve Spike
+<!-- ## Step 5: Investigate and Resolve Spike
 
 High Lambda invocations may result from `increased concurrency`, `database overload`, or `excessive SQS message` throughput, often caused by misconfigurations in the environment. One way to identify the root cause is by [analyzing event floods](/guardrails/docs/guides/hosting-guardrails/monitoring/investigate-event-flood) for spikes in specific external events, which can help pinpoint the source of increased Lambda activity.
-Once the root cause is determined, apply the necessary fixes.
+Once the root cause is determined, apply the necessary fixes. -->
 
-## Step 6: Review
+
+## Step 5: Investigate to Report
+
+High Lambda invocations may be caused by *increased concurrency*, *database overload*, or *excessive SQS message throughput*, often triggered by misconfigurations in the environment. To diagnose the issue, start by [analyzing event floods](/guardrails/docs/guides/hosting-guardrails/monitoring/investigate-event-flood) to identify spikes in specific external events. This analysis can help pinpoint whether the surge in Lambda activity originates from **unintended API calls, excessive policy evaluations, or misconfigured controls**.
+
+This in most cases requires further troubleshooting and reporting to Guardrails product team. Gather the following details before reaching out to Turbot Support:
+
+- **Timeframe of the spike** (start of the spike). It may be
+- **Any recent policy or configuration changes** made before the spike.
+- **Source of external events** details, refer [analyzing event floods](/guardrails/docs/guides/hosting-guardrails/monitoring/investigate-event-flood).
+- **Screenshots or exported event data** from AWS console as additional input.
+
+Providing these details will help expedite the investigation and resolution process.
+
+<!-- ## Step 6: Review
 
 - [ ] Ensure that the Lambda invocation spike stabilizes and returns to normal levels.
 
-![lambda Invocation Resolved](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-lambda-invocation/aws-lambda-invocations-resolved.png)
+![lambda Invocation Resolved](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-lambda-invocation/aws-lambda-invocations-resolved.png) -->
 
 ## Next Steps
 
