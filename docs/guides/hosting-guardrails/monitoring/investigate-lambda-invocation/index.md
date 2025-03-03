@@ -74,4 +74,4 @@ Explore additional monitoring guides for Guardrails Enterprise:
 | **Issue**                           | **Description**                                                                                          | **Guide** |
 |--------------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
 | Common Errors                        | Any errors preventing controls from running.                                                            | Refer to [Common Troubleshooting](/guardrails/docs/guides/troubleshooting) for more information. |
-| Further Assistance                    | If the issue persists, open a support ticket with detailed logs and screenshots for faster resolution. | [Open Support Ticket](https://support.turbot.com) |
+| Further Assistance and Feedback | If you encounter issues or have suggestions to improve this guide, please open a support ticket with detailed logs, screenshots, and your feedback. | [Open Support Ticket](https://support.turbot.com) |
