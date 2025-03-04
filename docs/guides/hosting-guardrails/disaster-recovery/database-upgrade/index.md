@@ -1,14 +1,11 @@
 ---
-title: "Database Upgrade and Storage Optimization"
-sidebar_label: "Database Upgrade and Storage Optimization"
+title: Database Upgrade
+sidebar_label: Database Upgrade
 ---
-<!--
-THIS WILL BE UPDATED WITH NEW STEPS
--->
 
-# Database Upgrade and Storage Optimization
+# Database Upgrade
 
-In this guide, you will
+In this guide, you will:
 
 - Resize and/or upgrade a database engine version with minimal downtime using AWS and PostgreSQL tools.
   <!-- - Set up logical replication between the source and target databases. -->
