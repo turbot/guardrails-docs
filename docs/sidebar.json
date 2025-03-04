@@ -479,7 +479,10 @@
               "guides/hosting-guardrails/disaster-recovery/hive-restore",
               "guides/hosting-guardrails/disaster-recovery/restore-workspace",
               "guides/hosting-guardrails/disaster-recovery/multi-region-deployment",
-              "guides/hosting-guardrails/disaster-recovery/multi-region-failover"
+              "guides/hosting-guardrails/disaster-recovery/multi-region-failover",
+              "guides/hosting-guardrails/disaster-recovery/restore",
+              "guides/hosting-guardrails/disaster-recovery/dr-testing",
+              "guides/hosting-guardrails/disaster-recovery/database-upgrade"
             ]
           }
         ]
