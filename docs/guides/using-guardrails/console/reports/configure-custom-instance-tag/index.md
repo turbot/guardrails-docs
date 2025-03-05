@@ -21,33 +21,33 @@ Turbot Guardrails' [Instance Scheduling](/guardrails/docs/concepts/guardrails/sc
 
 Log into the Guardrails console with provided local credentials or by using any SAML based login and Select **Policies** from the top navigation menu.
 
-![Navigate to Policies](/images/docs/guardrails/guides/using-guardrails/console/reports/guardrails-navigate-policies.png)
+![Navigate to Policies](/images/docs/guardrails/guides/using-guardrails/console/reports/configure-custom-instance-tag/guardrails-navigate-policies.png)
 
 ## Step 2: Locate Schedule Tag Policy
 
 From Policies, search and locate the `AWS > RDS > Instance > Schedule Tag` policy.
 
-![RDS Schedule Tag Policy](/images/docs/guardrails/guides/using-guardrails/console/reports/guardrails-locate-schedule-tag.png)
+![RDS Schedule Tag Policy](/images/docs/guardrails/guides/using-guardrails/console/reports/configure-custom-instance-tag/guardrails-locate-schedule-tag.png)
 
 ## Step 3: Configure the Schedule Tag Policy
 
 Select **New Policy Setting** from the top right corner.
 
-![New Policy Setting](/images/docs/guardrails/guides/using-guardrails/console/reports/guardrails-schedule-tag-select-setting.png)
+![New Policy Setting](/images/docs/guardrails/guides/using-guardrails/console/reports/configure-custom-instance-tag/guardrails-schedule-tag-select-setting.png)
 
 Select the resource and choose `Enforce: Schedule per turbot_custom_schedule` setting. Select **Create**.
 
-![Create Schedule Tag](/images/docs/guardrails/guides/using-guardrails/console/reports/guardrails-schedule-tag-create-setting.png)
+![Create Schedule Tag](/images/docs/guardrails/guides/using-guardrails/console/reports/configure-custom-instance-tag/guardrails-schedule-tag-create-setting.png)
 
 ## Step 4: Configure Schedule Tag Name Policy
 
 Navigate to the `AWS > RDS > DB Instance > Schedule Tag > Name` policy. Select **New Policy Setting** from the top right corner.
 
-![Select Schedule Tag Name](/images/docs/guardrails/guides/using-guardrails/console/reports/guardrails-schedule-tag-name-new-setting.png)
+![Select Schedule Tag Name](/images/docs/guardrails/guides/using-guardrails/console/reports/configure-custom-instance-tag/guardrails-schedule-tag-name-new-setting.png)
 
 Select the resource, go to Settings, and enter the tag key to define the schedule for the DB instance. Here we use `turbot_custom_schedule` as the key. Click **Create** to apply the changes.
 
-![Create Policy Setting](/images/docs/guardrails/guides/using-guardrails/console/reports/guardrails-schedule-tag-name-create-setting.png)
+![Create Policy Setting](/images/docs/guardrails/guides/using-guardrails/console/reports/configure-custom-instance-tag/guardrails-schedule-tag-name-create-setting.png)
 
 ## Step 5: Apply Tag to Instance
 
@@ -55,7 +55,7 @@ When the Schedule Tag policy is set to `Enforce: Schedule per turbot_custom_sche
 
 Ensure the cron job follows the format: `{"start": "8 * * MON-FRI", "stop": "16 * * MON-FRI"}` and encode it in Base64 as `eyJzdGFydCI6ICIqIDggKiAqIE1PTi1GUkkiLCAic3RvcCI6ICIqIDE2ICogKiBNT04tRlJJIn0=`. This format is required for RDS tagging.
 
-![Apply Tag on RDS DB Instance](/images/docs/guardrails/guides/using-guardrails/console/reports/aws-rds-set-tag.png)
+![Apply Tag on RDS DB Instance](/images/docs/guardrails/guides/using-guardrails/console/reports/configure-custom-instance-tag/aws-rds-set-tag.png)
 
 ## Troubleshooting
 
