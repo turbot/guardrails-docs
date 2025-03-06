@@ -334,6 +334,26 @@
           },
           {
             "type": "category",
+            "id": "notifications",
+            "link": "guides/using-guardrails/notifications",
+            "items": [
+              "guides/using-guardrails/notifications/filter-rules",
+              "guides/using-guardrails/notifications/templates"
+            ]
+          },
+          {
+            "type": "category",
+            "id": "scheduling",
+            "link": "guides/using-guardrails/scheduling",
+            "items": [
+              "guides/using-guardrails/scheduling/db-scheduling-using-custom-tag"
+            ]
+          },
+          "guides/using-guardrails/nunjucks",
+          "guides/using-guardrails/quick-actions",
+          "guides/using-guardrails/searching-filtering",
+          {
+            "type": "category",
             "id": "troubleshooting",
             "link": "guides/using-guardrails/troubleshooting",
             "items": [
@@ -342,19 +362,7 @@
               "guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors",
               "guides/using-guardrails/troubleshooting/run-controls-using-scripts"
             ]
-          },
-          {
-            "type": "category",
-            "id": "notifications",
-            "link": "guides/using-guardrails/notifications",
-            "items": [
-              "guides/using-guardrails/notifications/filter-rules",
-              "guides/using-guardrails/notifications/templates"
-            ]
-          },
-          "guides/using-guardrails/nunjucks",
-          "guides/using-guardrails/quick-actions",
-          "guides/using-guardrails/searching-filtering"
+          }
         ]
       },
       {
