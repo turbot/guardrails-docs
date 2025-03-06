@@ -106,7 +106,7 @@ information. A full configuration script can be found in the
 
 Yes. Go to the folder where you want to create the file and click `New`. Select
 resource type as `File`, enter the details, and click `Create`. Head over to our
-[Guardrails Files](guides/files) guide for more information.
+[Guardrails Files](guardrails/docs/guides/configuring-guardrails/files) guide for more information.
 
 ## Can I use Active Directory or SAML groups to assign permissions rather than assigning permissions to individual users?
 

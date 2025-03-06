@@ -18,7 +18,7 @@ scenarios:
 
 Guardrails can both check and remediate resources that do not have compliant tags.
 Metadata about the resource stored in CMDB or information from a
-[Guardrails File](guides/files) can be referenced when checking and applying tags.
+[Guardrails File](/guardrails/docs/guides/configuring-guardrails/files) can be referenced when checking and applying tags.
 
 If you are not familiar with Calculated Policies, check out the
 [Calculated Policies FAQ](concepts/policies/calculated-faq) as well as our
@@ -127,7 +127,7 @@ tag, but also validating that the tag is in fact an email.
 Continuing to use the above example, the
 `AWS > EC2 > Instance > Tags > Template` in the new policy view has the option
 to `Switch to calculated mode`. The policy window then changes to allow users to
-write custom [Calculated Policies](guides/managing-policies).
+write custom [Calculated Policies](/guardrails/docs/concepts/policies/calculated-faq).
 
 ### Examples
 

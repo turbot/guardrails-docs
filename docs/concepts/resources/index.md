@@ -8,7 +8,7 @@ sidebar_label: Resources
 **Resources** represent objects that are managed by Guardrails. Typically, these are
 mapped to resources in the cloud service, such as an AWS S3 bucket, a GCP
 compute instance, or an Azure SQL database. Information about Guardrails resources
-is stored in the CMDB. [Policies](policies) can be set to manage the
+is stored in the CMDB. [Policies](/guardrails/docs/concepts/policies) can be set to manage the
 configuration of resources (or sets of resources).
 
 | Concept                                                   | Definition                                                     |

@@ -15,7 +15,7 @@ Each policy type may have many settings for different resources.
 **Policy Settings** are inherited down through the hierarchy of resources.
 
 <div className="example"> <code>AWS > S3 > Bucket > Approved</code> may be set
-to `Enforce: Delete unapproved if new & empty` at Turbot level - ensuring all buckets are deleted if they don't meet the approval criteria (e.g. in approved region). 
+to `Enforce: Delete unapproved if new & empty` at Turbot level - ensuring all buckets are deleted if they don't meet the approval criteria (e.g. in approved region).
 </div>
 
 Policy settings are only valid for target resources and their ancestors.
@@ -41,7 +41,7 @@ While policy settings can exist above the target in the resource hierarchy,
 policy values exist only on the target.
 
 <div className="example">
-  <strong>AWS > S3 > Bucket > Approved</strong> 
+  <strong>AWS > S3 > Bucket > Approved</strong>
   <ul>
     <li> A <strong>Policy Setting</strong> for <code>AWS > S3 > Bucket > Approved</code> can be made on an AWS Account, Region, or individual bucket.</li>
     <li> <strong>Every</strong> S3 bucket has a <strong>Policy Value</strong> for <code>AWS > S3 > Bucket > Approved</code>. The policy value may have been set at the AWS account, region, and/or individual bucket - this is the effective value for this instance.</li>
@@ -106,4 +106,4 @@ When set, the overriding policy setting will be signified with **Effective
 Setting** and a check mark.
 
 Head over to our guide detailing
-[how to create an exception](guides/managing-policies#creating-an-exception).
+[how to create an exception as an example](/guardrails/docs/getting-started/getting-started-aws/create-static-exception#step-8-create-the-policy-exception).
