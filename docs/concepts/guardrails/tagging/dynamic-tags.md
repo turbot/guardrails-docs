@@ -5,9 +5,8 @@ sidebar_label: Dynamic Tags
 
 # Tag Resources with Dynamic Metadata
 
-Org control objectives often include the need to tag resources with metadata of
-the resource or dynamic metadata from other sources, such as a
-[Guardrails File](guides/files). This guide will go over three different scenarios:
+Org control objectives often include the need to tag resources with metadata of the resource or dynamic metadata from other sources, such as a
+[Guardrails File](guardrails/docs/guides/configuring-guardrails/files). This guide will go over three different scenarios:
 
 - Tag an S3 bucket with an attribute in the bucket metadata.
 - Tag an S3 bucket with attributes stored in a Guardrails File.
@@ -29,7 +28,7 @@ to `Check: Tags are correct`. This means that Guardrails will only alarm and not
 change any tags on the resource itself.
 
 Each example will be defining a calculated policy using
-[AWS > S3 > Bucket > Tags > Template](tmod:@turbot/aws-s3#/policy/types/bucketTagsTemplate).
+[AWS > S3 > Bucket > Tags > Template](https://hub.guardrails.turbot.com/mods/aws/policies/aws-s3/bucketTagsTemplate).
 
 ## Tagging Resources with CMDB Metadata
 
