@@ -6,7 +6,7 @@ sidebar_label: Dynamic Tags
 # Tag Resources with Dynamic Metadata
 
 Org control objectives often include the need to tag resources with metadata of the resource or dynamic metadata from other sources, such as a
-[Guardrails File](guardrails/docs/guides/configuring-guardrails/files). This guide will go over three different scenarios:
+[Guardrails File](/guardrails/docs/guides/configuring-guardrails/files). This guide will go over three different scenarios:
 
 - Tag an S3 bucket with an attribute in the bucket metadata.
 - Tag an S3 bucket with attributes stored in a Guardrails File.
@@ -201,7 +201,7 @@ The aka of this file is `owner_env`. It is also possible to use the Guardrails I
 which is of the format `220880720738517`.
 
 We will be using the same calculated policy
-([AWS > S3 > Bucket > Tags > Template](tmod:@turbot/aws-s3#/policy/types/bucketTagsTemplate))
+[AWS > S3 > Bucket > Tags > Template](https://hub.guardrails.turbot.com/mods/aws/policies/aws-s3/bucketTagsTemplate).
 as in the first example. In the query we need to not only call the resource tags
 but also the Guardrails file.
 
