@@ -55,8 +55,6 @@ This section provides detailed step-by-step instructions on how to use DR featur
 
 | Guide | Description
 | - | -
-
-Architecture Options
 | [DR Architecture Options](guides/hosting-guardrails/disaster-recovery/dr-options) | DR Architecture Options.
 | [Hive Restore](guides/hosting-guardrails/disaster-recovery/restore) | Guides to restore a Guardrails database from RDS snapshot.
 | [DR Testing](guides/hosting-guardrails/disaster-recovery/dr-testing) | Guides to restore  a destroyed workspace.
