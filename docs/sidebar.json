@@ -329,7 +329,8 @@
             "link": "guides/using-guardrails/stacks",
             "items": [
               "guides/using-guardrails/stacks/deploy",
-              "guides/using-guardrails/stacks/destroy"
+              "guides/using-guardrails/stacks/destroy",
+              "guides/using-guardrails/stacks/import-stack-resource"
             ]
           },
           {
