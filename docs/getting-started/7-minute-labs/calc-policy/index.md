@@ -207,6 +207,98 @@ The combination of GraphQL and Nunjucks make calculated policies powerful and
 flexible. Any Turbot Guardrails policy can be calculated, using any data in the entire
 CMDB!
 
+## Improved Multi‐Query Calc Process
+
+Calculated policies offer powerful flexibility by dynamically generating policy values based on real-time data from the Turbot Guardrails CMDB. While static values may suffice for many policy settings, calculated policies enable more responsive and adaptive configurations, using contextual resource information. Recent enhancements have streamlined this approach by embedding the initial query directly into the context. This eliminates the need for repetitive queries, reducing redundancy and improving overall performance, allowing for faster and more efficient policy management.
+
+### Previous Approach: Two-Query Process
+
+1.	First, you needed to retrieve the Resource ID. To do this, you would run a separate query like the following:
+
+```graphql
+{
+  resource {
+    turbot {
+      id
+    }
+  }
+}
+```
+This query was essential to fetch the resource ID before accessing further data.
+
+2.	After retrieving the Resource ID, you could then use it in another query to fetch the budget-related data, such as actual spend, forecasted spend, and last updated time. For example:
+
+```graphql
+{
+  budgetData: resources(filter: "resourceTypeId:'tmod:@turbot/aws#/resource/types/budget' resourceId:{{ $.resource.turbot.id }}") {
+    items {
+      currentMonthActualSpend: get(path:"currentMonthActualSpend")
+      currentMonthForecastSpend: get(path:"currentMonthForecastSpend")
+      lastUpdatedTime: get(path:"lastUpdatedTime")
+      metadata
+    }
+  }
+}
+```
+
+Notice that the second query relied on the output of the first query (i.e., the resource ID) to retrieve the relevant budget data.
+
+### Simplified Query Process
+
+1. The first query that fetched the resource ID is now automatically handled by the system and is always available in the context.
+2. You no longer need to write the first query explicitly; the context will automatically contain the resource ID, simplifying your work.
+
+With the resource ID now provided by default, you can focus directly on writing the second query without worrying about fetching the resource ID first.
+
+Example Query:
+
+```graphql
+{
+  budgetData: resources(filter: "resourceTypeId:'tmod:@turbot/aws#/resource/types/budget' resourceId:{{ $.resource.turbot.id }}") {
+    items {
+      currentMonthActualSpend: get(path:"currentMonthActualSpend")
+      currentMonthForecastSpend: get(path:"currentMonthForecastSpend")
+      lastUpdatedTime: get(path:"lastUpdatedTime")
+      metadata
+    }
+  }
+}
+```
+
+### Benefits:
+
+* **Reduces Redundancy**: There’s no longer a need to run a separate query to fetch the resource ID every time.
+* **Simplifies Code**: With fewer queries, your code is cleaner and easier to maintain.
+* **Faster Process**: Queries are executed more efficiently since unnecessary requests are avoided.
+
+### Default Fields in Context
+
+By default, the context now includes the following fields for each resource, so you don’t need to explicitly query them:
+
+```graphql 
+{
+  resource {
+    parent {
+      turbot {
+        id
+      }
+      type {
+        uri
+      }
+    }
+    turbot {
+      id
+      tags
+    }
+    type {
+      uri
+    }
+  }
+}
+```
+
+These fields are automatically available in the context, making the query process more efficient and streamlined.
+
 ## Further Reading
 
 - [Introduction to GraphQL](https://graphql.org/learn/)
