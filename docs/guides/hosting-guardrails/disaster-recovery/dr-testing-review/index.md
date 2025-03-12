@@ -139,9 +139,7 @@ Recreate the workspace and restore it using **database migration**.
    - Verify connectivity
 
 5. **Deploy Bastion Host**:
-   - Launch a Turbot Bastion Host instance
-   - Follow setup guide at:
-     [Turbot Bastion Host Setup](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host)
+   - Launch a Turbot Bastion Host instance. Follow setup guide [Turbot Bastion Host Setup](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host)
    - Ensure network access to both databases
 
 6. **Execute Migration**:
