@@ -44,7 +44,7 @@ This deployment option is appropriate for non-production and development workspa
 
 This is the lowest cost infrastructure deployment option available.
 
-![Tier 1 DR Architecture](tier-1.png)
+![Tier 1 DR Architecture](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/dr-options/tier-1.png)
 
 This deployment uses one primary RDS instance without a failover configuration. Recovery can be performed from RDS point-in-time backups.
 
@@ -54,7 +54,7 @@ This deployment uses one primary RDS instance without a failover configuration. 
 
 This deployment option is appropriate for all production usage. It is the most cost-effective deployment option for production use cases and has the capability to achieve 4hr RPO/RTO in all circumstances except the loss of an entire AWS Region.
 
-![Tier 2 DR Architecture](tier-2.png)
+![Tier 2 DR Architecture](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/dr-options/tier-2.png)
 
 The changes in this deployment vs the **Tier 1 DR** architecture are:
 
@@ -69,7 +69,7 @@ The changes in this deployment vs the **Tier 1 DR** architecture are:
 
 This deployment option is appropriate when regulatory requirements demand that a multi-region solution be implemented, or when requirements drive less than a 4hr RTO/RPO. It has the benefit of being resilient to the loss of an entire AWS Region.
 
-![Tier 3 DR Architecture](tier-3.png)
+![Tier 3 DR Architecture](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/dr-options/tier-3.png)
 
 The key difference between this deployment is that a second Turbot Guardrails deployment is created in the standby region. The compute cluster will be set to be dormant, and no inbound events will be received by the cluster. On declaration of a disaster, DNS will be changed to send events to this region, while the database is recovered from a cross region RDS snapshot. Once the DB is recovered, the workspace is enabled, and events will start processing from the queue.
 
@@ -83,6 +83,6 @@ The **Tier 4** deployment option should be considered for any organization with 
 
 In normal day to day operation, both environments consume cloud events and maintain independent CMDB databases. This pattern results in both doubling the infrastructure and per control usage costs for Guardrails if employed.
 
-![Tier 4 DR Architecture](tier-4.png)
+![Tier 4 DR Architecture](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/dr-options/tier-4.png)
 
 Care must be made in this configuration to ensure that policy packs and account onboarding/offboarding is done across both environments in tandem, using the Guardrails Terraform provider to maintain consistency between the deployments. Custom scripting may be necessary to periodically check to ensure both environments are identical in configuration, to meet your organizations DR requirements.
