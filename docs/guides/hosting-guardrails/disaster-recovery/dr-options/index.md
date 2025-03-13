@@ -41,7 +41,7 @@ and disaster recovery, depending on the organizations risk requirements.
   - RPO: 0 Hr.
   - Use cases: Mandated zero downtime DR
 
-## TIER 1 - Development
+## Tier 1: Development
 
 **Key Characteristics**: Single-account, single-region, single availability zone.
 
@@ -53,7 +53,7 @@ This is the lowest cost infrastructure deployment option available.
 
 This deployment uses one primary RDS instance without a failover configuration. Recovery can be performed from RDS point-in-time backups.
 
-## TIER 2 – High Availability
+## Tier 2: High Availability
 
 **Key Characteristics**: Single-account, single-region, multi-availability zone.
 
@@ -68,7 +68,7 @@ The changes in this deployment vs the **Tier 1 DR** architecture are:
 3. An RDS failover instance is deployed in a second availability zone.
 4. An Elasticache failover instance is deployed in a second availability zone.
 
-## TIER 3 – Multi Region
+## Tier 3: Multi-Region
 
 **Key Characteristics**: Single-account, multi-region, multi-availability zone.
 
@@ -80,7 +80,7 @@ The key difference between this deployment is that a second Turbot Guardrails de
 
 To use this pattern, [cross-region RDS backups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) must be configured in this account to ensure the DB can be restored in the target region without access to KMS in the primary region. This option also requires the use of AWS API Gateway, and a public DNS endpoint and SSL certificate to allow redirection of inbound real-time events between regions.
 
-## TIER 4 - Multi Account
+## Tier 4: Multi-Account
 
 **Key Characteristics**: Multi-account, multi-region, multi-availability zone.
 
