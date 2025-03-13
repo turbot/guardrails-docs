@@ -12,7 +12,7 @@ nav:
 
 This document outlines the steps required to execute a Disaster Recovery (DR) failover for Turbot Guardrails Multi-Region deployment, ensuring minimal downtime and data loss. It covers the process to switch operations from the primary region to the DR region in the event of a failure.
 
-## **2. Failover Scenarios**
+## 2. Failover Scenarios
 
 The DR failover may be triggered under the following conditions:
 
@@ -21,7 +21,7 @@ The DR failover may be triggered under the following conditions:
 - Significant degradation in performance affecting operations.
 - Security incidents requiring immediate isolation of the primary region.
 
-## **3. Prerequisites for Failover**
+## 3. Prerequisites for Failover
 
 Before initiating failover, ensure the following:
 
@@ -32,9 +32,9 @@ Before initiating failover, ensure the following:
 - Mods on the test workspace in the DR region should ideally match the versions in the primary region. If there are discrepancies, they can be updated after the DR process is completed.
 - DNS records can be updated to redirect traffic to the DR region.
 
-## **4. Failover Execution Steps**
+## 4. Failover Execution Steps
 
-### **4.1 Database Failover**
+### 4.1 Database Failover
 
 In the DR region,
 
@@ -57,7 +57,7 @@ In the DR region,
 17. Once the instance is available, navigate to AWS Service Catalog.
 18. Toggle the "Parameter Deployment Trigger" in TEF, TED, and TE from Blue <-> Green, ensuring all services transition properly to the DR setup.
 
-### **4.2 API Gateway and Load Balancer Updates**
+### 4.2 API Gateway and Load Balancer Updates
 
 1. Navigate to **AWS API Gateway** in the DR region.
 2. Ensure the **custom domain name** (`gateway.cloudportal.company.com`) is correctly mapped (in API mappings tab) to the API Gateway in DR.
@@ -65,7 +65,7 @@ In the DR region,
    - **API Gateway:** Point `gateway.cloudportal.company.com` to the DR region's API Gateway endpoint.
    - **Console Access:** Update `console.cloudportal.company.com` to point to the internal load balancer in the DR region.
 
-### **4.3 Application Validation**
+### 4.3 Application Validation
 
 1. Confirm that **Turbot Guardrails** services are accessible via the **DR region endpoints**.
 2. Perform a **test login** to the Turbot Guardrails console.
@@ -85,7 +85,7 @@ This step validates the DR process.
 - [ ] Stack Validation: Execute an Event Handler stack or another relevant stack to ensure that the Factory and Containers operate correctly.
 - [ ] Turbot Resource Test: Create and delete a test Turbot Folder to verify system stability and proper resource lifecycle management.
 
-## **5. Failback to Primary Region**
+## 5. Failback to Primary Region
 
 Once the primary region is restored, follow these steps:
 
