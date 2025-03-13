@@ -10,7 +10,7 @@ In this guide, you will:
 - Test backup and restore procedures for Turbot Guardrails workspaces `within the single region`.
 - Monitor and troubleshoot the disaster recovery process.
 
-An essential part of maintaining Turbot Guardrails is testing disaster recovery. This document covers the process for restoring a destroyed workspace. Restoration should be tested at least once a year, ideally twice. The goal is to have **Guardrails Application Admins** familiar with the restoration process and the tools involved.
+An essential part of maintaining Turbot Guardrails is testing disaster recovery. This document covers the process for restoring a destroyed workspace. Restoration should be tested at least once a year, ideally twice. The goal is to have *Guardrails Admins* familiar with the restoration process and the tools involved.
 
 Testing backup and restore procedures is critical for:
 
@@ -20,7 +20,7 @@ Testing backup and restore procedures is critical for:
 - Measuring recovery time objectives (RTO)
 
 > [!NOTE]
-> Losing and restoring a workspace is just *one* of the possible disaster recovery scenarios. Enterprises should evaluate additional failure scenarios.
+> Workspace restoration is just *one* of several disaster recovery scenarios. Evaluate other scenarios as part of your organization's comprehensive disaster recovery strategy.
 
 ## Prerequisites
 
@@ -180,15 +180,14 @@ This step validates the restoration process.
 - [ ] **Test New Resource Import**: Create a new **S3 bucket** and verify it appears in **Guardrails UI**.
 - [ ] **Verify Control Execution**: Run a **control scan** to confirm that all controls are in **OK** or **Skipped** state.
 
-<!-- ## Next Steps
+## Next Steps
 
-To ensure readiness, refer to additional Guardrails disaster recovery guides:
+Explore the following resources to expand your understanding of Guardrails disaster recovery and workspace management:
 
-- [Workspace Manager Overview](enterprise/installation/workspace-manager)
-- [Pause Events Before Restoration](enterprise/FAQ/pause-events)
-- [Turbot Bastion Host Setup](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host) -->
+- [Turbot Guardrails Hosting Architecture](/guardrails/docs/guides/hosting-guardrails/architecture)
+- [Disaster Recovery Architecture Options](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/architecture-options)
+- [Multi-region Workspace Recovery](TO DO)
 
----
 
 ## Troubleshooting
 
