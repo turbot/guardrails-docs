@@ -1,9 +1,9 @@
 ---
-title: Workspace Restoration
-sidebar_label: Workspace Restoration
+title: Restore Workspace
+sidebar_label: Restore Workspace
 ---
 
-# Workspace Restoration
+# Restoring a Workspace
 
 In this guide, you will:
 
