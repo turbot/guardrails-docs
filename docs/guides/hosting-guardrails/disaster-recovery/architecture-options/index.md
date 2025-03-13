@@ -35,7 +35,7 @@ and disaster recovery, depending on the organizations risk requirements.
 
   - 99.9% Availability
   - RTO: 2 Hr.
-  - RPO: 1 Hr.
+  - RPO: 2 Hr.
   - Use cases: Production deployments with need for rapid DR
 
 - **Tier 4** – Multi-account, multi-region, multi-availability zone.

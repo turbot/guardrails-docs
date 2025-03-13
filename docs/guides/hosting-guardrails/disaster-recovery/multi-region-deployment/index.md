@@ -27,7 +27,7 @@ This guide is intended for **Guardrails Administrators** with experience in AWS 
 | Objective                      | Definition                                               |
 | ------------------------------ | -------------------------------------------------------- |
 | Recovery Time Objective (RTO)  | 2 Hours                                                  |
-| Recovery Point Objective (RPO) | 1 Hour                                                   |
+| Recovery Point Objective (RPO) | 2 Hour                                                   |
 | Availability                   | 99.9%                                                    |
 | Use Case                       | Production deployments requiring rapid disaster recovery |
 
