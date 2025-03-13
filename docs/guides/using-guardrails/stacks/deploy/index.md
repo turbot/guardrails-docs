@@ -16,7 +16,7 @@ In this example, we will use the example source in the `Deploy AWS IAM Stack` po
 
 ## Prerequisites
 - Guardrails: [TE](https://turbot.com/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-workspace) 5.47+, with [aws-iam](https://hub.guardrails.turbot.com/mods/aws/mods/aws-iam) mod 5.39+
-- Tools:  [git](git-scm.com), [Terraform](https://developer.hashicorp.com/terraform) or [OpenTofu](https://opentofu.org/), [Guardrails CLI credentials](https://turbot.com/guardrails/docs/reference/cli/installation#set-up-your-turbot-guardrails-credentials) configured
+- Tools:  [git](https://git-scm.com/), [Terraform](https://developer.hashicorp.com/terraform) or [OpenTofu](https://opentofu.org/), [Guardrails CLI credentials](https://turbot.com/guardrails/docs/reference/cli/installation#set-up-your-turbot-guardrails-credentials) configured
 - [One or more AWS accounts imported](/guardrails/docs/guides/aws/import-aws-account)
 
 
