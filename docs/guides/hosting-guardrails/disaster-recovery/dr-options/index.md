@@ -1,3 +1,8 @@
+---
+title: "DR Options"
+sidebar_label: "Disaster Recovery Architecture Options"
+---
+
 # Disaster Recovery Architecture Options
 
 ## Overview
