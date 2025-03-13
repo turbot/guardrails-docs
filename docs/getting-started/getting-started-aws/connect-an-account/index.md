@@ -22,7 +22,7 @@ Switch back to the Guardrails console **Account Import** browser tab you opened 
 
 ## Step 2: Update account details
 
-Paste the role ARN you obtained from step 7 in the previous guide into the **IAM Role ARN** field.  Also, enter the AWS account ID into the **Account ID** field.
+Paste the role ARN you obtained from step 7 in the previous guide into the **IAM Role ARN** field and enter the AWS account ID into the **Account ID** field.
 
 <p><img alt="ready-to-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/ready-to-connect.png"/></p>
 
