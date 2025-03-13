@@ -1,9 +1,12 @@
 ---
-title: "DR Options"
-sidebar_label: "DR Options"
+title: "Architecture Options"
+template: Documentation
+nav:
+  title: "Architecture Options"
+  order: 10
 ---
 
-# Disaster Recovery Architecture Options
+# Architecture Options
 
 ## Overview
 

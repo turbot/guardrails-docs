@@ -55,7 +55,7 @@ This section provides detailed step-by-step instructions on how to use DR featur
 
 | Guide | Description
 | - | -
-| [DR Architecture Options](guides/hosting-guardrails/disaster-recovery/dr-options) | DR Architecture Options.
+| [Architecture Options](guides/hosting-guardrails/disaster-recovery/architecture-options) | Architecture Options.
 | [Hive Restore](guides/hosting-guardrails/disaster-recovery/restore) | Guides to restore a Guardrails database from RDS snapshot.
 | [DR Testing](guides/hosting-guardrails/disaster-recovery/dr-testing) | Guides to restore  a destroyed workspace.
 | [Database Upgrade and Storage Optimization](guides/hosting-guardrails/disaster-recovery/database-upgrade-storage-optimization) | Guides to resize and/or upgrade a database engine version with minimal downtime.
