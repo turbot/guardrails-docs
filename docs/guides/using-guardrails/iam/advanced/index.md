@@ -16,7 +16,7 @@ directed to [help@turbot.com](mailto:help@turbot.com).
 - [Authentication](concepts/iam/authentication)
 - [Identity](concepts/iam/identity)
 - [Permissions](concepts/iam/permissions)
-- [Directories in Guardrails](guides/directories)
+- [Directories in Guardrails](/guardrails/docs/guides/configuring-guardrails/directories/local#guardrails-local-directories)
 - [Guide to IAM Management](guides/iam) Read everything under `IAM`.
 - [Guardrails Admin Best Practices](guides/iam/administrators)
 

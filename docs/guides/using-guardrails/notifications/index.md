@@ -18,14 +18,14 @@ Guardrails currently supports the following delivery channels for notifications:
 1. **Email notifications** are sent from `guardrails@system.turbot.com` for SaaS customers.  Enterprise customers running their own Guardrails environment can configure custom smtp hosts and `sent from` email address.
 2. **Slack notifications** are sent via standard webhooks. For documentation on configuring webhooks for slack see: `https://api.slack.com/messaging/webhooks`
 3. **Microsoft Teams notifications** are also sent via webhooks. For Teams documentation see: https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=dotnet
-4. **Event Streams** can be created and consumed using the [Guardrails Firehose](guides/firehose) feature.
+4. **Event Streams** can be created and consumed using the [Guardrails Firehose](/guardrails/docs/guides/configuring-guardrails/firehose) feature.
 
 
 ## Notification Triggers
 
 ### Control Triggers
 
-Control notifications can be triggered any time a [Guardrails' Control]() runs. Typically these control notifications will be filtered based on your rules to ensure notifications are only sent when important changes occur. The most common example would be when a control state changes from `OK` state to `Alarm` state.
+Control notifications can be triggered any time by a [Guardrails' Control](/guardrails/docs/concepts/controls) runs. Typically these control notifications will be filtered based on your rules to ensure notifications are only sent when important changes occur. The most common example would be when a control state changes from `OK` state to `Alarm` state.
 
 ### Action Triggers
 
