@@ -3,7 +3,7 @@ title: "Multi-Region Deployment"
 template: Documentation
 nav:
   title: "Multi-Region Deployment"
-  order: 15
+  order: 11
 ---
 
 # Multi-Region Deployment
@@ -203,6 +203,4 @@ Ensure that the following DNS records are correctly configured to route traffic 
 
 ## Additional Assistance
 
-Turbot Support is happy to consult with Enterprise customers to help
-determine a strategy to manage these scenarios. Contact us at
-[help@turbot.com](mailto:help@turbot.com).
+Turbot Support is happy to consult with Enterprise customers to help determine a strategy to manage these scenarios. Contact us at [help@turbot.com](mailto:help@turbot.com).
