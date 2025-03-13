@@ -1,118 +1,153 @@
 ---
-title: "DR Testing"
-sidebar_label: "DR Testing"
+title: Workspace Restoration
+sidebar_label: Workspace Restoration
 ---
 
-# Disaster Recovery - Workspace Restoration
+# Workspace Restoration
 
-An essential part of maintaining Turbot Guardrails is testing disaster recovery. This
-document covers the process for restoring a destroyed workspace. Restoration
-should be tested on at least yearly, ideally twice a year. The goal is to have
-Guardrails Application Admins familiar with the process of restoration and the tools
-involved. The scenario described below is for a brand new workspace. The DB
-schema size will be very small and the time to restore is only a few minutes.
-The same backup/restore process can be used to discover RTO for full-sized
-production workspaces.
+In this guide, you will:
 
-Losing and restoring a workspace is just one of possible disaster recovery
-scenarios. As a part of enterprise disaster readiness, please evaluate other
-scenarios.
+- Test backup and restore procedures for Turbot Guardrails workspaces `within the single region`.
+- Monitor and troubleshoot the disaster recovery process.
 
-## Target Audience
+An essential part of maintaining Turbot Guardrails is testing disaster recovery. This document covers the process for restoring a destroyed workspace. Restoration should be tested at least once a year, ideally twice. The goal is to have **Guardrails Application Admins** familiar with the restoration process and the tools involved.
 
-**Guardrails Application Operators**: Administrators should have experience in AWS
-cloud infrastructure management and the Guardrails installation process. Prior
-experience with database recovery & restoration processes is very helpful.
+Testing backup and restore procedures is critical for:
 
-## Process Overview
+- Validating backup integrity and restore processes
+- Meeting compliance and audit requirements
+- Training administrators on recovery procedures
+- Measuring recovery time objectives (RTO)
 
-1. **Build New Workspace**: Build a completely new workspace instead of breaking
-   an existing one. Finish the workspace initial setup then take a manual
-   database snapshot or wait for the automated backups to trigger. A current RDS
-   backup is required for the testing process.
+> [!NOTE]
+> Losing and restoring a workspace is just *one* of the possible disaster recovery scenarios. Enterprises should evaluate additional failure scenarios.
 
-2. **Drop the workspace**: Initiate the disaster by destroying the Workspace
-   Cloudformation stack.
+## Prerequisites
 
-3. **Restore Workspace**: Extract the workspace from the backup then restore it.
-   The restore involves creating a temporary database, restore a single
-   workspace to the actual database. Drop the temp database after the successful
-   restore exercise.
+- Administrator access to AWS Console.
+- Familiarity with Guardrails installation.
+- Understanding of database backup/restore.
+- Access to required AWS services such as RDS, CloudFormation, ECS and Route 53.
 
-4. **Validate Restoration**: Log back into the workspace then verify that
-   restoration was successful.
+## Process Summary
 
-## Setup - Build New Workspace
+- *Build a New Workspace* – Set up a fresh workspace for testing, install required mods, and `take an RDS snapshot`.
+- *Simulate Disaster* – `Destroy the workspace` by deleting its CloudFormation stack.
+- *Restore the Workspace* – Recover data from the latest backup, apply migrations, and restart the workspace.
+- *Validate Restoration* – Log in and verify the workspace is functional.
 
-In the setup phase, create a workspace and install the baseline mods. After mod
-installation then import an account with Event Pollers. While the directions are
-for an AWS Account, the same process of mod installation and cloud account
-import holds true for Azure and GCP too.
+>[!IMPORTANT]
+>
+> Only test with non-production workspaces
+>
+> Document all parameters and configurations
+>
+> Time the restore process to measure RTO
+>
+> Test regularly (recommended twice per year)
+>
+> Follow security best practices
 
-This process assumes that Route53 is used for DNS. Customers with manually
-configured DNS will need to keep track of their configuration.
 
-1. Pick or install a TE version in the workspace that is dedicated for this
-   test. As we will flush the ECS containers just after the restore, this can
-   cause brief outages for all workspaces utilizing the designated TE version.
-2. If there are more than one workspace running on TE version, then make sure to
-   pause the events from processing. Please refer to the
-   [instructions](enterprise/FAQ/pause-events) on how to pause the events from
-   processing.
-3. Navigate to the alpha region of the AWS Master account of Guardrails
-   Installation.
-4. Create a workspace using the steps outlined
-   [here](enterprise/installation/workspace-manager#create-a-workspace). Save
-   the copy of the parameters used to create the workspace. These will be needed
-   again in the restoration step.
-5. Save the credentials from the Cloud Formation Stack's output section.
-6. Note down the Turbot ID of the workspace Turbot Root(tmod:@turbot/turbot#/).
-7. Install the following basic AWS mods which support AWS account import and
-   Event Polling.
+## Step 1: Build a New Workspace
 
-- aws
-- aws-iam
-- aws-kms
-- aws-s3
+In this phase, create a workspace and install baseline mods. Then, [import an AWS account](/guardrails/docs/guides/aws/import-aws-account) with **Event Pollers**.
 
-8. Create a Folder under the Turbot Root. Let us call it "AWS" and import an AWS
-   account under it.
-9. Make sure there are no controls/policies in `tbd` state.
-10. Capture a few screenshots of the workspace and some stats like the number of
-    resources, active controls etc. This information will be used later to
-    verify the restoration process. We expect to see the same stats after the
-    restore is done.
-11. Wait for the "Restore to point in time" backup to be available or take a
-    manual backup if needed.
+> [!NOTE]
+> Same process applies to **Azure** and **GCP**.
+>
+> This process assumes that Route53 is used for DNS. Customers with manually configured DNS will need to keep track of their configuration.
 
-## Disaster - Drop the Workspace
+### Steps:
 
-1. Drop the workspace by deleting the Workspace Cloud Formation stack created
-   above. DO NOT DELETE A PRODUCTION WORKSPACE Cloudformation Stack.
-2. Force delete the workspace if needed.
-3. You should no longer to able to access the workspace URL or login to the
-   workspace at this point.
+1. **Select TE Version**:
+   - Choose a dedicated TE version for testing
+   - Note: ECS container flush during restore may cause brief outages for workspaces using this TE version
+   - If multiple workspaces use this TE version, [pause event processing](enterprise/FAQ/pause-events)
 
-## Restore - Get the Workspace Back
+2. **Access AWS Master Account**:
+   - Navigate to the alpha region of your AWS Master account
 
-We will recreate a workspace. This will create a DB schema in the database. Our
-aim is to restore this (almost) empty schema with the data from backup.
+3. **Create Test Workspace**:
+   - Follow the [workspace creation guide](/guardrails/docs/guides/hosting-guardrails/installation/workspace-manager#create-a-workspace)
+   - `Save all CloudFormation parameters` used (needed for restoration)
+   - Record credentials from CloudFormation Stack outputs
+   - Note the Turbot ID of workspace Turbot Root (`tmod:@turbot/turbot#/`)
 
-1. Time how long the restore activities take in further steps as these help you
-   determine your Recovery Time Objective (RTO).
-2. Recreate the workspace using the Workspace CloudFormation
-   [template](enterprise/installation/workspace-manager#sample-workspace-manager-cloudformation-template).
-   Use the same parameter values as the original workspace.
-3. Navigate to RDS, restore the database from the snapshot or by using the
-   "Restore to point in time". Make sure the configurations of the restored
-   database match those of the original database.
-4. Once the temp DB is created from the snapshot, note the endpoint.
-5. Launch a
-   [Turbot Bastion Host](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host).
-6. Run the
-   [migration script](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/turbot_schema_migration)
-   which will copy the DB schema from the restored database to the actual
-   database.
+4. **Install Required AWS Mods**:
+   - `aws`
+   - `aws-iam`
+   - `aws-kms`
+   - `aws-s3`
+
+5. **Configure Workspace**:
+   - Create "AWS" folder under Turbot Root
+   - Import an AWS account into the folder
+   - Verify no controls/policies are in `tbd` state
+
+6. **Document Initial State**:
+   - Take screenshots of workspace dashboard
+   - Record key metrics:
+     - Number of resources
+     - Active controls count
+     - Other relevant statistics
+   - Save for post-restore validation
+
+7. **Create Backup**:
+   - Wait for automated "Restore to point in time" backup
+   - Or take a manual RDS backup
+
+
+## Step 2: Drop the Workspace
+
+> [!WARNING]
+> Do not delete a production workspace CloudFormation Stack.
+>
+> Do not delete original database.
+
+1. Delete the **Workspace CloudFormation stack** created earlier.
+2. If necessary, **force delete** the workspace.
+3. Verify that the **workspace URL is no longer accessible**.
+
+## Step 3: Restore the Workspace
+
+In this step, we will recreate a new workspace which initializes an empty database schema. The goal is to restore this empty schema with the data from our restored DB, effectively bringing back the workspace to its previous state. This process ensures we maintain the database structure while recovering all workspace configurations, resources, and control states from the backup.
+
+### Steps:
+
+1. **Start RTO Measurement**:
+   - Begin timing the restore process
+   - This helps determine your Recovery Time Objective (RTO)
+
+2. **Recreate Workspace**:
+   - Use original Workspace [CloudFormation template](/guardrails/docs/guides/hosting-guardrails/installation/workspace-manager#step-2-download-cloudformation-template)
+   - Apply identical parameter values from original workspace
+   - Deploy the new workspace stack
+
+3. **Restore Database**:
+   - Navigate to AWS RDS console
+   - Choose either:
+     - Restore from snapshot, or
+     - Use "Restore to point in time" feature
+   - Ensure restored DB configurations match original:
+     - Instance class
+     - Storage type/size
+     - Network settings
+     - Security groups
+
+4. **Configure Temporary Database**:
+   - Wait for restored DB to become available
+   - Record the new database endpoint
+   - Verify connectivity
+
+5. **Deploy Bastion Host**:
+   - Launch a Turbot Bastion Host instance. Follow setup guide [Turbot Bastion Host Setup](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host)
+   - Ensure network access to both databases
+
+6. **Execute Migration**:
+   - Run [migration script](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/turbot_schema_migration) to copy DB schema:
+     - From (Source): The restored database
+     - To (Target): New existing database
 
 ```shell
 nohup ./migration.sh <turbot_schema> <source_or_restored_DB_endpoint> <target_or_actual_db_endpoint> &
@@ -120,13 +155,14 @@ nohup ./migration.sh <turbot_schema> <source_or_restored_DB_endpoint> <target_or
 example: nohup ./migration.sh panda turbot-panda.abcxyzabcxyz.us-east-1.rds.amazonaws.com turbot-babbage.abcxyzabcxyz.us-east-1.rds.amazonaws.com &
 ```
 
-6. Wait for the pg_dump and pg_restore process in `migration.sh` to complete.
-7. Flush the ECS containers of the DR TE version
-8. Navigate to the ECS console, select the cluster and open the `Tasks` sub tab.
-9. Search for the TE version to list all the tasks related to the TE version.
-10. Stop these tasks.
-11. Clear the workspace from Redis: Log back into the bastion host and execute
-    the below.
+7. Wait for the `pg_dump` and `pg_restore` process in `migration.sh` to complete.
+8. **Flush ECS Containers**:
+   - Navigate to the AWS **ECS console** → **Cluster** open the **Tasks** tab
+   - Locate the **TE version-related tasks** and **stop them**.
+
+## Step 4: Clear Redis Cache
+
+To clear the workspace from Redis, log into the **bastion host** and execute:
 
 ```shell
 export REDISHOST=master.turbot-babbage-cache-cluster.abcxyz.use1.cache.amazonaws.com
@@ -135,10 +171,29 @@ redis-cli -h $REDISHOST --tls -p 6379 -a <password> KEYS "<turbot_schema>*" | xa
 example: redis-cli -h $REDISHOST --tls -p 6379 -a mysecurepassword KEYS "panda*" | xargs redis-cli -h $REDISHOST --tls -p 6379 -a mysecurepassword DEL
 ```
 
-## Validate - Everything is All Right
+## Step 5: Review
 
-1. You should be able to login to the workspace with the old credentials.
-2. Verify the number of resources and controls in the account.
-3. Creating an S3 bucket and verify that it appears in the Guardrails console.
-4. Verify that controls run properly. All controls on the bucket should be in
-   `ok` or `skipped. Investigate any errors.
+This step validates the restoration process.
+
+- [ ] **Login Validation** to ensure the **previous credentials** still work.
+- [ ] **Resource & Control Check**: Verify the **number of resources** and **controls** match pre-disaster stats.
+- [ ] **Test New Resource Import**: Create a new **S3 bucket** and verify it appears in **Guardrails UI**.
+- [ ] **Verify Control Execution**: Run a **control scan** to confirm that all controls are in **OK** or **Skipped** state.
+
+<!-- ## Next Steps
+
+To ensure readiness, refer to additional Guardrails disaster recovery guides:
+
+- [Workspace Manager Overview](enterprise/installation/workspace-manager)
+- [Pause Events Before Restoration](enterprise/FAQ/pause-events)
+- [Turbot Bastion Host Setup](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host) -->
+
+---
+
+## Troubleshooting
+
+| **Issue**                        | **Description**                                                                                                    | **Guide**                                                                 |
+|----------------------------------|----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| **Workspace Not Accessible**     | If the workspace does not restore correctly, ensure that **RDS endpoints are correct** in the migration script. |  |
+| **Redis Cache Not Cleared**      | If controls fail to execute, verify that **Redis cache clearing** was performed correctly.                        | See **Step 4: Clear Redis Cache** in this guide.                         |
+| **Further Assistance**           | If the issue persists, open a support ticket and provide **logs & screenshots** for faster resolution.           | [Open Support Ticket](https://support.turbot.com)                        |
