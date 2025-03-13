@@ -1,6 +1,6 @@
 ---
-title: Restore Workspace
-sidebar_label: Restore Workspace
+title: Workspace Restore
+sidebar_label: Workspace Restore
 ---
 
 # Restoring a Workspace
