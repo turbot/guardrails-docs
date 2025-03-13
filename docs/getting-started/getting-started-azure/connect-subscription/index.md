@@ -21,6 +21,10 @@ Login to your Guardrails console and select the **CONNECT** option from the home
 
 <p><img alt="login" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/login.png"/></p>
 
+Select **Azure**.
+
+<p><img alt="login" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/select-azure.png"/></p>
+
 ## Step 2: Select Azure Subscription
 
 <p><img alt="connect-1" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/connect-1.png"/></p>
