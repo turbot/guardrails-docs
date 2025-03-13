@@ -23,7 +23,7 @@ The **Header** is consistent throughout and consists of:
 - **Controls**: Quickly and easily find relevant controls, as well as getting an
   environment wide overview of controls in various states.
 - **Permissions**: Assign and revoke permissions.
-  [Directories](guides/directories) can be viewed, modified, and created by
+  [Directories](/guardrails/docs/guides/configuring-guardrails/directories/local#guardrails-local-directories) can be viewed, modified, and created by
   clicking the Directories card.
 - **Reports**: Get curated information, such as CIS controls by account, and
   easily export the results to CSV.
@@ -91,7 +91,7 @@ GraphQL, or a scripting language.
 
 The Policies tab dashboard provides visibility into the policy settings, policy
 types and policy packs. The text field can be used to manipulated using
-[filters](reference/filters/policies) to return specific information. The
+[filters](/guardrails/docs/reference/filter) to return specific information. The
 `Policy Packs` and `Policy Settings` cards can be used to easily navigate to
 those pages.
 

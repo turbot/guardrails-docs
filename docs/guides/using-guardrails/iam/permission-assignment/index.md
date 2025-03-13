@@ -15,7 +15,7 @@ all profiles require users to log in to initiate Guardrails profile creation.
 Without a profile for the specific user, PERMISSIONS CANNOT BE ASSIGNED.
 
 For more information regarding directory creation, head on over to our
-[directories guide](guides/directories).
+[directories guide](/guardrails/docs/guides/configuring-guardrails/directories/local#guardrails-local-directories).
 
 For a general Guardrails IAM overview, check out the
 [IAM concepts page](concepts/iam).
@@ -58,7 +58,7 @@ We can see that the Demo User is in the **Turbot Local** directory with
 
 ## SAML and Google Directories
 
-1. After [directory setup](guides/directories/), users will be able to log into
+1. After [directory setup](/guardrails/docs/guides/configuring-guardrails/directories/local#guardrails-local-directories), users will be able to log into
    the Guardrails console. Users MUST sign in prior to initial permission
    assignment. Logging in with a user for the first time creates the associated
    profile in Guardrails.
