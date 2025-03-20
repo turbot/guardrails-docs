@@ -18,11 +18,11 @@ more resource types.
 
 Resource types are defined in a type hierarchy.
 
-<div className="example"> The <code>AWS > S3 > Bucket</code> resource type is a child of the <code>AWS > S3</code> resource type.  
+<div className="example"> The <code>AWS > S3 > Bucket</code> resource type is a child of the <code>AWS > S3</code> resource type.
 </div>
 
 Note that the resource type hierarchy is separate and distinct from the
-[Resource Hierarchy](hierarchy).
+[Resource Hierarchy](/guardrails/docs/concepts/resources/hierarchy).
 
 Resource types are defined in [Mods](https://hub.guardrails.turbot.com/#mods).
 
@@ -32,7 +32,7 @@ The Guardrails Resource Type hierarchy provides grouping of resources, but in a
 structured, service-oriented manner. **Resource Categories** provide an
 alternate, vendor agnostic, categorization of resource types.
 
-<div className="example"> The <code>AWS > S3 > Bucket</code>, <code>Azure > Storage > Storage Account</code>, and <code>GCP > Storage > Bucket</code> resource types all have a resource category of <code>Storage > Object</code>.  
+<div className="example"> The <code>AWS > S3 > Bucket</code>, <code>Azure > Storage > Storage Account</code>, and <code>GCP > Storage > Bucket</code> resource types all have a resource category of <code>Storage > Object</code>.
 </div>
 
 Resource categories are typically used for reporting, providing useful

@@ -59,7 +59,7 @@ which are three simple policies. Alternatively, another organization might want
 to
 [tag Azure resources with Terraform](guides/managing-policies/config-examples/azure-tags),
 where the power of policies are flexed, utilizing Terraform deployment,
-[Guardrails Files](guides/files), and
+[Guardrails Files](guardrails/docs/guides/configuring-guardrails/files), and
 [Calculated policies](faq/calculated-policies).
 
 Every policy can have an expiration, after which the policy will no longer be in

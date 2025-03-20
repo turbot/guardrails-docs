@@ -11,7 +11,7 @@ guardrails exist for a wide number of resources across many services in AWS and
 GCP.
 
 Note that the Usage guardrails are not related to the Approved > Usage policy in
-the [Approved guardrails](guardrails/approved) family.
+the [Approved guardrails](/guardrails/docs/concepts/guardrails/approved) family.
 
 Usage guardrails have a consistent form:
 
@@ -48,7 +48,7 @@ consistent form:
 
 The limit policy checks the total number of resource types within a given
 account. This value can either be set statically by an administrator or a
-[calculated policy](faq/calculated-policies) can be written to set the value
+[calculated policy](/guardrails/docs/concepts/policies/calculated-faq) can be written to set the value
 dynamically.
 
 ### Example Guardrail: AWS > EC2 > Instance > Usage

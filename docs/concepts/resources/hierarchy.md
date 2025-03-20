@@ -49,7 +49,7 @@ Turbot
 - Folders can be renamed and moved. Use names that make sense within the
   organization structure.
 - Folders are limited to single inheritance only, consider
-  [Policy Packs](policy-packs) for cross-hierarchy organization.
+  [Policy Packs](/guardrails/docs/concepts/policy-packs) for cross-hierarchy organization.
 - Folder structure is best configured in such a way that matches control,
   business, and permission requirements!
 - Folders can be created an destroyed using the [Turbot Guardrails Terraform
@@ -57,7 +57,7 @@ Turbot
 
 ## Policy Packs
 
-[Policy Packs](policy-packs) are a collection of
+[Policy Packs](/guardrails/docs/concepts/policy-packs) are a collection of
 [Policy Settings](concepts/policies/values-settings#policy-settings) that can be
 attached to folders. They do not affect the resource hierarchy described above,
 but are part of the [Policy Hierarchy](concepts/policies/hierarchy).
@@ -73,7 +73,7 @@ All discovered resources are added to the Guardrails Resource Hierarchy.
 are valid and structured according to their definition.
 
 <div className="example"> AWS Account 1111 is added as a discoverable resource,
-providing Guardrails with permission to query it's resources. The AWS mods in Guardrails then 
+providing Guardrails with permission to query it's resources. The AWS mods in Guardrails then
 crawl and discover all resources in that AWS account (e.g. S3 buckets, IAM users, EC2
 instances) and add them to the Guardrails Resource Hierarchy.
 </div>
