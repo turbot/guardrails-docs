@@ -336,21 +336,21 @@ SELECT count(tgname), tgenabled FROM pg_trigger GROUP by tgenabled;
 - Disable events as per the guidelines: [Pause Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
 - API and Events task can be turned off, by setting the task count to 0 in TE stack. -->
 
-## Step 21: Rename DB Instances
+## Step 20: Rename DB Instances
 
-Rename the original instance by appending -green to its name.
+Rename the original instance by appending -blue to its name.
 
 ![Rename Original Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-rename-original-instance-append-blue.png)
 
-Rename the new instance by removing the -blue suffix.
+Rename the new instance by removing the -green suffix.
 
 ![Rename New Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-rename-new-instance-remove-green.png)
 
-## Step 22: Start Events
+## Step 21: Start Events
 
 [Start the events](https://turbot.com/guardrails/docs/enterprise/FAQ/pause-events).
 
-## Step 23: Rename Provisioned Product
+## Step 22: Rename Provisioned Product
 
 Rename the service catalog TED provisioned product `Database Hive Name` from `-green` to `-blue`.
 
@@ -360,7 +360,7 @@ Execute a Green/Blue deployment.
 
 ![Blue Green Deployment Trigger](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/service-catalog-blue-green-deployment.png)
 
-## Step 24: Run Smoke Tests
+## Step 23: Run Smoke Tests
 
 Run smoke tests to Test both the restored and new database instances to confirm the upgrade.
 
@@ -372,11 +372,11 @@ Run smoke tests to Test both the restored and new database instances to confirm 
 - Verify grants are working correctly.
 - Ensure stacks are functioning as intended.
 
-## Step 25: Clean Up
+## Step 24: Clean Up
 
 Delete the new TED stack along with its associated resources, including the S3 bucket, log groups, and AWS Backup. Clean up replication slots and subscriptions.
 
-## Step 26: Disable and Delete Subscriptions
+## Step 25: Disable and Delete Subscriptions
 
 Disable and delete subscription and replication slots.
 
