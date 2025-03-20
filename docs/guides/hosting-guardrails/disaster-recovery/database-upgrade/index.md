@@ -151,7 +151,7 @@ export PGPASSWORD=<master_password_set_in_step_5>
 
 ![DB Instance Endpoint](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-endpoint.png)
 
-## Step 12: Create Publisher and Replication Slot in Original Instance
+## Step 12: Create Publisher and Replication Slot in Source DB Instance
 
 Execute the commands to create a publication and replication slot. Make a note of the output value for future use.
 
