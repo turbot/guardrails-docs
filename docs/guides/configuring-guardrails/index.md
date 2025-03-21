@@ -8,6 +8,7 @@ This section provides how-to guides for common tasks that will help you effectiv
 
 | Guide | Description |
 | - | -
+| [Workspace Activity Retention](guides/configuring-guardrails/activity-retention) | Learn how to set up Workspace activity retention in Guardrails console
 | [Install Mod](guides/configuring-guardrails/install-mod) | Learn how to install mod in Guardrails console
 | [Update Mod](guides/configuring-guardrails/update-mod) |  Learn how to uninstall mod in Guardrails console
 | [Uninstall Windows](guides/configuring-guardrails/uninstall-mod) | Learn how to update mod in Guardrails console
