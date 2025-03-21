@@ -225,6 +225,7 @@
         "id": "configuring-guardrails",
         "link": "guides/configuring-guardrails",
         "items": [
+          "guides/configuring-guardrails/activity-retention",
           "guides/configuring-guardrails/install-mod",
           "guides/configuring-guardrails/update-mod",
           "guides/configuring-guardrails/uninstall-mod",
