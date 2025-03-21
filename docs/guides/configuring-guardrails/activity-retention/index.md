@@ -51,9 +51,9 @@ Click **Update** to save the new policy setting.
 ## Retention Options
 
 - **90 days (default)**: Default retention duration.
+- **30 days**: Aggressive retention for optimized performance.
 - **60 days**: A balanced approach recommended for most environments.
-- **90, 180, 365 days**: Suitable for meeting compliance requirements or specific organizational policies.
-- **30 days**: Aggressive retention to optimize storage and performance.
+- **90, 180, 365 days**: Suitable for meeting compliance requirements or specific organizational needs.
 - **None**: Unlimited retention, which may impact performance and increase storage costs.
 
 ## Next Steps
