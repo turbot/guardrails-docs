@@ -10,7 +10,7 @@ In this guide, you will:
 - Set up the Guardrails *Turbot > Workspace > Retention > Activity Retention* policy to manage the lifecycle of activity records associated with resources or controls.
 - Understand how activity retention impacts storage usage and workspace performance.
 
-Guardrails' [Activity Retention](https://hub.guardrails.turbot.com/mods/turbot/policies/turbot/activityRetention) policy controls the duration for which activity records are kept within your workspace. Properly configured retention periods optimize storage, enhance performance, and satisfy compliance and auditing requirements.
+Guardrails' [Activity Retention](https://hub.guardrails.turbot.com/mods/turbot/policies/turbot/activityRetention) policy controls the duration for which activity records such as actions, events, or notifications, are kept within your workspace. Properly configured retention periods optimize storage, enhance performance, and satisfy compliance and auditing requirements.
 
 ## Prerequisites
 
