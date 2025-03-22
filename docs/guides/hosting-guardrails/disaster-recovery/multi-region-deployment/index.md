@@ -1,206 +1,185 @@
 ---
-title: "Multi-Region Deployment"
-template: Documentation
-nav:
-  title: "Multi-Region Deployment"
-  order: 11
+title: Multi-Region Deployment
+sidebar_label: Multi-Region Deployment
 ---
 
-# Multi-Region Deployment
+# Multi-Region Deployment with Guardrails
 
-## 1. Introduction
+In this guide, you will:
 
-### 1.1 Purpose
+- Set up a multi-region deployment of Turbot Guardrails using Tier 3 architecture.
+- Configure disaster recovery (DR) processes to ensure high availability and rapid recovery.
 
-This document outlines the setup plan for deploying the **Turbot Guardrails** application using the **Tier 3** architecture. The objective is to ensure high availability, minimize downtime, and reduce data loss in the event of a disaster by utilizing a multi-region and multi-availability zone (AZ) deployment strategy.
+This guide outlines the deployment of **Turbot Guardrails** using a **Tier 3 architecture**. It aims to ensure high availability, minimize downtime, and reduce data loss in disaster scenarios through a multi-region, multi-AZ deployment strategy.
 
-### 1.2 Scope
+> [!NOTE]
+>This deployment approach applies to all production workloads deployed under the `Tier 3` architecture, ensuring rapid recovery and high availability.
 
-This setup applies to all production workloads deployed under the **Tier 3** architecture, guaranteeing high availability and fast recovery.
+## Target Audience
+**Guardrails Administrators** experienced with AWS cloud infrastructure, Guardrails deployment, and database recovery.
 
-### 1.3 Target Audience
-
-This guide is intended for **Guardrails Administrators** with experience in AWS cloud infrastructure management and Guardrails deployment. Familiarity with database recovery and restoration processes is beneficial.
-
-## 2. Disaster Recovery Objectives
+## Disaster Recovery Objectives
 
 | Objective                      | Definition                                               |
 | ------------------------------ | -------------------------------------------------------- |
-| Recovery Time Objective (RTO)  | 2 Hours                                                  |
-| Recovery Point Objective (RPO) | 2 Hour                                                   |
+| Recovery Time Objective (RTO)  | 2 hours                                                  |
+| Recovery Point Objective (RPO) | 2 hours                                                  |
 | Availability                   | 99.9%                                                    |
-| Use Case                       | Production deployments requiring rapid disaster recovery |
+| Use Case                       | Rapid recovery for production workloads                  |
 
-## 3. Tier 3 Deployment Architecture
+## Tier 3 Deployment Architecture
 
-### 3.1 Overview
+The **Tier 3** architecture enhances resilience by deploying a standby environment in a secondary AWS region. The primary and standby environments follow these guidelines:
 
-The **Tier 3** architecture enhances resilience by deploying a **standby environment in a secondary AWS region**. The primary and standby environments adhere to the following principles:
+- **TEF, TED, and TE installation**: Follow the [main installation guide](https://turbot.com/guardrails/docs/guides/hosting-guardrails/installation).
+- Differences and considerations specific to multi-region disaster recovery are outlined below.
 
-- Installation of **TEF, TED, and TE** will follow the steps outlined in the [main installation guide](https://turbot.com/guardrails/docs/guides/hosting-guardrails/installation).
-- Below is a list of differences or key considerations for installations where multi-region disaster recovery (DR) is required.
-
-<!-- - **Cross-region RDS snapshots** for database backup and recovery.
-- **Multi-AZ deployment** for compute and storage redundancy.
-- **DNS failover** to redirect traffic to the standby region in case of a primary region failure. -->
-
-### 3.2 Architecture Diagram
+### Architecture
 
 ![Tier 3 Architecture](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/tier-3.png)
 
-## 4. Prerequisites
+### Prerequisites
 
-### 4.1 Glossary
+- **Primary Region**: Active deployment region for Turbot Guardrails.
+- **DR Region**: Secondary region for disaster recovery.
 
-- **Primary Region**: The main region where Turbot Guardrails is installed or will be installed. This region acts as the active environment.
-- **Disaster Recovery (DR) Region**: The secondary region where the workspace will be failed over in case of a disaster.
 
-### 4.2 Assumptions
+### Assumptions
 
-This guide assumes the following setup for deploying Turbot Guardrails:
+The deployment approach outlined in this guide is based on the following assumptions:
 
-- A **predefined VPC** (not created by Turbot Guardrails).
-- **DNS records** are not managed by Turbot Guardrails.
-- **IAM roles** are not provisioned by Turbot Guardrails.
-- **API Gateway with an internal load balancer** is used.
+- The VPC is pre-configured and not created as part of the Turbot Guardrails installation
+- DNS record management is handled externally, not by Turbot Guardrails
+- IAM role provisioning is managed separately from Turbot Guardrails
+- The API Gateway is configured with an internal load balancer architecture
 
-### 4.3 Key Considerations
+## Key Considerations
 
-#### VPC Configuration
+### VPC Configuration
 
-A predefined VPC with subnets mirroring the primary region must be set up in the DR region.
+Ensure VPCs and subnets mirror the primary region setup in the DR region.
 
-#### SSL Certificate
+### SSL Certificate
 
 - Ensure the certificate is valid and available in both primary and DR regions.
-- If the certificate includes a wildcard domain (e.g., `*.cloudportal.company.com`), no additional changes are required.
-- Otherwise, the certificate should be configured to trust the following domains for API Gateway:
-  - `gateway.cloudportal.company.com` (Primary region)
-  - `gateway-dr.cloudportal.company.com` (DR region)
+- Wildcard domain certificates are preferred (e.g., `*.cloudportal.company.com`).
+- If not available, certificates must explicitly trust both primary region (`gateway.cloudportal.company.com`) and DR (`gateway-dr.cloudportal.company.com`) domains.
 
-#### Workspace Configuration
+### Workspace Configuration
 
-- A **single additional workspace** will be installed in the DR region.
-- The domain for the DR workspace will follow the pattern: `{workspace_name}-dr.cloudportal.company.com`.
+- Deploy an additional workspace in the DR region using the domain pattern: `{workspace_name}-dr.cloudportal.company.com`.
 
-#### Product Version Requirements
+### Product Version Requirements
 
-Both regions must run the following minimum versions:
+Both regions require these **`minimum`** versions:
 
 - **TEF:** 1.66.0
 - **TED:** 1.45.0
 - **TE:** 5.49.0
-- **Turbot Resource Name Prefix** should be identical in both regions. Defaults to `turbot`.
+- **Turbot Resource Name Prefix:** Should be identical in both regions. Defaults to `turbot`.
 
-### 4.4 Differences Between Primary and DR Regions
-
-#### Primary Region
+### Differences Between Primary and DR Regions
 
 - **TEF Configuration:**
   - Ensure the SSL certificate covers the necessary domains.
   - Ensure that the parameter "API Gateway prefix (default "gateway")" under the "Network - API Gateway" section is set to `gateway`.
   - Ensure that the parameter "Guardrails multi-region KMS Key Type" under the "Advanced - Deployment" section is set to `Primary`.
+
 - **TED Configuration:**
   - Database name should be identical in both regions.
+
 - **RDS Configuration:**
   - Manually configure [cross-region RDS DB snapshots](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) with appropriate retention policies.
 
-#### Disaster Recovery (DR) Region
-
-- **TEF Configuration:**
-  - Ensure the SSL certificate covers the necessary domains.
-  - Ensure that the parameter "API Gateway prefix (default "gateway")" under the "Network - API Gateway" section is set to `gateway-dr`.
-  - Ensure that the parameter "Guardrails multi-region KMS Key Type" under the "Advanced - Deployment" section is set to the KMS key ARN from the primary region (alias: `turbot_guardrails`, prefixed with `mrk-`).
-  - A **Custom domain names** (`gateway.cloudportal.company.com`) must be created manually for the API Gateway.
-- **TED Configuration:**
-  - Database name should be identical in both regions.
 
 > [!WARNING]
 > When setting up TEF in the DR region, ensure a smooth deployment to avoid rollback issues. If a replica key is created and a rollback is required, the replica key cannot be deleted immediately and will be subject to a 7-day retention period unless removed with AWS Support assistance. **You can create only one replica of each primary key in each AWS Region.**
 
 > If necessary, complete the TEF setup in the DR region by setting the Guardrails multi-region KMS Key Type (under Advanced - Deployment) to Primary. Once the setup is successfully completed, update the parameter to Replica and delete the multi-region key created in the DR region.
 
-### 4.5 Workspace Deployment in DR Region
+### Workspace Deployment in DR Region
 
 - Create a **test workspace** in the DR region.
-- Install the same set of **mods** as in the primary region to ensure consistency.
+- Install the same mods as the primary region workspace.
 
-#### Context
+> [!NOTE]
+> Creating a test workspace in the DR region is essential. Manually installing mods during an actual disaster recovery scenario can be time-consuming and may exceed your RTO/RPO targets. By maintaining a sandbox workspace with proactive mod installation (via pipelines, Terraform scripts, or AutoMod updates), you ensure the DR workspace stays current and can quickly take over if the primary workspace fails.
 
-Creating a test workspace in the DR region is essential because manually installing mods during an actual disaster recovery scenario can be time-consuming and might lead to delays exceeding your Recovery Time Objective (RTO) and Recovery Point Objective (RPO). By preparing a sandbox workspace in advance in the DR region, you can install mods proactively using the same automation methods (such as pipelines, Terraform scripts, or AutoMod updates) and schedules employed for your primary workspace. This ensures that your DR workspace remains continuously up-to-date and can quickly and reliably take over workloads if your primary workspace experiences downtime.
+## Implementation Steps
 
-## 5. Implementation Steps
+### Step1: Setup Cross-Region Database Backup
 
-### 5.1 Setting Up Cross-Region Database Backup
-
-- Navigate to the AWS RDS Service in the Primary region.
-- Click on "Automated backups".
-- Under the "Current Region" tab, select the Turbot Guardrails database (e.g., `turbot-newton`).
-- Select the Guardrails database, click on the "Actions" dropdown button, and choose "Manage cross-Region replication".
-- A "Manage cross-Region replication" window will open.
-- Check the "Enable replication in another AWS Region" option.
+1. Open AWS RDS console in the primary region.
+2. Select **Automated backups**.
+3. Choose Guardrails database (e.g. turbot-babbage).
+4. Select **Manage cross-Region replication** from **Actions** dropdown
+5. Enable cross-region replication, select DR region, set retention, and select the KMS key.
+6. Save and verify replication under the "Replicated" tab.
 
 ![Enable cross-Region replication](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/enable-crossregion-replication.png)
 
-- Fill in the necessary details in the form:
-  - Destination Region: Select the "DR region".
-  - Replicated backup retention period: Choose the appropriate retention period in days.
-  - AWS KMS Key: Select the encryption key used for the Turbot database in the DR region. Typically, this follows the format "turbot_databasename" (e.g., `turbot_newton`).
-  - Validate the KMS Key ID: Navigate to the KMS service in the DR region to confirm the correct key.
+7. Destination Region: Select the "DR region".
+8. Replicated backup retention period: Choose the appropriate retention period in days.
+9. AWS KMS Key: Select the encryption key used for the Turbot database in the DR region. Typically, this follows the format "turbot_databasename" (e.g., turbot-babbage).
+10. Validate the KMS Key ID: Navigate to the KMS service in the DR region to confirm the correct key.
 
-![Manage cross-Region replication](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/manage-crossregion-replication.png)
+![Enable cross-Region replication](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/enable-crossregion-replication-details.png)
 
-- Click **Save** to complete the setup.
-- Navigate to the **"Replicated"** tab and verify that the database is listed under **"Replicated backups"**.
+Select **Save** and navigate to the `Replicated` tab and verify that the database is listed under `Replicated backups`.
 
-### 5.2 Configuring Workspaces in the Primary Region
+### Step 2: Configuring Workspaces in the Primary Region
 
-- Make sure to set the following policies on the Guardrails workspace:
+Set policies as below
 
-- `Turbot > Workspace > Gateway Domain Name`: Fully qualified domain name of the publicly accessible gateway to the workspace - for example, `gateway.turbot.acme.com`. Set to the domain name only, do not include protocol or path information.
+- `Turbot > Workspace > Gateway Domain Name`: e.g., `gateway.turbot.acme.com`.
+- `Turbot > Workspace > Domain Name`: e.g., `console.turbot.acme.com`.
 
-- `Turbot > Workspace > Domain Name`: Fully qualified domain name of the workspace - for example, `console.turbot.acme.com`. Set to the domain name only, do not include protocol or path information.
+> [!IMPORTANT]
+>  Set the domain name only, do not include protocol or path information.
 
-### 5.3 Configuring API Gateway Custom Domain Name in the DR Region
+### Step 3: Configuring API Gateway Custom Domain Name in the DR Region
 
-To ensure seamless failover in the DR region, you need to configure the "API Gateway Custom Domain Name".
+To ensure seamless failover in the DR region, you need to configure the `API Gateway Custom Domain Name`.
 
-- Open the AWS API Gateway service in the "DR region".
-- Verify that the custom domain `gateway-dr.cloudportal.company.com` is already present.
-- Click on "Add domain name".
-- Enter the same domain name as in the primary region: `gateway.cloudportal.company.com`.
-- Configure the following settings:
+1. Open the AWS API Gateway service in the `DR region`.
+2. Verify that the custom domain `gateway-dr.cloudportal.company.com` is already present.
+3. Select on **Add domain name**.
+4. Enter the same `Domain name` as in the primary region: `gateway.cloudportal.company.com`.
+5. Type as `Public`.
+6. `API endpoint type` as Regional.
+7. `Minimum TLS version` as TLS 1.2
+8.  In `ACM Certificate`, select the ACM Certificate created for Turbot Guardrails. This certificate should be configured to trust both `gateway.cloudportal.company.com` and `gateway-dr.cloudportal.company.com`.
+- Select **Add domain name** to finalize the setup.
 
 ![Add domain name](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/add-domain-name.png)
 
-- Type: Public
-- API endpoint type: Regional
-- Minimum TLS version: TLS 1.2
-- ACM Certificate: Select the ACM Certificate created for Turbot Guardrails. This certificate should be configured to trust both `gateway.cloudportal.company.com` and `gateway-dr.cloudportal.company.com`.
-- Click "Add domain name" to finalize the setup.
-- Once created, navigate to the "Custom domain name" settings and open the "API mappings" tab.
-- Click on "Configure API mappings", then select "Add new mapping".
+9. Once created, navigate to the `Custom domain name` settings and open the "API mappings" tab.
+10. Click on **Configure API mappings**, then select **Add new mapping**.
 
 ![Configure API mappings](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/configure-api-mappings.png)
 
-- Set the following values:
-  - API: Select `turbot-api`.
-  - Stage: Choose `turbot`.
-  - Path (optional): Leave blank.
-- Click **Save** to apply the changes.
+11. Configure API mappings for `turbot-api` and in `Stage` choose `turbot`.
+12. Apply changes by selecting **Save**
 
-### 5.4 Configuring DNS records
+### Step 4: DNS Records Configuration
 
-Ensure that the following DNS records are correctly configured to route traffic appropriately:
+1. **API Gateway DNS Record**: The domain `gateway.cloudportal.company.com` should have an `A record` pointing to the API Gateway endpoint in the primary region. The API Gateway endpoint typically follows the format: `abcdefghij.execute-api.us-east-1.amazonaws.com`
+2. **Workspace Console DNS Record**: The domain `console.cloudportal.company.com` should have a CNAME record pointing to the internal load balancer DNS name in the primary region. This internal load balancer DNS name generally follows the format: `internal-turbot-5-49-0-lb-1234567890.us-east-1.elb.amazonaws.com`
 
-- API Gateway DNS Record:
+### Step 5: Validation and Review
 
-  The domain `gateway.cloudportal.company.com` should have an **A** record pointing to the API Gateway endpoint in the primary region. The API Gateway endpoint typically follows the format: `abcdefghij.execute-api.us-east-1.amazonaws.com`
+- [ ] Ensure cross-region backup is operational.
+- [ ] Verify DNS configurations and API mappings.
+- [ ] Test workspace access in the DR region.
 
-- Workspace Console DNS Record:
+## Next Steps
 
-  The domain `console.cloudportal.company.com` should have a **CNAME** record pointing to the internal load balancer DNS name in the primary region. This internal load balancer DNS name generally follows the format: `internal-turbot-5-49-0-lb-1234567890.us-east-1.elb.amazonaws.com`
+Learn more about Guardrails:
 
-## Additional Assistance
+- [Turbot Guardrails Hosting Architecture](/guardrails/docs/guides/hosting-guardrails/architecture).
+- [DR Architecture Options](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/architecture-options).
+- [Multi-Region Failover](/guides/hosting-guardrails/disaster-recovery/multi-region-failover)
+
+## Support Assistance
 
 Turbot Support is happy to consult with Enterprise customers to help determine a strategy to manage these scenarios. Contact us at [help@turbot.com](mailto:help@turbot.com).
