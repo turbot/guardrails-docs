@@ -180,6 +180,8 @@ Learn more about Guardrails:
 - [DR Architecture Options](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/architecture-options).
 - [Multi-Region Failover](/guides/hosting-guardrails/disaster-recovery/multi-region-failover)
 
-## Support Assistance
+## Assistance
 
-Turbot Support is happy to consult with Enterprise customers to help determine a strategy to manage these scenarios. Contact us at [help@turbot.com](mailto:help@turbot.com).
+<!-- Turbot Support is happy to consult with Enterprise customers to help determine a strategy to manage these scenarios. Contact us at [help@turbot.com](mailto:help@turbot.com). -->
+
+If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently. [Open Support Ticket](https://support.turbot.com)
