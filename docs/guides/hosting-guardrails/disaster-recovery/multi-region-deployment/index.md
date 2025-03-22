@@ -166,7 +166,7 @@ To ensure seamless failover in the DR region, you need to configure the `API Gat
 1. **API Gateway DNS Record**: The domain `gateway.cloudportal.company.com` should have an `A record` pointing to the API Gateway endpoint in the primary region. The API Gateway endpoint typically follows the format: `abcdefghij.execute-api.us-east-1.amazonaws.com`.
 2. **Workspace Console DNS Record**: The domain `console.cloudportal.company.com` should have a CNAME record pointing to the internal load balancer DNS name in the primary region. This internal load balancer DNS name generally follows the format: `internal-turbot-5-49-0-lb-1234567890.us-east-1.elb.amazonaws.com`.
 
-### Step 5: Validation and Review
+### Step 5: Review
 
 - [ ] Ensure cross-region backup is operational.
 - [ ] Verify DNS configurations and API mappings.
