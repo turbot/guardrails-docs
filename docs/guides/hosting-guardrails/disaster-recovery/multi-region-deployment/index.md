@@ -112,7 +112,7 @@ Both regions require these **`minimum`** versions:
 1. Open AWS RDS console in the primary region.
 2. Select **Automated backups**.
 3. Choose Guardrails database (e.g. turbot-babbage).
-4. Select **Manage cross-Region replication** from **Actions** dropdown
+4. Select **Manage cross-Region replication** from **Actions** dropdown.
 5. Enable cross-region replication, select DR region, set retention, and select the KMS key.
 6. Save and verify replication under the "Replicated" tab.
 
@@ -131,8 +131,8 @@ Select **Save** and navigate to the `Replicated` tab and verify that the databas
 
 Set policies as below
 
-- `Turbot > Workspace > Gateway Domain Name`: e.g., `gateway.turbot.acme.com`.
-- `Turbot > Workspace > Domain Name`: e.g., `console.turbot.acme.com`.
+1. `Turbot > Workspace > Gateway Domain Name`: e.g., `gateway.turbot.acme.com`.
+2. `Turbot > Workspace > Domain Name`: e.g., `console.turbot.acme.com`.
 
 > [!IMPORTANT]
 >  Set the domain name only, do not include protocol or path information.
@@ -147,7 +147,7 @@ To ensure seamless failover in the DR region, you need to configure the `API Gat
 4. Enter the same `Domain name` as in the primary region: `gateway.cloudportal.company.com`.
 5. Type as `Public`.
 6. `API endpoint type` as Regional.
-7. `Minimum TLS version` as TLS 1.2
+7. `Minimum TLS version` as TLS 1.2.
 8.  In `ACM Certificate`, select the ACM Certificate created for Turbot Guardrails. This certificate should be configured to trust both `gateway.cloudportal.company.com` and `gateway-dr.cloudportal.company.com`.
 - Select **Add domain name** to finalize the setup.
 
@@ -163,8 +163,8 @@ To ensure seamless failover in the DR region, you need to configure the `API Gat
 
 ### Step 4: DNS Records Configuration
 
-1. **API Gateway DNS Record**: The domain `gateway.cloudportal.company.com` should have an `A record` pointing to the API Gateway endpoint in the primary region. The API Gateway endpoint typically follows the format: `abcdefghij.execute-api.us-east-1.amazonaws.com`
-2. **Workspace Console DNS Record**: The domain `console.cloudportal.company.com` should have a CNAME record pointing to the internal load balancer DNS name in the primary region. This internal load balancer DNS name generally follows the format: `internal-turbot-5-49-0-lb-1234567890.us-east-1.elb.amazonaws.com`
+1. **API Gateway DNS Record**: The domain `gateway.cloudportal.company.com` should have an `A record` pointing to the API Gateway endpoint in the primary region. The API Gateway endpoint typically follows the format: `abcdefghij.execute-api.us-east-1.amazonaws.com`.
+2. **Workspace Console DNS Record**: The domain `console.cloudportal.company.com` should have a CNAME record pointing to the internal load balancer DNS name in the primary region. This internal load balancer DNS name generally follows the format: `internal-turbot-5-49-0-lb-1234567890.us-east-1.elb.amazonaws.com`.
 
 ### Step 5: Validation and Review
 
