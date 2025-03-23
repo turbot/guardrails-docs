@@ -3,7 +3,7 @@ title: Multi-Region Failover
 sidebar_label: Multi-Region Failover
 ---
 
-# Multi-Region Failover
+# Multi-Region Failover with Guardrails
 
 In this guide, you will:
 - Execute a disaster recovery (DR) failover for Turbot Guardrails Multi-Region deployment
