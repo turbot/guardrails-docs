@@ -31,7 +31,7 @@ This guide outlines the deployment of **Turbot Guardrails** using a **Tier 3 arc
 
 The **Tier 3** architecture enhances resilience by deploying a standby environment in a secondary AWS region. The primary and standby environments follow these guidelines:
 
-- **TEF, TED, and TE installation**: Follow the [main installation guide](https://turbot.com/guardrails/docs/guides/hosting-guardrails/installation).
+- **TEF, TED, and TE installation**: Follow the [main installation guide](/guardrails/docs/guides/hosting-guardrails/installation).
 - Differences and considerations specific to multi-region disaster recovery are outlined below.
 
 ### Architecture
@@ -40,20 +40,21 @@ The **Tier 3** architecture enhances resilience by deploying a standby environme
 
 ### Prerequisites
 
-- **Primary Region**: Active deployment region for Turbot Guardrails.
-- **DR Region**: Secondary region for disaster recovery.
-
+- `Primary Region`: Active deployment region for Turbot Guardrails.
+- `DR Region`: Secondary region for disaster recovery.
 
 ### Assumptions
 
 The deployment approach outlined in this guide is based on the following assumptions:
 
-- The VPC is pre-configured and not created as part of the Turbot Guardrails installation
-- DNS record management is handled externally, not by Turbot Guardrails
-- IAM role provisioning is managed separately from Turbot Guardrails
-- The API Gateway is configured with an internal load balancer architecture
+- The *VPC is pre-configured* and not created as part of the Turbot Guardrails installation
+- *DNS record* management is handled externally, not by Turbot Guardrails
+- *IAM roles* are not provisioned by Turbot Guardrails.
+- The *API Gateway* is configured with an internal load balancer architecture
 
 ## Key Considerations
+
+When implementing a multi-region deployment for disaster recovery, several critical aspects need careful consideration. The following sections outline the key technical requirements and setup guidelines.
 
 ### VPC Configuration
 
@@ -67,7 +68,7 @@ Ensure VPCs and subnets mirror the primary region setup in the DR region.
 
 ### Workspace Configuration
 
-- Deploy an additional workspace in the DR region using the domain pattern: `{workspace_name}-dr.cloudportal.company.com`.
+- Deploy an additional workspace in the DR region using the domain pattern: `{workspace_name}-dr.cloudportal.company.com`. Refer [Create  Workspace](/guardrails/docs/guides/hosting-guardrails/installation/workspace-manager)
 
 ### Product Version Requirements
 
@@ -161,7 +162,7 @@ To ensure seamless failover in the DR region, you need to configure the `API Gat
 11. Configure API mappings for `turbot-api` and in `Stage` choose `turbot`.
 12. Apply changes by selecting **Save**
 
-### Step 4: DNS Records Configuration
+### Step 4: Configure DNS Records
 
 1. **API Gateway DNS Record**: The domain `gateway.cloudportal.company.com` should have an `A record` pointing to the API Gateway endpoint in the primary region. The API Gateway endpoint typically follows the format: `abcdefghij.execute-api.us-east-1.amazonaws.com`.
 2. **Workspace Console DNS Record**: The domain `console.cloudportal.company.com` should have a CNAME record pointing to the internal load balancer DNS name in the primary region. This internal load balancer DNS name generally follows the format: `internal-turbot-5-49-0-lb-1234567890.us-east-1.elb.amazonaws.com`.
@@ -170,11 +171,11 @@ To ensure seamless failover in the DR region, you need to configure the `API Gat
 
 - [ ] Ensure cross-region backup is operational.
 - [ ] Verify DNS configurations and API mappings.
-- [ ] Test workspace access in the DR region.
+- [ ] Test workspace access is successful in the DR region.
 
 ## Next Steps
 
-Learn more about Guardrails:
+Learn more about:
 
 - [Turbot Guardrails Hosting Architecture](/guardrails/docs/guides/hosting-guardrails/architecture).
 - [DR Architecture Options](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/architecture-options).
