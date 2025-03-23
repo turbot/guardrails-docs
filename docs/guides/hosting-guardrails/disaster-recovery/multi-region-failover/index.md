@@ -48,7 +48,7 @@ Refer following implementation steps
    - Wait for rename completion.
 
 2. Continue in RDS console to restore from backup:
-   - Navigate to `Automated backups` > `Replicated` tab
+   - Navigate to `Automated backups` > `Replicated` tab.
    - Find Guardrails database.
    - Choose `Restore to point in time` from **Actions** dropdown.
    - Select `Latest restorable time` from `Restore to Point in Time window`.
