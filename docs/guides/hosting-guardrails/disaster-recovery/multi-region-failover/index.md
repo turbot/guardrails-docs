@@ -1,80 +1,85 @@
 ---
-title: "Multi-Region Failover"
-template: Documentation
-nav:
-  title: "Multi-Region Failover"
-  order: 12
+title: Multi-Region Failover
+sidebar_label: Multi-Region Failover
 ---
 
 # Multi-Region Failover
 
-## 1. Introduction
+In this guide, you will:
+- Execute a disaster recovery (DR) failover for Turbot Guardrails Multi-Region deployment
+- Validate the failover process and ensure system functionality
+- Learn how to failback to the primary region when appropriate
 
-This document outlines the steps required to execute a Disaster Recovery (DR) failover for Turbot Guardrails Multi-Region deployment, ensuring minimal downtime and data loss. It covers the process to switch operations from the primary region to the DR region in the event of a failure.
+This guide provides detailed steps for executing a disaster recovery failover in a multi-region Turbot Guardrails deployment, ensuring minimal downtime and data loss during region transitions.
 
-## 2. Failover Scenarios
+> [!NOTE]
+> Regular DR testing is crucial for maintaining compliance with industry standards and ensuring operational readiness.
 
-The DR failover may be triggered under the following conditions:
+## Target Audience
+**Guardrails Administrators** experienced with AWS cloud infrastructure, database management, and Guardrails operations.
 
-- Scheduled compliance testing, as mandated by industry standards (ISO 27001, NIST 800-34, SOC 2, HIPAA, PCI-DSS) or internal governance policies. Organizations typically conduct DR simulations every 6 months or annually to validate readiness.
-- Complete failure of the primary region.
-- Significant degradation in performance affecting operations.
-- Security incidents requiring immediate isolation of the primary region.
+## Failover Scenarios
 
-## 3. Prerequisites for Failover
+| Scenario | Description |
+|----------|-------------|
+| Compliance Testing | Scheduled DR testing as required by ISO 27001, NIST 800-34, SOC 2, HIPAA, PCI-DSS |
+| Region Failure | Complete failure of the primary region requiring immediate failover |
+| Performance Issues | Significant degradation affecting operations |
+| Security Incidents | Situations requiring isolation of the primary region |
 
-Before initiating failover, ensure the following:
+## Prerequisites
 
-- All three provisioned products, TEF, TED, and TE, should be of the same version in both the primary and DR regions.
-- The DR region infrastructure is fully set up as per the [Multi-Region Deployment Guide](guides/hosting-guardrails/disaster-recovery/multi-region-deployment).
-- The cross-region RDS backups are active and up-to-date.
-- API Gateway and Load Balancer configurations in the DR region are in place.
-- Mods on the test workspace in the DR region should ideally match the versions in the primary region. If there are discrepancies, they can be updated after the DR process is completed.
+Before initiating failover, ensure:
+
+- TEF, TED, and TE versions match in both primary and DR regions
+- DR region infrastructure is configured per the [Multi-Region Deployment Guide](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/multi-region-deployment)
+- Cross-region RDS backups are current and active
+- API Gateway and Load Balancer configurations are ready in DR region
+- Test workspace mods in DR region match primary region versions
 - DNS records can be updated to redirect traffic to the DR region.
 
-## 4. Failover Execution Steps
+Refer following implementation steps
 
-### 4.1 Database Failover
+## Step 1: Setup Database Failover
 
-In the DR region,
+1. In the DR region AWS RDS console:
+   - Select the existing Guardrails database instance.
+   - Rename by appending `-temp` (e.g., `turbot-newton` to `turbot-newton-temp`).
+   - Wait for rename completion.
 
-1. Navigate to AWS RDS.
-2. Select the existing Turbot Guardrails database instance.
-3. Rename the database by appending -temp to its name (e.g., if the database name is turbot-newton, rename it to turbot-newton-temp).
-4. Apply the changes immediately and wait for the rename operation to complete.
-5. Once the rename is complete, navigate to the “Automated backups” section.
-6. Under the "Replicated" tab, locate and select the Turbot Guardrails database.
-7. Click on the "Actions" dropdown menu and choose "Restore to point in time".
-8. A Restore to Point in Time window will open.
-9. Select an appropriate point in time to restore from. In most cases, choosing "Latest restorable time" is recommended.
-10. Ensure the restored database settings match those of the primary region as closely as possible.
-11. Set the DB Instance Identifier to match the primary region’s database identifier (e.g., turbot-newton).
-12. Select the correct VPC, subnet, and security group configurations.
-13. Leave the "Initial database name" field blank.
-14. Use the same parameter group as assigned to the turbot-newton-temp database.
-15. Click "Restore to point in time" to initiate the restoration process.
-16. Wait for the database instance to reach the available state.
-17. Once the instance is available, navigate to AWS Service Catalog.
-18. Toggle the "Parameter Deployment Trigger" in TEF, TED, and TE from Blue <-> Green, ensuring all services transition properly to the DR setup.
+2. Continue in RDS console to restore from backup:
+   - Navigate to `Automated backups` > `Replicated` tab
+   - Find Guardrails database.
+   - Choose `Restore to point in time` from **Actions** dropdown.
+   - Select `Latest restorable time` from `Restore to Point in Time window`.
+   - Set DB Instance Identifier *to match* primary region e.g. turbot-newton.
+   - Configure VPC, subnet, and security group configurations.
+   - Leave `Initial database name` field blank.
+   - Use the same DB parameter group as assigned to the `turbot-newton-temp` database.
+   - Initiate restoration process by selecting **Restore to point in time**.
+   - Wait for the database instance to reach the available state.
+   - Once the DB is in `available` state proceed to next step.
 
-### 4.2 API Gateway and Load Balancer Updates
+3. Update Enterprise Stacks:
+   - Access AWS Service Catalog
+   - Toggle Parameter Deployment Trigger in TEF, TED, and TE. Refer more info at [Guardrails Stack Updates](/guardrails/docs/guides/hosting-guardrails/updating-stacks#guardrails-stack-updates). This ensures all services transition properly to the DR setup.
 
-1. Navigate to **AWS API Gateway** in the DR region.
-2. Ensure the **custom domain name** (`gateway.cloudportal.company.com`) is correctly mapped (in API mappings tab) to the API Gateway in DR.
-3. Update DNS records:
-   - **API Gateway:** Point `gateway.cloudportal.company.com` to the DR region's API Gateway endpoint.
-   - **Console Access:** Update `console.cloudportal.company.com` to point to the internal load balancer in the DR region.
+## Step 2: Update API Gateway and Load Balancer
 
-### 4.3 Application Validation
+1. Configure API Gateway in DR region:
+   - Verify custom domain mapping i.e. ensure the custom domain name (gateway.cloudportal.company.com) is correctly mapped (in API mappings tab) to the API Gateway in DR.
+   -Update DNS records:
+    - API Gateway: Point gateway.cloudportal.company.com to the DR region's API Gateway endpoint.
+    - Console Access: Update console.cloudportal.company.com to point to the internal load balancer in the DR region.
 
-1. Confirm that **Turbot Guardrails** services are accessible via the **DR region endpoints**.
-2. Perform a **test login** to the Turbot Guardrails console.
-3. Validate that database queries and API requests are **functioning correctly**.
-4. Check logs for any **errors or inconsistencies**.
+## Step 3: Validate DR Region Endpoint Access
 
-## Step 5: Validation
+1. Confirm that *Turbot Guardrails* services are accessible via the *DR region endpoints*.
+2. Perform a *test login* to the Turbot Guardrails console.
+3. Validate that database queries and API requests are *functioning correctly*.
+4. Check logs for any *errors or inconsistencies*.
 
-This step validates the DR process.
+## Step 4: Review
 
 - [ ] Local User Authentication: Log in using a local user account to confirm that existing credentials remain valid and can successfully decrypt secrets.
 - [ ] SAML Authentication: Log in using a SAML-based user account to verify that authentication works as expected.
@@ -85,14 +90,21 @@ This step validates the DR process.
 - [ ] Stack Validation: Execute an Event Handler stack or another relevant stack to ensure that the Factory and Containers operate correctly.
 - [ ] Turbot Resource Test: Create and delete a test Turbot Folder to verify system stability and proper resource lifecycle management.
 
-## 5. Failback to Primary Region
+## Failback to Primary Region
 
 Once the primary region is restored, follow these steps:
 
-1. **Sync any new data** from the DR region back to the primary database.
-2. **Update DNS records** to point back to the primary region's API Gateway and Load Balancer.
-3. **Validate application functionality** in the primary region before resuming normal operations.
+1. *Sync any new data* from the DR region back to the primary database.
+2. *Update DNS records* to point back to the primary region's API Gateway and Load Balancer.
+3. *Validate application functionality* in the primary region before resuming normal operations.
 
-## Additional Assistance
+## Next Steps
 
-Turbot Support is happy to consult with Enterprise customers to help determine a strategy to manage these scenarios. Contact us at [help@turbot.com](mailto:help@turbot.com).
+Learn more about:
+- [Turbot Guardrails Hosting Architecture](/guardrails/docs/guides/hosting-guardrails/architecture)
+- [DR Architecture Options](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/architecture-options)
+- [Multi-Region Deployment](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/multi-region-deployment)
+
+## Assistance
+
+If you encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently. [Open Support Ticket](https://support.turbot.com)
