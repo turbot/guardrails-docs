@@ -83,8 +83,8 @@ Both regions require these **`minimum`** versions:
 
 - **TEF Configuration:**
   - Ensure the SSL certificate covers the necessary domains.
-  - Ensure that the parameter "API Gateway prefix (default "gateway")" under the "Network - API Gateway" section is set to `gateway`.
-  - Ensure that the parameter "Guardrails multi-region KMS Key Type" under the "Advanced - Deployment" section is set to `Primary`.
+  - Ensure that the parameter `API Gateway prefix (default "gateway")` under the `Network - API Gateway` section is set to `gateway`.
+  - Ensure that the parameter `Guardrails multi-region KMS Key Type` under the `Advanced - Deployment` section is set to `Primary`.
 
 - **TED Configuration:**
   - Database name should be identical in both regions.
@@ -100,8 +100,8 @@ Both regions require these **`minimum`** versions:
 
 ### Workspace Deployment in DR Region
 
-- Create a **test workspace** in the DR region.
-- Install the same mods as the primary region workspace.
+  - Create a **test workspace** in the DR region. Refer [Create  Workspace](/guardrails/docs/guides/hosting-guardrails/installation/workspace-manager).
+  - Install the same mods as the primary region workspace.
 
 > [!NOTE]
 > Creating a test workspace in the DR region is essential. Manually installing mods during an actual disaster recovery scenario can be time-consuming and may exceed your RTO/RPO targets. By maintaining a sandbox workspace with proactive mod installation (via pipelines, Terraform scripts, or AutoMod updates), you ensure the DR workspace stays current and can quickly take over if the primary workspace fails.
@@ -115,13 +115,13 @@ Both regions require these **`minimum`** versions:
 3. Choose Guardrails database (e.g. turbot-babbage).
 4. Select **Manage cross-Region replication** from **Actions** dropdown.
 5. Enable cross-region replication, select DR region, set retention, and select the KMS key.
-6. Save and verify replication under the "Replicated" tab.
+6. Save and verify replication under the **Replicated** tab.
 
 ![Enable cross-Region replication](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/enable-crossregion-replication.png)
 
-7. Destination Region: Select the "DR region".
+7. Destination Region: Select the 'DR region'.
 8. Replicated backup retention period: Choose the appropriate retention period in days.
-9. AWS KMS Key: Select the encryption key used for the Turbot database in the DR region. Typically, this follows the format "turbot_databasename" (e.g., turbot-babbage).
+9. AWS KMS Key: Select the encryption key used for the Turbot database in the DR region. Typically, this follows the format `turbot_databasename` (e.g. turbot-babbage).
 10. Validate the KMS Key ID: Navigate to the KMS service in the DR region to confirm the correct key.
 
 ![Enable cross-Region replication](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/enable-crossregion-replication-details.png)
@@ -154,7 +154,7 @@ To ensure seamless failover in the DR region, you need to configure the `API Gat
 
 ![Add domain name](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/add-domain-name.png)
 
-9. Once created, navigate to the `Custom domain name` settings and open the "API mappings" tab.
+9. Once created, navigate to the `Custom domain name` settings and open the `API mappings` tab.
 10. Click on **Configure API mappings**, then select **Add new mapping**.
 
 ![Configure API mappings](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/configure-api-mappings.png)
@@ -171,7 +171,7 @@ To ensure seamless failover in the DR region, you need to configure the `API Gat
 
 - [ ] Ensure cross-region backup is operational.
 - [ ] Verify DNS configurations and API mappings.
-- [ ] Test workspace access is successful in the DR region.
+- [ ] Test workspace e.g. `console.turbot.acme.com` access is successful in the DR region.
 
 ## Next Steps
 

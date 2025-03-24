@@ -6,9 +6,9 @@ sidebar_label: Multi-Region Failover
 # Multi-Region Failover with Guardrails
 
 In this guide, you will:
-- Execute a disaster recovery (DR) failover for Turbot Guardrails Multi-Region deployment
-- Validate the failover process and ensure system functionality
-- Learn how to failback to the primary region when appropriate
+- Execute a disaster recovery (DR) failover for Turbot Guardrails Multi-Region deployment.
+- Validate the failover process and ensure system functionality.
+- Learn how to failback to the primary region when appropriate.
 
 This guide provides detailed steps for executing a disaster recovery failover in a multi-region Turbot Guardrails deployment, ensuring minimal downtime and data loss during region transitions.
 
@@ -22,23 +22,23 @@ This guide provides detailed steps for executing a disaster recovery failover in
 
 | Scenario | Description |
 |----------|-------------|
-| Compliance Testing | Scheduled DR testing as required by ISO 27001, NIST 800-34, SOC 2, HIPAA, PCI-DSS |
-| Region Failure | Complete failure of the primary region requiring immediate failover |
-| Performance Issues | Significant degradation affecting operations |
-| Security Incidents | Situations requiring isolation of the primary region |
+| Compliance Testing | Scheduled DR testing as required by ISO 27001, NIST 800-34, SOC 2, HIPAA, PCI-DSS. |
+| Region Failure | Complete failure of the primary region requiring immediate failover. |
+| Performance Issues | Significant degradation affecting operations. |
+| Security Incidents | Situations requiring isolation of the primary region. |
 
 ## Prerequisites
 
 Before initiating failover, ensure:
 
-- TEF, TED, and TE versions match in both primary and DR regions
-- DR region infrastructure is configured per the [Multi-Region Deployment Guide](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/multi-region-deployment)
-- Cross-region RDS backups are current and active
-- API Gateway and Load Balancer configurations are ready in DR region
-- Test workspace mods in DR region match primary region versions
+- TEF, TED, and TE versions match in both primary and DR regions.
+- DR region infrastructure is configured per the [Multi-Region Deployment Guide](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/multi-region-deployment).
+- Cross-region RDS backups are current and active.
+- API Gateway and Load Balancer configurations are ready in DR region.
+- Test workspace mods in DR region match primary region versions.
 - DNS records can be updated to redirect traffic to the DR region.
 
-Refer following implementation steps
+Refer following implementation steps:
 
 ## Step 1: Setup Database Failover
 
@@ -66,11 +66,13 @@ Refer following implementation steps
 
 ## Step 2: Update API Gateway and Load Balancer
 
-1. Configure API Gateway in DR region:
-   - Verify custom domain mapping i.e. ensure the custom domain name (gateway.cloudportal.company.com) is correctly mapped (in API mappings tab) to the API Gateway in DR.
-   -Update DNS records:
-    - API Gateway: Point gateway.cloudportal.company.com to the DR region's API Gateway endpoint.
-    - Console Access: Update console.cloudportal.company.com to point to the internal load balancer in the DR region.
+Configure API Gateway in DR region:
+
+   1. Navigate to AWS API Gateway in the DR region.
+   2. Verify custom domain mapping i.e. ensure the custom domain name (`gateway.cloudportal.company.com`) is correctly mapped (in API mappings tab) to the API Gateway in DR.
+   3. Update DNS records:
+      - **API Gateway:** Point `gateway.cloudportal.company.com` to the `DR region's API Gateway endpoint`.
+      - **Console Access:** Update `console.cloudportal.company.com` to point to the internal load balancer in the DR region.
 
 ## Step 3: Validate DR Region Endpoint Access
 
@@ -90,7 +92,7 @@ Refer following implementation steps
 - [ ] Stack Validation: Execute an Event Handler stack or another relevant stack to ensure that the Factory and Containers operate correctly.
 - [ ] Turbot Resource Test: Create and delete a test Turbot Folder to verify system stability and proper resource lifecycle management.
 
-## Failback to Primary Region
+## Fallback to Primary Region
 
 Once the primary region is restored, follow these steps:
 
