@@ -58,6 +58,13 @@ This section provides detailed step-by-step instructions on how to use DR featur
 | [Hive Restore](guides/hosting-guardrails/disaster-recovery/restore) | Guides to restore a Guardrails database from RDS snapshot.
 | [DR Testing](guides/hosting-guardrails/disaster-recovery/dr-testing) | Guides to restore  a destroyed workspace.
 | [Database Upgrade](guides/hosting-guardrails/disaster-recovery/database-upgrade) | Guides to resize and/or upgrade a database engine version with minimal downtime.
+| [Architecture Options](guides/hosting-guardrails/disaster-recovery/architecture-options) | Architecture Options.
+| [Hive Restore](guides/hosting-guardrails/disaster-recovery/hive-restore) | Guides to restore a Guardrails database from RDS snapshot.
+| [Workspace Restore](guides/hosting-guardrails/disaster-recovery/restore-workspace) | Guides to restore  a destroyed workspace.
+| [Multi-Region Deployment](guides/hosting-guardrails/disaster-recovery/multi-region-deployment) | Guides to set up a multi-region deployment of Turbot Guardrails using Tier 3 architecture.
+| [Multi-Region Failover](guides/hosting-guardrails/disaster-recovery/multi-region-failover) | Guides to set up Disaster Recovery (DR) failover for Turbot Guardrails Multi-Region deployment.
+
+<!-- | [Database Upgrade and Storage Optimization](guides/hosting-guardrails/disaster-recovery/database-upgrade-storage-optimization) | Guides to resize and/or upgrade a database engine version with minimal downtime. -->
 
 ## Additional Assistance
 
