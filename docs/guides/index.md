@@ -1,5 +1,5 @@
 ---
-title: Guides
+title: Integrations
 ---
 
 # Guides

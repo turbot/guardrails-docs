@@ -1,8 +1,8 @@
 ---
-title: Configuring Guardrails
+title: Managing Guardrails
 ---
 
-# Configuring Guardrails
+# Managing Guardrails
 
 This section provides how-to guides for common tasks that will help you effectively set up, modify, and manage configurations within Guardrails. Each guide covers specific actions, from initial mod installations to complex policy management.
 
