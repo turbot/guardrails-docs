@@ -11,9 +11,10 @@ Filter rules are the heart of the Notification system. They control what types o
 
 The policy contains an array of `rule-sets`.  Each `rule-set` consists of 1 or more rules and 1 or more delivery targets.  Current valid delivery targets include:
 
-- Emails
 - Slack webhook
 - Microsoft Teams webhook
+- Email Addresses
+- [Profiles](/guardrails/docs/guides/using-guardrails/notifications#routing-to-profiles)
 
 The rules in each `rule-set` are defined by a multi-line string. Each line of the string is a separate `statement`.
 
