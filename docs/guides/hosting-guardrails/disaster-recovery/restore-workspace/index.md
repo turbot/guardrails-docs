@@ -186,7 +186,6 @@ Explore the following resources to expand your understanding of Guardrails disas
 
 - [Turbot Guardrails Hosting Architecture](/guardrails/docs/guides/hosting-guardrails/architecture)
 - [Disaster Recovery Architecture Options](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/architecture-options)
-- [Multi-region Workspace Recovery](TO DO)
 
 
 ## Troubleshooting

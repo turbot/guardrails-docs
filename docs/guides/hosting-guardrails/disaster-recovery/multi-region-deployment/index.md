@@ -47,10 +47,10 @@ The **Tier 3** architecture enhances resilience by deploying a standby environme
 
 The deployment approach outlined in this guide is based on the following assumptions:
 
-- The *VPC is pre-configured* and not created as part of the Turbot Guardrails installation
-- *DNS record* management is handled externally, not by Turbot Guardrails
-- *IAM roles* are not provisioned by Turbot Guardrails.
-- The *API Gateway* is configured with an internal load balancer architecture
+1. The *VPC is pre-configured* and not created as part of the Turbot Guardrails installation
+2. *DNS record* management is handled externally, not by Turbot Guardrails
+3. *IAM roles* are not provisioned by Turbot Guardrails.
+4. The *API Gateway* is configured with an internal load balancer architecture
 
 ## Key Considerations
 
@@ -62,35 +62,36 @@ Ensure VPCs and subnets mirror the primary region setup in the DR region.
 
 ### SSL Certificate
 
-- Ensure the certificate is valid and available in both primary and DR regions.
-- Wildcard domain certificates are preferred (e.g., `*.cloudportal.company.com`).
-- If not available, certificates must explicitly trust both primary region (`gateway.cloudportal.company.com`) and DR (`gateway-dr.cloudportal.company.com`) domains.
+1. Ensure the certificate is valid and available in both primary and DR regions.
+2. Wildcard domain certificates are preferred (e.g. `*.cloudportal.company.com`).
+3. If not available, certificates must explicitly trust both primary region (`gateway.cloudportal.company.com`) and DR (`gateway-dr.cloudportal.company.com`) domains.
 
 ### Workspace Configuration
 
-- Deploy an additional workspace in the DR region using the domain pattern: `{workspace_name}-dr.cloudportal.company.com`. Refer [Create  Workspace](/guardrails/docs/guides/hosting-guardrails/installation/workspace-manager)
+Deploy an additional workspace in the DR region using the domain pattern: `{workspace_name}-dr.cloudportal.company.com`. Refer [Create  Workspace](/guardrails/docs/guides/hosting-guardrails/installation/workspace-manager)
 
 ### Product Version Requirements
 
 Both regions require these **`minimum`** versions:
 
-- **TEF:** 1.66.0
-- **TED:** 1.45.0
-- **TE:** 5.49.0
-- **Turbot Resource Name Prefix:** Should be identical in both regions. Defaults to `turbot`.
+1. **TEF:** 1.66.0
+2. **TED:** 1.45.0
+3. **TE:** 5.49.0
+> [!NOTE]
+> *Turbot Resource Name Prefix:* Should be identical in both regions. Defaults to `turbot`.
 
-### Differences Between Primary and DR Regions
+## Key Differences Between Primary and DR Regions
 
-- **TEF Configuration:**
-  - Ensure the SSL certificate covers the necessary domains.
-  - Ensure that the parameter `API Gateway prefix (default "gateway")` under the `Network - API Gateway` section is set to `gateway`.
-  - Ensure that the parameter `Guardrails multi-region KMS Key Type` under the `Advanced - Deployment` section is set to `Primary`.
+The primary and DR regions share identical configuration settings except for a few key differences that need to be configured specifically for each region:
 
-- **TED Configuration:**
-  - Database name should be identical in both regions.
-
-- **RDS Configuration:**
-  - Manually configure [cross-region RDS DB snapshots](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) with appropriate retention policies.
+| Configuration       | Attributes                          | Primary Region                                            | DR Region                                                      |
+|---------------------|-------------------------------------|-----------------------------------------------------------|----------------------------------------------------------------|
+| **TEF Configuration** | `SSL Certificate`                   | Covers required domains e.g. `gateway.cloudportal.company.com`                                | Covers required domains e.g. `gateway-dr.cloudportal.company.com `                                      |
+|                      | `API Gateway Prefix`(default `gateway`) under the `Network - API Gateway` section                | Set to `gateway`                                          | Set to `gateway-dr`                                            |
+|                      | `Multi-region KMS Key Type` under `Advanced - Deployment` section          | Set to `Primary`                                                 | Set to KMS key ARN from primary region (`alias: turbot_guardrails`, prefixed with `mrk-`) |
+|                      | `API Gateway Custom Domain `         | Created automatically                                   | Create manually (`gateway.cloudportal.company.com`)           |
+| **TED Configuration** | Database Name                     | Identical in both regions                                 | Identical in both regions                                      |
+| **RDS Configuration** | Cross-region DB Snapshots         | Manually configured [Cross-region RDS DB snapshots](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) | Uses snapshots replicated from primary region                  |
 
 
 > [!WARNING]
@@ -98,10 +99,10 @@ Both regions require these **`minimum`** versions:
 
 > If necessary, complete the TEF setup in the DR region by setting the Guardrails multi-region KMS Key Type (under Advanced - Deployment) to Primary. Once the setup is successfully completed, update the parameter to Replica and delete the multi-region key created in the DR region.
 
-### Workspace Deployment in DR Region
+## Workspace Deployment in DR Region
 
-  - Create a **test workspace** in the DR region. Refer [Create  Workspace](/guardrails/docs/guides/hosting-guardrails/installation/workspace-manager).
-  - Install the same mods as the primary region workspace.
+  1. Create a **test workspace** in the DR region. Refer [Create  Workspace](/guardrails/docs/guides/hosting-guardrails/installation/workspace-manager).
+  2. Install the same mods as the primary region workspace.
 
 > [!NOTE]
 > Creating a test workspace in the DR region is essential. Manually installing mods during an actual disaster recovery scenario can be time-consuming and may exceed your RTO/RPO targets. By maintaining a sandbox workspace with proactive mod installation (via pipelines, Terraform scripts, or AutoMod updates), you ensure the DR workspace stays current and can quickly take over if the primary workspace fails.
@@ -150,7 +151,8 @@ To ensure seamless failover in the DR region, you need to configure the `API Gat
 6. `API endpoint type` as Regional.
 7. `Minimum TLS version` as TLS 1.2.
 8.  In `ACM Certificate`, select the ACM Certificate created for Turbot Guardrails. This certificate should be configured to trust both `gateway.cloudportal.company.com` and `gateway-dr.cloudportal.company.com`.
-- Select **Add domain name** to finalize the setup.
+
+Select **Add domain name** to finalize the setup.
 
 ![Add domain name](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/multi-region-deployment/add-domain-name.png)
 
@@ -179,7 +181,7 @@ Learn more about:
 
 - [Turbot Guardrails Hosting Architecture](/guardrails/docs/guides/hosting-guardrails/architecture).
 - [DR Architecture Options](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/architecture-options).
-- [Multi-Region Failover](/guides/hosting-guardrails/disaster-recovery/multi-region-failover)
+- [Multi-Region Failover](/guardrails/docs/guides/hosting-guardrails/disaster-recovery/multi-region-failover)
 
 ## Assistance
 

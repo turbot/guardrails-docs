@@ -1,23 +1,29 @@
 ---
-title: "Architecture Options"
-template: Documentation
-nav:
-  title: "Architecture Options"
-  order: 10
+title: Architecture Options
+sidebar_label: Architecture Options
 ---
 
 # Architecture Options
 
-## Overview
+In this guide, you will:
 
-Turbot Guardrails is a full-stack governance platform that automates discovery and remediation of your organization's compliance, security, and operational objectives.
+- Explore architectural considerations for deploying Turbot Guardrails.
+- Understand different options available based on organizational risk and availability requirements.
 
-As a security control plane tool, it is important that Guardrails be configured with high-availability and disaster recovery in mind.
 
-This document outlines architectures to achieve the appropriate level of high-availability  
-and disaster recovery, depending on the organizations risk requirements.
+Turbot Guardrails is a comprehensive governance platform that automates discovery, compliance, security, and operational remediation tasks across cloud environments. Due to its critical role as a security and compliance control plane, it's essential to configure Guardrails with high availability and disaster recovery in mind.
 
-- **Tier 1** – Single-account, single-region, single availability zone.
+This document outlines various architectural options to help you select an approach aligned with your organization's specific high availability (HA) and disaster recovery (DR) needs, based on your risk tolerance and operational requirements.
+
+
+| Tier     | Account       | Region          | Availability Zone | Availability | RTO | RPO | Use Cases                                    |
+|----------|---------------|-----------------|-------------------|--------------|-----|-----|----------------------------------------------|
+| Tier1   | Single-account | Single-region   | Single-AZ         | 99%          | 4 Hr | 4 Hr | Development and non-prod environments        |
+| Tier2   | Single-account | Single-region   | Multi-AZ          | 99.9%        | 4 Hr | 4 Hr | Production without rapid DR requirements     |
+| Tier3   | Single-account | Multi-region    | Multi-AZ          | 99.9%        | 2 Hr | 2 Hr | Production requiring rapid DR                |
+| Tier4   | Multi-account  | Multi-region    | Multi-AZ          | 99.99%       | 0 Hr | 0 Hr | Mandated zero downtime DR                    |
+
+<!-- - **Tier 1** – Single-account, single-region, single availability zone.
 
   - 99% Availability
   - RTO: 4 Hr.
@@ -42,7 +48,7 @@ and disaster recovery, depending on the organizations risk requirements.
   - 99.99% Availability
   - RTO: 0 Hr.
   - RPO: 0 Hr.
-  - Use cases: Mandated zero downtime DR
+  - Use cases: Mandated zero downtime DR -->
 
 ## Tier 1: Development
 

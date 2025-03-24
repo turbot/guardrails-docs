@@ -91,26 +91,14 @@ Both regions must run the following minimum versions:
 
 ### 4.4 Differences Between Primary and DR Regions
 
-#### Primary Region
-
-- **TEF Configuration:**
-  - Ensure the SSL certificate covers the necessary domains.
-  - Ensure that the parameter "API Gateway prefix (default "gateway")" under the "Network - API Gateway" section is set to `gateway`.
-  - Ensure that the parameter "Guardrails multi-region KMS Key Type" under the "Advanced - Deployment" section is set to `Primary`.
-- **TED Configuration:**
-  - Database name should be identical in both regions.
-- **RDS Configuration:**
-  - Manually configure [cross-region RDS DB snapshots](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) with appropriate retention policies.
-
-#### Disaster Recovery (DR) Region
-
-- **TEF Configuration:**
-  - Ensure the SSL certificate covers the necessary domains.
-  - Ensure that the parameter "API Gateway prefix (default "gateway")" under the "Network - API Gateway" section is set to `gateway-dr`.
-  - Ensure that the parameter "Guardrails multi-region KMS Key Type" under the "Advanced - Deployment" section is set to the KMS key ARN from the primary region (alias: `turbot_guardrails`, prefixed with `mrk-`).
-  - A **Custom domain names** (`gateway.cloudportal.company.com`) must be created manually for the API Gateway.
-- **TED Configuration:**
-  - Database name should be identical in both regions.
+| Configuration | Primary Region | DR Region |
+|--------------|----------------|------------|
+| **TEF Configuration** | • SSL certificate must cover required domains | • SSL certificate must cover required domains |
+| | • "API Gateway prefix" parameter set to `gateway` | • "API Gateway prefix" parameter set to `gateway-dr` |
+| | • "Guardrails multi-region KMS Key Type" set to `Primary` | • "Guardrails multi-region KMS Key Type" set to KMS key ARN from primary region (alias: `turbot_guardrails`, prefixed with `mrk-`) |
+| | | • Manual creation of custom domain names (`gateway.cloudportal.company.com`) for API Gateway |
+| **TED Configuration** | • Database name must be identical in both regions | • Database name must be identical in both regions |
+| **RDS Configuration** | • Manual configuration of [cross-region RDS DB snapshots](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) with appropriate retention policies | - |
 
 > [!WARNING]
 > When setting up TEF in the DR region, ensure a smooth deployment to avoid rollback issues. If a replica key is created and a rollback is required, the replica key cannot be deleted immediately and will be subject to a 7-day retention period unless removed with AWS Support assistance. **You can create only one replica of each primary key in each AWS Region.**
