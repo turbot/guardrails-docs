@@ -1,0 +1,39 @@
+{
+  "type": "category",
+  "id": "aws",
+  "link": "connect/aws",
+  "items": [
+    {
+      "type": "category",
+      "id": "import-aws-account",
+      "link": "connect/aws/import-aws-account",
+      "items": ["connect/aws/import-aws-account/gov-cloud"]
+    },
+    "connect/aws/import-aws-organization",
+    {
+      "type": "category",
+      "id": "event-handlers",
+      "link": "connect/aws/event-handlers",
+      "items": ["connect/aws/event-handlers/poller"]
+    },
+    {
+      "type": "category",
+      "id": "global-event-handler",
+      "link": "connect/aws/global-event-handlers",
+      "items": [
+        "connect/aws/global-event-handlers/setup-with-turbot-managed-iam-role",
+        "connect/aws/global-event-handlers/setup-with-custom-iam-role",
+        "connect/aws/global-event-handlers/migrate-to-global-event-handlers"
+      ]
+    },
+    "connect/aws/services",
+    {
+      "type": "category",
+      "id": "permissions",
+      "link": "connect/aws/permissions",
+      "items": ["connect/aws/permissions/user-mode"]
+    },
+    "connect/aws/security-hub",
+    "connect/aws/decommission"
+  ]
+}

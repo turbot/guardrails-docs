@@ -1,0 +1,10 @@
+{
+  "type": "category",
+  "id": "github",
+  "link": "connect/github",
+  "items": [
+    "connect/github/import-organization",
+    "connect/github/real-time-events",
+    "connect/github/remove-organization"
+  ]
+}

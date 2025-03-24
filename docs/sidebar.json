@@ -1,10 +1,5 @@
 [
-  {
-    "type": "category",
-    "link": "/",
-    "id": "index",
-    "items": []
-  },
+  "index",
   {
     "type": "category",
     "id": "getting-started",
@@ -12,14 +7,28 @@
     "items": [
       {
         "type": "category",
-        "id": "7-minute-labs",
-        "link": "getting-started/7-minute-labs",
+        "id": "your-guardrails-org",
+        "link": "getting-started/your-guardrails-org",
         "items": [
-          "getting-started/7-minute-labs/set-policy",
-          "getting-started/7-minute-labs/calc-policy",
-          "getting-started/7-minute-labs/cli",
-          "getting-started/7-minute-labs/graphql",
-          "getting-started/7-minute-labs/terraform"
+          {
+            "type": "category",
+            "id": "user",
+            "link": "getting-started/your-guardrails-org/user",
+            "items": [
+              "getting-started/your-guardrails-org/user/sign-up",
+              "getting-started/your-guardrails-org/user/profile"
+            ]
+          },
+          {
+            "type": "category",
+            "id": "organizations",
+            "link": "getting-started/your-guardrails-org/organizations",
+            "items": [
+              "getting-started/your-guardrails-org/organizations/setup",
+              "getting-started/your-guardrails-org/organizations/team",
+              "getting-started/your-guardrails-org/organizations/profile"
+            ]
+          }
         ]
       },
       {
@@ -73,404 +82,454 @@
           "getting-started/getting-started-gcp/enable-enforcement"
         ]
       },
+
+      "getting-started/faq"
+    ]
+  },
+
+  {
+    "type": "category",
+    "id": "using-guardrails",
+    "link": "using",
+    "items": [
       {
         "type": "category",
-        "id": "your-guardrails-org",
-        "link": "getting-started/your-guardrails-org",
+        "id": "console",
+        "link": "using/console",
         "items": [
           {
             "type": "category",
-            "id": "user",
-            "link": "getting-started/your-guardrails-org/user",
+            "id": "reports",
+            "link": "using/console/reports",
             "items": [
-              "getting-started/your-guardrails-org/user/sign-up",
-              "getting-started/your-guardrails-org/user/profile"
+              "using/console/reports/find-policies-in-tbd-state",
+              "using/console/reports/export-policy-pack-as-csv"
             ]
           },
+          "using/console/detail-pages",
+          "using/console/searching-filtering"
+        ]
+      },
+
+
+      {
+        "type": "category",
+        "id": "using-inventory",
+        "link": "using/inventory",
+        "items": [
+          "using/inventory/hierarchy",
+          "using/inventory/types-categories",
+          
           {
             "type": "category",
-            "id": "organizations",
-            "link": "getting-started/your-guardrails-org/organizations",
+            "id": "resource-activity",
+            "link": "using/inventory/activities",
             "items": [
-              "getting-started/your-guardrails-org/organizations/setup",
-              "getting-started/your-guardrails-org/organizations/team",
-              "getting-started/your-guardrails-org/organizations/profile"
+              "using/inventory/observe-aws-activity"
+            ]
+          },
+          "using/inventory/files",
+
+          {
+            "type": "category",
+            "id": "working-with-folders",
+            "link": "using/inventory/working-with-folders",
+            "items": [
+              "using/inventory/working-with-folders/create",
+              "using/inventory/working-with-folders/rename",
+              "using/inventory/working-with-folders/delete"
             ]
           }
         ]
       },
-      "getting-started/terraform-for-everything",
-      "getting-started/faq"
-    ]
-  },
-  {
-    "type": "category",
-    "id": "concepts",
-    "link": "concepts",
-    "items": [
-      "concepts/activities",
-      "concepts/controls",
+
       {
         "type": "category",
-        "id": "guardrails",
-        "link": "concepts/guardrails",
+        "id": "using-policies",
+        "link": "using/policies",
         "items": [
-          "concepts/guardrails/access-logging",
-          "concepts/guardrails/active",
-          "concepts/guardrails/approved",
-          "concepts/guardrails/audit-logging",
-          "concepts/guardrails/budget",
-          "concepts/guardrails/cmdb",
-          "concepts/guardrails/discovery",
-          "concepts/guardrails/encryption-at-rest",
-          "concepts/guardrails/encryption-in-transit",
-          "concepts/guardrails/public-access",
-          "concepts/guardrails/scheduling",
-          "concepts/guardrails/stacks",
-          "concepts/guardrails/configured",
+          "using/policies/hierarchy",
+    
           {
             "type": "category",
-            "id": "guardrails/tagging",
-            "link": "concepts/guardrails/tagging",
+            "id": "using-policies-values-settings",
+            "link": "using/policies/values-settings",
             "items": [
-              "concepts/guardrails/tagging/dynamic-tags",
-              "concepts/guardrails/tagging/require-keys",
-              "concepts/guardrails/tagging/tag-casing",
-              "concepts/guardrails/tagging/tagging-helpers"
+              "using/policies/create-setting",
+              "using/policies/create-exception"
             ]
           },
-          "concepts/guardrails/trusted-access",
-          "concepts/guardrails/usage"
+
+
+          {
+            "type": "category",
+            "id": "calculated-policies",
+            "link": "using/policies/calculated",
+            "items": [
+              "using/policies/calculated/create-calc-setting",
+              "using/policies/calculated/calc-policy-lab",
+              "using/policies/calculated/fix-calc-policy-evaluation-errors",
+              "using/policies/calculated/calculated-faq"
+
+            ]
+          },
+
+          {
+            "type": "category",
+            "id": "guardrails",
+            "link": "using/policies/guardrails",
+            "items": [
+              
+              {
+                "type": "category",
+                "id": "standard-guardrails",
+                "link": "using/policies/guardrails/standard",
+                "items": [
+                  "using/policies/guardrails/standard/discovery",
+                  "using/policies/guardrails/standard/cmdb",
+                  "using/policies/guardrails/standard/access-logging",
+                  "using/policies/guardrails/standard/active",
+                  "using/policies/guardrails/standard/approved",
+                  "using/policies/guardrails/standard/audit-logging",
+                  "using/policies/guardrails/standard/budget",
+                  "using/policies/guardrails/standard/encryption-at-rest",
+                  "using/policies/guardrails/standard/encryption-in-transit",
+                  "using/policies/guardrails/standard/public-access",
+            
+                  {
+                    "type": "category",
+                    "id": "scheduling",
+                    "link": "using/policies/guardrails/standard/scheduling",
+                    "items": [
+                      "using/policies/guardrails/standard/scheduling/db-scheduling-using-custom-tag"
+                    ]
+                  },
+                
+    
+                  {
+                    "type": "category",
+                    "id": "stacks",
+                    "link":  "using/policies/guardrails/standard/stacks",
+                    "items": [
+                      "using/policies/guardrails/standard/stacks/deploy",
+                      "using/policies/guardrails/standard/stacks/destroy"
+                    ]
+                  },
+    
+                  {
+                    "type": "category",
+                    "id": "configured",
+                    "link":  "using/policies/guardrails/standard/configured",
+                    "items": [
+                      "using/policies/guardrails/standard/stacks/network-stack"
+                    ]
+                  },
+    
+                  {
+                    "type": "category",
+                    "id": "guardrails/tagging",
+                    "link": "using/policies/guardrails/standard/tagging",
+                    "items": [
+                      "using/policies/guardrails/standard/tagging/dynamic-tags",
+                      "using/policies/guardrails/standard/tagging/require-keys",
+                      "using/policies/guardrails/standard/tagging/tag-casing",
+                      "using/policies/guardrails/standard/tagging/tagging-helpers"
+                    ]
+                  },
+                  "using/policies/guardrails/standard/trusted-access",
+                  "using/policies/guardrails/standard/usage"
+                 
+                ]
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "id": "policy-packs",
+            "link": "using/policies/policy-packs",
+            "items": [
+              "using/policies/policy-packs/create",
+              "using/policies/policy-packs/attach-policy-pack-to-resource"
+            ]
+          },
+
+
+          "using/policies/set-policy-lab"
+
         ]
       },
+
       {
         "type": "category",
-        "id": "iam",
-        "link": "concepts/iam",
+        "id": "using-controls",
+        "link": "using/controls",
         "items": [
-          "concepts/iam/authentication",
-          "concepts/iam/identity",
-          "concepts/iam/permissions"
+          "using/controls/types-categories",
+          "using/controls/processes",
+          "using/controls/quick-actions",
+          "using/controls/fix-invalid-controls",
+          "using/controls/access-control-logs",
+          "using/controls/run-controls-using-scripts"
+
         ]
       },
+
       {
         "type": "category",
-        "id": "policies",
-        "link": "concepts/policies",
+        "id": "campaigns",
+        "link": "using/campaigns",
         "items": [
-          "concepts/policies/hierarchy",
-          "concepts/policies/types-categories",
-          "concepts/policies/values-settings",
-          "concepts/policies/taxonomy",
-          "concepts/policies/calculated-faq"
-        ]
-      },
-      "concepts/policy-packs",
-      "concepts/processes",
-      {
-        "type": "category",
-        "id": "resources",
-        "link": "concepts/resources",
-        "items": [
-          "concepts/resources/hierarchy",
-          "concepts/resources/types-categories",
-          "concepts/resources/discovery"
+  
+
         ]
       }
     ]
   },
+
   {
     "type": "category",
-    "id": "guides",
-    "link": "guides",
+    "id": "connect",
+    "link": "connect",
     "items": [
       {
         "type": "placeholder",
-        "file": "guides/aws/aws-sidebar.json"
+        "file": "connect/aws/aws-sidebar.json"
       },
       {
         "type": "placeholder",
-        "file": "guides/azure/azure-sidebar.json"
+        "file": "connect/azure/azure-sidebar.json"
       },
       {
         "type": "placeholder",
-        "file": "guides/gcp/gcp-sidebar.json"
+        "file": "connect/gcp/gcp-sidebar.json"
       },
       {
         "type": "placeholder",
-        "file": "guides/github/github-sidebar.json"
+        "file": "connect/github/github-sidebar.json"
       },
       {
         "type": "category",
         "id": "kubernetes",
-        "link": "guides/kubernetes",
+        "link": "connect/kubernetes",
         "items": [
-          "guides/kubernetes/import-kubernetes-cluster",
-          "guides/kubernetes/configure-queries",
-          "guides/kubernetes/decommission"
+          "connect/kubernetes/import-kubernetes-cluster",
+          "connect/kubernetes/configure-queries",
+          "connect/kubernetes/decommission"
         ]
       },
       {
         "type": "category",
         "id": "servicenow",
-        "link": "guides/servicenow",
+        "link": "connect/servicenow",
         "items": [
-          "guides/servicenow/import-servicenow-instance",
-          "guides/servicenow/servicenow-to-guardrails-sync",
-          "guides/servicenow/guardrails-to-servicenow-sync",
-          "guides/servicenow/discovery-servicenow-custom-tables"
+          "connect/servicenow/import-servicenow-instance",
+          "connect/servicenow/servicenow-to-guardrails-sync",
+          "connect/servicenow/guardrails-to-servicenow-sync"
         ]
-      },
-      {
-        "type": "category",
-        "id": "configuring-guardrails",
-        "link": "guides/configuring-guardrails",
-        "items": [
-          "guides/configuring-guardrails/activity-retention",
-          "guides/configuring-guardrails/install-mod",
-          "guides/configuring-guardrails/update-mod",
-          "guides/configuring-guardrails/uninstall-mod",
-          "guides/configuring-guardrails/auto-mod-update",
-          "guides/configuring-guardrails/mod-lambda-cleanup",
-          "guides/configuring-guardrails/account-imports",
-          {
-            "type": "category",
-            "id": "directories",
-            "link": "guides/configuring-guardrails/directories",
-            "items": [
-              "guides/configuring-guardrails/directories/aws-sso",
-              "guides/configuring-guardrails/directories/azure-ad",
-              "guides/configuring-guardrails/directories/google",
-              "guides/configuring-guardrails/directories/okta",
-              "guides/configuring-guardrails/directories/onelogin",
-              "guides/configuring-guardrails/directories/ldap-ldaps",
-              "guides/configuring-guardrails/directories/local",
-              "guides/configuring-guardrails/directories/pingid"
-            ]
-          },
-          "guides/configuring-guardrails/ebs-volume-conversion",
-          "guides/configuring-guardrails/files",
-          {
-            "type": "category",
-            "id": "firehose",
-            "link": "guides/configuring-guardrails/firehose",
-            "items": ["guides/configuring-guardrails/firehose/pipelines"]
-          },
-          {
-            "type": "category",
-            "id": "managing-policies",
-            "link": "guides/configuring-guardrails/managing-policies",
-            "items": [
-              "guides/configuring-guardrails/managing-policies/config-examples",
-              "guides/configuring-guardrails/managing-policies/OCL",
-              "guides/configuring-guardrails/managing-policies/YAML"
-            ]
-          },
-          "guides/configuring-guardrails/network-stack",
-          {
-            "type": "category",
-            "id": "policy-packs",
-            "link": "guides/configuring-guardrails/policy-packs",
-            "items": [
-              "guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource"
-            ]
-          },
+      }
+    ]
+  },
+  
+  {
+    "type": "category",
+    "id": "configuring-guardrails",
+    "link": "managing",
+    "items": [
 
-          "guides/configuring-guardrails/regions",
-          {
-            "type": "category",
-            "id": "guides/configuring-guardrails/working-with-folders",
-            "link": "guides/configuring-guardrails/working-with-folders",
-            "items": [
-              "guides/configuring-guardrails/working-with-folders/create",
-              "guides/configuring-guardrails/working-with-folders/rename",
-              "guides/configuring-guardrails/working-with-folders/delete"
-            ]
-          },
-          "guides/configuring-guardrails/change-window"
-        ]
-      },
       {
         "type": "category",
-        "id": "using-guardrails",
-        "link": "guides/using-guardrails",
+        "id": "mods",
+        "link": "managing/mods",
+        "items": [
+          "managing/mods/install-mod",
+          "managing/mods/update-mod",
+          "managing/mods/uninstall-mod",
+          "managing/mods/auto-mod-update",
+          "managing/mods/mod-lambda-cleanup"
+        ]
+      },
+
+      {
+        "type": "category",
+        "id": "terraform",
+        "link": "managing/terraform",
+        "items": [
+          "managing/terraform/terraform-lab"
+        ]
+      },
+
+      {
+        "type": "category",
+        "id": "iam",
+        "link": "managing/iam",
         "items": [
           "guides/using-guardrails/ai-tools",
           {
             "type": "category",
-            "id": "console",
-            "link": "guides/using-guardrails/console",
+            "id": "iam-authentication",
+            "link": "managing/iam/authentication",
             "items": [
+              "managing/iam/identity",
               {
                 "type": "category",
-                "id": "reports",
-                "link": "guides/using-guardrails/console/reports",
+                "id": "directories",
+                "link": "managing/directories",
                 "items": [
-                  "guides/using-guardrails/console/reports/find-policies-in-tbd-state",
-                  "guides/using-guardrails/console/reports/export-policy-pack-as-csv"
+                  "managing/directories/aws-sso",
+                  "managing/directories/azure-ad",
+                  "managing/directories/google",
+                  "managing/directories/okta",
+                  "managing/directories/onelogin",
+                  "managing/directories/ldap-ldaps",
+                  "managing/directories/local",
+                  "managing/directories/pingid"
                 ]
               },
-              "guides/using-guardrails/console/detail-pages"
-            ]
-          },
-          "guides/using-guardrails/graphql",
-          {
-            "type": "category",
-            "id": "iam",
-            "link": "guides/using-guardrails/iam",
-            "items": [
-              "guides/using-guardrails/iam/administrators",
-              "guides/using-guardrails/iam/user-mgt",
-              "guides/using-guardrails/iam/access-keys",
-              "guides/using-guardrails/iam/permission-assignment",
-              "guides/using-guardrails/iam/advanced"
-            ]
-          },
-          {
-            "type": "placeholder",
-            "file": "guides/using-guardrails/stacks/stack-sidebar.json"
-          },
-          {
-            "type": "category",
-            "id": "notifications",
-            "link": "guides/using-guardrails/notifications",
-            "items": [
-              "guides/using-guardrails/notifications/filter-rules",
-              "guides/using-guardrails/notifications/templates"
+              "managing/iam/user-mgt",
+              "managing/iam/access-keys"
             ]
           },
           {
             "type": "category",
-            "id": "scheduling",
-            "link": "guides/using-guardrails/scheduling",
+            "id": "iam-permissions",
+            "link": "managing/iam/permissions",
             "items": [
-              "guides/using-guardrails/scheduling/db-scheduling-using-custom-tag"
+              "managing/iam/permission-assignment"
             ]
           },
-          "guides/using-guardrails/nunjucks",
-          "guides/using-guardrails/quick-actions",
-          "guides/using-guardrails/searching-filtering",
+
+          "managing/iam/administrators",
+          "managing/iam/advanced"
+        ]
+      },
+      
+
+      {
+        "type": "category",
+        "id": "notifications",
+        "link": "managing/notifications",
+        "items": [
+          "managing/notifications/filter-rules",
+          "managing/notifications/templates"
+        ]
+      },
+
+      {
+        "type": "category",
+        "id": "firehose",
+        "link": "managing/firehose",
+        "items": ["managing/firehose/pipelines"]
+      },
+      
+
+      "managing/change-window"
+    ]
+  },
+
+  {
+    "type": "category",
+    "id": "hosting-guardrails",
+    "link": "hosting",
+    "items": [
+      "hosting/architecture",
+      {
+        "type": "category",
+        "id": "installation",
+        "link": "hosting/installation",
+        "items": [
           {
             "type": "category",
-            "id": "troubleshooting",
-            "link": "guides/using-guardrails/troubleshooting",
+            "id": "pre-installation",
+            "link": "hosting/installation/pre-installation",
             "items": [
-              "guides/using-guardrails/troubleshooting/fix-invalid-controls",
-              "guides/using-guardrails/troubleshooting/access-control-logs",
-              "guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors",
-              "guides/using-guardrails/troubleshooting/run-controls-using-scripts"
+              "hosting/installation/pre-installation/checklist",
+              "hosting/installation/pre-installation/networking",
+              "hosting/installation/pre-installation/service-catalog",
+              "hosting/installation/pre-installation/import-portfolio",
+              "hosting/installation/pre-installation/external-role",
+              "hosting/installation/pre-installation/admin-permissions",
+              "hosting/installation/pre-installation/cost-estimate"
             ]
-          }
+          },
+          {
+            "type": "category",
+            "id": "install-tef",
+            "link": "hosting/installation/install-tef",
+            "items": [
+              "hosting/installation/install-tef/install-tef-into-new-vpc",
+              "hosting/installation/install-tef/install-tef-into-existing-vpc"
+            ]
+          },
+          "hosting/installation/install-ted",
+          "hosting/installation/install-te",
+          "hosting/installation/workspace-manager",
+          "hosting/installation/workspace-login",
+          {
+            "type": "category",
+            "id": "post-installation",
+            "link": "hosting/installation/post-installation",
+            "items": [
+              "hosting/installation/post-installation/create-ted-critical-alarms",
+              "hosting/installation/post-installation/create-te-critical-alarms"
+            ]
+          },
+          "hosting/installation/delete-te"
         ]
       },
       {
         "type": "category",
-        "id": "hosting-guardrails",
-        "link": "guides/hosting-guardrails",
+        "id": "updating-stacks",
+        "link": "hosting/updating-stacks",
         "items": [
-          "guides/hosting-guardrails/architecture",
-          {
-            "type": "category",
-            "id": "installation",
-            "link": "guides/hosting-guardrails/installation",
-            "items": [
-              {
-                "type": "category",
-                "id": "pre-installation",
-                "link": "guides/hosting-guardrails/installation/pre-installation",
-                "items": [
-                  "guides/hosting-guardrails/installation/pre-installation/checklist",
-                  "guides/hosting-guardrails/installation/pre-installation/networking",
-                  "guides/hosting-guardrails/installation/pre-installation/service-catalog",
-                  "guides/hosting-guardrails/installation/pre-installation/import-portfolio",
-                  "guides/hosting-guardrails/installation/pre-installation/external-role",
-                  "guides/hosting-guardrails/installation/pre-installation/admin-permissions",
-                  "guides/hosting-guardrails/installation/pre-installation/cost-estimate"
-                ]
-              },
-              {
-                "type": "category",
-                "id": "install-tef",
-                "link": "guides/hosting-guardrails/installation/install-tef",
-                "items": [
-                  "guides/hosting-guardrails/installation/install-tef/install-tef-into-new-vpc",
-                  "guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc"
-                ]
-              },
-              "guides/hosting-guardrails/installation/install-ted",
-              "guides/hosting-guardrails/installation/install-te",
-              "guides/hosting-guardrails/installation/workspace-manager",
-              "guides/hosting-guardrails/installation/workspace-login",
-              {
-                "type": "category",
-                "id": "post-installation",
-                "link": "guides/hosting-guardrails/installation/post-installation",
-                "items": [
-                  "guides/hosting-guardrails/installation/post-installation/create-ted-critical-alarms",
-                  "guides/hosting-guardrails/installation/post-installation/create-te-critical-alarms"
-                ]
-              },
-              "guides/hosting-guardrails/installation/delete-te"
-            ]
-          },
-          {
-            "type": "category",
-            "id": "updating-stacks",
-            "link": "guides/hosting-guardrails/updating-stacks",
-            "items": [
-              "guides/hosting-guardrails/updating-stacks/update-tef",
-              "guides/hosting-guardrails/updating-stacks/update-ted",
-              "guides/hosting-guardrails/updating-stacks/update-workspace",
-              "guides/hosting-guardrails/updating-stacks/domain-update",
-              "guides/hosting-guardrails/updating-stacks/general-purpose-gp3"
-            ]
-          },
-          "guides/hosting-guardrails/FAQ",
-          {
-            "type": "category",
-            "id": "troubleshooting",
-            "link": "guides/hosting-guardrails/troubleshooting",
-            "items": [
-              "guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync",
-              "guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state",
-              "guides/hosting-guardrails/troubleshooting/enable-verbose-logging",
-              "guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error",
-              "guides/hosting-guardrails/troubleshooting/pause-events",
-              "guides/hosting-guardrails/troubleshooting/troubleshooting-event-handlers-aws-console",
-              "guides/hosting-guardrails/troubleshooting/troubleshooting-event-handlers-guardrails-console"
-            ]
-          },
-          {
-            "type": "category",
-            "id": "monitoring",
-            "link": "guides/hosting-guardrails/monitoring",
-            "items": [
-              "guides/hosting-guardrails/monitoring/investigate-event-flood",
-              "guides/hosting-guardrails/monitoring/diagnose-control-error",
-              "guides/hosting-guardrails/monitoring/check-mod-health",
-              "guides/hosting-guardrails/monitoring/workspace-health-check",
-              "guides/hosting-guardrails/monitoring/monitoring-alarms",
-              "guides/hosting-guardrails/monitoring/investigate-lambda-invocation"
-            ]
-          },
-          {
-            "type": "category",
-            "id": "disaster-recovery",
-            "link": "guides/hosting-guardrails/disaster-recovery",
-            "items": [
-              "guides/hosting-guardrails/disaster-recovery/architecture-options",
-              "guides/hosting-guardrails/disaster-recovery/hive-restore",
-              "guides/hosting-guardrails/disaster-recovery/database-upgrade",
-              "guides/hosting-guardrails/disaster-recovery/restore-workspace",
-              "guides/hosting-guardrails/disaster-recovery/multi-region-deployment",
-              "guides/hosting-guardrails/disaster-recovery/multi-region-failover"
-            ]
-          }
+          "hosting/updating-stacks/update-tef",
+          "hosting/updating-stacks/update-ted",
+          "hosting/updating-stacks/update-workspace",
+          "hosting/updating-stacks/domain-update",
+          "hosting/updating-stacks/general-purpose-gp3"
         ]
       },
-      "guides/troubleshooting"
+
+      {
+        "type": "category",
+        "id": "troubleshooting",
+        "link": "hosting/troubleshooting",
+        "items": [
+          "hosting/troubleshooting/service-catalog-out-of-sync",
+          "hosting/troubleshooting/database-instance-not-in-available-state",
+          "hosting/troubleshooting/enable-verbose-logging",
+          "hosting/troubleshooting/peer-mod-dependency-error",
+          "hosting/troubleshooting/pause-events",
+          "hosting/troubleshooting/troubleshooting-event-handlers-aws-console",
+          "hosting/troubleshooting/troubleshooting-event-handlers-guardrails-console"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "monitoring",
+        "link": "hosting/monitoring",
+        "items": [
+          "hosting/monitoring/investigate-event-flood",
+          "hosting/monitoring/diagnose-control-error",
+          "hosting/monitoring/check-mod-health",
+          "hosting/monitoring/workspace-health-check",
+          "hosting/monitoring/monitoring-alarms",
+          "hosting/monitoring/investigate-lambda-invocation"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "disaster-recovery",
+        "link": "hosting/disaster-recovery",
+        "items": [
+          "hosting/disaster-recovery/restore",
+          "hosting/disaster-recovery/dr-testing"
+        ]
+      },
+      "hosting/FAQ"
     ]
   },
+  
+ 
   {
     "type": "category",
     "id": "faq",
@@ -547,16 +606,46 @@
           "reference/filter/notifications"
         ]
       },
+      "managing/nunjucks",
       "reference/ocl",
       {
         "type": "category",
         "id": "reference/graphql",
         "link": "reference/graphql",
-        "items": []
+        "items": [
+          "reference/graphql/graphql-lab"
+        ]
       },
       "reference/glossary"
     ]
   },
+
+  {
+    "type": "category",
+    "id": "todo",
+    "link": "todo",
+    "items": [
+      "todo/ebs-volume-conversion",
+
+      {
+        "type": "category",
+        "id": "7-minute-labs",
+        "link": "todo/7-minute-labs",
+        "items": [
+          "todo/7-minute-labs/cli"
+        ]
+      },
+
+      "todo/regions"
+
+
+  
+
+
+    ]
+},
+
+
   {
     "type": "external",
     "id": "hub-guardrails",

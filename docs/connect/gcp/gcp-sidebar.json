@@ -1,0 +1,30 @@
+{
+  "type": "category",
+  "id": "gcp",
+  "link": "connect/gcp",
+  "items": [
+    {
+      "type": "category",
+      "id": "import",
+      "link": "connect/gcp/import-gcp-project",
+      "items": ["connect/gcp/import-gcp-project/service-accounts"]
+    },
+    {
+      "type": "category",
+      "id": "import-org",
+      "link": "connect/gcp/import-gcp-organization",
+      "items": [
+        "connect/gcp/import-gcp-organization/self-hosted-workspace",
+        "connect/gcp/import-gcp-organization/saas-workspace"
+      ]
+    },
+    "connect/gcp/services",
+    "connect/gcp/permissions",
+    {
+      "type": "category",
+      "id": "real-time-events",
+      "link": "connect/gcp/real-time-events",
+      "items": ["connect/gcp/real-time-events/event-pollers"]
+    }
+  ]
+}
