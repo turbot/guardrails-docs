@@ -1,6 +1,6 @@
 ---
 title: Run Controls Using Scripts
-sidebar_label: Run Controls Using Scripts
+sidebar_label: Run Controls Using Scripts 🛠
 ---
 
 # Run Controls Using Scripts

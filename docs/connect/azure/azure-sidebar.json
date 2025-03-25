@@ -1,0 +1,32 @@
+{
+  "type": "category",
+  "id": "azure",
+  "link": "connect/azure",
+  "items": [
+    {
+      "type": "category",
+      "id": "import",
+      "link": "connect/azure/import",
+      "items": [
+        "connect/azure/import/tenant",
+        "connect/azure/import/active-directory",
+        "connect/azure/import/subscription",
+        "connect/azure/import/skip-management-groups-and-subscriptions"
+      ]
+    },
+    {
+      "type": "category",
+      "id": "real-time-events",
+      "link": "connect/azure/real-time-events",
+      "items": [
+        "connect/azure/real-time-events/ad-event-pollers",
+        "connect/azure/real-time-events/event-pollers",
+        "connect/azure/real-time-events/mgmt-event-pollers",
+        "connect/azure/real-time-events/event-handlers"
+      ]
+    },
+    "connect/azure/services",
+    "connect/azure/permissions",
+    "connect/azure/decommission"
+  ]
+}

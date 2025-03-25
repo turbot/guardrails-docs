@@ -1,6 +1,6 @@
 ---
 title: View Control Logs
-sidebar_label: View Control Logs
+sidebar_label: View Control Logs 🛠
 ---
 
 # View Control Logs

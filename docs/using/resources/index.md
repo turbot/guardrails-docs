@@ -106,7 +106,7 @@ configuration of resources (or sets of resources).
 
 
 
-
+<!-->
 ## Resource Hierarchy
 
 
@@ -160,3 +160,6 @@ aggregation and filtering of data.
 ### Example - Resource Types and Categories
 
 ![](/images/docs/guardrails/resource_types_categories-ex.png)
+
+
+-->

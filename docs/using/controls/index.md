@@ -17,6 +17,7 @@ Resource State + Policy Setting = Control State
 
 As a concrete example: A cloud storage resource does not have encryption at rest configured. In Guardrails, the encryption at rest policy asserts that storage should be encrypted at rest. The encryption at rest control evaluates resource state against the policy then acts. In this case, the control will go into an `alarm` state. If the policy is set to check mode then the control will only go into `alarm`. If in enforce mode, the control will go into `alarm` and Guardrails will act to remediate the resource. When the remediation is successful, the control will rerun then go into `ok`.
 
+<!--
 ## Control Types
 
 A **Control Type** is a definition for a particular control. Each different control type is a blueprint that can be configured for resources, such the **Approved** control type for AWS S3 buckets. In this case, the control `AWS > S3 > Bucket > Approved` evaluates policy settings to determine what it means for an S3 bucket to be "Approved," and will take the action defined in the associated, identically named policy (`AWS > S3 > Bucket > Approved`).
@@ -35,6 +36,7 @@ Control categories are typically used for reporting as well as useful aggregatio
 
 ![control_types_categories](/images/docs/guardrails/control_types_categories-ex.png)
 
+-->
 ## Control State
 
 Controls are responsible for enforcing policy values. This introduces the concept of a **Control State**. After a control has completed running, it is assigned a state, which can depend on a variety of factors, such as the IAM permissions (i.e. can Guardrails describe the resource?), pending work (i.e. is a policy waiting to be calculated?), or simply that the evaluated policy tells the control to not do anything.

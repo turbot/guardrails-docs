@@ -1,6 +1,6 @@
 ---
 title: Fix Invalid Controls
-sidebar_label: Fix Invalid Controls
+sidebar_label: Fix Invalid Controls 🛠
 ---
 
 # Fix Invalid Controls
