@@ -106,6 +106,17 @@ Guardrails will attempt to use a friendly name as the cluster name.
 
 These are the current defaults for clusters by cloud provider:
 - AWS EKS: The EKS cluster name from the `aws:eks:cluster-name` tag
+
+  Important: The guardrails agent retrieves the tag above from the [instance metadata service (IMDS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html). Therefore, the number of IMDSv2 token hops (`HttpPutResponseHopLimit`) set on instance metadata should be 2 or higher.
+
+  You can set the number of hops with the following command, where `<instance-id>` is the ID of the node instance where the agent is running:
+  
+  ```
+  aws ec2 modify-instance-metadata-options \
+    --instance-id <instance-id> \
+    --http-put-response-hop-limit 2
+  ```
+
 - GCP GKE: The `cluster-name` from instance metadata
 
 You can also set the title, which will override the defaults above, by adding
