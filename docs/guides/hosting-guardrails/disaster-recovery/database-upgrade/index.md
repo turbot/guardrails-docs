@@ -11,8 +11,6 @@ In this guide, you will:
 
 [Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account. Efficient management of database resources ensures optimal storage utilization, minimizes costs, and enhances performance by reducing unused storage. This process also ensures seamless version upgrades with minimal disruption.
 
-Efficient management of database resources ensures optimal storage utilization, minimizes costs, and enhances performance by reducing unused storage. This process also ensures seamless version upgrades with minimal disruption.
-
 ## Prerequisites
 
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
@@ -48,7 +46,7 @@ Set the encryption by configuring the `Custom Hive Key` parameter to use the ori
 
 Keep all other values unchanged.
 
-## Step 2: Enable Logical Replication in Source Database
+## Step 2: Enable Logical Replication
 
 Select the main database.
 
@@ -68,36 +66,25 @@ Set `rds.logical_replication` to **1**. Select **Save Changes**.
 
 ## Step 3: Pause Events
 
-[Pause the events](/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events#pause-event-processing) to avoid any lost events.
-
-> [!TIP]
-> Pausing events before database downtime is critical because:
-> - During database unavailability, Guardrails continues to receive events from cloud providers
-> - If events are not paused, these events will be lost since they cannot be written to the database
-> - Lost events mean missing state changes in your infrastructure, leading to inaccurate resource tracking and potential security/compliance gaps
-> - By pausing events, they are queued and will be processed once the database is available again, ensuring no infrastructure changes are missed
+[Pause the events](https://turbot.com/guardrails/docs/enterprise/FAQ/pause-events) to avoid any lost events.
 
 ## Step 4: Reboot DB Instance
 
-Reboot the DB Instance.
+Reboot the DB Instance (expected downtime is ~50 seconds).
 
 ![Reboot DB Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-new-reboot.png)
 
-
-> [!WARNING]
-> During the database reboot, users will experience a brief service interruption lasting approximately 2 minutes. Please plan this maintenance window accordingly.
-
 ## Step 5: Start Events
 
-Now enable event processing. Refer [Enable the events](/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events#enable-event-processing).
+[Start the events](https://turbot.com/guardrails/docs/enterprise/FAQ/pause-events).
 
-## Step 6: Set Master Password
+## Step 6: Set Master Password in both Source & Target DB
 
 Select the DB instance and choose **Modify**.
 
 ![Select Modify](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-modify.png)
 
-Set the master password for both the DB instances via the AWS console.
+Set the master password for both the DB instances via the AWS UI.
 
 ![Set Master Password](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-update-master-password.png)
 
@@ -109,11 +96,11 @@ Select **Modify DB Instance** and apply the changes.
 
 Create a Bastion using the [CloudFormation Template](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host).
 
-> [!NOTE]
+>[NOTE!]
 >  Set the bastion host image to `/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64`.
 >  Set RootVolumeSize to a bit larger than the original DB size (e.g., if 300 GB is used, set RootVolumeSize to 350 GB).
 
-### Connect to Bastion Host
+## Step 8: Connect to Bastion Host
 
 Connect to the newly created Bastion Host
 
@@ -122,35 +109,6 @@ Connect to the newly created Bastion Host
 ## Step 9: Install PostgreSQL Client
 
 To install or update the PostgreSQL client on the bastion host, follow the appropriate instructions for your PostgreSQL version:
-- Ensure logical replication is supported and enabled on the database engine.
-- Knowledge of the current database usage (storage and version).
-
-## Step 1: Spin up a new TED
-
-- Create a new [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) with the same name as the original, appending `-blue` or `-green` to the end.
-- If performing a database version upgrade, use the `DB Engine Version` and `Read Replica DB Engine Version` parameters under the "Database - Advanced - Engine" section. Set the appropriate `DB Engine Parameter Group Family` and the `Hive RDS Parameter Group` under the "Database - Advanced - Parameters" section.
-- Set the allocated storage to match the current disk usage (e.g., if 210 GB out of 500 GB is used, set allocated storage to 210 GB) using the `Allocated Storage in GB` parameter under the "Database - Advanced - Storage" section.
-- Set the maximum allocated storage to a suitable value using the `Maximum Allocated Storage limit in GB` parameter under the "Database - Advanced - Storage" section.
-- Set up encryption by configuring the `Custom Hive Key` parameter to use the original KMS key under the "Advanced - Infrastructure" section. This should be the Key ID, typically formatted as: 1111233-abcd-4444-2322-123456789012.
-- Keep the other parameters the same.
-
-## Step 2: Enable Logical Replication
-
-- Go to the AWS Console and navigate to the relevant parameter group.
-- Set `rds.logical_replical` to **`1`** if it’s not already set.
-- Reboot the DB instance (expected downtime is ~50 seconds).
-
-## Step 3: Set Master Password
-
-- Set the master password for both instances via the AWS UI.
-
-## Step 4: Setup and Connect to Bastion Host
-
-- Update the CloudFormation stack:
-- Set the bastion host image to `/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64`.
-- Set RootVolumeSize to a bit larger than the original DB size (e.g., if 300 GB is used, set RootVolumeSize to 350 GB).
-- Start a session (link in the Output section of the stack).
-- Install or update the PostgreSQL client:
 
 For PostgreSQL 15:
 
@@ -174,9 +132,6 @@ sudo make -C src/interfaces install
 ## Step 10: Create Temporary Folder for Migration
 
 Execute the commands in the home directory to create the `tmp_migrations` folder and assign the required permissions.
-## Step 5: Create a Temporary Folder for Migrations
-
-Create a folder and set the necessary permissions:
 
 ```shell
 sudo mkdir tmp_migrations
@@ -187,9 +142,6 @@ cd tmp_migrations
 ## Step 11: Set Environment Variables
 
 Set the source and target DB endpoints, available under the **Connectivity & Security** tab of the RDS DB instance, and export the pg password configured in [Step 6](#step-6-set-master-password).
-## Step 6: Set Environment Variables
-
-Set the necessary environment variables:
 
 ```shell
 export SOURCE=<source_db_endpoint>
@@ -203,14 +155,6 @@ export PGPASSWORD=<master_password_set_in_step_5>
 
 Execute the commands to create a publication and replication slot. Make a note of the output value for future use.
 
-```
-export PGPASSWORD=<master_password_set_in_step_3>
-```
-
-## Step 7: Create Publisher and Replication Slot in Original Instance
-
-Create a publication and replication slot:
-
 ```shell
 psql --host=$SOURCE --username=master --dbname=turbot
 CREATE PUBLICATION pub_blue FOR ALL TABLES;
@@ -222,12 +166,6 @@ SELECT \* FROM pg_create_logical_replication_slot('rs_blue', 'pgoutput');
 Establish a bastion host session, set the transaction isolation level, and export a snapshot using these commands.
 >[NOTE!]
 > This does not create an actual snapshot but captures the current state of the database and assigns it an ID.
-SELECT * FROM pg_create_logical_replication_slot('rs_blue', 'pgoutput');
-```
-
-## Step 8: Dump the Entire Source DB
-
-Start a session and set the transaction isolation level and export a snapshot. Note: this doesn't create an actual snapshot but captures the current state of the db and assigns an id to it.
 
 ```shell
 psql --host=$SOURCE --username=master --dbname=turbot
@@ -252,20 +190,11 @@ nohup time pg_dump -h $SOURCE -U master --snapshot="00000062-000182C4-1" -F c -b
 
 Monitor the `dump.log` file to confirm the process has begun. Look for log entries indicating table contents are being dumped.
 
-Keep this session open, in a new session, start pg_dump using the snapshot id returned by the above command:
-
-```shell
-nohup time pg_dump -h $SOURCE -U master --snapshot="0000001F-000007C1-1" -F c -b -v -f data.dump turbot > dump.log 2>&1
-```
-
-Wait for dump to start, you can do this by looking for table dump logs in the `dump.log` file - ex: `pg_dump: dumping contents of table "<table_name>"`:
-
 ```shell
 cat dump.log
 ```
 
 Once `pg_dump` is running, return to the first session which has the transaction isolation set and rollback the transaction isolation settings.
-Once the dump has started, return to the first session in which transaction isolation was set and rollback the transactions.
 
 ```sql
 ROLLBACK;
@@ -273,7 +202,6 @@ ROLLBACK;
 
 >[NOTE!] This process may take several hours, depending on the size of the database dump.
 > The purpose of using the nohup command is to ensure that the pg_dump process continues to run even if the session is terminated.
-Dump might take several hours, so run ps aux periodically and look for the pg_dump process to check if it's still running, even if the connection to the bastion host is terminated, the process will keep running in the backgroud.
 
 ```shell
 ps aux | grep pg_dump
@@ -287,13 +215,6 @@ cat dump.log
 ```
 
 ## Step 14: Restore Dump in Target Database
-Once the dump is complete, look for erros in the dump file
-
-```shell
-cat dump.log | grep error
-```
-
-## Step 9: Restore the Dump in the Target DB
 
 Restore the database in the target instance:
 
@@ -301,8 +222,6 @@ Restore the database in the target instance:
 nohup time pg_restore -h $TARGET -U master --verbose --no-publications --no-subscriptions --clean --if-exists -d turbot data.dump > restore.log 2>&1
 ```
 The restore process may take several hours. Periodically run `ps aux` to check if the `pg_restore` process is still active.
-
-Restore might take several hours, so run ps aux periodically and look for the pg_restore process to check if it's still running, even if the connection to the bastion host is terminated, the process will keep running in the backgroud.
 
 ```shell
 ps aux | grep pg_restore
@@ -317,9 +236,6 @@ cat restore.log | grep error
 ## Step 15: Create Subscription in the Target DB Instance
 
 Create a subscription in the target database. Save the value to be used in the next step.
-## Step 10: Create Subscription in the New DB Instance
-
-Create a subscription in the target database:
 
 ```shell
 psql --host=$TARGET --username=master --dbname=turbot
@@ -347,10 +263,6 @@ turbot=> SELECT * FROM pg_replication_origin;
 
 Execute the following command in the source database to monitor the replication progress. Proceed to the next steps once the `lsn_distance` reaches **0**.
 
-## Step 11: Monitor Progress
-
-Run the following in the source database to monitor the replication progress:
-
 ```shell
 psql --host=$SOURCE --username=master --dbname=turbot
 SELECT slot_name, confirmed_flush_lsn as flushed, pg_current_wal_lsn(), (pg_current_wal_lsn() - confirmed_flush_lsn) AS lsn_distance FROM pg_catalog.pg_replication_slots WHERE slot_type = 'logical';
@@ -372,19 +284,6 @@ psql --host=$TARGET --username=master --dbname=turbot
 
 ```shell
 set local search_path to $turbot_schema, public;
-## Step 12: Add Triggers
-
-Check the restore log file (restore.log) and make sure there are only 11 entries per schema when you run the below -
-
-```bash
-cat restore.log | grep error
-```
-
-Set local search path
-
-```shell
-psql --host=$TARGET --username=master --dbname=turbot
-set local search_path to <workspace_schema>, public;
 create trigger control_category_path_au after update on $turbot_schema.control_categories for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'control_category_id', 'control_category_path');
 create trigger control_resource_category_path_au after update on $turbot_schema.resource_categories  for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'resource_category_id', 'resource_category_path');
 create trigger control_resource_types_path_au after update on $turbot_schema.resource_types for each row when (old.path is distinct from new.path) execute procedure $turbot_schema.types_path_au('controls', 'resource_type_id', 'resource_type_path');
@@ -399,7 +298,6 @@ create trigger resource_types_500_rt_path_update_au after update on $turbot_sche
 ```
 
 ## Step 19: Test Data
-## Step 13: Test Data
 
 Run the following queries to compare the count of functions, triggers, indexes, and constraints between the source and target databases:
 
@@ -481,37 +379,6 @@ Delete the new TED stack along with its associated resources, including the S3 b
 ## Step 25: Disable and Delete Subscriptions
 
 Disable and delete subscription and replication slots.
-## Step 14: Turn Off Events and API and Events tasks.
-
-- Disable events as per the guidelines: [Pause Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
-- API and Events task can be turned off, by setting the task count to 0 in TE stack.
-
-## Step 15: Rename DB Instances
-
-- Rename the primary instance by appending -green.
-- Rename the new instance by removing the -blue suffix.
-
-## Step 16: Turn On Events
-
-Refer to the documentation: [Turn On Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
-
-## Step 17: Rename the Old Instance
-
-Rename the old instance from -green to -blue. Execute a Green/Blue deployment.
-
-## Step 18: Run Smoke Tests
-
-Test the restored and new database instances to confirm the upgrade.
-
-## Step 19: Clean Up
-
-Delete the new TED stack, delete the associated resources listed below, and clean up replication slots and subscriptions.
-
-- S3 bucket
-- Log groups
-- AWS Backup
-
-## Useful commands
 
 ```sql
 select * from pg_publication;
@@ -523,17 +390,11 @@ alter subscription sub_blue disable;
 alter subscription sub_blue set (slot_name=none);
 drop subscription sub_blue;
 drop schema migration_turbot cascade;
-drop schema snoopy_turbot cascade;
 ```
-
-## Next Steps
-
-- Review additional runbooks for database maintenance or resource optimization.
-- Refer to Guardrails documentation for further insights.
 
 ## Troubleshooting
 
-| Issue                | Description                                                                                                                                                                                                         | Guide                                                                                                                                        |
-|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| Permission Issues    | Occurs if the logged-in user lacks permissions to modify, update, or create resources in the stack, or if IAM roles or SCPs have changed, preventing built-in roles from accessing required configuration settings. | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators)     |
-| Further Assistance   | If you continue to encounter issues, please open a support ticket with detailed information to expedite resolution.                                                                                                 | [Open Support Ticket](https://support.turbot.com)                                                                                            |
+| Issue              | Description                                                                                                                                                                                                       | Guide                                                                                                                                    |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Permission Issues  | If the current logged-in user lacks permission to modify, update, or create resources in the stack, or if IAM roles or SCPs have changed, preventing built-in roles from accessing needed configuration settings. | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators) |
+| Further Assistance | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                                             | [Open Support Ticket](https://support.turbot.com)                                                                                         |
