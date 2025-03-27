@@ -48,11 +48,11 @@ Set the encryption by configuring the `Custom Hive Key` parameter to use the ori
 
 Keep all other values unchanged.
 
-## Step 2: Enable Logical Replication in Old Database
+## Step 2: Enable Logical Replication in Source Database
 
 Select the main database.
 
-![Select New Database](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-new-database.png)
+![Select New Database](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-source-database.png)
 
 Navigate to the `Configurations` tab and select the **DB instance parameter group**.
 
