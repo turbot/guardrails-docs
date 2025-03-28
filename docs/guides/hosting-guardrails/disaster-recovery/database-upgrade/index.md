@@ -11,9 +11,18 @@ In this guide, you will:
 
 [Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) is an AWS Service Catalog product that provides automated configuration and management of the infrastructure needed to run the enterprise version of Turbot Guardrails in your AWS account. Efficient management of database resources ensures optimal storage utilization, minimizes costs, and enhances performance by reducing unused storage. This process also ensures seamless version upgrades with minimal disruption.
 
+
+This guide outlines two main scenarios for database upgrades:
+
+1. **Storage Optimization**: Resizing storage allocation for improving efficiency.
+2. **Engine Version Upgrade**: Upgrading the PostgreSQL database engine version to access new features and security updates.
+
+
 ## Prerequisites
 
-- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
+The activities are performed in the Turbot Guardrails hosting AWS account.
+
+- Access to the Guardrails hosting AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - PostgreSQL client installed on the [bastion host](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host).
 - Familiarity with AWS RDS, EC2, Service Catalog and CloudFormation services.
 - Ensure logical replication is supported and enabled on the database engine.
@@ -23,20 +32,25 @@ In this guide, you will:
 > [!WARNING]
 > After creating replication slots in [Step 12](#step-12-create-publisher-and-replication-slot-in-original-instance), upgrading existing workspaces or creating new ones will not be possible until the process is complete. Additionally, no DDL changes can be performed during this time.
 
-## Step 1: Deploy New TED
+## Step 1: Provision New Database Instance
 
-Navigate to service catalog and [deploy a new TED](/guardrails/docs/guides/hosting-guardrails/installation/install-ted) product.
+Deploy a new TED instance to create a new database that will serve as the target for replication from the original database. This allows us to perform the upgrade with minimal downtime by replicating data from the old database to the new one.
 
-![Deploy TED](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/service-catalog-launch-product-ted.png)
+Navigate to service catalog and deploy a new TED. Follow the instruction provided in [Install Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/guides/hosting-guardrails/installation/install-ted) product.
 
-Use the same name as the original, appending -blue or -green at the end, and set the Version to 1.45.0 or later.
+<!-- ![Deploy TED](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/service-catalog-launch-product-ted.png) -->
+
+For example, if your original database is named `turbot-einstein`, name the new one `turbot-einstein-blue` or `turbot-einstein-green`. Set the Version parameter to 1.45.0 or higher.
 
 ![Append Name and Version](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/service-catalog-naming-version.png)
 
+// REVIEW
+Is the below note specifies that the below value should match to the source DB settings?
 > [!NOTE]
 > If performing a database version upgrade, use the `DB Engine Version` and `Read Replica DB Engine Version` parameters under the `Database - Advanced - Engine` section. Set the appropriate `DB Engine Parameter Group Family` and the `Hive RDS Parameter Group` under the `Database - Advanced - Parameters` section.
 
-Set the allocated storage to match the current disk usage using the `Allocated Storage in GB` parameter (e.g., if 210 GB out of 500 GB is used, set it to 210 GB) and define the `Maximum Allocated Storage limit in GB` to a suitable value, both located under the `"Database - Advanced - Storage"` section; use the `FreeStorageSpace` metric to determine the size.
+
+Set the allocated storage to match the current disk usage using the `Allocated Storage in GB` parameter (e.g., if 210 GB out of 500 GB is used, set it to 210 GB) and define the `Maximum Allocated Storage limit in GB` to a suitable value, both located under the `Database - Advanced - Storage` section; use the `FreeStorageSpace` metric to determine the size.
 
 ![Set Allocated Storage](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/service-catalog-storage-allocation.png)
 
@@ -46,9 +60,9 @@ Set the encryption by configuring the `Custom Hive Key` parameter to use the ori
 
 Keep all other values unchanged.
 
-## Step 2: Enable Logical Replication
+## Step 2: Enable DB Logical Replication
 
-Select the main database.
+Select the main (source) database instance.
 
 ![Select New Database](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-source-database.png)
 
@@ -66,41 +80,61 @@ Set `rds.logical_replication` to **1**. Select **Save Changes**.
 
 ## Step 3: Pause Events
 
-[Pause the events](https://turbot.com/guardrails/docs/enterprise/FAQ/pause-events) to avoid any lost events.
+[Pause the events](/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events#pause-event-processing) to avoid any lost events.
+
+> [!TIP]
+> Pausing events before database downtime is critical because:
+> - During database unavailability, Guardrails continues to receive events from cloud providers
+> - If events are not paused, these events will be lost since they cannot be written to the database
+> - Lost events mean missing state changes in your infrastructure, leading to inaccurate resource tracking and potential security/compliance gaps
+> - By pausing events, they are queued and will be processed once the database is available again, ensuring no infrastructure changes are missed
 
 ## Step 4: Reboot DB Instance
 
-Reboot the DB Instance (expected downtime is ~50 seconds).
+Reboot the DB instance.
 
 ![Reboot DB Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-new-reboot.png)
 
+> [!WARNING]
+> During the database reboot, users will experience a brief service interruption lasting approximately 2 minutes or less. Please plan this maintenance window accordingly.
+
 ## Step 5: Start Events
 
-[Start the events](https://turbot.com/guardrails/docs/enterprise/FAQ/pause-events).
+Now enable event processing. Refer [Enable the events](/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events#enable-event-processing).
 
-## Step 6: Set Master Password in both Source & Target DB
 
-Select the DB instance and choose **Modify**.
+## Step 6: Set Master Password in both Source & Target
+
+Set the master password for both the DB instances via the AWS console.
+> [!TIP]
+> Setting the master password in both source and target databases is crucial for:
+> - Ensuring secure access for the logical replication process between databases
+> - Maintaining consistent authentication credentials across both instances
+> - Enabling proper permissions for data migration and synchronization
+> - Preventing any authentication failures during the upgrade process
+
+Select the `source` DB instance and choose **Modify**.
 
 ![Select Modify](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-modify.png)
 
-Set the master password for both the DB instances via the AWS UI.
+
+Select the `target` i.d. new DB instance and choose **Modify**.
 
 ![Set Master Password](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-update-master-password.png)
 
 Select **Modify DB Instance** and apply the changes.
 
-![Select Modify DB Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-modify-dbinstance.png)
+<!-- ![Select Modify DB Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-modify-dbinstance.png) -->
 
 ## Step 7: Create Bastion Host
 
 Create a Bastion using the [CloudFormation Template](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host).
 
->[NOTE!]
+> [!NOTE]
 >  Set the bastion host image to `/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64`.
 >  Set RootVolumeSize to a bit larger than the original DB size (e.g., if 300 GB is used, set RootVolumeSize to 350 GB).
 
-## Step 8: Connect to Bastion Host
+### Connect to Bastion Host
 
 Connect to the newly created Bastion Host
 
@@ -108,15 +142,18 @@ Connect to the newly created Bastion Host
 
 ## Step 9: Install PostgreSQL Client
 
-To install or update the PostgreSQL client on the bastion host, follow the appropriate instructions for your PostgreSQL version:
+To install or update the PostgreSQL client on the bastion host, you have two options based on your PostgreSQL version:
 
-For PostgreSQL 15:
+### PostgreSQL 15
+Use the package manager to install PostgreSQL 15:
 
 ```shell
 sudo dnf install postgresql15.x86_64 postgresql15-server -y
 ```
+### PostgreSQL 16
 
-For [PostgreSQL 16](https://aws.amazon.com/blogs/database/synopsis-of-several-compelling-features-in-postgresql-16):
+
+Use [PostgreSQL 16 installation steps](https://aws.amazon.com/blogs/database/synopsis-of-several-compelling-features-in-postgresql-16):
 
 ```shell
 sudo yum install -y gcc readline-devel libicu-devel zlib-devel openssl-devel
@@ -128,8 +165,21 @@ sudo make -C src/bin install
 sudo make -C src/include install
 sudo make -C src/interfaces install
 ```
+// REVIEW
+Why this temp folder is required?
 
 ## Step 10: Create Temporary Folder for Migration
+
+> [!TIP]
+> Create a temporary folder to store migration files and database dumps. This folder will serve as a workspace for:
+>
+> Storing database backup files created by `pg_dump`.
+>
+> Staging data during replication between source and target databases.
+>
+> Maintaining intermediate files generated during migration.
+>
+> Keeping migration artifacts organized and separate from system files.
 
 Execute the commands in the home directory to create the `tmp_migrations` folder and assign the required permissions.
 
@@ -148,12 +198,12 @@ export SOURCE=<source_db_endpoint>
 export TARGET=<target_db_endpoint>
 export PGPASSWORD=<master_password_set_in_step_5>
 ```
-
 ![DB Instance Endpoint](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-endpoint.png)
 
 ## Step 12: Create Publisher and Replication Slot in Source DB Instance
 
 Execute the commands to create a publication and replication slot. Make a note of the output value for future use.
+
 
 ```shell
 psql --host=$SOURCE --username=master --dbname=turbot
@@ -163,15 +213,26 @@ SELECT \* FROM pg_create_logical_replication_slot('rs_blue', 'pgoutput');
 
 ## Step 13: Create a Source DB PG Dump
 
-Establish a bastion host session, set the transaction isolation level, and export a snapshot using these commands.
->[NOTE!]
-> This does not create an actual snapshot but captures the current state of the database and assigns it an ID.
+> [!TIP]
+> A PG dump is required for following reasons:
+> - *Initial Data Copy*: It provides a consistent snapshot of the source database that can be used to initialize the target database before starting logical replication
+> - *Data Consistency*: The dump ensures all tables and data are copied in a transactionally consistent state, preventing data inconsistencies during migration
+> - *Replication Starting Point*: The dump establishes a known good starting point from which logical replication can begin catching up with any changes that occurred during and after the dump
+> - *Backup Safety*: The dump serves as a backup in case issues arise during the migration process
+> - *Performance*: Using a dump for the initial data copy is typically faster than relying solely on logical replication to copy the entire database
+
+### Establish a Bastion Host Session
+set the transaction isolation level, and export a snapshot using these commands.
 
 ```shell
 psql --host=$SOURCE --username=master --dbname=turbot
 BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 SELECT pg_current_wal_lsn(), pg_export_snapshot();
 ```
+
+>[!NOTE]
+> This does not create an actual snapshot but captures the current state of the database and assigns it an ID.
+
 Keep this session open, as the snapshot ID will be used in the next step.
 
 ```shell
@@ -181,14 +242,16 @@ turbot=*> SELECT pg_current_wal_lsn(), pg_export_snapshot();
  AC96/49F46070      | 00000062-000182C4-1
 (1 row)
 ```
+### Start PG Dump
 
 In a new session, initiate the `pg_dump` process using the `snapshot ID` obtained from the previous step:
 
 ```shell
-nohup time pg_dump -h $SOURCE -U master --snapshot="00000062-000182C4-1" -F c -b -v -f data.dump turbot > dump.log 2>&1
+nohup time pg_dump -h $SOURCE -U master --snapshot="00000062-000182C4-1" -F c -b -v -f data.dump turbot > dump.log 2>&1 &
 ```
+### Monitor
 
-Monitor the `dump.log` file to confirm the process has begun. Look for log entries indicating table contents are being dumped.
+Check the `dump.log` file to confirm the process has begun. Look for log entries indicating table contents are being dumped.
 
 ```shell
 cat dump.log
@@ -200,8 +263,11 @@ Once `pg_dump` is running, return to the first session which has the transaction
 ROLLBACK;
 ```
 
->[NOTE!] This process may take several hours, depending on the size of the database dump.
-> The purpose of using the nohup command is to ensure that the pg_dump process continues to run even if the session is terminated.
+>[!NOTE]
+> This process may take several hours, depending on the size of the database dump.
+> The purpose of using the `nohup` command is to ensure that the pg_dump process continues to run even if the session is terminated.
+
+Check the process is running or not during the monitoring.
 
 ```shell
 ps aux | grep pg_dump
@@ -214,14 +280,21 @@ cat dump.log | grep error
 cat dump.log
 ```
 
+If no noticeable error is visible in the `dump.log`. Move to next step.
+
 ## Step 14: Restore Dump in Target Database
 
-Restore the database in the target instance:
+### Start PG Restore
+
+Restore the database in the target DB instance i.e. `turbot-einstein-green` here.
 
 ```shell
-nohup time pg_restore -h $TARGET -U master --verbose --no-publications --no-subscriptions --clean --if-exists -d turbot data.dump > restore.log 2>&1
+nohup time pg_dump -h $SOURCE -U master --snapshot="00000062-000182C4-1" -F c -b -v -f data.dump turbot > dump.log 2>&1 &
 ```
 The restore process may take several hours. Periodically run `ps aux` to check if the `pg_restore` process is still active.
+
+
+### Monitor
 
 ```shell
 ps aux | grep pg_restore
@@ -235,7 +308,14 @@ cat restore.log | grep error
 
 ## Step 15: Create Subscription in the Target DB Instance
 
-Create a subscription in the target database. Save the value to be used in the next step.
+> [!TIP]
+> Creating a subscription in the target database is required to:
+> - Establish a logical replication connection between source and target databases
+> - Enable continuous data synchronization after the initial data restore
+> - Ensure any changes made to the source database during migration are replicated to the target
+> - Minimize downtime by keeping both databases in sync until the final cutover
+
+Create a subscription in the `target` database. Save the value to be used in the next step.
 
 ```shell
 psql --host=$TARGET --username=master --dbname=turbot
@@ -261,7 +341,7 @@ turbot=> SELECT * FROM pg_replication_origin;
 
 ## Step 16: Monitor Progress
 
-Execute the following command in the source database to monitor the replication progress. Proceed to the next steps once the `lsn_distance` reaches **0**.
+Execute the following command in the `source` database to monitor the replication progress. Proceed to the next steps once the `lsn_distance` reaches **0**.
 
 ```shell
 psql --host=$SOURCE --username=master --dbname=turbot
@@ -270,9 +350,27 @@ SELECT slot_name, confirmed_flush_lsn as flushed, pg_current_wal_lsn(), (pg_curr
 
 ## Step 17: Pause Events
 
-Similar to [Step 3](#step-3-pause-events), [Pause Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
+> [!TIP]
+> Pausing events at this stage is crucial because:
+> - The database migration process is nearing completion and we need to ensure data consistency
+> - Any events received during the final cutover could be lost or processed incorrectly
+> - Events need to be queued until the target database is fully operational and verified
+> - This prevents any data inconsistencies between the source and target databases during the final transition
+
+Similar to [Step 3](#step-3-pause-events)
 
 ## Step 18: Add Triggers
+
+// REVIEW
+Is the below note specifies that the below value should match to the source DB settings?
+
+> [!TIP]
+> Triggers are required for following reasons:
+> - During database migration, triggers are not automatically copied from the source to target database
+> - These triggers are essential for maintaining data integrity and relationships, particularly for path-based hierarchies in Turbot Guardrails
+> - The triggers handle automatic updates of path columns when parent-child relationships change
+> - Without these triggers, hierarchical data structures (like resource types, control categories, etc.) would not maintain proper relationships
+> - They must be created before the database becomes active to ensure data consistency from the first operation
 
 Execute the commands on the target database to set local search path and create Triggers. Replace the `$WORKSPACE_SCHEMA` with the actual schema name.
 
@@ -301,31 +399,31 @@ create trigger resource_types_500_rt_path_update_au after update on $turbot_sche
 
 Run the following queries to compare the count of functions, triggers, indexes, and constraints between the source and target databases:
 
-**Triggers**:
+### Trigger
 
 ```sql
 SELECT count(trigger_name), trigger_schema FROM information_schema.triggers group by trigger_schema;
 ```
 
-**Indexes**:
+### Indexes
 
 ```sql
 SELECT n.nspname AS schema_name, COUNT(i.indexname) AS index_count FROM pg_catalog.pg_indexes i JOIN pg_catalog.pg_namespace n ON i.schemaname = n.nspname WHERE n.nspname NOT IN ('pg_catalog', 'information_schema') GROUP BY n.nspname ORDER BY index_count DESC;
 ```
 
-**Functions**:
+### Functions
 
 ```sql
 SELECT n.nspname AS schema_name, p.proname AS function_name FROM pg_catalog.pg_proc p LEFT JOIN pg_catalog.pg_namespace n ON n.oid = p.pronamespace WHERE n.nspname IN ('pg_catalog');
 ```
 
-**Constraints**:
+### Constraints
 
 ```sql
 SELECT n.nspname AS schema_name, COUNT(c.conname) AS constraint_count FROM pg_catalog.pg_constraint c JOIN pg_catalog.pg_namespace n ON c.connamespace = n.oid WHERE n.nspname NOT IN ('pg_catalog', 'information_schema') GROUP BY n.nspname ORDER BY constraint_count DESC;
 ```
 
-**Trigger count by status**:
+### Trigger Count by Status
 
 ```sql
 SELECT count(tgname), tgenabled FROM pg_trigger GROUP by tgenabled;
@@ -338,19 +436,24 @@ SELECT count(tgname), tgenabled FROM pg_trigger GROUP by tgenabled;
 
 ## Step 20: Rename DB Instances
 
-Rename the original instance by appending -blue to its name.
+After proper validation of data consistencies, it's time to interchange the DB names as below:
+
+Rename the original (source) instance by appending -blue to its name e.g. from `turbot-einstein` to `turbot-einstein-blue`.
 
 ![Rename Original Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-rename-original-instance-append-blue.png)
 
-Rename the new instance by removing the -green suffix.
+Rename the new target instance by removing the -green suffix e.g. from `turbot-einstein-green` to `turbot-einstein`.
 
 ![Rename New Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-rename-new-instance-remove-green.png)
 
 ## Step 21: Start Events
 
-[Start the events](https://turbot.com/guardrails/docs/enterprise/FAQ/pause-events).
+Now enable event processing. Refer [Enable the events](/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events#enable-event-processing).
 
 ## Step 22: Rename Provisioned Product
+
+// REVIEW
+Original TED stack?
 
 Rename the service catalog TED provisioned product `Database Hive Name` from `-green` to `-blue`.
 
@@ -364,9 +467,16 @@ Execute a Green/Blue deployment.
 
 Run smoke tests to Test both the restored and new database instances to confirm the upgrade.
 
-- Validate the Count of Controls (Pre & Post).
-- Validate the Count of Resources (Pre & Post).
-- Validate the Count of Active Controls (Pre & Post).
+- Validate the Count of Controls
+  - Pre
+  - Post
+- Validate the Count of Resources
+  - Pre
+  - Post
+
+- Validate the Count of Active Controls
+  - Pre
+  - Post
 - Ensure all controls are running as expected.
 - Confirm events are functioning properly.
 - Verify grants are working correctly.
