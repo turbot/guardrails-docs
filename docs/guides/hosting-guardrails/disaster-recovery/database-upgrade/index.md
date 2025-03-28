@@ -17,10 +17,6 @@ This guide outlines two main scenarios for database upgrades:
 1. **Storage Optimization**: Resizing storage allocation for improving efficiency.
 2. **Engine Version Upgrade**: Upgrading the PostgreSQL database engine version to access new features and security updates.
 
-## Required Down Time
-
-- Less than 1 minute for rebooting DB instance as in [Step 4](#step-4-reboot-db-instance)
--
 
 ## Prerequisites
 
@@ -33,6 +29,10 @@ The activities are performed in the Turbot Guardrails hosting AWS account.
 - Knowledge of the current database usage (storage and version).
 - Awareness of the backup schedule to avoid disruptions during the process.
 
+### Required Down Time
+
+- Less than 1 minute for rebooting DB instance while enabling the logical replication in the source DB [Step 1: Enable DB Logical Replication](#reboot-db-instance)
+- Approximate ~7 to 10 minutes in the process of renaming the databases [Step 15: Rename DB Instances](#step-15-rename-db-instances)
 
 ## Step 1: Enable DB Logical Replication
 
@@ -309,7 +309,6 @@ nohup time pg_restore -h $TARGET -U master --verbose --no-publications --no-subs
 >[!IMPORTANT]
 > The restore process may take several hours. Periodically run `ps aux` to check if the `pg_restore` process is still active.
 
-
 ### Monitor
 
 ```shell
@@ -322,6 +321,13 @@ Check for any errors in the restore process.
 cat restore.log | grep error
 ```
 If `no error` except trigger related errors is visible in the restore.log, move to next step.
+
+**Example of Probable Error**
+
+```
+pg_restore: error: could not execute query: ERROR: deadlock detected - 1
+pg_restore: error: could not execute query: ERROR: operator does not exist: public.ltree = public.ltree - 264
+```
 
 **Add example error**
 
