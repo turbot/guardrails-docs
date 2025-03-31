@@ -65,8 +65,6 @@ Set `rds.logical_replication` to **1**. Select **Save Changes**.
 
 ### Reboot DB Instance
 
-Reboot the DB instance.
-
 ![Reboot DB Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-new-reboot.png)
 
 > [!WARNING]
@@ -95,7 +93,7 @@ For example, if your original source database is named `turbot-einstein`, name t
 If performing a database version upgrade e.g. migrating to PostgreSQL v16.x, use the `DB Engine Version` and `Read Replica DB Engine Version` parameters under the `Database - Advanced - Engine` section. Set the appropriate `DB Engine Parameter Group Family` and the `Hive RDS Parameter Group` under the `Database - Advanced - Parameters` section.
 
 > [!IMPORTANT]
-> This process is not covering in case any enterprise hosting has `Read Replica DB Engine` hosted.
+> This guide assumes you are not using read replicas. For environments with read replicas enabled, additional steps may be required. Please contact Turbot Support for assistance.
 
 ![Set Db Engine Upgrade](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-db-engine-upgrade.png)
 
@@ -113,7 +111,7 @@ Set the encryption by configuring the `Custom Hive Key` parameter to use the ori
 
 Keep all other values unchanged.
 
-## Step 3: Set Master Password in Source & Target
+## Step 3: Set Master Password in Source and Target Databases
 
 Set the master password for both the DB instances via the AWS console.
 
@@ -125,13 +123,15 @@ Select the `source` DB instance and choose **Modify**.
 
 ![Select Modify](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-modify.png)
 
-Select the `target` i.d. new DB instance and choose **Modify**.
+Provide the master password
 
-![Set Master Password](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-update-master-password.png)
+![Set Master Password](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-update-master-password-new.png)
 
 Select **Modify DB Instance** and apply the changes.
 
-<!-- ![Select Modify DB Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-modify-dbinstance.png) -->
+![Select Modify DB Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-modify-dbinstance-new.png)
+
+Apply the same changes to the `target` DB.
 
 > [!NOTE]
 > Securely store this master password till the time of migration completion. This will be automatically be rotated when `blue<>green` deployment is performed in Step [Step 17: Update Original TED Stack > Execute `blue<>green`](#execute-greenblue-deployment)
