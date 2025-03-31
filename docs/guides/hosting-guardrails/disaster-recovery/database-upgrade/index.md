@@ -32,7 +32,7 @@ The activities are performed in the Turbot Guardrails hosting AWS account.
 ### Required Down Time
 
 - Less than 1 minute for rebooting DB instance while enabling the logical replication in the source DB [Step 1: Enable DB Logical Replication](#reboot-db-instance)
-- Approximate ~5 to ~10 minutes in the process of renaming the databases [Step 15: Rename DB Instances](#step-15-rename-db-instances)
+- Approximate ~5 to ~10 minutes in the process of renaming the databases [Step 14: Rename DB Instances](#step-14-rename-db-instances)
 
 ## Step 1: Enable DB Logical Replication
 
@@ -328,8 +328,6 @@ pg_restore: error: could not execute query: ERROR: deadlock detected - 1
 pg_restore: error: could not execute query: ERROR: operator does not exist: public.ltree = public.ltree - 264
 ```
 
-**Add example error**
-
 
 ## Step 11: Create Subscription in the Target DB Instance
 
@@ -457,17 +455,13 @@ SELECT n.nspname AS schema_name, COUNT(c.conname) AS constraint_count FROM pg_ca
 SELECT count(tgname), tgenabled FROM pg_trigger GROUP by tgenabled;
 ```
 
-<!-- ## Step 14: Turn Off Events and API and Events tasks.
+## Step 14: Rename DB Instances
 
-- Disable events as per the guidelines: [Pause Events](https://turbot.com/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events).
-- API and Events task can be turned off, by setting the task count to 0 in TE stack. -->
+### Pause Events
 
-## Step 14: Pause Events
+Similar to [Step 1 > Pause Events](#pause-events)
 
-Similar to [Step 3](#step-3-pause-events)
-
-
-## Step 15: Rename DB Instances
+### Modify DB Instance
 
 After proper validation of data consistencies, it's time to interchange the DB names as below `in AWS RDS console`.
 
@@ -479,13 +473,13 @@ Rename the new target instance by removing the -green suffix e.g. from `turbot-e
 
 ![Rename New Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-rename-new-instance-remove-green.png)
 
-At this stage the workspace is now pointing to the new target DB with the existing RDS endpoint.
+At this stage the workspace is now pointing to the new target DB with the earlier used RDS DB instance endpoint.
 
-## Step 16: Start Events
+### Start Events
 
 Now enable event processing. Refer [Enable the events](/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events#enable-event-processing).
 
-## Step 17: Update Original TED Stack
+## Step 15: Update Original TED Stack
 
 It's important to update the original TED stack e.g. (`ted-einstein`) with parameter values of new TED stack (`ted-einstein-green`) we created in [Step 2 DB Upgrade](#in-case-of-db-engine-upgrade).
 
@@ -502,7 +496,7 @@ This will reset the master password along with other applicable parameters.
 
 ![Blue Green Deployment Trigger](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/service-catalog-blue-green-deployment.png)
 
-## Step 18: Run Smoke Tests
+## Step 16: Run Smoke Tests
 
 Run smoke tests to Test both the restored and new database instances to confirm the upgrade.
 
@@ -521,7 +515,7 @@ Run smoke tests to Test both the restored and new database instances to confirm 
 - Verify grants are working correctly.
 - Ensure stacks are functioning as intended.
 
-## Step 19: Clean Up
+## Step 17: Clean Up
 
 <!-- TO CHECK IF THIS WILL TERMINATE THE OLD RDS INSTANCE turbot-einstein-blue? -->
 <!-- INCLUDE TERMINATION PROTECTION NOTE HERE FOR RDS INSTANCE -->
@@ -536,7 +530,7 @@ select * from pg_replication_slots;
 select * from pg_drop_replication_slot('rs_blue');
 drop schema migration_turbot cascade; -->
 
-## Step 20: Disable and Delete Subscriptions
+## Step 18: Disable and Delete Subscriptions
 
 Disable and delete subscription and replication slots.
 
