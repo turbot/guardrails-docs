@@ -14,7 +14,7 @@ In this guide, you will:
 
 This guide outlines two main scenarios for database upgrades:
 
-1. **Storage Optimization**: Resizing storage allocation for improving efficiency.
+1. **Storage Optimization**: Resizing storage allocation for improving efficiency and cost.
 2. **Engine Version Upgrade**: Upgrading the PostgreSQL database engine version to access new features and security updates.
 
 
@@ -23,16 +23,16 @@ This guide outlines two main scenarios for database upgrades:
 The activities are performed in the Turbot Guardrails hosting AWS account.
 
 - Access to the Guardrails hosting AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
-- PostgreSQL client installed on the [bastion host](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host).
 - Familiarity with AWS RDS, EC2, Service Catalog and CloudFormation services.
-- Ensure logical replication is supported and enabled on the database engine.
+<!-- - PostgreSQL client installed on the [bastion host](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host). -->
 - Knowledge of the current database usage (storage and version).
 - Awareness of the backup schedule to avoid disruptions during the process.
+
 
 ### Required Down Time
 
 - Less than 1 minute for rebooting DB instance while enabling the logical replication in the source DB [Step 1: Enable DB Logical Replication](#reboot-db-instance)
-- Approximate ~7 to 10 minutes in the process of renaming the databases [Step 15: Rename DB Instances](#step-15-rename-db-instances)
+- Approximate ~5 to ~10 minutes in the process of renaming the databases [Step 15: Rename DB Instances](#step-15-rename-db-instances)
 
 ## Step 1: Enable DB Logical Replication
 
@@ -94,6 +94,8 @@ For example, if your original source database is named `turbot-einstein`, name t
 
 If performing a database version upgrade e.g. migrating to PostgreSQL v16.x, use the `DB Engine Version` and `Read Replica DB Engine Version` parameters under the `Database - Advanced - Engine` section. Set the appropriate `DB Engine Parameter Group Family` and the `Hive RDS Parameter Group` under the `Database - Advanced - Parameters` section.
 
+> [!IMPORTANT]
+> This process is not covering in case any enterprise hosting has `Read Replica DB Engine` hosted.
 
 ![Set Db Engine Upgrade](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-db-engine-upgrade.png)
 
@@ -103,7 +105,7 @@ If performing a database version upgrade e.g. migrating to PostgreSQL v16.x, use
 Set the allocated storage to match the current disk usage using the `Allocated Storage in GB` parameter (e.g., if 210 GB out of 500 GB is used, set it to 210 GB) and define the `Maximum Allocated Storage limit in GB` to a suitable value, both located under the `Database - Advanced - Storage` section; use the `FreeStorageSpace` metric to determine the size.
 
 
-![Set Allocated Storage](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/service-catalog-storage-allocation.png)
+![Set Allocated Storage](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/service-catalog-storage-allocation-new.png)
 
 Set the encryption by configuring the `Custom Hive Key` parameter to use the original KMS key under the `Advanced - Infrastructure` section. This should be the Key ID, typically formatted as: `1111233-abcd-4444-2322-123456789012`.
 
@@ -111,12 +113,10 @@ Set the encryption by configuring the `Custom Hive Key` parameter to use the ori
 
 Keep all other values unchanged.
 
-
 ## Step 3: Set Master Password in Source & Target
 
 Set the master password for both the DB instances via the AWS console.
 
-// REPHRASE
 > [!TIP]
 > Setting the master password in both source and target databases is crucial for:
 > - Ensuring execution the logical replication process between databases.
@@ -124,7 +124,6 @@ Set the master password for both the DB instances via the AWS console.
 Select the `source` DB instance and choose **Modify**.
 
 ![Select Modify](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-modify.png)
-
 
 Select the `target` i.d. new DB instance and choose **Modify**.
 
@@ -135,7 +134,7 @@ Select **Modify DB Instance** and apply the changes.
 <!-- ![Select Modify DB Instance](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-select-modify-dbinstance.png) -->
 
 > [!NOTE]
-> Securely store this master password till the time of migration completion.
+> Securely store this master password till the time of migration completion. This will be automatically be rotated when `blue<>green` deployment is performed in Step [Step 17: Update Original TED Stack > Execute `blue<>green`](#execute-greenblue-deployment)
 
 ## Step 4: Create Bastion Host
 
@@ -201,7 +200,7 @@ Set the source and target DB endpoints, available under the **Connectivity & Sec
 ```shell
 export SOURCE=<source_db_endpoint>
 export TARGET=<target_db_endpoint>
-export PGPASSWORD=<master_password_set_in_step_5>
+export PGPASSWORD=<master_password_set_in_step4>
 ```
 ![DB Instance Endpoint](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-endpoint.png)
 
@@ -213,10 +212,10 @@ While continuing with the **first bastion host session**, execute the commands t
 ```shell
 psql --host=$SOURCE --username=master --dbname=turbot
 CREATE PUBLICATION pub_blue FOR ALL TABLES;
-SELECT \* FROM pg_create_logical_replication_slot('rs_blue', 'pgoutput');
+SELECT * FROM pg_create_logical_replication_slot('rs_blue', 'pgoutput');
 ```
 > [!WARNING]
-> After creating replication slots in [Step 12](#step-12-create-publisher-and-replication-slot-in-original-instance), upgrading existing workspaces or creating new ones will not be possible until the process is complete. Additionally, no DDL changes can be performed during this time.
+> After creating replication slots, upgrading existing workspaces or creating new ones `will not be possible` until the process is complete. Additionally, no DDL changes can be performed during this time.
 
 
 ## Step 9: Create Source DB PG Dump
@@ -320,7 +319,7 @@ Check for any errors in the restore process.
 ```bash
 cat restore.log | grep error
 ```
-If `no error` except trigger related errors is visible in the restore.log, move to next step.
+If `no error` except few trigger, deadlock related errors is visible in the restore.log, move to next step.
 
 **Example of Probable Error**
 
@@ -341,11 +340,11 @@ pg_restore: error: could not execute query: ERROR: operator does not exist: publ
 > - Ensure any changes made to the source database during migration are replicated to the target
 > - Minimize downtime by keeping both databases in sync until the final cutover
 
-Create a subscription in the `target` database. Save the value to be used in the next step.
+Create a subscription in the `target` database.
 
 ```shell
 psql --host=$TARGET --username=master --dbname=turbot
-CREATE SUBSCRIPTION sub_blue CONNECTION 'host=spongebob-elsa.coaztwuilyxs.us-east-1.rds.amazonaws.com port=5432 password=postgres user=master dbname=turbot' PUBLICATION pub_blue WITH (
+CREATE SUBSCRIPTION sub_blue CONNECTION 'host=<SOURCE DB IDENTIFIER> port=5432 password=<MASTER PASSWORD> user=master dbname=turbot' PUBLICATION pub_blue WITH (
         copy_data = false,
         create_slot = false,
         enabled = false,
@@ -354,10 +353,11 @@ CREATE SUBSCRIPTION sub_blue CONNECTION 'host=spongebob-elsa.coaztwuilyxs.us-eas
         slot_name = 'rs_blue'
     );
 ```
+
 ```shell
 SELECT * FROM pg_replication_origin;
 ```
-Sample output:
+Sample output as below and save the value to be used in the next step.
 
 ```shell
 turbot=> SELECT * FROM pg_replication_origin;
@@ -380,7 +380,7 @@ The value `AC96/49F46070` is derived from this [step](#create-snapshot).
 
 ### Monitor Progress
 
-Execute the following command in the `source` database to monitor the replication progress. Proceed to the next steps once the `lsn_distance` reaches **0**, by executing following command. Wait for `lsn_distance` to reach `**0**` at-least once.
+Execute the following command in the `source` database to monitor the replication progress. Proceed to the next steps once the `lsn_distance` reaches **0**, by executing following command. Wait for `lsn_distance` to reach **0** at-least once.
 
 ```shell
 psql --host=$SOURCE --username=master --dbname=turbot
@@ -421,6 +421,8 @@ create trigger resource_types_500_rt_path_update_au after update on $turbot_sche
 ```
 > [!NOTE]
 > The above script must be executed for no of workspaces separately if they are part of the same database.
+>
+> Any additional new trigger will be updated here in future state.
 
 ## Step 13: Test Data
 
@@ -494,7 +496,9 @@ Refer the parameters used in [Step 2: Provision New Database Instance](#in-case-
 
 ![Set Db Engine Upgrade](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/rds-db-engine-upgrade.png)
 
-Execute a `green<>blue` deployment.
+### Execute `green<>blue` Deployment
+
+This will reset the master password along with other applicable parameters.
 
 ![Blue Green Deployment Trigger](/images/docs/guardrails/guides/hosting-guardrails/disaster-recovery/database-upgrade/service-catalog-blue-green-deployment.png)
 
@@ -524,20 +528,24 @@ Run smoke tests to Test both the restored and new database instances to confirm 
 
 Delete the new TED stack i.e. `turbot-einstein-green` along with its associated resources, including the S3 bucket, log groups, and AWS Backup. Clean up replication slots and subscriptions.
 
-## Step 20: Disable and Delete Subscriptions
+<!-- When the old DB is terminated from the TED stack, the following will be automatically cleaned up.
 
-Disable and delete subscription and replication slots.
-
-```sql
 select * from pg_publication;
 drop publication pub_blue;
 select * from pg_replication_slots;
 select * from pg_drop_replication_slot('rs_blue');
+drop schema migration_turbot cascade; -->
+
+## Step 20: Disable and Delete Subscriptions
+
+Disable and delete subscription and replication slots.
+
+
+```sql
 select * from pg_subscription;
 alter subscription sub_blue disable;
 alter subscription sub_blue set (slot_name=none);
 drop subscription sub_blue;
-drop schema migration_turbot cascade;
 ```
 
 ## Troubleshooting
