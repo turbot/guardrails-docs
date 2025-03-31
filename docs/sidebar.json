@@ -464,6 +464,7 @@
             "items": [
               "guides/hosting-guardrails/disaster-recovery/architecture-options",
               "guides/hosting-guardrails/disaster-recovery/hive-restore",
+              "guides/hosting-guardrails/disaster-recovery/database-upgrade",
               "guides/hosting-guardrails/disaster-recovery/restore-workspace",
               "guides/hosting-guardrails/disaster-recovery/multi-region-deployment",
               "guides/hosting-guardrails/disaster-recovery/multi-region-failover"
