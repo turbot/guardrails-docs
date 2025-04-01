@@ -10,7 +10,7 @@ You can attach a guardrails to accounts directly, but its generally recommended 
 
 
 ## Phases
-Guardrail **phases** provide a predictable, reliable, ordered rollout procedure.  Phases allow you to bring visibility to stakeholders at the appropriate time, and allow you to preview the impact of change.
+Guardrail **phases** enable a predictable, reliable, ordered rollout procedure.  Phases allow you to bring visibility to stakeholders at the appropriate time, and allow you to preview the impact of change.
 
 For example, the cloud team can attach a guardrail in `draft` to preview its impact on the account without impacting the account team in anyway.  If the cloud team decides to deploy the change, then they can then move to `preview` to provide visibility to the account team before the change impacts their compliance score.  Subsequently moving to `check` means the guardrail is now scored, but no automatic remediation takes places.  This gives the account team time to manually fix the issue.  Moving to `enforce` will cause Turbot Guardrails to enforce the guardrail, automatically remediating the issues as they are found. 
 

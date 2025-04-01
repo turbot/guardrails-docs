@@ -5,7 +5,32 @@
     "id": "getting-started",
     "link": "getting-started",
     "items": [
- 
+      {
+        "type": "category",
+        "id": "your-guardrails-org",
+        "link": "getting-started/your-guardrails-org",
+        "items": [
+          {
+            "type": "category",
+            "id": "user",
+            "link": "getting-started/your-guardrails-org/user",
+            "items": [
+              "getting-started/your-guardrails-org/user/sign-up",
+              "getting-started/your-guardrails-org/user/profile"
+            ]
+          },
+          {
+            "type": "category",
+            "id": "organizations",
+            "link": "getting-started/your-guardrails-org/organizations",
+            "items": [
+              "getting-started/your-guardrails-org/organizations/setup",
+              "getting-started/your-guardrails-org/organizations/team",
+              "getting-started/your-guardrails-org/organizations/profile"
+            ]
+          }
+        ]
+      },
       {
         "type": "category",
         "id": "getting-started-aws",
@@ -57,33 +82,7 @@
           "getting-started/getting-started-gcp/enable-enforcement"
         ]
       },
-      {
-        "type": "category",
-        "id": "your-guardrails-org",
-        "link": "getting-started/your-guardrails-org",
-        "items": [
-          {
-            "type": "category",
-            "id": "user",
-            "link": "getting-started/your-guardrails-org/user",
-            "items": [
-              "getting-started/your-guardrails-org/user/sign-up",
-              "getting-started/your-guardrails-org/user/profile"
-            ]
-          },
-          {
-            "type": "category",
-            "id": "organizations",
-            "link": "getting-started/your-guardrails-org/organizations",
-            "items": [
-              "getting-started/your-guardrails-org/organizations/setup",
-              "getting-started/your-guardrails-org/organizations/team",
-              "getting-started/your-guardrails-org/organizations/profile"
-            ]
-          }
-        ]
-      },
-      "getting-started/terraform-for-everything",
+
       "getting-started/faq"
     ]
   },
@@ -324,6 +323,14 @@
         ]
       },
 
+      {
+        "type": "category",
+        "id": "terraform",
+        "link": "managing/terraform",
+        "items": [
+          "managing/terraform/terraform-lab"
+        ]
+      },
 
       {
         "type": "category",
@@ -338,8 +345,6 @@
         ]
       },
       
-    
-      "managing/account-imports",
       {
         "type": "category",
         "id": "directories",
@@ -376,6 +381,18 @@
       
 
 
+      "managing/files",
+
+      {
+        "type": "category",
+        "id": "working-with-folders",
+        "link": "managing/working-with-folders",
+        "items": [
+          "managing/working-with-folders/create",
+          "managing/working-with-folders/rename",
+          "managing/working-with-folders/delete"
+        ]
+      },
 
       "managing/change-window"
     ]
@@ -579,7 +596,6 @@
     "id": "todo",
     "link": "todo",
     "items": [
-      "todo/files",
       "todo/ebs-volume-conversion",
 
       {
@@ -588,22 +604,15 @@
         "link": "todo/7-minute-labs",
         "items": [
           "todo/7-minute-labs/cli",
-          "todo/7-minute-labs/graphql",
-          "todo/7-minute-labs/terraform"
+          "todo/7-minute-labs/graphql"
         ]
       },
 
-      "todo/regions",
-      {
-        "type": "category",
-        "id": "todo/working-with-folders",
-        "link": "todo/working-with-folders",
-        "items": [
-          "todo/working-with-folders/create",
-          "todo/working-with-folders/rename",
-          "todo/working-with-folders/delete"
-        ]
-      }
+      "todo/regions"
+
+
+  
+
 
     ]
 },
