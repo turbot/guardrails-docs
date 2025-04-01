@@ -4,16 +4,46 @@ title: Guardrails
 
 # Guardrails
 
-​Turbot Guardrails provides a comprehensive governance platform designed to automate the discovery and remediation of compliance, security, financial, and operational objectives across enterprise cloud environments. It supports major public cloud providers and platforms, including AWS, Azure, Google Cloud, Kubernetes, and Github. ​
+A **Guardrail** is a deployable unit of policy enforcement.  Each guardrail implements a [control]() objective, such as enforcing encryption, monitoring access, and securing networking configurations. 
 
-​Turbot Guardrails inventories your cloud [accounts], discovering [resources] on demand and tracking changes in your environment as they occur, providing a near realtime [CMDB] and an [audit log] of change activity.
+You can attach a guardrails to accounts directly, but its generally recommended to deploy them via [campaigns](campaigns) instead.  Campaigns allow you to automate the rollout of one or more guardrails, including scheduling the rollout and sending communications to account teams.
 
-Once your inventory is set up, you can create [guardrails] to define your security, compliance, and operational posture.  Each guardrail implements a [control] objective, such as enforcing encryption, monitoring access, and securing networking configurations.  Turbot Guardrails provides over 9,000 prebuilt [policies], allowing you to customize the behavior of these controls to meet your standards and priorities.
 
-[Campaigns] help you deploy your guardrails to your enterprise in an organized, predictable, collaborative manner.  Guardrails can be rolled out to your cloud accounts in phases, allowing you to preview and communicate potential issues and to warn of potential changes before they occur.
+## Phases
+Guardrail **phases** provide a predictable, reliable, ordered rollout procedure.  Phases allow you to bring visibility to stakeholders at the appropriate time, and allow you to preview the impact of change.
 
-Once guardrails are deployed, Guardrails can detect misconfigurations in real-time and automatically correct them ensuring that your environment remains compliant.
+For example, the cloud team can attach a guardrail in `draft` to preview its impact on the account without impacting the account team in anyway.  If the cloud team decides to deploy the change, then they can then move to `preview` to provide visibility to the account team before the change impacts their compliance score.  Subsequently moving to `check` means the guardrail is now scored, but no automatic remediation takes places.  This gives the account team time to manually fix the issue.  Moving to `enforce` will cause Turbot Guardrails to enforce the guardrail, automatically remediating the issues as they are found. 
 
+When attached, a guardrail will be in exactly one phase at a time for a given account.
+
+| Phase         | Description
+|---------------|------------------------------------------------------
+| (unattached)  | The Policy is installed but not yet attached.
+| `draft`       | Exactly like check, but doesn't count toward your control score, and is ENTIRELY hidden from the account teams. The purpose is for the **Cloud Team** to evaluate the potential impact and determine whether they want to roll it out. Notices should not be sent in this phase.
+| `preview`     | Exactly like check, but doesn't count toward your control score. it's a way for the **account teams** that own the accounts see what a guardrail will do before it impacts their score.  In preview, we start to notify the account teams to let them know this will be rolled out.
+| `check`       | Create alarms but do not enforce settings or remediate automatically.  The alarms are scored at this point.
+| `enforce`     | Enforce settings where possible/desired
+
+
+Phases are meant to be ordered / progressive; you start in `draft`, move to `preview`, then `check`, then ideally move to `enforce`.  You are not required to proceed in order, or to proceed through all phases, however.  You may move backward as well - from `enforce` back to `check`, from `check` to `preview`, etc.
+
+You can manually change the phase of a guardrail for an account, or you can deploy guardrails with [deployment campaigns](campaigns)
+
+
+## Guardrails vs Policy Packs
+Conceptually, a guardrail is one or more controls and its associated policies.  Guardrails, like [Policy Packs](), are implemented as Smart Folders behind the scenes, but they differ from Policy Packs as follows:
+
+- Guardrails may only be created at Turbot level, whereas Policy Packs may be created anywhere in the hierarchy.
+- Guardrails may only target accounts (AWS accounts, Azure subscriptions, GCP projects, etc.), and are not attachable to folders or specific resources.
+- Guardrails specify which control(s) they configure, allowing Turbot Guardrails to detect and prohibit conflicting policies.
+- A guardrail can only include policies that relate to the controls that it targets.
+- Campaigns only work with Guardrails, not policy packs
+- You can only edit or add a setting to a Guardrail when it’s in unattached, draft or preview phase.
+- You cannot change the attachment order for guardrails.Guardrails are alway attached BEFORE policy packs.
+
+
+
+.
 
 
 

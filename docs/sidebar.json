@@ -193,7 +193,7 @@
         "id": "guardrails",
         "link": "using/guardrails",
         "items": [
- 
+            "using/guardrails/campaigns",
           
           {
             "type": "category",
