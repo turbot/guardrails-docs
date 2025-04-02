@@ -1,6 +1,6 @@
 ---
-title: Resources
-sidebar_label: Resources
+title: Inventory
+sidebar_label: Inventory
 ---
 
 # Resources

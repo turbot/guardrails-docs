@@ -1,5 +1,5 @@
 ---
-title: "FAQs"
+title: "Hosting FAQs"
 template: Documentation
 nav:
   order: 80

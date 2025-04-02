@@ -1,6 +1,6 @@
 ---
-title: Permissions
-sidebar_label: Permissions
+title: Assigning Permissions
+sidebar_label: Assigning Permissions
 ---
 
 # Assigning Permissions in Guardrails

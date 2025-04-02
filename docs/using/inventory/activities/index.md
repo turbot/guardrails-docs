@@ -1,9 +1,9 @@
 ---
-title: Resource Activities
-sidebar_label: Activities
+title: Resource Activity
+sidebar_label: Activity
 ---
 
-# Resource Activities
+# Resource Activity
 
 Cloud infrastructure constantly changes to meet the demands of modern
 applications. One of the fundamental assumptions of Guardrails is that the

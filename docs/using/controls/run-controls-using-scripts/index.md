@@ -19,25 +19,25 @@ In this guide, you will:
 
 Log into the Guardrails console with provided local credentials or by using any SAML based login and Select **Controls** from the top navigation menu.
 
-![Navigate to Controls](/images/docs/guardrails/guides/using-guardrails/troubleshooting/run-controls-using-scripts/guardrails-navigate-to-controls.png)
+![Navigate to Controls](/images/docs/guardrails/using/controls//run-controls-using-scripts/guardrails-navigate-to-controls.png)
 
 ## Step 2: Identify Control Errors
 
 In the Controls section, filter and select the controls in an `Error` state that need to be re-run.
 
-![Identify Control Errors](/images/docs/guardrails/guides/using-guardrails/troubleshooting/run-controls-using-scripts/identify-controls-errors.png)
+![Identify Control Errors](/images/docs/guardrails/using/controls//run-controls-using-scripts/identify-controls-errors.png)
 
 ## Step 3: Retrieve Control Type URI
 
 Open the control details, navigate to the **Developers** tab, and copy the `Control Type URI` for use in later steps.
 
-![Control Type URI](/images/docs/guardrails/guides/using-guardrails/troubleshooting/run-controls-using-scripts/guardrails-retrieve-control-uri.png)
+![Control Type URI](/images/docs/guardrails/using/controls//run-controls-using-scripts/guardrails-retrieve-control-uri.png)
 
 ## Step 4: Clone Guardrails Samples Repository
 
 Go to [guardrails-samples](https://github.com/turbot/guardrails-samples) and clone the repository.
 
-![Guardrails Samples](/images/docs/guardrails/guides/using-guardrails/troubleshooting/run-controls-using-scripts/github-guardrails-samples-repo.png)
+![Guardrails Samples](/images/docs/guardrails/using/controls//run-controls-using-scripts/github-guardrails-samples-repo.png)
 
 ## Step 5: Navigate to Run-Controls Directory
 
@@ -105,7 +105,7 @@ The command stops once all controls have successfully run.
 
 Check that all controls have moved to an `OK` state.
 
-![Navigate to Reports](/images/docs/guardrails/guides/using-guardrails/troubleshooting/run-controls-using-scripts/guardrails-verify-control-status.png)
+![Navigate to Reports](/images/docs/guardrails/using/controls//run-controls-using-scripts/guardrails-verify-control-status.png)
 
 > [!NOTE]
 > If you need to resolve policies that are not evaluating properly, you can use the same approach with the run-policies script instead.

@@ -1,6 +1,6 @@
 ---
 title: Create a Policy Pack
-sidebar_label: Create a Policy Pack
+sidebar_label: Create a Policy Pack 🛠
 ---
 
 # Policy Packs
@@ -16,7 +16,7 @@ sidebar_label: Create a Policy Pack
 1. Finish by clicking the green "Create" button
 
 
-![](/images/docs/guardrails/policies-page.png)
+![](/images/docs/guardrails/using/policies/policy-packs/create/policies-page.png)
 
 **Tip**: It is most useful to create Policy Packs (and other Guardrails configuration) as code. See [below](#create-a-policy-pack-as-code) for details.
 

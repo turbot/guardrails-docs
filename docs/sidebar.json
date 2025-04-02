@@ -114,26 +114,34 @@
 
       {
         "type": "category",
-        "id": "using-resources",
-        "link": "using/resources",
+        "id": "using-inventory",
+        "link": "using/inventory",
         "items": [
-          "using/resources/hierarchy",
-          "using/resources/types-categories",
+          "using/inventory/hierarchy",
+          "using/inventory/types-categories",
           
           {
             "type": "category",
             "id": "resource-activity",
-            "link": "using/resources/activities",
+            "link": "using/inventory/activities",
             "items": [
-              "using/resources/observe-aws-activity"
+              "using/inventory/observe-aws-activity"
             ]
           },
-          "using/resources/resources-lab"
+          "using/inventory/files",
+
+          {
+            "type": "category",
+            "id": "working-with-folders",
+            "link": "using/inventory/working-with-folders",
+            "items": [
+              "using/inventory/working-with-folders/create",
+              "using/inventory/working-with-folders/rename",
+              "using/inventory/working-with-folders/delete"
+            ]
+          }
         ]
       },
-
-
- 
 
       {
         "type": "category",
@@ -141,14 +149,24 @@
         "link": "using/policies",
         "items": [
           "using/policies/hierarchy",
-          "using/policies/values-settings",
     
-          
+          {
+            "type": "category",
+            "id": "using-policies-values-settings",
+            "link": "using/policies/values-settings",
+            "items": [
+              "using/policies/create-setting",
+              "using/policies/create-exception"
+            ]
+          },
+
+
           {
             "type": "category",
             "id": "calculated-policies",
             "link": "using/policies/calculated",
             "items": [
+              "using/policies/calculated/create-calc-setting",
               "using/policies/calculated/calc-policy-lab",
               "using/policies/calculated/fix-calc-policy-evaluation-errors",
               "using/policies/calculated/calculated-faq"
@@ -156,6 +174,75 @@
             ]
           },
 
+          {
+            "type": "category",
+            "id": "guardrails",
+            "link": "using/policies/guardrails",
+            "items": [
+              
+              {
+                "type": "category",
+                "id": "standard-guardrails",
+                "link": "using/policies/guardrails/standard",
+                "items": [
+                  "using/policies/guardrails/standard/discovery",
+                  "using/policies/guardrails/standard/cmdb",
+                  "using/policies/guardrails/standard/access-logging",
+                  "using/policies/guardrails/standard/active",
+                  "using/policies/guardrails/standard/approved",
+                  "using/policies/guardrails/standard/audit-logging",
+                  "using/policies/guardrails/standard/budget",
+                  "using/policies/guardrails/standard/encryption-at-rest",
+                  "using/policies/guardrails/standard/encryption-in-transit",
+                  "using/policies/guardrails/standard/public-access",
+            
+                  {
+                    "type": "category",
+                    "id": "scheduling",
+                    "link": "using/policies/guardrails/standard/scheduling",
+                    "items": [
+                      "using/policies/guardrails/standard/scheduling/db-scheduling-using-custom-tag"
+                    ]
+                  },
+                
+    
+                  {
+                    "type": "category",
+                    "id": "stacks",
+                    "link":  "using/policies/guardrails/standard/stacks",
+                    "items": [
+                      "using/policies/guardrails/standard/stacks/deploy",
+                      "using/policies/guardrails/standard/stacks/destroy"
+                    ]
+                  },
+    
+                  {
+                    "type": "category",
+                    "id": "configured",
+                    "link":  "using/policies/guardrails/standard/configured",
+                    "items": [
+                      "using/policies/guardrails/standard/stacks/network-stack"
+                    ]
+                  },
+    
+                  {
+                    "type": "category",
+                    "id": "guardrails/tagging",
+                    "link": "using/policies/guardrails/standard/tagging",
+                    "items": [
+                      "using/policies/guardrails/standard/tagging/dynamic-tags",
+                      "using/policies/guardrails/standard/tagging/require-keys",
+                      "using/policies/guardrails/standard/tagging/tag-casing",
+                      "using/policies/guardrails/standard/tagging/tagging-helpers"
+                    ]
+                  },
+                  "using/policies/guardrails/standard/trusted-access",
+                  "using/policies/guardrails/standard/usage"
+                 
+                ]
+              }
+            ]
+          },
           {
             "type": "category",
             "id": "policy-packs",
@@ -166,7 +253,7 @@
             ]
           },
 
-          
+
           "using/policies/set-policy-lab"
 
         ]
@@ -189,72 +276,11 @@
 
       {
         "type": "category",
-        "id": "guardrails",
-        "link": "using/guardrails",
+        "id": "campaigns",
+        "link": "using/campaigns",
         "items": [
-            "using/guardrails/campaigns",
-          
-          {
-            "type": "category",
-            "id": "standard-guardrails",
-            "link": "using/guardrails/standard",
-            "items": [
-              "using/guardrails/standard/discovery",
-              "using/guardrails/standard/cmdb",
-              "using/guardrails/standard/access-logging",
-              "using/guardrails/standard/active",
-              "using/guardrails/standard/approved",
-              "using/guardrails/standard/audit-logging",
-              "using/guardrails/standard/budget",
-              "using/guardrails/standard/encryption-at-rest",
-              "using/guardrails/standard/encryption-in-transit",
-              "using/guardrails/standard/public-access",
-        
-              {
-                "type": "category",
-                "id": "scheduling",
-                "link": "using/guardrails/standard/scheduling",
-                "items": [
-                  "using/guardrails/standard/scheduling/db-scheduling-using-custom-tag"
-                ]
-              },
-            
+  
 
-              {
-                "type": "category",
-                "id": "stacks",
-                "link":  "using/guardrails/standard/stacks",
-                "items": [
-                  "using/guardrails/standard/stacks/deploy",
-                  "using/guardrails/standard/stacks/destroy"
-                ]
-              },
-
-              {
-                "type": "category",
-                "id": "configured",
-                "link":  "using/guardrails/standard/configured",
-                "items": [
-                  "using/guardrails/standard/stacks/network-stack"
-                ]
-              },
-
-              {
-                "type": "category",
-                "id": "guardrails/tagging",
-                "link": "using/guardrails/standard/tagging",
-                "items": [
-                  "using/guardrails/standard/tagging/dynamic-tags",
-                  "using/guardrails/standard/tagging/require-keys",
-                  "using/guardrails/standard/tagging/tag-casing",
-                  "using/guardrails/standard/tagging/tagging-helpers"
-                ]
-              },
-              "using/guardrails/standard/trusted-access",
-              "using/guardrails/standard/usage"
-             
-            ]
-          }
         ]
       }
     ]
@@ -337,30 +363,45 @@
         "id": "iam",
         "link": "managing/iam",
         "items": [
+          {
+            "type": "category",
+            "id": "iam-authentication",
+            "link": "managing/iam/authentication",
+            "items": [
+              "managing/iam/identity",
+              {
+                "type": "category",
+                "id": "directories",
+                "link": "managing/directories",
+                "items": [
+                  "managing/directories/aws-sso",
+                  "managing/directories/azure-ad",
+                  "managing/directories/google",
+                  "managing/directories/okta",
+                  "managing/directories/onelogin",
+                  "managing/directories/ldap-ldaps",
+                  "managing/directories/local",
+                  "managing/directories/pingid"
+                ]
+              },
+              "managing/iam/user-mgt",
+              "managing/iam/access-keys"
+            ]
+          },
+          {
+            "type": "category",
+            "id": "iam-permissions",
+            "link": "managing/iam/permissions",
+            "items": [
+              "managing/iam/permission-assignment"
+            ]
+          },
+
           "managing/iam/administrators",
-          "managing/iam/user-mgt",
-          "managing/iam/access-keys",
-          "managing/iam/permission-assignment",
           "managing/iam/advanced"
         ]
       },
       
-      {
-        "type": "category",
-        "id": "directories",
-        "link": "managing/directories",
-        "items": [
-          "managing/directories/aws-sso",
-          "managing/directories/azure-ad",
-          "managing/directories/google",
-          "managing/directories/okta",
-          "managing/directories/onelogin",
-          "managing/directories/ldap-ldaps",
-          "managing/directories/local",
-          "managing/directories/pingid"
-        ]
-      },
-
 
       {
         "type": "category",
@@ -379,20 +420,6 @@
         "items": ["managing/firehose/pipelines"]
       },
       
-
-
-      "managing/files",
-
-      {
-        "type": "category",
-        "id": "working-with-folders",
-        "link": "managing/working-with-folders",
-        "items": [
-          "managing/working-with-folders/create",
-          "managing/working-with-folders/rename",
-          "managing/working-with-folders/delete"
-        ]
-      },
 
       "managing/change-window"
     ]
@@ -460,8 +487,6 @@
           "hosting/updating-stacks/general-purpose-gp3"
         ]
       },
-      "hosting/FAQ",
-      "hosting/troubleshooting",
 
       {
         "type": "category",
@@ -498,7 +523,8 @@
           "hosting/disaster-recovery/restore",
           "hosting/disaster-recovery/dr-testing"
         ]
-      }
+      },
+      "hosting/FAQ"
     ]
   },
   
@@ -585,7 +611,9 @@
         "type": "category",
         "id": "reference/graphql",
         "link": "reference/graphql",
-        "items": []
+        "items": [
+          "reference/graphql/graphql-lab"
+        ]
       },
       "reference/glossary"
     ]
@@ -603,8 +631,7 @@
         "id": "7-minute-labs",
         "link": "todo/7-minute-labs",
         "items": [
-          "todo/7-minute-labs/cli",
-          "todo/7-minute-labs/graphql"
+          "todo/7-minute-labs/cli"
         ]
       },
 

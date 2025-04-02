@@ -13,6 +13,28 @@ You may set up a **Deployment Campaign** to automate the rollout of one or more 
 A deployment campaign provides a predictable, ordered mechanism for deploying guardrails to your organization.  When you create a campaign, you choose one or more guardrails that you would like to deploy, select the accounts to deploy them to, and set a deployment and communication schedule for promoting the guardrails through phases.
 
 
+
+## Phases
+Guardrail **phases** enable a predictable, reliable, ordered rollout procedure.  Phases allow you to bring visibility to stakeholders at the appropriate time, and allow you to preview the impact of change.
+
+For example, the cloud team can attach a guardrail in `draft` to preview its impact on the account without impacting the account team in anyway.  If the cloud team decides to deploy the change, then they can then move to `preview` to provide visibility to the account team before the change impacts their compliance score.  Subsequently moving to `check` means the guardrail is now scored, but no automatic remediation takes places.  This gives the account team time to manually fix the issue.  Moving to `enforce` will cause Turbot Guardrails to enforce the guardrail, automatically remediating the issues as they are found. 
+
+When attached, a guardrail will be in exactly one phase at a time for a given account.
+
+| Phase         | Description
+|---------------|------------------------------------------------------
+| (unattached)  | The guardrail is installed but not yet attached.
+| `draft`       | Exactly like check, but doesn't count toward your control score, and is ENTIRELY hidden from the account teams. The purpose is for the **Cloud Team** to evaluate the potential impact and determine whether they want to roll it out. Notices should not be sent in this phase.
+| `preview`     | Exactly like check, but doesn't count toward your control score. it's a way for the **account teams** that own the accounts see what a guardrail will do before it impacts their score.  In preview, we start to notify the account teams to let them know this will be rolled out.
+| `check`       | Create alarms but do not enforce settings or remediate automatically.  The alarms are scored at this point.
+| `enforce`     | Enforce settings where possible/desired
+
+
+Phases are meant to be ordered / progressive; you start in `draft`, move to `preview`, then `check`, then ideally move to `enforce`.  You are not required to proceed in order, or to proceed through all phases, however.  You may move backward as well - from `enforce` back to `check`, from `check` to `preview`, etc.
+
+You can manually change the phase of a guardrail for an account, or you can deploy guardrails with [deployment campaigns](campaigns)
+
+
 ## Examples
 The following examples use terraform to illustrate the capabilities of a campaign, but you can create a campaign from the console if you prefer.  
 
