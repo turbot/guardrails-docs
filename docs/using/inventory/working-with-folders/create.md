@@ -1,6 +1,6 @@
 ---
 title: Creating a Folder
-sidebar_label: Creating a Folder
+sidebar_label: Creating a Folder 🛠
 ---
 
 # Creating a Folder
@@ -24,21 +24,21 @@ Log in to the Guardrails console using your local credentials or via SAML-based 
 
 On the **Home** page, select the **Resources** card, then navigate to the resource that will act as the `parent` of the new folder. In this example, a new folder is created at the **Turbot** level, but you can also create sub-folders under an existing folder.
 
-![Locate Resource](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/create-resource-1.png)
+![Locate Resource](/images/docs/guardrails/using/inventory/working-with-folders/create-resource-1.png)
 
 On the far right, select **New**, then choose **Folder** from the **Resource Type** dropdown menu.
 
-![Create Folder](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/create-folder-1.png)
+![Create Folder](/images/docs/guardrails/using/inventory/working-with-folders/create-folder-1.png)
 
 Enter a **Name** and **Description** for the folder. Click **Create**.
 
-![Provide Folder Details](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/create-folder-2.png)
+![Provide Folder Details](/images/docs/guardrails/using/inventory/working-with-folders/create-folder-2.png)
 
 ## Step 2: Review
 
 - [ ] Validate that the folder has been created by navigating to the resource path and selecting the **Resources** tab.
 
-![Created Folder View](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/review-folder.png)
+![Created Folder View](/images/docs/guardrails/using/inventory/working-with-folders/review-folder.png)
 
 That's it! The folder is created immediately and will be visible in the UI.
 

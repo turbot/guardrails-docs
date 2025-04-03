@@ -1,6 +1,6 @@
 ---
 title: Renaming a Folder
-sidebar_label: Renaming a Folder
+sidebar_label: Renaming a Folder 🛠
 ---
 
 # Renaming a Folder
@@ -24,23 +24,23 @@ Log in to the Guardrails console using your local credentials or via SAML-based 
 
 Navigate to the **Resources** tab, locate the **folders** section, and select the folder you wish to rename.
 
-![Find Folder](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/find-folder-from-resources.png)
+![Find Folder](/images/docs/guardrails/using/inventory/working-with-folders/find-folder-from-resources.png)
 
 ## Step 2: Rename the Folder
 
 Click **Edit**.
 
-![Edit Folder](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/folder-name-edit-1.png)
+![Edit Folder](/images/docs/guardrails/using/inventory/working-with-folders/folder-name-edit-1.png)
 
 Enter the new folder name as required and select **Update**.
 
-![Update Folder Name](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/folder-name-edit-2.png)
+![Update Folder Name](/images/docs/guardrails/using/inventory/working-with-folders/folder-name-edit-2.png)
 
 ## Step 3: Review
 
 - [ ] Validate that the folder name has been updated by navigating to the **Resources** tab and confirming the new name appears correctly in the folder section.
 
-![After Rename View](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/review-folder-name-edit.png)
+![After Rename View](/images/docs/guardrails/using/inventory/working-with-folders/review-folder-name-edit.png)
 
 That's it! The folder name is updated immediately.
 

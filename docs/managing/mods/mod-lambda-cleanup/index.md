@@ -1,6 +1,6 @@
 ---
-title: "Mod Lambda Cleanup"
-sidebar_label: "Mod Lambda Cleanup"
+title: Mod Lambda Cleanup
+sidebar_label: Mod Lambda Cleanup 🛠
 ---
 
 # Enabling Mod Lambda Cleanup

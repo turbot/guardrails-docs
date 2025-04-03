@@ -19,29 +19,29 @@ An ideal workspace uses policies to meet business requirements through secure en
 
 Log in to the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails//using/console/reports/find-policies-in-tbd-state/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/using/console/reports/find-policies-in-tbd-state/guardrails-console-login.png)
 
 ## Step 2: Access Reports
 
 Choose **Reports** from the top navigation menu.
 
-![Navigate to Reports](/images/docs/guardrails//using/console/reports/find-policies-in-tbd-state/guardrails-navigate-to-reports.png)
+![Navigate to Reports](/images/docs/guardrails/using/console/reports/find-policies-in-tbd-state/guardrails-navigate-to-reports.png)
 
 ## Step 3: Filter Policies by State
 
 Under Policies, select **Policy Values by State**.
 
-![Policy Values by State](/images/docs/guardrails//using/console/reports/find-policies-in-tbd-state/guardrails-policy-values-by-state.png)
+![Policy Values by State](/images/docs/guardrails/using/console/reports/find-policies-in-tbd-state/guardrails-policy-values-by-state.png)
 
 From the **State** filter dropdown, select **TBD**. This will list the policy values currently in a `TBD` state.
 
-![Apply Filter](/images/docs/guardrails//using/console/reports/find-policies-in-tbd-state/guardrails-apply-tbd-filter.png)
+![Apply Filter](/images/docs/guardrails/using/console/reports/find-policies-in-tbd-state/guardrails-apply-tbd-filter.png)
 
 ## Step 4: Review the Cause
 
 Select a policy value in the `TBD` state and review the cause of the issue.
 
-![Review Cause](/images/docs/guardrails//using/console/reports/find-policies-in-tbd-state/guardrails-policy-identify-cause.png)
+![Review Cause](/images/docs/guardrails/using/console/reports/find-policies-in-tbd-state/guardrails-policy-identify-cause.png)
 
 Resolve Errors and Optimize Controls
 

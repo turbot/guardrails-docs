@@ -1,6 +1,6 @@
 ---
 title: Update Mods
-sidebar_label: Update Mods
+sidebar_label: Update Mods 🛠
 ---
 
 # Update a Mod
@@ -20,7 +20,7 @@ Guardrails is designed to enable organizations to selectively install policies, 
 
 Log into the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/configuring-guardrails/update-mod/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/managing/mods/update-mod/guardrails-console-login.png)
 
 docs/guides/configuring-guardrails/update-mod
 
@@ -28,37 +28,37 @@ docs/guides/configuring-guardrails/update-mod
 
 Choose **Admin** from the top right corner.
 
-![Navigate To Admin](/images/docs/guardrails/guides/configuring-guardrails/update-mod/guardrails-navigate-admin-panel.png)
+![Navigate To Admin](/images/docs/guardrails/managing/mods/update-mod/guardrails-navigate-admin-panel.png)
 
 Select the **Mods** tab.
 
-![Mods](/images/docs/guardrails/guides/configuring-guardrails/update-mod/guardrails-navigate-mods.png)
+![Mods](/images/docs/guardrails/managing/mods/update-mod/guardrails-navigate-mods.png)
 
 ## Step 3: Find Mod
 
 From the **Mods** page, search the mod to be updated. The availability of an update is typically indicated by the `UPDATE AVAILABLE` Status.
 
-![Mod Search](/images/docs/guardrails/guides/configuring-guardrails/update-mod/guardrails-mod-search.png)
+![Mod Search](/images/docs/guardrails/managing/mods/update-mod/guardrails-mod-search.png)
 
 ## Step 4: Update Mod
 
 Select the mod and choose **Update**.
 
-![Select Update](/images/docs/guardrails/guides/configuring-guardrails/update-mod/guardrails-select-update.png)
+![Select Update](/images/docs/guardrails/managing/mods/update-mod/guardrails-select-update.png)
 
 Select the version to update, with the latest version recommended. choose **Update Mod**.
 
-![Update Mod Action](/images/docs/guardrails/guides/configuring-guardrails/update-mod/guardrails-update-mod-action.png)
+![Update Mod Action](/images/docs/guardrails/managing/mods/update-mod/guardrails-update-mod-action.png)
 
 ## Step 5: Review
 
 - [ ] The Updated mod appears in the list with the latest version and indicated by the `LATEST` Status.
 
-![Mod Update Latest](/images/docs/guardrails/guides/configuring-guardrails/update-mod/guardrails-update-latest.png)
+![Mod Update Latest](/images/docs/guardrails/managing/mods/update-mod/guardrails-update-latest.png)
 
 - [ ] Select the mod and verify that the health is in an **OK** state, indicating the mod is healthy.
 
-![Mod Health OK](/images/docs/guardrails/guides/configuring-guardrails/update-mod/guardrails-mod-health-ok.png)
+![Mod Health OK](/images/docs/guardrails/managing/mods/update-mod/guardrails-mod-health-ok.png)
 
 ## Next Steps
 

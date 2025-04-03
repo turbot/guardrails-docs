@@ -1,6 +1,7 @@
 ---
 title: Terraform in 7 minutes
 template: Documentation
+sidebar_label: Terraform in 7 minutes 🔬
 nav:
   title: Terraform
 ---

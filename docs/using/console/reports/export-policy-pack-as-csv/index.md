@@ -19,31 +19,31 @@ Exporting Turbot Guardrails policy settings as a CSV file enables collaboration 
 
 Log in to the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails//using/console/reports/export-policy-pack-as-csv/guardrails-console-login.png)
+![Guardrails Console Login](/images/docs/guardrails/using/console/reports/export-policy-pack-as-csv/guardrails-console-login.png)
 
 ## Step 2: Access Reports
 
 Choose **Reports** from the top navigation menu.
 
-![Navigate to Reports](/images/docs/guardrails//using/console/reports/export-policy-pack-as-csv/guardrails-navigate-to-reports.png)
+![Navigate to Reports](/images/docs/guardrails/using/console/reports/export-policy-pack-as-csv/guardrails-navigate-to-reports.png)
 
 ## Step 3: Select Policies
 
 Under **Policies**, select **Policy Settings by Resource Type**.
 
-![Policy Settings by Resource Type](/images/docs/guardrails//using/console/reports/export-policy-pack-as-csv/guardrails-select-policy-setting-by-resource-type.png)
+![Policy Settings by Resource Type](/images/docs/guardrails/using/console/reports/export-policy-pack-as-csv/guardrails-select-policy-setting-by-resource-type.png)
 
 ## Step 4: Choose Resource
 
 Select the required resource from the **Resource** filter dropdown. For this guide, the selected resource is the `Policy Pack`.
 
-![Select Resource](/images/docs/guardrails//using/console/reports/export-policy-pack-as-csv/guardrails-select-resource.png)
+![Select Resource](/images/docs/guardrails/using/console/reports/export-policy-pack-as-csv/guardrails-select-resource.png)
 
 ## Step 5: Export CSV
 
 Click the **Export to CSV** link at the top of the page to download the policy pack as a CSV file. The file will be stored in your local drive.
 
-![Export to CSV](/images/docs/guardrails//using/console/reports/export-policy-pack-as-csv/guardrails-export-to-csv.png)
+![Export to CSV](/images/docs/guardrails/using/console/reports/export-policy-pack-as-csv/guardrails-export-to-csv.png)
 
 ## Next Steps
 

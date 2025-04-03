@@ -1,6 +1,6 @@
 ---
 title: Adding users to the local directory
-sidebar_label: Adding users
+sidebar_label: Adding users 🛠
 ---
 
 # Adding users to the local directory

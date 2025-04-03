@@ -1,6 +1,6 @@
 ---
 title: Observe Resource Activity
-sidebar_label: 🥷 Observe Resource Activity
+sidebar_label: Observe Resource Activity 🛠
 ---
 
 # Observe Resource Activity

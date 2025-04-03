@@ -1,6 +1,6 @@
 ---
 title: Policy Settings in 7 minutes
-sidebar_label: Policy Settings in 7 minutes 🥽
+sidebar_label: Policy Settings in 7 minutes 🔬
 ---
 
 # Policy Settings in 7 minutes

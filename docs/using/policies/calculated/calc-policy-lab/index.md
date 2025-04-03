@@ -1,6 +1,6 @@
 ---
 title: Calculated Policies in 7 minutes
-sidebar_label: Calculated Policies in 7 minutes 🥽
+sidebar_label: Calculated Policies in 7 minutes 🔬
 ---
 
 # Calculated Policies in 7 minutes

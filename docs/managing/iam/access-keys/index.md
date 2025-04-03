@@ -1,6 +1,6 @@
 ---
 title: Generating access keys in Guardrails
-sidebar_label: Access Keys
+sidebar_label: Managing Access Keys 🛠
 ---
 
 # API Access Keys in Guardrails

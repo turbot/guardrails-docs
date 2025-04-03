@@ -1,6 +1,6 @@
 ---
 title: Deleting a Folder
-sidebar_label: Deleting a Folder
+sidebar_label: Deleting a Folder 🛠
 ---
 
 # Deleting a Folder
@@ -23,23 +23,23 @@ Log in to the Guardrails console using your local credentials or via SAML-based 
 
 Navigate to the **Resources** tab, locate the **folders** section, and select the folder you wish to rename.
 
-![Find Folder](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/find-folder-from-resources.png)
+![Find Folder](/images/docs/guardrails/using/inventory/working-with-folders/find-folder-from-resources.png)
 
 ## Step 2: Delete the Folder
 
 Select the folder you want to delete. Select **Actions**, then choose **Remove from Turbot**.
 
-![Remove Folder](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/remove-from-turbot.png)
+![Remove Folder](/images/docs/guardrails/using/inventory/working-with-folders/remove-from-turbot.png)
 
 A confirmation dialog will appear. *Read the prompt carefully*. Type the folder's **full name** to confirm the deletion, then click **Delete**.
 
-![Confirm Delete Folder](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/confirm-to-delete.png)
+![Confirm Delete Folder](/images/docs/guardrails/using/inventory/working-with-folders/confirm-to-delete.png)
 
 ## Step 3: Review
 
 - [ ] Validate that the folder has been successfully deleted by navigating to the resource path and confirming that it no longer appears in the **Resources** section.
 
-![After Delete View](/images/docs/guardrails/guides/configuring-guardrails/working-with-folders/review-folder-delete.png)
+![After Delete View](/images/docs/guardrails/using/inventory/working-with-folders/review-folder-delete.png)
 
 That's it! The folder is deleted immediately and will no longer be viewable in the UI.
 
