@@ -41,7 +41,7 @@ Select **Turbot Guardrails Enterprise Foundation** from the products list, selec
 
 Select a Name for the provisioned project. Typically, this will be "ted".
 
-![Name Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/install-tef/service-catalog-name-provisioned-product.png)
+![Name Provisioned Product](/images/docs/guardrails/runbooks/enterprise-install/install-ted/service-catalog-name-provisioned-product.png)
 
 ## Step 5: Find Version
 
