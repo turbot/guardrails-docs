@@ -68,7 +68,13 @@ SuperUser permissions have unlimited access.
 #### Guardrails Permissions
 
 Guardrails permissions control what users are able to do through the Guardrails Console
-and API:
+and API.
+There are 2 types of Guardrails permissions:
+- `Turbot` permission levels are used to grant Cloud Governance teams access to manage the Guardrails installation, set permissions, and define policy posture.
+- `Account` permission levels are used to grant limited permissions to application teams to provide visibility into the resources and controls in their account and send notifications about events affecting their account.
+
+
+`Turbot` permissions are usually set at the `Turbot` root level, though they are assignable at any level in the hierarchy.
 
 | Level               | Description                                                                                                                               |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -82,6 +88,22 @@ and API:
 \*\*\* At present, all the resource data stored in the Guardrails CMDB is considered
 to be metadata, thus **Turbot/ReadOnly** and **Turbot/Metadata** are currently
 the same.
+
+The `Account` permission levels are similar in many ways to the `Turbot` levels, but they are intended to be used for application teams that own the account.  Account teams are often responsible for adhering to corporate governance policy in their account but not for defining or enforcing such policies.  As a result, `Account/Admin` can only configure policies that are related to notification routing.
+
+The account team is often the main point of contact for the account, and users with `Account` permissions are often the target of notifications.
+
+`Account` permissions are only assignable on account resources (AWS Accounts, Azure subscriptions, GCP projects, Kubernetes Clusters, etc).
+
+
+| Level	             | Description
+|--------------------|---------------------------------------------------------
+| **Account/Owner**    |	Manage `Account/*` permissions (only); AND
+| **Account/Admin**    |	Manage account-level policies around notification and issue routing ; AND
+| **Account/Operator** |	Run specific quick actions (cloud provider actions like start/stop instance, set tags, etc); AND
+| **Account/ReadOnly** |	View resource data in the CMDB for the account
+
+
 
 &nbsp;
 
