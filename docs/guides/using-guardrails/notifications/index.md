@@ -15,10 +15,47 @@ Turbot's Notification system is highly configurable, allowing users to set up ru
 
 Guardrails currently supports the following delivery channels for notifications:
 
-1. **Email notifications** are sent from `guardrails@system.turbot.com` for SaaS customers.  Enterprise customers running their own Guardrails environment can configure custom smtp hosts and `sent from` email address.
+1. **Email notifications** are sent from `guardrails@system.turbot.com` for SaaS customers.  Enterprise customers running their own Guardrails environment can configure custom SMTP hosts and `sent from` email address.  Email notifications may be sent directly to an email address or to [profiles](#routing-to-profiles) based on the [configured permissions](/guardrails/docs/concepts/iam/permissions#guardrails-permissions) of the resource.
+
 2. **Slack notifications** are sent via standard webhooks. For documentation on configuring webhooks for slack see: `https://api.slack.com/messaging/webhooks`
 3. **Microsoft Teams notifications** are also sent via webhooks. For Teams documentation see: https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=dotnet
 4. **Event Streams** can be created and consumed using the [Guardrails Firehose](/guardrails/docs/guides/configuring-guardrails/firehose) feature.
+
+
+### Routing to Profiles
+
+You can send notifications to Guardrails user `profiles` based on the permissions of the resource that triggered the event. Unlike email addresses and webhooks, which define a static target, profiles are routed dynamically; a notification rule states to route to a profile, and when the event occurs, the resource context is used to determine where to send the notification.  Guardrails will send the notification to all users who have been granted the specified permissions via the email address in their profile.
+
+```yaml
+- rules: "NOTIFY $.oldControl.state:ok $.control.state:alarm"
+  profiles":
+    - "Account/Owner"
+    - "Account/Admin"
+```
+
+Commonly, profiles are used to route notifications to the account team for the resource in . You can use any permissions for notification routing, though.
+
+```yaml
+- rules: "NOTIFY $.oldControl.state:ok $.control.state:alarm"
+  profiles":
+    - "AWS/Admin"
+    - "Turbot/Owner"
+```
+
+The `*` wildcard is supported. For example, you can send notifications to anyone with `Account` permissions.
+```yaml
+- rules: "NOTIFY $.oldControl.state:ok $.control.state:alarm"
+  profiles":
+    - "Account/*"
+```
+
+There is also a special `Account/CC` level that can be used to send notifications to a list of addresses defined on a per-account basis via the `Turbot > Notifications > CC` policy.  If you enable the resource-based routing via the `Turbot > Notifications > CC > Tag` policy, you can even route these notifications to specific addresses based on tags on the resource.
+
+```yaml
+- rules: "NOTIFY $.oldControl.state:ok $.control.state:alarm"
+  profiles":
+    - "Account/CC"
+```
 
 
 ## Notification Triggers
