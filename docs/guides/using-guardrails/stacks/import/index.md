@@ -70,7 +70,7 @@ Expected output:
 
 ## Step 2: Prepare the Import Script
 
-We will make use of the [Import](https://opentofu.org/docs/language/import/) block to import this existing IAM Role.
+We will make use of the [Import](https://opentofu.org/docs/language/import/) block to import this existing IAM [Role](https://search.opentofu.org/provider/terraform-providers/aws/latest/docs/resources/iam_role#import).
 
 Example import block for an IAM Role:
 
@@ -252,6 +252,33 @@ If everything goes well, you should see the following log message, "Apply comple
 
 ![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/multiple-resources-imported.png)
 
+## Regional Resources
+
+Similar to the above, you can use the Regional Stack [Native] to import the regional resources like S3 bucket.
+For example: In order to import a S3 bucket "stack-import-demo-bucket", use the below policies.
+
+**AWS > Region > Stack [Native] > Modifier**
+
+```hcl
+import {
+  to = aws_s3_bucket.example
+  id = "stack-import-demo-bucket"
+}
+```
+
+**AWS > Region > Stack [Native] > Source**
+
+```hcl
+resource "aws_s3_bucket" "example" {
+  bucket = "stack-import-demo-bucket"
+}
+```
+
+**AWS > Region > Stack [Native]**: To enforce, set the policy to "Enforce: Configured" at the Region where you want to import the bucket. If this bucket exists in all regions and you want to import all such buckets, then set this policy at the account level.
+
+If everything goes well, you should see the following log message, "Apply complete! Resources: 3 imported, 0 added, 0 changed, 0 destroyed."
+
+![AWS > Region > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/s3_bucket_imported.png)
 
 ---
 
