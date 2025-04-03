@@ -22,6 +22,8 @@ Guardrails allows you to bring existing AWS resources under stack management usi
 
 ---
 
+# Account Stacks 
+
 ## Importing a single resource
 
 ## Step 1: Locate the Existing Resource
@@ -252,7 +254,7 @@ If everything goes well, you should see the following log message, "Apply comple
 
 ![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/multiple-resources-imported.png)
 
-## Regional Resources
+# Regional Stack [Native]
 
 Similar to the above, you can use the Regional Stack [Native] to import the regional resources like S3 bucket.
 For example: In order to import a S3 bucket "stack-import-demo-bucket", use the below policies.
@@ -279,6 +281,78 @@ resource "aws_s3_bucket" "example" {
 If everything goes well, you should see the following log message, "Apply complete! Resources: 3 imported, 0 added, 0 changed, 0 destroyed."
 
 ![AWS > Region > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/s3_bucket_imported.png)
+
+---
+
+# Resource Stack [Native]
+Resources to associate with buckets such as lifecycle policies or replication configuration.
+
+Let us walk through an example use-case. To add a lifecycle policy for all the S3 buckets within a region/account/folder to delete log files older than a year, This applies to all objects under the **logs/** prefix (i.e., logs/filename.log)
+
+### Use Case: Delete S3 Logs older than 1 Year
+
+**NOTE**: Please refer to [Best Practices](https://turbot.com/guardrails/docs/concepts/guardrails/stacks#best-practices)
+
+We will use a Calculated Policy for the variables.
+
+**AWS > S3 > Bucket > Stack [Native] > Variables**
+
+GraphQL Input Query
+
+```hcl
+{
+  resource {
+    Name: get(path:"Name")
+  }
+}
+```
+
+Nunjucks Template
+
+```hcl
+bucket_name = "{{ $.resource.Name  }}"
+```
+
+**AWS > S3 > Bucket > Stack [Native] > Modifier**
+
+```hcl
+import {
+  to = aws_s3_bucket.example
+  id = var.bucket_name
+}
+```
+
+**AWS > S3 > Bucket > Stack [Native] > Source**
+
+```hcl
+variable "bucket_name" {
+  description = "Name of the bucket"
+  type        = string
+}
+
+resource "aws_s3_bucket" "example" {
+  bucket = var.bucket_name
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "logs" {
+  bucket = var.bucket_name
+
+  rule {
+    id     = "delete-logs-after-365-days"
+    status = "Enabled"
+
+    filter {
+      prefix = "logs/"
+    }
+
+    expiration {
+      days = 365
+    }
+  }
+}
+```
+
+**AWS > S3 > Bucket > Stack [Native]** To enforce, set the policy to "Enforce: Configured" at the region/account/folder.
 
 ---
 
