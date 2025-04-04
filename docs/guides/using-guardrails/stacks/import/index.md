@@ -29,8 +29,6 @@ Before importing, identify the AWS IAM role that you want to manage using Guardr
 
 Log in to the AWS Console and navigate to the IAM service. Search for the role you want to import. In this example, we'll search for a role named `stack-import-demo-role`.
 
-![AWS IAM Role Search](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-role-search.png)
-
 Select the IAM role name.
 
 To get the role details using [AWS CLI](https://aws.amazon.com/cli/), execute the following command:
@@ -83,7 +81,7 @@ import {
 > [!NOTE]
 > The identifier you use for a resource's import ID is resource-specific. You can find the required ID in the provider's documentation for the resource you wish to import.
 
-## Step 3: Set the Stack [Native] Policies
+## Step 3: Set the `Stack [Native]` Policies
 
 To import the IAM Role, update the following Policies:= to import the above resource.
 
@@ -100,16 +98,18 @@ import {
   id = "stack-import-demo-role"
 }
 ```
-
-// CONTINUE DISCUSSION HERE WITH VENU
+![Set AWS > IAM > Stack [Native] > Modifier](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-native-stack-modifier.png)
 
 5. Select **Save** to apply the policy.
 
-**AWS > IAM > Stack [Native] > Source** policy with the OpenTofu HCL configuration source code of the resource.
+
+## Step 4: Set the AWS > IAM > Stack [Native Policy] > Source Policy
+
+Now set the *AWS > IAM > Stack [Native] > Source* policy with the OpenTofu HCL configuration source code of the resource.
 
 1. Go to **Policies** in the Guardrails console.
-2. Search for **AWS > IAM > Stack [Native] > Source**.
-3. Click **New Policy Setting**.
+2. Search for *AWS > IAM > Stack [Native] > Source*.
+3. Select **New Policy Setting**.
 4. Apply the following **Terraform import block** in the policy at the **account** level.
 
 Example Terraform configuration:
@@ -133,32 +133,42 @@ resource "aws_iam_role" "stack_import_demo_role" {
   })
 }
 ```
+![Set AWS > IAM > Stack [Native] > Source](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-native-stack-source.png)
 
-5. Click **Save** to apply the policy.
+Select **Update** to apply the policy.
 
----
+## Step 5 Set AWS > IAM > Stack [Native] Policy
 
-**AWS > IAM > Stack [Native]** policy to to run the stack in enforce mode so that we import and manage the IAM Resource going forward.
+Now set the *AWS > IAM > Stack [Native]* policy to enforce mode to import and manage the IAM resource. This ensures Guardrails takes control of the resource's lifecycle management.
 
 1. Go to **Policies** in the Guardrails console.
-2. Search for **AWS > IAM > Stack [Native]**.
+2. Search for **AWS > IAM > Stack [Native]** policy.
 3. Click **New Policy Setting**.
 4. Select "**Enforce: Configured**"
-5. Click **Create** to create the policy setting.
+5. Select **Create** to create the policy setting.
 
-## Step 4: Monitor the AWS > IAM > Stack [Native] stack
+![Set AWS > IAM > Stack [Native]](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-native-stack-configured-enforced.png)
+
+## Step 6: Validate the AWS > IAM > Stack [Native] Stack Control
 
 Once the necessary policies are set, the **AWS > IAM > Stack [Native]** stack will execute and import the resource. If everything goes well, you should see the below log message "Apply complete! Resources: 1 imported, 0 added, 0 changed, 0 destroyed."
 
+![Set AWS > IAM > Stack [Native]](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-native-stack-control.png)
+
+View control logs to check the if the stack successfully imported the resource.
+
 ![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/1-resource-imported.png)
 
----
 
-## Manage the Stack
+## Step 7: Manage the Stack with Updates
 
 Now that the resource is imported to the Stack. You can manage the resource using the Stack. Try updating the **AWS > IAM > Stack [Native] > Source** and the changes should reflect in the AWS IAM Role.
 
-Example: Update the **AWS > IAM > Stack [Native] > Source** with the following, i.e., adding tags to the IAM Role.
+For example:
+
+1. Go to **AWS > IAM > Stack [Native] > Source** in the Guardrails console
+2. Update the source with the following code to add tags to the IAM Role:
+
 
 ```hcl
 resource "aws_iam_role" "stack_import_demo_role" {
@@ -188,9 +198,20 @@ If everything goes well, you should see the following log message, "Apply comple
 
 ![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/1-resource-updated.png)
 
-## Step 5: Review
+## Step 8: Review
 
-- [ ] Verify the imported resource shows up in the "Related" tab of the Stack [Native].
+- [ ] Verify the imported resource shows up in the Related tab of the Stack [Native].
+
+
+## Next Steps
+//TO ADD
+
+## Troubleshooting
+//TO ADD
+
+
+
+// BELOW TO BE A NEW GUIDE
 
 ## Importing multiple-resources
 
