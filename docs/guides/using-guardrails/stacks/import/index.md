@@ -16,24 +16,24 @@ Guardrails allows you to bring existing AWS resources under stack management usi
 ## Prerequisites
 
 - **Turbot/Owner** or **Turbot/Admin** permissions at the required resource level.
-- Familiarity with **Terraform/OpenTofu** and Guardrails stack controls.
+- Familiarity with [Terraform](https://www.terraform.io/) and [OpenTofu](https://opentofu.org/) and Guardrails [stack](/guardrails/docs/concepts/guardrails/configured) controls.
 - Access to the Guardrails console.
-- A **configured Terraform provider** for AWS.
+- A *configured Terraform provider* for AWS.
+- Knowledge of AWS console & [AWS CLI](https://aws.amazon.com/cli/).
 
----
-
-# Account Stacks 
-
-## Importing a single resource
+This guide demonstrates importing a single resource in `Account Stacks`.
 
 ## Step 1: Locate the Existing Resource
 
-Before importing, identify the **AWS IAM Role** that you want to manage using Guardrails.
+Before importing, identify the AWS IAM role that you want to manage using Guardrails.
 
-1. **Log in to AWS Console**.
-2. Navigate to **AWS IAM** and list the existing role(s). We plan to import the Role named "stack-import-demo-role" so lets query for that only.
+Log in to the AWS Console and navigate to the IAM service. Search for the role you want to import. In this example, we'll search for a role named `stack-import-demo-role`.
 
-Example AWS CLI command:
+![AWS IAM Role Search](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-role-search.png)
+
+Select the IAM role name.
+
+To get the role details using [AWS CLI](https://aws.amazon.com/cli/), execute the following command:
 
 ```bash
 aws iam get-role --role-name stack-import-demo-role
@@ -68,8 +68,6 @@ Expected output:
 }
 ```
 
----
-
 ## Step 2: Prepare the Import Script
 
 We will make use of the [Import](https://opentofu.org/docs/language/import/) block to import this existing IAM [Role](https://search.opentofu.org/provider/terraform-providers/aws/latest/docs/resources/iam_role#import).
@@ -82,19 +80,17 @@ import {
   id = "stack-import-demo-role"
 }
 ```
-
-NOTE: The identifier you use for a resource's import ID is resource-specific. You can find the required ID in the provider's documentation for the resource you wish to import.
+> [!NOTE]
+> The identifier you use for a resource's import ID is resource-specific. You can find the required ID in the provider's documentation for the resource you wish to import.
 
 ## Step 3: Set the Stack [Native] Policies
 
-To import the IAM Role, update the following Policies:
+To import the IAM Role, update the following Policies:= to import the above resource.
 
-**AWS > IAM > Stack [Native] > Modifier** policy for the resources import.
-
-1. Go to **Policies** in the Guardrails console.
-2. Search for **AWS > IAM > Stack [Native] > Modifier**.
-3. Click **New Policy Setting**.
-4. Apply the following **Terraform import block** in the policy at the **account** level.
+1. Login to Guardrails console and navigate to **Policies** tab.
+2. Search for *AWS > IAM > Stack [Native] > Modifier*.
+3. Select **New Policy Setting**.
+4. Apply the following *Terraform import block* in the policy at the *account* level.
 
 Example Terraform configuration:
 
@@ -105,7 +101,9 @@ import {
 }
 ```
 
-5. Click **Save** to apply the policy.
+// CONTINUE DISCUSSION HERE WITH VENU
+
+5. Select **Save** to apply the policy.
 
 **AWS > IAM > Stack [Native] > Source** policy with the OpenTofu HCL configuration source code of the resource.
 
