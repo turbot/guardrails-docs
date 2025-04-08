@@ -1,9 +1,9 @@
 ---
-title: Importing Stack Resources
-sidebar_label: Import Stack Resources
+title: Import Single Stack Resource
+sidebar_label: Import Single Stack Resource
 ---
 
-# Importing Stack Resources in Guardrails
+# Importing Single Stack Resource
 
 In this guide, you will:
 
@@ -101,7 +101,6 @@ import {
 ![Set AWS > IAM > Stack [Native] > Modifier](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-native-stack-modifier.png)
 
 5. Select **Save** to apply the policy.
-
 
 ## Step 4: Set the AWS > IAM > Stack [Native Policy] > Source Policy
 
@@ -204,14 +203,23 @@ If everything goes well, you should see the following log message, "Apply comple
 
 
 ## Next Steps
-//TO ADD
+
+- [Import Multiple Stack Resources](/guardrails/docs/guides/using-guardrails/stacks/import/import-multiple-stack-resources)
+- [Deploy a Stack](/guardrails/docs/guides/using-guardrails/stacks/deploy)
+- [Destroy a Stack](/guardrails/docs/guides/using-guardrails/stacks/destroy)
 
 ## Troubleshooting
-//TO ADD
+
+| Issue                         | Description                                  | Guide                                                         |
+| ----------------------------- | -------------------------------------------- | ------------------------------------------------------------- |
+| **Resource Not Found**        | Import failed due to an incorrect Role name. | Verify the Role name in AWS Console.                          |
+| **Permission Denied**         | Guardrails lacks the required permissions.   | Ensure IAM roles are correctly assigned.                      |
+| **Import Fails in Terraform** | The resource is already managed.             | Remove the resource from Terraform state before re-importing. |
+
+---
 
 
-
-// BELOW TO BE A NEW GUIDE
+<!-- // BELOW TO BE A NEW GUIDE
 
 ## Importing multiple-resources
 
@@ -373,19 +381,4 @@ resource "aws_s3_bucket_lifecycle_configuration" "logs" {
 
 **AWS > S3 > Bucket > Stack [Native]** To enforce, set the policy to "Enforce: Configured" at the region/account/folder.
 
----
-
-## Troubleshooting
-
-| Issue                         | Description                                  | Guide                                                         |
-| ----------------------------- | -------------------------------------------- | ------------------------------------------------------------- |
-| **Resource Not Found**        | Import failed due to an incorrect Role name. | Verify the Role name in AWS Console.                          |
-| **Permission Denied**         | Guardrails lacks the required permissions.   | Ensure IAM roles are correctly assigned.                      |
-| **Import Fails in Terraform** | The resource is already managed.             | Remove the resource from Terraform state before re-importing. |
-
----
-
-## Next Steps
-
-- [Deploy a Stack](https://turbot.com/guardrails/docs/guides/using-guardrails/stacks/deploy)
-- [Destroy a Stack](https://turbot.com/guardrails/docs/guides/using-guardrails/stacks/destroy)
+--- -->

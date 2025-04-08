@@ -325,14 +325,8 @@
             ]
           },
           {
-            "type": "category",
-            "id": "stacks",
-            "link": "guides/using-guardrails/stacks",
-            "items": [
-              "guides/using-guardrails/stacks/deploy",
-              "guides/using-guardrails/stacks/destroy",
-              "guides/using-guardrails/stacks/import"
-            ]
+            "type": "placeholder",
+            "file": "guides/using-guardrails/stacks/stack-sidebar.json"
           },
           {
             "type": "category",
