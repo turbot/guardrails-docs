@@ -28,16 +28,16 @@ You can send notifications to Guardrails user `profiles` based on the permission
 
 ```yaml
 - rules: "NOTIFY $.oldControl.state:ok $.control.state:alarm"
-  profiles":
+  profiles:
     - "Account/Owner"
     - "Account/Admin"
 ```
 
-Commonly, profiles are used to route notifications to the account team for the resource in . You can use any permissions for notification routing, though.
+Commonly, profiles are used to route notifications to the account team for the resource. You can use any permissions for notification routing, though.
 
 ```yaml
 - rules: "NOTIFY $.oldControl.state:ok $.control.state:alarm"
-  profiles":
+  profiles:
     - "AWS/Admin"
     - "Turbot/Owner"
 ```
@@ -45,7 +45,7 @@ Commonly, profiles are used to route notifications to the account team for the r
 The `*` wildcard is supported. For example, you can send notifications to anyone with `Account` permissions.
 ```yaml
 - rules: "NOTIFY $.oldControl.state:ok $.control.state:alarm"
-  profiles":
+  profiles:
     - "Account/*"
 ```
 
@@ -53,7 +53,7 @@ There is also a special `Account/CC` level that can be used to send notification
 
 ```yaml
 - rules: "NOTIFY $.oldControl.state:ok $.control.state:alarm"
-  profiles":
+  profiles:
     - "Account/CC"
 ```
 
