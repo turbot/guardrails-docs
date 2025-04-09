@@ -328,6 +328,37 @@ pg_restore: error: could not execute query: ERROR: deadlock detected - 1
 pg_restore: error: could not execute query: ERROR: operator does not exist: public.ltree = public.ltree - 264
 ```
 
+### Fallback Procedure
+
+If you encounter errors during `pg_restore`, or if the migration must be aborted at this stage, follow these steps to safely revert changes:
+
+1. Clean Up Replication Artifacts
+
+- **Delete Replication Slots** from the source database:
+
+```sql
+SELECT * FROM pg_replication_slots;
+SELECT pg_drop_replication_slot('<slot_name>');
+```
+
+- **Delete the Publication** created on the source database:
+
+```sql
+SELECT * FROM pg_publication;
+DROP PUBLICATION <pubname>;
+```
+
+2. Terminate New Resources
+
+- **Delete the newly created TED stack** and associated **RDS DB instance** used for the target database.
+
+3. Disable Logical Replication
+
+- Revert the parameter `rds.logical_replication` to `0` on the source database, as done in [Step 1: Enable DB Logical Replication](#step-1-enable-db-logical-replication).
+- Reboot the source DB instance to apply changes.
+
+> [!WARNING]
+> Ensure all cleanup steps are completed before attempting a fresh migration to avoid conflicts or residual configuration issues.
 
 ## Step 11: Create Subscription in the Target DB Instance
 
