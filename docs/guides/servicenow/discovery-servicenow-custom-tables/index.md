@@ -3,7 +3,7 @@ title: "Discover ServiceNow Custom Tables in Guardrails"
 template: Documentation
 nav:
   title: "Discover ServiceNow Custom Tables"
-  order: 25 # Adjust order as needed
+  order: 20 # Adjust order as needed
 ---
 
 # Discover ServiceNow Custom Tables in Guardrails
