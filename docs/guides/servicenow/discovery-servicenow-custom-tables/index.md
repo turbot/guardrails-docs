@@ -15,49 +15,61 @@ Turbot Guardrails can discover and manage records from any specified ServiceNow 
 
 ## Prerequisites
 
-- An active ServiceNow instance integrated with Turbot Guardrails following the [Importing a ServiceNow instance into Guardrails](/guardrails/docs/guides/servicenow/import-servicenow-instance) guide
-- The `@turbot/servicenow-custom` mod installed in your Guardrails workspace. See [Install a Mod](/guardrails/docs/guides/configuring-guardrails/install-mod)
-- Administrator access to your ServiceNow instance
-- Administrator access to your Turbot Guardrails workspace
+- An active ServiceNow instance integrated with Turbot Guardrails following the [Importing a ServiceNow instance into Guardrails](/guardrails/docs/guides/servicenow/import-servicenow-instance) guide.
+- The `@turbot/servicenow-custom` mod installed in your Guardrails workspace. See [Install a Mod](/guardrails/docs/guides/configuring-guardrails/install-mod).
+- Administrator access to your ServiceNow instance.
+- Administrator access to your Turbot Guardrails workspace.
 
-## Enabling Custom Table Discovery
+## Step 1: Enabling Custom Table Discovery
 
-To enable the discovery of records from specific ServiceNow tables, you need to configure the relevant policies. The primary policies involved are:
+To enable discovery of records from ServiceNow custom tables, configure the following policies:
 
-- `ServiceNow > Custom > Table > CMDB`
-  - Enables the discovery mechanism for custom tables.
+### ServiceNow > Custom > Table > CMDB
+
+  - Enables the discovery  for custom tables.
   - Set this policy to `Enforce: Enabled` at the scope of your ServiceNow instance resource or higher.
-- `ServiceNow > Custom > Table > CMDB > Tables`
+
+### ServiceNow > Custom > Table > CMDB > Tables
+
   - Specifies the list of ServiceNow table names you want Guardrails to discover records from.
-  - Provide a YAML list of table names (e.g., `["u_custom_table", "cmdb_ci_storage_volume"]`).
+  - Provide a YAML list of table names e.g. `["u_custom_table", "cmdb_ci_storage_volume"]`.
   - Defaults to an empty list `[]`.
+
 > [!IMPORTANT]
-    > Removing a table name from this list will result in the deletion of the corresponding `ServiceNow > Custom > Table` resource and all its child `ServiceNow > Custom > Record` resources from the Guardrails CMDB.
-- `ServiceNow > Custom > Record > CMDB > Query`
-  - Allows filtering of records discovered from the specified tables using a ServiceNow encoded query string.
-  - Paste the encoded query string as the policy value.
+> Removing a table name from this list will result in the deletion of the corresponding `ServiceNow > Custom > Table` resource and all its child `ServiceNow > Custom > Record` resources from the Guardrails CMDB.
+
+### ServiceNow > Custom > Record > CMDB > Query
+
+  - Filters records discovered from specified tables using a ServiceNow encoded query string.
+  - Enter the encoded query string as the policy value..
   - Defaults to `""` (empty string), meaning no filter is applied.
-- `ServiceNow > Custom > Record > CMDB > Title`
+
+### ServiceNow > Custom > Record > CMDB > Title
+
   - Specifies the data key(s) used to retrieve the title for discovered `ServiceNow > Custom > Record` resources in Guardrails.
-  - Provide an array of strings representing field names in order of preference (e.g., `["name", "display_name", "sys_id"]`). Guardrails uses the first field in the list that contains a non-empty value.
+  - Provide an array of strings representing field names in order of preference e.g. `["name", "display_name", "sys_id"]`. Guardrails uses the first field in the list that contains a non-empty value.
   - This allows for fallback options if preferred fields are missing or empty.
   - Defaults to `["name", "display_value", "display_name", "title", "label", "short_description", "number", "sys_name", "sys_title", "sys_id"]`.
-  - You can customize this list by creating a new policy setting.
+  - Customize by creating a new policy setting.
 
-### Business Rule for Event-Driven Updates (Optional)
+<!-- ### Business Rule for Event-Driven Updates (Optional) -->
+## Step 2: (Optional) Configure Event-Driven Business Rules
 
 Similar to the pre-configured table sync, you can enable event-driven updates for discovered custom tables:
 
-- `ServiceNow > Custom > Table > Business Rule`
+### ServiceNow > Custom > Table > Business Rule
+
   - Configures ServiceNow Business Rules for event handling of record changes (new, updated, deleted) in the discovered tables.
   - Set to `Enforce: Configured` to enable automatic setup and management.
   - Requires `ServiceNow > Config > System Properties` to be set to `Enforce: Configured` as described in the [ServiceNow sync prerequisites](/guardrails/docs/guides/servicenow/servicenow-to-guardrails-sync#prerequisites).
-- `ServiceNow > Custom > Table > Business Rule > Name`
+
+#### ServiceNow > Custom > Table > Business Rule > Name
+
   - Allows customization of the Business Rule name.
 
-## Example: Discovering the Server Table (`cmdb_ci_server`)
+## Example: Discovering the Server Table
 
-To discover records from the standard ServiceNow Server table `cmdb_ci_server`:
+To discover records from the standard ServiceNow Server table `cmdb_ci_server`, follow these steps:
 
 1.  Set `ServiceNow > Custom > Table > CMDB` to `Enforce: Enabled`.
 2.  Set `ServiceNow > Custom > Table > CMDB > Tables` to:
@@ -67,13 +79,21 @@ To discover records from the standard ServiceNow Server table `cmdb_ci_server`:
 3.  (Optional) To only discover active servers, set `ServiceNow > Custom > Record > CMDB > Query` to `active=true` (or the relevant field/value for server status).
 4.  (Optional) To enable real-time updates, set `ServiceNow > Custom > Table > Business Rule` to `Enforce: Configured`.
 
-Once configured, Guardrails will begin discovering records from the `cmdb_ci_server` table. These records will appear in your Guardrails inventory under the associated ServiceNow instance resource as `ServiceNow > Custom > Record` resources.
+Guardrails will now discover records from `cmdb_ci_server`. These records will appear in your Guardrails inventory under the ServiceNow instance resource as `ServiceNow > Custom > Record` resources.
 
 ## Next Steps
 
-- Explore the discovered `ServiceNow > Custom > Record` resources in your Guardrails inventory.
-- Utilize the data from these custom records in Guardrails policies and calculated policies for context-aware automation.
+Please see the following resources to learn more about ServiceNow integrations:
 
-For more details on the specific policies and controls introduced, refer to the `servicenow-custom` mod changelog [[1]](https://turbot.com/guardrails/changelog/servicenow-custom-v5-0-0).
+- [Enable ServiceNow to Guardrails Sync](/guardrails/docs/guides/servicenow/servicenow-to-guardrails-sync)
+- [Enable Guardrails to ServiceNow Sync](/guardrails/docs/guides/servicenow/guardrails-to-servicenow-sync)
 
-We want to hear from you! Join our [Slack Community](https://turbot.com/community/join) `#guardrails` channel to ask questions and share feedback.
+
+
+## Troubleshooting
+
+| Issue                 | Description                                                                                                                                                                                                                                        | Guide                                                                                               |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Common errors         | Common issues that may prevent controls from running include network connectivity problems, permission issues, and API rate limits. These can cause controls to enter an error state.                                                              | Refer to [Common Troubleshooting](/guardrails/docs/guides/troubleshooting) for detailed resolution steps. |
+| Further Assistance    | If you encounter further issues with Calculated Policies, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                                                         | [Open Support Ticket](https://support.turbot.com)                                                   |
+| Community Support     | We want to hear from you! Join our [Slack Community](https://turbot.com/community/join) `#guardrails` channel to ask questions and share feedback.                                                                                                | [Join Slack Community](https://turbot.com/community/join)                                           |
