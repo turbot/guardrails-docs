@@ -5,13 +5,16 @@ sidebar_label: Import Single Stack Resource
 
 # Importing Single Stack Resource
 
-In this guide, you will:
+In this guide, you'll learn how to:
 
-- Learn how to **import existing AWS resources** into a Guardrails stack.
-- Modify the **stack modifier policy** to include import statements.
+- Import a single existing AWS resource into a Guardrails stack.
+
+- Import an existing AWS IAM role into a Guardrails stack
+- Configure the *stack modifier policy* with import statements
+- Update and manage the imported resource through Guardrails
 - Apply the import configuration at the **folder level** for structured deployment.
 
-Guardrails allows you to bring existing AWS resources under stack management using **import statements**. This enables Guardrails to track and enforce configuration policies on the imported resources.
+Guardrails allows you to bring existing AWS resource(s) under stack management using `import` statements. This enables Guardrails to track and enforce configuration policies on the imported resources.
 
 ## Prerequisites
 
