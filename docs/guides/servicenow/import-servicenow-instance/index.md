@@ -1,12 +1,9 @@
 ---
-title: "Importing a ServiceNow instance into Guardrails"
-template: Documentation
-nav:
-  title: "Importing Accounts"
-  order: 20
+title: Import ServiceNow Instance
+sidebar_label: Import ServiceNow Instance
 ---
 
-# Importing a ServiceNow instance into Guardrails
+# Importing a ServiceNow Instance in Guardrails
 
 ## Prerequisites to import a ServiceNow instance
 

@@ -2,23 +2,38 @@
 title: Discover ServiceNow Custom Tables
 sidebar_label: Discover ServiceNow Custom Tables
 ---
+This guide explains how to discover and manage records from custom ServiceNow tables in Turbot Guardrails.
+
+## What you'll learn
+
+- How to enable discovery of custom ServiceNow tables in Guardrails
+- How to configure which tables to discover and filter records
+- How to set up event-driven updates for custom table records
+
+## Time to complete
+
+10-15 minutes
+
+## Prerequisites
+
+Before starting this guide, make sure you have:
+
+- [Imported your ServiceNow instance into Guardrails](/guardrails/docs/guides/servicenow/import-servicenow-instance)
+- Installed the `@turbot/servicenow-custom` mod in your workspace
 
 # Discovering ServiceNow Custom Tables
-
-In this guide, you will:
-
-- Learn how to discover and manage records from custom ServiceNow tables in Turbot Guardrails
-- Configure table discovery, filtering, and record title display settings
-- Set up optional business rules for custom table management
 
 Turbot Guardrails can discover and manage records from any specified ServiceNow table, extending visibility beyond the pre-configured Application, Cost Center, and User tables. This allows you to bring data from your custom or other standard ServiceNow tables into Guardrails as `ServiceNow > Custom > Record` resources.
 
 ## Prerequisites
 
-- An active ServiceNow instance integrated with Turbot Guardrails following the [Importing a ServiceNow instance into Guardrails](/guardrails/docs/guides/servicenow/import-servicenow-instance) guide
-- The `@turbot/servicenow-custom` mod installed in your Guardrails workspace. See [Install a Mod](/guardrails/docs/guides/configuring-guardrails/install-mod)
-- Administrator access to your ServiceNow instance
-- Administrator access to your Turbot Guardrails workspace
+### Associate your ServiceNow instance to Turbot Guardrails
+
+Before you get started, ensure you have completed the steps in the [Importing a ServiceNow instance into Guardrails](/guardrails/docs/guides/servicenow/import-servicenow-instance) guide to associate your ServiceNow instance with Turbot Guardrails.
+
+### Turbot Guardrails Mod Installation
+
+The `@turbot/servicenow-custom` mod must be installed in your Guardrails workspace. This mod provides the necessary resource types, policies, and controls for discovering custom table records. Ensure it is installed and the mod's `Installed` control is in the `OK` state.
 
 ## Enabling Custom Table Discovery
 
@@ -31,7 +46,7 @@ To enable the discovery of records from specific ServiceNow tables, you need to 
   - Specifies the list of ServiceNow table names you want Guardrails to discover records from.
   - Provide a YAML list of table names (e.g., `["u_custom_table", "cmdb_ci_storage_volume"]`).
   - Defaults to an empty list `[]`.
-> [!IMPORTANT]
+  - > [!IMPORTANT]
     > Removing a table name from this list will result in the deletion of the corresponding `ServiceNow > Custom > Table` resource and all its child `ServiceNow > Custom > Record` resources from the Guardrails CMDB.
 - `ServiceNow > Custom > Record > CMDB > Query`
   - Allows filtering of records discovered from the specified tables using a ServiceNow encoded query string.

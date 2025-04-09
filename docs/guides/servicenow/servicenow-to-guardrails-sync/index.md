@@ -1,12 +1,10 @@
 ---
-title: "Enable ServiceNow sync to Guardrails"
-template: Documentation
-nav:
-  title: "Enable ServiceNow sync to Guardrails"
-  order: 20
+title: Enable ServiceNow to Guardrails Sync
+sidebar_label: Enable ServiceNow to Guardrails Sync
 ---
 
-# Enable ServiceNow sync to Guardrails
+
+# Enable ServiceNow to Guardrails Sync
 
 ## Prerequisites
 
