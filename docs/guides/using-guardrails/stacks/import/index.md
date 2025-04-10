@@ -1,17 +1,19 @@
 ---
-title: Import Stack Resources
-sidebar_label: Import Stack Resources
+title: Import Stack Resource
+sidebar_label: Import Stack Resource
 ---
 
-# Importing Stack Resources
+# Importing Stack Resource
 
-In this guide, you will:
+In this guide, you'll learn how to:
 
-- Learn how to **import existing AWS resources** into a Guardrails stack.
-- Modify the **stack modifier policy** to include import statements.
-- Apply the import configuration at the **folder level** for structured deployment.
+- Import existing AWS resources into a Guardrails stack (single or multiple resources)
+- Configure the *stack modifier policy* with import statements for individual or bulk imports
+- Update and manage imported resources through Guardrails
+- Apply import configurations at the **folder level** for structured deployment
+- Use `for_each` to import multiple resources in a single operation
 
-Guardrails allows you to bring existing AWS resources under stack management using **import statements**. This enables Guardrails to track and enforce configuration policies on the imported resources.
+Guardrails allows you to bring existing AWS resource(s) under stack management using `import` statements. This enables Guardrails to track and enforce configuration policies on the imported resources.
 
 ## Prerequisites
 
@@ -21,9 +23,10 @@ Guardrails allows you to bring existing AWS resources under stack management usi
 - A *configured Terraform provider* for AWS.
 - Knowledge of AWS console & [AWS CLI](https://aws.amazon.com/cli/).
 
-This guide demonstrates importing a single resource in `Account Stacks`.
+>[!NOTE]
+> This initial section of the guide demonstrates steps for importing a single resource in `Account Stacks`. The same process applicable for importing multiple resources.
 
-## Step 1: Locate the Existing Resource
+## Step 1: Locate Existing Resource
 
 Before importing, identify the AWS IAM role that you want to manage using Guardrails.
 
@@ -66,7 +69,7 @@ Expected output:
 }
 ```
 
-## Step 2: Prepare the Import Script
+## Step 2: Prepare Import Script
 
 We will make use of the [Import](https://opentofu.org/docs/language/import/) block to import this existing IAM [Role](https://search.opentofu.org/provider/terraform-providers/aws/latest/docs/resources/iam_role#import).
 
@@ -81,18 +84,18 @@ import {
 > [!NOTE]
 > The identifier you use for a resource's import ID is resource-specific. You can find the required ID in the provider's documentation for the resource you wish to import.
 
-## Step 3: Set the `Stack [Native]` Policies
+## Step 3: Configure AWS > IAM > Stack [Native] > Modifier Policy
 
 To import the IAM Role, update the following Policies:= to import the above resource.
 
 1. Login to Guardrails console and navigate to **Policies** tab.
-2. Search for *AWS > IAM > Stack [Native] > Modifier*.
+2. Search for **AWS > IAM > Stack [Native] > Modifier**.
 3. Select **New Policy Setting**.
 4. Apply the following *Terraform import block* in the policy at the *account* level.
 
 Example Terraform configuration:
 
-```hcl
+```
 import {
   to = aws_iam_role.stack_import_demo_role
   id = "stack-import-demo-role"
@@ -102,7 +105,7 @@ import {
 
 5. Select **Save** to apply the policy.
 
-## Step 4: Set the AWS > IAM > Stack [Native Policy] > Source Policy
+## Step 4: Configure AWS > IAM > Stack [Native Policy] > Source Policy
 
 Now set the *AWS > IAM > Stack [Native] > Source* policy with the OpenTofu HCL configuration source code of the resource.
 
@@ -136,7 +139,7 @@ resource "aws_iam_role" "stack_import_demo_role" {
 
 Select **Update** to apply the policy.
 
-## Step 5 Set AWS > IAM > Stack [Native] Policy
+## Step 5 Configure AWS > IAM > Stack [Native] Policy
 
 Now set the *AWS > IAM > Stack [Native]* policy to enforce mode to import and manage the IAM resource. This ensures Guardrails takes control of the resource's lifecycle management.
 
@@ -159,7 +162,7 @@ View control logs to check the if the stack successfully imported the resource.
 ![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/1-resource-imported.png)
 
 
-## Step 7: Manage the Stack with Updates
+## Step 7: Manage Stack with Updates
 
 Now that the resource is imported to the Stack. You can manage the resource using the Stack. Try updating the **AWS > IAM > Stack [Native] > Source** and the changes should reflect in the AWS IAM Role.
 
@@ -197,24 +200,13 @@ If everything goes well, you should see the following log message, "Apply comple
 
 ![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/1-resource-updated.png)
 
-## Step 8: Review
+---
 
-- [ ] Verify the imported resource shows up in the Related tab of the Stack [Native].
-
-
-## Next Steps
-//TO ADD
-
-## Troubleshooting
-//TO ADD
-
-
-
-// BELOW TO BE A NEW GUIDE
-
-## Importing multiple-resources
+## Importing Multiple Resources
 
 Follow the same process, but instead use `for_each` to iterate through multiple resources. Here are the policies:
+
+
 
 **AWS > IAM > Stack [Native] > Source**
 
@@ -372,7 +364,17 @@ resource "aws_s3_bucket_lifecycle_configuration" "logs" {
 
 **AWS > S3 > Bucket > Stack [Native]** To enforce, set the policy to "Enforce: Configured" at the region/account/folder.
 
----
+----
+
+## Review
+
+- [ ] Verify the imported resource shows up in the Related tab of the Stack [Native].
+
+## Next Steps
+
+- [Import Multiple Stack Resources](/guardrails/docs/guides/using-guardrails/stacks/import/import-multiple-stack-resources)
+- [Deploy a Stack](/guardrails/docs/guides/using-guardrails/stacks/deploy)
+- [Destroy a Stack](/guardrails/docs/guides/using-guardrails/stacks/destroy)
 
 ## Troubleshooting
 
@@ -384,7 +386,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "logs" {
 
 ---
 
-## Next Steps
 
-- [Deploy a Stack](https://turbot.com/guardrails/docs/guides/using-guardrails/stacks/deploy)
-- [Destroy a Stack](https://turbot.com/guardrails/docs/guides/using-guardrails/stacks/destroy)
+
+
+

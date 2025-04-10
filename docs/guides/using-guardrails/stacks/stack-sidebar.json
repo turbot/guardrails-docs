@@ -5,7 +5,6 @@
   "items": [
     "guides/using-guardrails/stacks/deploy",
     "guides/using-guardrails/stacks/destroy",
-    "guides/using-guardrails/stacks/import/import-single-stack-resource",
-    "guides/using-guardrails/stacks/import/import-multiple-stack-resources"
+    "guides/using-guardrails/stacks/import"
   ]
 }
