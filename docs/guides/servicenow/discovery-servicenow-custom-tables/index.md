@@ -83,10 +83,8 @@ Before configuring Business Rules, ensure you have:
 To discover records from the standard ServiceNow Server table `cmdb_ci_server`, follow these steps:
 
 1.  Set `ServiceNow > Custom > Table > CMDB` to `Enforce: Enabled`.
-2.  Set `ServiceNow > Custom > Table > CMDB > Tables` to:
-    ```yaml
-    - cmdb_ci_server
-    ```
+2.  Set `ServiceNow > Custom > Table > CMDB > Tables` with yaml value as `- cmdb_ci_server`
+  
 ![ServiceNow Discovery Policy Settings](/images/docs/guardrails/guides/servicenow/discovery-servicenow-custom-tables/policy-setting.png)
 
 3.  (Optional) To only discover active servers, set `ServiceNow > Custom > Record > CMDB > Query` to `active=true` (or the relevant field/value for server status).
