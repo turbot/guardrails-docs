@@ -217,7 +217,8 @@
         "items": [
           "guides/servicenow/import-servicenow-instance",
           "guides/servicenow/servicenow-to-guardrails-sync",
-          "guides/servicenow/guardrails-to-servicenow-sync"
+          "guides/servicenow/guardrails-to-servicenow-sync",
+          "guides/servicenow/discovery-servicenow-custom-tables"
         ]
       },
       {

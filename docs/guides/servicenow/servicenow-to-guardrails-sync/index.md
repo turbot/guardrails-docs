@@ -1,12 +1,10 @@
 ---
-title: "Enable ServiceNow sync to Guardrails"
-template: Documentation
-nav:
-  title: "Enable ServiceNow sync to Guardrails"
-  order: 20
+title: Enable ServiceNow to Guardrails Sync
+sidebar_label: Enable ServiceNow to Guardrails Sync
 ---
 
-# Enable ServiceNow sync to Guardrails
+
+# Enable ServiceNow to Guardrails Sync
 
 ## Prerequisites
 
@@ -53,6 +51,10 @@ Each policy type aligns to a ServiceNow table, and defines whether the sync is e
   - Enables the controls to sync the table to Guardrails.
   - Defaults to `Skip` by default, setting the policy to `Enforce: Enabled` will enable the sync to Guardrails immediately.
   - The Business Rule policy below will enable event handlers to capture ongoing changes.
+- `ServiceNow > {ServiceNow Table} > CMDB > Query`
+  - Allows filtering of records synced from ServiceNow using a [ServiceNow encoded query string](https://www.servicenow.com/docs/bundle/yokohama-platform-user-interface/page/use/using-lists/concept/c_EncodedQueryStrings.html). Paste the encoded query string as the policy value.
+  - If a query is applied, any existing records in Guardrails that do not match the query criteria will be deleted.
+  - The default value depends on the table: it is `""` (empty string) for `Application` and `Cost Center`, meaning no filter is applied. For the `User` table, the default is `"active=true"`.
 - `ServiceNow > {ServiceNow Table} > Business Rule`
   - Configures ServiceNow Business Rules for event handling of table record changes (new, updated and deleted records).
   - Defaults to `Skip` by default, automatic setup and management of the policy is enable by setting the policy to `Enforce: Configured`.
@@ -71,9 +73,9 @@ To enable the sync for the Application table, set the following policies:
 > Remember to set your `ServiceNow > Config > System Properties` policy to `Enforce: Configured` from the prerequisites section above.
 
 Example of one of the policies set:
+
 <!--
 <img src="/images/docs/guardrails/servicenow/servicenow-turbot-guardrails-table-sync-policy.png" style={{ boxShadow: 'none', width: '75%', height: '75%' }} /> -->
-
 
 ![ServiceNow Guardrails Sync Policy](/images/docs/guardrails/guides/servicenow/servicenow-to-guardrails-sync/servicenow-turbot-guardrails-table-sync-policy.png)
 
@@ -85,7 +87,6 @@ Once the policies are set, you should now see the Applications brought into Guar
 <!-- <img src="/images/docs/guardrails/servicenow/turbot-guardrails-servicenow-cmdb-ci-appl-records-in-turbot.jpg" style={{ boxShadow: 'none', width: '75%', height: '75%' }} /> -->
 
 ![CMDB CI Records](/images/docs/guardrails/guides/servicenow/servicenow-to-guardrails-sync/turbot-guardrails-servicenow-cmdb-ci-appl-records-in-turbot.jpg)
-
 
 ## Next Steps
 
