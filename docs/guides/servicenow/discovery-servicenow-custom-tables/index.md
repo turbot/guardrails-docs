@@ -38,13 +38,17 @@ To enable discovery of records from ServiceNow custom tables, configure the foll
 > [!IMPORTANT]
 > Removing a table name from this list will result in the deletion of the corresponding `ServiceNow > Custom > Table` resource and all its child `ServiceNow > Custom > Record` resources from the Guardrails CMDB.
 
-### ServiceNow > Custom > Record > CMDB > Query
+### Set Optional Policies
+
+// TO DO
+
+#### ServiceNow > Custom > Record > CMDB > Query
 
   - Filters records discovered from specified tables using a ServiceNow encoded query string.
   - Enter the encoded query string as the policy value..
   - Defaults to `""` (empty string), meaning no filter is applied.
 
-### ServiceNow > Custom > Record > CMDB > Title
+#### ServiceNow > Custom > Record > CMDB > Title
 
   - Specifies the data key(s) used to retrieve the title for discovered `ServiceNow > Custom > Record` resources in Guardrails.
   - Provide an array of strings representing field names in order of preference e.g. `["name", "display_name", "sys_id"]`. Guardrails uses the first field in the list that contains a non-empty value.
