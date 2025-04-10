@@ -65,12 +65,13 @@ To enable real-time updates when records change in ServiceNow, you can configure
 
 Before configuring Business Rules, ensure you have:
 
-- Set `ServiceNow > Config > System Properties` to `Enforce: Configured` as described in the [ServiceNow sync prerequisites](/guardrails/docs/guides/servicenow/servicenow-to-guardrails-sync#prerequisites).
-- Administrator access to create Business Rules in ServiceNow
+1. Set `ServiceNow > Config > System Properties` to `Enforce: Configured` as described in the [ServiceNow sync prerequisites](/guardrails/docs/guides/servicenow/servicenow-to-guardrails-sync#prerequisites).
+2. Administrator access to create Business Rules in ServiceNow
 
 ### ServiceNow > Custom > Table > Business Rule
 
-- Configures ServiceNow Business Rules for real-time event handling of record changes (new, updated, deleted) in the discovered tables.
+Configures ServiceNow Business Rules for real-time event handling of record changes (new, updated, deleted) in the discovered tables.
+
 - Set to `Enforce: Configured` to enable automatic setup and management.
 
 
@@ -84,7 +85,7 @@ To discover records from the standard ServiceNow Server table `cmdb_ci_server`, 
 
 1.  Set `ServiceNow > Custom > Table > CMDB` to `Enforce: Enabled`.
 2.  Set `ServiceNow > Custom > Table > CMDB > Tables` with yaml value as `- cmdb_ci_server`
-  
+
 ![ServiceNow Discovery Policy Settings](/images/docs/guardrails/guides/servicenow/discovery-servicenow-custom-tables/policy-setting.png)
 
 3.  (Optional) To only discover active servers, set `ServiceNow > Custom > Record > CMDB > Query` to `active=true` (or the relevant field/value for server status).
