@@ -20,7 +20,7 @@ Turbot Guardrails can discover and manage records from any specified ServiceNow 
 - Administrator access to your ServiceNow instance.
 - Administrator access to your Turbot Guardrails workspace.
 
-## Step 1: Enabling Custom Table Discovery
+## Enabling Custom Table Discovery
 
 To enable discovery of records from ServiceNow custom tables, configure the following policies:
 
@@ -38,17 +38,18 @@ To enable discovery of records from ServiceNow custom tables, configure the foll
 > [!IMPORTANT]
 > Removing a table name from this list will result in the deletion of the corresponding `ServiceNow > Custom > Table` resource and all its child `ServiceNow > Custom > Record` resources from the Guardrails CMDB.
 
-### Set Optional Policies
+## Set Optional Policies
 
-While not required for basic discovery, these policies allow for fine-grained control over which records are imported and how they are identified within Guardrails:
+The following two policies allow you to control which records are discovered and how they are displayed in Guardrails:
 
-#### ServiceNow > Custom > Record > CMDB > Query
+### ServiceNow > Custom > Record > CMDB > Query
 
-- Filters records discovered from specified tables using a [ServiceNow encoded query string](https://www.servicenow.com/docs/bundle/yokohama-platform-user-interface/page/use/using-lists/concept/c_EncodedQueryStrings.html).
-- Enter the encoded query string as the policy value..
-- Defaults to `""` (empty string), meaning no filter is applied.
+- Allows you to refine which records are discovered by applying [ServiceNow encoded query string](https://www.servicenow.com/docs/bundle/yokohama-platform-user-interface/page/use/using-lists/concept/c_EncodedQueryStrings.html).
+- Useful for limiting discovery to specific records that match your criteria.
+- For example, filter by status, category, or any other field available in the ServiceNow table
+- Defaults to `""` (empty string) which means all records will be discovered.
 
-#### ServiceNow > Custom > Record > CMDB > Title
+### ServiceNow > Custom > Record > CMDB > Title
 
 - Specifies the data key(s) used to retrieve the title for discovered `ServiceNow > Custom > Record` resources in Guardrails.
 - Provide an array of strings representing field names in order of preference e.g. `["name", "display_name", "sys_id"]`. Guardrails uses the first field in the list that contains a non-empty value.
@@ -58,17 +59,22 @@ While not required for basic discovery, these policies allow for fine-grained co
 
 <!-- ### Business Rule for Event-Driven Updates (Optional) -->
 
-## Step 2: (Optional) Configure Event-Driven Business Rules
+## (Optional) Configure Real-time Business Rules
 
-Similar to the pre-configured table sync, you can enable event-driven updates for discovered custom tables:
+To enable real-time updates when records change in ServiceNow, you can configure Business Rules. This allows Guardrails to automatically sync changes as they happen in ServiceNow.
+
+Before configuring Business Rules, ensure you have:
+
+- Set `ServiceNow > Config > System Properties` to `Enforce: Configured` as described in the [ServiceNow sync prerequisites](/guardrails/docs/guides/servicenow/servicenow-to-guardrails-sync#prerequisites).
+- Administrator access to create Business Rules in ServiceNow
 
 ### ServiceNow > Custom > Table > Business Rule
 
-- Configures ServiceNow Business Rules for event handling of record changes (new, updated, deleted) in the discovered tables.
+- Configures ServiceNow Business Rules for real-time event handling of record changes (new, updated, deleted) in the discovered tables.
 - Set to `Enforce: Configured` to enable automatic setup and management.
-- Requires `ServiceNow > Config > System Properties` to be set to `Enforce: Configured` as described in the [ServiceNow sync prerequisites](/guardrails/docs/guides/servicenow/servicenow-to-guardrails-sync#prerequisites).
 
-#### ServiceNow > Custom > Table > Business Rule > Name
+
+### ServiceNow > Custom > Table > Business Rule > Name
 
 - Allows customization of the Business Rule name.
 
@@ -81,10 +87,15 @@ To discover records from the standard ServiceNow Server table `cmdb_ci_server`, 
     ```yaml
     - cmdb_ci_server
     ```
+![ServiceNow Discovery Policy Settings](/images/docs/guardrails/guides/servicenow/discovery-servicenow-custom-tables/policy-setting.png)
+
 3.  (Optional) To only discover active servers, set `ServiceNow > Custom > Record > CMDB > Query` to `active=true` (or the relevant field/value for server status).
 4.  (Optional) To enable real-time updates, set `ServiceNow > Custom > Table > Business Rule` to `Enforce: Configured`.
 
+![ServiceNow Business Rule Setting](/images/docs/guardrails/guides/servicenow/discovery-servicenow-custom-tables/business-rule-policy.png)
+
 Guardrails will now discover records from `cmdb_ci_server`. These records will appear in your Guardrails inventory under the ServiceNow instance resource as `ServiceNow > Custom > Record` resources.
+
 
 ## Next Steps
 
