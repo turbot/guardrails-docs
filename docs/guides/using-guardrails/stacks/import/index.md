@@ -36,7 +36,7 @@ Guardrails allows you to bring existing AWS resource(s) under stack management u
 > Once you've confirmed everything works as intended in Check mode, you can safely switch to Enforce mode.
 
 
-## Step 1: Locate Existing Resource
+## Step 1: Find Existing Resource
 
 Before importing, identify the AWS IAM role that you want to manage using Guardrails.
 
@@ -50,7 +50,7 @@ To get the role details using [AWS CLI](https://aws.amazon.com/cli/), execute th
 aws iam get-role --role-name stack-import-demo-role
 ```
 
-Expected output:
+Expected CLI output:
 
 ```json
 {
@@ -58,7 +58,7 @@ Expected output:
     "Path": "/",
     "RoleName": "stack-import-demo-role",
     "RoleId": "AROA2AWXV46KEICE3ITXA",
-    "Arn": "arn:aws:iam::688720832404:role/stack-import-demo-role",
+    "Arn": "arn:aws:iam::688720831234:role/stack-import-demo-role",
     "CreateDate": "2025-04-02T12:20:31+00:00",
     "AssumeRolePolicyDocument": {
       "Version": "2012-10-17",
@@ -83,7 +83,7 @@ Expected output:
 
 We will make use of the [Import](https://opentofu.org/docs/language/import/) block to import this existing IAM [Role](https://search.opentofu.org/provider/terraform-providers/aws/latest/docs/resources/iam_role#import).
 
-Example import block for an IAM Role:
+Import block:
 
 ```hcl
 import {
@@ -94,16 +94,16 @@ import {
 > [!NOTE]
 > The identifier you use for a resource's import ID is resource-specific. You can find the required ID in the provider's documentation for the resource you wish to import.
 
-## Step 3: Configure AWS > IAM > Stack [Native] > Modifier Policy
+To import the IAM role, update the following policies to import the above resource.
 
-To import the IAM Role, update the following Policies:= to import the above resource.
+## Step 3: Configure AWS > IAM > Stack [Native] > Modifier Policy
 
 1. Login to Guardrails console and navigate to **Policies** tab.
 2. Search for **AWS > IAM > Stack [Native] > Modifier**.
 3. Select **New Policy Setting**.
 4. Apply the following *Terraform import block* in the policy at the *account* level.
 
-Example Terraform configuration:
+Required policy value:
 
 ```
 import {
@@ -124,7 +124,7 @@ Now set the *AWS > IAM > Stack [Native] > Source* policy with the OpenTofu HCL c
 3. Select **New Policy Setting**.
 4. Apply the following **Terraform import block** in the policy at the **account** level.
 
-Example Terraform configuration:
+Required Terraform configuration:
 
 ```hcl
 resource "aws_iam_role" "stack_import_demo_role" {
@@ -175,7 +175,7 @@ View control logs to check the if the stack successfully imported the resource.
 
 Now that the resource is imported to the Stack. You can manage the resource using the Stack. Try updating the **AWS > IAM > Stack [Native] > Source** and the changes should reflect in the AWS IAM Role.
 
-For example:
+Let's update by adding a tag to the IAM role.
 
 1. Go to **AWS > IAM > Stack [Native] > Source** in the Guardrails console
 2. Update the source with the following code to add tags to the IAM Role:
@@ -341,12 +341,12 @@ For example, with S3 buckets:
 
 <!-- Resources to associate with buckets such as lifecycle policies or replication configuration. -->
 
-Let us walk through an example use-case. To add a lifecycle policy for all the S3 buckets within a `region/account/folder` to delete log files older than a year, This applies to all objects under the **logs/** prefix (i.e., logs/filename.log)
+Let us walk through an example use-case. To add a lifecycle policy for all the S3 buckets within a `region/account/folder` to delete log files older than a year. This applies to all objects under the **logs/** prefix (i.e. logs/filename.log)
 
 **Use Case:** Delete S3 Logs Older Than One Year
 
 > [!NOTE]
-> Please refer to [Best Practices](https://turbot.com/guardrails/docs/concepts/guardrails/stacks#best-practices)
+> Please refer to [Stack [Native] Best Practices](/guardrails/docs/concepts/guardrails/stacks#best-practices)
 
 We will use a [calculated policy](/guardrails/docs/concepts/policies/calculated-faq#calculated-policies-faq) for the variables.
 
