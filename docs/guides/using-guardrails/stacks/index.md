@@ -11,4 +11,5 @@ Guardrails [Stack controls](/guardrails/docs/concepts/guardrails/stacks) provide
 |-------------------|-------------------------------------------
 | [Deploy a Stack](/guardrails/docs/guides/using-guardrails/stacks/deploy) | Setting up a stack control to create and manage resources.
 | [Destroy  Stack](/guardrails/docs/guides/using-guardrails/stacks/destroy) | Destroying resources managed by a stack.
+| [Import Resource](/guardrails/docs/guides/using-guardrails/stacks/import) | Import existing resources into stack.
 
