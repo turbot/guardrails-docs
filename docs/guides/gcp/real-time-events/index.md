@@ -240,7 +240,7 @@ Event handlers can be shut-off by setting:
   destroy the event handler infrastructure.
 
 > [!NOTE]
-> Deleting an GCP project out of a Guardrails workspace will not automatically decommission the event handlers. Event Handlers must be set explicitly destroyed before removing the project from a Guardrails workspace.
+> Deleting a GCP project out of a Guardrails workspace will not automatically decommission the event handlers. Event Handlers must be set explicitly destroyed before removing the project from a Guardrails workspace.
 
 
 ## When to decommission Event Handlers
