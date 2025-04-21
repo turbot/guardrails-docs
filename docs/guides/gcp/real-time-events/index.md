@@ -234,13 +234,14 @@ any in error, they should be investigated. Any questions can be directed to
 Event handlers can be shut-off by setting:
 
 - [GCP > Turbot > Event Handlers > PubSub](https://turbot.com/guardrails/docs/mods/gcp/gcp/policy#gcp--turbot--event-handlers--pubsub)
-  to **Enforce: Configured**
+  to **Enforce: Not Configured**
 - [GCP > Turbot > Event Handlers > Logging](https://turbot.com/guardrails/docs/mods/gcp/gcp/policy#gcp--turbot--event-handlers--logging)
-  to **Enforce: Configured**. Turbot will perform the required Terraform runs to
-  destroy the event handler infrastructure. **Note:** Deleting an GCP project
-  out of a Guardrails workspace will not automatically decommission the event handlers. Event
-  Handlers must be set explicitly destroyed before removing the project from
-  a Guardrails workspace.
+  to **Enforce: Not Configured**. Turbot will perform the required Terraform runs to
+  destroy the event handler infrastructure.
+
+> [!NOTE]
+> Deleting an GCP project out of a Guardrails workspace will not automatically decommission the event handlers. Event Handlers must be set explicitly destroyed before removing the project from a Guardrails workspace.
+
 
 ## When to decommission Event Handlers
 
