@@ -1,0 +1,33 @@
+name: Markdown Lint
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli2
+
+      - name: Get changed markdown files
+        id: changed-files
+        uses: tj-actions/changed-files@v41
+
+      - name: Run markdownlint on changed files
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | grep '\.md$' > changed-files.txt || true
+          if [ -s changed-files.txt ]; then
+            markdownlint-cli2 --config .markdownlint.json $(cat changed-files.txt)
+          else
+            echo "No markdown files changed."
+          fi

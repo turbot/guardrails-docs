@@ -1,0 +1,11 @@
+{
+  "description": "Ensure all Turbot Guardrails docs follow a consistent markdown guide format.",
+  "rules": [
+    "Start with YAML frontmatter containing 'title' and 'sidebar_label'.",
+    "Use a single '# Title' after frontmatter.",
+    "Include '## Prerequisites' section if applicable.",
+    "Steps must be formatted as '## Step X: <Action>' in order.",
+    "Optionally include '## Troubleshooting' and '## Next Steps'.",
+    "Use Markdown image embeds and clear step-based headers."
+  ]
+}

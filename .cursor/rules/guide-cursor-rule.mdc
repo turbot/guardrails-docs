@@ -1,0 +1,10 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+"description": "All guides must use a standardized markdown structure with # title and ## sub-headers.",
+"Use '# Title' followed by a high-level overview.",
+"Include '## Prerequisites' if applicable.",
+"Each major step should be a '## Step X: Description'.",
+"End with '## Troubleshooting' and '## Next Steps' if relevant."
