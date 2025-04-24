@@ -34,6 +34,12 @@
       "items": ["guides/aws/permissions/user-mode"]
     },
     "guides/aws/security-hub",
-    "guides/aws/decommission"
+    "guides/aws/decommission",
+    {
+      "type": "category",
+      "id": "controls",
+      "link": "guides/aws/controls",
+      "items": ["guides/aws/controls/s3-bucket-approved"]
+    }
   ]
 }
