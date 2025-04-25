@@ -37,3 +37,17 @@ markdownlint-cli2 '**/*.md'
    - Lints only those files using your custom
    rules
    - Skips unrelated or legacy .md files
+
+
+## Purpose of `.markdownlint/custom-turbot-markdown-rules.js`
+
+(Draft structure)
+
+| **Required Section**   | **Format Example**                            | **Purpose**                                               |
+|------------------------|-----------------------------------------------|-----------------------------------------------------------|
+| YAML frontmatter       | `--- title:... sidebar_label:... ---`         | Metadata for the docs site and sidebar navigation         |
+| Title                  | `# Install TED`                               | Main title of the guide                                   |
+| Prerequisites          | `## Prerequisites`                            | Setup and access requirements before starting the guide   |
+| At least one step      | `## Step 1: Access AWS Console`               | Structured step-by-step actions the user must perform     |
+| Next Steps             | `## Next Steps`                               | Follow-up actions or related guides to explore            |
+| Troubleshooting        | `## Troubleshooting`                          | Help section to resolve common errors or issues           |
