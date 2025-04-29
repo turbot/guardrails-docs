@@ -306,10 +306,12 @@
                 "link": "guides/using-guardrails/console/reports",
                 "items": [
                   "guides/using-guardrails/console/reports/find-policies-in-tbd-state",
-                  "guides/using-guardrails/console/reports/export-policy-pack-as-csv"
+                  "guides/using-guardrails/console/reports/export-policy-pack-as-csv",
+                  "guides/using-guardrails/console/reports/budget-by-account",
+                  "guides/using-guardrails/console/reports/budget-by-account-rewrite/",
+                  "guides/using-guardrails/console/detail-pages"
                 ]
-              },
-              "guides/using-guardrails/console/detail-pages"
+              }
             ]
           },
           "guides/using-guardrails/graphql",
