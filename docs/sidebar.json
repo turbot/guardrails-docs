@@ -553,7 +553,8 @@
         "link": "reference/graphql",
         "items": []
       },
-      "reference/glossary"
+      "reference/glossary",
+      "reference/prompt/prompt-library"
     ]
   },
   {
