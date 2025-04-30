@@ -7,33 +7,48 @@ alwaysApply: false
 
 This rule consolidates and summarizes the key requirements for writing any Turbot Guardrails guide, based on the [official style guide](mdc:https:/github.com/turbot/pipes-docs/blob/style_guide/STYLE.md#writing-turbot-guardrails-guides) and internal standards.
 
-## Structure
-- Start with YAML frontmatter: `title` and `sidebar_label` in Title Case, matching the main heading.
+## General Rules
+- All guides must include YAML frontmatter with `title`, `sidebar_label`, and `guide_type`.
 - The main heading (`#`) must match the `title` and `sidebar_label` exactly.
-- The overview appears immediately after the title (no `## Overview` header). Briefly explain the guide's purpose.
 - Use AP Title Case for all section headers.
-- Section titles should be 5 words or less and start with a command (e.g., Launch, Create, Access).
-- Use `select` for on-screen selections and `choose` for dropdowns/lists.
-- Link glossary terms the first time they appear.
-- Avoid parenthetical references in titles unless referring to specific tools.
 - Use consistent capitalization in headers and titles.
-
-## Required Sections
-1. **Overview** (no header): What the user will do, what it is, and why it matters.
-2. **Prerequisites**: List requirements with links.
-3. **Steps**: Each step as its own `## Step X: Verb Noun` header (e.g., `## Step 1: Access AWS Console`). Steps should begin with a verb. Include a **Monitor** step and a final **Review** step. Steps must be clear, actionable, and numbered consistently.
-4. **Next Steps**: Link to related guides or docs.
-5. **Troubleshooting**: Use a table for common issues and solutions (optional but recommended).
-
-## Formatting
-- Use ordered lists for steps.
 - Use markdown image syntax for screenshots; store images in the same directory as the guide, or in `/images/docs/guardrails/` with descriptive alt text and matching subdirectory.
-- Use light mode PNG screenshots, 1280x640px, cropped to the active window.
-- Use arrows and ovals for annotations as described in the style guide.
 - Use blockquote call-outs (Note, Tip, Important, Warning, Caution) as appropriate.
 
-## Sidebar Integration
-- Reference guides in the sidebar using their directory path (e.g., `guides/aws/your-guide`), without the `/index` suffix.
-- The navigation bar title should match the page title and file path.
+---
+
+## Rules by Guide Type
+
+### 1. `getting-started`
+**Applies to:** `docs/getting-started/**/*.md`
+- Must have: Overview (no header), Prerequisites, Steps, Next Steps sections.
+- Steps must use `## Step X: <Action>` format and be clear, actionable, and numbered.
+- If cloud-specific, use appropriate terminology and screenshots.
+- Add a Setup section before Prerequisites if provisioning resources.
+- Add a Cleanup step if resources are provisioned.
+
+### 2. `concepts`
+**Applies to:** `docs/concepts/**/*.md`
+- Must have a clear conceptual overview (no step-by-step instructions required).
+- Use diagrams or conceptual images if possible.
+- Define key terms and link to glossary on first use.
+
+### 3. `guides`
+**Applies to:** `.md` files under `docs/guides/hosting-guardrails/`, `docs/guides/using-guardrails/`
+- Must have: Overview, Prerequisites, Steps, Next Steps sections.
+- Steps must use `## Step X: <Action>` format.
+- Use screenshots and UI references where appropriate.
+- For policy or configuration guides, include code/configuration examples.
+
+### 4. `troubleshooting`
+**Applies to:** `.md` files under `docs/guides/troubleshooting/`
+- Must have a Troubleshooting section with a table of issues and resolutions.
+- Include common problems, symptoms, and step-by-step solutions.
+- Link to related guides or documentation in Next Steps.
+
+---
 
 For more details and examples, see the [official style guide](mdc:https:/github.com/turbot/pipes-docs/blob/style_guide/STYLE.md#writing-turbot-guardrails-guides).
+
+---
+
