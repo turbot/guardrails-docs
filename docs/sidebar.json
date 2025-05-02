@@ -351,6 +351,12 @@
           "guides/using-guardrails/searching-filtering",
           {
             "type": "category",
+            "id": "encryption",
+            "link": "guides/using-guardrails/encryption",
+            "items": ["guides/using-guardrails/encryption/s3"]
+          },
+          {
+            "type": "category",
             "id": "troubleshooting",
             "link": "guides/using-guardrails/troubleshooting",
             "items": [
@@ -553,8 +559,7 @@
         "link": "reference/graphql",
         "items": []
       },
-      "reference/glossary",
-      "reference/prompt/prompt-library"
+      "reference/glossary"
     ]
   },
   {

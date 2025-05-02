@@ -1,0 +1,25 @@
+
+## Step-1 - Using basic-guide-structure-prompts
+
+Create a Guardrails guide titled "{S3 Encryption}" with guide_type "{guide}" in "docs/guides/using-guardrails/encryption/s3" following these requirements:@basic-guide-structure-prompts.md Follow the Control @https://hub.guardrails.turbot.com/mods/aws/controls/aws-s3/bucketEncryptionAtRest Check required policies from @https://hub.guardrails.turbot.com/mods/aws/policies/aws-s3/bucketEncryptionAtRest
+
+Put the Troubleshootings at the end it should follow as below
+
+
+Remove ## Required Permissions section we do not need to add the same as when Guardrails manage any account it's already assuming these permission for all activities
+
+## Step-2 Navigation Bar
+
+Add the entry in docs/sidebar.json by following the existing standard for using-guardrails
+
+Error: ENOENT: no such file or directory, open '/Users/raj/raj-professional-tasks/turbot/guardrails/turbot.com/content/guardrails/docs/guides/using-guardrails/encryption/index.md' for each folder we should have a index.md specific to parent folder e.g. docs/guides/using-guardrails/iam/index.md
+
+## Step-3 Image Recommendation
+
+Can you recommend places to add images in S3 Encrytion Guide?
+
+Fix as per basic-guide-structure-prompts 4. Image Related
+
+
+
+
