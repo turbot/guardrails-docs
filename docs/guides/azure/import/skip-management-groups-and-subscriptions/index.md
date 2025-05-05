@@ -24,8 +24,6 @@ While you can import an Azure Tenant at the Turbot level, it is recommended that
 > To **avoid disruptions**, it is **recommended to create a separate Turbot Guardrails folder** and import the tenant under it **while excluding existing subscriptions and management groups**.
 > This ensures that the discovery of **new or existing subscriptions** happens within the newly created folder, preventing unintended changes to **already onboarded subscriptions**.
 >
-> Gradually, you can *evaluate newly discovered subscriptions* and move them to the appropriate existing folders with it's associated policies.
->
 > If you prefer to **align already onboarded subscriptions** with your **Azure root management group (Tenant) hierarchy**, Guardrails will **automatically move them** under the tenant during the import process, following the **default import behavior**.
 > Refer to the [Azure Management Group Hierarchy](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory) for more details.
 
