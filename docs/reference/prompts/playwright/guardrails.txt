@@ -1,0 +1,32 @@
+
+Using playwright, I'd like you to navigate to https://punisher-turbot.cloud.turbot-dev.com/apollo/login. I can login for you when I am prompted.
+
+Notes: Some pages can be slow to load - especially the dashboards. Always wait rather than giving up or guessing new URLs.
+
+You should record the rest of the process as an SOP document with screenshots. The file should be stored in index.md /Users/raj/raj-professional-tasks/turbot/guardrails/guardrails-docs/docs/guides/using-guardrails/console/reports/playwright
+
+For the style guide draw inspiration from https://turbot.com/guardrails/docs/guides/using-guardrails/console/reports/find-policies-in-tbd-state
+
+Once logged in navigate to Reports section and search for Controls section. Take a report for Controls by Controls Type and check for all controls in Error state.
+
+The browser width should be 1280px.
+For screenshots, I'd like you to:
+1. Always take them as full browser width.
+2. You can vary the height appropriately to show key information.
+
+
+Structure
+YAML frontmatter (title, sidebar_label, guide_type)
+H1 title matching frontmatter
+Overview (no heading) explaining what, why, and how
+Prerequisites section with necessary items
+H2 Step sections (5 words or less, starting with verbs)
+Review steps
+Next Steps section
+Troubleshooting table
+
+Style as applicable
+Second-person voice ("you")
+Bold UI elements: Button Name and Tab Names
+Code and input in backticks: example-input
+GitHub-style call-outs: > [!NOTE], > [!TIP], etc.

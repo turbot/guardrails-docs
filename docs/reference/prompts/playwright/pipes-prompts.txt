@@ -1,0 +1,31 @@
+Using playwright, I'd like you to navigate to https://pipes.turbot.com. You should then login - ask me if you need credentials or me to do something. The login name is raj@turbot.com.
+
+Choose turbot-ops organization After you've logged in, I want you to navigate through to a workspace choose rajtest workspace find powerpipe, and run the AWS PCI DSS v4.0 benchmark.
+
+Don't drill into it, once you have a screenshot of the dashboard the process is complete. After you've logged in, you should record the rest of the process as an SOP document with screenshots.
+
+Notes: *Some pages can be slow to load - especially the dashboards. Always wait rather than giving up or guessing new URLs. *
+
+The browser width should be 1280px.
+For screenshots, I'd like you to:
+1. Always take them as full browser width.
+2. You can vary the height appropriately to show key information.
+
+The style guide for SOP in markdown should follow as below
+Draw inspiration from https://turbot.com/guardrails/docs/guides/using-guardrails/console/reports/find-policies-in-tbd-state
+
+Structure:
+YAML frontmatter (title, sidebar_label, guide_type)
+H1 title matching frontmatter
+Overview (no heading) explaining what, why, and how
+Prerequisites section with necessary items
+H2 Step sections (5 words or less, starting with verbs)
+Review steps
+Next Steps section
+Troubleshooting table
+
+Style as applicable
+Second-person voice ("you")
+Bold UI elements: Button Name and Tab Names
+Code and input in backticks: example-input
+GitHub-style call-outs: > [!NOTE], > [!TIP], etc.

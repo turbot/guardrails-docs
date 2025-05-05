@@ -306,7 +306,8 @@
                 "link": "guides/using-guardrails/console/reports",
                 "items": [
                   "guides/using-guardrails/console/reports/find-policies-in-tbd-state",
-                  "guides/using-guardrails/console/reports/export-policy-pack-as-csv"
+                  "guides/using-guardrails/console/reports/export-policy-pack-as-csv",
+                  "guides/using-guardrails/console/reports/playwright"
                 ]
               },
               "guides/using-guardrails/console/detail-pages"
