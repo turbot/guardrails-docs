@@ -1,0 +1,8 @@
+{
+  "default": true,
+  "MD025": false,
+  "MD013": false,
+  "custom-rules": [
+    "./.markdownlint/custom-turbot-markdown-rules.js"
+  ]
+}

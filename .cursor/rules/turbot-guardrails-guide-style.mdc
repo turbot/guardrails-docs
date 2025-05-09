@@ -1,0 +1,54 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Turbot Guardrails Documentation Style Guide
+
+This rule consolidates and summarizes the key requirements for writing any Turbot Guardrails guide, based on the [official style guide](mdc:https:/github.com/turbot/pipes-docs/blob/style_guide/STYLE.md#writing-turbot-guardrails-guides) and internal standards.
+
+## General Rules
+- All guides must include YAML frontmatter with `title`, `sidebar_label`, and `guide_type`.
+- The main heading (`#`) must match the `title` and `sidebar_label` exactly.
+- Use AP Title Case for all section headers.
+- Use consistent capitalization in headers and titles.
+- Use markdown image syntax for screenshots; store images in the same directory as the guide, or in `/images/docs/guardrails/` with descriptive alt text and matching subdirectory.
+- Use blockquote call-outs (Note, Tip, Important, Warning, Caution) as appropriate.
+
+---
+
+## Rules by Guide Type
+
+### 1. `getting-started`
+**Applies to:** `docs/getting-started/**/*.md`
+- Must have: Overview (no header), Prerequisites, Steps, Next Steps sections.
+- Steps must use `## Step X: <Action>` format and be clear, actionable, and numbered.
+- If cloud-specific, use appropriate terminology and screenshots.
+- Add a Setup section before Prerequisites if provisioning resources.
+- Add a Cleanup step if resources are provisioned.
+
+### 2. `concepts`
+**Applies to:** `docs/concepts/**/*.md`
+- Must have a clear conceptual overview (no step-by-step instructions required).
+- Use diagrams or conceptual images if possible.
+- Define key terms and link to glossary on first use.
+
+### 3. `guides`
+**Applies to:** `.md` files under `docs/guides/hosting-guardrails/`, `docs/guides/using-guardrails/`
+- Must have: Overview, Prerequisites, Steps, Next Steps sections.
+- Steps must use `## Step X: <Action>` format.
+- Use screenshots and UI references where appropriate.
+- For policy or configuration guides, include code/configuration examples.
+
+### 4. `troubleshooting`
+**Applies to:** `.md` files under `docs/guides/troubleshooting/`
+- Must have a Troubleshooting section with a table of issues and resolutions.
+- Include common problems, symptoms, and step-by-step solutions.
+- Link to related guides or documentation in Next Steps.
+
+---
+
+For more details and examples, see the [official style guide](mdc:https:/github.com/turbot/pipes-docs/blob/style_guide/STYLE.md#writing-turbot-guardrails-guides).
+
+---
+
