@@ -5,7 +5,7 @@ sidebar_label: AI Tools (MCP)
 
 # Configure Guardrails MCP Server
 
-This guide walks you through setting up the Turbot Guardrails Model Context Protocol (MCP) server, allowing AI assistants to interact with your Guardrails environment through natural language.
+This guide walks you through setting up the Turbot Guardrails [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server, allowing AI assistants to interact with your Guardrails environment through natural language.
 
 Guardrails MCP bridges AI assistants (like Claude and Cursor) with your Turbot Guardrails environment, enabling you to explore and manage your cloud infrastructure using conversational language instead of complex queries.
 
