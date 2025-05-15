@@ -346,6 +346,14 @@
               "guides/using-guardrails/scheduling/db-scheduling-using-custom-tag"
             ]
           },
+          {
+            "type": "category",
+            "id": "ai-integration",
+            "link": "guides/using-guardrails/ai-integration",
+            "items": [
+              "guides/using-guardrails/ai-integration/mcp"
+            ]
+          },
           "guides/using-guardrails/nunjucks",
           "guides/using-guardrails/quick-actions",
           "guides/using-guardrails/searching-filtering",
