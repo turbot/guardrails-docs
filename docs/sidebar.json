@@ -351,7 +351,7 @@
             "id": "ai-integration",
             "link": "guides/using-guardrails/ai-integration",
             "items": [
-              "guides/using-guardrails/ai-integration/mcp"
+              "guides/using-guardrails/ai-integration"
             ]
           },
           "guides/using-guardrails/nunjucks",
