@@ -33,23 +33,6 @@ Required Actions:
    - Troubleshooting
 ```
 
-## Step 2: Process Images
-
-For each image in the export, use this prompt:
-
-```
-Please help me process this image from the Scribe export:
-
-Image Details:
-- Filename: [image-name.png]
-- Description: [What the image shows]
-- Location: docs/guides/<category>/<guide-name>/images/
-
-Required Actions:
-1. Generate proper markdown image syntax
-2. Create descriptive alt text
-3. Provide correct relative path
-```
 
 ## Next Steps
 

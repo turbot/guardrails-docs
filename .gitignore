@@ -139,3 +139,38 @@ docs/mods/osquery
 docs/mods/kubernetes
 docs/reference/graphql
 sidebar-generated.json
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+# Playwright specific files
+/test-results/
+/playwright-report/
+/playwright/.auth/
+/playwright/.cache/
+/test-results/
+/playwright/.env
+/playwright/screenshots/
+/playwright/videos/
+/playwright/traces/
+# TypeScript files
+*.ts
+# Lock files
+*.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+
+
+# VSCode files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+.vscode/settings.json

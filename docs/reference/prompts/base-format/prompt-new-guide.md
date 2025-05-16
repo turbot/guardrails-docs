@@ -13,7 +13,6 @@ This document serves as a collection of prompts and best practices for creating 
 - **guide_type as guides**
   Reference: `docs/guides`
 
-
 ## New Guide Prompts - (`docs/guides`)
 
 > **Purpose:** This section provides guidelines specifically for creating documentation for the Turbot Guardrails product.
@@ -122,5 +121,3 @@ Refer Update TED Stack in docs/guides/hosting-guardrails/updating-stacks/update-
 - [ ] Code and input text in backticks: `example-input`
 - [ ] Images in correct location with descriptive alt text
 - [ ] File follows kebab-case naming convention
-
-

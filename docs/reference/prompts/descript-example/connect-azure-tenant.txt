@@ -1,0 +1,46 @@
+
+Create a new guide based on below transscript
+
+To add more context, this guide is for Turbot Guardrails product. Place it under with existing pattern based folder name in docs/guides/azure/import/tenant
+
+-- Start of Transscript Reference
+
+Connect your Azure Tenants with Guardrails
+In this demo, we're gonna show you how you can connect your Azure tenants directly to Turbo Guardrails. So prior, we've had the ability for you to connect individual Azure subscriptions to guardrails, whether through the console or through the API or often at scale. You might use Terraform to bring in those subscriptions.
+
+Customers would either bring in their tenant hierarchy as is, or they may use a different structure within Turbo Guardrails to mix those subscriptions into different folder structures. Or they might combine a multi-cloud approach with Amazon accounts and Google projects. To make it easier for folks that just wanna bring in their tenant as is, discover those management groups, those subscriptions, the resource groups, et cetera.
+
+This option now allows you just to bring it in, uh, just in a few clicks. Here, you could select your tenant. You can then select where you want to bring it in, what part of Turbo guardrails you select your tenant id, client id, and secret for access into the tenant structure. What type of cloud environment, if it's a commercial account, US government or or part of China Cloud.
+
+And then you can define exclusion lists. So if you wanted to exclude certain management groups or subscriptions, you could do that statically or you could do it with some RegX, which would help dynamically manage the subscriptions or the the organizational units that you want to ignore. This will automatically discover your tenant.
+
+And then keep it in sync into guardrail. So whenever there's a new subscription or move of subscriptions to different management groups, guardrails will stay up to date. With all those changes, I've already integrated one of my Azure tenants in here where it has a few management groups, and all those are instantly discovered, all of the resources within there.
+
+For example, if I scroll down into the Sandbox Management group and then down to a very specific project, I can then drill into each of those and then drill into the resource groups. Into the, the resources themselves. Very much similar guardrails. You're very experienced, but just an easier way to bring in your entire tenant structure and all of your resources.
+
+Your ability to then see your controls, your policies, the audit trail, the activity porting. Being able to set guardrail policies all will be the same. This is just another approach to bring in your inventory. If you're interested in learning more, please reach out to us at turbo.com/start.
+
+-- End of Transscript Reference --
+
+To add more context, this guide is for Turbot Guardrails product. Place it under with existing pattern based folder namme in
+docs/guides/using-guardrails/cli
+
+1. Use the following guide structure:
+   - File i.e. index.md be placed in {BASE_LOCATION}/{NEW_GUIDE_FOLDER_NAME} here it will be in docs/guides/using-guardrails/cli
+   - YAML frontmatter (title, sidebar_label, guide_type)
+   - H1 title matching frontmatter
+   - Overview (no heading) explaining what, why, and how
+   - Prerequisites section with necessary items
+   - Step sections (5 words or less, starting with verbs)
+   - Monitor or Review steps
+   - Next Steps section
+   - Troubleshooting table
+
+2. Style:
+   - Bold UI elements: **Button Name** and **Tab Names**
+   - Code and input in backticks: `example-input`
+   - GitHub-style call-outs: > [!NOTE], > [!TIP], etc. as applicable based on additional information you would like to add.
+
+3. Add to navigation bar to make your guide visible in the documentation navigation, you need to add it to the sidebar configuration using docs/sidebar.json structure.
+
+Follow the pattern as mentioned docs/guides/using-guardrails/console/reports/find-policies-in-tbd-state/index.md

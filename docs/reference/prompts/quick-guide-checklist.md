@@ -1,8 +1,3 @@
----
-title: Quick Guide Checklist
-sidebar_label: Quick Guide Checklist
----
-
 # Quick Guide Checklist
 
 Use this checklist to ensure your guide meets all requirements:

@@ -14,8 +14,7 @@ For screenshots, I'd like you to:
 1. Always take them as full browser width.
 2. You can vary the height appropriately to show key information.
 
-
-Structure
+Guide Structure
 YAML frontmatter (title, sidebar_label, guide_type)
 H1 title matching frontmatter
 Overview (no heading) explaining what, why, and how
@@ -25,7 +24,6 @@ Review steps
 Next Steps section
 Troubleshooting table
 
-Style as applicable
 Second-person voice ("you")
 Bold UI elements: Button Name and Tab Names
 Code and input in backticks: example-input

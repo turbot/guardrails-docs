@@ -307,7 +307,10 @@
                 "items": [
                   "guides/using-guardrails/console/reports/find-policies-in-tbd-state",
                   "guides/using-guardrails/console/reports/export-policy-pack-as-csv",
-                  "guides/using-guardrails/console/reports/playwright"
+                  "guides/using-guardrails/console/reports/playwright",
+                  "guides/using-guardrails/console/reports/using-metric",
+                  "guides/using-guardrails/console/reports/s3-bucket-report",
+                  "guides/using-guardrails/console/reports/access-turbot-metrics-logs"
                 ]
               },
               "guides/using-guardrails/console/detail-pages"
@@ -425,7 +428,14 @@
             "link": "guides/hosting-guardrails/updating-stacks",
             "items": [
               "guides/hosting-guardrails/updating-stacks/update-tef",
-              "guides/hosting-guardrails/updating-stacks/update-ted",
+              {
+                "type": "category",
+                "id": "update-ted",
+                "link": "guides/hosting-guardrails/updating-stacks/update-ted",
+                "items": [
+                  "guides/hosting-guardrails/updating-stacks/update-ted/index"
+                ]
+              },
               "guides/hosting-guardrails/updating-stacks/update-workspace",
               "guides/hosting-guardrails/updating-stacks/domain-update",
               "guides/hosting-guardrails/updating-stacks/general-purpose-gp3"

@@ -1,0 +1,28 @@
+Create a new guide based on below scribe markdown conent @temp-scribe-test2.md
+
+To add more context, this guide is for Turbot Guardrails product. Place it under with existing pattern based folder namme in
+docs/guides/using-guardrails/console/reports/
+
+1. Use the following guide structure:
+   - File i.e. index.md be placed in {BASE_LOCATION}/{NEW_GUIDE_FOLDER_NAME} here it will be docs/guides/using-guardrails/console/reports/{NEW_GUIDE_FOLDER_NAME}
+   - YAML frontmatter (title, sidebar_label, guide_type)
+   - H1 title matching frontmatter
+   - Overview (no heading) explaining what, why, and how
+   - Prerequisites section with necessary items
+   - Step sections (5 words or less, starting with verbs)
+   - Add Review steps
+   - Next Steps section
+   - Troubleshooting table
+
+2. Style:
+   - Bold UI elements: **Button Name** and **Tab Names**
+   - Code and input in backticks: `example-input`
+   - GitHub-style call-outs: > [!NOTE], > [!TIP], etc. as applicable based on additional information you would like to add.
+   - In Review section add - [ ] instead of bullets
+
+3. Images link
+Use the image URLs provided in provided markdown file used for buikding this guide
+
+4. Add to navigation bar to make your guide visible in the documentation navigation, you need to add it to the sidebar configuration using docs/sidebar.json structure.
+
+Follow the pattern as mentioned docs/guides/using-guardrails/console/reports/find-policies-in-tbd-state/index.md

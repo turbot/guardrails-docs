@@ -1,0 +1,17 @@
+Using playwright, I'd like you to navigate to https://punisher-turbot.cloud.turbot-dev.com/apollo/login and process through the below information to create a new guide.
+
+When you login, ask me to confirm to login as applicable.
+
+Location of guide should be docs/guides/using-guardrails/console/reports/<provide-meaningful-name>
+
+The use-case is, after you've logged in, I want you to navigate through to a Turbot folder, find Metrics and run over few screens to explain in highlevel. Don't drill into it.
+
+Take screenshots and save locally where the index.md file is saved as mentioned above.
+
+Ask me to add more context if required
+
+The content should be arranged in the STYLE of docs/guides/hosting-guardrails/updating-stacks/update-ted/index.md
+
+Add to navigation bar to make your guide visible in the documentation navigation, you need to add it to the sidebar configuration using docs/sidebar.json structure.
+
+Consider to add value add conent related to the actions in Turbot's Guardrails

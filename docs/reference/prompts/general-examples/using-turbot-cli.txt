@@ -1,0 +1,42 @@
+Create a new guide based on below CLI command by using Guardrails MCP in punisher workspace i.e. https://punisher-turbot.cloud.turbot-dev.com/
+
+turbot graphql \
+  --query 'mutation AttachPolicyPack {
+    attachPolicyPacks(
+      input: {
+        resource: "111111111111111",
+        policyPacks: "222222222222222"
+      }
+    ) {
+      turbot {
+        id
+      }
+    }
+  }'
+
+Replace 111111111111111 with the Turbot ID of the resource you want to attach the Policy Pack to.
+Replace 222222222222222 with the ID of the Policy Pack you wish to attach.
+
+To add more context, this guide is for Turbot Guardrails product. Place it under with existing pattern based folder namme in
+docs/guides/using-guardrails/cli
+
+1. Use the following guide structure:
+   - File i.e. index.md be placed in {BASE_LOCATION}/{NEW_GUIDE_FOLDER_NAME} here it will be in docs/guides/using-guardrails/cli
+   - YAML frontmatter (title, sidebar_label, guide_type)
+   - H1 title matching frontmatter
+   - Overview (no heading) explaining what, why, and how
+   - Prerequisites section with necessary items
+   - Step sections (5 words or less, starting with verbs)
+   - Monitor or Review steps
+   - Next Steps section
+   - Troubleshooting table
+
+2. Style:
+   - Bold UI elements: **Button Name** and **Tab Names**
+   - Code and input in backticks: `example-input`
+   - GitHub-style call-outs: > [!NOTE], > [!TIP], etc. as applicable based on additional information you would like to add.
+
+3. Add to navigation bar to make your guide visible in the documentation navigation, you need to add it to the sidebar configuration using docs/sidebar.json structure.
+
+Follow the pattern as mentioned docs/guides/using-guardrails/console/reports/find-policies-in-tbd-state/index.md
+

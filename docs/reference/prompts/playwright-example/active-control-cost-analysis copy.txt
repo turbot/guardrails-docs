@@ -1,0 +1,207 @@
+
+
+Consider below conversion from below ## conversion section
+
+Using playwright, I'd like you to navigate to https://punisher-turbot.cloud.turbot-dev.com/apollo/login and process through the below information to create a new guide.
+
+
+## Conversion
+
+I believe we are over reporting on AMAT controls significantly over the last few months.  AMAT reached out to ask about how to optimize their controls as their costs have close to double over the last few months.  I put together some options for them and reviewing with them -- but I just realized there is a major discripancy on what their console is reporting for AWS / Azure active controls vs what is being reported in our backend usage for billing.
+They are only reporting 276K active controls in AWS and Azure at the moment (and when I spot checked last week): https://turbot-amat.cloud.turbot.com/apollo/reports/controls-by-control-type?filter=control[…]ot%2Fgcp%23%2Fresource%2Ftypes%2Fgcp%27+state%3Aactive
+However in the billing / org usage I am seeing a gradual increase in controls from late January raising to as high as 508K controls on May 5th.  https://guardrails.turbot.com/orgs/amat/usage
+They have another test workspace that is included in that usage number, I dont have direct access, but that looks like from the usage data is only 25K range
+Is there something wrong with our billing / usage metering?
+
+Analyse below images and  generate navigation as applicable for investigation purpose.
+Check control-by-control-type.png & metrics-under-turbot-base-folder-level.png
+
+nathan
+:wave:  Tuesday at 6:26 PM
+Do they have a lot of temp resources being created?
+
+bob
+  Tuesday at 6:27 PM
+Are those adding to the controls where the active controls show stable, but the deletions / time based controls are adding to the weight of the real active control count? (edited)
+
+nathan
+:wave:  Tuesday at 6:28 PM
+It's certainly possible, right?
+
+bob
+  Tuesday at 6:28 PM
+these new metrics are very helpful for this to show that its most likely the reason
+
+bob
+  Tuesday at 6:36 PM
+From the over time metrics, looks like its the case -- more transient resources are introduced, with Guardrails doubling its actions over that time.  But the resources over time is relatively static?
+We are taking more activity and resources are coming in going.  I wonder if there is control fighting happening?  Odd the resource and control count is pretty stable, but the activity has doubled with resources created and deleted.
+
+Analyze resource-over-the-time-created.png, resource-over-the-time-total.png and resource-over-the-time-deleted.png
+
+abhinash
+  Tuesday at 6:45 PM
+We calculate the control count based solely on the controls table, which is evaluated every 4/6 hours.
+For example, imagine that within one 4-hour window, you create 20,000 resources. This could increase the active control count to 100,000. Now, if you delete half of those resources in the next 4-hour cycle, the control count would decrease accordingly.
+So when a snapshot is taken, it captures the  control count which is available at that time, i.e the reason you see the control count to be pretty stable
+6:47
+In the case of resource_activity, the count is calculated differently. Instead of relying on the resources table, we query the notifications table to determine how many resources were created or deleted, since each resource goes through a full lifecycle captured in the notifications.
+6:49
+We have to go to account level metrics to check which one is the biggest contributor
+
+
+bob
+  Tuesday at 6:49 PM
+is there something we can do to help them understand what is the reason for all these activities?  It looks like something to do with Databricks -- would assume that is causing a lot of resource churn with their automation.
+Looks like we are getting blocked on updating those resources as well with a lot of action errors.
+
+
+abhinash
+  Tuesday at 6:51 PM
+turbot=> select * from turbot_amat.daily_stats order by resource_created desc limit 10;
+-[ RECORD 1 ]----+--------------------------------------------------------------------------------
+id               | 352646510565679
+resource_id      | 332529210434549
+resource_path    | 243044495614977.262540456699577.276144385092397.262540565897997.332529210434549
+alarm            | 2296
+ok               | 16800
+invalid          | 0
+error            | 12
+skipped          | 27084
+tbd              | 390
+muted            | 0
+action           | 63002
+resource_created | 115072
+resource_updated | 162227
+resource_deleted | 114568
+resource_total   | 9001
+summary_date     | 2025-05-05
+create_timestamp | 2025-05-05 02:29:07.116207+00
+update_timestamp | 2025-05-06 11:33:54.243635+00
+-[ RECORD 2 ]----+--------------------------------------------------------------------------------
+id               | 352208837790515
+resource_id      | 332529210434549
+resource_path    | 243044495614977.262540456699577.276144385092397.262540565897997.332529210434549
+alarm            | 2126
+ok               | 16107
+invalid          | 0
+error            | 18
+skipped          | 24471
+tbd              | 238
+muted            | 0
+action           | 46854
+resource_created | 107080
+resource_updated | 129559
+resource_deleted | 105716
+resource_total   | 8308
+summary_date     | 2025-04-30
+create_timestamp | 2025-04-30 03:44:18.016255+00
+update_timestamp | 2025-05-01 21:02:16.97212+00
+-[ RECORD 3 ]----+--------------------------------------------------------------------------------
+6:51
+This account seems to be deleted
+6:52
+Sorry its not deleted
+6:52
+https://turbot-amat.cloud.turbot.com/apollo/resources/332529210434549/reports
+6:52
+It seems this account created the spike in the billing
+metrics-under-turbot-base-folder-level.png
+
+bob
+  Tuesday at 6:53 PM
+A lot of polling errors: https://turbot-amat.cloud.turbot.com/apollo/resources/332529210434549/activity?filter=notif[…]tiveGrant%2Ccontrol%2Cgrant%2CpolicySetting%2Cresource
+
+
+abhinash
+  Tuesday at 6:54 PM
+turbot=> select id, resource_created, summary_Date, resource_id from turbot_amat.daily_stats order by resource_created desc limit 30;
+       id        | resource_created | summary_date |   resource_id
+-----------------+------------------+--------------+-----------------
+ 352646510565679 |           115072 | 2025-05-05   | 332529210434549
+ 352208837790515 |           107080 | 2025-04-30   | 332529210434549
+ 352374722714496 |           101743 | 2025-05-02   | 332529210434549
+ 352284647349406 |           100330 | 2025-05-01   | 332529210434549
+ 352557213118816 |            97575 | 2025-05-04   | 332529210434549
+ 352466220162676 |            95307 | 2025-05-03   | 332529210434549
+ 352109479255490 |            87351 | 2025-04-29   | 332529210434549
+ 352018765634318 |            83401 | 2025-04-28   | 332529210434549
+ 351843877090186 |            70465 | 2025-04-26   | 332529210434549
+ 351932406997315 |            63307 | 2025-04-27   | 332529210434549
+ 351755500283231 |            60595 | 2025-04-25   | 332529210434549
+ 352726032291947 |            51896 | 2025-05-06   | 332529210434549
+ 351581884679623 |            48765 | 2025-04-23   | 332529210434549
+ 352206790738859 |            43589 | 2025-04-30   | 276164670619791
+ 352385875691021 |            42670 | 2025-05-02   | 276164670619791
+ 352639595733758 |            42247 | 2025-05-05   | 276164670619791
+ 351496927249144 |            41588 | 2025-04-22   | 276164670619791
+ 351761634659583 |            41080 | 2025-04-25   | 276164670619791
+ 352298344287673 |            39952 | 2025-05-01   | 276164670619791
+ 352018768799036 |            39666 | 2025-04-28   | 276164670619791
+ 352107474687630 |            39628 | 2025-04-29   | 276164670619791
+ 351400878405078 |            39367 | 2025-04-21   | 332529210434549
+ 351584405959063 |            39239 | 2025-04-23   | 276164670619791
+ 351495321604181 |            38462 | 2025-04-22   | 332529210434549
+ 350788827053455 |            36682 | 2025-04-14   | 276164670619791
+ 351843498252138 |            36679 | 2025-04-26   | 276164670619791
+ 352564845984441 |            36430 | 2025-05-04   | 276164670619791
+ 351678954620441 |            36243 | 2025-04-24   | 332529210434549
+ 351320301416789 |            35182 | 2025-04-20   | 276164670619791
+ 351047991005611 |            34472 | 2025-04-17   | 276164670619791
+6:55
+https://turbot-amat.cloud.turbot.com/apollo/resources/276164670619791/reports
+https://turbot-amat.cloud.turbot.com/apollo/resources/332529210434549/reports
+These two accounts are reason for the billing increase
+
+bob
+  Tuesday at 6:55 PM
+But are we causing any additional churn or issues?  When you go to the activity in the Turbot > AMAT > PROD > AZURE > AZ_AMAT_MCPROD_01 account -- resource id: 332529210434549, there are a ton of polling errors
+6:56
+Same with the other.  Spot checking on other subs its not an issue
+
+
+abhinash
+  Tuesday at 6:58 PM
+It's not the polling which is increasing the amount
+We charge if there is a state change in control but in this case its an action_notify which we don't charge
+
+
+bob
+  Tuesday at 6:59 PM
+understood -- not sure if its we are missing events and/or removing / deleting resources in our CMDB if the resource looks different
+7:01
+i recall we had some issues in the past where we were re-upserting resources constantly when the configuration data didnt align.  But maybe that was more about the object vs the resource itself
+
+abhinash
+  Tuesday at 7:01 PM
+@bob
+ I suspect they’re running some automation or pipeline that creates and deletes resources within the same day.
+When a resource is created, we run CMDB, discovery, and any other active controls associated with that resource.
+So, if there are 120k resource_created events, we will charge for at least 120k × 2 controls — one for CMDB and one for Discovery — assuming both are active.
+
+bob
+  Tuesday at 7:03 PM
+Can we tell if we are the ones creating or deleting the resources from the Turbot actions over time?  Pinpoint the actor?
+Just trying to see if we can show value in the notifications or audit trail to help them discover the automation that is happening and how to dig in further on the culprit.  Knowing the two subscriptions should be helpful enough for them to dig further themselves, but just seeing if we can give them more details with the info we have
+
+bob
+  Tuesday at 7:09 PM
+looks like we dont have rights to take action on those resources either
+
+
+abhinash
+  Tuesday at 7:09 PM
+It's only the cmdb and discovery control which they are getting charged for
+
+
+bob
+  Tuesday at 7:10 PM
+they have tagging and CIS controls set on those resources as well
+7:11
+example this NIC in one of the subscriptions has tagging controls set -- we cant auto-remediate it: https://turbot-amat.cloud.turbot.com/apollo/resources/352776025197756/controls
+so assuming this NIC will disappear sometime soon, a new one will spin up.  thats another CMDB + Tag control getting metered since its a new resource.  Which is fair per our pricing model
+
+The content should be arranged in the format of docs/guides/hosting-guardrails/updating-stacks/update-ted/index.md
+
+Add to navigation bar to make your guide visible in the documentation navigation, you need to add it to the sidebar configuration using docs/sidebar.json structure.
+
