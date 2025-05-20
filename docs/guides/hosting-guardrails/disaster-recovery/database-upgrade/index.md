@@ -259,6 +259,9 @@ In a new session, initiate the `pg_dump` process using the `snapshot ID` obtaine
 ```shell
 nohup time pg_dump -h $SOURCE -U master --snapshot="00000062-000182C4-1" -F c -b -v -f data.dump turbot > dump.log 2>&1 &
 ```
+
+ > [!CAUTION] 
+ > Enabling logical replication before a long pg_dump/restore can lead to WAL buildup and storage exhaustion. It is recommended to enable RDS storage autoscaling to prevent out-of-space errors during migration.
 ### Monitor
 
 Check the `dump.log` file to confirm the process has begun. Look for log entries indicating `table contents are being dumped`.
