@@ -145,12 +145,11 @@ Dive into resource details:
 Show details for resource ID 1234567890
 ```
 
-Remember to:
-
-- Be specific about which resources, controls, or policies you want to analyze
-- Use filters for categories, titles, or tags
-- Start with simple queries before adding complex conditions
-- Use natural language – the LLM will handle the GraphQL translation
+> [!TIP]
+> - Be specific about which resources, controls, or policies you want to analyze
+> - Use filters for categories, titles, or tags
+> - Start with simple queries before adding complex conditions
+> - Use natural language – the LLM will handle the GraphQL translation
 
 <!-- ## Next Steps
 
