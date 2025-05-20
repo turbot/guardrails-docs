@@ -1,0 +1,42 @@
+
+Using playwright, I'd like you to navigate to https://punisher-turbot.cloud.turbot-dev.com/apollo/login. I can login for you when I am prompted.
+
+Some pages can be slow to load - especially the dashboards. Always wait rather than giving up or guessing new URLs.
+
+Use case
+Enable Encryption in Transit for specific S3 bucket using Turbot Guardrails. Refer https://hub.guardrails.turbot.com/mods/aws/policies/aws-s3/encryptionInTransit
+
+Guide location:
+- The file should be stored in index.md docs/guides/using-guardrails/encryption/s3
+- Refer existing structure as example i.e. docs/guides/using-guardrails/console/reports/find-policies-in-tbd-state/index.md
+
+You should record the rest of the process as an SOP document with screenshots.
+
+Screenshots:
+1. Always take them as full browser width.
+2. You can vary the height appropriately to show key information.
+3. Images should be in the same base folder of the index.md
+
+NOTE: If screenshots are not aligned to the requirement or difficulties to take, ask me to take a screenshot and provide in the targeted folder during the process. Wait for my confirmation.
+
+Style guide:
+- refer docs/guides/using-guardrails/console/reports/find-policies-in-tbd-state/index.md
+- Guide Structure inline with docs/guides/using-guardrails/console/reports/find-policies-in-tbd-state/index.md
+  - YAML frontmatter (title, sidebar_label, guide_type)
+  - H1 title matching frontmatter
+  - Overview (no heading) explaining what, why, and how
+  - Prerequisites section with necessary items
+  - Step sections (5 words or less, starting with verbs)
+  - Include Review step
+  - Add Next Steps section
+  - Add Troubleshooting table refer ## Troubleshooting section of find-policies-in-tbd-state/index.md
+  - Second-person voice ("you")
+  - Bold UI elements: Button Name and Tab Names
+  - Code and input in backticks: example-input
+  - GitHub-style call-outs: > [!NOTE], > [!TIP], etc.
+
+Adding to sidebar
+Add to navigation bar to make your guide visible in the documentation navigation, you need to add it to the sidebar configuration using docs/sidebar.json structure.
+
+
+NOTE:

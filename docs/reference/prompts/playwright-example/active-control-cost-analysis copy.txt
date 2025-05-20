@@ -204,4 +204,3 @@ so assuming this NIC will disappear sometime soon, a new one will spin up.  that
 The content should be arranged in the format of docs/guides/hosting-guardrails/updating-stacks/update-ted/index.md
 
 Add to navigation bar to make your guide visible in the documentation navigation, you need to add it to the sidebar configuration using docs/sidebar.json structure.
-

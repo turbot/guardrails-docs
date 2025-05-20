@@ -1,19 +1,12 @@
 ---
-title: "Encryption"
-sidebar_label: "Encryption"
+title: Encryption
+sidebar_label: Encryption
 ---
 
 # Encryption
 
-Manage encryption settings for your cloud resources using Guardrails. This section provides guides for configuring and managing encryption across different cloud services.
+Guardrails enables you to enforce encryption controls across your cloud resources, ensuring data is protected at rest and in transit. Use these guides to configure and manage encryption policies for your environment.
 
-## Available Guides
-
-| Guide | Description |
-|-------|-------------|
-| [S3 Bucket Encryption](s3) | Configure and manage S3 bucket encryption settings using Guardrails' automated enforcement features. |
-
-## Related Concepts
-
-- [Encryption at Rest](/guardrails/docs/concepts/guardrails/encryption-at-rest)
-- [Encryption in Transit](/guardrails/docs/concepts/guardrails/encryption-in-transit)
+|                                                                                      |
+| ------------------------------------------------------------------------------------ |
+| [Enable Encryption in Transit for S3](guides/using-guardrails/encryption/s3)         |

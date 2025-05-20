@@ -1,0 +1,48 @@
+1. Based on this lets proceed to generate the guide
+2. Using playwright can you take screenshots? I can help in login if required in new browser
+3. Yes start the process
+4. Proceed next
+5. bucket name is  testraj2025
+6. Go to resources and search for  testraj2025
+7. Proceed next step
+8. Not appearing, navigate to RESOURCES and search for the bucket name
+9. I had to click, now its visible. Proceed
+10. Yes
+11. Yes set to Enforced as exception this this bucket
+12. Yes
+13. Lets proceed to complete the guide and add to sidebar
+14. Which location these images are stored?
+
+
+15. Move these images from the current location to docs/guides/using-guardrails/encryption/s3 as mentioned and make appropirate changed in the index.md
+
+--- appropirate changed in the index.md dees not make sense, rather be more specific instruction to provide a example format for the image link.
+
+
+16. Now follow the image pattern as mention in @index.md
+
+---- Change the prompt here
+The markdown image link does not match to the recommended style guide, I want you to do ??? new markdown links and provide examples
+
+![Policy Values by State](/images/docs/guardrails/guides/using-guardrails/console/reports/find-policies-in-tbd-state/guardrails-policy-values-by-state.png)
+
+
+17. I get this below error while deploying primarily indicating the missing structure
+
+To solve this we need to add index.md in docs/guides/using-guardrails/encryption and provide link to the generated new file - see example  docs/guides/using-guardrails/iam/index.md structure
+
+Error: ENOENT: no such file or directory, open '/Users/raj/raj-professional-tasks/turbot/guardrails/turbot.com/content/guardrails/docs/guides/using-guardrails/encryption/index.md'
+    at Object.openSync (node:fs:590:3)
+    at Object.readFileSync (node:fs:458:35)
+    at getDocForSlug (/Users/raj/raj-professional-tasks/turbot/guardrails/turbot.com/src/utils/guardrails.ts:22:28)
+    at normaliseItem (/Users/raj/raj-professional-tasks/turbot/guardrails/turbot.com/src/utils/guardrails.ts:54:32)
+    at normaliseItem (/Users/raj/raj-professional-tasks/turbot/guardrails/turbot.com/src/utils/guardrails.ts:59:36)
+    at normaliseItem (/Users/raj/raj-professional-tasks/turbot/guardrails/turbot.com/src/utils/guardrails.ts:59:30)
+    at buildSidebarHierarchy (/Users/raj/raj-professional-tasks/turbot/guardrails/turbot.com/src/utils/guardrails.ts:96:23)
+    at updateGuardrails (/Users/raj/raj-professional-tasks/turbot/guardrails/turbot.com/scripts/update-docs-sidebar.ts:139:20) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/Users/raj/raj-professional-tasks/turbot/guardrails/turbot.com/content/guardrails/docs/guides/using-guardrails/encryption/index.md'
+}
+error Command failed with exit code 1.

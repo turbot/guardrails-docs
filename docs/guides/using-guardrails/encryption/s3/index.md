@@ -1,108 +1,81 @@
 ---
-title: "S3 Bucket Encryption Configuration in Guardrails"
-sidebar_label: "S3 Encryption"
-guide_type: "guide"
+title: Enable Encryption in Transit for S3
+sidebar_label: Enable Encryption in Transit for S3
+guide_type: how-to
 ---
 
-# S3 Bucket Encryption Configuration in Guardrails
+# Enable Encryption in Transit for S3
 
-Guardrails provides automated management of S3 bucket encryption through its Agent and Auto mode capabilities. This guide explains how to configure and manage S3 bucket encryption settings using Guardrails' automated enforcement features.
+This guide helps you enable Encryption in Transit for a specific S3 bucket using Turbot Guardrails. Encryption in Transit ensures that data moving between your applications and S3 is protected using SSL/TLS. This is a critical security control to prevent unauthorized access during data transfer.
+
+You will use the Guardrails console to configure and verify the Encryption in Transit policy for your S3 bucket.
 
 ## Prerequisites
 
-- Guardrails Agent installed and configured
-- Auto mode enabled in your Guardrails workspace
-- AWS account(s) connected to Guardrails
-- Appropriate IAM permissions for S3 encryption operations
+- **Turbot/Operator** permissions at the Turbot resource level.
+- Access to the Guardrails console.
+- The S3 bucket you want to secure.
 
-## Enable Auto Mode for S3 Encryption
+## Step 1: Log In to the Guardrails Console
 
-![Navigate to Auto Mode Settings](/images/docs/guardrails/guides/using-guardrails/encryption/s3/navigate-auto-mode-settings.png)
+Log in to the Guardrails console at [https://punisher-turbot.cloud.turbot-dev.com/apollo/login](https://punisher-turbot.cloud.turbot-dev.com/apollo/login).
 
-1. Navigate to **Settings** > **Auto Mode** in your Guardrails workspace
-2. Enable Auto mode for the `AWS > S3 > Bucket > Encryption at Rest` control
-
-![Enable S3 Encryption Auto Mode](/images/docs/guardrails/guides/using-guardrails/encryption/s3/enable-s3-encryption-auto-mode.png)
-
-3. Select your desired enforcement level:
-   - `Enforce: AWS SSE` - Automatically configure AWS Server-Side Encryption
-   - `Enforce: AWS managed key` - Automatically configure AWS KMS managed keys
-   - `Enforce: Customer managed key` - Automatically configure customer managed KMS keys
-
-![Select Enforcement Level](/images/docs/guardrails/guides/using-guardrails/encryption/s3/select-enforcement-level.png)
+![Guardrails Console Login](/images/docs/guardrails/guides/using-guardrails/encryption/s3/guardrails-console-login.png)
 
 > [!NOTE]
-> The `Enforce: None` policy value is deprecated as it is no longer supported by AWS.
+> If you have trouble logging in, contact your administrator or refer to your organization's SSO instructions.
 
-## Configure Agent Settings
+## Step 2: Navigate to the S3 Bucket
 
-![Agent Configuration](/images/docs/guardrails/guides/using-guardrails/encryption/s3/agent-configuration-settings.png)
+From the navigation menu, go to **Resources** and search for your target **S3 bucket**.
 
-1. In your Guardrails workspace, navigate to **Settings** > **Agent Configuration**
-2. Ensure the following permissions are included in your agent's IAM role:
-   ```json
-   {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Effect": "Allow",
-               "Action": [
-                   "s3:DeleteBucketEncryption",
-                   "s3:PutEncryptionConfiguration",
-                   "s3:DeleteBucketPolicy",
-                   "s3:PutBucketEncryption",
-                   "s3:PutBucketPolicy"
-               ],
-               "Resource": "*"
-           }
-       ]
-   }
-   ```
+![Navigate to S3 Bucket](/images/docs/guardrails/guides/using-guardrails/encryption/s3/navigate-to-s3-bucket.png)
 
-## Set Customer Managed Key (Optional)
+Search for your bucket name:
 
-![Customer Managed Key Configuration](/images/docs/guardrails/guides/using-guardrails/encryption/s3/customer-managed-key-config.png)
+![Search testraj2025](/images/docs/guardrails/guides/using-guardrails/encryption/s3/search-testraj2025.png)
 
-If using customer managed keys:
+Click on the bucket in the results:
 
-1. Configure the `AWS > S3 > Bucket > Encryption at Rest > Customer Managed Key` policy
-2. Specify the KMS key ARN to be used for bucket encryption
-3. Ensure the agent's IAM role has permissions to use the specified KMS key
+![Bucket Resource Detail](/images/docs/guardrails/guides/using-guardrails/encryption/s3/testraj2025-resource-detail.png)
 
-## Monitor Automated Enforcement
+## Step 3: Access Encryption in Transit Policy
 
-![Controls View](/images/docs/guardrails/guides/using-guardrails/encryption/s3/controls-view-encryption.png)
+In the S3 bucket's page, select the **Policies** tab. Search for **Encryption in Transit**.
 
-1. Navigate to the **Controls** view in your Guardrails workspace
-2. Filter for `AWS > S3 > Bucket > Encryption at Rest` controls
+![Policies Tab](/images/docs/guardrails/guides/using-guardrails/encryption/s3/testraj2025-policies-tab.png)
 
-![Enforcement Status](/images/docs/guardrails/guides/using-guardrails/encryption/s3/enforcement-status-indicators.png)
+![Encryption in Transit Policy](/images/docs/guardrails/guides/using-guardrails/encryption/s3/encryption-in-transit-policy.png)
 
-3. Review the automated enforcement status:
-   - Green: Encryption properly configured
-   - Yellow: Auto mode is configuring encryption
-   - Red: Configuration failed (requires investigation)
+> [!TIP]
+> Use the search bar in the Policies tab to quickly find the policy.
+
+## Step 4: Set Encryption in Transit Policy
+
+Click on the **Encryption in Transit** policy. Set the value to `Enforced` and click **Create**.
+
+![Set Encryption in Transit](/images/docs/guardrails/guides/using-guardrails/encryption/s3/set-encryption-in-transit.png)
+
+![Enforce Encryption in Transit](/images/docs/guardrails/guides/using-guardrails/encryption/s3/enforce-encryption-in-transit.png)
+
+> [!NOTE]
+> Setting this policy to `Enforced` ensures all requests to the S3 bucket require SSL/TLS.
+
+## Step 5: Review Policy Enforcement
+
+After saving, verify that the policy state is `OK`. Test access to the S3 bucket to confirm that only encrypted connections are allowed.
+
+![Review Policy Enforcement](/images/docs/guardrails/guides/using-guardrails/encryption/s3/review-policy-enforcement.png)
 
 ## Next Steps
 
-- Configure automated alerts for encryption compliance violations
-- Review encryption settings across other AWS services
-- Set up automated reporting for encryption status
-
-> [!TIP]
-> Use the Controls by Resource report to monitor automated enforcement status across all your S3 buckets.
-
-## Additional Resources
-
-- [Guardrails Agent Installation Guide](link-to-agent-installation)
-- [Auto Mode Configuration Guide](link-to-auto-mode)
-- [AWS S3 Encryption Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html)
+- Learn more about [S3 Encryption in Transit Policy](https://hub.guardrails.turbot.com/mods/aws/policies/aws-s3/encryptionInTransit)
+- Explore [Managing Policies](/guardrails/docs/guides/configuring-guardrails/managing-policies)
 
 ## Troubleshooting
 
-| Issue | Resolution |
-|-------|------------|
-| Agent shows "Permission Denied" | Verify agent IAM role permissions |
-| Auto mode not enforcing | Check Auto mode settings and agent connectivity |
-| KMS key access denied | Update KMS key policy to allow agent access |
-| Configuration stuck in "In Progress" | Check agent logs for detailed error messages |
+| Issue | Description | Guide |
+|-------|-------------|-------|
+| Policy not visible | Ensure you have the correct permissions and are viewing the right S3 bucket. | [Open Support Ticket](https://support.turbot.com) |
+| Policy state not OK | Check for conflicting policies or inherited settings. | [Open Support Ticket](https://support.turbot.com) |
+| Unable to save policy | Verify your permissions and network connectivity. | [Open Support Ticket](https://support.turbot.com) |
