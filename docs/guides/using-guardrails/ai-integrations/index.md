@@ -112,7 +112,7 @@ For Cursor, you have two options for configuration:
 > [!NOTE]
 > Per-workspace configuration takes precedence over per-user configuration when both exist.
 
-## Step 4: Querying Guardrails
+## Step 4: Query Guardrails
 
 Start by asking about your Guardrails environment, for example:
 
