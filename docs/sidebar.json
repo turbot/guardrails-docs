@@ -348,12 +348,9 @@
           },
           {
             "type": "category",
-            "id": "ai-integration",
-            "link": "guides/using-guardrails/ai-integration",
-            "items": [
-              "guides/using-guardrails/ai-integration/policy-packs",
-              "guides/using-guardrails/ai-integration/guardrails"
-            ]
+            "id": "ai-integrations",
+            "link": "guides/using-guardrails/ai-integrations",
+            "items": []
           },
           "guides/using-guardrails/nunjucks",
           "guides/using-guardrails/quick-actions",

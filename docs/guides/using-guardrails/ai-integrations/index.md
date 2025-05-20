@@ -1,15 +1,23 @@
 ---
-title: AI Tools (MCP)
-sidebar_label: AI Tools (MCP)
+title: AI Integrations (MCP)
+sidebar_label: AI Integrations (MCP)
 ---
 
 # Configure Guardrails MCP Server
 
-This guide walks you through setting up the Turbot Guardrails [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server, allowing AI assistants to interact with your Guardrails environment through natural language.
+In this guide, you will:
 
-Guardrails MCP bridges AI assistants (like Claude and Cursor) with your Turbot Guardrails environment, enabling you to explore and manage your cloud infrastructure using conversational language instead of complex queries.
+- Install and configure the Guardrails [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server to enable AI assistant integration.
+- Connect your AI assistant to interact with your Guardrails environment.
+- Use natural language to explore and manage your cloud infrastructure.
 
-By connecting AI assistants to your Guardrails data, you can quickly analyze resources, check compliance status, and gain insights across your cloud estate without needing to write GraphQL queries or navigate the Guardrails UI.
+The [Guardrails](https://turbot.com/guardrails) Model Context Protocol (MCP) server enables AI assistants to interact with your Guardrails environment through natural language queries. By connecting AI assistants to your Guardrails data, you can:
+
+- Querying and analyzing cloud resources using GraphQL
+- Listing and filtering resource, control, and policy types
+- Executing controls and reviewing compliance
+- Exploring GraphQL schemas for custom queries
+- Processing templates using Nunjucks for dynamic configurations
 
 ## Prerequisites
 
@@ -31,6 +39,9 @@ Guardrails MCP is installed using npx, which runs the published npm package with
 The npx approach is used in the configuration examples throughout this guide and provides the simplest way to get started with Guardrails MCP.
 
 No additional installation steps are required as the configuration will automatically handle this for you.
+
+> [!NOTE]
+> If you need to customize the MCP server functionality, you can clone and modify the code from the [Guardrails MCP GitHub repo](https://github.com/turbot/guardrails-mcp). However, for most use cases, the npx installation method described above is recommended.
 
 ## Step 2: Configure MCP Server
 
