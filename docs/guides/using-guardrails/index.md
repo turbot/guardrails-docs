@@ -8,7 +8,7 @@ This section provides how-to guides for common tasks.
 
 | Section | Description
 | - | -
-| [AI Integration](guides/using-guardrails/ai-integration) | AI Integration and Prompts
+| [AI Integrations](guides/using-guardrails/ai-integrations) | Learn how to use different AI integration tools and prompts
 | [Console](guides/console) | Navigate the Guardrails Console user interface
 | [GraphQL](guides/graphql) | Tips and Tricks for GraphQL
 | [IAM](guides/iam) | Manage directories, users, and permissions

@@ -295,6 +295,7 @@
         "id": "using-guardrails",
         "link": "guides/using-guardrails",
         "items": [
+          "guides/using-guardrails/ai-integrations",
           {
             "type": "category",
             "id": "console",
@@ -346,7 +347,6 @@
               "guides/using-guardrails/scheduling/db-scheduling-using-custom-tag"
             ]
           },
-          "guides/using-guardrails/ai-integrations",
           "guides/using-guardrails/nunjucks",
           "guides/using-guardrails/quick-actions",
           "guides/using-guardrails/searching-filtering",
