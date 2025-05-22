@@ -7,7 +7,10 @@
       "type": "category",
       "id": "import-aws-account",
       "link": "guides/aws/import-aws-account",
-      "items": ["guides/aws/import-aws-account/gov-cloud"]
+      "items": [
+        "guides/aws/import-aws-account/gov-cloud",
+        "guides/aws/import-aws-account/index-cursor-rule-updated"
+      ]
     },
     "guides/aws/import-aws-organization",
     {

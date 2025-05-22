@@ -27,6 +27,7 @@
     },
     "guides/azure/services",
     "guides/azure/permissions",
-    "guides/azure/decommission"
+    "guides/azure/decommission",
+    "guides/azure/tenant-connect"
   ]
 }
