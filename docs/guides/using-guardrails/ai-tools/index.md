@@ -1,6 +1,6 @@
 ---
-title: AI Integrations (MCP)
-sidebar_label: AI Integrations (MCP)
+title: AI Tools (MCP)
+sidebar_label: AI Tools (MCP)
 ---
 
 # Configure Guardrails MCP Server
