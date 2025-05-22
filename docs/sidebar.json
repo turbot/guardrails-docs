@@ -295,6 +295,7 @@
         "id": "using-guardrails",
         "link": "guides/using-guardrails",
         "items": [
+          "guides/using-guardrails/ai-tools",
           {
             "type": "category",
             "id": "console",
