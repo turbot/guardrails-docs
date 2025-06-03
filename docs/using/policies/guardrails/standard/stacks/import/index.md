@@ -111,7 +111,7 @@ import {
   id = "stack-import-demo-role"
 }
 ```
-![Set AWS > IAM > Stack [Native] > Modifier](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-native-stack-modifier.png)
+![Set AWS > IAM > Stack [Native] > Modifier](/images/docs/guardrails/using/policies/guardrails/standard/stacks/import/aws-iam-native-stack-modifier.png)
 
 5. Select **Save** to apply the policy.
 
@@ -145,7 +145,7 @@ resource "aws_iam_role" "stack_import_demo_role" {
   })
 }
 ```
-![Set AWS > IAM > Stack [Native] > Source](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-native-stack-source.png)
+![Set AWS > IAM > Stack [Native] > Source](/images/docs/guardrails/using/policies/guardrails/standard/stacks/import/aws-iam-native-stack-source.png)
 
 Select **Update** to apply the policy.
 
@@ -159,17 +159,17 @@ Now set the *AWS > IAM > Stack [Native]* policy to enforce mode to import and ma
 4. Select "**Enforce: Configured**"
 5. Select **Create** to create the policy setting.
 
-![Set AWS > IAM > Stack [Native]](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-native-stack-configured-enforced.png)
+![Set AWS > IAM > Stack [Native]](/images/docs/guardrails/using/policies/guardrails/standard/stacks/import/aws-iam-native-stack-configured-enforced.png)
 
 ## Step 6: Validate the AWS > IAM > Stack [Native] Stack Control
 
 Once the necessary policies are set, the **AWS > IAM > Stack [Native]** stack will execute and import the resource. If everything goes well, you should see the below log message "Apply complete! Resources: 1 imported, 0 added, 0 changed, 0 destroyed."
 
-![Set AWS > IAM > Stack [Native]](/images/docs/guardrails/guides/using-guardrails/stacks/import/aws-iam-native-stack-control.png)
+![Set AWS > IAM > Stack [Native]](/images/docs/guardrails/using/policies/guardrails/standard/stacks/import/aws-iam-native-stack-control.png)
 
 View control logs to check the if the stack successfully imported the resource.
 
-![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/1-resource-imported.png)
+![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/using/policies/guardrails/standard/stacks/import/1-resource-imported.png)
 
 ## Step 7: Manage Stack with Updates
 
@@ -207,7 +207,7 @@ resource "aws_iam_role" "stack_import_demo_role" {
 
 If everything goes well, you should see the following log message, `Apply complete! Resources: 0 added, 1 changed, 0 destroyed.`
 
-![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/1-resource-updated.png)
+![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/using/policies/guardrails/standard/stacks/import/1-resource-updated.png)
 
 ## Importing Multiple Resources
 
@@ -275,7 +275,7 @@ Now enforce the changes, select, `Enforce: Configured`.
 
 If everything goes well, you should see the following log message, `Apply complete! Resources: 3 imported, 0 added, 0 changed, 0 destroyed.`
 
-![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/multiple-resources-imported.png)
+![AWS > IAM > Stack [Native] -- Control Logs](/images/docs/guardrails/using/policies/guardrails/standard/stacks/import/multiple-resources-imported.png)
 
 ## Importing Regional Stack Resources
 
@@ -326,7 +326,7 @@ To enforce, set the policy to `Enforce: Configured`at the region where you want 
 
 If everything goes well, you should see the following log message, `Apply complete! Resources: 3 imported, 0 added, 0 changed, 0 destroyed.`
 
-![AWS > Region > Stack [Native] -- Control Logs](/images/docs/guardrails/guides/using-guardrails/stacks/import/s3_bucket_imported.png)
+![AWS > Region > Stack [Native] -- Control Logs](/images/docs/guardrails/using/policies/guardrails/standard/stacks/import/s3_bucket_imported.png)
 
 
 ## Resource Stack [Native]
@@ -415,7 +415,7 @@ To enforce, set the policy to `Enforce: Configured` at the `region/account/folde
 
 - [ ] Verify the imported resource shows up in the Related tab of the Stack [Native].
 
-![Validate Resource](/images/docs/guardrails/guides/using-guardrails/stacks/import/validate-stack-native-resource.png)
+![Validate Resource](/images/docs/guardrails/using/policies/guardrails/standard/stacks/import/validate-stack-native-resource.png)
 
 ## Next Steps
 

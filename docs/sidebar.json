@@ -212,7 +212,9 @@
                     "link":  "using/policies/guardrails/standard/stacks",
                     "items": [
                       "using/policies/guardrails/standard/stacks/deploy",
-                      "using/policies/guardrails/standard/stacks/destroy"
+                      "using/policies/guardrails/standard/stacks/destroy",
+                      "using/policies/guardrails/standard/stacks/import"
+
                     ]
                   },
     
@@ -337,8 +339,8 @@
     "link": "managing",
     "items": [
 
-     "managing/ai-tools",
-
+      "managing/ai-tools",
+      "managing/activity-retention",
       {
         "type": "category",
         "id": "mods",

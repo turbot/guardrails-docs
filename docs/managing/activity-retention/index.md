@@ -21,7 +21,7 @@ Guardrails' [Activity Retention](https://hub.guardrails.turbot.com/mods/turbot/p
 
 Log in to the Guardrails console using your local credentials or via SAML-based login. Select **Policies** from the top navigation menu, then search for the policy named `Turbot > Workspace > Retention > Activity Retention`.
 
-![Navigate to Policies](/images/docs/guardrails/guides/configuring-guardrails/activity-retention/navigate-to-policies.png)
+![Navigate to Policies](/images/docs/guardrails/managing/activity-retention/navigate-to-policies.png)
 
 Click **New Policy Setting** in the top-right corner of the policy details page.
 
@@ -38,7 +38,7 @@ Select the **Resource** or **Folder** at which you wish to set the retention pol
 
 Under **Settings**, choose the appropriate retention period based on your organization's operational needs. Refer to [Retention Options](#retention-options) for details.
 
-![New Policy Setting](/images/docs/guardrails/guides/configuring-guardrails/activity-retention/new-policy-setting.png)
+![New Policy Setting](/images/docs/guardrails/managing/activity-retention/new-policy-setting.png)
 
 Click **Update** to save the new policy setting.
 
@@ -46,7 +46,7 @@ Click **Update** to save the new policy setting.
 
 - [ ] Return to the **Policies** tab and confirm the policy has been correctly applied by verifying the **Current Setting**.
 
-![Verify Policy](/images/docs/guardrails/guides/configuring-guardrails/activity-retention/verify-activity-retention-policy.png)
+![Verify Policy](/images/docs/guardrails/managing/activity-retention/verify-activity-retention-policy.png)
 
 ## Retention Options
 
