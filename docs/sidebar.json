@@ -324,7 +324,8 @@
         "items": [
           "connect/servicenow/import-servicenow-instance",
           "connect/servicenow/servicenow-to-guardrails-sync",
-          "connect/servicenow/guardrails-to-servicenow-sync"
+          "connect/servicenow/guardrails-to-servicenow-sync",
+          "connect/servicenow/discovery-servicenow-custom-tables"
         ]
       }
     ]
@@ -335,6 +336,8 @@
     "id": "configuring-guardrails",
     "link": "managing",
     "items": [
+
+     "managing/ai-tools",
 
       {
         "type": "category",
@@ -363,7 +366,6 @@
         "id": "iam",
         "link": "managing/iam",
         "items": [
-          "guides/using-guardrails/ai-tools",
           {
             "type": "category",
             "id": "iam-authentication",
@@ -521,8 +523,13 @@
         "id": "disaster-recovery",
         "link": "hosting/disaster-recovery",
         "items": [
-          "hosting/disaster-recovery/restore",
-          "hosting/disaster-recovery/dr-testing"
+          "hosting/disaster-recovery/architecture-options",
+          "hosting/disaster-recovery/hive-restore",
+          "hosting/disaster-recovery/database-upgrade",
+          "hosting/disaster-recovery/restore-workspace",
+          "hosting/disaster-recovery/multi-region-deployment",
+          "hosting/disaster-recovery/multi-region-failover"
+
         ]
       },
       "hosting/FAQ"
