@@ -70,7 +70,7 @@ or the TE version could be different from case to case.
 
     * Storage Throughput: 0
 
-      ![gp3-baseline](/images/docs/guardrails/gp3-baseline.png)
+      ![gp3-baseline](./gp3-baseline.png)
 
   If the Allocated Storage is 400GB or higher:
 
@@ -80,7 +80,7 @@ or the TE version could be different from case to case.
 
     * Storage Throughput: 500
 
-      ![gp3-baseline-custom](/images/docs/guardrails/gp3-baseline-custom.png)
+      ![gp3-baseline-custom](./gp3-baseline-custom.png)
 
 * Scroll to the bottom of the page and click on "Update" to make the above changes to the provisioned product.
 

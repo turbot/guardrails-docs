@@ -38,19 +38,19 @@ The activities are performed in the Turbot Guardrails hosting AWS account.
 
 Select the origin(source) database instance.
 
-![Select New Database](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-select-source-database.png)
+![Select New Database](./rds-select-source-database.png)
 
 Navigate to the `Configurations` tab and select the **DB instance parameter group**.
 
-![Select DB Instance Parameter Group](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-select-dbinstance-parameter-group.png)
+![Select DB Instance Parameter Group](./rds-select-dbinstance-parameter-group.png)
 
 Select **Edit**.
 
-![Edit DB Instance Parameter Group](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-parameter-group-edit.png)
+![Edit DB Instance Parameter Group](./rds-parameter-group-edit.png)
 
 Set `rds.logical_replication` to **1**. Select **Save Changes**.
 
-![Edit DB Instance Parameter Group](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-set-logical-replication-group.png)
+![Edit DB Instance Parameter Group](./rds-set-logical-replication-group.png)
 
 ### Pause Events
 
@@ -65,7 +65,7 @@ Set `rds.logical_replication` to **1**. Select **Save Changes**.
 
 ### Reboot DB Instance
 
-![Reboot DB Instance](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-new-reboot.png)
+![Reboot DB Instance](./rds-new-reboot.png)
 
 > [!WARNING]
 > During the database reboot, users will experience a brief service interruption lasting approximately 1 minutes or less. Please plan this maintenance window accordingly.
@@ -80,12 +80,12 @@ Deploy a new TED instance to create a new database that will serve as the target
 
 Navigate to AWS Service Catalog console and deploy a new TED. Follow the instruction provided in [Install Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/guides/hosting-guardrails/installation/install-ted) product.
 
-<!-- ![Deploy TED](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/service-catalog-launch-product-ted.png) -->
+<!-- ![Deploy TED](./service-catalog-launch-product-ted.png) -->
 
 <!-- For example, if your original source database is named `turbot-einstein`, name the new one to `turbot-einstein-blue` or `turbot-einstein-green`. Set the Version parameter to 1.45.0 or higher. -->
 For example, if your original source database is named `turbot-einstein`, name the new one as `turbot-einstein-green` (using the `-green` suffix). This suffix helps identify the new instance during the upgrade process. Set the Version parameter to 1.45.0 or higher.
 
-![Append Name and Version](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/service-catalog-naming-version.png)
+![Append Name and Version](./service-catalog-naming-version.png)
 
 
 ### In case of **DB engine upgrade**
@@ -95,7 +95,7 @@ If performing a database version upgrade e.g. migrating to PostgreSQL v16.x, use
 > [!IMPORTANT]
 > This guide assumes you are not using read replicas. For environments with read replicas enabled, additional steps may be required. Please contact Turbot Support for assistance.
 
-![Set Db Engine Upgrade](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-db-engine-upgrade.png)
+![Set Db Engine Upgrade](./rds-db-engine-upgrade.png)
 
 
 ### In case of **Storage Optimization**
@@ -103,11 +103,11 @@ If performing a database version upgrade e.g. migrating to PostgreSQL v16.x, use
 Set the allocated storage to match the current disk usage using the `Allocated Storage in GB` parameter (e.g., if 210 GB out of 500 GB is used, set it to 210 GB) and define the `Maximum Allocated Storage limit in GB` to a suitable value, both located under the `Database - Advanced - Storage` section; use the `FreeStorageSpace` metric to determine the size.
 
 
-![Set Allocated Storage](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/service-catalog-storage-allocation-new.png)
+![Set Allocated Storage](./service-catalog-storage-allocation-new.png)
 
 Set the encryption by configuring the `Custom Hive Key` parameter to use the original KMS key under the `Advanced - Infrastructure` section. This should be the Key ID, typically formatted as: `1111233-abcd-4444-2322-123456789012`.
 
-![Set Encryption](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/service-catalog-set-encryption.png)
+![Set Encryption](./service-catalog-set-encryption.png)
 
 Keep all other values unchanged.
 
@@ -121,15 +121,15 @@ Set the master password for both the DB instances via the AWS console.
 
 Select the `source` DB instance and choose **Modify**.
 
-![Select Modify](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-select-modify.png)
+![Select Modify](./rds-select-modify.png)
 
 Provide the master password
 
-![Set Master Password](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-update-master-password-new.png)
+![Set Master Password](./rds-update-master-password-new.png)
 
 Select **Modify DB Instance** and apply the changes.
 
-![Select Modify DB Instance](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-select-modify-dbinstance-new.png)
+![Select Modify DB Instance](./rds-select-modify-dbinstance-new.png)
 
 Apply the same changes to the `target` DB.
 
@@ -148,7 +148,7 @@ Create a Bastion using the [CloudFormation Template](https://github.com/turbot/g
 
 Connect to the newly created Bastion Host
 
-![Connect Bastion Host](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/ec2-connect-bastion-host.png)
+![Connect Bastion Host](./ec2-connect-bastion-host.png)
 
 ## Step 5: Install PostgreSQL Client
 
@@ -202,7 +202,7 @@ export SOURCE=<source_db_endpoint>
 export TARGET=<target_db_endpoint>
 export PGPASSWORD=<master_password_set_in_step4>
 ```
-![DB Instance Endpoint](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-endpoint.png)
+![DB Instance Endpoint](./rds-endpoint.png)
 
 ## Step 8: Create Publisher and Replication Slot in Source DB Instance
 
@@ -470,11 +470,11 @@ After proper validation of data consistencies, it's time to interchange the DB n
 
 Rename the original (source) instance by appending -blue to its name e.g. from `turbot-einstein` to `turbot-einstein-blue`.
 
-![Rename Original Instance](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-rename-original-instance-append-blue.png)
+![Rename Original Instance](./rds-rename-original-instance-append-blue.png)
 
 Rename the new target instance by removing the -green suffix e.g. from `turbot-einstein-green` to `turbot-einstein`.
 
-![Rename New Instance](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-rename-new-instance-remove-green.png)
+![Rename New Instance](./rds-rename-new-instance-remove-green.png)
 
 At this stage the workspace is now pointing to the new target DB with the earlier used RDS DB instance endpoint.
 
@@ -491,13 +491,13 @@ It's important to update the original TED stack e.g. (`ted-einstein`) with param
 
 Refer the parameters used in [Step 2: Provision New Database Instance](#in-case-of-db-engine-upgrade)
 
-![Set Db Engine Upgrade](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/rds-db-engine-upgrade.png)
+![Set Db Engine Upgrade](./rds-db-engine-upgrade.png)
 
 ### Execute `green<>blue` Deployment
 
 This will reset the master password along with other applicable parameters.
 
-![Blue Green Deployment Trigger](/images/docs/guardrails/hosting/disaster-recovery/database-upgrade/service-catalog-blue-green-deployment.png)
+![Blue Green Deployment Trigger](./service-catalog-blue-green-deployment.png)
 
 ## Step 16: Run Smoke Tests
 

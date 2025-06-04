@@ -25,7 +25,7 @@ which is implemented as a CloudFormation custom resource.
 
 In the AWS Console, navigate to the CloudFormation service in the alpha region.
 
-![CloudFormation Console](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-console.png)
+![CloudFormation Console](./cloudformation-console.png)
 
 
 ## Step 2: Download CloudFormation Template
@@ -38,14 +38,14 @@ This template is available at Guardrails sample repo.
 
 Download the template.
 
-![Download Template](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/github-guardrails-samples-workspace-template-download.png)
+![Download Template](./github-guardrails-samples-workspace-template-download.png)
 
 
 ## Step 3: Create New Stack
 
 Create a new stack, using the **Choose existing template** option by uploading the template file in **Choose file**, provide the [Sample Workspace Manager CloudFormation Template](#sample-workspace-manager-cloudformation-template) previously downloaded.
 
-![CloudFormation Create Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-upload-template.png)
+![CloudFormation Create Stack](./cloudformation-upload-template.png)
 
 ## Step 4: Enter Parameters
 
@@ -60,19 +60,19 @@ Enter the appropriate parameters and select **Next**
 | FoundationStackOutputPrefix          | This must match the resource prefix that you specified in the Turbot Guardrails Enterprise Foundation stack so that this stack can use exported outputs from the TEF stack. |
 | Alternate URL                        | Provide an alternate URL for the workspace, leave blank if not required. |
 
-![CloudFormation Update Parameters](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-update-parameters.png)
+![CloudFormation Update Parameters](./cloudformation-update-parameters.png)
 
 ## Step 5: Enable Termination Protection
 
 Turbot recommends enabling **Termination Protection** on the Workspace Manager CloudFormation stack. This can be done at creation by expanding the **Stack creation options** and enabling Termination Protection. This can also be configured post CloudFormation stack deployment. Select the stack while viewing the CloudFormation service in the AWS console, click **Stack actions** in the top right, then click **Edit termination protection**. Set this to `Activated` and select **Save**.
 
-![CloudFormation Enable Termination Protection](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-enable-termination-protection.png)
+![CloudFormation Enable Termination Protection](./cloudformation-enable-termination-protection.png)
 
 ## Step 6: Complete Stack Creation
 
 Click on **Submit** and wait for the stack creation to complete.
 
-![CloudFormation Stack Creation Complete](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-manager/cloudformation-creation-complete.png)
+![CloudFormation Stack Creation Complete](./cloudformation-creation-complete.png)
 
 ## Step 7: Login New Workspace
 

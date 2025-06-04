@@ -20,7 +20,7 @@ When working with the [TED (Turbot Enterprise Database)](/guardrails/docs/refere
 
 During execution of the [TED update](/guardrails/docs/runbooks/enterprise-install/update-ted#update-turbot-guardrails-enterprise-database-ted), check if the provisioned product in the Service Catalog changes to a `Tainted` status.
 
-![Tainted Status](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state/service-catalog-ted-tainted-status.png)
+![Tainted Status](./service-catalog-ted-tainted-status.png)
 
 
 <!-- (/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync/ted-tained-status-view-details.png) -->
@@ -29,12 +29,12 @@ During execution of the [TED update](/guardrails/docs/runbooks/enterprise-instal
 
 In the selected provisioned product, select the **Events** tab, in `UPDATE_PROVISIONED_PRODUCT` section select **View details**.
 
-![View Details](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state/ted-tained-status-view-details.png)
+![View Details](./ted-tained-status-view-details.png)
 
 Select **View more in CloudFormation** to navigate to CloudFormation stack. This will display **Error Message** as
 `Database instance is not in available state. (Service: Rds, Status Code: 400, Request ID: 3f4bddc5-e656-4ebe-8efe-3b9bdcfac026)`
 
-![CFN Update Failed](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state/cfn-update-failed.png)
+![CFN Update Failed](./cfn-update-failed.png)
 
 > [!NOTE]
 > The most common reason for this issue is that the database is in a state where modifications are not allowed, such as `Backing-up`. Attempting to make changes during this time will result in an error.
@@ -43,11 +43,11 @@ Select **View more in CloudFormation** to navigate to CloudFormation stack. This
 
 - [ ] Open the AWS Console and navigate to the **RDS** service in the region where TED is deployed.
 
-![AWS RDS Service](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state/aws-rds-service-console.png)
+![AWS RDS Service](./aws-rds-service-console.png)
 
 - [ ] Find the **DB Instance** associated with your TED stack.
 
-![TED RDS Instance](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state/ted-rds-instance.png)
+![TED RDS Instance](./ted-rds-instance.png)
 
 - [ ] Navigate to the DB Instance **Summary** and check for `Status`
 
@@ -57,7 +57,7 @@ Select **View more in CloudFormation** to navigate to CloudFormation stack. This
 
 If the database is in a state such as `Backing-up`, you will need to wait until the process is complete and the status changes to `Available`. This may take some time depending on the operations being performed on the database.
 
-![RDS Available State](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state/rds-status-available.png)
+![RDS Available State](./rds-status-available.png)
 
 ## Step 5: Execute Service Catalog Stack Update
 
@@ -65,11 +65,11 @@ Once the database instance is in the `Available` state, navigate to the Service 
 
 Initiate Service Catalog [TED **Update**](/guardrails/docs/runbooks/enterprise-install/update-ted). CloudFormation will check for changes. If there are no discrepancies, the stack will transition to `Update Complete`.
 
-![Status Available in Service Catalog](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state/service-catalog-status-available.png)
+![Status Available in Service Catalog](./service-catalog-status-available.png)
 
 ## Step 6: Review CloudFormation Stack
 
-![Update Complete](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state/update-complete.png)
+![Update Complete](./update-complete.png)
 
 If you continue to encounter issues, please [Open Support Ticket](https://support.turbot.com) and attach the relevant information to assist you more efficiently.
 

@@ -36,7 +36,7 @@ The **Tier 3** architecture enhances resilience by deploying a standby environme
 
 ### Architecture
 
-![Tier 3 Architecture](/images/docs/guardrails/hosting/disaster-recovery/multi-region-deployment/tier-3.png)
+![Tier 3 Architecture](./tier-3.png)
 
 ### Prerequisites
 
@@ -118,14 +118,14 @@ The primary and DR regions share identical configuration settings except for a f
 5. Enable cross-region replication, select DR region, set retention, and select the KMS key.
 6. Save and verify replication under the **Replicated** tab.
 
-![Enable cross-Region replication](/images/docs/guardrails/hosting/disaster-recovery/multi-region-deployment/enable-crossregion-replication.png)
+![Enable cross-Region replication](./enable-crossregion-replication.png)
 
 7. Destination Region: Select the 'DR region'.
 8. Replicated backup retention period: Choose the appropriate retention period in days.
 9. AWS KMS Key: Select the encryption key used for the Turbot database in the DR region. Typically, this follows the format `turbot_databasename` (e.g. turbot-babbage).
 10. Validate the KMS Key ID: Navigate to the KMS service in the DR region to confirm the correct key.
 
-![Enable cross-Region replication](/images/docs/guardrails/hosting/disaster-recovery/multi-region-deployment/enable-crossregion-replication-details.png)
+![Enable cross-Region replication](./enable-crossregion-replication-details.png)
 
 Select **Save** and navigate to the `Replicated` tab and verify that the database is listed under `Replicated backups`.
 
@@ -154,12 +154,12 @@ To ensure seamless failover in the DR region, you need to configure the `API Gat
 
 Select **Add domain name** to finalize the setup.
 
-![Add domain name](/images/docs/guardrails/hosting/disaster-recovery/multi-region-deployment/add-domain-name.png)
+![Add domain name](./add-domain-name.png)
 
 9. Once created, navigate to the `Custom domain name` settings and open the `API mappings` tab.
 10. Click on **Configure API mappings**, then select **Add new mapping**.
 
-![Configure API mappings](/images/docs/guardrails/hosting/disaster-recovery/multi-region-deployment/configure-api-mappings.png)
+![Configure API mappings](./configure-api-mappings.png)
 
 11. Configure API mappings for `turbot-api` and in `Stage` choose `turbot`.
 12. Apply changes by selecting **Save**

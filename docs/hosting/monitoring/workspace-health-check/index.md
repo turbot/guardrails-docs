@@ -19,33 +19,33 @@ An ideal workspace should be quick and responsive. It should employ necessary co
 
 Log into the Guardrails console.
 
-![Guardrails Console Login](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-console-login.png)
+![Guardrails Console Login](./guardrails-console-login.png)
 
 ## Step 2: Navigate to Reports
 
 Choose **Reports** from the top navigation menu.
 
-![Navigate to Reports](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-navigate-to-reports.png)
+![Navigate to Reports](./guardrails-navigate-to-reports.png)
 
 ## Step 3: View Control Alerts
 
 Under Controls, select **Alerts by Control Type**.
 
-![Alerts by Control Type](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-select-controls-alerts.png)
+![Alerts by Control Type](./guardrails-select-controls-alerts.png)
 
 Select **Invalid** and **Error** From **State** filter dropdown.
 
-![Apply Filter](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-filter-error-invalid.png)
+![Apply Filter](./guardrails-filter-error-invalid.png)
 
 ## Step 3: View Policy Alerts
 
 In **Reports**, scroll down to `Policies` section, select **Policy Values by State** option.
 
-![Alerts by Policy Values](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/guardrails-policy-values-by-state.png)
+![Alerts by Policy Values](./guardrails-policy-values-by-state.png)
 
 Select **Invalid** and **Error** From **State** filter dropdown.
 
-![Apply Filter](/images/docs/guardrails/guides/hosting-guardrails/monitoring/workspace-health-check/filter-policy-error-invalid-state.png)
+![Apply Filter](./filter-policy-error-invalid-state.png)
 
 ## Step 4: Resolving Errors and Optimizing Controls
 

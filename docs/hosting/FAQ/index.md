@@ -446,7 +446,7 @@ be done via the Turbot Service Catalog portfolio.
    `Workspace Usage`.
 7. Click the `Turbot > Workspace > Usage` option.
 
-![](/images/docs/guardrails/workspace-usage.png)
+![](./workspace-usage.png)
 
 8. On the **Control Type** page, click the **Controls** tab under the control
    type name. Click the `Turbot > Workspace > Usage` control.

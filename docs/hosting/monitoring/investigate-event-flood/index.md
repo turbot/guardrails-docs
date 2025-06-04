@@ -21,32 +21,32 @@ The best way to identify an event flood is by checking the **Events Queue Backlo
 
 Open the AWS Console and navigate to the CloudWatch service in the region where Guardrails is deployed.
 
-![AWS Console CloudWatch](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/aws-console-cloudwatch.png)
+![AWS Console CloudWatch](./aws-console-cloudwatch.png)
 
 ## Step 2: Navigate to Dashboards
 
 Choose **Dashboards** from the left navigation menu.
 
-![CloudWatch Dashboard](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-dashboard-select.png)
+![CloudWatch Dashboard](./cloudwatch-dashboard-select.png)
 
 ## Step 3: Select Dashboard
 
 In **Custom dashboards**, select the Turbot Guardrails Enterprise (TE) CloudWatch dashboard, which is typically named after the TE version in use.
 
-![TE Dashboard](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-select-te-dashboard.png)
+![TE Dashboard](./cloudwatch-select-te-dashboard.png)
 
 ## Step 4: View Events Queue
 
 Select the desired duration from the time range option in the top-right corner, and check the **Events Queue Backlog** graph in the TE CloudWatch dashboard for spikes indicating a event flood state.
 
-![Events Queue Backlog](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-dashboard-events-queue-backlog.png)
+![Events Queue Backlog](./cloudwatch-dashboard-events-queue-backlog.png)
 
 ## Step 5: Identify Noisy Tenant
 
 Scroll down in the same dashboard page to the **Activities** section, use the **View All Messages By Workspace** widget to filter and identify the noisy tenant causing the issues.
 The number of messages received by the top tenant over a specified duration, along with the difference between the top three tenants, can be a strong indicator of an event flood.
 
-![View All Messages By Workspace](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-view-messages-by-workspace.png)
+![View All Messages By Workspace](./cloudwatch-view-messages-by-workspace.png)
 
 ## Step 6: Analyze Log Insights
 
@@ -55,7 +55,7 @@ With the workspace identified from the above step, navigate to **CloudWatch > Lo
 > [!IMPORTANT]
 > Longer durations will increase the log group size and query time, which may result in higher billing costs for CloudWatch.
 
-![View All Messages By Workspace](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights.png)
+![View All Messages By Workspace](./cloudwatch-log-insights.png)
 
 > [!NOTE]
 > You can select multiple TE version log groups if required.
@@ -71,7 +71,7 @@ fields @timestamp, @message
 | stats count() as Count by data.msgObj.meta.tenantId as Tenant, data.msgObj.payload.account as AccountId
 | sort Count desc | limit 5
 ```
-![Accounts Generating Events](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights-events-by-account.png)
+![Accounts Generating Events](./cloudwatch-log-insights-events-by-account.png)
 
 ## Step 8: External Messages by Source for a Tenant
 
@@ -85,7 +85,7 @@ fields @timestamp, @message
 | sort Count desc | limit 5
 ```
 
-![Event Source](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights-event.source.png)
+![Event Source](./cloudwatch-log-insights-event.source.png)
 
 ## Step 9: External Messages by Event Name
 
@@ -99,7 +99,7 @@ fields @timestamp, @message
 | sort Count desc | limit 5
 
 ```
-![Specific Event Name](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-event-flood/cloudwatch-log-insights-source-breakdown.png)
+![Specific Event Name](./cloudwatch-log-insights-source-breakdown.png)
 
 ## Step 10: Measures To Fix Event Flood
 

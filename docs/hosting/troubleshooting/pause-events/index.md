@@ -40,14 +40,14 @@ Below are some examples of such Lambda functions:
 * `turbot_5_39_12_worker`
 * `turbot_5_39_12_worker_retry`
 
-![](/images/docs/guardrails/function_overview.png)
+![](./function_overview.png)
 
 * Navigate to each of these Lambda functions and click on the "Configuration" tab.
 * Select "Triggers" sub-tab and look for the trigger corresponding to the function.
 * Choose the trigger by clicking on the checkbox and click on Edit.
 * In the "Trigger configuration" page, uncheck the "Activate trigger" option to push the events to backlog queue.
 
-![](/images/docs/guardrails/disable-trigger.png)
+![](./disable-trigger.png)
 
 ## Enable Event Processing
 
@@ -60,7 +60,7 @@ state, you can still enable the lambda triggers.
 * Choose the trigger by clicking on the checkbox and click on Edit.
 * In the "Trigger configuration" page, check the "Activate trigger" option to enable the events.
 
-![](/images/docs/guardrails/enable-trigger.png)
+![](./enable-trigger.png)
 
 ### Need help?
 

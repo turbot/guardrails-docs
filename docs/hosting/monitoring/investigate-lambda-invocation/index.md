@@ -22,25 +22,25 @@ When durations exceed defined thresholds, they *increase costs* and may indicate
 
 Open the AWS Console and navigate to the **Lambda** service in the region where Guardrails is deployed.
 
-![AWS Console Home](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-lambda-invocation/aws-console-home.png)
+![AWS Console Home](./aws-console-home.png)
 
 ## Step 2: Navigate to Dashboards
 
 From the left navigation menu, select **Dashboards**.
 
-![Lambda Dashboard](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-lambda-invocation/aws-lambda-dashboard-select.png)
+![Lambda Dashboard](./aws-lambda-dashboard-select.png)
 
 ## Step 3: View Lambda Invocations
 
 In **Account-level metrics**, select **Invocations** and set the desired date range.
 
-![Select Invocations](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-lambda-invocation/aws-lambda-select-invocations.png)
+![Select Invocations](./aws-lambda-select-invocations.png)
 
 ## Step 4: Identify Invocation Spikes
 
 Analyze the graph for spikes in invocation counts over the selected time range. In this example, a spike is observed starting from `01/29/2025`.
 
-![Identify AWS Lambda Invocations Spike](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-lambda-invocation/aws-lambda-invocations-spike.png)
+![Identify AWS Lambda Invocations Spike](./aws-lambda-invocations-spike.png)
 
 ## Step 5: Investigate and Resolve Spike
 
@@ -59,7 +59,7 @@ Once identified, apply necessary fixes as recommended by Turbot support.
 
 - [ ] Ensure that the Lambda invocation spike stabilizes and returns to normal levels.
 
-![Lambda Invocation Resolved](/images/docs/guardrails/guides/hosting-guardrails/monitoring/investigate-lambda-invocation/aws-lambda-invocations-resolved.png)
+![Lambda Invocation Resolved](./aws-lambda-invocations-resolved.png)
 
 
 ## Next Steps

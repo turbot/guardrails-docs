@@ -20,43 +20,43 @@ Portfolios provide a collection of products that can be installed and configured
 
 Open the AWS Console and navigate to the Service Catalog service in the region where you wish to import the portfolio.
 
-![AWS Console](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/aws-console-service-catalog.png)
+![AWS Console](./aws-console-service-catalog.png)
 
 ## Step 2: Navigate to Portfolios
 
 Select the **Portfolios** section from the left navigation menu.
 
-![Product Selection](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/service-catalog-select-portfolio.png)
+![Product Selection](./service-catalog-select-portfolio.png)
 
 Select the **Imported** tab, from **Actions** dropdown, choose **Import portfolio**
 
-![Select Import Portfolio](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/service-catalog-select-import-portfolio.png)
+![Select Import Portfolio](./service-catalog-select-import-portfolio.png)
 
 ## Step 3: Import Portfolio
 
 Select **AWS account**, enter the **Portfolio ID** and select **Import**. This will import the portfolio into the region where you plan to install. Region wise [Portfolio links](/guardrails/docs/guides/hosting-guardrails/installation/pre-installation/import-portfolio#turbot-guardrails-portfolio) are provided below.
 
-![Import Portfolio](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/service-catalog-import-portfolio.png)
+![Import Portfolio](./service-catalog-import-portfolio.png)
 
 The portfolio should be now visible under **Imported portfolios**.
 
-![Portfolio Import Complete](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/service-catalog-import-complete.png)
+![Portfolio Import Complete](./service-catalog-import-complete.png)
 
 ## Step 4: Grant Access
 
 Choose the imported portfolio, navigate to the **Access** tab, and select **Grant access**.
 
-![Select Grant Access](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/service-catalog-navigate-access.png)
+![Select Grant Access](./service-catalog-navigate-access.png)
 
 Select **IAM Principal** and choose the appropriate **Roles** to grant access to the portfolio in Service Catalog, enabling users to deploy the products. Finally, select **Grant access**.
 
-![Grant Access](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/service-catalog-grant-access-action.png)
+![Grant Access](./service-catalog-grant-access-action.png)
 
 ## Step 5: Review
 
 Once the portfolio is imported and access has been granted, you can view and provision Turbot Guardrails products from the Service Catalog **Product** List.
 
-![Product List](/images/docs/guardrails/guides/hosting-guardrails/installation/pre-installation/import-portfolio/service-catalog-products-verify.png)
+![Product List](./service-catalog-products-verify.png)
 
 
 ## Turbot Guardrails Portfolio

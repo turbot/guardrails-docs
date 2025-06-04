@@ -25,13 +25,13 @@ its own set of mods, and its own web console endpoint. Workspaces will use the [
 
 In the AWS Console, navigate to the CloudFormation service in the alpha region.
 
-![CloudFormation Console](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/cloudformation-console.png)
+![CloudFormation Console](./cloudformation-console.png)
 
 ## Step 2: Find Workspace Stack
 
 While CloudFormation `Stacks`, search for the stack name and select the stack.
 
-![Find Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/cloudformation-created-stack.png)
+![Find Stack](./cloudformation-created-stack.png)
 
 ## Step 3: Access Initial Credentials
 
@@ -39,11 +39,11 @@ During the Workspace creation, the Workspace Manager generates the initial Turbo
 
 `Console URL` available in the `WorkspaceUrl` **Outputs** variable. Use this `WorkspaceUrl` link to access the web console.
 
-![Workspace URL](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/cloudformation-workspace-url.png)
+![Workspace URL](./cloudformation-workspace-url.png)
 
 `Admin Credentials` is displayed in the `WorkspaceManagerOutput` variable in the stack outputs.
 
-![Workspace Credentials](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/cloudformation-workspace-credentials.png)
+![Workspace Credentials](./cloudformation-workspace-credentials.png)
 
 > [!WARNING]
 > The username, password, and keys will appear in plain text in the CloudFormation stack output variables. If you re-run the stack, the stack output variables will be overwritten, so it’s important to secure this information immediately after stack creation.
@@ -52,41 +52,41 @@ During the Workspace creation, the Workspace Manager generates the initial Turbo
 
 Login using the generated admin credentials.
 
-![Workspace Login](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/workspace-login.png)
+![Workspace Login](./workspace-login.png)
 
 ## Step 5: Rotate Initial Password
 
 After successful login to Guardrails console, select to **Profile** in right top corner.
 
-![Workspace Initial Admin Login](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/guardrails-console-initial-admin-login.png)
+![Workspace Initial Admin Login](./guardrails-console-initial-admin-login.png)
 
 While in **Turbot Admin** profile, select **Reset Password** to initiate rotate `Password`.
 
-![Workspace Password Rotation](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/workspace-password-rotation.png)
+![Workspace Password Rotation](./workspace-password-rotation.png)
 
 Guardrails generates an automatic complex password, and when you confirm the rotation by selecting **OK**, the new credentials will be applied.
 
-![Workspace Password Rotation Action](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/workspace-password-rotation-action.png)
+![Workspace Password Rotation Action](./workspace-password-rotation-action.png)
 
 ## Step 6: Deactivate Access Key
 
 The initial admin login access key created during the workspace creation process remains active. First, `deactivate` the access key.
 
-![Deactivate Access Key](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/workspace-deactivate-access-key.png)
+![Deactivate Access Key](./workspace-deactivate-access-key.png)
 
 Confirm by selecting **Deactivate**.
 
-![Confirm Deactivate Access Key](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/workspace-deactivate-access-key-confirm.png)
+![Confirm Deactivate Access Key](./workspace-deactivate-access-key-confirm.png)
 
 ## Step 7: Delete Access Key
 
 Once the access key is deactivated, check access key status is shown as `INACTIVE`, select **`X`** to delete.
 
-![Delete Access Key](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/delete-access-key.png)
+![Delete Access Key](./delete-access-key.png)
 
 Confirm deletion by selecting **Delete** button.
 
-![Delete Access Key Action](/images/docs/guardrails/guides/hosting-guardrails/installation/workspace-login/delete-access-key-delete-action.png)
+![Delete Access Key Action](./delete-access-key-delete-action.png)
 
 > [!NOTE]
 > New access keys can be created if necessary.
