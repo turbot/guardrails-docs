@@ -1,6 +1,6 @@
 ---
-title: Inventory
-sidebar_label: Inventory
+title: Resources
+sidebar_label: Resources
 ---
 
 # Resources
@@ -10,7 +10,7 @@ mapped to resources in the cloud service, such as an AWS S3 bucket, a GCP
 compute instance, or an Azure SQL database. Information about Guardrails resources
 is stored in the CMDB. 
 
-Once you [connect an integration](http://localhost:3000/guardrails/docs/guides), Guardrails will begin [discovering resources](#discovery-and-cmdb) and adding them to the CMDB.  
+Once you [connect an integration](/guardrails/docs/guides), Guardrails will begin [discovering resources](#discovery-and-cmdb) and adding them to the CMDB.  
 
 
 

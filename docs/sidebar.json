@@ -111,33 +111,125 @@
         ]
       },
 
+      {
+        "type": "category",
+        "id": "governance",
+        "link": "using/governance",
+        "items": [
+          {
+            "type": "category",
+            "id": "inventory",
+            "link": "using/governance/inventory",
+            "items": [
+            ]
+          },
+          {
+            "type": "category",
+            "id": "guardrails",
+            "link": "using/governance/guardrails",
+            "items": [
+              
+              {
+                "type": "category",
+                "id": "standard-guardrails",
+                "link": "using/governance/guardrails/standard",
+                "items": [
+                  "using/governance/guardrails/standard/discovery",
+                  "using/governance/guardrails/standard/cmdb",
+                  "using/governance/guardrails/standard/access-logging",
+                  "using/governance/guardrails/standard/active",
+                  "using/governance/guardrails/standard/approved",
+                  "using/governance/guardrails/standard/audit-logging",
+                  "using/governance/guardrails/standard/budget",
+                  "using/governance/guardrails/standard/encryption-at-rest",
+                  "using/governance/guardrails/standard/encryption-in-transit",
+                  "using/governance/guardrails/standard/public-access",
+            
+                  {
+                    "type": "category",
+                    "id": "scheduling",
+                    "link": "using/governance/guardrails/standard/scheduling",
+                    "items": [
+                      "using/governance/guardrails/standard/scheduling/db-scheduling-using-custom-tag"
+                    ]
+                  },
+                
+    
+                  {
+                    "type": "category",
+                    "id": "stacks",
+                    "link":  "using/governance/guardrails/standard/stacks",
+                    "items": [
+                      "using/governance/guardrails/standard/stacks/deploy",
+                      "using/governance/guardrails/standard/stacks/destroy",
+                      "using/governance/guardrails/standard/stacks/import"
+
+                    ]
+                  },
+    
+                  {
+                    "type": "category",
+                    "id": "configured",
+                    "link":  "using/governance/guardrails/standard/configured",
+                    "items": [
+                      "using/governance/guardrails/standard/stacks/network-stack"
+                    ]
+                  },
+    
+                  {
+                    "type": "category",
+                    "id": "guardrails/tagging",
+                    "link": "using/governance/guardrails/standard/tagging",
+                    "items": [
+                      "using/governance/guardrails/standard/tagging/dynamic-tags",
+                      "using/governance/guardrails/standard/tagging/require-keys",
+                      "using/governance/guardrails/standard/tagging/tag-casing",
+                      "using/governance/guardrails/standard/tagging/tagging-helpers"
+                    ]
+                  },
+                  "using/governance/guardrails/standard/trusted-access",
+                  "using/governance/guardrails/standard/usage"
+                 
+                ]
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "id": "campaigns",
+            "link": "using/governance/campaigns",
+            "items": [
+            ]
+          }
+        ]
+      },
 
       {
         "type": "category",
-        "id": "using-inventory",
-        "link": "using/inventory",
+        "id": "using-resources",
+        "link": "using/resources",
         "items": [
-          "using/inventory/hierarchy",
-          "using/inventory/types-categories",
+          "using/resources/hierarchy",
+          "using/resources/types-categories",
           
           {
             "type": "category",
             "id": "resource-activity",
-            "link": "using/inventory/activities",
+            "link": "using/resources/activities",
             "items": [
-              "using/inventory/observe-aws-activity"
+              "using/resources/observe-aws-activity"
             ]
           },
-          "using/inventory/files",
+          "using/resources/files",
 
           {
             "type": "category",
             "id": "working-with-folders",
-            "link": "using/inventory/working-with-folders",
+            "link": "using/resources/working-with-folders",
             "items": [
-              "using/inventory/working-with-folders/create",
-              "using/inventory/working-with-folders/rename",
-              "using/inventory/working-with-folders/delete"
+              "using/resources/working-with-folders/create",
+              "using/resources/working-with-folders/rename",
+              "using/resources/working-with-folders/delete"
             ]
           }
         ]
@@ -174,77 +266,7 @@
             ]
           },
 
-          {
-            "type": "category",
-            "id": "guardrails",
-            "link": "using/policies/guardrails",
-            "items": [
-              
-              {
-                "type": "category",
-                "id": "standard-guardrails",
-                "link": "using/policies/guardrails/standard",
-                "items": [
-                  "using/policies/guardrails/standard/discovery",
-                  "using/policies/guardrails/standard/cmdb",
-                  "using/policies/guardrails/standard/access-logging",
-                  "using/policies/guardrails/standard/active",
-                  "using/policies/guardrails/standard/approved",
-                  "using/policies/guardrails/standard/audit-logging",
-                  "using/policies/guardrails/standard/budget",
-                  "using/policies/guardrails/standard/encryption-at-rest",
-                  "using/policies/guardrails/standard/encryption-in-transit",
-                  "using/policies/guardrails/standard/public-access",
-            
-                  {
-                    "type": "category",
-                    "id": "scheduling",
-                    "link": "using/policies/guardrails/standard/scheduling",
-                    "items": [
-                      "using/policies/guardrails/standard/scheduling/db-scheduling-using-custom-tag"
-                    ]
-                  },
-                
-    
-                  {
-                    "type": "category",
-                    "id": "stacks",
-                    "link":  "using/policies/guardrails/standard/stacks",
-                    "items": [
-                      "using/policies/guardrails/standard/stacks/deploy",
-                      "using/policies/guardrails/standard/stacks/destroy",
-                      "using/policies/guardrails/standard/stacks/import"
 
-                    ]
-                  },
-    
-                  {
-                    "type": "category",
-                    "id": "configured",
-                    "link":  "using/policies/guardrails/standard/configured",
-                    "items": [
-                      "using/policies/guardrails/standard/stacks/network-stack"
-                    ]
-                  },
-    
-                  {
-                    "type": "category",
-                    "id": "guardrails/tagging",
-                    "link": "using/policies/guardrails/standard/tagging",
-                    "items": [
-                      "using/policies/guardrails/standard/tagging/dynamic-tags",
-                      "using/policies/guardrails/standard/tagging/require-keys",
-                      "using/policies/guardrails/standard/tagging/tag-casing",
-                      "using/policies/guardrails/standard/tagging/tagging-helpers"
-                    ]
-                  },
-                  "using/policies/guardrails/standard/trusted-access",
-                  "using/policies/guardrails/standard/usage"
-                 
-                ]
-              }
-            ]
-          },
           {
             "type": "category",
             "id": "policy-packs",
@@ -274,17 +296,9 @@
           "using/controls/run-controls-using-scripts"
 
         ]
-      },
-
-      {
-        "type": "category",
-        "id": "campaigns",
-        "link": "using/campaigns",
-        "items": [
-  
-
-        ]
       }
+
+       
     ]
   },
 
