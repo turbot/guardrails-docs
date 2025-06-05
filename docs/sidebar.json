@@ -309,8 +309,7 @@
                   "guides/using-guardrails/console/reports/export-policy-pack-as-csv",
                   "guides/using-guardrails/console/reports/playwright",
                   "guides/using-guardrails/console/reports/using-metric",
-                  "guides/using-guardrails/console/reports/s3-bucket-report",
-                  "guides/using-guardrails/console/reports/access-turbot-metrics-logs"
+                  "guides/using-guardrails/console/reports/s3-bucket-report"
                 ]
               },
               "guides/using-guardrails/console/detail-pages"
