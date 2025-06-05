@@ -82,10 +82,7 @@
             "type": "category",
             "id": "user",
             "link": "getting-started/your-guardrails-org/user",
-            "items": [
-              "getting-started/your-guardrails-org/user/sign-up",
-              "getting-started/your-guardrails-org/user/profile"
-            ]
+            "items": ["getting-started/your-guardrails-org/user/sign-up", "getting-started/your-guardrails-org/user/profile"]
           },
           {
             "type": "category",
@@ -147,11 +144,7 @@
         "type": "category",
         "id": "iam",
         "link": "concepts/iam",
-        "items": [
-          "concepts/iam/authentication",
-          "concepts/iam/identity",
-          "concepts/iam/permissions"
-        ]
+        "items": ["concepts/iam/authentication", "concepts/iam/identity", "concepts/iam/permissions"]
       },
       {
         "type": "category",
@@ -171,11 +164,7 @@
         "type": "category",
         "id": "resources",
         "link": "concepts/resources",
-        "items": [
-          "concepts/resources/hierarchy",
-          "concepts/resources/types-categories",
-          "concepts/resources/discovery"
-        ]
+        "items": ["concepts/resources/hierarchy", "concepts/resources/types-categories", "concepts/resources/discovery"]
       }
     ]
   },
@@ -204,11 +193,7 @@
         "type": "category",
         "id": "kubernetes",
         "link": "guides/kubernetes",
-        "items": [
-          "guides/kubernetes/import-kubernetes-cluster",
-          "guides/kubernetes/configure-queries",
-          "guides/kubernetes/decommission"
-        ]
+        "items": ["guides/kubernetes/import-kubernetes-cluster", "guides/kubernetes/configure-queries", "guides/kubernetes/decommission"]
       },
       {
         "type": "category",
@@ -271,9 +256,7 @@
             "type": "category",
             "id": "policy-packs",
             "link": "guides/configuring-guardrails/policy-packs",
-            "items": [
-              "guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource"
-            ]
+            "items": ["guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource"]
           },
 
           "guides/configuring-guardrails/regions",
@@ -295,7 +278,12 @@
         "id": "using-guardrails",
         "link": "guides/using-guardrails",
         "items": [
-          "guides/using-guardrails/ai-tools",
+          {
+            "type": "category",
+            "id": "ai-tools",
+            "link": "guides/using-guardrails/ai-tools",
+            "items": ["guides/using-guardrails/ai-tools/index", "guides/using-guardrails/ai-tools/policy-pack-development"]
+          },
           {
             "type": "category",
             "id": "console",
@@ -334,18 +322,13 @@
             "type": "category",
             "id": "notifications",
             "link": "guides/using-guardrails/notifications",
-            "items": [
-              "guides/using-guardrails/notifications/filter-rules",
-              "guides/using-guardrails/notifications/templates"
-            ]
+            "items": ["guides/using-guardrails/notifications/filter-rules", "guides/using-guardrails/notifications/templates"]
           },
           {
             "type": "category",
             "id": "scheduling",
             "link": "guides/using-guardrails/scheduling",
-            "items": [
-              "guides/using-guardrails/scheduling/db-scheduling-using-custom-tag"
-            ]
+            "items": ["guides/using-guardrails/scheduling/db-scheduling-using-custom-tag"]
           },
           "guides/using-guardrails/nunjucks",
           "guides/using-guardrails/quick-actions",
@@ -540,12 +523,7 @@
         "type": "category",
         "id": "reference/filter",
         "link": "reference/filter",
-        "items": [
-          "reference/filter/resources",
-          "reference/filter/policies",
-          "reference/filter/controls",
-          "reference/filter/notifications"
-        ]
+        "items": ["reference/filter/resources", "reference/filter/policies", "reference/filter/controls", "reference/filter/notifications"]
       },
       "reference/ocl",
       {
