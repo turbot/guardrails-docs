@@ -353,8 +353,7 @@
     "link": "managing",
     "items": [
 
-      "managing/ai-tools",
-      "managing/activity-retention",
+
       {
         "type": "category",
         "id": "mods",
@@ -439,7 +438,8 @@
         "items": ["managing/firehose/pipelines"]
       },
       
-
+      "managing/ai-tools",
+      "managing/activity-retention",
       "managing/change-window"
     ]
   },
