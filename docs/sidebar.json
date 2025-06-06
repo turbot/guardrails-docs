@@ -372,7 +372,8 @@
         "id": "terraform",
         "link": "managing/terraform",
         "items": [
-          "managing/terraform/terraform-lab"
+          "managing/terraform/terraform-lab",
+          "managing/terraform/terraform-faq"
         ]
       },
 
@@ -440,7 +441,23 @@
       
       "managing/ai-tools",
       "managing/activity-retention",
-      "managing/change-window"
+      "managing/change-window",
+
+
+      {
+        "type": "category",
+        "id": "managing/faq",
+        "link": "managing/faq",
+        "items": [
+          "managing/faq/general-faq",
+          {
+            "type": "category",
+            "id": "managing/faq/workspace-faq",
+            "link": "managing/faq/workspace-faq",
+            "items": ["managing/faq/workspace-faq/key_rotation"]
+          }
+        ]
+      }
     ]
   },
 
@@ -553,25 +570,7 @@
   },
   
  
-  {
-    "type": "category",
-    "id": "faq",
-    "link": "faq",
-    "items": [
-      "faq/aws-faq",
-      "faq/azure-faq",
-      "faq/gcp-faq",
-      "faq/terraform-faq",
-      "faq/general-faq",
-      {
-        "type": "category",
-        "id": "faq/workspace-faq",
-        "link": "faq/workspace-faq",
-        "items": ["faq/workspace-faq/key_rotation"]
-      },
-      "faq/guardrails-and-aws-scps"
-    ]
-  },
+
   {
     "type": "category",
     "id": "reference",

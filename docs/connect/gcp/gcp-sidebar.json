@@ -25,6 +25,7 @@
       "id": "real-time-events",
       "link": "connect/gcp/real-time-events",
       "items": ["connect/gcp/real-time-events/event-pollers"]
-    }
+    },
+    "connect/gcp/gcp-faq"
   ]
 }

@@ -34,6 +34,13 @@
       "items": ["connect/aws/permissions/user-mode"]
     },
     "connect/aws/security-hub",
-    "connect/aws/decommission"
+    "connect/aws/decommission",
+    {
+      "type": "category",
+      "id": "aws-faq",
+      "link": "connect/aws/aws-faq",
+      "items": ["connect/aws/guardrails-and-aws-scps"]
+    }
+      
   ]
 }

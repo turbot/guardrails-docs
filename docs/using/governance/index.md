@@ -7,7 +7,7 @@ Cloud governance is the discipline of designing and implementing systematic fram
 
 At its core, cloud governance addresses a fundamental challenge: how do you maintain control and oversight in an environment where infrastructure changes constantly, resources are provisioned on-demand, and application teams have direct control over the services their applications depend on?
 
-Turbot Guardrails provides a complete cloud governance platform!
+Turbot Guardrails provides a complete cloud governance platform:
 
 1. **Know Your Cloud**: The Guardrails CMDB provides a flexible, dynamic [asset inventory](using/governance/inventory).
 1. **Raise the Bar**:  [Guardrails](using/governance/guardrails) enable you to define and implement your standards and automatically remediate your control objectives.

@@ -27,6 +27,8 @@
     },
     "connect/azure/services",
     "connect/azure/permissions",
-    "connect/azure/decommission"
+    "connect/azure/decommission",
+    "connect/azure/azure-faq"
+
   ]
 }
