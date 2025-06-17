@@ -1,0 +1,127 @@
+---
+title: Data Protection Guardrails
+sidebar_label: Data Protection
+---
+
+## Overview
+
+The aim of Data Protection is to mitigate or eliminate risk of data loss due to user error, corruption (both accidental and intentional) and system/media failure.  
+
+The cloud enables us to store and process massive data sets with a plethora of tools and technologies.  These capabilities have rendered traditional backup and recovery tools ineffective.  As the size of data has increased, techniques such as snapshots become necessary to meet backup and (perhaps more importantly) restore SLAs.  These data protection mechanisms are often cloud and service specific, making it a challenge for organizations to audit and enforce standards, best practices, and regulatory compliance.
+
+Guardrails helps organizations address data protection challenges with policies that can:
+* Check & Enforce service-specific snapshot and backup settings, such as retention periods and backup windows
+* Automate the process of scheduling backups and snapshots
+* Provide a consistent, easy to use set of backup schedules and retentions, with built-in backoff rotations (daily/weekly/monthly/yearly etd)
+* Provide default policies to assist teams in setting appropriate schedules and retentions 
+* Enforce **mandatory minimum** retention policies, while allowing teams to exceed those retentions.
+* Automate offsite backup copies with technologies like cross-region snapshots
+* Assist in meeting regulatory and compliance requirements
+
+
+## General Guidelines
+
+Policies related to snapshots, backups, snapshot replication, etc will appear as  **Data Protection** under the resource to which the policies apply
+
+Data Protection policies use names consistent with those of the underlying service .  For example:
+* DynamoDB uses the term "Backup", thus the policies should be: `AWS > DynamoDB > Table > Data Protection > Managed Backups`
+* Redshift uses the term "Snapshot", thus the policies should be: `AWS > Redshift > Cluster > Data Protection > Manage Snapshots`
+* RDS Uses multiple terms:
+* RDS uses "Backup" to refer to the daily automated snapshots that can be used for point-in-time restore.  Such policies would reside under: `AWS > RDS > DB Instance > Data Protection > Backup`
+* RDS uses "Snapshot" to refer to manual snapshots.  Policies where Guardrails would manage these should reside under: `AWS > RDS > DB Instance > Data Protection > Managed Snapshots`
+
+
+## Guardrails Managed Backups/Snapshots
+Guardrails has many policies to assist in the configuration of backups, snapshots, and other options that are built in to cloud services. Many times, however, these options are insufficient to meet an organizations data protection requirements.  Guardrails has its own capability to automate scheduling and retention of backups/snapshots for many cloud resources.  We typically use the term **Managed** to refer to these entities.  
+
+<div className="example">
+  <ul>
+    <li><code>AWS > DynamoDB > Table > Data Protection > Managed Backups</code></li>
+    <li><code>GCP > Compute > Disk > Data Protection > Managed Snapshots</code></li>
+  </ul>
+</div>
+
+Backup schedules and retentions for Guardrails-managed backups/snapshots are combined in a single policy called **Schedule**.  These schedules will include implicit backoffs (Grandfather/father/son models).
+
+In addition to the configurable backup schedule, there is a separately configurable schedule to set a **minimum** backup and retention level.  This policy will be called **Minimum Schedule**, and will have similar values to the **Schedule** policy. This allows an organization to set a minimum level of data protection, while giving the individual teams the ability to exceed these minimum to meet their needs.
+
+The effective schedule will be the merger of the **Schedule** and **Minimum Schedule** policies.  This effective schedule will
+    * Use the more frequent schedule from the two policies.  If one is hourly, and the other is daily, the hourly schedule should be used.
+    * Use the longer retention value at each level. If one policy specifies 4 weekly and the other 8, use 8. 
+
+<div className="example">
+  <ul>
+    <li><code> AWS > EBS > Disk > Data Protection > Managed Snapshots </code></li>
+    <li><code> AWS > EBS > Disk > Data Protection > Managed Snapshots > Schedule </code></li>
+    <li><code> AWS > EBS > Disk > Data Protection > Managed Snapshots > Minimum Schedule </code></li>
+  </ul>
+</div>
+
+In addition, Guardrails provides default schedules to allow an organization to set schedules and minimum schedules across multiple services.  These policies are:
+- `{provider} > Data Protection > Default Schedule`
+- `{provider} > Data Protection > Default Minimum Schedule`
+
+
+
+## Schedules and Retention
+Many Data Protection policies specify a backup and retention schedule.  To simplify configuration, Guardrails provides a consistent list of possible schedules:
+
+| Name |  Hours | Hours12 | Days | Weeks | Months | Quarters | Years |
+|------| ------|------|------|------|------|------|------|
+| Daily for 3 days                |  - |  - |   3 | -  |  - |  - |  - |
+| Daily for 7 days                |  - |  - |   7 | -  |  - |  - |  - |
+| Daily for 14 days               |  - |  - |  14 | -  |  - |  - |  - |
+| Daily for 30 days               |  - |  - |  30 | -  |  - |  - |  - |
+| Daily for 90 days               |  - |  - |  90 | -  |  - |  - |  - |
+| Daily for 365 days              |  - |  - | 365 | -  |  - |  - |  - |
+| Daily with backoff to 3 months  |  - |  - |  14 |  8 |  3 |  - |  - |
+| Daily with backoff to 1 year    |  - |  - |  30 | 12 | 12 |  - |  1 |
+| Daily with backoff to 3 years   |  - |  - |  30 | 12 | 12 |  8 |  3 |
+| Daily with backoff              |  - |  - |  30 | 12 | 12 |  8 | 999|
+| Hourly with backoff to 7 days   | 24 |  6 |   7 |  - |  - |  - |  - | 
+| Hourly with backoff to 14 days  | 72 | 14 |  14 |  - |  - |  - |  - | 
+| Hourly with backoff to 1 month  | 72 | 14 |  14 |  4 |  1 |  - |  - | 
+| Hourly with backoff to 3 months | 72 | 14 |  14 |  4 |  3 |  - |  - | 
+| Hourly with backoff to 1 year   | 72 | 14 |  30 | 12 | 12 |  - |  1 | 
+| Hourly with backoff to 3 years  | 72 | 14 |  30 | 12 | 12 |  8 |  3 |
+| Hourly with backoff             | 72 | 14 |  30 | 12 | 12 |  8 | 999|
+
+### Assumptions
+* The scheduler uses the timezone of the region in which the resource resides.
+* Hourlies are taken anywhere in the hour
+* The "Hour12" is the last hourly before noon, and the last hourly of the day 
+* The "Daily" is the last one of the day
+* The "Monthly" is the Daily on the last day of the month
+* The "Quarter" is the Daily on the last day of the quarter
+* The "Yearly" is the Daily on the last day of the year
+
+
+## Guardrails Managed Remote Copies
+
+For some resources, Guardrails also has capabilities to automate copying snapshots to another region and/or account, and to manage the scheduling and retention of these backups/snapshots for cloud resources.  We use the term **Copies** to refer to these entities.
+  
+ **Copies** will exist as sub-policies under the snapshot types to which they apply.  
+
+ <div className="example">
+  <ul>
+    <li><code>AWS > RDS > DB Instance > Data Protection > Managed Snapshots > Copies</code></li>
+    <li><code>AWS > RDS > DB Instance > Data Protection > Backup > Copies</code></li>
+  </ul>
+</div>
+
+Snapshots will be copied after they are created in the primary region.
+Snapshots will have their own retention policies, separate from those if the originating snapshot.  These policies will use the same **Schedule** and **Minimum Schedule** format as the **Managed Snapshots**.
+
+Remote snapshot copies require a region be specified.  This should be included in a sub-policy called **Region**.
+
+Most remote snapshot copies require a KMS key be specified it copying an encrypted snapshot.  This should be included in a sub-policy called **Encryption Key**.  An empty string will mean no encryption.  
+
+
+ <div className="example">
+  <ul>
+    <li><code>AWS > RDS > DB Instance > Data Protection > Managed Snapshots > Copies > Schedule</code></li>
+   <li><code>AWS > RDS > DB Instance > Data Protection > Managed Snapshots > Copies > Minimum Schedule</code></li>
+   <li><code>AWS > RDS > DB Instance > Data Protection > Managed Snapshots > Copies > Region</code></li>
+   <li><code>AWS > RDS > DB Instance > Data Protection > Managed Snapshots > Copies > Encryption Key</code></li>
+  </ul>
+</div>

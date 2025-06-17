@@ -2,110 +2,289 @@
   "index",
   {
     "type": "category",
-    "id": "getting-started",
-    "link": "getting-started",
+    "id": "apollo",
+    "link": "apollo",
     "items": [
       {
         "type": "category",
-        "id": "your-guardrails-org",
-        "link": "getting-started/your-guardrails-org",
+        "id": "getting-started",
+        "link": "getting-started",
         "items": [
           {
             "type": "category",
-            "id": "user",
-            "link": "getting-started/your-guardrails-org/user",
+            "id": "your-guardrails-org",
+            "link": "getting-started/your-guardrails-org",
             "items": [
-              "getting-started/your-guardrails-org/user/sign-up",
-              "getting-started/your-guardrails-org/user/profile"
+              {
+                "type": "category",
+                "id": "user",
+                "link": "getting-started/your-guardrails-org/user",
+                "items": [
+                  "getting-started/your-guardrails-org/user/sign-up",
+                  "getting-started/your-guardrails-org/user/profile"
+                ]
+              },
+              {
+                "type": "category",
+                "id": "organizations",
+                "link": "getting-started/your-guardrails-org/organizations",
+                "items": [
+                  "getting-started/your-guardrails-org/organizations/setup",
+                  "getting-started/your-guardrails-org/organizations/team",
+                  "getting-started/your-guardrails-org/organizations/profile"
+                ]
+              }
             ]
           },
           {
             "type": "category",
-            "id": "organizations",
-            "link": "getting-started/your-guardrails-org/organizations",
+            "id": "getting-started-aws",
+            "link": "getting-started/getting-started-aws",
             "items": [
-              "getting-started/your-guardrails-org/organizations/setup",
-              "getting-started/your-guardrails-org/organizations/team",
-              "getting-started/your-guardrails-org/organizations/profile"
+              "getting-started/getting-started-aws/prepare-account",
+              "getting-started/getting-started-aws/connect-an-account",
+              "getting-started/getting-started-aws/observe-aws-activity",
+              "getting-started/getting-started-aws/enable-policy-pack",
+              "getting-started/getting-started-aws/review-account-wide",
+              "getting-started/getting-started-aws/create-static-exception",
+              "getting-started/getting-started-aws/create-calculated-exception",
+              "getting-started/getting-started-aws/send-alert-to-email",
+              "getting-started/getting-started-aws/apply-quick-action",
+              "getting-started/getting-started-aws/enable-enforcement"
+            ]
+          },
+          {
+            "type": "category",
+            "id": "getting-started-gcp",
+            "link": "getting-started/getting-started-azure",
+            "items": [
+              "getting-started/getting-started-azure/prepare-subscription",
+              "getting-started/getting-started-azure/connect-subscription",
+              "getting-started/getting-started-azure/observe-azure-activity",
+              "getting-started/getting-started-azure/enable-policy-pack",
+              "getting-started/getting-started-azure/review-subscription-wide",
+              "getting-started/getting-started-azure/create-static-exception",
+              "getting-started/getting-started-azure/create-calculated-exception",
+              "getting-started/getting-started-azure/send-alert-to-email",
+              "getting-started/getting-started-azure/apply-quick-action",
+              "getting-started/getting-started-azure/enable-enforcement"
+            ]
+          },
+          {
+            "type": "category",
+            "id": "getting-started-gcp",
+            "link": "getting-started/getting-started-gcp",
+            "items": [
+              "getting-started/getting-started-gcp/prepare-project",
+              "getting-started/getting-started-gcp/connect-project",
+              "getting-started/getting-started-gcp/observe-gcp-activity",
+              "getting-started/getting-started-gcp/enable-policy-pack",
+              "getting-started/getting-started-gcp/review-project-wide",
+              "getting-started/getting-started-gcp/create-static-exception",
+              "getting-started/getting-started-gcp/create-calculated-exception",
+              "getting-started/getting-started-gcp/send-alert-to-email",
+              "getting-started/getting-started-gcp/apply-quick-action",
+              "getting-started/getting-started-gcp/enable-enforcement"
+            ]
+          },
+
+          "getting-started/faq"
+        ]
+      },
+      {
+      "type": "category",
+      "id": "using-guardrails",
+      "link": "using",
+      "items": [
+        {
+          "type": "category",
+          "id": "console",
+          "link": "using/console",
+          "items": [
+            {
+              "type": "category",
+              "id": "reports",
+              "link": "using/console/reports",
+              "items": [
+                "using/console/reports/find-policies-in-tbd-state",
+                "using/console/reports/export-policy-pack-as-csv"
+              ]
+            },
+            "using/console/detail-pages",
+            "using/console/searching-filtering"
+          ]
+        },
+        {
+          "type": "category",
+          "id": "using-resources",
+          "link": "using/resources",
+          "items": [
+            "using/resources/hierarchy",
+            "using/resources/types-categories",
+            "using/resources/activities",
+            "using/resources/files",
+
+            {
+              "type": "category",
+              "id": "working-with-folders",
+              "link": "using/resources/working-with-folders",
+              "items": [
+                "using/resources/working-with-folders/create",
+                "using/resources/working-with-folders/rename",
+                "using/resources/working-with-folders/delete"
+              ]
+            }
+          ]
+        },
+
+        {
+          "type": "category",
+          "id": "using-policies",
+          "link": "using/policies",
+          "items": [
+            "using/policies/hierarchy",
+      
+            {
+              "type": "category",
+              "id": "using-policies-values-settings",
+              "link": "using/policies/values-settings",
+              "items": [
+                "using/policies/create-setting",
+                "using/policies/create-exception"
+              ]
+            },
+
+
+            {
+              "type": "category",
+              "id": "calculated-policies",
+              "link": "using/policies/calculated",
+              "items": [
+                "using/policies/calculated/create-calc-setting",
+                "using/policies/calculated/calc-policy-lab",
+                "using/policies/calculated/fix-calc-policy-evaluation-errors",
+                "using/policies/calculated/calculated-faq"
+
+              ]
+            },
+
+
+            {
+              "type": "category",
+              "id": "policy-packs",
+              "link": "using/policies/policy-packs",
+              "items": [
+                "using/policies/policy-packs/create",
+                "using/policies/policy-packs/attach-policy-pack-to-resource"
+              ]
+            },
+
+
+            "using/policies/set-policy-lab"
+
+          ]
+        },
+
+        {
+          "type": "category",
+          "id": "using-controls",
+          "link": "using/controls",
+          "items": [
+            "using/controls/types-categories",
+            "using/controls/processes",
+            "using/controls/quick-actions",
+            "using/controls/fix-invalid-controls",
+            "using/controls/access-control-logs",
+            "using/controls/run-controls-using-scripts"
+          ]
+        },
+        {
+            "type": "category",
+            "id": "standard-guardrails",
+            "link": "using/standard",
+            "items": [
+              "using/standard/discovery",
+              "using/standard/cmdb",
+              "using/standard/access-logging",
+              "using/standard/active",
+              "using/standard/approved",
+              "using/standard/audit-logging",
+              "using/standard/budget",
+              "using/standard/encryption-at-rest",
+              "using/standard/encryption-in-transit",
+              "using/standard/public-access",
+        
+              {
+                "type": "category",
+                "id": "scheduling",
+                "link": "using/standard/scheduling",
+                "items": [
+                  "using/standard/scheduling/db-scheduling-using-custom-tag"
+                ]
+              },
+            
+
+              {
+                "type": "category",
+                "id": "stacks",
+                "link":  "using/standard/stacks",
+                "items": [
+                  "using/standard/stacks/deploy",
+                  "using/standard/stacks/destroy",
+                  "using/standard/stacks/import"
+
+                ]
+              },
+
+              {
+                "type": "category",
+                "id": "configured",
+                "link":  "using/standard/configured",
+                "items": [
+                  "using/standard/stacks/network-stack"
+                ]
+              },
+
+              {
+                "type": "category",
+                "id": "guardrails/tagging",
+                "link": "using/standard/tagging",
+                "items": [
+                  "using/standard/tagging/dynamic-tags",
+                  "using/standard/tagging/require-keys",
+                  "using/standard/tagging/tag-casing",
+                  "using/standard/tagging/tagging-helpers"
+                ]
+              },
+              "using/standard/trusted-access",
+              "using/standard/usage"
+            
             ]
           }
-        ]
-      },
-      {
-        "type": "category",
-        "id": "getting-started-aws",
-        "link": "getting-started/getting-started-aws",
-        "items": [
-          "getting-started/getting-started-aws/prepare-account",
-          "getting-started/getting-started-aws/connect-an-account",
-          "getting-started/getting-started-aws/observe-aws-activity",
-          "getting-started/getting-started-aws/enable-policy-pack",
-          "getting-started/getting-started-aws/review-account-wide",
-          "getting-started/getting-started-aws/create-static-exception",
-          "getting-started/getting-started-aws/create-calculated-exception",
-          "getting-started/getting-started-aws/send-alert-to-email",
-          "getting-started/getting-started-aws/apply-quick-action",
-          "getting-started/getting-started-aws/enable-enforcement"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "getting-started-gcp",
-        "link": "getting-started/getting-started-azure",
-        "items": [
-          "getting-started/getting-started-azure/prepare-subscription",
-          "getting-started/getting-started-azure/connect-subscription",
-          "getting-started/getting-started-azure/observe-azure-activity",
-          "getting-started/getting-started-azure/enable-policy-pack",
-          "getting-started/getting-started-azure/review-subscription-wide",
-          "getting-started/getting-started-azure/create-static-exception",
-          "getting-started/getting-started-azure/create-calculated-exception",
-          "getting-started/getting-started-azure/send-alert-to-email",
-          "getting-started/getting-started-azure/apply-quick-action",
-          "getting-started/getting-started-azure/enable-enforcement"
-        ]
-      },
-      {
-        "type": "category",
-        "id": "getting-started-gcp",
-        "link": "getting-started/getting-started-gcp",
-        "items": [
-          "getting-started/getting-started-gcp/prepare-project",
-          "getting-started/getting-started-gcp/connect-project",
-          "getting-started/getting-started-gcp/observe-gcp-activity",
-          "getting-started/getting-started-gcp/enable-policy-pack",
-          "getting-started/getting-started-gcp/review-project-wide",
-          "getting-started/getting-started-gcp/create-static-exception",
-          "getting-started/getting-started-gcp/create-calculated-exception",
-          "getting-started/getting-started-gcp/send-alert-to-email",
-          "getting-started/getting-started-gcp/apply-quick-action",
-          "getting-started/getting-started-gcp/enable-enforcement"
-        ]
-      },
-
-      "getting-started/faq"
+        
+      ]
+      }
     ]
   },
-
   {
     "type": "category",
-    "id": "using-guardrails",
-    "link": "using",
+    "id": "artemis",
+    "link": "artemis",
     "items": [
+      {
+        "type": "category",
+        "id": "artemis/getting-started",
+        "link": "artemis/getting-started",
+        "items": [
+        ]
+      },
+
       {
         "type": "category",
         "id": "console",
         "link": "using/console",
         "items": [
-          {
-            "type": "category",
-            "id": "reports",
-            "link": "using/console/reports",
-            "items": [
-              "using/console/reports/find-policies-in-tbd-state",
-              "using/console/reports/export-policy-pack-as-csv"
-            ]
-          },
+          "using/console/reports",
           "using/console/detail-pages",
           "using/console/searching-filtering"
         ]
@@ -113,194 +292,158 @@
 
       {
         "type": "category",
-        "id": "governance",
-        "link": "using/governance",
+        "id": "artemis/inventory",
+        "link": "artemis/inventory",
         "items": [
+          "artemis/inventory/accounts",
           {
             "type": "category",
-            "id": "inventory",
-            "link": "using/governance/inventory",
-            "items": [
-            ]
-          },
-          {
-            "type": "category",
-            "id": "guardrails",
-            "link": "using/governance/guardrails",
+            "id": "artemis/inventory/resources",
+            "link": "artemis/inventory/resources",
             "items": [
               
               {
                 "type": "category",
-                "id": "standard-guardrails",
-                "link": "using/governance/guardrails/standard",
+                "id": "resource-activity",
+                "link": "artemis/inventory/resources/activities",
                 "items": [
-                  "using/governance/guardrails/standard/discovery",
-                  "using/governance/guardrails/standard/cmdb",
-                  "using/governance/guardrails/standard/access-logging",
-                  "using/governance/guardrails/standard/active",
-                  "using/governance/guardrails/standard/approved",
-                  "using/governance/guardrails/standard/audit-logging",
-                  "using/governance/guardrails/standard/budget",
-                  "using/governance/guardrails/standard/encryption-at-rest",
-                  "using/governance/guardrails/standard/encryption-in-transit",
-                  "using/governance/guardrails/standard/public-access",
-            
-                  {
-                    "type": "category",
-                    "id": "scheduling",
-                    "link": "using/governance/guardrails/standard/scheduling",
-                    "items": [
-                      "using/governance/guardrails/standard/scheduling/db-scheduling-using-custom-tag"
-                    ]
-                  },
-                
-    
-                  {
-                    "type": "category",
-                    "id": "stacks",
-                    "link":  "using/governance/guardrails/standard/stacks",
-                    "items": [
-                      "using/governance/guardrails/standard/stacks/deploy",
-                      "using/governance/guardrails/standard/stacks/destroy",
-                      "using/governance/guardrails/standard/stacks/import"
-
-                    ]
-                  },
-    
-                  {
-                    "type": "category",
-                    "id": "configured",
-                    "link":  "using/governance/guardrails/standard/configured",
-                    "items": [
-                      "using/governance/guardrails/standard/stacks/network-stack"
-                    ]
-                  },
-    
-                  {
-                    "type": "category",
-                    "id": "guardrails/tagging",
-                    "link": "using/governance/guardrails/standard/tagging",
-                    "items": [
-                      "using/governance/guardrails/standard/tagging/dynamic-tags",
-                      "using/governance/guardrails/standard/tagging/require-keys",
-                      "using/governance/guardrails/standard/tagging/tag-casing",
-                      "using/governance/guardrails/standard/tagging/tagging-helpers"
-                    ]
-                  },
-                  "using/governance/guardrails/standard/trusted-access",
-                  "using/governance/guardrails/standard/usage"
-                 
+                  "artemis/inventory/resources/observe-aws-activity"
                 ]
-              }
-            ]
-          },
-          {
-            "type": "category",
-            "id": "campaigns",
-            "link": "using/governance/campaigns",
-            "items": [
+              },
+              "artemis/inventory/resources/files"
+              
             ]
           }
+
         ]
       },
-
       {
         "type": "category",
-        "id": "using-resources",
-        "link": "using/resources",
-        "items": [
-          "using/resources/hierarchy",
-          "using/resources/types-categories",
+        "id": "guardrails",
+        "link": "artemis/guardrails",
+        "items": [       
+
+        {
+          "type": "category",
+          "id": "artemis/guardrails/controls",
+          "link": "artemis/guardrails/controls",
+          "items": [
+            "artemis/guardrails/controls/processes",
+            "artemis/guardrails/controls/access-control-logs"
+
+          ]
+        },
+        {
+          "type": "category",
+          "id": "artemis/guardrails/policies",
+          "link": "artemis/guardrails/policies",
+          "items": [          
+            
+            {
+              "type": "category",
+              "id": "artemis/guardrails/calculated-policies",
+              "link": "artemis/guardrails/policies/calculated",
+              "items": [
+                "artemis/guardrails/policies/calculated/create-calc-setting",
+                "artemis/guardrails/policies/calculated/calc-policy-lab",
+                "artemis/guardrails/policies/calculated/fix-calc-policy-evaluation-errors",
+                "artemis/guardrails/policies/calculated/calculated-faq"
+
+              ]
+            }
+          ]
+        },
+
+        {
+          "type": "category",
+          "id": "standard-guardrails",
+          "link": "artemis/guardrails/standard",
+          "items": [
+            "artemis/guardrails/standard/discovery",
+            "artemis/guardrails/standard/cmdb",
+            "artemis/guardrails/standard/access-logging",
+            "artemis/guardrails/standard/active",
+            "artemis/guardrails/standard/approved",
+            "artemis/guardrails/standard/audit-logging",
+            "artemis/guardrails/standard/budget",
+            "artemis/guardrails/standard/encryption-at-rest",
+            "artemis/guardrails/standard/encryption-in-transit",
+            "artemis/guardrails/standard/public-access",
+      
+            {
+              "type": "category",
+              "id": "scheduling",
+              "link": "artemis/guardrails/standard/scheduling",
+              "items": [
+                "artemis/guardrails/standard/scheduling/db-scheduling-using-custom-tag"
+              ]
+            },
           
-          {
-            "type": "category",
-            "id": "resource-activity",
-            "link": "using/resources/activities",
-            "items": [
-              "using/resources/observe-aws-activity"
-            ]
-          },
-          "using/resources/files",
 
-          {
-            "type": "category",
-            "id": "working-with-folders",
-            "link": "using/resources/working-with-folders",
-            "items": [
-              "using/resources/working-with-folders/create",
-              "using/resources/working-with-folders/rename",
-              "using/resources/working-with-folders/delete"
-            ]
-          }
+            {
+              "type": "category",
+              "id": "stacks",
+              "link":  "artemis/guardrails/standard/stacks",
+              "items": [
+                "artemis/guardrails/standard/stacks/deploy",
+                "artemis/guardrails/standard/stacks/destroy",
+                "artemis/guardrails/standard/stacks/import"
+
+              ]
+            },
+
+            {
+              "type": "category",
+              "id": "configured",
+              "link":  "artemis/guardrails/standard/configured",
+              "items": [
+                "artemis/guardrails/standard/stacks/network-stack"
+              ]
+            },
+
+            {
+              "type": "category",
+              "id": "guardrails/tagging",
+              "link": "artemis/guardrails/standard/tagging",
+              "items": [
+                "artemis/guardrails/standard/tagging/dynamic-tags",
+                "artemis/guardrails/standard/tagging/require-keys",
+                "artemis/guardrails/standard/tagging/tag-casing",
+                "artemis/guardrails/standard/tagging/tagging-helpers"
+              ]
+            },
+            "artemis/guardrails/standard/trusted-access",
+            "artemis/guardrails/standard/usage"
+          
+          ]
+        },
+
+        "artemis/guardrails/create-guardrail",
+        "artemis/guardrails/attach-guardrail",
+        "artemis/guardrails/delete-guardrail"
+
+        ]
+      },
+      {
+        "type": "category",
+        "id": "rollouts",
+        "link": "artemis/rollouts",
+        "items": [
         ]
       },
 
       {
         "type": "category",
-        "id": "using-policies",
-        "link": "using/policies",
+        "id": "iam-permissions",
+        "link": "artemis/permissions",
         "items": [
-          "using/policies/hierarchy",
-    
-          {
-            "type": "category",
-            "id": "using-policies-values-settings",
-            "link": "using/policies/values-settings",
-            "items": [
-              "using/policies/create-setting",
-              "using/policies/create-exception"
-            ]
-          },
-
-
-          {
-            "type": "category",
-            "id": "calculated-policies",
-            "link": "using/policies/calculated",
-            "items": [
-              "using/policies/calculated/create-calc-setting",
-              "using/policies/calculated/calc-policy-lab",
-              "using/policies/calculated/fix-calc-policy-evaluation-errors",
-              "using/policies/calculated/calculated-faq"
-
-            ]
-          },
-
-
-          {
-            "type": "category",
-            "id": "policy-packs",
-            "link": "using/policies/policy-packs",
-            "items": [
-              "using/policies/policy-packs/create",
-              "using/policies/policy-packs/attach-policy-pack-to-resource"
-            ]
-          },
-
-
-          "using/policies/set-policy-lab"
-
-        ]
-      },
-
-      {
-        "type": "category",
-        "id": "using-controls",
-        "link": "using/controls",
-        "items": [
-          "using/controls/types-categories",
-          "using/controls/processes",
-          "using/controls/quick-actions",
-          "using/controls/fix-invalid-controls",
-          "using/controls/access-control-logs",
-          "using/controls/run-controls-using-scripts"
-
+          "artemis/permissions/permission-assignment"
         ]
       }
-
-       
     ]
   },
+
+
 
   {
     "type": "category",
