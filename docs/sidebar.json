@@ -326,6 +326,7 @@
               "guides/using-guardrails/iam/advanced"
             ]
           },
+          "guides/using-guardrails/intelligent-assessment",
           {
             "type": "placeholder",
             "file": "guides/using-guardrails/stacks/stack-sidebar.json"
@@ -359,14 +360,6 @@
               "guides/using-guardrails/troubleshooting/access-control-logs",
               "guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors",
               "guides/using-guardrails/troubleshooting/run-controls-using-scripts"
-            ]
-          },
-          {
-            "type": "category",
-            "id": "intelligent-assessment",
-            "link": "guides/using-guardrails/ai-tools/intelligent-assessment",
-            "items": [
-              "guides/using-guardrails/ai-tools/intelligent-assessment/index"
             ]
           }
         ]

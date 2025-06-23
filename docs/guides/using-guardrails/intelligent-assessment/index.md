@@ -1,14 +1,14 @@
 ---
-title: S3 Intelligent Assessment Control
-sidebar_label: S3 Intelligent Assessment Control
+title: Intelligent Assessment
+sidebar_label: Intelligent Assessment
 ---
 
-# S3 Intelligent Assessment Control
+# Intelligent Assessment Control
 
 In this guide, you will:
-- Set up and run the S3 Intelligent Assessment Control.
+- Set up and run the Intelligent Assessment Control.
 
-The Intelligent Assessment control performs an AI-powered assessment of S3 buckets using your configured AI provider, custom user prompt, and context.
+The Intelligent Assessment control performs an AI-powered assessment e.g. here in this guide, S3 buckets using your configured AI provider, custom user prompt, and context.
 
 ## Prerequisites
 
@@ -33,8 +33,8 @@ Go to **Turbot > AI > Configuration** and update the following policies:
 - **Turbot > AI > Configuration > Model [Default]**: Define which model to use with the selected AI provider for processing requests.
 
 > [!NOTE]
-> Supported and tested models include:  
-> `claude-sonnet-4-20250514`, `claude-3-7-sonnet-20250219`, `claude-3-5-haiku-20241022`, `claude-3-5-sonnet-20241022`, `gpt-4.1`, `gpt-4.1-mini`, and `gpt-4o`.  
+> Supported and tested models include:
+> `claude-sonnet-4-20250514`, `claude-3-7-sonnet-20250219`, `claude-3-5-haiku-20241022`, `claude-3-5-sonnet-20241022`, `gpt-4.1`, `gpt-4.1-mini`, and `gpt-4o`.
 > Using lower-tier models may lead to varied results.
 
 ## Step 4: Enable Intelligent Assessment
@@ -51,7 +51,7 @@ In the Policies section, set **AWS > S3 > Bucket > Intelligent Assessment**  `Ch
 
 Set your custom prompt under **AWS > S3 > Bucket > Intelligent Assessment > User Prompt**. This defines the prompt that will be sent to the AI provider for assessing the S3 bucket. The prompt should clearly outline what the AI should evaluate.
 
-**Example**:  
+**Example**:
 `Confirm that logging is enabled and logs are sent to a secure location.`
 
 The control will assess the S3 bucket using this prompt and return a response.
