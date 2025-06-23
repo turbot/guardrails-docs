@@ -326,7 +326,14 @@
               "guides/using-guardrails/iam/advanced"
             ]
           },
-          "guides/using-guardrails/intelligent-assessment",
+          {
+            "type": "category",
+            "id": "intelligent-assessment",
+            "link": "guides/using-guardrails/intelligent-assessment",
+            "items": [
+              "guides/using-guardrails/intelligent-assessment/index"
+            ]
+          },
           {
             "type": "placeholder",
             "file": "guides/using-guardrails/stacks/stack-sidebar.json"
