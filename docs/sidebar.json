@@ -314,6 +314,7 @@
             ]
           },
           "guides/using-guardrails/graphql",
+          "guides/using-guardrails/intelligent-assessment",
           {
             "type": "category",
             "id": "iam",
@@ -324,14 +325,6 @@
               "guides/using-guardrails/iam/access-keys",
               "guides/using-guardrails/iam/permission-assignment",
               "guides/using-guardrails/iam/advanced"
-            ]
-          },
-          {
-            "type": "category",
-            "id": "intelligent-assessment",
-            "link": "guides/using-guardrails/intelligent-assessment",
-            "items": [
-              "guides/using-guardrails/intelligent-assessment/index"
             ]
           },
           {
