@@ -314,7 +314,6 @@
             ]
           },
           "guides/using-guardrails/graphql",
-          "guides/using-guardrails/intelligent-assessment",
           {
             "type": "category",
             "id": "iam",
@@ -330,6 +329,10 @@
           {
             "type": "placeholder",
             "file": "guides/using-guardrails/stacks/stack-sidebar.json"
+          },
+          {
+            "type": "placeholder",
+            "file": "guides/using-guardrails/intelligent-assessment/ia-sidebar.json"
           },
           {
             "type": "category",

@@ -1,0 +1,9 @@
+{
+  "type": "category",
+  "id": "intelligent-assessment",
+  "link": "guides/using-guardrails/intelligent-assessment",
+  "items": [
+    "guides/using-guardrails/intelligent-assessment/controls",
+    "guides/using-guardrails/intelligent-assessment/policy-packs"
+  ]
+}
