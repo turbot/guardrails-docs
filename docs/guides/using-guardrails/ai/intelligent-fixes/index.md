@@ -1,9 +1,9 @@
 ---
-title: Controls
-sidebar_label: Controls
+title: Intelligent Fixes
+sidebar_label: Intelligent Fixes
 ---
 
-# Intelligent Assessment of a Control
+# Intelligent Fixes
 
 In this guide, you will learn how to:
 - Configure AI providers and API keys for intelligent assessment
@@ -12,13 +12,12 @@ In this guide, you will learn how to:
 - Implement intelligent assessment for S3 bucket controls as an example
 - Apply these concepts to other services supported by Guardrails
 
-The Intelligent Assessment feature provides AI-powered assessment capabilities for both Controls and Policy Packs. In this guide, we'll focus on using Intelligent Assessment with Controls.
+The Intelligent Assessment control feature provides AI-powered assessment capabilities for cloud resources. In this guide, we'll focus on using Intelligent Assessment control.
 
 [Control](/guardrails/docs/reference/glossary#control) is an automated governance mechanism that continuously monitors cloud resources and enforces compliance policies to ensure they meet organizational security, operational, and regulatory requirements. The Intelligent Assessment feature enhances these Controls by:
 
 - Leveraging AI to perform contextual analysis of resource configurations
 - Adapting assessments based on your custom prompts and requirements
-- Offering remediation recommendations
 
 <!--For example, this guide demonstrate intelligent assessment is applied to a S3 bucket control.
  - Analyze bucket permissions and access policies
@@ -29,7 +28,7 @@ The Intelligent Assessment feature provides AI-powered assessment capabilities f
 
 ## Prerequisites
 
-- *Turbot/Owner* permissions at the Turbot resource level.
+- *Turbot/Admin* permissions at the Turbot resource level.
 - Familiarity with the [Guardrails console](https://turbot.com/guardrails/docs/getting-started/).
 - Access credentials for the AI model.
 
@@ -43,25 +42,20 @@ From the Policies section, navigate to **Turbot > AI** in the Guardrails console
 
 This section provides AI-related policies that allow Guardrails to govern the use of AI for various configurations and settings.
 
-![Intelligent Assessment for Controls](/images/docs/guardrails/guides/using-guardrails/intelligent-assessment/controls/turbot-ai-policy.png)
+![Intelligent Assessment for Controls](./turbot-ai-policy.png)
 
 
 ## Step 3: Configure the AI Provider
 
 Go to **Turbot > AI > Configuration** and update the following policies:
 
-![Open the Turbot > AI > Configuration Policy Setting](/images/docs/guardrails/guides/using-guardrails/intelligent-assessment/controls/turbot-ai-configuration.png)
+![Open the Turbot > AI > Configuration Policy Setting](./turbot-ai-configuration.png)
 
 ### Turbot > AI > Configuration > API Key [Default]
 
 Enter the API key Guardrails will use to authenticate with your AI service provider.
 
-![Turobt > AI > Configuration > API Key Policy Setting](/images/docs/guardrails/guides/using-guardrails/intelligent-assessment/controls/turbot-ai-api-key.png)
-
-> [!TIP]
-> - **OpenAI**: Refer to the [OpenAI API Keys documentation](https://platform.openai.com/docs/api-reference/authentication) for guidance on API key generation and management
-> - **Anthropic**: Refer to the [Anthropic Authentication documentation](https://docs.anthropic.com/claude/reference/authentication) for guidance on API key generation and management
-
+![Turobt > AI > Configuration > API Key Policy Setting](./turbot-ai-api-key.png)
 
 > [!IMPORTANT]
 > - The API key is a sensitive credential used for authentication with your chosen AI service provider. Ensure it is stored and handled securely.
@@ -78,13 +72,13 @@ Enter the API key Guardrails will use to authenticate with your AI service provi
 
 Select the AI provider for Guardrails' AI-powered features and capabilities.
 
-![Select the AI Provider](/images/docs/guardrails/guides/using-guardrails/intelligent-assessment/controls/turbot-ai-provider.png)
+![Select the AI Provider](./turbot-ai-provider.png)
 
 ### Turbot > AI > Configuration > Model [Default]
 
 Choose which model to use with the selected AI provider for processing requests.
 
-![Choose the AI Model](/images/docs/guardrails/guides/using-guardrails/intelligent-assessment/controls/turbot-ai-model.png)
+![Choose the AI Model](./turbot-ai-model.png)
 
 
 > [!NOTE]
@@ -98,54 +92,31 @@ Choose which model to use with the selected AI provider for processing requests.
 > - Lower-tier models may produce less consistent or detailed results
 > - Model availability may vary based on your AI provider subscription
 
-## Step 4: Enable Intelligent Assessment
+## Step 4: Enable Intelligent Fixes
 
-Enable the following policy at the Turbot level: **Turbot > AI > Control > Intelligent Assessment > Enabled**. This enables AI capabilities for Intelligent Assessment controls.
+In **Policies** tab, navigate to `Turbot > AI > Control > Intelligent Fixes` and select **Enabled** option. Create new setting by selecting **New Policy Setting**
 
 > [!NOTE]
-> - The default value is `Disabled`. You can enable it based on your requirements.
-> - When enabled at the Turbot level, Intelligent Assessment becomes available for both `Control` and `Policy Pack` features.
-> - For this guide, we assume Intelligent Assessment is `Enabled`.
+> In case this is already `Enabled` at `Turbot > AI > Configuration > Enabled [Default]` then there is no need to enable it.
+
+![Enable Intelligent Fixes Control](./turbot-ai-intelligent-fixes-enabled.png)
 
 
-![Enable Intelligent Assessment Control](/images/docs/guardrails/guides/using-guardrails/intelligent-assessment/controls/turbot-ai-intelligent-assessment-enabled.png)
+## Step 5: Check Intelligent Fixes in a Control
 
-## Step 5: Access the AWS S3 Intelligent Assessment Control
+Navigate to any control in `Alarm` state and select **Generate**.
 
-Navigate to the AWS S3 Intelligent Assessment control in your Guardrails workspace. This control allows you to configure AI-powered assessment for S3 buckets.
-
-To access the control:
-1. Go to the Guardrails workspace
-2. Navigate to AWS > S3 > Bucket controls
-3. Locate the "Intelligent Assessment" control
-
-![AWS > S3 > Intelligent Assessment Control](/images/docs/guardrails/guides/using-guardrails/intelligent-assessment/controls/aws-s3-bucket-intellegent-assessment-control.png)
-
-In the Policies section, set **AWS > S3 > Bucket > Intelligent Assessment**  `Check: User prompt`. This policy activates intelligent assessments for the S3 bucket based on your user prompt and context.
-
-![Set the Intelligent Assessment Policy for S3 Bucket](/images/docs/guardrails/guides/using-guardrails/intelligent-assessment/controls/aws-s3-intelligent-assessment-check.png)
-
-## Step 6: Add a User Prompt
-
-Set your custom prompt under **AWS > S3 > Bucket > Intelligent Assessment > User Prompt**. This defines the prompt that will be sent to the AI provider for assessing the S3 bucket. The prompt should clearly outline what the AI should evaluate.
-
-![Set the User Prompt for S3 Bucket Assessment](/images/docs/guardrails/guides/using-guardrails/intelligent-assessment/controls/aws-s3-bucket-intelligent-assessment-user-prompt.png)
-
-**Example Prompt:**
-`Confirm that logging is enabled and logs are sent to a secure location.`
-
-The control will assess the S3 bucket using this prompt and return a response.
+![AWS > S3 > Intelligent Assessment Control](./aws-s3-bucket-intelligent-fixes-remediation.png)
 
 > [!NOTE]
 > The output is generated by the AI provider and may vary based on the model's capabilities and input details.
-
-![Example Output from S3 Bucket Intelligent Assessment](/images/docs/guardrails/guides/using-guardrails/intelligent-assessment/controls/aws-s3-bucket-intelligent-assessment-response.png)
 
 ## Next Steps
 
 To explore more Guardrails features:
 
 - [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai-tools)
+- [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/intelligent-assessment-control)
 - [Learn about Policy Exceptions](/guides/configuring-guardrails/managing-policies#creating-an-exception)
 
 ## Troubleshooting

@@ -1,0 +1,12 @@
+{
+  "type": "category",
+  "id": "ai",
+  "link": "guides/using-guardrails/ai",
+  "items": [
+    "guides/using-guardrails/ai/ai-tools",
+    "guides/using-guardrails/ai/ai-configuration",
+    "guides/using-guardrails/ai/intelligent-assessment",
+    "guides/using-guardrails/ai/intelligent-fixes",
+    "guides/using-guardrails/ai/policy-pack-summary"
+  ]
+}

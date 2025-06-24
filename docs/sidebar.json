@@ -295,7 +295,10 @@
         "id": "using-guardrails",
         "link": "guides/using-guardrails",
         "items": [
-          "guides/using-guardrails/ai-tools",
+          {
+            "type": "placeholder",
+            "file": "guides/using-guardrails/ai/ai-sidebar.json"
+          },
           {
             "type": "category",
             "id": "console",
@@ -329,10 +332,6 @@
           {
             "type": "placeholder",
             "file": "guides/using-guardrails/stacks/stack-sidebar.json"
-          },
-          {
-            "type": "placeholder",
-            "file": "guides/using-guardrails/intelligent-assessment/ia-sidebar.json"
           },
           {
             "type": "category",
