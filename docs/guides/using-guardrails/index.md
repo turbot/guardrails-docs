@@ -8,8 +8,7 @@ This section provides how-to guides for common tasks.
 
 | Section | Description
 | - | -
-| [AI Tools](guides/using-guardrails/ai-tools) | Learn how to use different AI integration tools and prompts
-| [Intelligent Assessment](guides/using-guardrails/intelligent-assessment) | Learn how to use AI-powered assessment controls
+| [AI](guides/using-guardrails/ai) | Learn AI-powered capabilities like intelligent assessment, fixes, policy pack summaries of cloud resources
 | [Console](guides/console) | Navigate the Guardrails Console user interface
 | [GraphQL](guides/graphql) | Tips and Tricks for GraphQL
 | [IAM](guides/iam) | Manage directories, users, and permissions

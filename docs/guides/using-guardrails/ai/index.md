@@ -1,6 +1,6 @@
 ---
-title: Guardrails AI
-sidebar_label: Guardrails AI
+title: AI
+sidebar_label: AI
 ---
 
 This section covers the various AI-powered features available in Guardrails.
@@ -9,6 +9,7 @@ This section covers the various AI-powered features available in Guardrails.
 | - | -
 | [AI Tools](/guardrails/docs/guides/using-guardrails/ai/ai-tools) | Learn how Guardrails Model Context Protocol (MCP) server is enabled.
 | [AI Configurations](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) | How to configure AI settings and preferences within Guardrails.
-| [Intelligent Assessment](/guardrails/docs/guides/using-guardrails/ai/intelligent-assessment) | Using AI for security posture assessment.
-| [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/intelligent-fixes) | AI-assisted remediation recommendations.
-| [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/policy-pack-summary) | AI-generated summaries of policy packs.
+| [Intelligent Assessment](/guardrails/docs/guides/using-guardrails/ai/intelligent-assessment) | Learn about AI-powered controls using natural language prompts to evaluate cloud resource compliances.
+| [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/intelligent-fixes) | Learn abour AI-assisted remediation recommendations.
+| [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/policy-pack-summary) | Learn about AI-generated summaries of policy packs.
+
