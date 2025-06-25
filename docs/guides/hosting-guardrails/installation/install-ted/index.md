@@ -125,6 +125,9 @@ Choose to **Use Elasticache** and select the desired values for **ElastiCache Ve
 
 If you would prefer to use **Valkey** — an open-source, Redis-compatible cache engine that provides enhanced governance and long-term sustainability:
 
+>[!CAUTION]
+> Once the ElastiCache has been moved to Valkey it cannot be reverted.
+
 Set `ElastiCache Engine` to **Valkey**. Choose the appropriate `Valkey Cache Version` from the dropdown list.
 
 > [!NOTE]
