@@ -12,11 +12,7 @@ In this guide, you will learn how to:
 - Understand how to use these summaries for better policy management and team collaboration
 
 
-The `Policy Pack Summary` feature uses AI to analyze policy packs and provide clear, human-readable summaries of their purpose and configuration. Here's how it works:
-
-- **Comprehensive Policy Analysis**: Get detailed insights into policy configurations, dependencies, and hierarchies across your policy packs. For example, see how AWS security baseline policies interconnect with compliance requirements.
-
-- **Clear Purpose & Scope**: Understand the main objectives and coverage of each policy pack at a glance. The summary clearly outlines which services are governed (e.g., AWS S3, EC2, IAM) and what security aspects are monitored.
+AI-Powered `Policy Pack Summary` helps in providing contextual insights by analyzing policy pack configurations to provide meaningful summaries that help teams understand the intent and impact of policies. This includes highlighting key policy settings, dependencies, and their business context.
 
 > [!TIP]
 > Use the policy pack summary to:
@@ -30,13 +26,7 @@ The `Policy Pack Summary` feature uses AI to analyze policy packs and provide cl
 - Familiarity with the [Guardrails console](https://turbot.com/guardrails/docs/getting-started/).
 - Ensure the [Turbot > AI > Configuration](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) is established.
 
-## Step 1: Configure AI Setup
-
-Before using Intelligent Assessment control, ensure you have configured the required AI settings.
-
-For detailed setup instructions, see the [AI Configuration Guide](/guardrails/docs/guides/using-guardrails/ai/ai-configuration).
-
-## Step 2: Enable Policy Pack Summary
+## Step 1: Enable Policy Pack Summary
 
 In **Policies** tab, navigate to `Turbot > AI > Policy Pack` and select **Summary**.
 
@@ -52,7 +42,7 @@ Select **Enabled**  and create new setting by selecting **New Policy Setting**
 
 For this guide, the `Turbot > AI > Policy Pack > Summary > Enabled` policy is set to `Enabled`.
 
-## Step 3: Check Policy Pack Summary
+## Step 2: Check Policy Pack Summary
 
 To check the policy pack summary, navigate to **Policy Packs** section of **Policies** tab. Select any Policy Pack to vew the summary.
 
