@@ -3,6 +3,8 @@ title: AI
 sidebar_label: AI
 ---
 
+# Guardrail AI
+
 This section covers the various AI-powered features available in Guardrails.
 
 | Section | Description
