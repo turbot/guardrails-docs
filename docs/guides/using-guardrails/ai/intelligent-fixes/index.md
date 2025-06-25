@@ -11,14 +11,12 @@ In this guide, you will learn how to:
 - Review and implement recommended fixes for security and compliance issues
 - Understand the context and impact of suggested remediation actions
 
-The Intelligent Fixes feature provides AI-powered remediation recommendations for non-compliant cloud resources.
-
 When a resource is found to be non-compliant, Intelligent Fixes analyzes:
 
 - The current resource configuration
 - The AI then generates detailed, contextual remediation steps that:
   - Explain what needs to be changed
-  - Provide specific commands or actions to implement the fix in form of scripts for remediation in CLI, Terraforma and CloudFormation
+  - Provide specific commands or actions to implement the fix in form of scripts for remediation in CLI, Terraform
   - Highlight potential risks or considerations
 
 ## Prerequisites
@@ -27,25 +25,26 @@ When a resource is found to be non-compliant, Intelligent Fixes analyzes:
 - Familiarity with the [Guardrails console](https://turbot.com/guardrails/docs/getting-started/).
 - Ensure the [Turbot > AI > Configuration](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) is established.
 
-## Step 1: Configure AI Setup
 
-Before using Intelligent Assessment control, ensure you have configured the required AI settings.
-
-For detailed setup instructions, see the [AI Configuration Guide](/guardrails/docs/guides/using-guardrails/ai/ai-configuration).
-
-## Step 2: Enable Intelligent Fixes
+## Step 1: Enable Intelligent Fixes
 
 In **Policies** tab, navigate to `Turbot > AI > Control > Intelligent Fixes` and select **Enabled** option. Create new setting by selecting **New Policy Setting**
 
-> [!NOTE]
-> In case this is already `Enabled` at `Turbot > AI > Configuration > Enabled [Default]` then there is no need to enable it.
-
 ![Enable Intelligent Fixes Control](./turbot-ai-intelligent-fixes-enabled.png)
 
+> [!NOTE]
+> - The default value is `Disabled`. You can enable it based on your requirements.
+> - In case enabled at the Turbot level in [Turbot AI Configuration > Step 7](/guardrails/docs/guides/using-guardrails/ai/ai-configuration#step-7-enable-configuration), Intelligent Assessment control becomes available for use.
 
-## Step 3: Check Intelligent Fixes in a Control
+For this guide, the `Turbot > AI > Control > Intelligent Fixes > Enabled` policy is set to `Enabled`.
+
+## Step 2: Check Intelligent Fixes
 
 Navigate to any control in `ALARM` state and select **Generate**.
+
+![Generate Intelligent Fixes](./aws-s3-bucket-intelligent-fixes-generate.png)
+
+The AI will analyze the non-compliant resource and generate remediation steps in multiple formats:
 
 ![AWS > S3 > Intelligent Assessment Control](./aws-s3-bucket-intelligent-fixes-remediation.png)
 
@@ -58,7 +57,7 @@ To explore more Guardrails features:
 
 - [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai-tools)
 - [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/intelligent-assessment-control)
-- [Learn about Policy Exceptions](/guides/configuring-guardrails/managing-policies#creating-an-exception)
+- [Learn about Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/policy-pack-summary)
 
 ## Troubleshooting
 

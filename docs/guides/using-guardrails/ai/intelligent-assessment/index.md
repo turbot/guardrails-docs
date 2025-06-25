@@ -3,19 +3,19 @@ title: Intelligent Assessment
 sidebar_label: Intelligent Assessment
 ---
 
-# Intelligent Assessment Control
+# Intelligent Assessment
 
 In this guide, you will learn how to:
 
 - Set up custom user prompts and context for resource evaluation
 - Implement intelligent assessment for S3 bucket controls as an example
 
-The Intelligent Assessment control feature provides AI-powered assessment capabilities for cloud resources. In this guide, we'll focus on using Intelligent Assessment control.
+The Intelligent Assessment control feature provides AI-powered assessment capabilities for cloud resources.
 
-[Control](/guardrails/docs/reference/glossary#control) is an automated governance mechanism that continuously monitors cloud resources and enforces compliance policies to ensure they meet organizational security, operational, and regulatory requirements. The Intelligent Assessment feature enhances these Controls by:
+[Control](/guardrails/docs/reference/glossary#control) is an automated governance mechanism that continuously monitors cloud resources and enforces compliance policies to ensure they meet organizational security, operational, and regulatory requirements. The Intelligent Assessment feature enhances these controls by:
 
 - Leveraging AI to perform contextual analysis of resource configurations
-- Adapting assessments based on your custom prompts and requirements
+- Evaluates against specified user prompt
 
 ## Prerequisites
 
@@ -23,13 +23,7 @@ The Intelligent Assessment control feature provides AI-powered assessment capabi
 - Familiarity with the [Guardrails console](https://turbot.com/guardrails/docs/getting-started/).
 - Ensure the [Turbot > AI > Configuration](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) is established.
 
-## Step 1: Configure AI Setup
-
-Before using Intelligent Assessment control, ensure you have configured the required AI settings.
-
-For detailed setup instructions, see the [AI Configuration Guide](/guardrails/docs/guides/using-guardrails/ai/ai-configuration).
-
-## Step 2: Enable Intelligent Assessment Control
+## Step 1: Enable Intelligent Assessment Control
 
 Log in to the Guardrails console using your local credentials or via a SAML-based login.
 
@@ -39,11 +33,24 @@ Enable the following policy at the Turbot level: **Turbot > AI > Control > Intel
 > - The default value is `Disabled`. You can enable it based on your requirements.
 > - In case enabled at the Turbot level in [Turbot AI Configuration > Step 7](/guardrails/docs/guides/using-guardrails/ai/ai-configuration#step-7-enable-configuration), Intelligent Assessment control becomes available for use.
 
-For this guide, the `Intelligent Assessment` is set to `Enabled`.
+For this guide, the `Turbot > AI > Control > Intelligent Assessment > Enabled` policy is set to `Enabled`.
 
 ![Enable Intelligent Assessment Control](./turbot-ai-intelligent-assessment-enabled.png)
 
-## Step 3: Set Control Policy to User Prompt
+
+## Step 2: Add a User Prompt
+
+Set your custom prompt under **AWS > S3 > Bucket > Intelligent Assessment > User Prompt**. This defines the prompt that will be sent to the AI provider for assessing the S3 bucket. The prompt should clearly outline what the AI should evaluate.
+
+![Set the User Prompt for S3 Bucket Assessment](./aws-s3-bucket-intelligent-assessment-user-prompt.png)
+
+**Example Prompt:**
+
+- `Confirm that logging is enabled and logs are sent to a secure location.`
+- `Check if versioning is enabled and multi-factor delete is configured when the bucket has a tag "Environment":"Non-Compliant Tag". If it doesn't have the tag, only check if versioning is enabled.`
+
+
+## Step 3: Set Primary Policy to Check Mode
 
 Navigate to the AWS S3 Intelligent Assessment control in your Guardrails workspace. This control allows you to configure AI-powered assessment for S3 buckets.
 
@@ -55,17 +62,8 @@ In the Policies section, set **AWS > S3 > Bucket > Intelligent Assessment**, now
 
 ![Set the Intelligent Assessment Policy for S3 Bucket](./aws-s3-intelligent-assessment-check.png)
 
-## Step 4: Add a User Prompt
 
-Set your custom prompt under **AWS > S3 > Bucket > Intelligent Assessment > User Prompt**. This defines the prompt that will be sent to the AI provider for assessing the S3 bucket. The prompt should clearly outline what the AI should evaluate.
-
-![Set the User Prompt for S3 Bucket Assessment](./aws-s3-bucket-intelligent-assessment-user-prompt.png)
-
-**Example Prompt:**
-
-- `Confirm that logging is enabled and logs are sent to a secure location.`
-- `Check if versioning is enabled and multi-factor delete is configured when the bucket has a tag "Environment":"Non-Compliant Tag". If it doesn't have the tag, only check if versioning is enabled.`
-
+## Review
 
 The control will assess the S3 bucket using this prompt and return a response.
 

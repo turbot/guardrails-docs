@@ -11,15 +11,18 @@ In this guide, you will learn how to:
 - Review and implement recommended fixes for security and compliance issues
 - Understand the context and impact of suggested remediation actions
 
-The Intelligent Fixes feature provides AI-powered remediation recommendations for non-compliant cloud resources.
+The `Policy Pack Summary` feature uses AI to analyze policy packs and provide clear, human-readable summaries of their purpose and configuration. Here's how it works:
 
-When a resource is found to be non-compliant, Intelligent Fixes analyzes:
+- **Comprehensive Policy Analysis**: Get detailed insights into policy configurations, dependencies, and hierarchies across your policy packs. For example, see how AWS security baseline policies interconnect with compliance requirements.
 
-- The current resource configuration
-- The AI then generates detailed, contextual remediation steps that:
-  - Explain what needs to be changed
-  - Provide specific commands or actions to implement the fix in form of scripts for remediation in CLI, Terraforma and CloudFormation
-  - Highlight potential risks or considerations
+- **Clear Purpose & Scope**: Understand the main objectives and coverage of each policy pack at a glance. The summary clearly outlines which services are governed (e.g., AWS S3, EC2, IAM) and what security aspects are monitored.
+
+> [!TIP]
+> Use the policy pack summary to:
+> - Quickly onboard new team members
+> - Validate policy pack configurations
+> - Document your governance approach
+> - Share understanding across teams
 
 ## Prerequisites
 
@@ -44,7 +47,10 @@ Select **Enabled**  and create new setting by selecting **New Policy Setting**
 ![Policy Pack Summary Enabled](./turbot-ai-policy-pack-summary-enabled.png)
 
 > [!NOTE]
-> In case this is already `Enabled` at `Turbot > AI > Configuration > Enabled [Default]` then there is no need to enable it.
+> - The default value is `Disabled`. You can enable it based on your requirements.
+> - In case enabled at the Turbot level in [Turbot AI Configuration > Step 7](/guardrails/docs/guides/using-guardrails/ai/ai-configuration#step-7-enable-configuration), Intelligent Assessment control becomes available for use.
+
+For this guide, the `Turbot > AI > Policy Pack > Summary > Enabled` policy is set to `Enabled`.
 
 ## Step 3: Check Policy Pack Summary
 

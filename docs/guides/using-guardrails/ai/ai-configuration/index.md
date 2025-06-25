@@ -61,9 +61,11 @@ Choose which model to use with the selected AI provider for processing requests.
 
 ![Choose the AI Model](./turbot-ai-model.png)
 
+// MAKE CHANGES BELOW
+
 > [!NOTE]
 > Supported and tested models include:
-> - [OpenAI models](https://platform.openai.com/docs/pricing#latest-models): `gpt-4.1`, `gpt-4.1-mini`, `gpt-4`
+> - [OpenAI models](https://platform.openai.com/docs/pricing#latest-models): `gpt-4.1`, `gpt-4.1-mini`, `gpt-4o`
 > - [Anthropic models](https://docs.anthropic.com/en/docs/about-claude/models/overview#model-names): `claude-3-sonnet-20240229`, `claude-3-haiku-20240307`, `claude-3-opus-20240229`
 >
 > For optimal results:
@@ -74,13 +76,13 @@ Choose which model to use with the selected AI provider for processing requests.
 
 ## Step 5: Configure Max Tokens
 
-Select **Turbot > AI > Configuration > Max Tokens [Default]** under `Turbot > AI > Configuration` main policy. The default value is set at `4000` as per best practice.
+Select **Turbot > AI > Configuration > Max Tokens [Default]** under `Turbot > AI > Configuration` main policy. The default value is set at `1000` as per best practice.
 
 > [!TIP]
 > - Configure the maximum number of tokens to use for the AI API calls. This setting controls the length of the AI's response by limiting the number of tokens (words, subwords, or characters) that can be generated.
 > - A higher value allows for longer, more detailed responses but may increase API costs and response time.
 > - A lower value produces more concise responses.
-> - The default value of 4000 tokens provides a good balance for most use cases, but you can adjust this based on your specific needs and the complexity of the tasks you want the AI to perform.
+> - The default value of 1000 tokens provides a good balance for most use cases, but you can adjust this based on your specific needs and the complexity of the tasks you want the AI to perform.
 
 You can adjust this based on your specific needs and the complexity of the tasks you want the AI to perform.
 
@@ -90,7 +92,7 @@ The policy **Turbot > AI > Configuration > Temperature [Default]** allows you to
 
 A lower value (closer to 0) makes responses more focused, deterministic, and consistent, while a higher value (closer to 1) makes responses more diverse and creative. The default value of 0.2 provides a good balance between consistency and creativity, suitable for most business and technical use cases.
 
-The default value is set to `0.2`. You may choose to uodate it based on your need.
+The default value is set to `0.2`. You may choose to update it based on your need.
 
 ## Step 7: Enable Configuration
 
@@ -110,9 +112,9 @@ To enable it, select **New Policy Settings**, select **Resource** as `Turbot` an
 
 After completing this configuration, continue with follwoing guides to leverage AI features in Guardrails:
 
-- [Intelligent Assessment](/guardrails/docs/guides/using-guardrails/intelligent-assessment/)
-- [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/intelligent-fixes/)
-- [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/policy-pack-summary/)
+- [Intelligent Assessment](/guardrails/docs/guides/using-guardrails/ai/intelligent-assessment)
+- [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/intelligent-fixes/)
+- [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/policy-pack-summary/)
 
 ## Troubleshooting
 
