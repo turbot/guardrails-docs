@@ -10,12 +10,7 @@ In this guide, you will learn how to:
 - Set up custom user prompts and context for resource evaluation
 - Implement intelligent assessment for S3 bucket controls as an example
 
-The Intelligent Assessment control feature provides AI-powered assessment capabilities for cloud resources.
-
-[Control](/guardrails/docs/reference/glossary#control) is an automated governance mechanism that continuously monitors cloud resources and enforces compliance policies to ensure they meet organizational security, operational, and regulatory requirements. The Intelligent Assessment feature enhances these controls by:
-
-- Leveraging AI to perform contextual analysis of resource configurations
-- Evaluates against specified user prompt
+With the new Intelligent Assessment guardrail [control](/guardrails/docs/reference/glossary#control), Turbot Guardrails now provides an AI-powered approach to defining guardrails using natural language prompts. This allows you to define governance policies by simply describing what you want to check, opening up new possibilities for governance scenarios that benefit from freeform, custom logic.
 
 ## Prerequisites
 
@@ -49,7 +44,6 @@ Set your custom prompt under **AWS > S3 > Bucket > Intelligent Assessment > User
 - `Confirm that logging is enabled and logs are sent to a secure location.`
 - `Check if versioning is enabled and multi-factor delete is configured when the bucket has a tag "Environment":"Non-Compliant Tag". If it doesn't have the tag, only check if versioning is enabled.`
 
-
 ## Step 3: Set Primary Policy to Check Mode
 
 Navigate to the AWS S3 Intelligent Assessment control in your Guardrails workspace. This control allows you to configure AI-powered assessment for S3 buckets.
@@ -61,7 +55,6 @@ To access the control:
 In the Policies section, set **AWS > S3 > Bucket > Intelligent Assessment**, now select `Check: User prompt`. This policy activates intelligent assessments for the S3 bucket based on your user prompt and context.
 
 ![Set the Intelligent Assessment Policy for S3 Bucket](./aws-s3-intelligent-assessment-check.png)
-
 
 ## Review
 

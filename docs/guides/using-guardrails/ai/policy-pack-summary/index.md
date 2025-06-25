@@ -7,9 +7,10 @@ sidebar_label: Policy Pack Summary
 
 In this guide, you will learn how to:
 
-- Get AI-generated remediation steps for non-compliant resources
-- Review and implement recommended fixes for security and compliance issues
-- Understand the context and impact of suggested remediation actions
+- Enable and configure Policy Pack Summary feature
+- View AI-generated summaries of policy pack configurations and purposes
+- Understand how to use these summaries for better policy management and team collaboration
+
 
 The `Policy Pack Summary` feature uses AI to analyze policy packs and provide clear, human-readable summaries of their purpose and configuration. Here's how it works:
 
@@ -22,7 +23,6 @@ The `Policy Pack Summary` feature uses AI to analyze policy packs and provide cl
 > - Quickly onboard new team members
 > - Validate policy pack configurations
 > - Document your governance approach
-> - Share understanding across teams
 
 ## Prerequisites
 
