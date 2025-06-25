@@ -77,7 +77,7 @@ To explore more Guardrails features:
 
 - [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/intelligent-fixes) - Learn how to get AI-assisted remediation recommendations
 - [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/policy-pack-summary) - Explore AI-generated summaries of policy packs
-- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/ai-tools)
+- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
 
 ## Troubleshooting
 

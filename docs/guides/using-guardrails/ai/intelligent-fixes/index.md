@@ -57,7 +57,7 @@ To explore more Guardrails features:
 
 - [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/ai/intelligent-assessment)
 - [Learn about Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/policy-pack-summary)
-- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/ai-tools)
+- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
 
 ## Troubleshooting
 

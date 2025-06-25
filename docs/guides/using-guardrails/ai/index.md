@@ -9,7 +9,7 @@ This section covers the various AI-powered features available in Guardrails.
 
 | Section | Description
 | - | -
-| [AI Tools](/guardrails/docs/guides/using-guardrails/ai/ai-tools) | Learn how Guardrails Model Context Protocol (MCP) server is enabled.
+| [Install Guardrails MCP](/guardrails/docs/guides/using-guardrails/ai/install-mcp) | Learn how Guardrails Model Context Protocol (MCP) server is enabled.
 | [AI Configurations](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) | How to configure AI settings and preferences within Guardrails.
 | [Intelligent Assessment](/guardrails/docs/guides/using-guardrails/ai/intelligent-assessment) | Learn about AI-powered controls using natural language prompts to evaluate cloud resource compliances.
 | [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/intelligent-fixes) | Learn abour AI-assisted remediation recommendations.
