@@ -103,11 +103,9 @@ Workflow:
 2. Prompt user to validate in the Guardrails console.
 3. After confirmation, remove the attachment for production readiness.
 ```
-## Step 5: Interative Input
+## Step 5:  Interact and Refine
 
 When working with an AI assistant to develop policy packs, you'll need to provide clear inputs and context based on self validation
-
-### Interact and Refine
 
 - Review the generated files:
    - README.md
