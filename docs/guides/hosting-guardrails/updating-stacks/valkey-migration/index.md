@@ -68,7 +68,7 @@ Select the desired TED version under **Product Versions**.
 
 Under **cache**, choose `Valkey` as the ElastiCache Engine. Then select the desired version from the `Valkey Cache Version` dropdown.
 
-![Valkey Parameters Update](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/service-catalog-ted-verify-parameters.png)
+![Valkey Parameters Update](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/service-catalog-ted-update-parameters.png)
 
 ## Step 6: Update TED
 
