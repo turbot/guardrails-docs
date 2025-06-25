@@ -72,7 +72,7 @@ No additional parameters need changing at the workspace level.
 The most reliable way to verify PgBouncer is working is through its statistics output:
 
 1. In TED parameters, set **PgBouncerLogStats** to **enabled**
-2. Navigate to your ECS service `<prefix>_<hive>_pgbouncer`
+2. Navigate to your ECS service `<prefix>_<hive>_pgbouncer` (for example: `turbot_newton_pgbouncer` if using default names)
 3. Select the running task and view its logs
 4. Look for `STATS` lines that appear every 5 minutes with metrics like:
    ```
