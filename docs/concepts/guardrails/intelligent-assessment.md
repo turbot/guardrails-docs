@@ -3,7 +3,7 @@ title: Intelligent Assessment Guardrails
 sidebar_label: Intelligent Assessment
 ---
 
-# Approved Guardrails
+# Intelligent Assessment Guardrails
 
 ## Overview
 
