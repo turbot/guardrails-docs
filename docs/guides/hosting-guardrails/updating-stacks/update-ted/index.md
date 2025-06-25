@@ -88,6 +88,27 @@ The values of the parameters will initially be set to match previous run of the 
 > Upgrading to a major version can introduce significant changes and potential risks. You should not upgrade to a new major version without first consulting with Turbot Support.
 > To ensure cost-efficiency, review and update instance types and ElastiCache Versions at least annually to align with the latest supported options.
 
+### Migrate to Valkey Cache
+
+As part of the TED infrastructure, Redis has been the default caching engine. This update introduces [Valkey](https://valkey.io/), a community-driven alternative to Redis, offering long-term sustainability, enhanced governance, and full compatibility with existing Redis APIs.
+
+During this process, TED will provision new Valkey cache clusters and decommission the existing Redis instances with minimal disruption to your Guardrails environment.
+
+> [!NOTE]
+> Valkey is supported in TED version **1.50.x or higher**.
+
+Before proceeding:
+- [Pause event processing](/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events#pause-event-processing) to prevent event loss. The affected workspace will remain available in `readonly` mode during this time.
+
+To configure Valkey:
+- Under the **cache** section, set **ElastiCache Engine** to `Valkey`.
+- Select your preferred version from the **Valkey Cache Version** dropdown.
+
+![Valkey Parameters Update](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-ted/service-catalog-ted-update-parameters.png)
+
+> [!CAUTION]
+> Once the ElastiCache engine is changed to Valkey, it **cannot** be reverted.
+
 ## Step 11: Update TED
 
 After verifying any changes to existing parameters, select **Update** at the bottom of the screen.

@@ -18,5 +18,6 @@ stack will be updated in tandem with the TE stack and is never deleted.
 - [Update the TEF stack](guides/hosting-guardrails/updating-stacks/update-tef)
 - [Update the TED stack](guides/hosting-guardrails/updating-stacks/update-ted)
 - [Update the TE stack and custom workspace](guides/hosting-guardrails/updating-stacks/update-workspace)
+- [Migrate to Valkey Cache](guides/hosting-guardrails/updating-stacks/valkey-migration)
 
 Head over to the [Releases](/guardrails/changelog) section for release notes for TEF, TED and the TE stacks.

@@ -123,6 +123,15 @@ Choose to **Use Elasticache** and select the desired values for **ElastiCache Ve
 
 ![Cache](/images/docs/guardrails/guides/hosting-guardrails/installation/install-ted/service-catalog-ted-parameter-cache.png)
 
+If you would prefer to use **Valkey** — an open-source, Redis-compatible cache engine that provides enhanced governance and long-term sustainability:
+
+Set `ElastiCache Engine` to **Valkey**. Choose the appropriate `Valkey Cache Version` from the dropdown list.
+
+> [!NOTE]
+> Valkey is only available in TED version 1.50.x or higher.
+
+![Valkey Cache](/images/docs/guardrails/guides/hosting-guardrails/installation/install-ted/service-catalog-ted-update-valkey-parameters.png)
+
 ## Step 16: Configure Advanced - Foundation Parameters and Overrides
 
 The Foundation Parameters allow the TED stack to use SSM parameters defined in the TEF stack. You should only change these values if you did not use the default Resource Name Prefix (turbot) in the TEF stack.
