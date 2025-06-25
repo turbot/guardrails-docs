@@ -23,7 +23,13 @@ The Intelligent Assessment control feature provides AI-powered assessment capabi
 - Familiarity with the [Guardrails console](https://turbot.com/guardrails/docs/getting-started/).
 - Ensure the [Turbot > AI > Configuration](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) is established.
 
-## Step 1: Enable Intelligent Assessment Control
+## Step 1: Configure AI Setup
+
+Before using Intelligent Assessment control, ensure you have configured the required AI settings.
+
+For detailed setup instructions, see the [AI Configuration Guide](/guardrails/docs/guides/using-guardrails/ai/ai-configuration).
+
+## Step 2: Enable Intelligent Assessment Control
 
 Log in to the Guardrails console using your local credentials or via a SAML-based login.
 
@@ -37,7 +43,7 @@ For this guide, the `Intelligent Assessment` is set to `Enabled`.
 
 ![Enable Intelligent Assessment Control](./turbot-ai-intelligent-assessment-enabled.png)
 
-## Step 2: Set Control Policy to User Prompt
+## Step 3: Set Control Policy to User Prompt
 
 Navigate to the AWS S3 Intelligent Assessment control in your Guardrails workspace. This control allows you to configure AI-powered assessment for S3 buckets.
 
@@ -45,13 +51,11 @@ To access the control:
 1. Navigate to AWS > S3 > Bucket controls
 2. Locate the `Intelligent Assessment` control
 
-<!-- ![AWS > S3 > Intelligent Assessment Control](./aws-s3-bucket-intellegent-assessment-control.png) -->
-
 In the Policies section, set **AWS > S3 > Bucket > Intelligent Assessment**, now select `Check: User prompt`. This policy activates intelligent assessments for the S3 bucket based on your user prompt and context.
 
 ![Set the Intelligent Assessment Policy for S3 Bucket](./aws-s3-intelligent-assessment-check.png)
 
-## Step 3: Add a User Prompt
+## Step 4: Add a User Prompt
 
 Set your custom prompt under **AWS > S3 > Bucket > Intelligent Assessment > User Prompt**. This defines the prompt that will be sent to the AI provider for assessing the S3 bucket. The prompt should clearly outline what the AI should evaluate.
 
