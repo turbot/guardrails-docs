@@ -55,9 +55,9 @@ The AI will analyze the non-compliant resource and generate remediation steps in
 
 To explore more Guardrails features:
 
-- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai-tools)
-- [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/intelligent-assessment-control)
+- [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/ai/intelligent-assessment)
 - [Learn about Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/policy-pack-summary)
+- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/ai-tools)
 
 ## Troubleshooting
 

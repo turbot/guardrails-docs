@@ -7,18 +7,17 @@ sidebar_label: Policy Pack Summary
 
 In this guide, you will learn how to:
 
-- Enable and configure Policy Pack Summary feature
+- Enable and configure Policy Pack summary feature
 - View AI-generated summaries of policy pack configurations and purposes
-- Understand how to use these summaries for better policy management and team collaboration
 
 
 AI-Powered `Policy Pack Summary` helps in providing contextual insights by analyzing policy pack configurations to provide meaningful summaries that help teams understand the intent and impact of policies. This includes highlighting key policy settings, dependencies, and their business context.
 
 > [!TIP]
 > Use the policy pack summary to:
-> - Quickly onboard new team members
 > - Validate policy pack configurations
 > - Document your governance approach
+> - Understand how to use these summaries for better policy management and team collaboration
 
 ## Prerequisites
 
@@ -55,9 +54,9 @@ To check the policy pack summary, navigate to **Policy Packs** section of **Poli
 
 To explore more Guardrails features:
 
-- [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/intelligent-assessment-control)
+- [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/ai/intelligent-assessment)
 - [Learn about Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/intelligent-fixes)
-- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai-tools)
+- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/ai-tools)
 
 
 ## Troubleshooting
