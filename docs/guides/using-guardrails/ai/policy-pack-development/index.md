@@ -20,6 +20,7 @@ Before you begin, ensure you have the following:
 - Guardrails MCP server installed and configured.
   Follow the [Install Guardrails MCP guide](/guardrails/docs/guides/using-guardrails/ai/install-mcp) to set up the Model Context Protocol (MCP) server.
 - Access to your Guardrails workspace URL (e.g., `https://your-workspace.cloud.turbot.com`).
+- Familiarity with the [Guardrails console](https://turbot.com/guardrails/docs/getting-started/).
 - A clear policy objective (for example, `Enforce EKS Public Endpoint Access`).
 - Resource IDs available for testing your policy pack.
 
@@ -47,14 +48,16 @@ Clearly state the policy objective. For example:
 
 ### Identify Policies
 
-List the Turbot policies to include:
+List the relevant Turbot policies to include in your policy pack. You can explore the [Guardrails Hub](https://hub.guardrails.turbot.com/) to find policies specific to your chosen cloud provider's mod.
+
+As an example, lets consider the below teo policies:
 
 - [AWS > EKS > Cluster > Endpoint Access](https://hub.guardrails.turbot.com/mods/aws/policies/aws-eks/clusterEndpointAccess)
 - [AWS > EKS > Cluster > Endpoint Access > CIDR Ranges](https://hub.guardrails.turbot.com/mods/aws/policies/aws-eks/clusterEndpointAccessCidrRanges)
 
-## Step 4: Prepare LLM Prompt
+## Step 3: Prepare LLM Prompt
 
-Use the following template to instruct the LLM while in the new branch within the Cursor AI IDE
+Use the template below to guide the LLM when working in your new branch within the Cursor AI IDE or any AI-assisted development environment.
 
 ```
 Goal:
@@ -103,9 +106,10 @@ Workflow:
 2. Prompt user to validate in the Guardrails console.
 3. After confirmation, remove the attachment for production readiness.
 ```
-## Step 5:  Interact and Refine
 
-When working with an AI assistant to develop policy packs, you'll need to provide clear inputs and context based on self validation
+<!-- ## Step 5:  Interact and Refine
+
+Collaborate with the AI assistant to review and improve your policy pack. Provide clear feedback and context to ensure the generated files meet your requirements.
 
 - Review the generated files:
    - README.md
@@ -115,38 +119,125 @@ When working with an AI assistant to develop policy packs, you'll need to provid
    - variables.tf
 - Ensure policy settings match your requirements.
 - Request adjustments as needed. You may prompt e.g.
+
    ```
    Please adjust the following:
    - Add more detail to README usage section
    - Update CIDR ranges in variables.tf
    - Add tags to policy pack in main.tf
-   ```
+   ``` -->
 
-## Step 6. Apply and Validate
+## Step 4: Optimize the Feedback Loop
 
-- Apply the policy pack using Terraform, attaching it to the test resource.
-- Confirm policies are visible in the Guardrails Console under the policy pack.
-- Check for compliant or alarm states.
+Work collaboratively with the AI assistant to review, validate, and improve your policy pack. Use an iterative approach: check the generated files, provide clear feedback, and request specific changes until the policy pack meets your requirements and best practices.
 
-Request specific test scenarios prompt as example:
+### Review the generated files
 
-   ```
-   Please help me:
-   - Initialize the Terraform configuration
-   - Apply the policy pack to resource 355421285155896
-   - Check compliance status
-   ```
-<!-- ## Outcome
+- `README.md`
+- `main.tf`
+- `policies.tf`
+- `providers.tf`
+- `variables.tf`
 
-You will have a production-ready policy pack, following Turbot best practices, with all policies visible in the Guardrails UI. The pack will be ready for manual attachment to resources in production environments. -->
+### Checklist
 
-## Step 7: Cleanup
+- Do the policy settings match your objectives?
+- Are all required files present and following the recommended structure?
+- Is the documentation clear and complete?
+- Are there any errors or missing configurations?
+
+### How to provide feedback
+
+You can use prompts like:
+
+```
+Please update the following:
+- Add more detail to the usage section in README.md
+- Change the approved CIDR ranges in variables.tf to ["198.51.100.0/24"]
+- Add tags to the policy pack in main.tf
+- Ensure all policies are visible in the Guardrails UI
+- Fix the resource reference in policies.tf to use the correct variable
+```
+### Iterate as needed
+Repeat the review and feedback process until you are satisfied with the results. Don't hesitate to ask the AI assistant for clarifications, best practice checks, or additional examples.
+
+## Step 5: Actionable Execution
+
+Take your validated policy pack and apply it in a test environment to ensure everything works as expected.
+
+### Apply the Policy Pack
+
+1. **Plan the Deployment:**
+
+   Lets initialize and run terraform plan.
+
+   - Example prompt:
+     ```
+     - Initialize the Terraform configuration
+     - Run terraform plan and wait for me to confirm terraform apply
+     ```
+
+2. **Apply to a Test Resource:**
+   - Run `terraform apply` to deploy the policy pack, attaching it to your test resource (e.g., `355421285155896`).
+   - Example prompt:
+     ```
+     - Apply the policy pack to resource 355421285155896
+     ```
+#### Example Prompts
+
+In case any error or further validation use below
+
+```
+- Help me troubleshoot a Terraform apply error
+- Confirm that the policy pack is visible in the Guardrails UI
+- Check if the resource is compliant after applying the policy pack
+```
+
+### Review
+
+- Log in to the Guardrails Console.
+- Navigate to the test resource and confirm:
+  - The policy pack and its policies are visible.
+  - The resource is in a compliant or expected state (no alarms unless intended).
+
+Manually review to make sure execution is successful
+
+- [ ] Terraform apply completed without errors.
+- [ ] Policy pack and all policies are visible in the Guardrails UI.
+- [ ] Resource compliance status is as expected.
+- [ ] No unexpected alarms or errors.
+
+
+
+<!-- ## Step 6: Cleanup
 
 After testing is completed, instruct the LLM to remove the attachment.
 
-   ```
+**Example Prompt**
 
-   - Remove the test attachment for the generated policy pack.
-   - Update documentation for production use
-   - Verify final structure matches existing policy pack structure `<provide relative path of existing policy pack>`
    ```
+   - Remove the test attachment for the generated policy pack.
+   - Verify final structure matches existing policy pack structure `<provide relative path of existing policy pack>`
+   ``` -->
+
+## Step 6: Finalize for Production
+
+After you have successfully tested your policy pack and validated the results, it's important to prepare your configuration for release by removing any test-specific resources or attachments.
+
+### Remove Test Attachments
+
+- Instruct the AI assistant (or manually update your Terraform files) to remove the `turbot_policy_pack_attachment` resource used for testing.
+- Ensure your policy pack is now ready for release, where customers will attach it to their own resources via the Guardrails Console.
+
+#### Example Prompts
+
+```
+- Remove the test attachment for the generated policy pack.
+- Update documentation for production use.
+- Verify final structure matches existing policy pack structure <provide relative path of existing policy pack>
+```
+### Review
+
+- [ ] All test attachments have been removed from your Terraform configuration.
+- [ ] The policy pack structure matches the recommended format and best practices.
+- [ ] Documentation is updated for release.
