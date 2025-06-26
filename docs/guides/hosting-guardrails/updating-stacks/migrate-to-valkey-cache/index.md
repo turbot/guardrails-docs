@@ -1,21 +1,25 @@
 ---
+title: Migrating to Valkey Cache
+sidebar_label: Migrating to Valkey Cache
+---
 
-title: Upgrade to Valkey Cache
-sidebar_label: Upgrade to Valkey Cache
---------------------------------------
+# Migrating to Valkey Cache
 
-# Upgrade to Valkey Cache
+<!-- # Migrating ElastiCache for Valkey - Refer https://aws.amazon.com/elasticache/what-is-valkey/-->
 
 In this guide, you will:
 
 - Use the Turbot Enterprise Database provisioned product in service catalog to migrate from Redis to Valkey.
 - Monitor and troubleshoot the [Valkey](https://aws.amazon.com/elasticache/what-is-valkey/) upgrade process.
 
+
 [Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) is an AWS Service Catalog product that automates the provisioning and management of the underlying database and caching infrastructure required for enterprise deployments of Turbot Guardrails.
 
-As part of its infrastructure, TED versions prior to 1.50 use Redis as the caching engine. This guide shows how to update a TED deployment using Redis to one using Valkey.
+As part of its infrastructure, TED versions prior to v1.50 use Redis as the caching engine. This guide shows how to update a TED deployment using Redis to one using Valkey.
 
 The migration process described here will seamlessly provision new Valkey cache clusters and decommission the existing Redis instances, ensuring minimal disruption to your Guardrails environment.
+
+Know more about the difference between [Valkey and Redis OSS](https://aws.amazon.com/elasticache/what-is-valkey/).
 
 ## Prerequisites
 
