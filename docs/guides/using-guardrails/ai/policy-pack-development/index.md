@@ -50,7 +50,7 @@ Clearly state the policy objective. For example:
 
 List the relevant Turbot policies to include in your policy pack. You can explore the [Guardrails Hub](https://hub.guardrails.turbot.com/) to find policies specific to your chosen cloud provider's mod.
 
-As an example, lets consider the below teo policies:
+As an example, lets consider the below policies:
 
 - [AWS > EKS > Cluster > Endpoint Access](https://hub.guardrails.turbot.com/mods/aws/policies/aws-eks/clusterEndpointAccess)
 - [AWS > EKS > Cluster > Endpoint Access > CIDR Ranges](https://hub.guardrails.turbot.com/mods/aws/policies/aws-eks/clusterEndpointAccessCidrRanges)
@@ -106,26 +106,6 @@ Workflow:
 2. Prompt user to validate in the Guardrails console.
 3. After confirmation, remove the attachment for production readiness.
 ```
-
-<!-- ## Step 5:  Interact and Refine
-
-Collaborate with the AI assistant to review and improve your policy pack. Provide clear feedback and context to ensure the generated files meet your requirements.
-
-- Review the generated files:
-   - README.md
-   - main.tf
-   - policies.tf
-   - providers.tf
-   - variables.tf
-- Ensure policy settings match your requirements.
-- Request adjustments as needed. You may prompt e.g.
-
-   ```
-   Please adjust the following:
-   - Add more detail to README usage section
-   - Update CIDR ranges in variables.tf
-   - Add tags to policy pack in main.tf
-   ``` -->
 
 ## Step 4: Optimize the Feedback Loop
 
