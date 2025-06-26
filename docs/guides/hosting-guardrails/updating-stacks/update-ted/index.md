@@ -88,7 +88,9 @@ The values of the parameters will initially be set to match previous run of the 
 > Upgrading to a major version can introduce significant changes and potential risks. You should not upgrade to a new major version without first consulting with Turbot Support.
 > To ensure cost-efficiency, review and update instance types and ElastiCache Versions at least annually to align with the latest supported options.
 
-TED now supports Valkey as the default caching engine — a Redis-compatible, open-source solution focused on long-term governance and sustainability.
+### Upgrade to Valkey cache
+
+As part of the TED infrastructure, Redis has previously been the default caching engine. We now recommend moving to[Valkey](https://valkey.io/), a community-driven alternative to Redis.
 
 For customers currently using Redis, [here is how to update to Valkey](/docs/guides/hosting-guardrails/updating-stacks/valkey-migration).
 

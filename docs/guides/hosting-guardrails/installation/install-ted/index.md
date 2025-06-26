@@ -123,7 +123,10 @@ Choose to **Use Elasticache** and select the desired values for **ElastiCache Ve
 
 ![Cache](/images/docs/guardrails/guides/hosting-guardrails/installation/install-ted/service-catalog-ted-parameter-cache.png)
 
-TED now supports Valkey as the default caching engine — a Redis-compatible, open-source solution focused on long-term governance and sustainability.
+### Upgrade to Valkey cache
+
+As part of the TED infrastructure, Redis has previously been the default caching engine. We now recommend moving to[Valkey](https://valkey.io/), a community-driven alternative to Redis.
+
 For customers currently using Redis, [here is how to update to Valkey](/docs/guides/hosting-guardrails/updating-stacks/valkey-migration).
 
 ## Step 16: Configure Advanced - Foundation Parameters and Overrides
