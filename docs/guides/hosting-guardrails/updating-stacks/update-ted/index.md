@@ -90,7 +90,7 @@ The values of the parameters will initially be set to match previous run of the 
 
 ### Upgrade to Valkey cache
 
-As part of the TED infrastructure, Redis has previously been the default caching engine. We now recommend moving to[Valkey](https://valkey.io/), a community-driven alternative to Redis.
+As part of the TED infrastructure, Redis has previously been the default caching engine. We now recommend moving to [Valkey](https://aws.amazon.com/elasticache/what-is-valkey/), a community-driven alternative to Redis.
 
 For customers currently using Redis, [here is how to update to Valkey](/docs/guides/hosting-guardrails/updating-stacks/valkey-migration).
 

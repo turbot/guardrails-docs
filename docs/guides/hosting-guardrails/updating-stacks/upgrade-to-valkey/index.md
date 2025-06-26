@@ -21,7 +21,7 @@ The migration process described here will seamlessly provision new Valkey cache 
 
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
 - Familiarity with AWS Console, Service Catalog and CloudFormation services.
-- TED version 1.50.x or higher is required.
+- TED version 1.50.x or higher.
 
 ### Pause Events
 
@@ -30,33 +30,16 @@ The migration process described here will seamlessly provision new Valkey cache 
 >[!CAUTION]
 > AWS doesn't offer a direct path for migrating from Valkey back to Redis within ElastiCache. The supported migration path is from Redis to Valkey.
 
-## Step 1: Access AWS Service Catalog
+To begin the upgrade process, you will first need to locate and access the TED provisioned product in AWS Service Catalog and initiate an update.
 
-Open the AWS Console and navigate to the **Service Catalog** service in the region where TED is deployed.
+Follow the same initial steps outlined in the [Updating TED](/guardrails/docs/runbooks/enterprise-install/update-ted) guide to:
+- Access AWS Service Catalog
+- Select the TED provisioned product
+- Initiate the update action
 
-![AWS Console Home Page](./aws-service-catalog-console.png)
+Once you’ve reached the version selection step in Service Catalog, return here to continue with the Valkey upgrade process.
 
-## Step 2: Select TED Provisioned Product
-
-In the **Service Catalog**, choose **Provisioned Products** from the left navigation.
-
-![Provisioned Products](./service-catalog-provisioned-products.png)
-
-Change the **Access Filter** from **User** to **Account** to view all TED provisioned products across the account.
-
-![Access Filter](./service-catalog-select-access-filter.png)
-
-## Step 3: Find and Update the TED Product
-
-Locate the TED provisioned product, which is identifiable by a postfix matching the database Hive name.
-
-![Find TED](./service-catalog-find-provisioned-product-ted.png)
-
-From the **Actions** menu, select **Update**.
-
-![Select Update](./service-catalog-actions-update.png)
-
-## Step 4: Select TED Version
+## Step 1: Select TED Version
 
 Select the desired TED version under **Product Versions**.
 
@@ -65,23 +48,23 @@ Select the desired TED version under **Product Versions**.
 
 ![Select TED Version](./service-catalog-select-ted-version.png)
 
-## Step 5: Update Parameters
+## Step 2: Update Parameters
 
 Under **cache**, choose `Valkey` as the ElastiCache Engine. Then select the desired version from the `Valkey Cache Version` dropdown.
 
 ![Valkey Parameters Update](./service-catalog-ted-update-parameters.png)
 
-## Step 6: Update TED
+## Step 3: Update TED
 
 After verifying all parameters, scroll down and select **Update**. This initiates an update of several nested CloudFormation stacks.
 
 ![Select Update](./service-catalog-ted-update-action.png)
 
-## Step 7: Monitor the Update
+## Step 4: Monitor the Update
 
 Monitor the stack update in progress from the CloudFormation console.
 
-## Step 8: Verify Valkey Cache Deployment
+## Step 5: Verify Valkey Cache Deployment
 
 * [ ] The newly created Valkey caches can be found under `Valkey caches` in the AWS ElastiCache dashboard.
 
