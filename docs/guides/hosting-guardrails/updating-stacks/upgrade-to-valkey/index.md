@@ -1,15 +1,15 @@
 ---
 
-title: Migrate to Valkey Cache
-sidebar_label: Migrate to Valkey Cache
+title: Upgrade to Valkey Cache
+sidebar_label: Upgrade to Valkey Cache
 --------------------------------------
 
-# Migrate to Valkey Cache
+# Upgrade to Valkey Cache
 
 In this guide, you will:
 
-* Use AWS Service Catalog to migrate from Redis to Valkey cache.
-* Monitor and troubleshoot the Valkey migration process.
+* Use AWS Service Catalog to Upgrade from Redis to Valkey cache.
+* Monitor and troubleshoot the Valkey upgrade process.
 
 [Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) is an AWS Service Catalog product that automates the provisioning and management of the underlying database and caching infrastructure required for enterprise deployments of Turbot Guardrails.
 
@@ -33,27 +33,27 @@ The migration process described here will seamlessly provision new Valkey cache 
 
 Open the AWS Console and navigate to the **Service Catalog** service in the region where TED is deployed.
 
-![AWS Console Home Page](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/aws-service-catalog-console.png)
+![AWS Console Home Page](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey/aws-service-catalog-console.png)
 
 ## Step 2: Select TED Provisioned Product
 
 In the **Service Catalog**, choose **Provisioned Products** from the left navigation.
 
-![Provisioned Products](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/service-catalog-provisioned-products.png)
+![Provisioned Products](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey/service-catalog-provisioned-products.png)
 
 Change the **Access Filter** from **User** to **Account** to view all TED provisioned products across the account.
 
-![Access Filter](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/service-catalog-select-access-filter.png)
+![Access Filter](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey/service-catalog-select-access-filter.png)
 
 ## Step 3: Find and Update the TED Product
 
 Locate the TED provisioned product, which is identifiable by a postfix matching the database Hive name.
 
-![Find TED](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/service-catalog-find-provisioned-product-ted.png)
+![Find TED](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey/service-catalog-find-provisioned-product-ted.png)
 
 From the **Actions** menu, select **Update**.
 
-![Select Update](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/service-catalog-actions-update.png)
+![Select Update](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey/service-catalog-actions-update.png)
 
 ## Step 4: Select TED Version
 
@@ -62,19 +62,19 @@ Select the desired TED version under **Product Versions**.
 > [!NOTE]
 > Valkey is only available in TED version 1.50.x or higher.
 
-![Select TED Version](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/service-catalog-select-ted-version.png)
+![Select TED Version](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey/service-catalog-select-ted-version.png)
 
 ## Step 5: Update Parameters
 
 Under **cache**, choose `Valkey` as the ElastiCache Engine. Then select the desired version from the `Valkey Cache Version` dropdown.
 
-![Valkey Parameters Update](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/service-catalog-ted-update-parameters.png)
+![Valkey Parameters Update](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey/service-catalog-ted-update-parameters.png)
 
 ## Step 6: Update TED
 
 After verifying all parameters, scroll down and select **Update**. This initiates an update of several nested CloudFormation stacks.
 
-![Select Update](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/service-catalog-ted-update-action.png)
+![Select Update](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey/service-catalog-ted-update-action.png)
 
 ## Step 7: Monitor the Update
 
@@ -84,7 +84,7 @@ Monitor the stack update in progress from the CloudFormation console.
 
 * [ ] The newly created Valkey caches can be found under `Valkey caches` in the AWS ElastiCache dashboard.
 
-![Verify Status](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/valkey-migration/aws-valkey-cache-complete.png)
+![Verify Status](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey/aws-valkey-cache-complete.png)
 
 ## Next Steps
 
