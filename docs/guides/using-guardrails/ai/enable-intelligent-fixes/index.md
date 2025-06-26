@@ -1,9 +1,9 @@
 ---
-title: Intelligent Fixes
-sidebar_label: Intelligent Fixes
+title: Enable Intelligent Fixes
+sidebar_label: Enable Intelligent Fixes
 ---
 
-# Intelligent Fixes
+# Enabling Intelligent Fixes
 
 In this guide, you will learn how to:
 
@@ -55,8 +55,8 @@ The AI will analyze the non-compliant resource and generate remediation steps in
 
 To explore more Guardrails features:
 
-- [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/ai/intelligent-assessment)
-- [Learn about Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/policy-pack-summary)
+- [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-assessment)
+- [Learn about Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/enable-policy-pack-summary)
 - [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
 
 ## Troubleshooting

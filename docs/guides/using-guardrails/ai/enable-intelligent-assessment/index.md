@@ -1,16 +1,16 @@
 ---
-title: Intelligent Assessment
-sidebar_label: Intelligent Assessment
+title: Enable Intelligent Assessment Control
+sidebar_label: Enable Intelligent Assessment Control
 ---
 
-# Intelligent Assessment
+# Enabling Intelligent Assessment Control
 
 In this guide, you will learn how to:
 
 - Set up custom user prompts and context for resource evaluation
 - Implement intelligent assessment for S3 bucket controls as an example
 
-With the new Intelligent Assessment guardrail [control](/guardrails/docs/reference/glossary#control), Turbot Guardrails now provides an AI-powered approach to defining guardrails using natural language prompts. This allows you to define governance policies by simply describing what you want to check, opening up new possibilities for governance scenarios that benefit from freeform, custom logic.
+With the new [Intelligent Assessment](/guardrails/docs/concepts/guardrails/intelligent-assessment) guardrail [control](/guardrails/docs/reference/glossary#control), Turbot Guardrails now provides an AI-powered approach to defining guardrails using natural language prompts. This allows you to define governance policies by simply describing what you want to check, opening up new possibilities for governance scenarios that benefit from freeform, custom logic.
 
 ## Prerequisites
 
@@ -33,33 +33,46 @@ For this guide, the `Turbot > AI > Control > Intelligent Assessment > Enabled` p
 ![Enable Intelligent Assessment Control](./turbot-ai-intelligent-assessment-enabled.png)
 
 
-## Step 2: Add a User Prompt
+## Step 2: Add User Prompt
 
-Set your custom prompt under **AWS > S3 > Bucket > Intelligent Assessment > User Prompt**. This defines the prompt that will be sent to the AI provider for assessing the S3 bucket. The prompt should clearly outline what the AI should evaluate.
+First, locate the policy in the policy tree by navigating to **Policies** tab, search `AWS > S3 > Bucket > Intelligent Assessment > User Prompt` policy and select **New Policy Setting**.
 
-![Set the User Prompt for S3 Bucket Assessment](./aws-s3-bucket-intelligent-assessment-user-prompt.png)
+![Locate User Prompt Policy](./locate-user-prompt-policy.png)
+
+Here you can define the prompt that will be sent to the AI provider for assessing the required cloud provider resources. The prompt should clearly outline what the AI should evaluate.
+
+![Set the User Prompt for Assessment](./set-user-prompt-value.png)
+
+> [!NOTE]
+> You can set this policy at the resource, account, or folder level.
+> For more information, see [Guardrails Policy Hierarchy](/guardrails/docs/concepts/policies/hierarchy).
 
 **Example Prompt:**
-
-- `Confirm that logging is enabled and logs are sent to a secure location.`
-- `Check if versioning is enabled and multi-factor delete is configured when the bucket has a tag "Environment":"Non-Compliant Tag". If it doesn't have the tag, only check if versioning is enabled.`
+```
+- Confirm that logging is enabled and logs are sent to a secure location.
+- Check if versioning is enabled and multi-factor delete is configured when the bucket has a tag "Environment":"Non-Compliant Tag". If it doesn't have the tag, only check if versioning is enabled.
+```
 
 ## Step 3: Set Primary Policy to Check Mode
 
-Navigate to the AWS S3 Intelligent Assessment control in your Guardrails workspace. This control allows you to configure AI-powered assessment for S3 buckets.
+As the user prompt is set now, lets try to setup one S3 bucket policy to use the user prompt.
 
 To access the control:
 
 1. Navigate to `AWS > S3 > Bucket > Intelligent Assessment` from **Controls** tab
 2. Select any bucket you would like to evaluate
 
+In the **Policies** tab, if not set earlier, you may find `Intelligent Assessment` is set to `Skip`
+
+![Create Settings](./aws-s3-bucket-create-setting.png)
+
+Select **CREATE SETTING** and choose `Check: User prompt`. This policy activates intelligent assessments for the S3 bucket based on your user prompt and context.
+
 > [!NOTE]
-> This example is demonstrated for a single S3 bucket. The policy can be set in higher level such as account or respective folders levels. Refer [Policy Hierarchy](/guardrails/docs/concepts/policies/hierarchy#policy-hierarchy).
+> You can set this policy at the resource, account, or folder level.
+> For more information, see [Guardrails Policy Hierarchy](/guardrails/docs/concepts/policies/hierarchy).
 
-
-In the **Policies** tab, select `Check: User prompt`. This policy activates intelligent assessments for the S3 bucket based on your user prompt and context.
-
-![Set the Intelligent Assessment Policy for S3 Bucket](./aws-s3-intelligent-assessment-check.png)
+![Set the Intelligent Assessment Policy for S3 Bucket](./aws-s3-intelligent-assessment-check-mode.png)
 
 ## Step 4: Check Control Status
 
@@ -75,8 +88,8 @@ The control will assess the S3 bucket using configured user prompt and evaluate 
 
 To explore more Guardrails features:
 
-- [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/intelligent-fixes) - Learn how to get AI-assisted remediation recommendations
-- [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/policy-pack-summary) - Explore AI-generated summaries of policy packs
+- [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes) - Learn how to get AI-assisted remediation recommendations
+- [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/enable-policy-pack-summary) - Explore AI-generated summaries of policy packs
 - [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
 
 ## Troubleshooting
