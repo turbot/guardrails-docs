@@ -41,7 +41,7 @@ For this guide, the `Turbot > AI > Control > Intelligent Fixes > Enabled` policy
 
 Navigate to any control in `ALARM` state and select **Generate**.
 
-As an example, lets consider `AWS > S3 > Bucket > Tags`
+As an example, let's consider `AWS > S3 > Bucket > Tags`
 
 ![Generate Intelligent Fixes](./aws-s3-bucket-tags-remediation-steps-tf.png)
 

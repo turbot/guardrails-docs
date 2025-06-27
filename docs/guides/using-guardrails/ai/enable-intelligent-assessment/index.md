@@ -37,7 +37,7 @@ For this guide, the `Turbot > AI > Control > Intelligent Assessment > Enabled` p
 Navigate to **Resources** tab and search for the S3 bucket you want to assess. You can filter by:
 
 - Resource type: `AWS > S3 > Bucket`
-- Bucket name in serach bar
+- Bucket name in search bar
 
 ![Find S3 Bucket](./locate-aws-s3-bucket.png)
 

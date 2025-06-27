@@ -43,7 +43,7 @@ For this guide, the `Turbot > AI > Policy Pack > Summary > Enabled` policy is se
 
 ## Step 2: Check Policy Pack Summary
 
-To check the policy pack summary, navigate to **Policy Packs** section of **Policies** tab. Select any Policy Pack to vew the summary.
+To check the policy pack summary, navigate to **Policy Packs** section of **Policies** tab. Select any Policy Pack to view the summary.
 
 ![Policy Pack Summary](./turbot-ai-policy-pack-summary-response.png)
 

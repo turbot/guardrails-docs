@@ -95,7 +95,7 @@ The default value is set to `0.2`. You may choose to update it based on your nee
 
 ## Step 7: Enable Configuration
 
-**Turbot > AI > Configuration > Enabled [Default]** under `Turbot > AI > Configuration`  policy plays important role, if you wish to apply configurations to all the features under `Turbot > AI`. You may choose to continue with default value `Disabled` and enable it in respective features separatly.
+**Turbot > AI > Configuration > Enabled [Default]** under `Turbot > AI > Configuration`  policy plays important role, if you wish to apply configurations to all the features under `Turbot > AI`. You may choose to continue with default value `Disabled` and enable it in respective features separately.
 
 To enable it, select **New Policy Settings**, select **Resource** as `Turbot` and choose `Enabled`
 
