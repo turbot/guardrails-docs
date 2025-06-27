@@ -55,7 +55,7 @@ Here you can define the prompt that will be sent to the AI provider for assessin
 
 ## Step 3: Set Primary Policy to Check Mode
 
-As the user prompt is set now, lets try to setup one S3 bucket policy to use the user prompt.
+As the user prompt is set now, let's try to set up one S3 bucket policy to use the user prompt.
 
 To access the control:
 

@@ -50,7 +50,7 @@ Clearly state the policy objective. For example:
 
 List the relevant Turbot policies to include in your policy pack. You can explore the [Guardrails Hub](https://hub.guardrails.turbot.com/) to find policies specific to your chosen cloud provider's mod.
 
-As an example, lets consider the below policies:
+As an example, let's consider the following policies:
 
 - [AWS > EKS > Cluster > Endpoint Access](https://hub.guardrails.turbot.com/mods/aws/policies/aws-eks/clusterEndpointAccess)
 - [AWS > EKS > Cluster > Endpoint Access > CIDR Ranges](https://hub.guardrails.turbot.com/mods/aws/policies/aws-eks/clusterEndpointAccessCidrRanges)

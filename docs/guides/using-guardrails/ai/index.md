@@ -13,5 +13,5 @@ This section covers the various AI-powered features available in Guardrails.
 | [Policy Pack Development](/guardrails/docs/guides/using-guardrails/ai/policy-pack-development) | Learn how to use AI to develop and validate policy packs.
 | [AI Configurations](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) | How to configure AI settings and preferences within Guardrails.
 | [Enable Intelligent Assessment](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-assessment) | Learn about AI-powered controls using natural language prompts to evaluate cloud resource compliances.
-| [Enable Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes) | Learn abour AI-assisted remediation recommendations.
+| [Enable Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes) | Learn about AI-assisted remediation recommendations.
 | [Enable Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/enable-policy-pack-summary) | Learn about AI-generated summaries of policy packs.

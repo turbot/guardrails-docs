@@ -24,7 +24,7 @@ Log in to the Guardrails console using your local credentials or via a SAML-base
 
 This section provides AI-related policies that allow Guardrails to govern the use of AI for various configurations and settings. Select **Configurations**.
 
-![Tuebot > AI > Configurations](./turbot-ai-configuration.png)
+![Turbot > AI > Configurations](./turbot-ai-configuration.png)
 
 ## Step 2: Configure AI Provider
 
@@ -32,15 +32,15 @@ Select **Turbot > AI > Configuration > Provider [Default]** to configure the AI 
 
 Here as an example `anthropic` is selected.
 
-![Tuebot > AI > Provider](./turbot-ai-provider.png)
+![Turbot > AI > Provider](./turbot-ai-provider.png)
 
 ## Step 3: Configure API Key
 
 Select **Turbot > AI > Configuration > API Key [Default]** policy under `Turbot > AI > Configuration` main policy.
 
-Enter the API key based on choosen provider in Step 3, that Guardrails will use to authenticate with your AI service provider.
+Enter the API key based on chosen provider in Step 3, that Guardrails will use to authenticate with your AI service provider.
 
-![Turobt > AI > Configuration > API Key Policy Setting](./turbot-ai-api-key.png)
+![Turbot > AI > Configuration > API Key Policy Setting](./turbot-ai-api-key.png)
 
 > [!IMPORTANT]
 > - The API key is a sensitive credential used for authentication with your chosen AI service provider. Ensure it is stored and handled securely.
@@ -110,7 +110,7 @@ To enable it, select **New Policy Settings**, select **Resource** as `Turbot` an
 
 ## Next Steps
 
-After completing this configuration, continue with follwoing guides to leverage AI features in Guardrails:
+After completing this configuration, continue with following guides to leverage AI features in Guardrails:
 
 - [Intelligent Assessment](/guardrails/docs/guides/using-guardrails/ai/intelligent-assessment)
 - [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/intelligent-fixes/)
