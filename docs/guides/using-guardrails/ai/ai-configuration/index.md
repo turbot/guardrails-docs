@@ -61,18 +61,17 @@ Choose which model to use with the selected AI provider for processing requests.
 
 ![Choose the AI Model](./turbot-ai-model.png)
 
-// MAKE CHANGES BELOW
-
 > [!NOTE]
 > Supported and tested models include:
 > - [OpenAI models](https://platform.openai.com/docs/pricing#latest-models): `gpt-4.1`, `gpt-4.1-mini`, `gpt-4o`
-> - [Anthropic models](https://docs.anthropic.com/en/docs/about-claude/models/overview#model-names): `claude-3-sonnet-20240229`, `claude-3-haiku-20240307`, `claude-3-opus-20240229`
+> - [Anthropic models](https://docs.anthropic.com/en/docs/about-claude/models/overview#model-names): `claude-sonnet-4-20250514`, `claude-3-7-sonnet-20250219`, `claude-3-5-haiku-20241022`, `claude-3-5-sonnet-20241022`
 >
 > For optimal results:
-> - Use the latest model versions when possible
-> - Higher-tier models (like GPT-4 series and Claude-3 series) provide more accurate and detailed assessments
-> - Lower-tier models may produce less consistent or detailed results
-> - Model availability may vary based on your AI provider subscription
+> - Use the latest model versions when possible.
+> - Higher-tier models (like GPT-4 series and Claude Sonnet/Haiku series) provide more accurate and detailed assessments.
+> - Lower-tier models may produce different or less consistent results.
+> - Model availability may vary based on your AI provider subscription.
+> - For more information about the models, see the documentation for [OpenAI](https://platform.openai.com/docs/models) and [Anthropic](https://docs.anthropic.com/en/docs/models-overview).
 
 ## Step 5: Configure Max Tokens
 
@@ -112,9 +111,9 @@ To enable it, select **New Policy Settings**, select **Resource** as `Turbot` an
 
 After completing this configuration, continue with following guides to leverage AI features in Guardrails:
 
-- [Intelligent Assessment](/guardrails/docs/guides/using-guardrails/ai/intelligent-assessment)
-- [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/intelligent-fixes/)
-- [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/policy-pack-summary/)
+- [Enable Intelligent Assessment](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-assessment)
+- [Enable Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes/)
+- [Enable Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/enable-policy-pack-summary/)
 
 ## Troubleshooting
 
