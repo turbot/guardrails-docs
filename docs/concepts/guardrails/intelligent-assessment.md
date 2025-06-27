@@ -41,11 +41,12 @@ The `Context` sub-policy includes the resource metadata by default but can be up
 The `User Prompt` sub-policy is where you would define a prompt to assess the resource.
 
 As part of the evaluation, the AI provider will respond with `State` and `Reason`.
-The `State` attribute is either
 
-- `OK`: Evaluation matches the given user prompt
-- `Alarm`: Evaluation does not match the given user prompt
-- `Error`: User prompt is empty or AI cannot determine the outcome based on the user prompt and context
+The `State` attribute is either:
+
+- `OK` - Evaluation matches the given user prompt
+- `Alarm` - Evaluation does not match the given user prompt
+- `Error` - User prompt is empty or AI cannot determine the outcome based on the user prompt and context
 
 ### Example Guardrail: AWS > S3 > Bucket > Intelligent Assessment
 
@@ -73,6 +74,6 @@ Versioning:
 
 To check if the bucket has the correct `Environment` tag value and has versioning enabled:
 
-- Set `AWS > S3 > Bucket > Intelligent Assessment > User Prompt` policy to: `The bucket must have an Environment tag value of staging and versioning must be enabled`
+- Set `AWS > S3 > Bucket > Intelligent Assessment > User Prompt`: `The bucket must have an Environment tag value of staging and versioning must be enabled`
 
 The control will then evaluate the result using AI, and go to alarm with the response `The current tag Environment has a value of Non-Compliant Tag which is incorrect. Versioning is not enabled and set to Suspended`.
