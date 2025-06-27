@@ -8,10 +8,13 @@ sidebar_label: Intelligent Assessment
 ## Overview
 
 **Intelligent Assessment** introduces an AI-powered way to define and evaluate governance policies in Turbot Guardrails.  
+
 Instead of crafting complex calculated policies, you can describe the check you want — in plain natural language — and let Guardrails interpret and check it.  
+
 This unlocks flexible, free-form compliance use cases that would otherwise require significant coding or multiple traditional guardrails.
 
 Intelligent Assessment is complementary to existing controls (e.g., **Approved** and **Active**).  
+
 Where those controls rely on structured sub-policies, Intelligent Assessment excels when you need bespoke logic, conditional checks, or multi-step reasoning.
 
 The primary Intelligent Assessment policy has a consistent form:
