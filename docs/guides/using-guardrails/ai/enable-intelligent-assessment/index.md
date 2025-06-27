@@ -1,22 +1,22 @@
 ---
-title: Enable Intelligent Assessment Control
-sidebar_label: Enable Intelligent Assessment Control
+title: Enable Intelligent Assessment
+sidebar_label: Enable Intelligent Assessment
 ---
 
-# Enabling Intelligent Assessment Control
+# Enable Intelligent Assessment
 
 In this guide, you will learn how to:
 
-- Set up custom user prompts and context for resource evaluation
-- Implement intelligent assessment for S3 bucket controls as an example
+- Set up custom user prompts and context for resource evaluation.
+- Implement Intelligent Assessment for a specific S3 bucket as an example.
 
-With the new [Intelligent Assessment](/guardrails/docs/concepts/guardrails/intelligent-assessment) guardrail [control](/guardrails/docs/reference/glossary#control), Turbot Guardrails now provides an AI-powered approach to defining guardrails using natural language prompts. This allows you to define governance policies by simply describing what you want to check, opening up new possibilities for governance scenarios that benefit from freeform, custom logic.
+With the [Intelligent Assessment](/guardrails/docs/concepts/guardrails/intelligent-assessment) [control](/guardrails/docs/reference/glossary#control), it introduces an AI-powered way to define and evaluate governance policies in Turbot Guardrails. Instead of crafting complex calculated policies, you can describe the check you want — in plain natural language — and let Guardrails interpret and check it.
 
 ## Prerequisites
 
 - *Turbot/Admin* permissions at the Turbot resource level.
 - Familiarity with the [Guardrails console](https://turbot.com/guardrails/docs/getting-started/).
-- Ensure the [Turbot > AI > Configuration](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) is established.
+- Ensure that [Turbot > AI > Configuration](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) is set up.
 
 ## Step 1: Enable Intelligent Assessment Control
 
@@ -32,16 +32,32 @@ For this guide, the `Turbot > AI > Control > Intelligent Assessment > Enabled` p
 
 ![Enable Intelligent Assessment Control](./turbot-ai-intelligent-assessment-enabled.png)
 
+## Step 2: Find Targeted S3 Bucket
 
-## Step 2: Add User Prompt
+Navigate to **Resources** tab and search for the S3 bucket you want to assess. You can filter by:
 
-First, locate the policy in the policy tree by navigating to **Policies** tab, search `AWS > S3 > Bucket > Intelligent Assessment > User Prompt` policy and select **New Policy Setting**.
+- Resource type: `AWS > S3 > Bucket`
+- Bucket name in serach bar
+
+![Find S3 Bucket](./locate-aws-s3-bucket.png)
+
+Select the bucket to view its details and controls. This will be the target resource for setting up `Intelligent Assessment`.
+
+> [!TIP]
+> You can also find the required bucket using **Reports** > **AWS S3 Buckets**
+
+## Step 3: Add User Prompt
+
+While in` AWS > S3 > Bucket`, select **Policies** tab and choose `AWS > S3 > Bucket > Intelligent Assessment > User Prompt` policy.
+
+Select **New Policy Setting** to add
 
 ![Locate User Prompt Policy](./locate-user-prompt-policy.png)
 
-Here you can define the prompt that will be sent to the AI provider for assessing the required cloud provider resources. The prompt should clearly outline what the AI should evaluate.
+Here you can define the prompt that will be sent to the AI provider for resource assessment. Ensure your instructions are clear and specific.
 
-![Set the User Prompt for Assessment](./set-user-prompt-value.png)
+
+![Set the User Prompt Value for Assessment](./set-user-prompt-value.png)
 
 > [!NOTE]
 > You can set this policy at the resource, account, or folder level.
@@ -52,21 +68,26 @@ Here you can define the prompt that will be sent to the AI provider for assessin
 - Confirm that logging is enabled and logs are sent to a secure location.
 - Check if versioning is enabled and multi-factor delete is configured when the bucket has a tag "Environment":"Non-Compliant Tag". If it doesn't have the tag, only check if versioning is enabled.
 ```
+## Step 4: Set up Context
 
-## Step 3: Set Primary Policy to Check Mode
+The sub-policy `AWS > S3 > Bucket > Intelligent Assessment > Context` defines the context information in JSON format that will be provided to the configured AI provider for the intelligent assessment of the S3 bucket.
 
-As the user prompt is set now, let's try to set up one S3 bucket policy to use the user prompt.
+By default, the context includes the resource's attributes and metadata required for accurate evaluation. We will use the *default context* in this example.
 
-To access the control:
+![Intelligent Assessment Context](./aws-s3-bucket-ia-context.png)
 
-1. Navigate to `AWS > S3 > Bucket > Intelligent Assessment` from **Controls** tab
-2. Select any bucket you would like to evaluate
+> [!NOTE]
+> You may customize this context to include additional information relevant to your assessment needs.
 
-In the **Policies** tab, if not set earlier, you may find `Intelligent Assessment` is set to `Skip`
+## Step 5: Set Primary Policy to Check Mode
+
+Now that the user prompt is set with the default context, let's set up the primary policy `AWS > S3 > Bucket > Intelligent Assessment` for this S3 bucket.
+
+To access the main policy, while in the `AWS > S3 > Bucket > Intelligent Assessment` **Controls** , selet the **Policies** tab, if not set earlier, you may find `Intelligent Assessment` is set to `Skip`
 
 ![Create Settings](./aws-s3-bucket-create-setting.png)
 
-Select **CREATE SETTING** and choose `Check: User prompt`. This policy activates intelligent assessments for the S3 bucket based on your user prompt and context.
+Select **CREATE SETTING** and set the option to `Check: User prompt`. This policy activates intelligent assessments for the S3 bucket based on your user prompt and context.
 
 > [!NOTE]
 > You can set this policy at the resource, account, or folder level.
@@ -74,7 +95,7 @@ Select **CREATE SETTING** and choose `Check: User prompt`. This policy activates
 
 ![Set the Intelligent Assessment Policy for S3 Bucket](./aws-s3-intelligent-assessment-check-mode.png)
 
-## Step 4: Check Control Status
+## Step 6: Check Control Status
 
 The control will assess the S3 bucket using configured user prompt and evaluate the control.
 

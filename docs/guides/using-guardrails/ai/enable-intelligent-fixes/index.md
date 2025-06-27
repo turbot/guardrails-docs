@@ -3,7 +3,7 @@ title: Enable Intelligent Fixes
 sidebar_label: Enable Intelligent Fixes
 ---
 
-# Enabling Intelligent Fixes
+# Enable Intelligent Fixes
 
 In this guide, you will learn how to:
 
@@ -23,8 +23,7 @@ When a resource is found to be non-compliant, Intelligent Fixes analyzes:
 
 - *Turbot/Admin* permissions at the Turbot resource level.
 - Familiarity with the [Guardrails console](https://turbot.com/guardrails/docs/getting-started/).
-- Ensure the [Turbot > AI > Configuration](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) is established.
-
+- Ensure that [Turbot > AI > Configuration](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) is set up.
 
 ## Step 1: Enable Intelligent Fixes
 

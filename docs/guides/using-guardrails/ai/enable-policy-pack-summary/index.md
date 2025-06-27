@@ -1,6 +1,6 @@
 ---
-title: Policy Pack Summary
-sidebar_label: Policy Pack Summary
+title: Enable Policy Pack Summary
+sidebar_label: Enable Policy Pack Summary
 ---
 
 # Policy Pack Summary
@@ -23,7 +23,7 @@ AI-Powered `Policy Pack Summary` helps in providing contextual insights by analy
 
 - *Turbot/Admin* permissions at the Turbot resource level.
 - Familiarity with the [Guardrails console](https://turbot.com/guardrails/docs/getting-started/).
-- Ensure the [Turbot > AI > Configuration](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) is established.
+- Ensure that [Turbot > AI > Configuration](/guardrails/docs/guides/using-guardrails/ai/ai-configuration) is set up.
 
 ## Step 1: Enable Policy Pack Summary
 
