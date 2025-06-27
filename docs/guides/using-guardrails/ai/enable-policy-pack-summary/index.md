@@ -3,7 +3,7 @@ title: Enable Policy Pack Summary
 sidebar_label: Enable Policy Pack Summary
 ---
 
-# Policy Pack Summary
+# Enable Policy Pack Summary
 
 In this guide, you will learn how to:
 
