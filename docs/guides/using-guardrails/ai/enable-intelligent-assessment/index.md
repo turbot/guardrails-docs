@@ -8,7 +8,7 @@ sidebar_label: Enable Intelligent Assessment
 In this guide, you will learn how to:
 
 - Set up custom user prompts and context for resource evaluation.
-- Implement Intelligent Assessment for a specific S3 bucket as an example.
+- Enable Intelligent Assessment for a specific S3 bucket control as an example.
 
 With the [Intelligent Assessment](/guardrails/docs/concepts/guardrails/intelligent-assessment) [control](/guardrails/docs/reference/glossary#control), it introduces an AI-powered way to define and evaluate governance policies in Turbot Guardrails. Instead of crafting complex calculated policies, you can describe the check you want — in plain natural language — and let Guardrails interpret and check it.
 
