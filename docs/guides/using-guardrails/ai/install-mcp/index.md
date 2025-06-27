@@ -1,9 +1,9 @@
 ---
-title: AI Tools (MCP)
-sidebar_label: AI Tools (MCP)
+title: Install Guardrails MCP
+sidebar_label: Install Guardrails MCP
 ---
 
-# Configure Guardrails MCP Server
+# Install Guardrails MCP
 
 In this guide, you will:
 
