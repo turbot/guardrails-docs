@@ -1,9 +1,9 @@
 ---
-title: Disconnect Account from Guardrails Workspace
-sidebar_label: Disconnect Account from Guardrails Workspace
+title: Decommission Account from Guardrails Workspace Using UI
+sidebar_label: Decommission Account from Guardrails Workspace Using UI
 ---
 
-# Disconnect an AWS account from a Guardrails workspace
+# Decommission an AWS account from a Guardrails workspace Using UI
 
 In this guide, you will:
 - Decommission Guardrails-managed resources in an AWS account.
@@ -76,71 +76,27 @@ Set the `AWS > Turbot > Event Poller` policy to `Disabled`.
 
 Once the controls associated with the above policies have completed, the AWS account can be disconnected from the Guardrails workspace.
 
-## Disconnect AWS Account from Guardrails
+## Reduce Resource Count
 
-When a user with sufficient permissions attempts to disconnect an AWS account, Guardrails will try to remove the
-account, all child resources, controls, policy settings in a single SQL transactions. This is done for safety. Should
-the transaction fail, it's trivial for the database to roll back to a known good state. The effect of this rollback is
-that the account remains visible in Guardrails. AWS accounts with larger numbers of resources, the time required to
-complete the transaction may exceed the statement timeout limit. 
-
-## Step 1: Delete Turbot IAM Role Policies
-
-Before disconnecting the account, delete the policies listed below from the target account. Once removed, you can proceed to delete the account from Guardrails.
-
-`AWS > Account > Turbot IAM Role > External ID`
-
-![External ID](/images/docs/guardrails/guides/aws/decommission/guardrails-turbot-external-id.png)
-
-`AWS > Account > Turbot IAM Role`
-
-![Turbot IAM Role](/images/docs/guardrails/guides/aws/decommission/guardrails-turbot-iam-role.png)
-
-## Step 2: Navigate to Account
-
-In the Guardrails console, navigate to the account that needs to be removed.
-
-![Select Account](/images/docs/guardrails/guides/aws/decommission/guardrails-select-account.png)
-
-## Step 3: Delete Account
-
-Select **Remove from Turbot** from the **Action** drop down in the top right. If you do not see it, reach out to your Guardrails workspace administrator for proper access.
-
-![Remove from Turbot](/images/docs/guardrails/guides/aws/decommission/guardrails-delete-account.png)
-
-Copy the account ID and paste in the text box and select **Delete**.
-
-![Confirm Delete](/images/docs/guardrails/guides/aws/decommission/guardrails-confirm-delete.png)
-
-> [!WARNING] While this is not irreversible (simply reimport the account), it can be time and resource consuming. Be sure to double and triple check!
-
-Guardrails will begin the delete process. The time to complete the deletion will depend on the number of resources and policies that will be removed. The more resources that are being deleted, the longer the process will take.
-
-> [!IMPORTANT]The disconnection step may time out due to a number of factors including but not limited to overall system load, and the number of resources in the account. The general aim is to reduce the number of resources in the account.
-
-## Resource Count Reduction
-
-### Manual
-
-## Step 1: Navigate to Account
+## Step 9: Navigate to Account
 
 Navigate to the AWS Account to be disconnected and select the **Metrics** tab.
 
 ![Navigate to Account](/images/docs/guardrails/guides/aws/decommission/guardrails-locate-account.png)
 
-## Step 2: Locate Top Resource Types
+## Step 10: Locate Top Resource Types
 
 Look at the `Top Resource Types` on the left side. These are the resources to target first.
 
 ![Top Resource Types](/images/docs/guardrails/guides/aws/decommission/guardrails-top-resource-types.png)
 
-## Step 3: Locate Policies
+## Step 11: Locate Policies
 
 Switch to the **Policies** tab. Click the **New Policy Setting** button.
 
 ![Select policies](/images/docs/guardrails/guides/aws/decommission/guardrails-select-policies.png)
 
-## Step 4: Create Resource CMDB Policy
+## Step 12: Create Resource CMDB Policy
 
 Find the CMDB policy in the format `AWS > {Service} > {Resource Type} > CMDB`, set it to **Enforce: Disabled**, and choose **Create**. This instructs Guardrails to purge all resource records for this resource type.
 
@@ -150,24 +106,6 @@ Over the next few minutes Guardrails will purge those resource CMDB entries and 
 
 > [!Note] If this Attempt to disconnect the account times out, continue steps 3 through 8 until the account is successfully
    disconnected.
-
-### Automated
-
-## Step 1: Clone Guardrails Samples Github Repo
-
-Go to [guardrails-samples](https://github.com/turbot/guardrails-samples/tree/main/guardrails_utilities/python_utils/remove_aws_account) and clone the repository.
-
-![Clone Repository](/images/docs/guardrails/guides/aws/decommission/github-guardrails-samples-repo.png)
-
-## Step 2: Navigate to Remove AWS Account Directory
-
-In the cloned repository, navigate to the following folder:
-
-`guardrails_utilities/python_utils/remove_aws_account`
-
-## Step 3: Run AWS Remove Account Script
-
-Refer to the [README](https://github.com/turbot/guardrails-samples/blob/main/guardrails_utilities/python_utils/remove_aws_account/README.md) for further instructions on how to set up and run the `remove_aws_account` script.
 
 ## Troubleshooting
 
