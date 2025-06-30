@@ -16,3 +16,6 @@ Turbot Guardrails is a full-stack governance platform that automates discovery a
 | [Reference](/guardrails/docs/reference/) | Reference documentation for the API, CLI, Terraform provider, and more.
 | [Guides](/guardrails/docs/guides/) | Step-by-step guides for using, configuring, and hosting Guardrails.
 | [Frequently Asked Questions](/guardrails/docs/faq/) | Answers to our most common questions.
+| [Developer Guide](/guardrails/docs/guides/developers/) | Learn how to develop guardrails for Guardrails.
+
+
