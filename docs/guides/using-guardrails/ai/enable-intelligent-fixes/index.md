@@ -11,13 +11,12 @@ In this guide, you will learn how to:
 - Review and implement recommended fixes for security and compliance issues.
 - Understand the context and impact of suggested remediation actions.
 
-When a resource is found to be non-compliant, Intelligent Fixes analyzes:
+When a resource is found to be non-compliant i.e. enters an alarm state, Intelligent Fixes analyzes:
 
-- The current resource configuration.
-- The AI then generates detailed, contextual remediation steps that:
-  - Explain what needs to be changed.
-  - Provide specific commands or actions to implement the fix in the form of scripts for remediation in CLI or Terraform.
-  - Highlight potential risks or considerations.
+- **Alert Summary:** Clear explanation of why the control is in alarm and what needs to be addressed.
+- **Guardrails Actions:** Available `Quick Actions` and policy changes within the platform.
+- **Cloud Provider CLI:** Direct commands for AWS, Azure, gcloud, kubectl, and gh CLIs to fix the misconfiguration.
+- **Infrastructure-as-Code:** Terraform plans to remediate the issue via code.
 
 ## Prerequisites
 
