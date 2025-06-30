@@ -1,0 +1,12 @@
+{
+  "type": "category",
+  "id": "developers",
+  "link": "developers",
+  "items": [
+    "developers/install-mcp",
+    "developers/policy-pack-development",
+    "developers/graphql",
+    "developers/nunjucks",
+    "developers/fix-calc-policy-evaluation-errors"
+  ]
+}
