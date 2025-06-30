@@ -296,7 +296,10 @@
         "id": "using-guardrails",
         "link": "guides/using-guardrails",
         "items": [
-          "guides/using-guardrails/ai-tools",
+          {
+            "type": "placeholder",
+            "file": "guides/using-guardrails/ai/ai-sidebar.json"
+          },
           {
             "type": "category",
             "id": "console",
@@ -314,7 +317,6 @@
               "guides/using-guardrails/console/detail-pages"
             ]
           },
-          "guides/using-guardrails/graphql",
           {
             "type": "category",
             "id": "iam",
@@ -348,7 +350,6 @@
               "guides/using-guardrails/scheduling/db-scheduling-using-custom-tag"
             ]
           },
-          "guides/using-guardrails/nunjucks",
           "guides/using-guardrails/quick-actions",
           "guides/using-guardrails/searching-filtering",
           {
@@ -358,7 +359,6 @@
             "items": [
               "guides/using-guardrails/troubleshooting/fix-invalid-controls",
               "guides/using-guardrails/troubleshooting/access-control-logs",
-              "guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors",
               "guides/using-guardrails/troubleshooting/run-controls-using-scripts"
             ]
           }
@@ -428,6 +428,7 @@
             ]
           },
           "guides/hosting-guardrails/FAQ",
+
           {
             "type": "category",
             "id": "troubleshooting",
@@ -491,6 +492,10 @@
       },
       "faq/guardrails-and-aws-scps"
     ]
+  },
+  {
+    "type": "placeholder",
+    "file": "developers/developers-sidebar.json"
   },
   {
     "type": "category",
