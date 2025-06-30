@@ -3,8 +3,6 @@
   "id": "ai",
   "link": "guides/using-guardrails/ai",
   "items": [
-    "guides/using-guardrails/ai/install-mcp",
-    "guides/using-guardrails/ai/policy-pack-development",
     "guides/using-guardrails/ai/ai-configuration",
     "guides/using-guardrails/ai/enable-intelligent-assessment",
     "guides/using-guardrails/ai/enable-intelligent-fixes",

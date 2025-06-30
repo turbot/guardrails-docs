@@ -292,6 +292,10 @@
         ]
       },
       {
+        "type": "placeholder",
+        "file": "guides/developers/developers-sidebar.json"
+      },
+      {
         "type": "category",
         "id": "using-guardrails",
         "link": "guides/using-guardrails",
@@ -317,7 +321,6 @@
               "guides/using-guardrails/console/detail-pages"
             ]
           },
-          "guides/using-guardrails/graphql",
           {
             "type": "category",
             "id": "iam",
@@ -351,7 +354,6 @@
               "guides/using-guardrails/scheduling/db-scheduling-using-custom-tag"
             ]
           },
-          "guides/using-guardrails/nunjucks",
           "guides/using-guardrails/quick-actions",
           "guides/using-guardrails/searching-filtering",
           {
@@ -361,7 +363,6 @@
             "items": [
               "guides/using-guardrails/troubleshooting/fix-invalid-controls",
               "guides/using-guardrails/troubleshooting/access-control-logs",
-              "guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors",
               "guides/using-guardrails/troubleshooting/run-controls-using-scripts"
             ]
           }
