@@ -7,17 +7,16 @@ sidebar_label: Enable Policy Pack Summary
 
 In this guide, you will learn how to:
 
-- Enable and configure Policy Pack summary feature
-- View AI-generated summaries of policy pack configurations and purposes
+- Enable and configure the Policy Pack Summary feature.
+- View AI-generated summaries of policy pack configurations and purposes.
 
-
-AI-Powered `Policy Pack Summary` helps in providing contextual insights by analyzing policy pack configurations to provide meaningful summaries that help teams understand the intent and impact of policies. This includes highlighting key policy settings, dependencies, and their business context.
+The AI-powered `Policy Pack Summary` feature provides contextual insights by analyzing policy pack configurations to generate meaningful summaries. These summaries help teams understand the intent and impact of policies, including key policy settings, dependencies, and their business context.
 
 > [!TIP]
 > Use the policy pack summary to:
-> - Validate policy pack configurations
-> - Document your governance approach
-> - Understand how to use these summaries for better policy management and team collaboration
+> - Validate policy pack configurations.
+> - Document your governance approach.
+> - Understand how to use these summaries for better policy management and team collaboration.
 
 ## Prerequisites
 
@@ -27,23 +26,23 @@ AI-Powered `Policy Pack Summary` helps in providing contextual insights by analy
 
 ## Step 1: Enable Policy Pack Summary
 
-In **Policies** tab, navigate to `Turbot > AI > Policy Pack` and select **Summary**.
+In the **Policies** tab, navigate to `Turbot > AI > Policy Pack` and select **Summary**.
 
 ![Navigate to Policy Pack Summary](./turbot-ai-policy-pack-summary.png)
 
-Select **Enabled**  and create new setting by selecting **New Policy Setting**
+Select **Enabled** and create a new setting by selecting **New Policy Setting**.
 
 ![Policy Pack Summary Enabled](./turbot-ai-policy-pack-summary-enabled.png)
 
 > [!NOTE]
 > - The default value is `Disabled`. You can enable it based on your requirements.
-> - In case enabled at the Turbot level in [Turbot AI Configuration > Step 7](/guardrails/docs/guides/using-guardrails/ai/ai-configuration#step-7-enable-configuration), Intelligent Assessment control becomes available for use.
+> - If enabled at the Turbot level in [Turbot AI Configuration > Step 7](/guardrails/docs/guides/using-guardrails/ai/ai-configuration#step-7-enable-configuration), the Intelligent Assessment control becomes available for use.
 
 For this guide, the `Turbot > AI > Policy Pack > Summary > Enabled` policy is set to `Enabled`.
 
 ## Step 2: Check Policy Pack Summary
 
-To check the policy pack summary, navigate to **Policy Packs** section of **Policies** tab. Select any Policy Pack to view the summary.
+To check the policy pack summary, navigate to the **Policy Packs** section of the **Policies** tab. Select any policy pack to view its summary.
 
 ![Policy Pack Summary](./turbot-ai-policy-pack-summary-response.png)
 
@@ -54,10 +53,9 @@ To check the policy pack summary, navigate to **Policy Packs** section of **Poli
 
 To explore more Guardrails features:
 
-- [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-assessment)
-- [Learn about Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes)
-- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
-
+- [Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-assessment)
+- [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes)
+- [Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
 
 ## Troubleshooting
 
