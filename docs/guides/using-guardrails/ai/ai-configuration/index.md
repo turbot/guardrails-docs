@@ -9,7 +9,7 @@ In this guide, you will learn how to:
 
 - Configure various parameters in `Turbot > AI > Configuration` policy
 
-This guide is the starting point for all AI-powered features, including `Intelligent Assessment Control`, `Intelligent Fixes` and `Policy Pack Summary`. Before using any AI capabilities in Guardrails, ensure you have completed the steps in this guide.
+This guide is the starting point for all AI-powered features, including `Intelligent Assessment Control`, `Intelligent Fixes`, and `Policy Pack Summary`. Before using any AI capabilities in Guardrails, ensure you have completed the steps outlined in this guide.
 
 ## Prerequisites
 
@@ -28,17 +28,17 @@ This section provides AI-related policies that allow Guardrails to govern the us
 
 ## Step 2: Configure AI Provider
 
-Select **Turbot > AI > Configuration > Provider [Default]** to configure the AI service provider.The default value is set to `openai`.
+Select **Turbot > AI > Configuration > Provider [Default]** to configure the AI service provider. The default value is set to `openai`.
 
-Here as an example `anthropic` is selected.
+In this example, `anthropic` is selected.
 
 ![Turbot > AI > Provider](./turbot-ai-provider.png)
 
 ## Step 3: Configure API Key
 
-Select **Turbot > AI > Configuration > API Key [Default]** policy under `Turbot > AI > Configuration` main policy.
+Select **Turbot > AI > Configuration > API Key [Default]** policy under the `Turbot > AI > Configuration` main policy.
 
-Enter the API key based on chosen provider in Step 3, that Guardrails will use to authenticate with your AI service provider.
+Enter the API key for the provider chosen in Step 2. Guardrails will use this key to authenticate with your AI service provider.
 
 ![Turbot > AI > Configuration > API Key Policy Setting](./turbot-ai-api-key.png)
 
@@ -50,14 +50,14 @@ Enter the API key based on chosen provider in Step 3, that Guardrails will use t
 > - For Anthropic:
 >   - Get the API key from the [Anthropic console](https://console.anthropic.com/settings/keys)
 >   - The key should start with "sk-ant-"
-> - Store the API key securely and rotate it periodically according to your organization's security policies
-> - Never share or expose the API key in logs, code repositories, or public forums
+> - Store the API key securely and rotate it periodically according to your organization's security policies.
+> - Never share or expose the API key in logs, code repositories, or public forums.
 
 ## Step 4: Configure AI Model
 
-Select **Turbot > AI > Configuration > Model [Default]** policy under `Turbot > AI > Configuration` main policy.
+Select **Turbot > AI > Configuration > Model [Default]** policy under the `Turbot > AI > Configuration` main policy.
 
-Choose which model to use with the selected AI provider for processing requests.
+Choose the model to use with the selected AI provider for processing requests.
 
 ![Choose the AI Model](./turbot-ai-model.png)
 
@@ -75,7 +75,7 @@ Choose which model to use with the selected AI provider for processing requests.
 
 ## Step 5: Configure Max Tokens
 
-Select **Turbot > AI > Configuration > Max Tokens [Default]** under `Turbot > AI > Configuration` main policy. The default value is set at `1000` as per best practice.
+Select **Turbot > AI > Configuration > Max Tokens [Default]** under the `Turbot > AI > Configuration` main policy. The default value is set to `1000` as a best practice.
 
 > [!TIP]
 > - Configure the maximum number of tokens to use for the AI API calls. This setting controls the length of the AI's response by limiting the number of tokens (words, subwords, or characters) that can be generated.
@@ -91,13 +91,13 @@ The policy **Turbot > AI > Configuration > Temperature [Default]** allows you to
 
 A lower value (closer to 0) makes responses more focused, deterministic, and consistent, while a higher value (closer to 1) makes responses more diverse and creative. The default value of 0.2 provides a good balance between consistency and creativity, suitable for most business and technical use cases.
 
-The default value is set to `0.2`. You may choose to update it based on your need.
+The default value is set to `0.2`. You may choose to update it based on your needs.
 
 ## Step 7: Enable Configuration
 
-**Turbot > AI > Configuration > Enabled [Default]** under `Turbot > AI > Configuration`  policy plays important role, if you wish to apply configurations to all the features under `Turbot > AI`. You may choose to continue with default value `Disabled` and enable it in respective features separately.
+The **Turbot > AI > Configuration > Enabled [Default]** policy under `Turbot > AI > Configuration` plays an important role if you wish to apply configurations to all features under `Turbot > AI`. You may choose to continue with the default value `Disabled` and enable it in respective features separately.
 
-To enable it, select **New Policy Settings**, select **Resource** as `Turbot` and choose `Enabled`
+To enable it, select **New Policy Settings**, set **Resource** to `Turbot`, and choose `Enabled`.
 
 ![Enable AI Configuration](./turbot-ai-configuration-enabled.png)
 
@@ -109,7 +109,7 @@ To enable it, select **New Policy Settings**, select **Resource** as `Turbot` an
 
 ## Next Steps
 
-After completing this configuration, continue with following guides to leverage AI features in Guardrails:
+After completing this configuration, continue with the following guides to leverage AI features in Guardrails:
 
 - [Enable Intelligent Assessment](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-assessment)
 - [Enable Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes/)
