@@ -50,7 +50,7 @@ Clearly state the policy objective. For example:
 
 List the relevant Turbot policies to include in your policy pack. You can explore the [Guardrails Hub](https://hub.guardrails.turbot.com/) to find policies specific to your chosen cloud provider's mod.
 
-As an example, let's consider the following policies:
+For example, consider the following policies:
 
 - [AWS > EKS > Cluster > Endpoint Access](https://hub.guardrails.turbot.com/mods/aws/policies/aws-eks/clusterEndpointAccess)
 - [AWS > EKS > Cluster > Endpoint Access > CIDR Ranges](https://hub.guardrails.turbot.com/mods/aws/policies/aws-eks/clusterEndpointAccessCidrRanges)
@@ -149,7 +149,7 @@ Take your validated policy pack and apply it in a test environment to ensure eve
 
 1. **Plan the Deployment:**
 
-   Lets initialize and run terraform plan.
+   Let's initialize and run terraform plan.
 
    - Example prompt:
      ```
@@ -175,30 +175,12 @@ In case any error or further validation use below
 
 ### Review
 
-- Log in to the Guardrails Console.
-- Navigate to the test resource and confirm:
-  - The policy pack and its policies are visible.
-  - The resource is in a compliant or expected state (no alarms unless intended).
-
 Manually review to make sure execution is successful
 
 - [ ] Terraform apply completed without errors.
-- [ ] Policy pack and all policies are visible in the Guardrails UI.
+- [ ] The policy pack and its policies are visible in the Guardrails Console.
 - [ ] Resource compliance status is as expected.
 - [ ] No unexpected alarms or errors.
-
-
-
-<!-- ## Step 6: Cleanup
-
-After testing is completed, instruct the LLM to remove the attachment.
-
-**Example Prompt**
-
-   ```
-   - Remove the test attachment for the generated policy pack.
-   - Verify final structure matches existing policy pack structure `<provide relative path of existing policy pack>`
-   ``` -->
 
 ## Step 6: Finalize for Production
 
