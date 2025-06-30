@@ -41,7 +41,7 @@ Navigate to the **Resources** tab and search for the S3 bucket you want to asses
 
 ![Find S3 Bucket](./locate-aws-s3-bucket.png)
 
-Select the bucket to view its details and controls. This will be the target resource for setting up Intelligent Assessment.
+Select the bucket to view its details and controls. This will be the target resource for setting up `Intelligent Assessment`.
 
 > [!TIP]
 > You can also find the required bucket using **Reports** > **AWS S3 Buckets**.
@@ -66,6 +66,16 @@ Here you can define the prompt that will be sent to the AI provider for resource
 ```
 - Confirm that logging is enabled and logs are sent to a secure location.
 - Check if versioning is enabled and multi-factor delete is configured when the bucket has a tag "Environment":"Non-Compliant Tag". If it doesn't have the tag, only check if versioning is enabled.
+- Ensure that the S3 bucket is not publicly accessible and all access is restricted to specific IAM roles or users.
+- Verify that server-side encryption is enabled using AWS KMS for all objects in the bucket.
+- Check if the bucket policy denies unencrypted uploads and enforces HTTPS-only access.
+- Confirm that lifecycle rules are configured to transition objects to Glacier storage after 30 days and delete them after 365 days.
+- Ensure that the bucket has a policy to block all public ACLs and public bucket policies.
+- Validate that only specific IP address ranges (e.g., 10.0.0.0/8) are allowed to access the bucket.
+- Check if object lock is enabled for regulatory compliance and retention.
+- Confirm that the bucket has a tag \"Owner\" with a valid email address.
+- Ensure that cross-region replication is enabled to a backup bucket in another AWS region.
+- Verify that access logging is enabled and logs are sent to a dedicated logging bucket with restricted access.
 ```
 ## Step 4: Set up Context
 

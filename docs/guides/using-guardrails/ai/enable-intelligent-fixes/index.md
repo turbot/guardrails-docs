@@ -7,17 +7,17 @@ sidebar_label: Enable Intelligent Fixes
 
 In this guide, you will learn how to:
 
-- Get AI-generated remediation steps for non-compliant resources
-- Review and implement recommended fixes for security and compliance issues
-- Understand the context and impact of suggested remediation actions
+- Get AI-generated remediation steps for non-compliant resources.
+- Review and implement recommended fixes for security and compliance issues.
+- Understand the context and impact of suggested remediation actions.
 
 When a resource is found to be non-compliant, Intelligent Fixes analyzes:
 
-- The current resource configuration
+- The current resource configuration.
 - The AI then generates detailed, contextual remediation steps that:
-  - Explain what needs to be changed
-  - Provide specific commands or actions to implement the fix in form of scripts for remediation in CLI, Terraform
-  - Highlight potential risks or considerations
+  - Explain what needs to be changed.
+  - Provide specific commands or actions to implement the fix in the form of scripts for remediation in CLI or Terraform.
+  - Highlight potential risks or considerations.
 
 ## Prerequisites
 
@@ -27,25 +27,25 @@ When a resource is found to be non-compliant, Intelligent Fixes analyzes:
 
 ## Step 1: Enable Intelligent Fixes
 
-In **Policies** tab, navigate to `Turbot > AI > Control > Intelligent Fixes` and select **Enabled** option. Create new setting by selecting **New Policy Setting**
+In the **Policies** tab, navigate to `Turbot > AI > Control > Intelligent Fixes` and select the **Enabled** option. Create a new setting by selecting **New Policy Setting**.
 
 ![Enable Intelligent Fixes Control](./turbot-ai-intelligent-fixes-enabled.png)
 
 > [!NOTE]
 > - The default value is `Disabled`. You can enable it based on your requirements.
-> - In case enabled at the Turbot level in [Turbot AI Configuration > Step 7](/guardrails/docs/guides/using-guardrails/ai/ai-configuration#step-7-enable-configuration), Intelligent Assessment control becomes available for use.
+> - If enabled at the Turbot level in [Turbot AI Configuration > Step 7](/guardrails/docs/guides/using-guardrails/ai/ai-configuration#step-7-enable-configuration), the Intelligent Assessment control becomes available for use.
 
 For this guide, the `Turbot > AI > Control > Intelligent Fixes > Enabled` policy is set to `Enabled`.
 
 ## Step 2: Check Remediation
 
-Navigate to any control in `ALARM` state and select **Generate**.
+Navigate to any control in the `ALARM` state. The remediation steps will automatically begin to load, and you will see an initial message: "Generating remediation steps…".
 
-As an example, let's consider `AWS > S3 > Bucket > Tags`
+For example, let's consider `AWS > S3 > Bucket > Tags`.
 
 ![Generate Intelligent Fixes](./aws-s3-bucket-tags-remediation-steps-tf.png)
 
-The AI will analyze the non-compliant resource and generate remediation steps in multiple options such as CLI, Terraform and CloudFormation.
+The AI will analyze the non-compliant resource and generate remediation steps in multiple options such as CLI, Terraform, and CloudFormation.
 
 **Remediation in Terraform**
 
@@ -53,7 +53,7 @@ The AI will analyze the non-compliant resource and generate remediation steps in
 
 **Remediation in CLI**
 
-You can select *CLI* option from the **Remediation Steps** dropdown to view the required CLI commands.
+You can select the *CLI* option from the **Remediation Steps** dropdown to view the required CLI commands.
 
 ![AWS > S3 > Bucket > Tag > CLI Remediation](./aws-s3-bucket-tags-remediation-cli-outcome.png)
 
@@ -64,20 +64,20 @@ You can select *CLI* option from the **Remediation Steps** dropdown to view the 
 
 `Quick Actions` provide an option to perform one-time control enforcements directly within your cloud environment. When enabled for any control, these actions appear in the remediation panel alongside the detailed remediation steps.
 
-Check [Quick Actions](/guardrails/docs/guides/using-guardrails/quick-actions#enabling-quick-actions) for more details for enabling it.
+Check [Quick Actions](/guardrails/docs/guides/using-guardrails/quick-actions#enabling-quick-actions) for more details on enabling it.
 
 ![Quick Action for S3 Bucket Tags Remediation](./aws-s3-bucket-tags-remediation-quick-action.png)
 
 > [!NOTE]
-> Quick Actions are available for select controls and provide a fast, automated way to remediate common issues. Always review the action before applying it to ensure it aligns with your compliance requirements.
+> [Quick Actions](/guardrails/docs/guides/using-guardrails/quick-actions#enabling-quick-actions) are available for select controls and provide a fast, automated way to remediate common issues. Always review each action before applying it to ensure it aligns with your compliance requirements.
 
 ## Next Steps
 
 To explore more Guardrails features:
 
-- [Learn about Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-assessment)
-- [Learn about Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/enable-policy-pack-summary)
-- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
+- [Intelligent Assessment Control](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-assessment)
+- [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/enable-policy-pack-summary)
+- [Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
 
 ## Troubleshooting
 
