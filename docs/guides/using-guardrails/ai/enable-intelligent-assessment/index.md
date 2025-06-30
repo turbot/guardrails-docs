@@ -10,7 +10,7 @@ In this guide, you will learn how to:
 - Set up custom user prompts and context for resource evaluation.
 - Enable Intelligent Assessment for a specific S3 bucket control as an example.
 
-With the [Intelligent Assessment](/guardrails/docs/concepts/guardrails/intelligent-assessment) [control](/guardrails/docs/reference/glossary#control), it introduces an AI-powered way to define and evaluate governance policies in Turbot Guardrails. Instead of crafting complex calculated policies, you can describe the check you want — in plain natural language — and let Guardrails interpret and check it.
+The [Intelligent Assessment](/guardrails/docs/concepts/guardrails/intelligent-assessment) [control](/guardrails/docs/reference/glossary#control) introduces an AI-powered way to define and evaluate governance policies in Turbot Guardrails. Instead of crafting complex calculated policies, you can describe the check you want in plain natural language, and let Guardrails interpret and evaluate it.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Enable the following policy at the Turbot level: **Turbot > AI > Control > Intel
 
 > [!NOTE]
 > - The default value is `Disabled`. You can enable it based on your requirements.
-> - In case enabled at the Turbot level in [Turbot AI Configuration > Step 7](/guardrails/docs/guides/using-guardrails/ai/ai-configuration#step-7-enable-configuration), Intelligent Assessment control becomes available for use.
+> - If enabled at the Turbot level in [Turbot AI Configuration > Step 7](/guardrails/docs/guides/using-guardrails/ai/ai-configuration#step-7-enable-configuration), the Intelligent Assessment control becomes available for use.
 
 For this guide, the `Turbot > AI > Control > Intelligent Assessment > Enabled` policy is set to `Enabled`.
 
@@ -34,28 +34,27 @@ For this guide, the `Turbot > AI > Control > Intelligent Assessment > Enabled` p
 
 ## Step 2: Find Targeted S3 Bucket
 
-Navigate to **Resources** tab and search for the S3 bucket you want to assess. You can filter by:
+Navigate to the **Resources** tab and search for the S3 bucket you want to assess. You can filter by:
 
 - Resource type: `AWS > S3 > Bucket`
-- Bucket name in search bar
+- Bucket name in the search bar
 
 ![Find S3 Bucket](./locate-aws-s3-bucket.png)
 
-Select the bucket to view its details and controls. This will be the target resource for setting up `Intelligent Assessment`.
+Select the bucket to view its details and controls. This will be the target resource for setting up Intelligent Assessment.
 
 > [!TIP]
-> You can also find the required bucket using **Reports** > **AWS S3 Buckets**
+> You can also find the required bucket using **Reports** > **AWS S3 Buckets**.
 
 ## Step 3: Add User Prompt
 
-While in` AWS > S3 > Bucket`, select **Policies** tab and choose `AWS > S3 > Bucket > Intelligent Assessment > User Prompt` policy.
+While in `AWS > S3 > Bucket`, select the **Policies** tab and choose the `AWS > S3 > Bucket > Intelligent Assessment > User Prompt` policy.
 
-Select **New Policy Setting** to add
+Select **New Policy Setting** to add a new prompt.
 
 ![Locate User Prompt Policy](./locate-user-prompt-policy.png)
 
 Here you can define the prompt that will be sent to the AI provider for resource assessment. Ensure your instructions are clear and specific.
-
 
 ![Set the User Prompt Value for Assessment](./set-user-prompt-value.png)
 
@@ -72,7 +71,7 @@ Here you can define the prompt that will be sent to the AI provider for resource
 
 The sub-policy `AWS > S3 > Bucket > Intelligent Assessment > Context` defines the context information in JSON format that will be provided to the configured AI provider for the intelligent assessment of the S3 bucket.
 
-By default, the context includes the resource's attributes and metadata required for accurate evaluation. We will use the *default context* in this example.
+By default, the context includes the resource's attributes and metadata required for accurate evaluation. In this example, we will use the `default context`.
 
 ![Intelligent Assessment Context](./aws-s3-bucket-ia-context.png)
 
@@ -83,11 +82,11 @@ By default, the context includes the resource's attributes and metadata required
 
 Now that the user prompt is set with the default context, let's set up the primary policy `AWS > S3 > Bucket > Intelligent Assessment` for this S3 bucket.
 
-To access the main policy, while in the `AWS > S3 > Bucket > Intelligent Assessment` **Controls** , selet the **Policies** tab, if not set earlier, you may find `Intelligent Assessment` is set to `Skip`
+To access the main policy, while in the `AWS > S3 > Bucket > Intelligent Assessment` **Controls**, select the **Policies** tab. If not set earlier, you may find `Intelligent Assessment` is set to `Skip`.
 
 ![Create Settings](./aws-s3-bucket-create-setting.png)
 
-Select **CREATE SETTING** and set the option to `Check: User prompt`. This policy activates intelligent assessments for the S3 bucket based on your user prompt and context.
+Select **CREATE SETTING** and set the option to `Check: User prompt`. This policy activates Intelligent Assessment for the S3 bucket based on your user prompt and context.
 
 > [!NOTE]
 > You can set this policy at the resource, account, or folder level.
@@ -97,10 +96,9 @@ Select **CREATE SETTING** and set the option to `Check: User prompt`. This polic
 
 ## Step 6: Check Control Status
 
-The control will assess the S3 bucket using configured user prompt and evaluate the control.
+The control will assess the S3 bucket using the configured user prompt and evaluate the control.
 
 ![Example Output from S3 Bucket Intelligent Assessment](./aws-s3-bucket-intelligent-assessment-response.png)
-
 
 > [!NOTE]
 > The output is generated by the AI provider and may vary based on the model's capabilities and input details.
@@ -109,9 +107,9 @@ The control will assess the S3 bucket using configured user prompt and evaluate 
 
 To explore more Guardrails features:
 
-- [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes) - Learn how to get AI-assisted remediation recommendations
-- [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/enable-policy-pack-summary) - Explore AI-generated summaries of policy packs
-- [Learn How to Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
+- [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes)
+- [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/enable-policy-pack-summary)
+- [Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
 
 ## Troubleshooting
 
