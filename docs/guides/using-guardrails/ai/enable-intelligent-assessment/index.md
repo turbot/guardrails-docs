@@ -120,6 +120,7 @@ To explore more Guardrails features:
 - [Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes)
 - [Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/enable-policy-pack-summary)
 - [Configure Guardrails MCP Server](/guardrails/docs/guides/using-guardrails/ai/install-mcp)
+- [Developing guardrails for Guardrails](/guardrails/docs/guides/developers/)
 
 ## Troubleshooting
 

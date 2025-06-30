@@ -3,7 +3,7 @@ title: Developers
 sidebar_label: Developers
 ---
 
-# Developing Guardrails for Guardrails
+# Developing guardrails for Guardrails
 
 This section covers the various AI-powered features available in Guardrails.
 

@@ -114,6 +114,8 @@ After completing this configuration, continue with the following guides to lever
 - [Enable Intelligent Assessment](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-assessment)
 - [Enable Intelligent Fixes](/guardrails/docs/guides/using-guardrails/ai/enable-intelligent-fixes/)
 - [Enable Policy Pack Summary](/guardrails/docs/guides/using-guardrails/ai/enable-policy-pack-summary/)
+- [Developing guardrails for Guardrails](/guardrails/docs/guides/developers/)
+
 
 ## Troubleshooting
 

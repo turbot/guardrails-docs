@@ -292,10 +292,6 @@
         ]
       },
       {
-        "type": "placeholder",
-        "file": "guides/developers/developers-sidebar.json"
-      },
-      {
         "type": "category",
         "id": "using-guardrails",
         "link": "guides/using-guardrails",
@@ -431,6 +427,7 @@
             ]
           },
           "guides/hosting-guardrails/FAQ",
+
           {
             "type": "category",
             "id": "troubleshooting",
@@ -494,6 +491,10 @@
       },
       "faq/guardrails-and-aws-scps"
     ]
+  },
+  {
+    "type": "placeholder",
+    "file": "guides/developers/developers-sidebar.json"
   },
   {
     "type": "category",
