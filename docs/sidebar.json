@@ -494,7 +494,7 @@
   },
   {
     "type": "placeholder",
-    "file": "guides/developers/developers-sidebar.json"
+    "file": "developers/developers-sidebar.json"
   },
   {
     "type": "category",

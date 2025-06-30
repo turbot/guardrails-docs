@@ -22,7 +22,7 @@ However, calculated policies can sometimes encounter errors due to misconfigurat
 
 Log into the Guardrails console with provided local credentials or by using any SAML based login and Select **Policies** from the top navigation menu.
 
-![Navigate to Reports](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-select-policies.png)
+![Navigate to Reports](./guardrails-select-policies.png)
 
 ## Step 2: Select Policy Value
 
@@ -30,47 +30,47 @@ Select the calculated policy in an error state that needs to be resolved. This r
 
 Here, the error occurs due to `TypeError: Cannot read properties of undefined (reading 'toString')`, indicating that the referenced property is undefined and cannot be converted to a string.
 
-![Select Calculated Policy](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-select-calc-policy-in-error.png)
+![Select Calculated Policy](./guardrails-select-calc-policy-in-error.png)
 
 ## Step 3: Select Calculated Policy
 
 Select the **Calculated** policy, with an ✅ `EFFECTIVE SETTING`.
 
-![Effective Setting](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-select-effective-calc-policy.png)
+![Effective Setting](./guardrails-select-effective-calc-policy.png)
 
 ## Step 4: Edit Policy Setting
 
 Select **Edit** from the top right corner.
 
-![Select Edit](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-select-edit.png)
+![Select Edit](./guardrails-select-edit.png)
 
 Choose **Launch calculated policy builder**.
 
-![Launch Calculated Policy Builder](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-launch-policy-builder.png)
+![Launch Calculated Policy Builder](./guardrails-launch-policy-builder.png)
 
 This displays the `GraphQL` query and `Jinja2/Nunjucks` template used in the calculated policy, providing insight into how the policy value is generated.
 
-![Calculated Policy Builder Page](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/calc-policy-builder-page.png)
+![Calculated Policy Builder Page](./calc-policy-builder-page.png)
 
 ## Step 5: Resolve Calculated Policy
 
 Select the `Test Resource`, update the corrected Jinja2/Nunjucks template, and view the real-time output to verify if the fix is successful. Choose **Update**.
 
-![Resolve Error](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-resolve-cal-policy.png)
+![Resolve Error](./guardrails-resolve-cal-policy.png)
 
 Select **Update** from the Update Policy Setting page.
 
-![Select Update](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-update-policy.png)
+![Select Update](./guardrails-update-policy.png)
 
 ## Step 6: Review
 
 - [ ] Verify that the policy value transitions to an `OK` state, confirming the issue has been resolved successfully.
 
-![Policy Value State](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-policy-value-ok.png)
+![Policy Value State](./guardrails-policy-value-ok.png)
 
 - [ ] Verify that the affected control transitions to an `OK` state.
 
-![Control State](/images/docs/guardrails/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors/guardrails-control-ok-state.png)
+![Control State](./guardrails-control-ok-state.png)
 
 ## Troubleshooting
 
