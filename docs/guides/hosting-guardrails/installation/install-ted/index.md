@@ -127,7 +127,7 @@ Choose to **Use Elasticache** and select the desired values for **ElastiCache Ve
 
 As part of the TED infrastructure, Redis has previously been the default caching engine. We now recommend moving to [Valkey](https://aws.amazon.com/elasticache/what-is-valkey/), a community-driven alternative to Redis.
 
-For customers currently using Redis, [here is how to update to Valkey](/docs/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey).
+For customers currently using Redis OSS cache, [here is how to update to Valkey](/guardrails/docs/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey-cache).
 
 ## Step 16: Configure Advanced - Foundation Parameters and Overrides
 
