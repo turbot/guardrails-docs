@@ -1,10 +1,9 @@
 ---
-title: Ugrading Redis OSS to Valkey Cache
-sidebar_label: Ugrade Redis OSS to Valkey Cache
+title: Upgrading Redis OSS to Valkey Cache
+sidebar_label: Upgrade Redis OSS to Valkey
 ---
 
-<!-- # Migrating to Valkey Cache -->
-# Ugrading Redis OSS to Valkey Cache
+# Upgrading Redis OSS to Valkey Cache
 
 <!-- # Migrating ElastiCache for Valkey - Refer https://aws.amazon.com/elasticache/what-is-valkey/
 https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/VersionManagement.HowTo.html
@@ -12,9 +11,8 @@ https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/VersionManagement.HowTo.
 
 In this guide, you will:
 
-- Use the Turbot Enterprise Database provisioned product in service catalog to migrate from Redis to Valkey.
+- Use the Turbot Enterprise Database provisioned product in Service Catalog to migrate from Redis to Valkey.
 - Monitor and troubleshoot the [Valkey](https://aws.amazon.com/elasticache/what-is-valkey/) upgrade process.
-
 
 [Turbot Guardrails Enterprise Database (TED)](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) is an AWS Service Catalog product that automates the provisioning and management of the underlying database and caching infrastructure required for enterprise deployments of Turbot Guardrails.
 
@@ -22,12 +20,12 @@ As part of its infrastructure, TED versions prior to v1.50 use Redis as the cach
 
 The migration process described here will seamlessly provision new Valkey cache clusters and decommission the existing Redis instances, ensuring minimal disruption to your Guardrails environment.
 
-Know more about the difference between [Valkey and Redis OSS](https://aws.amazon.com/elasticache/what-is-valkey/).
+Learn more about the difference between [Valkey and Redis OSS](https://aws.amazon.com/elasticache/what-is-valkey/).
 
 ## Prerequisites
 
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
-- Familiarity with AWS Console, Service Catalog and CloudFormation services.
+- Familiarity with AWS Console, Service Catalog, and CloudFormation services.
 - TED version 1.50.x or higher.
 
 ### Pause Events
@@ -35,7 +33,9 @@ Know more about the difference between [Valkey and Redis OSS](https://aws.amazon
 [Pause the events](/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events#pause-event-processing) to avoid any lost events. During this time, the respective workspace will still be available in `readonly` mode.
 
 >[!CAUTION]
-> AWS doesn't offer a direct path for migrating from Valkey back to Redis within ElastiCache. The supported migration path is from Redis to Valkey.
+> AWS only supports migrating from Redis to Valkey within ElastiCache. There is no supported migration path from Valkey back to Redis.
+>
+> Additionally, AWS has announced that support for Redis in ElastiCache will be deprecated in the future. For more details, see the [official AWS announcement](https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-elasticache-valkey/).
 
 To begin the upgrade process, you will first need to locate and access the TED provisioned product in AWS Service Catalog and initiate an update.
 
@@ -44,7 +44,7 @@ Follow the same initial steps outlined in the [Updating TED](/guardrails/docs/ru
 - Select the TED provisioned product
 - Initiate the update action
 
-Once you’ve reached the version selection step in Service Catalog, return here to continue with the Valkey upgrade process.
+Once you've reached the version selection step in Service Catalog, return here to continue with the Valkey upgrade process.
 
 ## Step 1: Select TED Version
 
@@ -81,8 +81,8 @@ Monitor the stack update in progress from the CloudFormation console.
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-* Learn more about [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
-* Learn about [TED Installation](/guardrails/docs/enterprise/installation/ted-installation)
+* [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
+* [TED Installation](/guardrails/docs/enterprise/installation/ted-installation).
 
 ## Troubleshooting
 
