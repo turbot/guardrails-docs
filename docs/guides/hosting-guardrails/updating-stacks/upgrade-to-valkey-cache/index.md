@@ -69,7 +69,7 @@ After verifying all parameters, scroll down and select **Update**. This initiate
 
 ## Step 4: Monitor the Update
 
-Monitor the stack update in progress from the CloudFormation console.
+Monitor the stack update in progress from the CloudFormation console. Refer [Update TED > Step 12: Monitor Update](/guides/hosting-guardrails/updating-stacks/update-ted#step-12-monitor-update)
 
 ## Step 5: Verify Valkey Cache Deployment
 
