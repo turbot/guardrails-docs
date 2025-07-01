@@ -22,8 +22,6 @@ stack will be updated in tandem with the TE stack and is never deleted.
 
 - [Update Guardrails Domain Name](guides/hosting-guardrails/updating-stacks/domain-update)
 - [Upgrade to General Purpose (gp3) EBS Volumes](guides/hosting-guardrails/updating-stacks/general-purpose-gp3)
-- [Enable PgBouncer Connection Pooling](guides/hosting-guardrails/updating-stacks/update-pgbouncer)
-- [Perform a Blue Green Deployment](guides/hosting-guardrails/updating-stacks/blue-green-deployment)
 
 
 Head over to the [Releases](/guardrails/changelog) section for release notes for TEF, TED and the TE stacks.

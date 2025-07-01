@@ -129,12 +129,7 @@ As part of the TED infrastructure, Redis has previously been the default caching
 
 For customers currently using Redis OSS cache, [here is how to update to Valkey](/guardrails/docs/guides/hosting-guardrails/updating-stacks/upgrade-to-valkey-cache).
 
-## Step 16: Enable Pg Bouncer
-
-To improve database connection management and performance, we now recommend enabling PgBouncer, a lightweight connection pooler for PostgreSQL.
-For setup instructions, learn how to [Enable PgBouncer](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-pgbouncer).
-
-## Step 17: Configure Advanced - Foundation Parameters and Overrides
+## Step 16: Configure Advanced - Foundation Parameters and Overrides
 
 The Foundation Parameters allow the TED stack to use SSM parameters defined in the TEF stack. You should only change these values if you did not use the default Resource Name Prefix (turbot) in the TEF stack.
 

@@ -34,6 +34,8 @@ Learn more about the difference between [Valkey and Redis OSS](https://aws.amazo
 
 >[!CAUTION]
 > AWS only supports migrating from Redis to Valkey within ElastiCache. There is no supported migration path from Valkey back to Redis.
+>
+> Additionally, AWS has announced that support for Redis in ElastiCache will be deprecated in the future. For more details, see the [official AWS announcement](https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-elasticache-valkey/).
 
 To begin the upgrade process, you will first need to locate and access the TED provisioned product in AWS Service Catalog and initiate an update.
 
@@ -67,7 +69,7 @@ After verifying all parameters, scroll down and select **Update**. This initiate
 
 ## Step 4: Monitor the Update
 
-Monitor the stack update in progress from the CloudFormation console. Refer [Update TED > Step 12: Monitor Update](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-ted#step-12-monitor-update)
+Monitor the stack update in progress from the CloudFormation console. Refer [Update TED > Step 12: Monitor Update](/guides/hosting-guardrails/updating-stacks/update-ted#step-12-monitor-update)
 
 ## Step 5: Review
 
@@ -88,7 +90,7 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 | Issue                                        | Description                                                                                                                                                                       | Guide                                                                                                                                    |
 | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Permission Issues                            | The current logged-in user lacks permission to modify, update, or create resources in the stack, or IAM roles/SCPs prevent built-in roles from accessing required configurations. | [Troubleshoot Permission Issues](guides/hosting-guardrails/installation/pre-installation/admin-permissions) |
+| Permission Issues                            | The current logged-in user lacks permission to modify, update, or create resources in the stack, or IAM roles/SCPs prevent built-in roles from accessing required configurations. | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators) |
 | Stack Rollback Failure Due to Database State | CloudFormation stack fails to roll back because the database is in a state (e.g., Upgrading, Backing Up) that prevents rollback.                                                  | [Troubleshoot Rollback Failures](guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state)                     |
 | Service Catalog Sync Issue                   | Service Catalog product, CloudFormation Stack, or physical RDS instance is out of sync, leading to update or resource management issues.                                          | [Troubleshoot Sync Issues](guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync)                                        |
 | Further Assistance                           | If issues persist, open a support ticket with relevant logs and screenshots.                                                                                                      | [Open Support Ticket](https://support.turbot.com)                                                                                        |
