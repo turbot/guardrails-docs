@@ -424,8 +424,8 @@
               "guides/hosting-guardrails/updating-stacks/update-workspace",
               "guides/hosting-guardrails/updating-stacks/domain-update",
               "guides/hosting-guardrails/updating-stacks/general-purpose-gp3",
-              "guides/hosting-guardrails/updating-stacks/update-pgbouncer",
-              "guides/hosting-guardrails/updating-stacks/upgrade-to-valkey-cache"
+              "guides/hosting-guardrails/updating-stacks/upgrade-to-valkey-cache",
+              "guides/hosting-guardrails/updating-stacks/update-pgbouncer"
             ]
           },
           "guides/hosting-guardrails/FAQ",
