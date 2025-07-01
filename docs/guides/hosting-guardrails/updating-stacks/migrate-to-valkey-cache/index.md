@@ -1,11 +1,14 @@
 ---
-title: Migrating to Valkey Cache
-sidebar_label: Migrating to Valkey Cache
+title: Ugrading Redis OSS to Valkey Cache
+sidebar_label: Ugrade Redis OSS to Valkey Cache
 ---
 
-# Migrating to Valkey Cache
+<!-- # Migrating to Valkey Cache -->
+# Ugrading Redis OSS to Valkey Cache
 
-<!-- # Migrating ElastiCache for Valkey - Refer https://aws.amazon.com/elasticache/what-is-valkey/-->
+<!-- # Migrating ElastiCache for Valkey - Refer https://aws.amazon.com/elasticache/what-is-valkey/
+https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/VersionManagement.HowTo.html
+-->
 
 In this guide, you will:
 
