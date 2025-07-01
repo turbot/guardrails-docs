@@ -28,18 +28,21 @@ The migration process described here will seamlessly provision new Valkey cache 
 [Pause the events](/guardrails/docs/guides/hosting-guardrails/troubleshooting/pause-events#pause-event-processing) to avoid any lost events. During this time, the respective workspace will still be available in `readonly` mode.
 
 >[!CAUTION]
-> AWS doesn't offer a direct path for migrating from Valkey back to Redis within ElastiCache. The supported migration path is from Redis to Valkey.
+> AWS only supports migrating from Redis to Valkey within ElastiCache. There is no supported migration path from Valkey back to Redis.
+>
+> Additionally, AWS has announced that support for Redis in ElastiCache will be deprecated in the future. For more details, see the [official AWS announcement](https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-elasticache-valkey/).
+
 
 Step 2: Select TED Version
 
-To begin the upgrade process, you’ll need to locate the TED provisioned product in AWS Service Catalog and initiate an update.
+To begin the upgrade process, you'll need to locate the TED provisioned product in AWS Service Catalog and initiate an update.
 
 Follow the initial steps outlined in the Updating TED guide to:
 - Access the AWS Service Catalog
 - Select the TED provisioned product
 - Initiate the Update action
 
-Once you’ve initiated the update, select the desired TED version under Product Versions.
+Once you've initiated the update, select the desired TED version under Product Versions.
 
 [!NOTE]
 Valkey is only available in TED version 1.50.x or higher.
