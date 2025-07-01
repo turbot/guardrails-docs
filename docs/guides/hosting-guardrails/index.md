@@ -20,3 +20,6 @@ The Guardrails Enterprise installation is highly customizable, allowing you to d
 | [Monitoring Guides](guides/hosting-guardrails/monitoring) | How to proactively monitor your Guardrails infrastructure.
 | [Recovery Guides](guides/hosting-guardrails/disaster-recovery) | How to recover a Guardrails environment from backup.
 | [Troubleshooting Guides](guides/hosting-guardrails/troubleshooting) | How to assess and fix common hosting issues.
+| [Updating Guardrails](guides/hosting-guardrails/updating-stacks) | How to keep your Guardrails infrastructure up to date.
+
+
