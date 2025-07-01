@@ -71,7 +71,9 @@ After verifying all parameters, scroll down and select **Update**. This initiate
 
 Monitor the stack update in progress from the CloudFormation console. Refer [Update TED > Step 12: Monitor Update](/guides/hosting-guardrails/updating-stacks/update-ted#step-12-monitor-update)
 
-## Step 5: Verify Valkey Cache Deployment
+## Step 5: Review
+
+Verify Valkey Cache deployment is successful in the AWS console.
 
 * [ ] The newly created Valkey caches can be found under `Valkey caches` in the AWS ElastiCache dashboard.
 
@@ -81,8 +83,8 @@ Monitor the stack update in progress from the CloudFormation console. Refer [Upd
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-* [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
-* [TED Installation](/guardrails/docs/enterprise/installation/ted-installation).
+- [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
+- [Hosting Guardrails](/guardrails/docs/guides/hosting-guardrails)
 
 ## Troubleshooting
 
