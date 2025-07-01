@@ -18,5 +18,10 @@ stack will be updated in tandem with the TE stack and is never deleted.
 - [Update the TEF stack](guides/hosting-guardrails/updating-stacks/update-tef)
 - [Update the TED stack](guides/hosting-guardrails/updating-stacks/update-ted)
 - [Update the TE stack and custom workspace](guides/hosting-guardrails/updating-stacks/update-workspace)
+- [Upgrade to Valkey Cache](guides/hosting-guardrails/updating-stacks/upgrade-to-valkey-cache)
+
+- [Update Guardrails Domain Name](guides/hosting-guardrails/updating-stacks/domain-update)
+- [Upgrade to General Purpose (gp3) EBS Volumes](guides/hosting-guardrails/updating-stacks/general-purpose-gp3)
+
 
 Head over to the [Releases](/guardrails/changelog) section for release notes for TEF, TED and the TE stacks.

@@ -20,47 +20,47 @@ A Guardrails [Workspace](/guardrails/docs/reference/glossary#workspace) is updat
 
 Open the AWS Console and navigate to the CloudFormation service in the region where your workspace is deployed.
 
-![AWS Console Home Page](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/aws-cloudformation-console.png)
+![AWS Console Home Page](./aws-cloudformation-console.png)
 
 ## Step 2: Select Stack
 
 From the left navigation menu choose **Stacks**.
 
-![Stacks Selection](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/cfn-stacks.png)
+![Stacks Selection](./cfn-stacks.png)
 
 Search for the stack named **workspace**.
 
-![Workspace Stack](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/cfn-select-workspace-stack.png)
+![Workspace Stack](./cfn-select-workspace-stack.png)
 
 Select **Update**
 
-![Update Stack](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/cfn-workspace-stack-select-update.png)
+![Update Stack](./cfn-workspace-stack-select-update.png)
 
 
 ## Step 3: Update Stack
 
 Choose **Use existing template** and select **Next**.
 
-![Select Existing Template](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/cfn-stack-use-existing-template.png)
+![Select Existing Template](./cfn-stack-use-existing-template.png)
 
 Modify the version to match the new TE version number used in the TE stack (e.g., 5.45.4), then select **Next**.
 
-![Select Existing Template](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/cfn-stack-specify-te-version.png)
+![Select Existing Template](./cfn-stack-specify-te-version.png)
 
 ## Step 4: Specify TE Version
 
-![Specify TE Version](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/cfn-stack-specify-te-version.png)
+![Specify TE Version](./cfn-stack-specify-te-version.png)
 
 Scroll down to **Advanced options**, leave the entire section as default and select **Next**
 
-![Advanced Option as Default TE Version](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/cfn-stack-advanced-option-as-default.png)
+![Advanced Option as Default TE Version](./cfn-stack-advanced-option-as-default.png)
 
 
 ## Step 5: Submit Changes
 
 In **Configure stack options**, review changes under **Changeset Preview** and select **Submit**.
 
-![Submit Changeset](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/cfn-worksapce-stack-select-submit-changes.png)
+![Submit Changeset](./cfn-worksapce-stack-select-submit-changes.png)
 
 ## Step 6: Monitor Update
 
@@ -68,17 +68,17 @@ You have initiated the update of a new TE version in the Guardrails workspace. T
 
 - [ ] The workspace CloudFormation stack status should change to `UPDATE_IN_PROGRESS` indicating the update process is in progress.
 
-![Verify Status](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/cfn-workspace-stack-update-progress.png)
+![Verify Status](./cfn-workspace-stack-update-progress.png)
 
 ## Step 7: Review
 
 - [ ] The workspace CloudFormation stack status should change to `UPDATE_COMPLETE` indicating the update completed successfully.
 
-![Update Complete](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/cfn-workspace-stack-update-complete.png)
+![Update Complete](./cfn-workspace-stack-update-complete.png)
 
 - [ ] Updated TE version should reflect in Guardrails `Workspace Admin` panel.
 
-![Guardrails Console Admin Panel](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-workspace/guardrails-console-verify-version.png)
+![Guardrails Console Admin Panel](./guardrails-console-verify-version.png)
 
 ## Next Steps
 
