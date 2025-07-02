@@ -99,7 +99,7 @@ Navigate to your ECS service `<prefix>_<hive>_pgbouncer` (for example: `turbot_n
 
 ![ECS Service Task](./ecs-services.png)
 
-### View Logs
+### View ECS Logs
 
 Select the **Logs** tab to view the stats displayed under `Message`. PgBouncer is confirmed to be running and actively processing database traffic based on the presence of these stats.
 
