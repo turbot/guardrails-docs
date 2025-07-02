@@ -121,13 +121,18 @@ By default, support is provided for the `Instance Type for EC2 ECS host` and `AM
 
 You can modify the rest of the parameters as needed, or leave them at their default values.
 
-## Step 11: Launch Product
+## Step 11: Enable Pg Bouncer
+
+To improve database connection management and performance, we now recommend enabling PgBouncer, a lightweight connection pooler for PostgreSQL.
+For setup instructions, learn how to [Enable PgBouncer](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-pgbouncer).
+
+## Step 12: Launch Product
 
 Select **Launch product**.
 
 ![Launch Product](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc/service-catalog-tef-launch-product-action.png)
 
-## Step 12: Monitor Installation
+## Step 13: Monitor Installation
 
 You have initiated the installation of the new TEF version. This triggers an update of several nested CloudFormation stacks.
 
@@ -135,7 +140,7 @@ The TEF provisioned product should be in the **Under Change** status.
 
 ![Under Change Status](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc/service-catalog-tef-under-change.png)
 
-## Step 13: Enable Termination Protection
+## Step 14: Enable Termination Protection
 
 > [!IMPORTANT]
 > To ensure that the TEF stack is not accidentally deleted, it is strongly recommend that termination protection is enabled.
@@ -156,7 +161,7 @@ Choose `Termination protection` as **Activated** and select **Save**.
 
 ![Termination Protection Activated](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc/cfn-stack-edit-termination-protection-activated.png)
 
-## Step 14: Review
+## Step 15: Review
 
 - [ ] The TEF CloudFormation stack status should change to `CREATE_COMPLETE` indicating the installation completed successfully.
 

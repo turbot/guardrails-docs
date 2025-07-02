@@ -123,7 +123,12 @@ Choose to **Use Elasticache** and select the desired values for **ElastiCache Ve
 
 ![Cache](/images/docs/guardrails/guides/hosting-guardrails/installation/install-ted/service-catalog-ted-parameter-cache.png)
 
-## Step 16: Configure Advanced - Foundation Parameters and Overrides
+## Step 16: Enable Pg Bouncer
+
+To improve database connection management and performance, we now recommend enabling PgBouncer, a lightweight connection pooler for PostgreSQL.
+For setup instructions, learn how to [Enable PgBouncer](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-pgbouncer).
+
+## Step 17: Configure Advanced - Foundation Parameters and Overrides
 
 The Foundation Parameters allow the TED stack to use SSM parameters defined in the TEF stack. You should only change these values if you did not use the default Resource Name Prefix (turbot) in the TEF stack.
 
@@ -131,7 +136,7 @@ The Foundation Parameters allow the TED stack to use SSM parameters defined in t
 
 The Foundation Overrides allow you to override values defined in the TEF stack. You will likely want to leave these blank.
 
-## Step 17: Advanced - Infrastructure
+## Step 18: Advanced - Infrastructure
 
 Select a **Resource Name Prefix** which will be added to all Turbot Guardrails resources. Because this prefix will be used across many resource types and different resource types have different name restrictions, you should avoid special characters and uppercase letters. This prefix should match the name prefix you used in the TEF stack.
 
@@ -140,13 +145,13 @@ Select a **Resource Name Prefix** which will be added to all Turbot Guardrails r
 
 ![Advanced Infrastructure](/images/docs/guardrails/guides/hosting-guardrails/installation/install-ted/service-catalog-ted-parameter-advanced-infrastructure.png)
 
-## Step 18: Launch Product
+## Step 19: Launch Product
 
 Select **Launch product**.
 
 ![Launch Product](/images/docs/guardrails/guides/hosting-guardrails/installation/install-ted/service-catalog-ted-launch-product-action.png)
 
-## Step 19: Monitor Installation
+## Step 20: Monitor Installation
 
 You have initiated the installation of the new TED version. This triggers an update of several nested CloudFormation stacks.
 
@@ -154,7 +159,7 @@ The TED stack should be in the **CREATE_IN_PROGRESS** status.
 
 ![Under Change Status](/images/docs/guardrails/guides/hosting-guardrails/installation/install-ted/cfn-ted-create-progress.png)
 
-## Step 20: Review
+## Step 21: Review
 
 - [ ] The TEF CloudFormation stack status should change to `CREATE_COMPLETE` indicating the installation completed successfully.
 
