@@ -79,8 +79,6 @@ TED provides a comprehensive set of settings, but when first enabling PgBouncer,
 
 You may continue to have the rest of the parameters as default settings.
 
-<!-- ![PgBouncer Parameters Update](./aws-ted-pgbouncer-params-3.png) -->
-
 After verifying any changes to existing parameters, select **Update** at the bottom of the screen.
 
 ![Update TED](./aws-ted-update.png)
@@ -93,7 +91,7 @@ After verifying any changes to existing parameters, select **Update** at the bot
 
 The most reliable way to verify that `PgBouncer` is active is by checking its statistics output from the ECS logs.
 
-> [!NOTE] To view PgBouncer logs, ensure the TED parameter PgBouncer **Log Statistcis** is set to **enabled**.
+> [!NOTE] To view PgBouncer logs, ensure the TED parameter PgBouncer **Log Statistics** is set to **enabled**.
 
 ### Check ECS Service Task
 
