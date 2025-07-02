@@ -85,23 +85,23 @@ After verifying any changes to existing parameters, select **Update** at the bot
 
 ![Update TED](./aws-ted-update.png)
 
-## Install or Update TE
+## Step 3: Install TE
 
-PgBouncer support requires **Turbot Guardrails Enterprise (TE) 5.52.0** or later.  Use the existing [Install TE](guides/hosting-guardrails/installation/install-te) guide to install a new TE product and upgrade the workspaces. PgBouncer will activate automatically if `Enable PgBouncer` was set to `true` during the TEF update. No additional parameters need changing at the workspace level.
+`PgBouncer` support requires **Turbot Guardrails Enterprise (TE) 5.52.0** or later.  Use the existing [Install TE](guides/hosting-guardrails/installation/install-te) guide to install a new TE product and [upgrade the workspaces](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-workspace). `PgBouncer` will activate automatically if `Enable PgBouncer` was set to `true` during the TEF update in the above steps. No additional parameters need changing at the workspace level.
 
-## Verify PgBouncer Activation
+## Step 4: Verify PgBouncer Activation
 
-The most reliable way to verify that PgBouncer is active is by checking its statistics output from the ECS logs.
+The most reliable way to verify that `PgBouncer` is active is by checking its statistics output from the ECS logs.
 
-> [!NOTE] To view PgBouncer logs, ensure the TED parameter **PgBouncerLogStats** is set to **enabled**.
+> [!NOTE] To view PgBouncer logs, ensure the TED parameter PgBouncer **Log Statistcis** is set to **enabled**.
 
-### Step 1: Navigate to ECS Service Task
+### Check ECS Service Task
 
 Navigate to your ECS service `<prefix>_<hive>_pgbouncer` (for example: `turbot_newton_pgbouncer` if using default names) and Select the running task.
 
 ![ECS Service Task](./ecs-services.png)
 
-### Step 2: View Logs
+### View Logs
 
 Select the **Logs** tab to view the stats displayed under `Message`. PgBouncer is confirmed to be running and actively processing database traffic based on the presence of these stats.
 
@@ -117,7 +117,7 @@ The `STATS` lines appear every 5 minutes with metrics like:
 
 ![ECS Task Logs](./ecs-task-logs.png)
 
-## Configuration & Tuning
+## Step 5: Configuration & Tuning (Optional)
 
 ### Sizing Guidelines
 
