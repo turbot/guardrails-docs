@@ -3,7 +3,7 @@
  sidebar_label: Enable PgBouncer
 ---
 
-# Enable PgBouncer Connection Pooling for Turbot Guardrails
+# Enable PgBouncer Connection Pooling
 
 In this guide, you will:
 - Use AWS Service Catalog to enable PgBouncer in an existing environment.
@@ -14,9 +14,9 @@ In this guide, you will:
 ## Prerequisites
 
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
-- TEF version 1.68.0 or later
-- TED version 1.50.0 or later
-- TE version 5.52.0 or later
+- [TEF](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-foundation-tef) version 1.68.0 or later
+- [TED](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted) version 1.50.0 or later
+- [TE](/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-te) version 5.52.0 or later
 - Familiarity with AWS Console, Service Catalog and CloudFormation services.
 
 Select the desired TEF version under **Product Versions**.
@@ -37,13 +37,14 @@ Follow the same initial steps outlined in the [Updating TEF](/guardrails/docs/gu
 
 Once you've reached the version selection step in Service Catalog, return here to continue with the pgbouncer update process.
 
+// Check with RahulS, this shd be TED or TEF
 Select the desired TEF version under **Product Versions**.
 
 ![Select TEF Version](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-ted/service-catalog-select-ted-version.png)
 
 Set **Enable PgBouncer** to **true** in the `Advanced – PgBouncer` section to turn on connection pooling for your Collective.
 
-![Enable PG Bouncer](./service-catalog-select-ted-version.png)
+![Enable PG Bouncer](/images/docs/guardrails/guides/hosting-guardrails/updating-stacks/update-ted/service-catalog-select-ted-version.png)
 
 After verifying any changes to existing parameters, select **Update** at the bottom of the screen.
 
