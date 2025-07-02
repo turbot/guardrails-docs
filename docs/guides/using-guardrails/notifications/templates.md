@@ -44,6 +44,9 @@ Turbot > Notifications > Microsoft Teams > Action Template > Batch Body
 
 Turbot > Notifications > Microsoft Teams > Control Template > Body
 Turbot > Notifications > Microsoft Teams > Control Template > Batch Body
+
+Turbot > Notifications > Webhook > Action Template > Body
+Turbot > Notifications > Webhook > Control Template > Body
 ```
 
 ## Template Definition
@@ -340,4 +343,100 @@ query notificationDetails($filter: [String!], $resourceId: ID!) {
     {%- endif %} 
   ] 
 }
+```
+
+## Example Custom Webhook Control Template
+
+```nunjucks
+{% input %}
+query controlGet($id: ID!, $resourceId: ID!) {
+  workspaceUrl: policyValue(
+    uri: "tmod:@turbot/turbot#/policy/types/workspaceUrl"
+    resourceId: $resourceId
+  ) {
+    value
+  }
+  oldControl: control(id: $id) {
+    actor {
+      identity {
+        picture
+        turbot {
+          title
+          id
+        }
+      }
+    }
+    state
+    reason
+    details
+    type {
+      trunk {
+        title
+      }
+    }
+    turbot {
+      createTimestamp
+      updateTimestamp
+      id
+    }
+    resource {
+     metadata
+      turbot {
+        id
+        title
+      }
+      trunk {
+        title
+      }
+      type {
+        title
+      }
+    }
+  }
+}
+
+{% endinput %}
+
+{{ $ | dump }}
+```
+
+## Example Custom Webhook Action Template
+
+```nunjucks
+{% input %}
+query controlGet($id: ID!, $resourceId: ID!, $notificationId: ID!) {
+  workspaceUrl: policyValue(
+    uri: "tmod:@turbot/turbot#/policy/types/workspaceUrl"
+    resourceId: $resourceId
+  ) {
+    value
+  }
+  notification(id: $notificationId) {
+    message
+    resource {
+      metadata
+      turbot{
+        id
+      }
+      trunk {
+        title
+      }
+    }
+  }
+  control(id: $id) {
+    turbot{
+      id
+    }
+    type {
+      trunk {
+        title
+      }
+    }
+  }
+}
+
+{% endinput %}
+
+
+{{ $ | dump }}
 ```

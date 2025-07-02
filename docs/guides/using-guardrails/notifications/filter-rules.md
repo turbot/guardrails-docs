@@ -13,6 +13,7 @@ The policy contains an array of `rule-sets`.  Each `rule-set` consists of 1 or m
 
 - Slack webhook
 - Microsoft Teams webhook
+- Custom Webhook
 - Email Addresses
 - [Profiles](/guardrails/docs/guides/using-guardrails/notifications#routing-to-profiles)
 

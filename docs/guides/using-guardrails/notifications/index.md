@@ -19,7 +19,8 @@ Guardrails currently supports the following delivery channels for notifications:
 
 2. **Slack notifications** are sent via standard webhooks. For documentation on configuring webhooks for slack see: `https://api.slack.com/messaging/webhooks`
 3. **Microsoft Teams notifications** are also sent via webhooks. For Teams documentation see: https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=dotnet
-4. **Event Streams** can be created and consumed using the [Guardrails Firehose](/guardrails/docs/guides/configuring-guardrails/firehose) feature.
+4. **Custom webhook notifications** can be sent to any HTTPS endpoint that accepts POST requests with JSON payloads. This allows integration with custom systems, ticketing platforms, monitoring tools, or any service that provides webhook endpoints. Webhooks support optional authorization headers for secure delivery. Configure webhook delivery using the [Turbot > Notifications > Webhook](https://hub.guardrails.turbot.com/mods/turbot/policies/turbot/notificationsWebhook) policy and optional authentication with the [Turbot > Notifications > Webhook > Authorization Header](https://hub.guardrails.turbot.com/mods/turbot/policies/turbot/notificationsWebhookAuthorizationHeader) policy.
+5. **Event Streams** can be created and consumed using the [Guardrails Firehose](/guardrails/docs/guides/configuring-guardrails/firehose) feature.
 
 
 ### Routing to Profiles
@@ -80,12 +81,14 @@ Here is a base example of two common types of rules:
     - d.schrute@dmi.com
   slackWebhookUrl: "https://hooks.slack.com/services/T02GC4A7C/BUDS3GB05P/iI27FCQjgiI27FCQ"
   msTeamsWebhookUrl: "https://dundermifflin.webhook.office.com/webhookb2/25bbe4f5-9d8e-485c-9fd/IncomingWebhook/534528d9c02/944a8e14"
+  webhookUrl: "https://api.dundermifflin.com/guardrails/notifications"
   
 - rules: "NOTIFY $.actionType.parent:'#/resource/types/securityGroup'"
   emails:
     - d.schrute@dmi.com
   slackWebhookUrl: "https://hooks.slack.com/services/T02GC4A7C/BUDS3GB05P/iI27FCQjgiI27FCQ"
   msTeamsWebhookUrl: "https://dundermifflin.webhook.office.com/webhookb2/25bbe4f5-9d8e-485c-9fd/IncomingWebhook/534528d9c02/944a8e14"
+  webhookUrl: "https://monitoring.dundermifflin.com/alerts/turbot"
 ```
 
 The first rule sends a notification to an email every time a control changes from `OK` state to `Alarm` state, and the second rule sends a notification when Guardrails takes an enforcement action against a security group rule (the parent of a security group rule is the `securityGroup`)
@@ -106,7 +109,7 @@ Guardrails keeps track of the number of notifications being sent to individual r
 
 ## Templates
 
-Templates control the format of notifications. Separate templates exist for each delivery channel (Email, Slack, Teams) and for each delivery type (single and batch).  The default templates for each channel integrate [Guardrails Quick Actions](guides/quick-actions) and serve as a great jumping off point for your own customization. The default templates can be overridden by setting the following policies:
+Templates control the format of notifications. Separate templates exist for each delivery channel (Email, Slack, Teams, Webhook) and for each delivery type (single and batch).  The default templates for each channel integrate [Guardrails Quick Actions](guides/quick-actions) and serve as a great jumping off point for your own customization. The default templates can be overridden by setting the following policies:
 
 ```
 Turbot > Notifications > Email > Action Template > Subject
@@ -130,7 +133,12 @@ Turbot > Notifications > Microsoft Teams > Action Template > Batch Body
 
 Turbot > Notifications > Microsoft Teams > Control Template > Body
 Turbot > Notifications > Microsoft Teams > Control Template > Batch Body
+
+Turbot > Notifications > Webhook > Action Template > Body
+Turbot > Notifications > Webhook > Control Template > Body
 ```
+
+**Note**: Webhook notifications do not support batch templates and only send individual notifications.
 
 Templates are created using graphql for the query and [Nunjucks](https://mozilla.github.io/nunjucks/templating.html) for the templating language (very similar to calculated policies). 
 
@@ -155,6 +163,20 @@ Turbot > Notifications > Email > SMTP Port           (e.g. 25)
 Turbot > Notifications > Email > SMTP Username       (if no username is needed set to `null`)
 Turbot > Notifications > Email > SMTP Password       (if no password is needed set to `null`)
 ```
+
+### Webhook Setup
+
+For webhook notifications, configure the following policies:
+
+```
+Turbot > Notifications > Webhook > Authorization Header - Optional authorization header for secure webhook delivery (e.g., `Token your-secret-token` or `Bearer your-api-key`)
+Turbot > Notifications > Webhook > Action Template > Body - Customize the JSON payload format for action notifications
+Turbot > Notifications > Webhook > Control Template > Body - Customize the JSON payload format for control notifications
+```
+
+**Template Configuration**: The sample [Webhook templates](guides/notifications/templates) outputs all available notification data as JSON. This provides the complete data structure that you can then customize by selecting specific fields and formatting them according to your system's requirements. You can also copy Slack templates as a starting point and modify the JSON structure.
+
+Webhook notifications are sent as HTTPS POST requests with JSON payloads to the URLs specified in your notification rules.
 
 Once notifications are enabled and email is configured we suggest triggering one of your filter rules and ensuring that message delivery works.
 
