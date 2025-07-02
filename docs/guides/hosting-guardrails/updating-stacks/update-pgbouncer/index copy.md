@@ -67,19 +67,15 @@ Select the desired TED version under **Product Versions**.
 
 TED provides a comprehensive set of settings, but when first enabling PgBouncer, you can safely leave all values at their defaults.
 
-> [!NOTE]
-> - You can revisit all these parameters under `PgBouncer`, if you need to scale it beyond the baseline.
-> - To understand or review the available settings, see the [Configuration & Tuning](#configuration--tuning) section below.
+You can revisit these parameters if you need to scale PgBouncer beyond the baseline. To understand or review the available settings, see the [Configuration & Tuning](#configuration--tuning) section below.
 
 ![PgBouncer Parameters Update](./aws-ted-pgbouncer-params-1.png)
 
-> [!NOTE] It is recommended to set the `PgBouncer` **Log Statistics** parameter to **enabled** in TED to verify and view PgBouncer activation logs.
+> [!NOTE] It is recommended to set the **PgBouncerLogStats** parameter to **enabled** in TED to verify and view PgBouncer activation logs.
 
 ![PgBouncer Parameters Update](./aws-ted-pgbouncer-params-2.png)
 
-You may continue to have the rest of the parameters as default settings.
-
-<!-- ![PgBouncer Parameters Update](./aws-ted-pgbouncer-params-3.png) -->
+![PgBouncer Parameters Update](./aws-ted-pgbouncer-params-3.png)
 
 After verifying any changes to existing parameters, select **Update** at the bottom of the screen.
 
