@@ -121,13 +121,18 @@ By default, support is provided for the `Instance Type for EC2 ECS host` and `AM
 
 You can modify the rest of the parameters as needed, or leave them at their default values.
 
-## Step 11: Launch Product
+## Step 11: Enable Pg Bouncer
+
+To improve database connection management and performance, we now recommend enabling PgBouncer, a lightweight connection pooler for PostgreSQL.
+For setup instructions, learn how to [Enable PgBouncer](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-pgbouncer).
+
+## Step 12: Launch Product
 
 Select **Launch product**.
 
 ![Launch Product](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc/service-catalog-tef-launch-product-action.png)
 
-## Step 12: Monitor Installation
+## Step 13: Monitor Installation
 
 You have initiated the installation of the new TEF version. This triggers an update of several nested CloudFormation stacks.
 
@@ -135,7 +140,7 @@ The TEF provisioned product should be in the **Under Change** status.
 
 ![Under Change Status](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc/service-catalog-tef-under-change.png)
 
-## Step 13: Enable Termination Protection
+## Step 14: Enable Termination Protection
 
 > [!IMPORTANT]
 > To ensure that the TEF stack is not accidentally deleted, it is strongly recommend that termination protection is enabled.
@@ -156,7 +161,7 @@ Choose `Termination protection` as **Activated** and select **Save**.
 
 ![Termination Protection Activated](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc/cfn-stack-edit-termination-protection-activated.png)
 
-## Step 14: Review
+## Step 15: Review
 
 - [ ] The TEF CloudFormation stack status should change to `CREATE_COMPLETE` indicating the installation completed successfully.
 
@@ -177,5 +182,5 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 | Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| Permission Issues                        | If the current logged-in user lacks permission to modify, update, or create resources in the stack, or if IAM roles or SCPs have changed, preventing built-in roles from accessing needed configuration settings.   | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators)             |
+| Permission Issues                        | If the current logged-in user lacks permission to modify, update, or create resources in the stack, or if IAM roles or SCPs have changed, preventing built-in roles from accessing needed configuration settings.   | [Troubleshoot Permission Issues](guides/hosting-guardrails/installation/pre-installation/admin-permissions)             |
 | Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
