@@ -6,7 +6,7 @@
 # Enable PgBouncer Connection Pooling
 
 In this guide, you will:
-- Use AWS Service Catalog to enable PgBouncer in an existing environment.
+- Use AWS Service Catalog to enable `PgBouncer` in an existing environment.
 - Monitor and troubleshoot the process.
 
 [PgBouncer](https://www.pgbouncer.org/) is a lightweight connection-pooler that sits between Turbot Guardrails services and the [Hive](https://turbot.com/guardrails/docs/reference/glossary#hive) PostgreSQL database. By multiplexing thousands of client connections into a much smaller pool of backend connections, PgBouncer dramatically reduces the number of active sessions on Hive, lowering memory consumption and protecting the database from connection storms.
@@ -14,9 +14,9 @@ In this guide, you will:
 ## Prerequisites
 
 - Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
-- TEF version 1.68.0 or later
-- TED version 1.50.0 or later
-- TE version 5.52.0 or later
+- TEF version `1.68.0 `or later
+- TED version `1.50.0` or later
+- TE version `5.52.0` or later
 - Familiarity with AWS Console, Service Catalog and CloudFormation services.
 
 ## Step 1: Update TEF
