@@ -359,7 +359,8 @@
             "items": [
               "guides/using-guardrails/troubleshooting/fix-invalid-controls",
               "guides/using-guardrails/troubleshooting/access-control-logs",
-              "guides/using-guardrails/troubleshooting/run-controls-using-scripts"
+              "guides/using-guardrails/troubleshooting/run-controls-using-scripts",
+              "guides/using-guardrails/troubleshooting/retrieve-resource-id"
             ]
           }
         ]
