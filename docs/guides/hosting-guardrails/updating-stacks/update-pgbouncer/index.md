@@ -9,11 +9,11 @@ In this guide, you will:
 - Use AWS Service Catalog to enable `PgBouncer` in an existing environment.
 - Monitor and troubleshoot the process.
 
-[PgBouncer](https://www.pgbouncer.org/) is a lightweight connection-pooler that sits between Turbot Guardrails services and the [Hive](https://turbot.com/guardrails/docs/reference/glossary#hive) PostgreSQL database. By multiplexing thousands of client connections into a much smaller pool of backend connections, PgBouncer dramatically reduces the number of active sessions on Hive, lowering memory consumption and protecting the database from connection storms.
+[PgBouncer](https://www.pgbouncer.org/) is a lightweight connection-pooler that sits between Turbot Guardrails services and the [Hive](/guardrails/docs/reference/glossary#hive) PostgreSQL database. By multiplexing thousands of client connections into a much smaller pool of backend connections, PgBouncer dramatically reduces the number of active sessions on Hive, lowering memory consumption and protecting the database from connection storms.
 
 ## Prerequisites
 
-- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/enterprise/FAQ/admin-permissions).
+- Access to the Guardrails AWS account with [Administrator Privileges](/guardrails/docs/guides/hosting-guardrails/installation/pre-installation/admin-permissions).
 - TEF version `1.68.0 `or later
 - TED version `1.50.0` or later
 - TE version `5.52.0` or later
@@ -152,14 +152,14 @@ The `STATS` lines appear every 5 minutes with metrics like:
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-- Learn more about [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture).
+- Learn more about [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/guides/hosting-guardrails/architecture).
 - Learn about [TED Installation](/guardrails/docs/enterprise/installation/ted-installation)
 
 ## Troubleshooting
 
 | Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| Permission Issues                        | If the current logged-in user lacks permission to modify, update, or create resources in the stack, or if IAM roles or SCPs have changed, preventing built-in roles from accessing needed configuration settings.   | [Troubleshoot Permission Issues](/guardrails/docs/enterprise/FAQ/admin-permissions#aws-permissions-for-turbot-guardrails-administrators)             |
+| Permission Issues                        | If the current logged-in user lacks permission to modify, update, or create resources in the stack, or if IAM roles or SCPs have changed, preventing built-in roles from accessing needed configuration settings.   | [Troubleshoot Permission Issues](/guardrails/docs/guides/hosting-guardrails/installation/pre-installation/admin-permissions)             |
 | Stack Rollback Failure Due to Database State                   | If the CloudFormation stack attempts to roll back but fails because the database is in a state (e.g., Upgrading, Backing Up) that prevents a successful rollback.                                                  | [Troubleshoot Rollback Failures](guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state)                  |
 | Service Catalog Sync Issue               | If the Service Catalog Provisioned product, CloudFormation Stack, or the physical RDS instance becomes out of sync, causing issues with updates or resource management.                                              | [Troubleshoot Sync Issues](guides/hosting-guardrails/troubleshooting/service-catalog-out-of-sync)                            |
 | Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
