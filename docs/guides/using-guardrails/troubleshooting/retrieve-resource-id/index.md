@@ -17,7 +17,7 @@ Whether troubleshooting a policy issue, crafting GraphQL queries, or automating 
 - **Turbot/Operator** permissions at the Turbot resource level.
 - Familiarity with the Guardrails console.
 
-## Step 1: Step 1: Log in and Navigate to Resources Tab
+## Step 1: Log in and Navigate to Resources Tab
 
 Log in to the Guardrails console using valid credentials and from the top navigation menu, select **Resources** to access the list of cloud resources managed by Guardrails.
 
