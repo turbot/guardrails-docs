@@ -1,9 +1,9 @@
 ---
-title: Retrieve Resource ID
-sidebar_label: Retrieve Resource ID
+title: Retrieve Resource ID from Guardrails Console
+sidebar_label: Retrieve Resource ID from Guardrails Console
 ---
 
-# Retrieve a Resource ID in Guardrails Console
+# Retrieve a Resource ID from Guardrails Console
 
 In this guide, you will:
 - Learn a step-by-step approach to locating the Resource ID of any managed resource within the Guardrails Console
