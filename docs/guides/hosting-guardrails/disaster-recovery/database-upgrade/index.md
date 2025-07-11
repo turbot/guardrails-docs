@@ -523,7 +523,7 @@ Run smoke tests to Test both the restored and new database instances to confirm 
 <!-- TO CHECK IF THIS WILL TERMINATE THE OLD RDS INSTANCE turbot-einstein-blue? -->
 <!-- INCLUDE TERMINATION PROTECTION NOTE HERE FOR RDS INSTANCE -->
 
-Delete the new TED stack i.e. `turbot-einstein-green` along with its associated resources, including the S3 bucket, log groups, and AWS Backup. Clean up replication slots and subscriptions.
+After verifying a successful upgrade and switchover, delete the new TED stack i.e `turbot-einstein-green` and remove its associated resources such as the S3 bucket, CloudWatch log groups, and AWS Backup configurations. Clean up replication slots and subscriptions.
 
 <!-- When the old DB is terminated from the TED stack, the following will be automatically cleaned up.
 
@@ -533,10 +533,41 @@ select * from pg_replication_slots;
 select * from pg_drop_replication_slot('rs_blue');
 drop schema migration_turbot cascade; -->
 
+### In Case of Upgrade Failure or Aborted Migration
+
+If the database upgrade fails or is manually aborted before completion, it’s important to clean up replication artifacts from the **source database** to avoid lingering replication objects and ensure a clean state for future upgrade attempts.
+
+Run the following SQL commands on the source (blue) database to drop replication artifacts:
+
+```sql
+-- Check for existing publications
+SELECT * FROM pg_publication;
+
+-- Drop the publication used for replication
+DROP PUBLICATION pub_blue;
+
+-- Check for replication slots
+SELECT * FROM pg_replication_slots;
+
+-- Drop the replication slot used for streaming
+SELECT * FROM pg_drop_replication_slot('rs_blue');
+
+-- Check for existing subscriptions
+SELECT * FROM pg_subscription;
+
+-- Drop the subscription created during upgrade
+DROP SUBSCRIPTION sub_blue;
+```
+
+Also, make sure to delete associated resources created as part of the upgrade attempt:
+- S3 bucket
+- CloudWatch Log Groups
+- AWS Backup plans and vaults
+- Any temporary RDS instances or TED-related infrastructure
+
 ## Step 18: Disable and Delete Subscriptions
 
 Disable and delete subscription and replication slots.
-
 
 ```sql
 select * from pg_subscription;
