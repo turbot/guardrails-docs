@@ -260,7 +260,7 @@ In a new session, initiate the `pg_dump` process using the `snapshot ID` obtaine
 nohup time pg_dump -h $SOURCE -U master --snapshot="00000062-000182C4-1" -F c -b -v -f data.dump turbot > dump.log 2>&1 &
 ```
 
- > [!CAUTION] 
+ > [!CAUTION]
  > Enabling logical replication before a long pg_dump/restore can lead to WAL buildup and storage exhaustion. It is recommended to enable RDS storage autoscaling to prevent out-of-space errors during migration.
 ### Monitor
 
@@ -557,6 +557,30 @@ SELECT * FROM pg_subscription;
 
 -- Drop the subscription created during upgrade
 DROP SUBSCRIPTION sub_blue;
+```
+
+**Example:**
+
+Here's an example showing how to check for and clean up a leftover publication:
+
+`select * from pg_publication` indicates the presence of left over `PUBLICATION` `pub_blue`, this needs to be dropped. Recheck after dropping the `PUBLICATION`
+
+```
+turbot=> select * from pg_publication
+turbot-> ;
+    oid     | pubname  | pubowner | puballtables | pubinsert | pubupdate | pubdelete | pubtruncate | pubviaroot
+------------+----------+----------+--------------+-----------+-----------+-----------+-------------+------------
+ 2142597123 | pub_blue |    16397 | t            | t         | t         | t         | t           | f
+(1 row)
+
+turbot=> DROP PUBLICATION pub_blue;
+DROP PUBLICATION
+
+turbot=> select * from pg_publication
+;
+ oid | pubname | pubowner | puballtables | pubinsert | pubupdate | pubdelete | pubtruncate | pubviaroot
+-----+---------+----------+--------------+-----------+-----------+-----------+-------------+------------
+(0 rows)
 ```
 
 Also, make sure to delete associated resources created as part of the upgrade attempt:
