@@ -17,17 +17,17 @@ Prerequisites
 - Valid **Turbot/Owner** permissions in the target Guardrails [workspace](https://turbot.com/guardrails/docs/reference/glossary#workspace).
 - Necessary permissions to download mods from **guardrails.turbot.com**
 
-Step 1: Connect to Bastion
+## Step 1: Connect to Bastion
 
 Log into the AWS account associated with your GovCloud production environment and connect to the main bastion host.
 
 ![Bastion Host](./aws-connect-bastion-host.png)
 
-Step 2: Navigate to the Target Directory
+## Step 2: Navigate to the Target Directory
 
 Navigate to your desired directory for downloading the mod package, for example: `cd /turbot/mods`
 
-Step 3: Download Mod
+## Step 3: Download Mod
 
 Download the desired mod package using this Guardrails CLI command. This fetches the specified mod from the Guardrails registry, e.g., @turbot/aws-iam.
 
@@ -37,7 +37,7 @@ turbot download @turbot/aws-iam
 
 ![Download Mod](./aws-download-mod.png)
 
-Step 4: Install Mod to Workspace
+## Step 4: Install Mod to Workspace
 
 Upload and install the downloaded mod into your target workspace by executing the command below with the appropriate CLI profile.
 
