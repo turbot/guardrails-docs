@@ -28,10 +28,10 @@ prescribed values. If you wish to retain those resources, do not create the poli
 Guardrails to complete the removal process for these resources. It is safe to create these policy settings, even if
 there is no corresponding `Enforce: Enabled`
 
-1. `AWS > IAM > User > Boundary` set to `Enforce: No Boundary`. This will remove boundary policy (if any) from the IAM users.
-2. `AWS > IAM > Role > Boundary` set to `Enforce: No Boundary`. This will remove boundary policy (if any) from the IAM roles.
-3. `AWS > Turbot > Permissions > Superuser Boundary` set to `No Boundary`. This will disable the boundary for superusers.
-4. `AWS > Turbot > Permissions > User Boundary` set to `No Boundary`. This will disable the boundary for users.
+1. `AWS > IAM > User > Boundary` set to `Enforce: No Boundary`. This will remove Guardrails-managed boundary policy (if any) from the IAM users.
+2. `AWS > IAM > Role > Boundary` set to `Enforce: No Boundary`. This will remove Guardrails-managed boundary policy (if any) from the IAM roles.
+3. `AWS > Turbot > Permissions > Superuser Boundary` set to `No Boundary`. This will disable the Guardrails-managed boundary for superusers.
+4. `AWS > Turbot > Permissions > User Boundary` set to `No Boundary`. This will disable the Guardrails-managed boundary for users.
 5. `AWS > Turbot > Permissions` set to `Enforce: None`. This will remove Guardrails-managed
    IAM policies, groups, roles and users.
 6. `AWS > Turbot > Audit Trail` set to `Enforce: Not configured`. This will
