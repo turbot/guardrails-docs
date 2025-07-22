@@ -28,28 +28,32 @@ prescribed values. If you wish to retain those resources, do not create the poli
 Guardrails to complete the removal process for these resources. It is safe to create these policy settings, even if
 there is no corresponding `Enforce: Enabled`
 
-1. `AWS > Turbot > Permissions` set to `Enforce: None`. This will remove Guardrails-managed
+1. `AWS > IAM > User > Boundary` set to `Enforce: No Boundary`. This will remove Guardrails-managed boundary policy (if any) from the IAM users.
+2. `AWS > IAM > Role > Boundary` set to `Enforce: No Boundary`. This will remove Guardrails-managed boundary policy (if any) from the IAM roles.
+3. `AWS > Turbot > Permissions > Superuser Boundary` set to `No Boundary`. This will disable the Guardrails-managed boundary for superusers.
+4. `AWS > Turbot > Permissions > User Boundary` set to `No Boundary`. This will disable the Guardrails-managed boundary for users.
+5. `AWS > Turbot > Permissions` set to `Enforce: None`. This will remove Guardrails-managed
    IAM policies, groups, roles and users.
-2. `AWS > Turbot > Audit Trail` set to `Enforce: Not configured`. This will
+6. `AWS > Turbot > Audit Trail` set to `Enforce: Not configured`. This will
    remove the Guardrails-managed CloudTrail.
-3. `AWS > Turbot > Event Handlers` set to `Enforce: Not configured`. This will
+7. `AWS > Turbot > Event Handlers` set to `Enforce: Not configured`. This will
    remove Guardrails-managed Cloudwatch Event Rules and SNS topics. Refer to the
    [Event Handler documentation](integrations/aws/event-handlers) for additional
    context.
-4. `AWS > Turbot > Event Handlers [Global]` set to `Enforce: Not configured`. This will
+8. `AWS > Turbot > Event Handlers [Global]` set to `Enforce: Not configured`. This will
    remove Guardrails-managed Cloudwatch Event Rules and SNS topics.
-5. `AWS > Turbot > Service Roles` set to `Enforce: Not configured`. This will
+9. `AWS > Turbot > Service Roles` set to `Enforce: Not configured`. This will
    remove any Guardrails-managed IAM service roles.
-6. `AWS > Turbot > Logging > Bucket` set to `Enforce: Not configured`. This will
-   remove Guardrails-managed logging S3 buckets. Note: Logging buckets cannot be deleted
-   if they are not empty. Administrators can empty the bucket using the AWS
-   console.
-7. `AWS > Turbot > Event Poller` to `Disabled`. When event handlers are set to
-   `Skip` or `Enforce: Not Configured`, Polling is automatically enabled. It
-   must be explicitly disabled. Note that full cleanup of event handler
-   resources requires event pollers to still be active. Disable Event Pollers
-   _after_ verifying that all Event Handler infrastructure has been removed from
-   the account.
+10. `AWS > Turbot > Logging > Bucket` set to `Enforce: Not configured`. This will
+    remove Guardrails-managed logging S3 buckets. Note: Logging buckets cannot be deleted
+    if they are not empty. Administrators can empty the bucket using the AWS
+    console.
+11. `AWS > Turbot > Event Poller` to `Disabled`. When event handlers are set to
+    `Skip` or `Enforce: Not Configured`, Polling is automatically enabled. It
+    must be explicitly disabled. Note that full cleanup of event handler
+    resources requires event pollers to still be active. Disable Event Pollers
+    _after_ verifying that all Event Handler infrastructure has been removed from
+    the account.
 
 Once the controls associated with the above policies have completed, the AWS
 account can be disconnected from the Guardrails workspace.
@@ -111,4 +115,4 @@ When a user with sufficient permissions attempts to disconnect an AWS account, G
 account, all child resources, controls, policy settings in a single SQL transactions. This is done for safety. Should
 the transaction fail, it's trivial for the database to roll back to a known good state. The effect of this rollback is
 that the account remains visible in Guardrails. AWS accounts with larger numbers of resources, the time required to
-complete the transaction may exceed the statement timeout limit. 
+complete the transaction may exceed the statement timeout limit.
