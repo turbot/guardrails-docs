@@ -1,27 +1,40 @@
 ---
-title: Install Mod in GovCloud
-sidebar_label: Install Mod in GovCloud
+title: Install Mod via CLI
+sidebar_label: Install Mod via CLI
 ---
 
-# Install a Mod in AWS GovCloud
+# Install a Mod using Guardrails CLI
 
 In this guide, you will:
-- Install a mod in an AWS GovCloud Guardrails workspace using the CLI.
+- Install a mod in a Guardrails workspace using the CLI.
 - Validate successful installation using the Guardrails UI.
 
-Guardrails supports installing [Mods](/guardrails/docs/reference/glossary#mod) in Government Cloud environments via [Guardrails CLI](https://turbot.com/guardrails/docs/reference/cli), especially where UI-based interactions are limited or unavailable. This method is suitable for environments requiring secure or scripted installation workflows.
+Guardrails supports installing [Mods](/guardrails/docs/reference/glossary#mod) via [Guardrails CLI](https://turbot.com/guardrails/docs/reference/cli) for various scenarios where command-line installation is preferred or required, including Government Cloud environments (e.g., AWS GovCloud) where UI-based interactions may be limited, automated deployment workflows and CI/CD pipelines, scripted installation processes for consistent deployments or restricted environments where direct web access is limited, and bulk mod installations across multiple workspaces.
 
-Prerequisites
-- Access to the main bastion host in the GovCloud production environment.
+> [!NOTE] 
+> This CLI-based approach is particularly important for AWS GovCloud environments where UI access may be restricted or unavailable.
+
+## Prerequisites
+
 - [Turbot CLI installed and configured](https://turbot.com/guardrails/docs/reference/cli/installation) with appropriate credentials.
 - Valid **Turbot/Owner** permissions in the target Guardrails [workspace](https://turbot.com/guardrails/docs/reference/glossary#workspace).
 - Necessary permissions to download mods from **guardrails.turbot.com**
+- For GovCloud environments: Access to the main bastion host in the GovCloud production environment.
 
-## Step 1: Connect to Bastion
+## Step 1: Access Your Environment
+
+> [!NOTE]
+> If a bastion host is not available in your environment, you can create one using this guide: [Turbot Bastion Host](https://github.com/turbot/guardrails-samples/tree/main/enterprise_installation/turbot_bastion_host#turbot-bastion-host)
+
+### For GovCloud Environments
 
 Log into the AWS account associated with your GovCloud production environment and connect to the main bastion host.
 
 ![Bastion Host](./aws-connect-bastion-host.png)
+
+### For Commercial Cloud Environments
+
+Ensure you have CLI access to your target environment with the Turbot CLI properly configured.
 
 ## Step 2: Navigate to the Target Directory
 
