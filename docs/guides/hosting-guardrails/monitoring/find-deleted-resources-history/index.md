@@ -33,7 +33,7 @@ Use the following filters to narrow your search and include relevant activity hi
 
 **Descendant**: Enable the `Descendant` checkbox on the left. This allows the search to include all child resources under the selected parent.
   
-  ![Descendent Filter](./guardrails-select-descendant-tab.png)
+  ![Descendant Filter](./guardrails-select-descendant-tab.png)
 
 **Resource Type**: From the right-hand filter pane, open the `Resource Type` dropdown and select the appropriate resource type.  
   > For demonstration purposes, this guide uses `AWS > S3 > Bucket` as an example. You should select the resource type relevant to your use case.
