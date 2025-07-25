@@ -11,15 +11,17 @@ In this guide, you will:
 
 Guardrails supports installing [Mods](/guardrails/docs/reference/glossary#mod) via [Guardrails CLI](https://turbot.com/guardrails/docs/reference/cli) for various scenarios where command-line installation is preferred or required, including Government Cloud environments (e.g., AWS GovCloud) where UI-based interactions may be limited, automated deployment workflows and CI/CD pipelines, scripted installation processes for consistent deployments or restricted environments where direct web access is limited, and bulk mod installations across multiple workspaces.
 
-> [!NOTE] 
-> This CLI-based approach is particularly important for AWS GovCloud environments where UI access may be restricted or unavailable.
+> [!IMPORTANT]
+> This CLI-based approach is particularly important for AWS GovCloud environments, where direct access to Turbot's mod registry is restricted because the registry is hosted in commercial AWS accounts.
 
 ## Prerequisites
 
-- [Turbot CLI installed and configured](https://turbot.com/guardrails/docs/reference/cli/installation) with appropriate credentials.
-- Valid **Turbot/Owner** permissions in the target Guardrails [workspace](https://turbot.com/guardrails/docs/reference/glossary#workspace).
-- Necessary permissions to download mods from **guardrails.turbot.com**
-- For GovCloud environments: Access to the main bastion host in the GovCloud production environment.
+- [Turbot CLI installed and configured](https://turbot.com/guardrails/docs/reference/cli/installation) with appropriate credentials
+- Valid **Turbot/Owner** permissions in the target Guardrails [workspace](https://turbot.com/guardrails/docs/reference/glossary#workspace)
+- Network access to download mods from **guardrails.turbot.com**
+- One of the following access methods:
+  - Access to a bastion host in your GovCloud environment, or
+  - Direct network access from your local environment to the hosted workspace
 
 ## Step 1: Access Your Environment
 
