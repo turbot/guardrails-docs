@@ -85,7 +85,6 @@ the permissions recommended for various levels of Guardrails interaction with Az
 |--------------------------|---------------------------|---------------------------------------------------------|
 | Read/Write + Permissions | Owner                     | Detective controls, enforcements and manage permissions |
 | Read/Write               | Contributor               | Detective controls and enforcements                     |
-| Read/Write               | Contributor               | Detective controls and enforcements                     |
 | Read-Only                | Reader and/or Custom Role | Detective controls                                      |
 
 Turbot recommends that organizations craft a custom role to meet their individual least privilege requirements. The
