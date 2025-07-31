@@ -270,7 +270,7 @@ Using narrow filter policies reduce noise and ensure that only relevant notifica
     }
 ```
 
-## Exposed Metadata for a Action Update
+## Exposed Metadata for an Action Update
 
 ```
 {
