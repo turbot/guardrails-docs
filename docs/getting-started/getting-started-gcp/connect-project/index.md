@@ -36,6 +36,10 @@ Select **GCP** Project.
 
 Expand the **Parent Resource** dropdown and choose the **Sandbox** folder as the import location.
 
+> **Note:** If the **Sandbox** folder does not exist in your workspace, you’ll need to create one.  
+> This folder is commonly used for testing, isolation, or non-production accounts.  
+> Refer to the [Create Folder Guide](/guardrails/docs/guides/configuring-guardrails/working-with-folders/create) for steps on how to create a folder in Guardrails.
+
 ![Choose Sandbox](/images/docs/guardrails/getting-started/getting-started-gcp/connect-project/choose-sandbox.png)
 
 ## Step 4: Upload Key file

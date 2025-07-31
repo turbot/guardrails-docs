@@ -33,6 +33,10 @@ Select **Azure**.
 
 Use the **Parent Resource** dropdown to select the **Sandbox** folder as the location to import the subscription.
 
+> **Note:** If the **Sandbox** folder does not exist in your workspace, you’ll need to create one.  
+> This folder is commonly used for testing, isolation, or non-production accounts.  
+> Refer to the [Create Folder Guide](/guardrails/docs/guides/configuring-guardrails/working-with-folders/create) for steps on how to create a folder in Guardrails.
+
 <p><img alt="connect-2" src="/images/docs/guardrails/getting-started/getting-started-azure/connect-subscription/connect-2.png"/></p>
 
 ## Step 4: Enter details

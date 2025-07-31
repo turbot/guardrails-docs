@@ -18,6 +18,10 @@ This is the second guide in the *Getting started with AWS* series.
 
 Switch back to the Guardrails console **Account Import** browser tab you opened in the previous guide. Use the **Parent Resource** dropdown to select the **Sandbox** folder as the location to import the account.
 
+> **Note:** If the **Sandbox** folder does not exist in your workspace, you’ll need to create one.  
+> This folder is commonly used for testing, isolation, or non-production accounts.  
+> Refer to the [Create Folder Guide](/guardrails/docs/guides/configuring-guardrails/working-with-folders/create) for steps on how to create a folder in Guardrails.
+
 <p><img alt="set-parent-resource" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-parent-resource.png"/></p>
 
 ## Step 2: Update account details
