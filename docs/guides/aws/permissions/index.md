@@ -193,7 +193,7 @@ resource "turbot_policy_setting" "aws_permissions_modifiers" {
 ```
 
 <div className="alert alert-warning">
-If multiple service-level polices assign an operation to different levels, the operation will be assigned at the lower permission level in the provider permissions.  For example, if <code>ec2:DescribeInstance</code>  is assigned to <b>AWS/EC2/Operator</b> and also <b>EAWS/EC2/User</b> then it will be assigned to <b>AWS/User</b>
+If multiple service-level polices assign an operation to different levels, the operation will be assigned at the lower permission level in the provider permissions.  For example, if <code>ec2:DescribeInstance</code>  is assigned to <b>AWS/EC2/Operator</b> and also <b>AWS/EC2/User</b> then it will be assigned to <b>AWS/User</b>
 </div>
 
 <div className="alert alert-warning">
