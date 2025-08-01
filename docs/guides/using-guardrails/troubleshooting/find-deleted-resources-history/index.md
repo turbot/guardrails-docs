@@ -8,7 +8,7 @@ sidebar_label: Find Deleted Resources History
 In this guide, you will learn how to:
 - Use the Guardrails UI to access historical data for resources that have been deleted from Guardrails.
 
-When a resource is deleted from Guardrails, the [resource](https://turbot.com/guardrails/docs/reference/glossary#resource) itself is no longer visible in the console. However, its historical activity remains accessible via the **Activity** tab. This information is particularly useful for troubleshooting, auditing, and debugging.
+When a resource is deleted from Guardrails, the [resource](/guardrails/docs/reference/glossary#resource) itself is no longer visible in the console. However, its historical activity remains accessible via the **Activity** tab. This information is particularly useful for troubleshooting, auditing, and debugging.
 
 ## Prerequisites
 

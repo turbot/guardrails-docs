@@ -15,4 +15,3 @@ The following guides provide detailed instructions for effectively monitoring Gu
 | [Workspace Health Check](/guardrails/docs/guides/hosting-guardrails/monitoring/workspace-health-check) | Guides for assessing the health of your Guardrails workspace. |
 | [Mod Health Check](/guardrails/docs/guides/hosting-guardrails/monitoring/check-mod-health) | Guides for checking the health of your Mod in workspace. |
 | [Investigate Lambda Invocation](/guardrails/docs/guides/hosting-guardrails/monitoring/investigate-lambda-invocation) | Guides for investigating the lambda invocations |
-| [Find Deleted Resources History](/guardrails/docs/guides/hosting-guardrails/monitoring/find-deleted-resources-history) | Guide for locating historical data of resources deleted from Guardrails. |
