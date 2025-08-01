@@ -1,6 +1,6 @@
 ---
-title: Find Deleted Resources History in Guardrails UI
-sidebar_label: Find Deleted Resources History in Guardrails UI
+title: Find Deleted Resources History
+sidebar_label: Find Deleted Resources History
 ---
 
 # Find Deleted Resources History in Guardrails UI
