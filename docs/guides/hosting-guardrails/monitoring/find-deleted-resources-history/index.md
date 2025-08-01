@@ -32,10 +32,10 @@ Drill down into the region where the deleted resource previously existed. For ex
 Use the following filters to narrow your search and include relevant activity history:
 
 **Descendant**: Enable the `Descendant` checkbox on the left. This allows the search to include all child resources under the selected parent.
-  
+
   ![Descendant Filter](./guardrails-select-descendant-tab.png)
 
-**Resource Type**: From the right-hand filter pane, open the `Resource Type` dropdown and select the appropriate resource type.  
+**Resource Type**: From the right-hand filter pane, open the `Resource Type` dropdown and select the appropriate resource type.
   > For demonstration purposes, this guide uses `AWS > S3 > Bucket` as an example. You should select the resource type relevant to your use case.
 
   ![Resource Type Filter](./guardrails-select-resource-type-filter.png)
@@ -48,7 +48,7 @@ Use the following filters to narrow your search and include relevant activity hi
 
   ![Timestamp Filter](./guardrails-select-timestamp.png)
 
-## Step 4: Search for the Deleted Resource
+## Step 4: Search Deleted Resource
 
 Enter the resource name (or a keyword) into the **Search Box** to locate any matching historical entries. The results may include the full activity history of the deleted resource, including creation events, configuration and policy changes, control evaluations, and the deletion event itself.
 
