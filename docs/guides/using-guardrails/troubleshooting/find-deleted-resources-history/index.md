@@ -3,7 +3,7 @@ title: Find Deleted Resources History
 sidebar_label: Find Deleted Resources History
 ---
 
-# Find Deleted Resources History in Guardrails UI
+# Find Deleted Resources History
 
 In this guide, you will learn how to:
 - Use the Guardrails UI to access historical data for resources that have been deleted from Guardrails.
