@@ -456,8 +456,7 @@
               "guides/hosting-guardrails/monitoring/check-mod-health",
               "guides/hosting-guardrails/monitoring/workspace-health-check",
               "guides/hosting-guardrails/monitoring/monitoring-alarms",
-              "guides/hosting-guardrails/monitoring/investigate-lambda-invocation",
-              "guides/hosting-guardrails/monitoring/find-deleted-resources-history"
+              "guides/hosting-guardrails/monitoring/investigate-lambda-invocation"
             ]
           },
           {
