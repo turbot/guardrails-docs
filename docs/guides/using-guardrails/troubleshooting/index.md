@@ -12,3 +12,4 @@ The following guides will assist with the self-resolution of common problems. If
 - [Resolve Calculated Policy Errors](/guardrails/docs/guides/using-guardrails/troubleshooting/fix-calc-policy-evaluation-errors)
 - [Run Controls Using Scripts](/guardrails/docs/guides/using-guardrails/troubleshooting/run-controls-using-scripts)
 - [Retrieve Resource ID from Guardrails Console](/guardrails/docs/guides/using-guardrails/troubleshooting/retrieve-resource-id)
+- [Find Deleted Resources History](/guardrails/docs/guides/using-guardrails/troubleshooting/find-deleted-resources-history)
