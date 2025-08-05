@@ -52,7 +52,7 @@ From the **Actions** menu, select **Update**.
 
 Under `Advanced – Deployment`, locate the `Parameter Deployment Trigger` and switch its value between `Blue` and `Green`, depending on the current state.
 
-![Select Deployment Parameter](./aws-service-catalog-select-deployement-trigger.png)
+![Select Deployment Parameter](./aws-service-catalog-select-deployment-trigger.png)
 
 ## Step 6: Apply Update
 
@@ -76,7 +76,7 @@ You have successfully updated the deployment trigger, which begins the update of
 
 ![CFN Update in Progress Status](./aws-cfn-update-in-progress.png)
 
-## Step 9: Review Final Status
+## Step 8: Review Final Status
 
 - [ ] Ensure the CloudFormation stack status shows `UPDATE_COMPLETE`.
 
