@@ -34,8 +34,6 @@ Learn more about the difference between [Valkey and Redis OSS](https://aws.amazo
 
 >[!CAUTION]
 > AWS only supports migrating from Redis to Valkey within ElastiCache. There is no supported migration path from Valkey back to Redis.
->
-> Additionally, AWS has announced that support for Redis in ElastiCache will be deprecated in the future. For more details, see the [official AWS announcement](https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-elasticache-valkey/).
 
 To begin the upgrade process, you will first need to locate and access the TED provisioned product in AWS Service Catalog and initiate an update.
 
@@ -69,7 +67,7 @@ After verifying all parameters, scroll down and select **Update**. This initiate
 
 ## Step 4: Monitor the Update
 
-Monitor the stack update in progress from the CloudFormation console. Refer [Update TED > Step 12: Monitor Update](/guides/hosting-guardrails/updating-stacks/update-ted#step-12-monitor-update)
+Monitor the stack update in progress from the CloudFormation console. Refer [Update TED > Step 12: Monitor Update](/guardrails/docs/guides/hosting-guardrails/updating-stacks/update-ted#step-12-monitor-update)
 
 ## Step 5: Review
 
