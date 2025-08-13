@@ -46,7 +46,7 @@ Guardrails provides many `Stack [Native]` controls in multiple mods.  These stac
     <tr>
       <td nowrap="true"><strong>AWS &gt; VPC &gt; Stack [Native]</strong></td>
       <td>Region</td>
-      <td>VPC resources to set your standard "landing zone" VPCs - subnets, security groups, gateways, etc. </td>
+      <td>VPC resources to set your standard "landing zone" VPCs - subnets, security groups, gateways, etc.</td>
     </tr>
     <tr>
       <td nowrap="true"><strong>AWS &gt; S3 &gt; Bucket &gt; Stack [Native]</strong></td>
@@ -56,7 +56,17 @@ Guardrails provides many `Stack [Native]` controls in multiple mods.  These stac
     <tr>
       <td nowrap="true"><strong>AWS &gt; VPC &gt; VPC &gt; Stack [Native]</strong></td>
       <td>VPC</td>
-      <td>Standard VPC resources that belong in <em>every</em> VPC, like security groups, gateways, NACLs, etc. </td>
+      <td>Standard VPC resources that belong in <em>every</em> VPC, like security groups, gateways, NACLs, etc.</td>
+    </tr>
+    <tr>
+      <td nowrap="true"><strong>AWS &gt; CloudFront &gt; Distribution &gt; Stack [Native]</strong></td>
+      <td>Distribution</td>
+      <td>Resources to associate with CloudFront distributions such as logging, monitoring, or WAF configuration</td>
+    </tr>
+    <tr>
+      <td nowrap="true"><strong>AWS &gt; Secrets Manager &gt; Secret &gt; Stack [Native]</strong></td>
+      <td>Secret</td>
+      <td>Resources related to secrets such as key rotation, access policies, and tagging</td>
     </tr>
     <tr>
       <td nowrap="true"><strong>Azure &gt; Subscription &gt; Stack [Native]</strong></td>
@@ -67,6 +77,21 @@ Guardrails provides many `Stack [Native]` controls in multiple mods.  These stac
       <td nowrap="true"><strong>Azure &gt; Network &gt; Virtual Network &gt; Stack [Native]</strong></td>
       <td>Virtual Network</td>
       <td>Standard network resources that belong in <em>every</em> Virtual Network</td>
+    </tr>
+    <tr>
+      <td nowrap="true"><strong>Azure &gt; Resource Group &gt; Stack [Native]</strong></td>
+      <td>Resource Group</td>
+      <td>Resources like diagnostic settings, policies, and tags applied at the resource group level</td>
+    </tr>
+    <tr>
+      <td nowrap="true"><strong>Azure &gt; Key Vault &gt; Vault &gt; Stack [Native]</strong></td>
+      <td>Vault</td>
+      <td>Resources to associate with Key Vaults such as access policies, logging, and diagnostic settings</td>
+    </tr>
+    <tr>
+      <td nowrap="true"><strong>Azure &gt; Storage &gt; Storage Account &gt; Stack [Native]</strong></td>
+      <td>Storage Account</td>
+      <td>Resources to associate with storage accounts such as encryption, access configuration, and diagnostics</td>
     </tr>
     <tr>
       <td nowrap="true"><strong>GCP &gt; Project &gt; Stack [Native]</strong></td>
