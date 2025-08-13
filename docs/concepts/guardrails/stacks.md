@@ -91,7 +91,7 @@ Guardrails provides many `Stack [Native]` controls in multiple mods.  These stac
     <tr>
       <td nowrap="true"><strong>Azure &gt; Storage &gt; Storage Account &gt; Stack [Native]</strong></td>
       <td>Storage Account</td>
-      <td>Resources to associate with storage accounts such as encryption, access configuration, and diagnostics</td>
+      <td>Resources to associate with storage accounts such as encryption, access configuration, and diagnostic settings</td>
     </tr>
     <tr>
       <td nowrap="true"><strong>GCP &gt; Project &gt; Stack [Native]</strong></td>
