@@ -3,7 +3,7 @@ title: Stack [Native] Guardrails
 sidebar_label: Stack [Native]
 ---
 
-# Stack [Native] Guardrails 
+# Stack [Native] Guardrails
 
 ## Overview
 
@@ -19,88 +19,22 @@ Guardrails provides many `Stack [Native]` controls in multiple mods.  These stac
 - Resource stacks target individual resources, allowing you to configure standard resources that should be associated with them.  Resource stacks will run for every resource of that type, and will run whenever new resources of that type are discovered.
 
 
-<table>
-  <thead>
-    <tr>
-      <th nowrap="true">Stack</th>
-      <th>Target</th>
-      <th>Intended Purpose</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td nowrap="true"><strong>AWS &gt; Account &gt; Stack [Native]</strong></td>
-      <td>Account</td>
-      <td>Account-level settings and global services like Route53 and CloudFront.</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>AWS &gt; Region &gt; Stack [Native]</strong></td>
-      <td>Region</td>
-      <td>Regional resources, like Lambda Functions, EC2 instances, SNS Topics, etc.</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>AWS &gt; IAM &gt; Stack [Native]</strong></td>
-      <td>Account</td>
-      <td>IAM resources, like standard users, roles, policies, and identity providers.</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>AWS &gt; VPC &gt; Stack [Native]</strong></td>
-      <td>Region</td>
-      <td>VPC resources to set your standard "landing zone" VPCs - subnets, security groups, gateways, etc.</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>AWS &gt; S3 &gt; Bucket &gt; Stack [Native]</strong></td>
-      <td>Bucket</td>
-      <td>Resources to associate with buckets such as lifecycle policies or replication configuration</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>AWS &gt; VPC &gt; VPC &gt; Stack [Native]</strong></td>
-      <td>VPC</td>
-      <td>Standard VPC resources that belong in <em>every</em> VPC, like security groups, gateways, NACLs, etc.</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>AWS &gt; CloudFront &gt; Distribution &gt; Stack [Native]</strong></td>
-      <td>Distribution</td>
-      <td>Resources to associate with CloudFront distributions such as logging, monitoring, or WAF configuration</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>AWS &gt; Secrets Manager &gt; Secret &gt; Stack [Native]</strong></td>
-      <td>Secret</td>
-      <td>Resources related to secrets such as key rotation, access policies, and tagging</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>Azure &gt; Subscription &gt; Stack [Native]</strong></td>
-      <td>Subscription</td>
-      <td>Subscription-level settings and global services</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>Azure &gt; Network &gt; Virtual Network &gt; Stack [Native]</strong></td>
-      <td>Virtual Network</td>
-      <td>Standard network resources that belong in <em>every</em> Virtual Network</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>Azure &gt; Resource Group &gt; Stack [Native]</strong></td>
-      <td>Resource Group</td>
-      <td>Resources like diagnostic settings, policies, and tags applied at the resource group level</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>Azure &gt; Key Vault &gt; Vault &gt; Stack [Native]</strong></td>
-      <td>Vault</td>
-      <td>Resources to associate with Key Vaults such as access policies, logging, and diagnostic settings</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>Azure &gt; Storage &gt; Storage Account &gt; Stack [Native]</strong></td>
-      <td>Storage Account</td>
-      <td>Resources to associate with storage accounts such as encryption, access configuration, and diagnostic settings</td>
-    </tr>
-    <tr>
-      <td nowrap="true"><strong>GCP &gt; Project &gt; Stack [Native]</strong></td>
-      <td>Project</td>
-      <td>Project-level settings and global services</td>
-    </tr>
-  </tbody>
-</table>
-
+| **Stack**                                                     | **Target**         | **Intended Purpose**                                                                                           |
+|---------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------------------------------------------|
+| **AWS > Account > Stack [Native]**                            | Account            | Account-level settings and global services like Route53 and CloudFront.                                        |
+| **AWS > Region > Stack [Native]**                             | Region             | Regional resources, like Lambda Functions, EC2 instances, SNS Topics, etc.                                     |
+| **AWS > IAM > Stack [Native]**                                | Account            | IAM resources, like standard users, roles, policies, and identity providers.                                   |
+| **AWS > VPC > Stack [Native]**                                | Region             | VPC resources to set your standard "landing zone" VPCs - subnets, security groups, gateways, etc.             |
+| **AWS > S3 > Bucket > Stack [Native]**                        | Bucket             | Resources to associate with buckets such as lifecycle policies or replication configuration                    |
+| **AWS > VPC > VPC > Stack [Native]**                          | VPC                | Standard VPC resources that belong in *every* VPC, like security groups, gateways, NACLs, etc.                |
+| **AWS > CloudFront > Distribution > Stack [Native]**          | Distribution       | Resources to associate with CloudFront distributions such as logging, monitoring, or WAF configuration        |
+| **AWS > Secrets Manager > Secret > Stack [Native]**           | Secret             | Resources related to secrets such as key rotation, access policies, and tagging                               |
+| **Azure > Subscription > Stack [Native]**                     | Subscription       | Subscription-level settings and global services                                                                |
+| **Azure > Network > Virtual Network > Stack [Native]**        | Virtual Network    | Standard network resources that belong in *every* Virtual Network                                              |
+| **Azure > Resource Group > Stack [Native]**                   | Resource Group     | Resources like diagnostic settings, policies, and tags applied at the resource group level                    |
+| **Azure > Key Vault > Vault > Stack [Native]**                | Vault              | Resources to associate with Key Vaults such as access policies, logging, and diagnostic settings              |
+| **Azure > Storage > Storage Account > Stack [Native]**        | Storage Account    | Resources to associate with storage accounts such as encryption, access configuration, and diagnostic settings |
+| **GCP > Project > Stack [Native]**                            | Project            | Project-level settings and global services                                                                     |
 
 
 ## Example: Standard IAM policy
@@ -158,7 +92,7 @@ Create a policy setting for the `AWS > IAM > Stack [Native]` policy on an accoun
 
 Stack behavior is controlled by the `Stack [Native]` policy and sub-policies.
 
-| Policy                                | Description 
+| Policy                                | Description
 |---------------------------------------|-----------------------------------------------------------------------
 | **Stack [Native]** | Determine whether to run the stack in check mode, enforce mode, or skip
 | **Stack [Native] > Source** | The OpenTofu HCL configuration source code that should be applied
@@ -168,9 +102,9 @@ Stack behavior is controlled by the `Stack [Native]` policy and sub-policies.
 
 The `Stack [Native]` primary policy determines what action the control will take:
 
-| Value                   | Description 
+| Value                   | Description
 | ----------------------- | -----------------------------------------------------------------------------------
-| **Skip** | The control will not run 
+| **Skip** | The control will not run
 | **Check: Configured** | An OpenTofu plan will be generated.  If the planned configuration does not match the current configuration, the control will alarm.
 | **Enforce: Configured** | An OpenTofu plan will be generated.  If the planned configuration does not match the current configuration, the control will apply the configuration.
 
@@ -214,13 +148,13 @@ You may also choose to trigger the stack to run when resources change, but:
 ### Drift Detection Policies
 Drift detection behavior is controlled by the following sub-policies.
 
-| Policy                                | Description 
+| Policy                                | Description
 |---------------------------------------|-----------------------------------------------------------------------
 | **Stack [Native] > Drift Detection** | Specify the mechanism for drift detection.
 | **Stack [Native] > Drift Detection > Interval** | Specify the interval at which to run the stack, in minutes.
 
 
-The `Stack [Native] > Drift Detection` policy allows you to specify the mechanism for drift detection.  You may run the stack at regular intervals to keep the resources up to date, and/or automatically trigger the stack to run whenever a resource that it created is modified.  Note that resource triggering will only be available for resources that exist in the Guardrails CMDB; you may install the supporting mods and enable the CMDB for those resources. 
+The `Stack [Native] > Drift Detection` policy allows you to specify the mechanism for drift detection.  You may run the stack at regular intervals to keep the resources up to date, and/or automatically trigger the stack to run whenever a resource that it created is modified.  Note that resource triggering will only be available for resources that exist in the Guardrails CMDB; you may install the supporting mods and enable the CMDB for those resources.
 
 
 The `Stack [Native] > Drift Detection > Interval ` allows you to specify the interval at which to run the stack, in minutes.  The default is `1440` (Once a day).
@@ -230,9 +164,9 @@ The `Stack [Native] > Drift Detection > Interval ` allows you to specify the int
 
 The `Stack [Native] > Version` policy allows you to select which OpenTofu version Turbot should use for the stack.
 
-The policy supports semver semantics, allowing you to use new versions automatically, or to pin to specific versions, depending on your preference. 
+The policy supports semver semantics, allowing you to use new versions automatically, or to pin to specific versions, depending on your preference.
 
-By default this policy uses the global default value set in the `Turbot > Stack > Native Stack Version [Default]` policy.  The shared default allows you to change only a single setting to change your default version, but still migrate versions over time on a per-stack basis. 
+By default this policy uses the global default value set in the `Turbot > Stack > Native Stack Version [Default]` policy.  The shared default allows you to change only a single setting to change your default version, but still migrate versions over time on a per-stack basis.
 
 Guardrails native stack containers include standard cloud [providers](https://opentofu.org/docs/language/providers/).  These providers are bundled in the container image, so in practice, the provider versions are tied to the OpenTofu version.  The following versions are currently supported:
 
