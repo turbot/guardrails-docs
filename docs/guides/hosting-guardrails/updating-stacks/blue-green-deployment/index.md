@@ -10,7 +10,7 @@ In this guide, you will:
 - Trigger a Blue-Green deployment for [TEF](https://turbot.com/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-foundation-tef), [TED](https://turbot.com/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-database-ted), or [TE](https://turbot.com/guardrails/docs/reference/glossary#turbot-guardrails-enterprise-te) using AWS Service Catalog.
 - Learn how to keep your cloud infrastructure updated with minimal downtime and risk.
 
-Toggling the **Deployment Trigger** parameter in a Turbot Guardrails stack (Blue ↔ Green) forces CloudFormation to re-read and recalculate parameters without requiring a full version upgrade. This is particularly useful when changes — such as updates to SSM parameter overrides (e.g., IAM role ARNs) — are not automatically detected by CloudFormation and need to be refreshed.
+Toggling the **Deployment Trigger** parameter in a Turbot Guardrails stack (Blue ↔ Green) forces CloudFormation to re-read and recalculate parameters without requiring a full version upgrade. This is particularly useful when changes — such as updates to SSM parameter overridese. g., IAM role ARNs are not automatically detected by CloudFormation and need to be refreshed.
 
 > [!NOTE]
 > The procedure for triggering a blue-green deployment is consistent across **TEF**, **TED**, and **TE**. This guide uses the **TEF** stack as an example for illustration.
