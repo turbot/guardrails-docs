@@ -76,7 +76,7 @@ You have successfully updated the deployment trigger, which begins the update of
 
 ![CFN Update in Progress Status](./aws-cfn-update-in-progress.png)
 
-## Step 8: Review Final Status
+## Step 8: Review
 
 - [ ] Ensure the CloudFormation stack status shows `UPDATE_COMPLETE`.
 
@@ -90,7 +90,7 @@ You have successfully updated the deployment trigger, which begins the update of
 
 Please see the following resources to learn more about Turbot Guardrails Enterprise:
 
-- Learn more about [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture)
+- [Turbot Guardrails Enterprise - Architecture](/guardrails/docs/enterprise/architecture)
 
 ## Troubleshooting
 
