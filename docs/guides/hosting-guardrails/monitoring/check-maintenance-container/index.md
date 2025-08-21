@@ -46,7 +46,7 @@ Choose `Search Log Group` from the top right.
 Check the CloudWatch logs for any errors that may have occurred during the monitoring period. The logs provide visibility into container activity and help identify potential issues.
 
 > [!NOTE]
-> The maintenance container is expected to run without errors. However, if any errors are observed in the logs, please report them to [Guardrails Support]((https://support.turbot.com)) for further investigation.
+> The maintenance container is expected to run without errors. However, if any errors are observed in the logs, please report them to [Guardrails Support](https://support.turbot.com) for further investigation.
 
 ![AWS Console CloudWatch](./aws-locate-error.png)
 
