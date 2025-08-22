@@ -8,17 +8,19 @@ You may set up a **Rollout** to automate the rollout of one or more [guardrails]
 
 A rollout provides a predictable, ordered mechanism for deploying guardrails to your organization.  When you create a rollout, you choose one or more guardrails that you would like to deploy, select the accounts to deploy them to, and set a deployment and communication schedule for promoting the guardrails through phases.
 
-Rollout allow you to control the deployment schedule as well as communications with application team, for example: 
+Rollouts allow you to control the deployment schedule as well as communications with application teams, for example:
 - Schedule automatic transitions from one [phase](guardrails#phases) to another.
 - Automatically enforce guardrails once there are no alarms.
 - Send email notices to account teams on a schedule or when phase change events occur.
 
 
 ## Examples
-The following examples use terraform to illustrate the capabilities of a rollout, but you can create a rollout from the console if you prefer.  
+The following examples use Terraform to illustrate the capabilities of a rollout, but you can create a rollout from the console if you prefer.
 
 ### Rollout Basics
-A rollout should include at least one guardrail.  Once the rollout starts, you cannot be subsequently add, remove, or change the guardrails.  You may add or remove accounts after the rollout starts, but you will usually want to include all the accounts before you move beyond the `draft` phase. 
+A rollout should include at least one guardrail.  Once the rollout starts, you cannot subsequently add, remove, or change the guardrails.
+
+You may add or remove accounts after the rollout starts, but be careful when doing so. Adding an account to a rollout will move the guardrail directly to the current rollout phase.
 
 ```hcl
 resource "rollout" "foo" {
@@ -150,7 +152,7 @@ resource "rollout" "foo" {
 
 ### Relative Dates
 
-All dates are "absolute" in the rollout, but you can use HCL functions to make them relative.  This makes it easier to manage the plan if dates change in the future since they tend to be related to each other.
+All dates are "absolute" in the rollout, but you can use HCL functions to make them relative.  This makes it easier to manage the plan if dates change in the future, since they tend to be related to each other.
 
 ```hcl
 locals {
@@ -186,7 +188,7 @@ resource "rollout" "foo" {
 
 ### Transitioning as soon as there are no alerts
 
-If you want, you may use `start_early_if = "no_alerts"` automatically enter a phase when there are no alerts, regardless of the schedule.  For example, accounts could go straight to enforce if they don't have any alarms for the controls in the rollout.   
+If you want, you can configure a rollout to automatically move accounts to a phase when there are no alerts, regardless of the schedule.  For example, accounts could go straight to the `enforce` phase if they don't have any alarms for the guardrails in the rollout.   To do set, set `start_early_if = "no_alerts"` in the phase block.
 
 ```hcl
 resource "rollout" "foo" {
@@ -239,9 +241,9 @@ resource "rollout" "bar" {
 }
 ```
 
-Note that by using the data source in the terraform plan, the account list will ONLY be updated if you re-run the plan;  The list of accounts is resolved in the plan phase of the terraform run.  If you want to update the list, you have to re-run the plan. The UI also makes it possible to add accounts by tag, even though they are stored internally as IDs.
+Note that by using the data source in the Terraform plan, the account list will ONLY be updated if you re-run the plan;  The list of accounts is resolved in the plan phase of the Terraform run.  If you want to update the list, you have to re-run the plan. The UI also makes it possible to add accounts by tag, even though they are stored internally as IDs.
 
-Guardrails, on the other hand, cannot be added or removed once the rollout has started. If guardrails are added or removed that match the tag, then subsequent terraform runs will fail - the list of guardrails no longer match the current state, but you are not allowed to update them.  To avoid this situation, you can use an `ignore_changes` lifecycle policy.
+Guardrails, on the other hand, cannot be added or removed once the rollout has started. If guardrails are added or removed that match the tag, then subsequent Terraform runs will fail - the list of guardrails no longer matches the current state, but you are not allowed to update them.  To avoid this situation, you can use an `ignore_changes` lifecycle policy.
 
 ```hcl
 data "turbot_resources" "guardrails" {
@@ -276,28 +278,28 @@ filter = "$.AccountAlias:morales-aaa,morales-aab"
 # regex of account aliases
 filter = "$.AccountAlias:/morales-aa.*/"
 
-# GCP project ids...
+# GCP project IDs...
 filter = "$.projectId:morales-aac"
 
-# Azure Sub ids...
+# Azure subscription IDs...
 filter =  "$.subscriptionId:'236a078d-0292-46be-80a3-cd8a1cbccde0'"
-# or title  and type?
+# or title and type?
 filter = "$.displayName:'morales AAA' resourceType:subscription"
 ```
 
 
 ### Baselines
 
-Rollouts provide a predictable way to roll out your guardrails.  How to deploy them is up to you; many customer prefer to deploy small, incremental changes frequently, while others prefer larger, less frequent changes.  Both options are possible with guardrails.  
+Rollouts provide a predictable way to roll out your guardrails.  How to deploy them is up to you; many customers prefer to deploy small, incremental changes frequently, while others prefer larger, less frequent changes.  Both options are possible with guardrails.
 
-In either case, your policy posture is dynamic, and will change over time. As new guardrails are rolled out to existing accounts, they also need to be applied to new accounts, or existing accounts that are newly imported.  You can use `tags` on guardrails to help define baselines and manage to a known set of guardrails.
+In either case, your policy posture is dynamic and will change over time. As new guardrails are rolled out to existing accounts, they also need to be applied to new accounts or existing accounts that are newly imported.  You can use `tags` on guardrails to help define baselines and manage to a known set of guardrails.
 
 The process is simple; define a [tag](#dynamic-attachments-via-tags) for your baseline, and as you deploy guardrails, tag them with any baseline that you want them to be included in.
 
 This can simplify managing a consistent posture:
-- When *brand new accounts* are added, you can deploy the baseline by creating a rollout that includes all guardrails with the baseline tag(s).  Since the accounts are new, you can probably move them straight to enforce (or use `start_early_if` to allow a relaxed scheduled but progress faster if there are no alarms).
-- When *existing account are newly imported*, you may choose to deploy the baseline to bring them "up to standards".  Alternatively, deploy guardrails iteratively in priority order until the baseline has been reached.
-- You can *manage drift* and ensure accounts have the baseline installed. Because guardrails that are already in `enforce` will not be re-applied, simply create a deployment plan to apply the baseline and attach any accounts.  Any "missing" guardrails will be deployed on the rollout schedule.  Accounts that already meet the baseline will be unaffected, and will not receive any notices.
+- When *brand new accounts* are added, you can deploy the baseline by creating a rollout that includes all guardrails with the baseline tag(s).  Since the accounts are new, you can probably move them straight to enforce (or use `start_early_if` to allow a relaxed schedule but progress faster if there are no alarms).
+- When *existing accounts are newly imported*, you may choose to deploy the baseline to bring them "up to standards".  Alternatively, deploy guardrails iteratively in priority order until the baseline has been reached.
+- You can *manage drift* and ensure accounts have the baseline installed. Because guardrails that are already in `enforce` will not be re-applied, simply create a deployment plan to apply the baseline and attach any accounts.  Any "missing" guardrails will be deployed on the rollout schedule.  Accounts that already meet the baseline will be unaffected, and no notices will be sent for them.
 
 
 ### Detaching guardrails
@@ -326,8 +328,8 @@ A guardrail may be included in more than one rollout, and an account may be a me
   - Rollout `bar` also includes the `S3 Bucket Encryption at Rest` guardrail. Account `111111111111` is also included in this rollout.  Currently, this rollout is in `Check` phase, scheduled to go to `Enforce` in 3 weeks.
 - As a result:
   - For account `111111111111`, the `S3 Bucket Encryption at Rest` is currently in `Check` phase.
-  - There should be no warning or welcome notices from the `foo` for the `111111111111` account, because it is already in the `Check` phase.  It would have already been sent warnings and/or welcome notices from the `bar` rollout.
-  - Warnings and welcome for the `Enforce` phase will be sent to `111111111111` from the the `foo` rollout, because `foo` rollout is scheduled to transition the account to `enforce` before `bar` will.
+  - There should be no warning or welcome notices from the `foo` rollout for the `111111111111` account, because it is already in the `Check` phase.  It would have already been sent warnings and/or welcome notices from the `bar` rollout.
+  - Warnings and welcome for the `Enforce` phase will be sent to `111111111111` from the `foo` rollout, because `foo` rollout is scheduled to transition the account to `enforce` before `bar` will.
 
 
 The schedule is the same for all accounts in a rollout.  Rollouts only move forward, from `draft` -> `preview` -> `check` -> `enforce`.
@@ -339,7 +341,7 @@ You can manually move an account through the phases for a guardrail, or for a ro
 
 ## Starting, Stopping, and Pausing a Rollout
 
-The guardrails for a rollout are set when the rollout starts, and cannot be subsequently changed
+The guardrails for a rollout are set when the rollout starts, and cannot be subsequently changed.
 
 Accounts can be attached after the rollout starts, and they will immediately proceed to the "current" phase of the rollout.  They will not receive any missed notices, but they will receive the "welcome" message for the current phase if they are transitioned due to the rollout.
 
@@ -349,7 +351,7 @@ You may change the dates in the rollout after it has started.
 
 You can pause a rollout.  While paused, no state transitions will occur and no notices will be sent.  If you subsequently resume the rollout, any "missed" notices will not be sent, but accounts will be moved to whatever state the rollout dictates, and they will receive the "welcome" notice for that phase if they are transitioned due to the rollout.
 
-Likewise, you can pause a single account to "pin" it to its current phase. The behavior is the same as when the rollout is paused: While paused, no state transitions will occur and no notices will be sent.  If you subsequently resume the rollout, any "missed" notices will not be sent, but the account will be moved to whatever state the rollout dictates, and will receive the "welcome" notice for that phase if it is transitioned due to the rollout.
+Likewise, you can pause a single account to "pin" it to its current phase. The behavior is the same as when the rollout is paused: While paused, no state transitions will occur, and no notices will be sent.  If you subsequently resume the rollout, any "missed" notices will not be sent, but the account will be moved to whatever state the rollout dictates, and will receive the "welcome" notice for that phase if it is transitioned due to the rollout.
 
 A rollout is "complete" once all the accounts in it are at the final phase, or you choose to mark it "complete".
 
@@ -359,7 +361,7 @@ Updating policies on a guardrail would be done via a new rollout.  Either:
 
 Removing a guardrail "uninstalls it".  You cannot delete a guardrail that is part of an active rollout.
 
-If you attempt to delete a guardrail, or to edit a policy setting for a guardrail that is in `check` or `enforce` for any account, it will fail unless "forced".  You must either:
+If you attempt to delete a guardrail or to edit a policy setting for a guardrail that is in `check` or `enforce` for any account, it will fail unless "forced".  You must either:
   - move the guardrail back to `preview` or `draft` for all accounts first or
   - detach the guardrail from all accounts or
   - resubmit the request with a 'force' flag 
