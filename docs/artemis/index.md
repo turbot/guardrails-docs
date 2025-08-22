@@ -5,7 +5,7 @@ title: Guardrails Governance (Artemis)
 
 # Guardrails Governance
 
-Cloud governance is the discipline of designing and implementing systematic frameworks that enable organizations to use cloud resources effectively while managing risk, controlling costs, and maintaining compliance. Unlike traditional IT governance, which relies on manual processes and approval gates, cloud governance provides automated guardrails that allow teams to move fast while staying within safe boundaries.
+[Cloud governance](https://cloudgovernance.org/) is the discipline of designing and implementing systematic frameworks that enable organizations to use cloud resources effectively while managing risk, controlling costs, and maintaining compliance. Unlike traditional IT governance, which relies on manual processes and approval gates, cloud governance provides automated guardrails that allow teams to move fast while staying within safe boundaries.
 
 At its core, cloud governance addresses a fundamental challenge: how do you maintain control and oversight in an environment where infrastructure changes constantly, resources are provisioned on-demand, and application teams have direct control over the services their applications depend on?
 

@@ -5,180 +5,86 @@ sidebar_label: Console
 
 # Guardrails Console
 
-The Guardrails Console is designed so administrators can easily and quickly navigate
-their resource hierarchy along with viewing policies and controls. Every page in
-Guardrails will have six tabs at the top: `Resources`, `Policies`, `Controls`,
-`Permissions`, `Reports`, and `Search`. Users with `Turbot/Admin` rights will
-find the `Workspace Admin` page by clicking on the gear icon in the top right.
+The Turbot Guardrails Console provides a web-based interface for managing cloud governance policies, monitoring compliance, and tracking resource states across your cloud infrastructure. This documentation covers the main features and navigation of the console interface.
 
-## Header
 
-![header](/images/docs/guardrails/header-apollo.png)
+## Navigation
+The console is organized into several main sections accessible via the left sidebar:
 
-The **Header** is consistent throughout and consists of:
+### POSTURE
+Guardrails enables you to define and deploy your cloud governance *posture* — The items that define and enforce your cloud security, FinOps, and operational policies.  The posture section enables you to configure, observe, analyze, and troubleshoot your cloud governance rules.
 
-- **Turbot Logo**: An easy way to navigate back to the Guardrails Console home page.
-- **Resources**: View and search resources within the environment.
-- **Policies**: View, search, and create Policy settings and values.
-- **Controls**: Quickly and easily find relevant controls, as well as getting an
-  environment wide overview of controls in various states.
-- **Permissions**: Assign and revoke permissions.
-  [Directories](/guardrails/docs/guides/configuring-guardrails/directories/local#guardrails-local-directories) can be viewed, modified, and created by
-  clicking the Directories card.
-- **Reports**: Get curated information, such as CIS controls by account, and
-  easily export the results to CSV.
-- **Search**: General search tab for all resources, controls, and policies.
-- **Profile**: The current logged in user profile page. This includes any
-  relevant profile metadata along with the ability to create and delete Guardrails
-  API access keys.
-- **Developers**: A robust, real time GrahpQL query engine.
-- **Admin**: Workspace administration page detailing upgrade history, account,
-  and mod information.
-- **Help**: If you have questions, we have answers in our help documentation!
+- **Guardrails** are deployable units of policy enforcement that implement a control objective, such as enforcing encryption, monitoring access, and securing networking configurations. Guardrails allow you to define your policies and provide controls to audit or enforce them, enabling you to [raise the bar](https://cloudgovernance.org/library/the-cloud-governance-loop) for your organization.
 
-<!-- <br />
+- **Rollouts** provide a predictable, ordered mechanism for deploying guardrails to your organization.  When you create a rollout, you choose one or more guardrails that you would like to deploy, select the accounts to deploy them to, and set a deployment and communication schedule for promoting the guardrails through phases. Rollouts help you [make change happen](https://cloudgovernance.org/library/the-cloud-governance-loop)!
 
-### Navigation Bar
 
-The **Navigation Bar** allows you traverse the various Turbot hierarchies via Filters.  Selecting items in the Navigation Bar will update the current filter(s) in the active window.  While you will most commonly navigate the resource hierarchy, you can also filter by Control Category, Control Type, Policy Type, Resource Category, or Resource Type.
-![nav bar](/images/docs/guardrails/nav-bar.png)
+### INVENTORY
 
-<br /> -->
+The Turbot Guardrails CMDB provides a flexible, dynamic asset inventory that enables you to [know your cloud](https://cloudgovernance.org/library/the-cloud-governance-loop).  The inventory section lets you import and manage cloud accounts, as well as search and inspect your cloud resources.
 
-<!-- ### Active Window
+- **Accounts** are the fundamental organizational unit in cloud computing that serve as a container for your cloud resources and services.  To manage resources, you need to connect one or more accounts (AWS accounts, Azure subscriptions, GCP projects, GitHub repositories, etc).
 
-The **Active Window** shows the details for items in the current filter.  The currently active filter(s) are shown at the top.
-![active window](/images/docs/guardrails/active-window.png)
+- **Resources** represent objects that are managed by Guardrails, such as AWS S3 buckets, GCP compute instances, Azure SQL databases, etc.
 
-This section is further broken up into the following panes:
 
-* The **Overview** shows the details for the selected resource, as well as summary information about the controls and recent activities for the item.
-![overview](/images/docs/guardrails/overview.png)
+### Other
 
-* The **Activity** pane lists the notifications for this resource.  This provides an audit of all the activities performed on this resource, including changes to the cloud resources since discovery, as well as updates to Turbot policies and permissions. Click an item in the list to see more detailed information about the change.
-![activity](/images/docs/guardrails/activity.png) -->
+- **Reports** provide curated, purpose-driven views to give you insight into the compliance, governance, inventory, and configuration of your environment.
 
-### Resources Dashboard
 
-The Resources tab can be used to easily search through all resources under
-Guardrails management! The information is displayed respecting the folder and
-resource hierarchy. Users can easily navigate into specific resources to get
-specific metadata information, view relevant controls, policies, reports, as
-well as a Developer tab.
+- Your name will appear near the bottom of the sidebar.  This link allows you to view your user **profile** information and manage your API access keys.
 
-![resources](/images/docs/guardrails/turbot_example_company_resources.png)
 
-The Developer tab's focus is to give developers direction when using Terraform,
-GraphQL, or a scripting language.
+- If you have sufficient permission, the **Admin** link also appears near the bottom of the sidebar.  The admin area is where you manage your guardrails installation.  Admin activities include mod installation and management, setting permissions, configuring authentication, and managing global inventory and settings.
 
-![dev-console](/images/docs/guardrails/dev-console.png)
+- **Help** is available at the bottom of the sidebar
 
-- **Resource ID**: The Guardrails resource ID. This is unique for every resource
-  under Guardrails management, including Guardrails resources such as mods. In this
-  example, the resource is a [Folder](concepts/resources/hierarchy#folders).
-- **Resource Type URI**: This is a less unique identifier, but still an
-  important one that defines what the resource is.
-- **GraphQL**: A collection of graphql queries. This includes a `query` and two
-  mutations. Clicking on these will open the Developer console with the query
-  already input. Simply run and see the result!
-- **CLI**: Example CLI query using the [Guardrails CLI](reference/terraform).
-- **Terraform**: Formatted Terraform code for the selected resource. This can be
-  copy pasted directly into a Terraform configuration file!
-- **Terraform Import**: CLI command to import an existing resource into an
-  existing Terraform state file.
 
-### Policies Dashboard
+## Searching
 
-The Policies tab dashboard provides visibility into the policy settings, policy
-types and policy packs. The text field can be used to manipulated using
-[filters](/guardrails/docs/reference/filter) to return specific information. The
-`Policy Packs` and `Policy Settings` cards can be used to easily navigate to
-those pages.
+Many pages include a search box at the top of the page to allow you to quickly find what you are looking for.  Guardrails' basic search capability is intuitive - simply enter text and Guardrails will perform a case-insensitive search against all the properties of all objects. 
 
-![policies](/images/docs/guardrails/turbot_example_company_policies.png)
+If multiple search terms are specified, Guardrails will search for items that contain both terms.  For example, a search for `bucket demo` will return all resources that contain both `bucket` AND `demo`.
 
-**Note**: When navigating to the policies page, the right side will also include
-a list of policy packs if there are any in the environment.
+A filter can be negated with the `-` or `!` character.  For example, to find resources that do not contain `demo`, you can search for  `!demo` or `-demo`
 
-Policies make assertions about how a particular resource should be configured.
+The `search` keyword may be used to explicitly specify a full-text search. In
+addition to the full-text filtering behavior described previously, `search`
+allows you to specify "OR" conditions using a comma-separated list of terms. For example, to find resources that contain either `bucket` or `demo`, use the `search` keyword: `search:bucket,demo`
 
-Check out the [Policies Docs](concepts/policies) for more detailed information.
-The [Mods Repository](https://hub.guardrails.turbot.com/#mods) (free registration required) has documentation about
-which policies are available and the behavior of those policies, sorted by mod
-type.
+Regular Expressions are also supported, and should be delimited with forward
+slashes. Note that regular expressions will search the title only.
 
-### Controls Dashboard
 
-The **Controls** dashboard provides visibility into the status of all controls
-related to the resources. The cards provides a visual representation of the
-state of all the related controls, with flexible sorting and grouping. The
-**Policy Settings** and **Policy Pack** cards can be used to easily navigate to
-those pages.
+### More full-text examples
 
-![controls](/images/docs/guardrails/turbot_example_company_controls.png)
+| Aim                                            | Filter text      |
+| ---------------------------------------------- | ---------------- |
+| Require foo                                    | `foo`            |
+| Exclude foo                                    | `-foo`           |
+| Exclude foo                                    | `!foo`           |
+| Require "foo" and "bar"                        | `foo bar`        |
+| Require "foo bar"                              | `"foo bar"`      |
+| Exclude "foo bar"                              | `!"foo bar"`     |
+| Require foo or bar                             | `search:foo,bar` |
+| title starts with "foo"                        | `/^foo/`         |
+| title contains "foo", case insensitive         | `/foo/i`         |
+| title does not contain "foo", case insensitive | `!/foo/i`        |
 
-A key point to remember is that a control tracks the state of a resource as it
-relates to a policy. It can also be thought of as the combination of a resource
-with a policy. Controls can be in a state of `Error`, `TBD`, `Invalid`, `Alarm`,
-`OK`, or `Skip`. For more information, check out the
-[Controls Docs](concepts/controls).
 
-### Permissions Dashboard
+Guardrails also supports advanced searching and filtering on specific properties, filtering relative dates and times, CIDR matching, and more.  See the [Guardrails filter syntax](/guardrails/docs/reference/filter) reference documentation for details.
 
-The **Permissions** dashboard shows the currently granted permissions. Cards
-such as **Active Grants**, **Directories**, **User Profiles** and **Group
-Profiles** provides visibility into grants, directories, user profiles, and
-group profiles.
 
-![permissions](/images/docs/guardrails/turbot_example_company_permissions.png)
+## Filtering and Grouping
 
-The default permissions view shows which user profiles have what permissions.
-With `Turbot/Owner` permissions, a green `Grant Permission` button will appear.
-More details about setting permissions and what the various permission levels
-mean can be found in the [Permissions Docs](concepts/iam/permissions).
+Many pages provide a **Filter & Group** button to allow you to customize your view of the data.  For example, you may want to group your alarms by account, guardrail, then control, and only show `alarms` and `errors` for guardrails that are in `check` or `enforce` phase.
 
-Tip: Multiple permissions can be granted to a profile, but not all of them have
-to be active at the same time. Click the down button to deactivate a permission.
-Click the up button to activate it.
+Click the **Filter & Group** button to show/hide the filtering and grouping pane.
 
-### Reports Dashboard
 
-Reports make it easy to get curated information and then allow the user to
-export the results directly to a CSV!
+## Developer Tab
 
-![reports](/images/docs/guardrails/turbot_example_company_reports.png)
+The Guardrails UI provides a simple yet powerful way to manage your governance posture, but you can also manage your guardrails installation using Terraform or via the API.  To assist you, the console provides a **Developers** panel.  The developer panel provides context-dependent code for the current view, including the GraphQL APIs, CLI commands, and Terraform plans corresponding to the current view.
 
-The tab includes a collection of queries that make it quick and easy to find the
-exact information that is desired. If you do not see a report that you think
-would be interesting, reach out to us at
-[help@turbot.com](mailto:help@turbot.com) to submit your request!
-
-![report filter](/images/docs/guardrails/turbot_example_company_reports_filter.png)
-
-Use the filter to get specific information about resources (or controls or
-policies), then click **Export to CSV** to automatically download a copy of the
-report! Note that reports longer than 5,000 items will be truncated.
-
-### Search Dashboard
-
-![search](/images/docs/guardrails/turbot_example_company_search.png)
-
-When all else fails, head on over to the search tab and take advantage of our
-[Filters](reference/filter) to find the information you need and present it in
-the way you want.
-
-### Admin Dashboard
-
-The Workspace Admin page gives information on the workspace version, upgrade
-history, mod version and their upgrade history, a total number of controls, and
-identity and access management information. The Dashboard tab covers the above.
-The Accounts tab will list all imported accounts, and the Mods tab will list all
-installed mods.
-
-![admin](/images/docs/guardrails/turbot_example_company_admin.png)
-
-Check out the [Mods docs](https://hub.guardrails.turbot.com/#mods) for more information.
-
-Tip: To the left of each mod, you can click the green check, red circle or gray
-question mark to jump straight to the state of the `Mod Installed control` for
-that mod.
+Click the purple button at the top right of the page to show and hide the panel.  

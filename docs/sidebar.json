@@ -282,11 +282,8 @@
       {
         "type": "category",
         "id": "console",
-        "link": "using/console",
+        "link": "artemis/console",
         "items": [
-          "using/console/reports",
-          "using/console/detail-pages",
-          "using/console/searching-filtering"
         ]
       },
 
