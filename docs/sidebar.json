@@ -299,15 +299,8 @@
             "link": "artemis/inventory/resources",
             "items": [
               
-              {
-                "type": "category",
-                "id": "resource-activity",
-                "link": "artemis/inventory/resources/activities",
-                "items": [
-                  "artemis/inventory/resources/observe-aws-activity"
-                ]
-              },
-              "artemis/inventory/resources/files"
+              "artemis/inventory/resources/files",
+              "artemis/inventory/resources/observe-aws-activity"
               
             ]
           }
@@ -356,8 +349,6 @@
           "id": "standard-guardrails",
           "link": "artemis/guardrails/standard",
           "items": [
-            "artemis/guardrails/standard/discovery",
-            "artemis/guardrails/standard/cmdb",
             "artemis/guardrails/standard/access-logging",
             "artemis/guardrails/standard/active",
             "artemis/guardrails/standard/approved",
