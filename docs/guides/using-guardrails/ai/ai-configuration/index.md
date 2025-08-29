@@ -63,7 +63,7 @@ Choose the model to use with the selected AI provider for processing requests.
 
 > [!NOTE]
 > Supported and tested models include:
-> - [OpenAI models](https://platform.openai.com/docs/pricing#latest-models): `gpt-4.1`, `gpt-4.1-mini`, `gpt-4o`, `gpt-5`
+> - [OpenAI models](https://platform.openai.com/docs/pricing#latest-models): `gpt-5`, `gpt-4.1`, `gpt-4.1-mini`, `gpt-4o`
 > - [Anthropic models](https://docs.anthropic.com/en/docs/about-claude/models/overview#model-names): `claude-sonnet-4-20250514`, `claude-3-7-sonnet-20250219`, `claude-3-5-haiku-20241022`, `claude-3-5-sonnet-20241022`
 >
 > For optimal results:
