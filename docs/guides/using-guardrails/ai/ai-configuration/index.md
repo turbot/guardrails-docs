@@ -93,7 +93,7 @@ A lower value (closer to 0) makes responses more focused, deterministic, and con
 
 The default value is set to `0.2`. You may choose to update it based on your needs.
 
-**Note:** Starting from OpenAI `GPT-5`, the temperature parameter is no longer supported, and any value set will be ignored by the model.
+**Note:** The temperature parameter is no longer supported for OpenAI's `GPT-5` series models; any value set for this parameter will be ignored.
 
 ## Step 7: Enable Configuration
 
