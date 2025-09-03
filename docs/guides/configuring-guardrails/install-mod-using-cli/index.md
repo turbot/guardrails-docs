@@ -42,11 +42,11 @@ Log into the AWS account associated with your GovCloud production environment an
 
 Ensure you have CLI access to your target environment with the [Turbot CLI](/guardrails/docs/reference/cli) properly configured.
 
-## Step 2: Choose Download Location
+
+
+## Step 2: Download Mod
 
 Navigate to your desired directory for downloading the mod package, for example: `cd /turbot/mods`
-
-## Step 3: Download Mod
 
 Download the desired mod package using this Guardrails CLI command. This fetches the specified mod from the Guardrails registry, e.g., @turbot/aws-iam.
 
@@ -56,7 +56,7 @@ turbot download @turbot/aws-iam
 
 ![Download Mod](./aws-download-mod.png)
 
-## Step 4: Install Mod to Workspace
+## Step 3: Install Mod to Workspace
 
 Upload and install the downloaded mod into your target workspace by executing the command below with the appropriate CLI profile.
 
@@ -66,7 +66,7 @@ turbot up --zip-file turbot_aws-iam --profile <profile-name>
 
 ![Install Mod](./aws-install-mod.png)
 
-## Step 5: Review Installation
+## Step 4: Review
 
 - [ ] Verify successful installation by checking the Guardrails UI after approximately 20 minutes. Ensure the mod appears under **Admin > Mods**, the version matches the one uploaded (e.g., 5.43.x), and the mod status displays a green checkmark.
 
