@@ -18,10 +18,14 @@ Guardrails supports installing [Mods](/guardrails/docs/reference/glossary#mod) v
 
 - [Turbot CLI installed and configured](https://turbot.com/guardrails/docs/reference/cli/installation) with appropriate credentials
 - Valid **Turbot/Owner** permissions in the target Guardrails [workspace](https://turbot.com/guardrails/docs/reference/glossary#workspace)
+- **Mod registry access**: Registration at [guardrails.turbot.com](https://guardrails.turbot.com) with approved mod download permissions
 - Network access to download mods from **guardrails.turbot.com**
 - One of the following access methods:
   - Access to a bastion host in your GovCloud environment, or
   - Direct network access from your local environment to the hosted workspace
+
+> [!NOTE]
+> **Mod Download Permissions**: Even with a guardrails.turbot.com account, you may not have permissions to download mods. If you encounter permission errors during mod download, contact [Turbot Support](https://support.turbot.com) to request access to allow to download mods.
 
 ## Step 1: Access Your Environment
 
@@ -36,9 +40,9 @@ Log into the AWS account associated with your GovCloud production environment an
 
 ### For Commercial Cloud Environments
 
-Ensure you have CLI access to your target environment with the Turbot CLI properly configured.
+Ensure you have CLI access to your target environment with the [Turbot CLI](/guardrails/docs/reference/cli) properly configured.
 
-## Step 2: Navigate to the Target Directory
+## Step 2: Choose Download Location
 
 Navigate to your desired directory for downloading the mod package, for example: `cd /turbot/mods`
 
@@ -79,5 +83,7 @@ Please see the following resources to learn more about Turbot Guardrails Enterpr
 
 | Issue                                      | Description                                                                                                                                                                                                 | Guide                                |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Login Authentication Error | If you receive `Failed to login to guardrails mod registry: Incorrect username or password` error, verify your credentials by logging into [guardrails.turbot.com](https://guardrails.turbot.com/). If you've forgotten your password, use the password reset option. |  |
+| Mod Download Permissions | If you receive `Failed to download mod: You do not have the necessary permissions to download @turbot/<mod-name> from guardrails.turbot.com` error, you need to request mod access through Turbot Support. | [Open Support Ticket](https://support.turbot.com) |
 | Mod Dependency               | If the mod installation fails due the dependent/parent mod not installed.                                           | [Troubleshoot Mod Peer Dependency Error](/guardrails/docs/guides/hosting-guardrails/troubleshooting/peer-mod-dependency-error#peer-mod-dependency-error)                            |
 | Further Assistance                       | If you continue to encounter issues, please open a ticket with us and attach the relevant information to assist you more efficiently.                                                 | [Open Support Ticket](https://support.turbot.com)   |
