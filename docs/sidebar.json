@@ -276,6 +276,24 @@
         "id": "artemis/getting-started",
         "link": "artemis/getting-started",
         "items": [
+
+
+           {
+            "type": "category",
+            "id": "getting-started-aws",
+            "link": "artemis/getting-started/getting-started-aws",
+            "items": [
+              "artemis/getting-started/getting-started-aws/import-account",
+              "artemis/getting-started/getting-started-aws/observe-aws-activity",
+              "artemis/getting-started/getting-started-aws/create-guardrail",
+              "artemis/getting-started/getting-started-aws/attach-guardrail",
+              "artemis/getting-started/getting-started-aws/mute-control",
+              "artemis/getting-started/getting-started-aws/create-calculated-exception",
+              "artemis/getting-started/getting-started-aws/send-alert-to-email",
+              "artemis/getting-started/getting-started-aws/apply-quick-action",
+              "artemis/getting-started/getting-started-aws/rollout-guardrail"
+            ]
+          }
         ]
       },
 
