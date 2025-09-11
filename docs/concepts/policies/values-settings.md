@@ -44,7 +44,7 @@ policy values exist only on the target.
   <strong>AWS > S3 > Bucket > Approved</strong>
   <ul>
     <li> A <strong>Policy Setting</strong> for <code>AWS > S3 > Bucket > Approved</code> can be made on an AWS Account, Region, or individual bucket.</li>
-    <li> <strong>Every</strong> S3 bucket that has a <strong>Policy Setting</strong> for <code>AWS > S3 > Bucket > Approved</code> will have a <strong>Policy Value</strong> for <code>AWS > S3 > Bucket > Approved</code>. The policy value may have been set at the AWS account, region, and/or individual bucket - this is the effective value for this instance.</li>
+    <li> <strong>Every</strong> S3 bucket that has a <strong>Policy Setting</strong> for <code>AWS > S3 > Bucket > Approved</code> will have a corresponding <strong>Policy Value</strong> for <code>AWS > S3 > Bucket > Approved</code>. The policy value represents the effective setting for this instance, which may have been inherited from the AWS account, region, or set directly on the individual bucket.</li>
   </ul>
 </div>
 
