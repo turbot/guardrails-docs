@@ -9,13 +9,13 @@ sidebar_label: Values & Settings
 
 Each policy type may have many settings for different resources.
 
-<div className="example">  The policy type <code>AWS > S3 > Bucket > Approved</code> may be set to `Enforce: Delete unapproved if new & empty` for development accounts, but deliberately limited to `Check: Approved` for production accounts.
+<div className="example">  The policy type <code>AWS > S3 > Bucket > Approved</code> may be set to <code>Enforce: Delete unapproved if new & empty</code> for development accounts, but deliberately limited to <code>Check: Approved</code> for production accounts.
 </div>
 
 **Policy Settings** are inherited down through the hierarchy of resources.
 
 <div className="example"> <code>AWS > S3 > Bucket > Approved</code> may be set
-to `Enforce: Delete unapproved if new & empty` at Turbot level - ensuring all buckets are deleted if they don't meet the approval criteria (e.g. in approved region).
+to <code>Enforce: Delete unapproved if new & empty</code> at Turbot level - ensuring all buckets are deleted if they don't meet the approval criteria (e.g. in approved region).
 </div>
 
 Policy settings are only valid for target resources and their ancestors.
@@ -44,7 +44,7 @@ policy values exist only on the target.
   <strong>AWS > S3 > Bucket > Approved</strong>
   <ul>
     <li> A <strong>Policy Setting</strong> for <code>AWS > S3 > Bucket > Approved</code> can be made on an AWS Account, Region, or individual bucket.</li>
-    <li> <strong>Every</strong> S3 bucket has a <strong>Policy Value</strong> for <code>AWS > S3 > Bucket > Approved</code>. The policy value may have been set at the AWS account, region, and/or individual bucket - this is the effective value for this instance.</li>
+    <li> <strong>Every</strong> S3 bucket that has a <strong>Policy Setting</strong> for <code>AWS > S3 > Bucket > Approved</code> will have a <strong>Policy Value</strong> for <code>AWS > S3 > Bucket > Approved</code>. The policy value may have been set at the AWS account, region, and/or individual bucket - this is the effective value for this instance.</li>
   </ul>
 </div>
 
