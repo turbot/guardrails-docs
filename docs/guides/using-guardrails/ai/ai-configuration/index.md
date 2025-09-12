@@ -63,12 +63,12 @@ Choose the model to use with the selected AI provider for processing requests.
 
 > [!NOTE]
 > Supported and tested models include:
-> - [OpenAI models](https://platform.openai.com/docs/pricing#latest-models): `gpt-4.1`, `gpt-4.1-mini`, `gpt-4o`
-> - [Anthropic models](https://docs.anthropic.com/en/docs/about-claude/models/overview#model-names): `claude-sonnet-4-20250514`, `claude-3-7-sonnet-20250219`, `claude-3-5-haiku-20241022`, `claude-3-5-sonnet-20241022`
+> - [OpenAI models](https://platform.openai.com/docs/pricing#latest-models): `gpt-5`, `gpt-4.1`, `gpt-4.1-mini`, `gpt-4o`
+> - [Anthropic models](https://docs.anthropic.com/en/docs/about-claude/models/overview#model-names): `claude-opus-4-1-20250805`, `claude-sonnet-4-20250514`, `claude-3-7-sonnet-20250219`, `claude-3-5-haiku-20241022`, `claude-3-5-sonnet-20241022`
 >
 > For optimal results:
 > - Use the latest model versions when possible.
-> - Higher-tier models (like GPT-4 series and Claude Sonnet/Haiku series) provide more accurate and detailed assessments.
+> - Higher-tier models (like GPT-5 series and Claude Sonnet/Haiku series) provide more accurate and detailed assessments.
 > - Lower-tier models may produce different or less consistent results.
 > - Model availability may vary based on your AI provider subscription.
 > - For more information about the models, see the documentation for [OpenAI](https://platform.openai.com/docs/models) and [Anthropic](https://docs.anthropic.com/en/docs/models-overview).
@@ -92,6 +92,8 @@ The policy **Turbot > AI > Configuration > Temperature [Default]** allows you to
 A lower value (closer to 0) makes responses more focused, deterministic, and consistent, while a higher value (closer to 1) makes responses more diverse and creative. The default value of 0.2 provides a good balance between consistency and creativity, suitable for most business and technical use cases.
 
 The default value is set to `0.2`. You may choose to update it based on your needs.
+
+**Note:** The temperature parameter is no longer supported for OpenAI's `GPT-5` series models; any value set for this parameter will be ignored.
 
 ## Step 7: Enable Configuration
 
