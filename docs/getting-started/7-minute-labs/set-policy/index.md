@@ -33,20 +33,21 @@ values in the Turbot Guardrails Console.
 
 ## View a Policy Value
 
-1. In the Turbot Guardrails Console, navigate to the test bucket that you created in the
-   [prerequisite step](set-policy#prerequisites). Our test bucket name is
-   _turbot-bucket-version_, which we can search for at the main Turbot Guardrails screen.
-   Click on the bucket once it is found.
+1. In the Turbot Guardrails Console, search for the test bucket called _turbot-bucket-version_ that you created in the [prerequisite step](set-policy#prerequisites).
    ![](/images/docs/guardrails/search-bucket-step1.png)
+
+2. Click on the bucket once it is found.
    ![](/images/docs/guardrails/search-bucket-step2.png)
+
+3. Next, you'll see the bucket's details.
    ![](/images/docs/guardrails/search-bucket-step3.png)
 
-2. Click the **Policies** tab. It shows both
+4. Click the **Policies** tab. It shows both
    [Policy Settings](concepts/policies/values-settings#policy-settings) and
    [Policy Values](concepts/policies/values-settings#policy-values).
    ![](/images/docs/guardrails/settings-values.png)
 
-3. From the list of Policy Values for this bucket, click on the **Template
+5. From the list of Policy Values for this bucket, click on the **Template
    (Bucket > Tags > Template)** item to bring up the policy value.
    ![](/images/docs/guardrails/default-policy-value.png)
 
