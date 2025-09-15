@@ -1,28 +1,44 @@
 # Guide Format Validator
 
-A comprehensive validation tool for markdown guide files that ensures compliance with documentation style guide rules.
+A simple validation tool for markdown guide files that ensures compliance with documentation style guide rules.
 
-**🎯 Get started in seconds:**
+**🎯 Two Ways to Validate Your Guides:**
+
+**Option 1: Ultra-Simple (Recommended)**
 ```bash
 ./validate /path/to/your/guide.md
 ```
 
-The validator supports both rule-based validation (fast, no API required) and LLM-based validation (more nuanced, requires API key).
+**Option 2: Manual Validation**
+```bash
+./validate-prompt steps --prompt
+```
 
 ## 🚀 Getting Started
 
-1. **Install the validator:**
+1. **Install:**
    ```bash
    cd guide-format-validator
    ./install.sh
    ```
 
-2. **Validate any guide:**
+2. **Choose your validation method:**
+
+   **Method 1: Automatic Validation (Recommended)**
    ```bash
    ./validate /path/to/your/guide.md
    ```
+   - ✅ Fast and reliable
+   - ✅ No setup required
+   - ✅ Shows exactly what to fix
 
-3. **That's it!** You'll get detailed validation results showing what needs to be fixed.
+   **Method 2: Manual Validation**
+   ```bash
+   ./validate-prompt steps --prompt
+   ```
+   - ✅ Use with any LLM tool (ChatGPT, Claude, etc.)
+   - ✅ Copy-paste validation prompts
+   - ✅ No dependencies required
 
 ### Example Output
 ```bash
@@ -73,160 +89,51 @@ export ANTHROPIC_API_KEY=your-api-key-here
 
 **Or simply ignore it** - rule-based validation works great for most guides!
 
-## Features
+## Which Method Should You Use?
 
-- **Rule-based validation** (default): Fast, reliable validation without external dependencies
-- **LLM validation** (optional): Advanced validation using Anthropic Claude for deeper analysis
-- **Multiple validators**: Overview, Prerequisites, Steps, Troubleshooting, and Callout validation
-- **Configuration-driven**: Validation rules defined in YAML within prompt files
-- **Easy to extend**: Add new validators by creating prompt files with YAML rules
-- **Configurable**: Customize validation behavior via configuration file
-- **Flexible output**: Multiple output formats and verbosity levels
-- **Error handling**: Graceful fallback when LLM is unavailable
+| Method | When to Use | Pros | Cons |
+|--------|-------------|------|------|
+| **Automatic** (`./validate`) | Most cases | ✅ Fast, reliable, no setup | ❌ Basic validation only |
+| **Manual** (`./validate-prompt`) | Custom needs | ✅ Use any LLM tool, flexible | ❌ Requires copy-paste |
 
-## Validation Methods
+**Recommendation:** Start with **Automatic** validation. Use **Manual** validation only when you need custom analysis or want to use your own LLM tools.
 
-### Rule-Based Validation (Default)
-**Pros:**
-- ✅ **Fast**: No API calls, instant results
-- ✅ **Reliable**: Works offline, no network dependencies
-- ✅ **Free**: No API costs or credits required
-- ✅ **Deterministic**: Same input always produces same output
-- ✅ **CI/CD Ready**: Perfect for automated pipelines
+## Examples
 
-**Cons:**
-- ❌ **Limited Scope**: Only checks formatting and basic structure
-- ❌ **No Context**: Cannot understand content meaning or flow
-- ❌ **Rigid Rules**: May miss subtle issues or edge cases
-
-**Best For:** Development, CI/CD, quick checks, basic format validation
-
-### LLM Validation (Optional)
-**Pros:**
-- ✅ **Contextual**: Understands content meaning and logical flow
-- ✅ **Comprehensive**: Can catch content quality issues beyond formatting
-- ✅ **Nuanced**: Identifies subtle problems rule-based validation misses
-- ✅ **Intelligent**: Can suggest improvements and better practices
-
-**Cons:**
-- ❌ **Slower**: Requires API calls and network requests
-- ❌ **Cost**: Requires Anthropic API credits
-- ❌ **Dependency**: Needs internet connection and valid API key
-- ❌ **Variable**: Results may vary slightly between runs
-
-**Best For:** Final review, content quality validation, comprehensive documentation review
-
-### Manual Validation (Prompt Helper)
-**Pros:**
-- ✅ **No Dependencies**: Works without Python or API keys
-- ✅ **Flexible**: Use any LLM tool (ChatGPT, Claude, Cursor AI)
-- ✅ **Educational**: Learn validation criteria by reading prompts
-- ✅ **Customizable**: Modify prompts for specific needs
-
-**Cons:**
-- ❌ **Manual**: Requires copy-paste and manual review
-- ❌ **Time-consuming**: Slower than automated validation
-- ❌ **Inconsistent**: Results depend on user's LLM tool choice
-
-**Best For:** Learning, one-off validation, custom validation workflows, when you don't want to install dependencies
-
-## Quick Start
-
-### 1. Installation
-
-**Option A: Automated Installation (Recommended)**
+**Validate a guide:**
 ```bash
-# Clone or download the validator
-cd guide-format-validator
-
-# Run the installation script
-./install.sh
-```
-
-**Option B: Manual Installation**
-```bash
-# Clone or download the validator
-cd guide-format-validator
-
-# Install dependencies
-pip install -r requirements.txt
-
-# For LLM validation (optional)
-pip install anthropic
-```
-
-The installation script will:
-- Check for Python 3 and pip
-- Install all required dependencies
-- Make scripts executable
-- Run tests to verify installation
-- Provide usage instructions
-
-### 2. Basic Usage
-
-**🎯 Primary Method: Ultra-Simple Validation**
-```bash
-# Validate any guide file - everything is automatic
 ./validate /path/to/your/guide.md
-
-# Real-world example
-./validate /Users/raj/raj-professional-tasks/turbot/guardrails/guardrails-docs/docs/guides/hosting-guardrails/installation/install-ted/index.md
-
-# Relative path example
-./validate examples/bad-guide.md
 ```
 
-**That's it!** The validator automatically:
-- ✅ Uses the prompts folder for validation rules
-- ✅ Runs rule-based validation (fast, reliable)
-- ✅ Shows detailed results with pass/fail status
-- ✅ Works with any markdown guide file
-
-**Note:** You might see a warning about `ANTHROPIC_API_KEY` - this is normal! The validator automatically uses rule-based validation (which is recommended) and works perfectly without any API keys.
-
-**🔧 Advanced Options (Optional)**
+**Get validation prompts for manual use:**
 ```bash
-# Manual validation prompts (no dependencies)
 ./validate-prompt steps --prompt
-
-# Full validation with LLM (requires API key)
-export ANTHROPIC_API_KEY=your-api-key-here
-python3 scripts/validate_guides.py guide.md --use-llm
 ```
 
-### Quick Reference
+## Manual Validation Details
 
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `./validate <file>` | **🎯 Primary method - Ultra-simple** | `./validate /path/to/guide.md` |
-| `./validate-prompt <section>` | **Manual validation prompts** | `./validate-prompt steps --prompt` |
-| `python3 scripts/validate_guides.py <file>` | **Advanced options** | `python3 scripts/validate_guides.py guide.md --use-llm` |
-
-### 3. Manual Validation (Prompt Helper)
-
-If you prefer to validate manually or want to reference the validation criteria without running the full validator, you can use the prompt helper:
-
+**List all sections:**
 ```bash
-# List all available validation sections
 ./validate-prompt --list
-
-# Show validation rules for a specific section
-./validate-prompt overview --rules
-
-# Show LLM prompt for manual validation
-./validate-prompt steps --prompt
-
-# Show both rules and prompt
-./validate-prompt troubleshooting
 ```
 
-**Use Cases:**
-- **Manual Review**: Copy the LLM prompt and paste it into ChatGPT, Claude, or Cursor AI
-- **Reference**: Quickly check what rules apply to each section
-- **Learning**: Understand the validation criteria without running the validator
-- **Custom Validation**: Use the prompts as templates for your own validation tools
+**Get validation rules:**
+```bash
+./validate-prompt overview --rules
+```
 
-### 4. Configuration
+**Get LLM prompt:**
+```bash
+./validate-prompt steps --prompt
+```
+
+**Use the prompt with any LLM tool:**
+1. Copy the prompt output
+2. Paste into ChatGPT, Claude, or Cursor AI
+3. Replace `<PASTE FILE CONTENT HERE>` with your guide content
+4. Review the validation results
+
+## Configuration
 
 Create a `config.yaml` file to customize validation:
 
