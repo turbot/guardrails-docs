@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+# Guide Format Validator - Simple Command
+# ======================================
+#
+# Ultra-simple command to validate any guide file
+# Automatically uses the prompts folder in the same directory
+#
+# Usage:
+#   ./validate <guide-file>
+#   ./validate guide-format-validator/examples/bad-guide.md
+#   ./validate docs/guides/my-guide.md
+#
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Check if guide file is provided
+if [ $# -eq 0 ]; then
+    echo "❌ Error: Please provide a guide file to validate"
+    echo ""
+    echo "Usage:"
+    echo "  ./validate <guide-file>"
+    echo ""
+    echo "Examples:"
+    echo "  ./validate guide-format-validator/examples/bad-guide.md"
+    echo "  ./validate docs/guides/my-guide.md"
+    echo "  ./validate ../docs/guides/some-guide.md"
+    exit 1
+fi
+
+GUIDE_FILE="$1"
+
+# Check if guide file exists
+if [ ! -f "$GUIDE_FILE" ]; then
+    echo "❌ Error: Guide file not found: $GUIDE_FILE"
+    echo ""
+    echo "💡 Tip: Use relative or absolute paths:"
+    echo "  ./validate examples/bad-guide.md"
+    echo "  ./validate /full/path/to/guide.md"
+    exit 1
+fi
+
+echo "🔍 Validating: $GUIDE_FILE"
+echo "📁 Using prompts from: $SCRIPT_DIR/prompts"
+echo ""
+
+# Run validation
+python3 "$SCRIPT_DIR/scripts/validate_guides.py" "$GUIDE_FILE" --prompts-dir "$SCRIPT_DIR/prompts"

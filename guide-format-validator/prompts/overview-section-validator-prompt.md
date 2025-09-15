@@ -1,5 +1,19 @@
 # Overview Section Validator Prompt
 
+## Rule-Based Validation Rules
+```yaml
+overview:
+  required: true
+  content_between: ["H1", "first H2"]
+  start_with: "In this guide, you will:"
+  use_second_person: true
+  require_hyperlink: true
+  format: ["list", "paragraph"]
+  validation_level: "strict"  # strict, warning, info
+```
+
+## LLM Validation Prompt
+
 ## How to use:
 1. Copy the entire content of this file.
 2. Paste it into your LLM tool (e.g., ChatGPT, Claude, Cursor AI).
@@ -24,8 +38,8 @@ You are a documentation style guide validator. Validate the following markdown f
 | Criteria | Pass/Fail/Warning | Suggestions |
 |----------|-------------------|-------------|
 | Overview content exists between H1 and `## Prerequisites` | [✅/❌] | [Fail if missing] |
-| Overview starts with “In this guide, you will:” | [✅/❌] | [Fail if missing] |
-| Uses second person | [✅/❌] | [Fail if not using “you”/“your”] |
+| Overview starts with "In this guide, you will:" | [✅/❌] | [Fail if missing] |
+| Uses second person | [✅/❌] | [Fail if not using "you"/"your"] |
 | Contains at least one hyperlink | [✅/⚠️] | [Warn if missing] |
 | Overview is a list or paragraph | [✅/❌] | [Fail if not] |
 

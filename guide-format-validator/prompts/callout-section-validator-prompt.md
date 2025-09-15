@@ -1,5 +1,19 @@
 # Callout Section Validator Prompt
 
+## Rule-Based Validation Rules
+```yaml
+callouts:
+  required: false
+  format: "> [!TYPE]"
+  allowed_types: ["NOTE", "CAUTION", "IMPORTANT", "TIP", "WARNING"]
+  case_sensitive: false
+  detect_old_format: true
+  old_formats: ["**Note:**", ":warning:", "**Caution:**", "**Important:**", "**Tip:**"]
+  validation_level: "strict"
+```
+
+## LLM Validation Prompt
+
 ## How to use:
 1. Copy the entire content of this file.
 2. Paste it into your LLM tool (e.g., ChatGPT, Claude, Cursor AI).

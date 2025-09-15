@@ -1,5 +1,22 @@
 # Prerequisites Section Validator Prompt
 
+## Rule-Based Validation Rules
+```yaml
+prerequisites:
+  required: true
+  header: "## Prerequisites"
+  comes_after: "overview"
+  format: "bulleted_list"
+  punctuation_rules:
+    simple_items_no_periods: true
+    sentences_end_with_periods: true
+  content_type: "setup_access_items"
+  use_second_person: true
+  validation_level: "strict"
+```
+
+## LLM Validation Prompt
+
 ## How to use:
 1. Copy the entire content of this file.
 2. Paste it into your LLM tool (e.g., ChatGPT, Claude, Cursor AI).

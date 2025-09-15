@@ -1,5 +1,17 @@
 # Troubleshooting Section Validator Prompt
 
+## Rule-Based Validation Rules
+```yaml
+troubleshooting:
+  required: true
+  header: "## Troubleshooting"
+  format: "markdown_table"
+  last_row_mentions: "Further Assistance"
+  validation_level: "strict"
+```
+
+## LLM Validation Prompt
+
 ## How to use:
 1. Copy the entire content of this file.
 2. Paste it into your LLM tool (e.g., ChatGPT, Claude, Cursor AI).

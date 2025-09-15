@@ -1,5 +1,24 @@
 # Steps Section Validator Prompt
 
+## Rule-Based Validation Rules
+```yaml
+steps:
+  required: true
+  header_format: "## Step {n}:"
+  sequential_numbering: true
+  no_duplicates: true
+  no_skips: true
+  starts_with_verb: true
+  title_case: true
+  has_content: true
+  comes_before: ["Review", "Next Steps", "Troubleshooting"]
+  review_header: "## Review"  # Not "## Step Review"
+  use_second_person: true
+  validation_level: "strict"
+```
+
+## LLM Validation Prompt
+
 ## How to use:
 1. Copy the entire content of this file.
 2. Paste it into your LLM tool (e.g., ChatGPT, Claude, Cursor AI).
@@ -53,5 +72,5 @@ The steps section does not follow the required standard format. Steps are not de
 
 **Markdown file to validate:**
 ```
-
+<PASTE FILE CONTENT HERE>
 ```
