@@ -8,7 +8,7 @@
 #
 # Usage:
 #   ./validate <guide-file>
-#   ./validate guide-format-validator/examples/bad-guide.md
+#   ./validate guide-validator/examples/bad-guide.md
 #   ./validate docs/guides/my-guide.md
 #
 
@@ -23,7 +23,7 @@ if [ $# -eq 0 ]; then
     echo "  ./validate <guide-file>"
     echo ""
     echo "Examples:"
-    echo "  ./validate guide-format-validator/examples/bad-guide.md"
+    echo "  ./validate guide-validator/examples/bad-guide.md"
     echo "  ./validate docs/guides/my-guide.md"
     echo "  ./validate ../docs/guides/some-guide.md"
     exit 1

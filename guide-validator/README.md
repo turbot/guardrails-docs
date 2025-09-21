@@ -18,7 +18,7 @@ A simple validation tool for markdown guide files that ensures compliance with d
 
 1. **Install:**
    ```bash
-   cd guide-format-validator
+   cd guide-validator
    ./install.sh
    ```
 
@@ -45,7 +45,7 @@ A simple validation tool for markdown guide files that ensures compliance with d
 $ ./validate /path/to/guide.md
 
 🔍 Validating: /path/to/guide.md
-📁 Using prompts from: /path/to/guide-format-validator/prompts
+📁 Using prompts from: /path/to/guide-validator/prompts
 
 # Guide Validation Results
 **File:** /path/to/guide.md
@@ -340,11 +340,11 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: |
-          cd guide-format-validator
+          cd guide-validator
           pip install -r requirements.txt
       - name: Validate guides
         run: |
-          cd guide-format-validator
+          cd guide-validator
           python3 scripts/validate_guides.py docs/guides/my-guide.md
 ```
 
@@ -356,10 +356,10 @@ repos:
     hooks:
       - id: validate-guides
         name: Validate Guide Format
-        entry: python3 guide-format-validator/scripts/validate_guides.py
+        entry: python3 guide-validator/scripts/validate_guides.py
         language: system
         files: \.md$
-        args: [--config, guide-format-validator/config.yaml]
+        args: [--config, guide-validator/config.yaml]
 ```
 
 ## Adding New Validators
