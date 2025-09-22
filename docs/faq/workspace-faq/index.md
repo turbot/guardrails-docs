@@ -41,22 +41,22 @@ Installing a Guardrails mod makes the resource types, controls and policies avai
 
 ## Why don't I see all controls for my resources?
 
-**Note**: This applies when the `Turbot > Materialization` policy is set to `Automatic`. If set to `Always`, all controls will appear regardless of policy settings.
+> [!NOTE]
+> Control creation based on policy settings is only enabled if the `Turbot > Materialization` policy is set to `Automatic`. If the `Turbot > Materialization` policy is set to `Always` or your workspace doesn't have the `Turbot > Materialization` policy type installed, all controls will appear regardless of policy settings.
 
 Most controls are only created when policy settings exist for the primary policy that drives that control.
 
-For example, the `AWS > S3 > Bucket > Approved` control will only appear on your S3 buckets when you have policy settings for the `AWS > S3 > Bucket > Approved` policy type. If you only create policy settings for sub-policies, like `AWS > S3 > Bucket > Approved > Regions`, the control will **not** be created.
+For example, the `AWS > S3 > Bucket > Approved` control will only appear on your S3 buckets when you have a policy setting for the `AWS > S3 > Bucket > Approved` policy type. However, if you only create policy settings for its sub-policies, like `AWS > S3 > Bucket > Approved > Regions`, the control will **not** be created.
 
-CMDB and configuration controls, like `AWS > EC2 > Instance > Discovery` and `AWS > Turbot > Event Handlers`, are always created with their related policy values.
-
-You can view all available control types for a resource by navigating to a specific resource, and then selecting the `Controls` tab.
+Controls used to discover resources and configure accounts, like `AWS > EC2 > Instance > Discovery` and `AWS > Turbot > Event Handlers`, are always created with their related policy values.
 
 ## Why do some policy types have no values?
 
-**Note**: This applies when the `Turbot > Materialization` policy is set to `Automatic`. If set to `Always`, all policy values will be created regardless of whether policy settings exist.
+> [!NOTE]
+> Policy value creation based on policy settings is only enabled if the `Turbot > Materialization` policy is set to `Automatic`. If the `Turbot > Materialization` policy is set to `Always` or your workspace doesn't have the `Turbot > Materialization` policy type installed, all policy values will be created regardless of policy settings.
 
 Most policy types only create policy values when you explicitly set a policy setting somewhere in the resource hierarchy. These are typically policies that drive specific controls like `AWS > S3 > Bucket > Approved` or `AWS > EC2 > Instance > Active`.
 
-For example, if you set the `AWS > S3 > Bucket > Approved` policy at the AWS account level, Guardrails will create policy values for this policy type and all of its sub-policies, like `AWS > S3 > Bucket > Approved > Regions` for all S3 buckets in that account. Without a policy setting somewhere in the hierarchy, no policy value exists for these policy types.
+For example, if you create a policy setting for the `AWS > S3 > Bucket > Approved` policy type at the AWS account level, Guardrails will create policy values for this policy type and all of its sub-policies (like `AWS > S3 > Bucket > Approved > Regions`) for all S3 buckets in that account.
 
-Some policy types always have values created automatically when resources are discovered, using default values. These CMDB and configuration policies include settings like CMDB, event handlers, and account notification recipients.
+Some policy types, like those related to CMDB and event handler configuration, always have values created when resources are discovered.

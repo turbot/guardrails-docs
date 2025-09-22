@@ -5,7 +5,7 @@ sidebar_label: Values & Settings
 
 # Policy Values & Settings
 
-### Policy Settings
+## Policy Settings
 
 Each policy type may have many settings for different resources.
 
@@ -25,10 +25,10 @@ Policy settings are only valid for target resources and their ancestors.
 down to the specific S3 Bucket such as <code>Turbot > Folder A > AWS 1111 > us-east-1 > my-bucket</code>.
 </div>
 
-### Policy Values
+## Policy Values
 
 A **Policy Value** is the effective policy setting on an instance of a resource
-type. Every resource that is targeted by a given policy setting will have its
+type. A resource that is targeted by a given policy setting will have its
 own value for that policy, which will be the resultant calculated policy for the
 "winning" policy in the hierarchy.
 
@@ -39,6 +39,13 @@ inherited by all resources below.
 
 While policy settings can exist above the target in the resource hierarchy,
 policy values exist only on the target.
+
+Policy value creation is controlled by the `Turbot > Materialization` policy, which supports two modes:
+
+- **Always**: Policy values are created for all resources regardless of whether policy settings exist. This provides comprehensive coverage but may impact performance in large environments.
+- **Automatic**: Policy values are only created when you explicitly set a policy setting somewhere in the resource hierarchy. For example, if no policy setting exists for `AWS > S3 > Bucket > Approved` at the AWS account level, then S3 buckets in that account will not have policy values for `AWS > S3 > Bucket > Approved` or its sub-policies.
+
+Note that some policy types, such as those related to CMDB and event handler configuration, always create values when resources are discovered, regardless of the materialization mode.
 
 <div className="example">
   <strong>AWS > S3 > Bucket > Approved</strong>
