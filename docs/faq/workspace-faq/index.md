@@ -41,8 +41,7 @@ Installing a Guardrails mod makes the resource types, controls and policies avai
 
 ## Why don't I see all controls for my resources?
 
-> [!NOTE]
-> Control creation based on policy settings is only enabled if the `Turbot > Materialization` policy is set to `Automatic`. If the `Turbot > Materialization` policy is set to `Always` or your workspace doesn't have the `Turbot > Materialization` policy type installed, all controls will appear regardless of policy settings.
+**Note**: If the `Turbot > Materialization` policy is set to `Always` or your workspace doesn't have the `Turbot > Materialization` policy type installed, all controls will appear regardless of policy settings.
 
 Most controls are only created when policy settings exist for the primary policy that drives that control.
 
@@ -52,8 +51,7 @@ Controls used to discover resources and configure accounts, like `AWS > EC2 > In
 
 ## Why do some policy types have no values?
 
-> [!NOTE]
-> Policy value creation based on policy settings is only enabled if the `Turbot > Materialization` policy is set to `Automatic`. If the `Turbot > Materialization` policy is set to `Always` or your workspace doesn't have the `Turbot > Materialization` policy type installed, all policy values will be created regardless of policy settings.
+**Note**: If the `Turbot > Materialization` policy is set to `Always` or your workspace doesn't have the `Turbot > Materialization` policy type installed, all policy values will be created regardless of policy settings.
 
 Most policy types only create policy values when you explicitly set a policy setting somewhere in the resource hierarchy. These are typically policies that drive specific controls like `AWS > S3 > Bucket > Approved` or `AWS > EC2 > Instance > Active`.
 
