@@ -28,8 +28,8 @@ down to the specific S3 Bucket such as <code>Turbot > Folder A > AWS 1111 > us-e
 ## Policy Values
 
 A **Policy Value** is the effective policy setting on an instance of a resource
-type. A resource that is targeted by a given policy setting will have its
-own value for that policy, which will be the resultant calculated policy for the
+type. Resources that are targeted by a given policy setting will have their own
+values for that policy, which will be the resultant calculated policy for the
 "winning" policy in the hierarchy.
 
 Policy settings are inherited through the resource hierarchy, and values for a
