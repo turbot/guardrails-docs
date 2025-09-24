@@ -5,17 +5,17 @@ sidebar_label: Values & Settings
 
 # Policy Values & Settings
 
-### Policy Settings
+## Policy Settings
 
 Each policy type may have many settings for different resources.
 
-<div className="example">  The policy type <code>AWS > S3 > Bucket > Approved</code> may be set to `Enforce: Delete unapproved if new & empty` for development accounts, but deliberately limited to `Check: Approved` for production accounts.
+<div className="example">  The policy type <code>AWS > S3 > Bucket > Approved</code> may be set to <code>Enforce: Delete unapproved if new & empty</code> for development accounts, but deliberately limited to <code>Check: Approved</code> for production accounts.
 </div>
 
 **Policy Settings** are inherited down through the hierarchy of resources.
 
 <div className="example"> <code>AWS > S3 > Bucket > Approved</code> may be set
-to `Enforce: Delete unapproved if new & empty` at Turbot level - ensuring all buckets are deleted if they don't meet the approval criteria (e.g. in approved region).
+to <code>Enforce: Delete unapproved if new & empty</code> at Turbot level - ensuring all buckets are deleted if they don't meet the approval criteria (e.g. in approved region).
 </div>
 
 Policy settings are only valid for target resources and their ancestors.
@@ -25,11 +25,11 @@ Policy settings are only valid for target resources and their ancestors.
 down to the specific S3 Bucket such as <code>Turbot > Folder A > AWS 1111 > us-east-1 > my-bucket</code>.
 </div>
 
-### Policy Values
+## Policy Values
 
 A **Policy Value** is the effective policy setting on an instance of a resource
-type. Every resource that is targeted by a given policy setting will have its
-own value for that policy, which will be the resultant calculated policy for the
+type. Resources that are targeted by a given policy setting will have their own
+values for that policy, which will be the resultant calculated policy for the
 "winning" policy in the hierarchy.
 
 Policy settings are inherited through the resource hierarchy, and values for a
@@ -40,11 +40,18 @@ inherited by all resources below.
 While policy settings can exist above the target in the resource hierarchy,
 policy values exist only on the target.
 
+Policy value creation is controlled by the `Turbot > Materialization` policy, which supports two modes:
+
+- **Always**: Policy values are created for all resources regardless of whether policy settings exist. This provides comprehensive coverage but may impact performance in large environments.
+- **Automatic**: Primary policy values are only created when you explicitly set a primary policy in the resource hierarchy. For sub-policy types, their values are also created when a related primary policy setting is created. For example, if no policy setting exists for `AWS > S3 > Bucket > Approved` at the AWS account level, then S3 buckets in that account will not have policy values for `AWS > S3 > Bucket > Approved` or its sub-policies.
+
+Note that some policy types, such as those related to CMDB and event handler configuration, always create values when resources are discovered, regardless of the materialization mode.
+
 <div className="example">
   <strong>AWS > S3 > Bucket > Approved</strong>
   <ul>
     <li> A <strong>Policy Setting</strong> for <code>AWS > S3 > Bucket > Approved</code> can be made on an AWS Account, Region, or individual bucket.</li>
-    <li> <strong>Every</strong> S3 bucket has a <strong>Policy Value</strong> for <code>AWS > S3 > Bucket > Approved</code>. The policy value may have been set at the AWS account, region, and/or individual bucket - this is the effective value for this instance.</li>
+    <li> <strong>Every</strong> S3 bucket that has a <strong>Policy Setting</strong> for <code>AWS > S3 > Bucket > Approved</code> will have a corresponding <strong>Policy Value</strong> for <code>AWS > S3 > Bucket > Approved</code>. The policy value represents the effective setting for this instance, which may have been inherited from the AWS account, region, or set directly on the individual bucket.</li>
   </ul>
 </div>
 

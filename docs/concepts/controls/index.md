@@ -17,6 +17,15 @@ Resource State + Policy Setting = Control State
 
 As a concrete example: A cloud storage resource does not have encryption at rest configured. In Guardrails, the encryption at rest policy asserts that storage should be encrypted at rest. The encryption at rest control evaluates resource state against the policy then acts. In this case, the control will go into an `alarm` state. If the policy is set to check mode then the control will only go into `alarm`. If in enforce mode, the control will go into `alarm` and Guardrails will act to remediate the resource. When the remediation is successful, the control will rerun then go into `ok`.
 
+## Control Creation
+
+Control creation is controlled by the `Turbot > Materialization` policy, which supports two modes:
+
+- **Always**: Controls are created for all resources regardless of whether policy settings exist. This provides comprehensive coverage but may impact performance in large environments.
+- **Automatic**: Controls are only created when you explicitly set the primary policy in the resource hierarchy. For example, the `AWS > S3 > Bucket > Approved` control will only appear on your S3 buckets when you have a policy setting for the `AWS > S3 > Bucket > Approved` policy type. However, if you only create policy settings for its sub-policies, like `AWS > S3 > Bucket > Approved > Regions`, the control will **not** be created.
+
+Note that some controls, such as those used to discover resources and configure accounts (like `AWS > EC2 > Instance > Discovery` and `AWS > Turbot > Event Handlers`), are always created regardless of the materialization mode.
+
 ## Control Types
 
 A **Control Type** is a definition for a particular control. Each different control type is a blueprint that can be configured for resources, such the **Approved** control type for AWS S3 buckets. In this case, the control `AWS > S3 > Bucket > Approved` evaluates policy settings to determine what it means for an S3 bucket to be "Approved," and will take the action defined in the associated, identically named policy (`AWS > S3 > Bucket > Approved`).
