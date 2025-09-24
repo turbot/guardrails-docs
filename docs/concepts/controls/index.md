@@ -22,7 +22,7 @@ As a concrete example: A cloud storage resource does not have encryption at rest
 Control creation is controlled by the `Turbot > Materialization` policy, which supports two modes:
 
 - **Always**: Controls are created for all resources regardless of whether policy settings exist. This provides comprehensive coverage but may impact performance in large environments.
-- **Automatic**: Controls are only created when you explicitly set a policy setting for the primary policy that drives that control somewhere in the resource hierarchy. For example, the `AWS > S3 > Bucket > Approved` control will only appear on your S3 buckets when you have a policy setting for the `AWS > S3 > Bucket > Approved` policy type. However, if you only create policy settings for its sub-policies, like `AWS > S3 > Bucket > Approved > Regions`, the control will **not** be created.
+- **Automatic**: Controls are only created when you explicitly set the primary policy in the resource hierarchy. For example, the `AWS > S3 > Bucket > Approved` control will only appear on your S3 buckets when you have a policy setting for the `AWS > S3 > Bucket > Approved` policy type. However, if you only create policy settings for its sub-policies, like `AWS > S3 > Bucket > Approved > Regions`, the control will **not** be created.
 
 Note that some controls, such as those used to discover resources and configure accounts (like `AWS > EC2 > Instance > Discovery` and `AWS > Turbot > Event Handlers`), are always created regardless of the materialization mode.
 
