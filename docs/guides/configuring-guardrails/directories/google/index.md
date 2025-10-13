@@ -19,11 +19,12 @@ Organizations using Google Cloud Platform (GCP) can use Google as an identity pr
 ## Guardrails Google Directory Initialization
 
 1. Log into Guardrails using a profile with `Turbot/Owner` access.
-2. At the root level, select the **Permissions** tab (designated with a user icon), then click **Directories**.
-3. Click the **New Directory** button and finally the **Google** option.
-4. Enter a name for the directory and a description if desired.
-5. Enter the **Hosted Domain**. Guardrails will restrict login for this directory to this specific domain name only.
-6. Define the **Profile ID Template**. This profile ID MUST be unique, but it is possible to have multiple directories map users to the same ID. The value cannot be changed unless the directory is **New**.
+1. At the root level, click the **Workspace** tab on the top right hand corner.
+1. Select the **Permissions** tab (designated with a user icon), then click **Directories**.
+1. Click the **New Directory** button and finally the **Google** option.
+1. Enter a name for the directory and a description if desired.
+1. Enter the **Hosted Domain**. Guardrails will restrict login for this directory to this specific domain name only.
+1. Define the **Profile ID Template**. This profile ID MUST be unique, but it is possible to have multiple directories map users to the same ID. The value cannot be changed unless the directory is **New**.
 
 ## Input Google Information into Guardrails
 
