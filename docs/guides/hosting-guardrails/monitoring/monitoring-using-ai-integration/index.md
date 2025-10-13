@@ -109,37 +109,28 @@ If you want to restrict the server from performing mutating actions (Create/Upda
 Paste the following prompt into your MCP chat. Approve requested tool actions when prompted.
 
 ```
-Uncaught Exception:
-
 Analyze CloudWatch Logs for Lambda Function Errors
 
-Please perform the following analysis steps:
+1. Run error search query:
+   aws logs start-query --log-group-name /aws/lambda/turbot_5_50_6_worker --start-time $(date -v-3H +%s) --end-time $(date +%s) --query-string "fields @timestamp, @message | filter level = 'error'" --profile mcp-prod --region us-east-2
 
-1. Run the initial error search query:
-   aws logs start-query --log-group-name /aws/lambda/turbot_5_50_6_worker --start-time $(date -v-3H +%s) --end-time $(date +%s) --query-string "filter @message like /Uncaught Exception/ | limit 5" --profile mcp-prod --region us-east-2 | cat
-
-2. From the results, extract and list:
-   - The error message
-   - The requestId associated with each error
-
-3. For each requestId found, run a detailed log analysis query:
-   aws logs start-query --log-group-name /aws/lambda/turbot_5_50_6_worker --start-time $(date -v-3H +%s) --end-time $(date +%s) --query-string "filter @requestId = 'REQUEST_ID_HERE'" --profile mcp-prod --region us-east-2 | cat
-
-4. For each request's complete log analysis, extract and report:
+2. Extract from results:
+   - error message
+   - requestId
    - tenantId
-   - policyId
-   - source
-   - controlId (if available)
-   - Error details (if any)
-   - Request timeline (start/end times)
-   - Lambda function metrics (memory usage, duration)
+   - timestamp
 
-5. Provide a summary of findings that includes:
-   - Total number of errors found
-   - Common patterns in the errors
-   - Most affected tenants
-   - Any correlation between errors and specific policies/controls
-   - Recommendations for investigation or remediation
+3. For each requestId, run detailed analysis:
+   aws logs start-query --log-group-name /aws/lambda/turbot_5_50_6_worker --start-time $(date -v-3H +%s) --end-time $(date +%s) --query-string "filter @requestId = 'REQUEST_ID_HERE'" --profile mcp-prod --region us-east-2
+
+4. Present findings in table format:
+   | Timestamp | Error Code | Error Message | Tenant | Request ID |
+
+5. Include summary of:
+   - Total errors found
+   - Error patterns
+   - Affected tenants
+   - Recommendations
 
 Please execute these steps and provide the complete analysis in a structured format.
 ```
@@ -147,6 +138,28 @@ Please execute these steps and provide the complete analysis in a structured for
 [!NOTE]
 - Replace the `--profile` and `--region` values to match your environment if different.
 - If your environment uses a different Lambda worker log group name, substitute `/aws/lambda/turbot_5_50_6_worker` accordingly.
+
+### Example Output
+
+```
+/aws/lambda/turbot_5_50_7_worker  
+No database errors found in the last 3 hours.
+
+/aws/lambda/turbot_5_51_3_worker (Top 5, by most recent)
+
+| Timestamp           | Error Code | Error Message (Summary)                                                            | Tenant      | Request ID                              |
+|---------------------|------------|------------------------------------------------------------------------------------|--------------|------------------------------------------|
+| 2025-05-23 12:34:07 | 40P01      | deadlock detected during DELETE FROM ONLY "turbot_acme"."controls"                | turbot-acme  | 7cce8956-76c6-5ef6-8463-e9fc1bb5e85b    |
+| 2025-05-23 12:34:07 | 40P01      | deadlock detected during DELETE FROM ONLY "turbot_acme"."controls"                | turbot-acme  | ee54dcd6-0233-59d1-b88d-16f56f40eca6    |
+| 2025-05-23 12:34:07 | 40P01      | deadlock detected during DELETE FROM ONLY "turbot_acme"."controls"                | turbot-acme  | 2d4c3591-1191-5a30-8b21-9c7b7ce083dc    |
+| 2025-05-23 12:34:05 | 40P01      | deadlock detected during DELETE FROM ONLY "turbot_acme"."controls"                | turbot-acme  | 4a7d752b-955e-5b7c-bc39-1581f828566d    |
+| 2025-05-23 12:34:05 | 40P01      | deadlock detected during DELETE FROM ONLY "turbot_acme"."controls"                | turbot-acme  | 8b8e0349-644d-59b7-a60f-63e3093c3880    |
+
+**Error Pattern Observed:**  
+All errors are PostgreSQL `40P01` (deadlock detected) during DELETE operations on the `controls` table in the `turbot_acme` schema.  
+All errors are for the tenant **turbot-acme**.  
+The errors are tightly clustered in time, suggesting potential contention or concurrency issues.
+```
 
 ## Step 4: Review and iterate
 
