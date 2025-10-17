@@ -103,6 +103,27 @@ class GuideValidator:
         except Exception as e:
             raise Exception(f"Could not read file {file_path}: {e}")
 
+    def _is_llm_error(self, result: str) -> bool:
+        """
+        Check if the LLM validation result contains an error that should stop further validations.
+        """
+        if not result or not isinstance(result, str):
+            return False
+
+        # Check for common API errors that would affect all subsequent calls
+        error_indicators = [
+            "[LLM Error:",
+            "credit balance is too low",
+            "rate limit exceeded",
+            "authentication failed",
+            "invalid API key",
+            "quota exceeded",
+            "service unavailable"
+        ]
+
+        result_lower = result.lower()
+        return any(indicator.lower() in result_lower for indicator in error_indicators)
+
     def _run_llm_validation(self, content: str, validator_name: str) -> str:
         """
         Run LLM-based validation for a specific validator.
@@ -156,10 +177,23 @@ class GuideValidator:
         llm_results = {}
         if self.llm_client and self.config['llm']['enabled']:
             print("Running LLM validation...")
-            for validator_name in ['Overview', 'Prerequisites', 'Steps', 'Troubleshooting', 'Callout']:
+            validators_to_run = ['Overview', 'Prerequisites', 'Steps', 'Troubleshooting', 'Callout']
+            validators_run = 0
+
+            for validator_name in validators_to_run:
                 if self.config['validators'].get(validator_name.lower(), True):
                     llm_result = self._run_llm_validation(content, validator_name)
                     llm_results[validator_name] = llm_result
+                    validators_run += 1
+
+                    # Stop on first error to avoid unnecessary API calls
+                    if self._is_llm_error(llm_result):
+                        remaining = len([v for v in validators_to_run[validators_run:]
+                                       if self.config['validators'].get(v.lower(), True)])
+                        if remaining > 0:
+                            print(f"⚠️  LLM validation stopped due to error in {validator_name} validator")
+                            print(f"ℹ️  Skipped {remaining} remaining validators to avoid unnecessary API calls")
+                        break
 
         return {
             'file': file_path,

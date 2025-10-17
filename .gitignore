@@ -140,26 +140,38 @@ docs/mods/kubernetes
 docs/reference/graphql
 sidebar-generated.json
 
-# Guide Format Validator runtime files
-guide-format-validator/scripts/__pycache__/
-guide-format-validator/**/__pycache__/
-guide-format-validator/**/*.pyc
-guide-format-validator/**/*.pyo
-guide-format-validator/**/*.pyd
-guide-format-validator/.Python
-guide-format-validator/build/
-guide-format-validator/develop-eggs/
-guide-format-validator/dist/
-guide-format-validator/downloads/
-guide-format-validator/eggs/
-guide-format-validator/.eggs/
-guide-format-validator/lib/
-guide-format-validator/lib64/
-guide-format-validator/parts/
-guide-format-validator/sdist/
-guide-format-validator/var/
-guide-format-validator/wheels/
-guide-format-validator/*.egg-info/
-guide-format-validator/.installed.cfg
-guide-format-validator/*.egg
-guide-format-validator/MANIFEST
+# Python (for Guide Validator and any Python tools)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Guide Validator specific
+guide-validator/.venv/
+guide-validator/__pycache__/
