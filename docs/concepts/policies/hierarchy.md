@@ -105,13 +105,10 @@ wins.
 
 ![](/images/docs/guardrails/inherit-5.png)
 
-#### Policy Packs create automated collections of resources using search
+#### Policy Packs in the hierarchy
 
-![policy packs](/images/docs/guardrails/policy-pack.png)
+Policies set on [Policy Packs](/guardrails/docs/concepts/policy-packs) are injected into the hierarchy and evaluated in order, just like folders and resources. For more details, see the [Policy Packs documentation](/guardrails/docs/concepts/policy-packs).
 
-#### Policies set on Policy Packs are injected into the hierarchy
-
-![policy packs](/images/docs/guardrails/policy-pack-2.png)
 
 ## Permissions and Policy Management
 
