@@ -23,7 +23,7 @@ Consider an S3 bucket `my-bucket` in the resource hierarchy for ACME:
 
 which has two policy packs `X` and `Y` attached to it (in that order).
 
-![](/images/docs/guardrails/sf-inject.png)
+![](sf-inject.png)
 
 The policy hierarchy would be:
 
@@ -51,7 +51,7 @@ The effective policy value as default setting would be:
 | AWS > S3 > Bucket > Encryption at Rest | "Skip"        |
 | AWS > S3 > Bucket > Usage > Limit      | "100"         |
 
-![](/images/docs/guardrails/default-policy.png)
+![](default-policy.png)
 
 The policy hierarchy for `my-bucket` above would now be:
 `Default > Turbot > Folder A > AWS 1111 > us-west-1 > my-bucket`
@@ -87,31 +87,31 @@ wins.
 
 #### Policy recommendations are inherited through the resource hierarchy
 
-![](/images/docs/guardrails/inherit-1.png)
+![policy packs inherit1](inherit-1.png)
 
 #### Lower level recommendations take precedence over inherited recommendations
 
-![](/images/docs/guardrails/inherit-2.png)
+![policy packs inherit2](inherit-2.png)
 
 #### Required settings always take precedence over recommendations
 
-![](/images/docs/guardrails/inherit-3.png)
+![policy packs inherit3](inherit-3.png)
 
 #### Required settings create exceptions to inherited required settings
 
-![](/images/docs/guardrails/inherit-4.png)
+![policy packs inherit4](inherit-4.png)
 
 #### Exceptions can be set at any level, even individual resources
 
-![](/images/docs/guardrails/inherit-5.png)
+![policy packs inherit5](inherit-5.png)
 
 #### Policy Packs create automated collections of resources using search
 
-![policy packs](/images/docs/guardrails/policy-pack.png)
+![policy packs](policy-pack.png)
 
 #### Policies set on Policy Packs are injected into the hierarchy
 
-![policy packs](/images/docs/guardrails/policy-pack-2.png)
+![policy packs](policy-pack-2.png)
 
 ## Permissions and Policy Management
 
