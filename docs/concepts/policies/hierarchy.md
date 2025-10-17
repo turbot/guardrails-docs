@@ -23,7 +23,7 @@ Consider an S3 bucket `my-bucket` in the resource hierarchy for ACME:
 
 which has two policy packs `X` and `Y` attached to it (in that order).
 
-![](/sf-inject.png)
+![](./sf-inject.png)
 
 The policy hierarchy would be:
 
@@ -51,7 +51,7 @@ The effective policy value as default setting would be:
 | AWS > S3 > Bucket > Encryption at Rest | "Skip"        |
 | AWS > S3 > Bucket > Usage > Limit      | "100"         |
 
-![](/default-policy.png)
+![](./default-policy.png)
 
 The policy hierarchy for `my-bucket` above would now be:
 `Default > Turbot > Folder A > AWS 1111 > us-west-1 > my-bucket`
@@ -83,7 +83,6 @@ wins.
 | Recommended | Recommended | child recommended setting beats higher level recommended       |
 | Recommended | Required    | child setting beats higher level recommended                   |
 
----
 
 #### Policy recommendations are inherited through the resource hierarchy
 
@@ -105,9 +104,11 @@ wins.
 
 ![policy packs inherit5](./inherit-5.png)
 
+
+<!-- Issue -->
 #### Policy Packs create automated collections of resources using search
 
-![policy packs](./policy-pack.png)
+![policy pack main](./policy-pack.png)
 
 #### Policies set on Policy Packs are injected into the hierarchy
 
