@@ -9,18 +9,21 @@ sidebar_label: Values & Settings
 
 Each policy type may have many settings for different resources.
 
-<div className="example">  The policy type <code>AWS > S3 > Bucket > Approved</code> may be set to <code>Enforce: Delete unapproved if new & empty</code> for development accounts, but deliberately limited to <code>Check: Approved</code> for production accounts.
+<div className="example">  
+The policy type <code>AWS > S3 > Bucket > Approved</code> may be set to <code>Enforce: Delete unapproved if new & empty</code> for development accounts, but deliberately limited to <code>Check: Approved</code> for production accounts.
 </div>
 
 **Policy Settings** are inherited down through the hierarchy of resources.
 
-<div className="example"> <code>AWS > S3 > Bucket > Approved</code> may be set
+<div className="example"> 
+<code>AWS > S3 > Bucket > Approved</code> may be set
 to <code>Enforce: Delete unapproved if new & empty</code> at Turbot level - ensuring all buckets are deleted if they don't meet the approval criteria (e.g. in approved region).
 </div>
 
 Policy settings are only valid for target resources and their ancestors.
 
-<div className="example"> The Policy Type
+<div className="example"> 
+The Policy Type
 <code>AWS > S3 > Bucket > Approved</code> may be set at any resource level from Turbot
 down to the specific S3 Bucket such as <code>Turbot > Folder A > AWS 1111 > us-east-1 > my-bucket</code>.
 </div>

@@ -13,7 +13,7 @@ parent, and zero or more children.
 The **Resource Hierarchy** may be many levels deep, but has 3 general tiers:
 
 | Tier                   | Purpose                                                                                            |
-| ---------------------- | ---------------------------------------------------------------------------------------------------|
+| ---------------------- | -------------------------------------------------------------------------------------------------- |
 | Turbot                 | Root node of the hierarchy.                                                                        |
 | Folders                | Hierarchy of folders defined in Guardrails. Typically used to separate resources by business unit. |
 | Discoverable Resources | Resources discovered from various sources such as cloud providers, servers and other services.     |
@@ -72,7 +72,8 @@ All discovered resources are added to the Guardrails Resource Hierarchy.
 [Mods](https://hub.guardrails.turbot.com/#mods) define the structure of these resources, Guardrails simply ensures they
 are valid and structured according to their definition.
 
-<div className="example"> AWS Account 1111 is added as a discoverable resource,
+<div className="example"> 
+AWS Account 1111 is added as a discoverable resource,
 providing Guardrails with permission to query it's resources. The AWS mods in Guardrails then
 crawl and discover all resources in that AWS account (e.g. S3 buckets, IAM users, EC2
 instances) and add them to the Guardrails Resource Hierarchy.

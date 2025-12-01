@@ -49,18 +49,20 @@ take if the resource is not active. The basic form is:
 ```
 
 <div className="example">
-<pre>{`    # AWS > S3 > Bucket Active
-    - Skip
-    - Check: Active
-    - Enforce: Delete with 1 day warning
-    - Enforce: Delete with 3 days warning
-    - Enforce: Delete with 7 days warning
-    - Enforce: Delete with 14 days warning
-    - Enforce: Delete with 30 days warning
-    - Enforce: Delete with 60 days warning
-    - Enforce: Delete with 90 days warning
-    - Enforce: Delete with 180 days warning
-    - Enforce: Delete with 365 days warning`}</pre>
+<pre>
+    # AWS > S3 > Bucket Active
+      - Skip
+      - Check: Active
+      - Enforce: Delete with 1 day warning
+      - Enforce: Delete with 3 days warning
+      - Enforce: Delete with 7 days warning
+      - Enforce: Delete with 14 days warning
+      - Enforce: Delete with 30 days warning
+      - Enforce: Delete with 60 days warning
+      - Enforce: Delete with 90 days warning
+      - Enforce: Delete with 180 days warning
+      - Enforce: Delete with 365 days warning
+</pre>
 </div>
 
 The alarm lifecycle is as follows:

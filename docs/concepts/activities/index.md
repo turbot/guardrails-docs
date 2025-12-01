@@ -22,8 +22,7 @@ infrastructure, including:
 - Records of permission grants, activations, deactivations and revocations.
 
 <div className="example"> Guardrails creates a <code>Bucket created</code> activity when it detects that a new S3 Bucket has been created.  
-This activity includes the bucket name, the creation time, and the person who created it, as well as detailed log information.
-</div>
+This activity includes the bucket name, the creation time, and the person who created it, as well as detailed log information.</div>
 
 Guardrails maintains a history of all activities that you can search and filter,
 providing an audit trail of everything that occurs in your environment. Guardrails
@@ -44,7 +43,7 @@ Activities may be filtered and queried using the
 
 ## Activity Types
 
-| Item             | Action  | Activity Type        | Description                                                                                                                                                                                                                                     |
+| Item             | Action  | Activity Type            | Description                                                                                                                                                                                                                                     |
 | ---------------- | ------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Action           | Notify  | `action_notify`          | When a Guardrails action invokes a `notify` command during a run.                                                                                                                                                                               |
 | Control          | Notify  | `control_notify`         | When a Guardrails control invokes a `notify` command during a run.                                                                                                                                                                              |

@@ -28,7 +28,8 @@ objects.
 If multiple search terms are specified, Guardrails will search for items that
 contain both terms.
 
-<div className="example"> A search for <code>bucket demo</code> will return all resources that contain both <code>bucket</code> <b>AND</b> <code>demo</code>
+<div className="example"> 
+A search for <code>bucket demo</code> will return all resources that contain both <code>bucket</code> <b>AND</b> <code>demo</code>
 </div>
 
 The Guardrails filter syntax can be used to search across all items in the CMDB
@@ -61,20 +62,23 @@ overview of Guardrails filters.
 
 A filter can be negated with the `-` or `!` character
 
-<div className="example"> To find resources that <b>do not</b> contain <code>demo</code> you can search for  <code>!demo</code> or <code>-demo</code>
+<div className="example"> 
+To find resources that <b>do not</b> contain <code>demo</code> you can search for  <code>!demo</code> or <code>-demo</code>
 </div>
 
 The `search` keyword may be used to explicitly specify a full text search. In
 addition to the full text filtering behavior described previously, `search`
 allows you to specify "OR" conditions using a comma separated list of terms.
 
-<div className="example"> To find resources that contain either <code>bucket</code> <b>OR</b> <code>demo</code>, use the <code>search</code> keyword: <code>search:bucket,demo</code>
+<div className="example"> 
+To find resources that contain either <code>bucket</code> <b>OR</b> <code>demo</code>, use the <code>search</code> keyword: <code>search:bucket,demo</code>
 </div>
 
 Regular Expressions are also supported, and should be delimited with forward
 slashes. Note that regular expressions will search the title only.
 
-<div className="example"> To find resources whose title begins with <code>demo</code> use a regular expression: <code>/^demo/</code>
+<div className="example"> 
+To find resources whose title begins with <code>demo</code> use a regular expression: <code>/^demo/</code>
 </div>
 
 #### More full text examples

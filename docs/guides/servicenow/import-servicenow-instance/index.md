@@ -13,8 +13,9 @@ Before you get started, your Turbot Guardrails workspace will require [mods](htt
 
 #### Install the ServiceNow Turbot Guardrails Mod
 
-Guardrails requires a number of mods for the ServiceNow integration to work.  Install these mods:
-1. **ServiceNow Mod**: Install the `turbot/servicenow` mod.  This mod is required by all other ServiceNow mods.  The `turbot/servicenow` mod is required to import ServiceNow instances into a Guardrails workspace. It must be [installed](https://turbot.com/guardrails/docs/guides/configuring-guardrails/install-mod#install-a-mod) before a ServiceNow instance import can start. Ensure it is installed and the Mod installed control is in the green `ok` state.
+Guardrails requires a number of mods for the ServiceNow integration to work. Install these mods:
+
+1. **ServiceNow Mod**: Install the `turbot/servicenow` mod. This mod is required by all other ServiceNow mods. The `turbot/servicenow` mod is required to import ServiceNow instances into a Guardrails workspace. It must be [installed](https://turbot.com/guardrails/docs/guides/configuring-guardrails/install-mod#install-a-mod) before a ServiceNow instance import can start. Ensure it is installed and the Mod installed control is in the green `ok` state.
 2. **Cloud Platform ServiceNow Mods**: Install the platform specific ServiceNow mods relevant to your organization:
    - AWS: `turbot/servicenow-aws`
    - Azure: `turbot/servicenow-azure`
@@ -26,7 +27,7 @@ Note: The installation of other `turbot/servicenow*` mods such as `turbot/servic
 
 Once the `turbot/servicenow` mod is installed, you should be able to see a new option in your `https://{turbot-workspace-url}/apollo/accounts/import`
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-instance-import.png" style={{ boxShadow: 'none', width: 'auto', height: 'auto' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-instance-import.png" />
 
 The following section will cover how to obtain the details from ServiceNow to fill in the Account Import screen.
 
@@ -50,20 +51,19 @@ To create a new Application:
 1. Login to your ServiceNow instance via admin (or an equivalent) user.
 2. Click on the globe icon in the top-right corner to view the current Application Scope.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-application-scope.png" style={{ boxShadow: 'none', width: '75%', height: '75%' }} />
-
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-application-scope.png" />
 
 3. Click on the `Application scope: <App Name>` and click `Open list`. This will take you to the list of applications that you currently have in your instance.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-application-scope-2.png" style={{ boxShadow: 'none', width: '50%', height: '50%' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-application-scope-2.png" />
 
 4. Click on `New` to create a new application then `Start from scratch`.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-application-scope-3.png" style={{ boxShadow: 'none', width: 'auto', height: 'auto' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-application-scope-3.png" />
 
 5. Give a relevant name for the application (e.g. Guardrails Application), do not update/remove the Scope, and click `Create`.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-application-scope-4.png" style={{ boxShadow: 'none', width: '75%', height: '75%' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-application-scope-4.png" />
 
 6. Once the application is created, save the application scope (e.g. `x_1178573_guardrai`) off to the side to be used later while importing a ServiceNow instance into a Guardrails workspace.
 
@@ -75,7 +75,7 @@ To create a new Service Account:
 
 1. In the `All` dropdown menu, search for `User Administration`, scroll down and select `Users` under `User Administration`.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-system-account.png" style={{ boxShadow: 'none', width: '50%', height: '50%' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-system-account.png" />
 
 2. Click on `New` on the top right to create a new Service Account.
 3. Enter an appropriate User ID (e.g. `Guardrails Service Account`) along with other relevant details optional to define.
@@ -83,20 +83,19 @@ To create a new Service Account:
 5. Ensure `Active` and `Web service access only` are both checked.
 6. Click `Submit` to create a new Service Account.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-system-account-2.png" style={{ boxShadow: 'none', width: 'auto', height: 'auto' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-system-account-2.png" />
 
 7. To create/generate a password for the Service Account, open the Service Account you created above from Users page and click on `Set Password`. Save the password off to the side to be used later while importing a ServiceNow instance into a Guardrails workspace.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-system-account-3.png" style={{ boxShadow: 'none', width: 'auto', height: 'auto' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-system-account-3.png" />
 
 8. You'd want to add the `admin` role to the Service Account which will allow Guardrails to manage and sync records correctly in ServiceNow. To add the `admin` role, click on the `Roles` tab for the Service Account and click on `Edit`.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-system-account-4.png" style={{ boxShadow: 'none', width: 'auto', height: 'auto' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-system-account-4.png" />
 
 9. Add the `admin` role and `Save`.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-system-account-5.png" style={{ boxShadow: 'none', width: '75%', height: '75%' }} />
-
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-system-account-5.png" />
 
 > [!NOTE]
 > We recommend the admin role for getting started to avoid access constraints as you are getting started. However your team can evaluate role & permissions options to narrow the scope of the role as appropriate.
@@ -109,11 +108,11 @@ To create an OAuth application:
 
 1. Search for `Application Registry` in the `All` dropdown menu and select `Application Registry` under `System OAuth`.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-oauth-app.png" style={{ boxShadow: 'none', width: '50%', height: '50%' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-oauth-app.png" />
 
 2. Click on `New` and select `Create an OAuth API endpoint for external clients`.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-oauth-app-2.png" style={{ boxShadow: 'none', width: '50%', height: '50%' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-oauth-app-2.png" />
 
 3. Give a relevant name (e.g Guardrails OAuth Application).
 4. Set the `Accessible from` to `All application scopes`.
@@ -121,21 +120,23 @@ To create an OAuth application:
 6. Click on Submit to create the OAuth application.
 7. Save the Client ID and Client Secret off to the side to be used later while importing a ServiceNow instance into a Guardrails workspace.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-oauth-app-3.png" style={{ boxShadow: 'none', width: 'auto', height: 'auto' }} />
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-oauth-app-3.png" />
 
 #### Create a row in the User Preference table
+
 Guardrails requires a row in the `User Preferences` table for the Service Account created previously. This can be done one of two ways:
+
 1. Log into the ServiceNow instance as the service account. ServiceNow will automatically create a row in the User Preferences table.
 2. Or, manually create a row in the `User Preferences` table.
 
-
 To manually create a row in `User Preferences` for the Guardrails user, do the following:
+
 1. In the "All" menu in the top left corner, search for "User Preferences".
 2. In the User Preferences table, click "New" in the top right corner.
 3. Put "apps.current_app" into the "Name" field.
 4. Lookup the name of the Guardrails Service User in the "User" field and select it.
-5. Ignore the "Value" field.  If ServiceNow requires a value, any random string will do.  Guardrails will automatically update this value later.
-6. Verify that a new row exists with a Name of "apps.current_app" and a User that matches the name of the Guardrails Service User.  If the row exists, proceed with the rest of configuration.
+5. Ignore the "Value" field. If ServiceNow requires a value, any random string will do. Guardrails will automatically update this value later.
+6. Verify that a new row exists with a Name of "apps.current_app" and a User that matches the name of the Guardrails Service User. If the row exists, proceed with the rest of configuration.
 
 ## Import a ServiceNow instance
 
@@ -151,8 +152,7 @@ To import a ServiceNow Instance in a Guardrails workspace from the console / UI:
 4. Fill in the rest, `URL`, `Application Scope`, Service Account `Username & `Password`, and your OAuth application `Client ID`and`Client Secret`.
 5. Click `Import` to associate your ServiceNow instance to your Turbot Guardrails workspace.
 
-<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-instance-import-filled.png" style={{ boxShadow: 'none', width: 'auto', height: 'auto' }} />
-
+<img src="/images/docs/guardrails/guides/servicenow/import-servicenow-instance/turbot-guardrails-servicenow-instance-import-filled.png" />
 
 You will then have your instance associated, under the main navigation Policies tab, the `ServiceNow > Config > *` policies are now set.
 

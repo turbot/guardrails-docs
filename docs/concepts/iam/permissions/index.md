@@ -16,13 +16,16 @@ policies.
 
 ![](/images/docs/guardrails/turbot-iam.png)
 
-<div className="example"> Alice is granted Turbot/Owner at the Guardrails (Workspace) level.  She can set permissions, install and uninstall mods, create sub-folders, and import cloud accounts.  She can perform any Turbot/Owner operation anywhere through the hierarchy.
+<div className="example"> 
+Alice is granted Turbot/Owner at the Guardrails (Workspace) level.  She can set permissions, install and uninstall mods, create sub-folders, and import cloud accounts.  She can perform any Turbot/Owner operation anywhere through the hierarchy.
 </div>
 
-<div className="example"> Bob is granted AWS/Metadata in Folder A. He can read metadata for any resources anywhere in FolderA (Account A1 and all its descendants, Account A2 and all its descendants). He has no access to anything in Folder B
+<div className="example">
+Bob is granted AWS/Metadata in Folder A. He can read metadata for any resources anywhere in FolderA (Account A1 and all its descendants, Account A2 and all its descendants). He has no access to anything in Folder B
 </div>
 
-<div className="example"> Carol is granted AWS/S3/ReadOnly in Account A2. She can perform any S3 ReadOnly operation (e.g. ReadOnly, Metadata, Access) in Account A2, but has no access to other services in Account A2 (EC2, etc), and no access to any other AWS accounts
+<div className="example"> 
+Carol is granted AWS/S3/ReadOnly in Account A2. She can perform any S3 ReadOnly operation (e.g. ReadOnly, Metadata, Access) in Account A2, but has no access to other services in Account A2 (EC2, etc), and no access to any other AWS accounts
 </div>
 
 ## Permission Categories, Hierarchy & Inheritance
@@ -70,14 +73,14 @@ SuperUser permissions have unlimited access.
 Guardrails permissions control what users are able to do through the Guardrails Console
 and API.
 There are 2 types of Guardrails permissions:
+
 - `Turbot` permission levels are used to grant Cloud Governance teams access to manage the Guardrails installation, set permissions, and define policy posture.
 - `Account` permission levels are used to grant limited permissions to application teams to provide visibility into the resources and controls in their account and send notifications about events affecting their account.
-
 
 `Turbot` permissions are usually set at the `Turbot` root level, though they are assignable at any level in the hierarchy.
 
 | Level               | Description                                                                                                                               |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **Turbot/Owner**    | Manage permissions (including directories), manage mods AND                                                                               |
 | **Turbot/Admin**    | Manage Guardrails resources and policies, including managing Guardrails folders, AWS Accounts, GCP Projects, Azure Subscriptions, etc AND |
 | **Turbot/Operator** | Run policy values & controls AND                                                                                                          |
@@ -89,21 +92,18 @@ There are 2 types of Guardrails permissions:
 to be metadata, thus **Turbot/ReadOnly** and **Turbot/Metadata** are currently
 the same.
 
-The `Account` permission levels are similar in many ways to the `Turbot` levels, but they are intended to be used for application teams that own the account.  Account teams are often responsible for adhering to corporate governance policy in their account but not for defining or enforcing such policies.  As a result, `Account/Admin` can only configure policies that are related to notification routing.
+The `Account` permission levels are similar in many ways to the `Turbot` levels, but they are intended to be used for application teams that own the account. Account teams are often responsible for adhering to corporate governance policy in their account but not for defining or enforcing such policies. As a result, `Account/Admin` can only configure policies that are related to notification routing.
 
 The account team is often the main point of contact for the account, and users with `Account` permissions are often the target of notifications.
 
 `Account` permissions are only assignable on account resources (AWS Accounts, Azure subscriptions, GCP projects, Kubernetes Clusters, etc).
 
-
-| Level	             | Description
-|--------------------|---------------------------------------------------------
-| **Account/Owner**    |	Manage `Account/*` permissions (only); AND
-| **Account/Admin**    |	Manage account-level policies around notification and issue routing ; AND
-| **Account/Operator** |	Run specific quick actions (cloud provider actions like start/stop instance, set tags, etc); AND
-| **Account/ReadOnly** |	View resource data in the CMDB for the account
-
-
+| Level                | Description                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------ |
+| **Account/Owner**    | Manage `Account/*` permissions (only); AND                                                       |
+| **Account/Admin**    | Manage account-level policies around notification and issue routing ; AND                        |
+| **Account/Operator** | Run specific quick actions (cloud provider actions like start/stop instance, set tags, etc); AND |
+| **Account/ReadOnly** | View resource data in the CMDB for the account                                                   |
 
 &nbsp;
 
@@ -118,7 +118,7 @@ The Guardrails-standard roles described below automatically accounts for any `AW
 settings. By default, access is denied to all AWS services.
 
 | Level             | Description                                                                                                        |
-|-------------------|--------------------------------------------------------------------------------------------------------------------|
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
 | **AWS/SuperUser** | Allows full access permissions to the service with no preventative controls.                                       |
 | **AWS/Owner**     | Manage permissions in AWS, e.g., management of AWS IAM users, groups, roles, and policies AND                      |
 | **AWS/Admin**     | Perform high to medium risk changes, e.g., creating and deleting resources, policy management AND                  |
@@ -129,7 +129,7 @@ settings. By default, access is denied to all AWS services.
 Guardrails also supports permission assignments to Custom Roles and to Custom Groups.
 
 | Level                     | Description                                                  |
-|---------------------------|--------------------------------------------------------------|
+| ------------------------- | ------------------------------------------------------------ |
 | **AWS/Role/{RoleName}**   | Grants access to a custom IAM role                           |
 | **AWS/Group/{GroupName}** | Attaches a custom IAM group to a Guardrails-provisioned user |
 

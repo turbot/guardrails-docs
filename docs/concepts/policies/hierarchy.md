@@ -109,7 +109,6 @@ wins.
 
 Policies set on [Policy Packs](/guardrails/docs/concepts/policy-packs) are injected into the hierarchy and evaluated in order, just like folders and resources. For more details, see the [Policy Packs documentation](/guardrails/docs/concepts/policy-packs).
 
-
 ## Permissions and Policy Management
 
 To manage the policy settings for a resource, the user must have `Turbot/Admin`
@@ -119,14 +118,16 @@ permission for both:
 - Any higher level resources where the policy type already has a required
   setting.
 
-<div className="example"> The policy type <code>AWS > S3 > Bucket >
+<div className="example"> 
+The policy type <code>AWS > S3 > Bucket >
 Encryption at Rest</code> is <code>Recommended</code> to be <code>Enforce: AWS SSE</code> at <code>Turbot</code>
 level. This recommended setting is used for all S3 buckets in the entire
 environment unless a more specific setting is provided. To override this recommendation
 for a specific AWS account 1234 the user only requires <code>Turbot/Admin</code> permission for that AWS account.
 </div>
 
-<div className="example">The policy type <code>AWS > S3 > Bucket >
+<div className="example">
+The policy type <code>AWS > S3 > Bucket >
 Encryption at Rest</code> has a setting of <code>Required</code> to be <code>Enforce: AWS SSE</code> at
 <code>Turbot</code> level. This required setting is in force for all S3 buckets in the
 entire environment. To create an exception for this policy on a specific
