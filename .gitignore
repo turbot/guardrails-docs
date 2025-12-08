@@ -130,6 +130,10 @@ dist
 .pnp.*
 .DS_Store
 
+# vscode
+.vscode/
+
+
 docs/mods/aws
 docs/mods/azure
 docs/mods/turbot
