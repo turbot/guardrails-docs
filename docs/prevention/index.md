@@ -4,13 +4,15 @@ title: Prevention
 
 # Prevention
 
-
+<!--
 <object
   data="/images/prevention/vector-graphics/hero-motion.svg"
   type="image/svg+xml"
   aria-label="Prevention Security Flow Diagram"
+  style="width: 70%; height: auto; margin: 0 auto; padding: 20px 0;"
 />
 
+-->
 
 Turbot Guardrails enables prevention-first cloud security, stopping misconfigurations, policy violations, and risky deployments before they reach production.
 
