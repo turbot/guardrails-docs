@@ -124,6 +124,10 @@
         "id": "prevention/accounts",
         "link": "prevention/accounts",
         "items": [
+          "prevention/accounts/organizations",
+          "prevention/accounts/folders",
+          "prevention/accounts/visualize",
+          "prevention/accounts/detail"
         ]
       },
       {
@@ -131,6 +135,12 @@
         "id": "prevention/objectives",
         "link": "prevention/objectives",
         "items": [
+          "prevention/objectives/benchmarks",
+          "prevention/objectives/objectives",
+          "prevention/objectives/priorities",
+          "prevention/objectives/categories",
+          "prevention/objectives/benchmark-detail",
+          "prevention/objectives/objective-detail"
         ]
       },
       {
@@ -138,8 +148,14 @@
         "id": "prevention/preventions",
         "link": "prevention/preventions",
         "items": [
+          "prevention/preventions/preventions",
+          "prevention/preventions/examples",
+          "prevention/preventions/types",
+          "prevention/preventions/layers",
+          "prevention/preventions/detail"
         ]
       },
+      "prevention/recommendations",
       {
         "type": "category",
         "id": "prevention/simulator",
