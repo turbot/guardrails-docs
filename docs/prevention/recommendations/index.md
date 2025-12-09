@@ -11,273 +11,70 @@ The Recommendations page provides prioritized, actionable guidance for implement
 
 ## Understanding Recommendations
 
-Recommendations are specific, actionable preventions you should implement to improve your security posture. Each recommendation:
-- Achieves one or more prevention objectives
-- Has a clear priority level (P1, P2, P3, P4)
-- Includes implementation guidance
-- Shows the expected security impact
-- Belongs to a security category
+Recommendations are your prioritized to-do list for improving cloud security. Each one tells you a specific prevention to implement, explains why it matters, and shows you the security impact you'll get. Unlike the Objectives page (which shows what's possible) or the Preventions page (which shows what's already active), Recommendations focuses on what you should do next based on your current gaps.
 
-Unlike the Objectives or Preventions pages which show what's possible, the Recommendations page focuses on what you should do next based on your current environment and gaps.
+Every recommendation has a priority level (P1 through P4) indicating how critical it is, belongs to a security category (like Data Governance or Identity & Access), and includes implementation guidance so you can actually deploy it. The page sorts recommendations by opportunity—considering both the security impact and how many resources currently lack the control—so the most valuable work surfaces first.
 
-## Page Layout
+## What Makes This Useful
 
-The Recommendations page displays:
+The real value of Recommendations is focus. You might have 200 prevention objectives across AWS, Azure, and GCP, but you can't implement everything at once. Which ones matter most right now? Which ones protect the most resources? Which ones address your biggest compliance gaps? Recommendations answers these questions by analyzing your current environment, identifying where you lack preventive controls, and prioritizing what to fix.
 
-### Header Section
+The default sorting—Opportunity (High to Low)—weighs several factors. A P1 objective protecting 50 unprotected accounts ranks higher than a P4 objective protecting 100 accounts. A control required by multiple compliance frameworks you're pursuing ranks higher than one that's not. This intelligent prioritization helps you spend your limited time on work that actually reduces risk rather than randomly picking from a long list of possibilities.
 
-- **Page title**: "Recommendations - Browse all prevention recommendations"
-- **Navigation tabs**: Benchmarks, Objectives, Recommendations, Priorities, Categories
-- **Search box**: Find recommendations by keyword
-- **Filter button**: Filter by account, category, or priority
-- **Sort dropdown**: Order by opportunity (high to low), priority, title, or category
-
-### Recommendation Cards
-
-Each recommendation card shows:
-- **Title**: "Implement '[Specific Prevention Name]'"
-- **Category badge**: The security domain (Core Infrastructure, Data Governance, Identity & Access, etc.)
-- **Priority badge**: P1 (critical), P2 (high), P3 (medium), or P4 (low)
-- **Impact description**: "When implemented this recommendation will -" followed by the expected security improvement
-
-**Example recommendation:**
-```
-Implement 'Restrict usage to approved Azure resource providers'
-Category: Core Infrastructure
-Priority: P1
-
-When implemented this recommendation will - Restrict Azure resource provider usage
-to approved providers to reduce attack surface, prevent shadow IT, and maintain
-compliance. Organizations can choose between deny-list (block specific risky
-providers) or allow-list (only permit approved providers) approaches, with
-allow-list providing stronger security but requiring more planning.
-```
-
-## Search and Filter
-
-**Search functionality:**
-Use the search box to find recommendations by:
-- Prevention name (e.g., "encryption", "MFA", "S3")
-- Service or resource type (e.g., "Azure Storage", "GitHub", "Lambda")
-- Compliance framework (e.g., "CIS", "NIST")
-- Security control type
-
-**Filter options:**
-Click the Filter button to narrow the list:
-- **By Account**: Show only recommendations for specific accounts or subscriptions
-- **By Category**: Filter by security domain (Identity & Access, Data Governance, etc.)
-- **By Priority**: Focus on P1 (critical) or P2 (high) recommendations
-
-**Sort options:**
-Order recommendations by:
-- **Opportunity (High to Low)**: Default view showing highest-impact recommendations first
-- **Priority**: Group by P1, P2, P3, P4
-- **Title (A to Z)**: Alphabetical order
-- **Category**: Group by security domain
+You can search to find recommendations for specific services ("S3", "Lambda", "Azure Storage"), filter to focus on P1 recommendations or specific accounts, or sort by category to tackle one security domain at a time. The page adapts to how you prefer to work—whether you're chasing compliance certifications, securing specific accounts, or just trying to knock out the highest-impact work each sprint.
 
 ## Recommendation Priorities
 
-Recommendations are prioritized based on multiple factors:
+P1 recommendations are foundational controls you should implement immediately. These prevent common, high-severity attacks—things like restricting resources to allowed regions (data residency and compliance), requiring MFA for root accounts (prevents account takeover), or blocking public database access (prevents data breaches). Most P1 controls are straightforward to implement—a simple SCP or account setting—but provide massive risk reduction. If you have P1 recommendations with low scores, that's your most urgent work.
 
-**P1 (Critical)**
-Most fundamental preventative controls that should be implemented immediately. These typically:
-- Address critical security risks
-- Are required by compliance frameworks
-- Have broad security impact across the environment
-- Protect against common, high-severity threats
+P2 recommendations provide strong security improvements for sensitive data and common attack vectors. Examples include requiring encryption at rest, enforcing customer-managed keys, blocking public Lambda functions, or requiring HTTPS for load balancers. These are worth implementing once your P1 foundation is solid. The implementation might be more complex than P1—requiring key management infrastructure or application changes—but the security value is substantial. Most organizations should aim for strong P2 coverage within 90 days of establishing P1 baselines.
 
-**Examples:**
-- Restrict usage to approved Azure resource providers
-- Restrict Azure resources to allowed locations
-- Require MFA for AWS root user authentication
+P3 recommendations enhance your posture through defense-in-depth and operational resilience—things like soft delete for recovery, private endpoints to eliminate public exposure entirely, or diagnostic settings for forensics. These are valuable but not urgent. They're the difference between "well-protected" and "comprehensively secure." Some organizations implement P3 broadly, others focus P3 effort on critical workloads and accept residual risk elsewhere.
 
-**P2 (High)**
-Important preventions that provide strong security improvements. These typically:
-- Protect sensitive data or critical resources
-- Prevent common attack vectors
-- Are recommended by compliance frameworks
-- Have moderate implementation complexity
-
-**Examples:**
-- Require encryption at rest for Azure Compute Managed Disks
-- Require GitHub repository secret scanning push protection
-- Prohibit public AWS Lambda resource policies
-- Enforce HTTPS-only listeners for AWS Elastic Load Balancers
-
-**P3 (Medium)**
-Additional preventions that enhance security posture. These typically:
-- Provide defense-in-depth
-- Support compliance requirements
-- Improve operational security
-- May have higher implementation complexity
-
-**Examples:**
-- Require soft delete for Azure File Shares
-- Require private endpoints for Azure Storage storage accounts
-- Require Microsoft Defender for various Azure services
-
-**P4 (Low)**
-Optional preventions for comprehensive coverage that provide incremental security improvements with lower overall impact.
+P4 recommendations are often optimization or hygiene controls that provide incremental improvements. Many organizations never implement all P4 recommendations, and that's okay—security is about managing risk to acceptable levels, not achieving perfection.
 
 ## Recommendation Categories
 
-Recommendations are organized by security domain:
+Recommendations organize by security domain so you can tackle related controls together or identify imbalanced coverage. Core Infrastructure recommendations protect foundational controls like restricting which services or regions can be used. Data Governance focuses on encryption, public access prevention, and data lifecycle. Identity & Access covers MFA, credential management, and privileged access. Trust & Sharing prevents external sharing and cross-account access. Network Perimeter restricts connectivity and enforces secure protocols. Audit & Logging protects your ability to investigate incidents. Feature Restrictions disables risky service capabilities you don't need.
 
-**Core Infrastructure**
-Controls that protect foundational infrastructure and control plane resources. Includes restricting resource providers, controlling resource locations, and protecting infrastructure management.
-
-**Data Governance**
-Controls related to data protection, encryption, residency, and lifecycle management. Includes encryption at rest and in transit, data retention, and secure data handling.
-
-**Identity & Access**
-Controls that restrict privileged access and enforce strong authentication. Includes MFA enforcement, credential management, and permission controls.
-
-**Trust & Sharing**
-Controls that prevent external or anonymous access based on identity boundaries. Includes blocking public access and controlling cross-account sharing.
-
-**Network Perimeter**
-Controls that restrict network connectivity and traffic patterns. Includes enforcing HTTPS, private endpoints, and network access restrictions.
-
-**Audit & Logging**
-Controls that protect audit trails and logging infrastructure. Includes ensuring logs are collected, retained, and protected from tampering.
-
-**Feature Restrictions**
-Controls that disable or restrict specific service features that pose security risks. Includes limiting remote access and restricting risky service capabilities.
+Filtering to a single category helps when you want to focus effort. Implementing all Data Governance recommendations together often requires similar expertise and tooling, making it more efficient than jumping between unrelated controls. The category view also reveals blind spots—if you have ten P1 Identity & Access recommendations but only two P1 Data Governance recommendations, you might be over-focusing on one domain while neglecting another.
 
 ## Understanding "Opportunity"
 
-The default sort order is "Opportunity (High to Low)" which prioritizes recommendations based on:
+The default sort puts recommendations providing the most security value at the top. Opportunity scoring considers how much risk the prevention reduces (higher-impact controls protecting more resources or preventing more severe threats rank higher), how many accounts or resources currently lack the control (widespread gaps rank higher), whether it's required by compliance frameworks you're pursuing, and how feasible implementation is (easier controls rank higher when they provide similar value to complex alternatives).
 
-**Security impact**
-How significantly the prevention reduces risk across your environment. Higher-impact preventions protect more resources or prevent more severe threats.
+This means a P1 control protecting 50 unprotected accounts typically ranks above a P4 control protecting 100 accounts—the priority weighting recognizes that fixing critical gaps matters more than comprehensive coverage of nice-to-haves. The scoring adapts to your environment, so two organizations might see different top recommendations based on their specific gaps and compliance needs.
 
-**Coverage gaps**
-How many accounts or resources lack this prevention. Recommendations that would protect many currently unprotected resources score higher.
+## Common Use Cases
 
-**Compliance requirements**
-Whether the prevention is required by compliance frameworks you're pursuing (CIS, NIST, etc.).
+If you're starting a prevention initiative, review the default Opportunity sort and focus on P1 recommendations first. Click into each one to understand what objective it achieves, which accounts need it, and how to implement it. Most recommendations include policy examples and configuration guidance. Build an implementation plan prioritizing high-opportunity P1 and P2 recommendations, then track progress by watching recommendations disappear as you implement them.
 
-**Implementation feasibility**
-Preventions that are easier to implement may score higher when they provide similar security value to more complex alternatives.
+For compliance certification, search for your target framework ("CIS", "NIST", "PCI") and filter to P1 and P2 recommendations. Each recommendation shows which compliance objectives it satisfies, so you can implement controls systematically by benchmark section and track overall compliance progress in the Benchmarks view.
 
-This scoring helps you focus on recommendations that provide the most security value for your investment.
+When securing a specific account, filter to that account and sort by priority. Knock out P1 recommendations first, then move to P2. Return to the account detail page to see your prevention score improve as you implement controls.
 
-## Common Workflows
+For category-focused work, filter to a domain like Data Governance or Identity & Access, review all recommendations, and identify patterns. If you see many encryption-related gaps, that's your theme. Implementing category-specific controls together is often more efficient than jumping between unrelated domains since you're using similar expertise and tooling.
 
-**Starting a new prevention initiative**
-1. Review the recommendations list in default sort order (Opportunity: High to Low)
-2. Focus on P1 recommendations first
-3. Click on each recommendation to understand:
-   - What objective it achieves
-   - Which accounts need it implemented
-   - How to implement it (policy examples, configuration steps)
-4. Create an implementation plan prioritizing high-opportunity P1 and P2 recommendations
-5. Track progress by monitoring how recommendations move from "recommended" to "active"
-
-**Meeting compliance requirements**
-1. Use the search box to find recommendations related to your target framework
-   - Search for "CIS", "NIST", "PCI", etc.
-2. Filter by priority to focus on P1 and P2 recommendations
-3. Review which compliance objectives each recommendation satisfies
-4. Implement recommendations systematically by benchmark section
-5. Use the Benchmarks view to track overall compliance progress
-
-**Securing a specific account or subscription**
-1. Click the Filter button
-2. Select the specific account from the Account filter
-3. Review all recommendations for that account
-4. Sort by Priority to focus on critical gaps first
-5. Implement P1 recommendations before moving to P2
-6. Return to the account detail page to verify improved prevention score
-
-**Addressing a specific security domain**
-1. Click the Filter button
-2. Select a category (e.g., "Data Governance", "Identity & Access")
-3. Review all recommendations in that domain
-4. Identify patterns (e.g., many encryption-related gaps)
-5. Create category-specific remediation plans
-6. Implement preventions systematically across the category
-
-**Planning monthly security improvements**
-1. Set a goal for number of recommendations to implement per month
-2. Focus on highest-opportunity recommendations each month
-3. Balance across categories to maintain broad security coverage
-4. Track progress by monitoring:
-   - Reduction in total recommendations
-   - Improvement in prevention scores
-   - Increase in benchmark compliance scores
-5. Adjust monthly goals based on team capacity and complexity
-
-**Understanding a specific recommendation**
-1. Click on the recommendation card to view its detail page
-2. Review which objective it achieves
-3. Check the Examples tab for policy templates
-4. Read implementation guidance in the Recommendations section
-5. View which accounts currently lack this prevention
-6. Copy policy templates and adapt for your environment
-
-## Recommendation Impact Statements
-
-Each recommendation begins with "When implemented this recommendation will -" followed by a clear statement of the security improvement. These impact statements explain:
-
-**What will be prevented or enforced**
-The specific behavior change or control that will be implemented.
-
-**Why it matters**
-The security risk being mitigated or compliance requirement being met.
-
-**How it protects your environment**
-The attack vectors blocked or security capabilities enabled.
-
-**Example impact statement:**
-"When implemented this recommendation will - Prevent Lambda functions from being invoked by unauthorized principals to prevent unauthorized invocation and data exfiltration. This is critical because public Lambda resource policies can enable unauthorized access, data exfiltration, and abuse of computational resources."
+Some teams set monthly security improvement goals—maybe implementing 5-10 recommendations per sprint. Focus on highest-opportunity recommendations each month, balance across categories to maintain broad coverage, and track progress by watching total recommendations decrease and prevention scores increase.
 
 ## Tracking Implementation Progress
 
-As you implement recommendations:
+As you implement recommendations, they disappear from the list once you've achieved the objective across all applicable accounts. Your prevention scores improve—at the account level, objective level, and benchmark level—reflecting the reduced risk. New recommendations might appear as you add accounts or enable services, and opportunity rankings can shift as your environment evolves, re-prioritizing what provides the most value given your current state.
 
-**Recommendations decrease**
-When you implement a prevention that achieves an objective across all applicable accounts, that recommendation disappears from the list.
-
-**Scores improve**
-Account prevention scores, objective scores, and benchmark scores increase as recommendations are implemented.
-
-**New recommendations may appear**
-As you add new accounts or enable new services, new recommendations may be generated.
-
-**Priority may change**
-As your environment evolves, the opportunity scoring may change, re-prioritizing which recommendations provide the most value.
+Each recommendation includes an impact statement explaining what will be prevented or enforced and why it matters. For example: "Prevent Lambda functions from being invoked by unauthorized principals to prevent unauthorized invocation and data exfiltration. This is critical because public Lambda resource policies can enable unauthorized access, data exfiltration, and abuse of computational resources." These statements help you communicate the security value to stakeholders who might not understand the technical implementation details.
 
 ## Best Practices
 
-**Start with P1 recommendations**
-Critical preventions provide the most security value and are often prerequisites for P2 and P3 controls.
+Start with P1 recommendations—critical preventions provide the most security value and are often prerequisites for P2 and P3 controls. For important objectives, implement preventions at multiple layers (Build, Access, Config, Runtime) for defense-in-depth. Consider focusing on one category at a time since implementing all Data Governance recommendations together often requires similar expertise and tooling.
 
-**Implement preventions layer by layer**
-For each objective, implement preventions at multiple layers (Build, Access, Config, Runtime) for defense-in-depth.
+Use the policy templates provided in the Examples tab—ready-to-use SCPs, Azure Policies, and other controls accelerate implementation. Always test before deploying broadly—start with a test account, verify the prevention works as expected, then roll out to production. Document any recommendations you choose not to implement, noting why (conflicts with business requirements, alternative control in place, etc.).
 
-**Focus on one category at a time**
-Implementing all Data Governance recommendations together often requires similar expertise and tooling, making it more efficient than jumping between categories.
-
-**Use policy templates**
-The Examples tab provides ready-to-use policy templates (SCPs, Azure Policies, etc.) that accelerate implementation.
-
-**Test before deploying broadly**
-Start with a test account, verify the prevention works as expected, then roll out to production accounts.
-
-**Document exceptions**
-If you choose not to implement a recommendation, document why (e.g., conflicts with business requirements, alternative control in place).
-
-**Automate deployment**
-Use Infrastructure-as-Code (Terraform, ARM templates, CloudFormation) to deploy preventions consistently across accounts.
-
-**Monitor continuously**
-Return to the Recommendations page regularly to address new recommendations as your environment evolves.
+Automate deployment using Infrastructure-as-Code so preventions are consistently applied across accounts and can be version controlled. Return to the Recommendations page regularly—as your environment evolves with new accounts and services, new recommendations will appear, and addressing them promptly prevents security drift.
 
 ## Next Steps
 
 - Click into any recommendation to see detailed implementation guidance
-- Visit [Objectives](../objectives/index.md) to understand the security goals behind recommendations
-- Check [Preventions](../preventions/index.md) to see all active prevention controls
-- Review [Accounts](../accounts/index.md) to see prevention coverage by account
-- Use the [Simulator](../simulator/index.md) to test Service Control Policies before deployment
+- Visit [Objectives](/guardrails/docs/prevention/objectives) to understand the security goals behind recommendations
+- Check [Preventions](/guardrails/docs/prevention/preventions) to see all active prevention controls
+- Review [Accounts](/guardrails/docs/prevention/accounts) to see prevention coverage by account
+- Use the [Simulator](/guardrails/docs/prevention/simulator) to test Service Control Policies before deployment

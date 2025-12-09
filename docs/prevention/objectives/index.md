@@ -5,132 +5,51 @@ sidebar_label: Objectives
 
 # Objectives
 
-The Objectives page helps you understand and track prevention objectives across your cloud environment. This page provides multiple views for organizing and analyzing objectives: by compliance benchmark, by individual objective, through recommendations, by priority level, and by category.
+The Objectives page shows what you're trying to accomplish with your preventive controls. While the Preventions page shows the technical controls you've implemented, the Objectives page focuses on the security goals those controls achieve—things like "require encryption at rest" or "prohibit public access to databases."
 
-## Understanding Objectives
+## What Objectives Represent
 
-Prevention objectives are security goals that define what you want to prevent from happening in your cloud environment. Each objective can be achieved through one or more preventions (technical controls like Service Control Policies, Azure Policies, or Guardrails controls).
+Think of objectives as your security requirements. Each objective describes a specific outcome you want to enforce across your cloud environment. "Prohibit public access to AWS RDS DB instances" is an objective. "Require MFA for AWS root user authentication" is another. These aren't technical implementations—they're the goals.
 
-**Example objectives:**
-- Prohibit public access to AWS RDS DB instances
-- Require MFA for AWS root user authentication
-- Enforce encryption at rest for AWS EBS volumes
-- Restrict AWS resources to allowed regions
+The value of organizing by objectives is that it lets you see whether your goals are being met, regardless of how they're technically implemented. You might achieve "restrict AWS resources to allowed regions" through an SCP, a Guardrails control, and an Azure Policy. The objective view rolls all of those up and tells you: yes, this goal is being met, and here's your score across all accounts.
 
-Objectives are organized by:
-- **Priority**: P1 (critical), P2 (high), P3 (medium), P4 (low)
-- **Category**: Identity & Access, Data Governance, Trust & Sharing, Network Perimeter, Core Infrastructure, Audit & Logging, Feature Restrictions
-- **Benchmark**: CIS frameworks, NIST standards, vendor-specific benchmarks
+Objectives are organized by priority (P1 for critical down to P4 for lower priority), category (like Identity & Access or Data Governance), and benchmark (like CIS or NIST). This organization helps you focus on what matters most and ensures you're covering all the security domains that matter to your organization.
 
-## Navigating the Objectives Section
+## Different Ways to View Objectives
 
-The Objectives section offers five tabs for different views:
+The Objectives section provides five different perspectives, each useful for different situations.
 
-### Benchmarks Tab
+The **[Benchmarks tab](/guardrails/docs/prevention/objectives/benchmarks)** organizes objectives according to compliance frameworks like AWS CIS v6.0.0, NIST 800-53, or Azure CIS v5.0.0. This view is essential when you're pursuing compliance certification or need to report against a specific standard. Each benchmark shows your current score, and clicking into it reveals which sections need attention.
 
-The [Benchmarks](./benchmarks.md) tab displays compliance frameworks and industry standards that define prevention objectives.
+The **[Objectives tab](/guardrails/docs/prevention/objectives/objectives)** lists every objective individually with its current score and priority. This is useful when you're looking for a specific objective or want to see everything at once. You can search for "encryption" or "MFA" and immediately see all related objectives and how well you're meeting them.
 
-**Common benchmarks:**
-- **AWS CIS v6.0.0**: CIS Amazon Web Services Foundations Benchmark
-- **AWS NIST 800-53 Rev 5**: NIST security controls for federal information systems
-- **AWS P1 Preventions**: Fundamental preventative controls for AWS
-- **Azure CIS v5.0.0**: CIS Azure Foundations Benchmark
-- **Azure P1 Preventions**: Fundamental preventative controls for Azure
-- **GCP CIS v3.0.0**: CIS Google Cloud Platform Foundation Benchmark
-- **GitHub CIS v1.1.0**: CIS GitHub Benchmark for repository security
+The **[Recommendations tab](/guardrails/docs/prevention/recommendations)** flips the view to show what you should do next. Instead of browsing objectives yourself, it presents prioritized actions based on your coverage gaps, focusing on high-impact improvements.
 
-Each benchmark card shows the framework name, description, and current prevention score (0-5) across all accounts. Click any benchmark to view its detailed objectives grouped by section.
+The **[Priorities tab](/guardrails/docs/prevention/objectives/priorities)** groups objectives by their risk level—P1 objectives are fundamental controls that should be implemented everywhere, while P4 objectives are nice-to-haves. This view helps you focus on what matters most first.
 
-Learn more: [Benchmarks Tab](./benchmarks.md)
+The **[Categories tab](/guardrails/docs/prevention/objectives/categories)** organizes by security domain—Identity & Access, Data Governance, Trust & Sharing, and so on. This ensures you're not over-invested in one area while neglecting another. Balanced coverage across categories generally means stronger overall security.
 
-### Objectives Tab
+## How to Use This Information
 
-The [Objectives](./objectives.md) tab lists all individual prevention objectives with their scores, priorities, and categories.
+When you're working toward compliance certification, start with the Benchmarks tab. Find your target framework (like AWS CIS v6.0.0), check your current score, and drill into the lowest-scoring sections. Each section shows which objectives you're not meeting, and from there you can click through to see what preventions would help.
 
-Each objective card displays:
-- **Title**: What the objective aims to prevent or enforce
-- **Category**: The security domain (e.g., Trust & Sharing, Data Governance)
-- **Priority**: P1 (critical) through P4 (low)
-- **Description**: Why this objective matters and what it protects
-- **Score**: Current prevention score (0-5) across all accounts
+If you're prioritizing security work without a specific compliance target, the Priorities tab is more useful. Start with P1 objectives that have low scores—these are fundamental controls that should be in place everywhere. Once P1 coverage is solid, move to P2, and so on.
 
-Learn more: [Objectives Tab](./objectives.md)
+The Categories tab helps prevent blind spots. You might have excellent Identity & Access coverage but weak Data Governance. The category view makes these imbalances visible so you can address them before they become problems.
 
-### Recommendations Tab
+For day-to-day work, the Objectives tab with search is fastest. If someone asks "do we enforce MFA?" you can search for "MFA," see the relevant objectives, check the scores, and answer immediately.
 
-The Recommendations tab shows specific, actionable preventions you should implement to improve your security posture. Recommendations are prioritized based on risk reduction impact, compliance requirements, and implementation effort.
+## Understanding Scores
 
-See: [Recommendations](../recommendations/index.md)
+Objective scores range from 0 to 5. A score of 5 means the objective is fully met across all your accounts—you have strong preventions in place everywhere. A score of 0-1 means you're not meeting the objective, either because preventions are missing entirely or because they're weak or narrowly scoped.
 
-### Priorities Tab
+The score calculation considers several factors: how many accounts have preventions for this objective, how strong those preventions are (Access layer preventions score higher than Runtime preventions), and the objective's priority weighting. A low score on a P1 objective is a bigger problem than a low score on a P4 objective.
 
-The [Priorities](./priorities.md) tab groups objectives by their priority level to help you focus remediation efforts.
-
-- **P1 (Critical)**: Most fundamental preventative controls that should be implemented immediately
-- **P2 (High)**: Important preventions that provide strong security improvements
-- **P3 (Medium)**: Additional preventions that enhance security posture
-- **P4 (Low)**: Optional preventions for comprehensive coverage
-
-Learn more: [Priorities Tab](./priorities.md)
-
-### Categories Tab
-
-The [Categories](./categories.md) tab organizes objectives by security domain to help identify gaps and ensure balanced coverage.
-
-- **Identity & Access**: Privileged access restrictions, MFA enforcement, credential management
-- **Feature Restrictions**: Disabling risky features, restricting service usage, controlling access methods
-- **Trust & Sharing**: Preventing external/anonymous access, controlling cross-account sharing
-- **Data Governance**: Data protection, encryption, residency, lifecycle management
-- **Network Perimeter**: Network connectivity restrictions, traffic controls, secure communications
-- **Core Infrastructure**: Protecting foundational infrastructure and control plane resources
-- **Audit & Logging**: Protecting audit trails, logging infrastructure, and log integrity
-
-Learn more: [Categories Tab](./categories.md)
-
-## Common Workflows
-
-**Reviewing compliance against a benchmark**
-1. Click the **Benchmarks** tab
-2. Find your target benchmark (e.g., AWS CIS v6.0.0)
-3. Note the current score across all accounts
-4. Click the benchmark to see which sections have lower scores
-5. Drill into low-scoring sections to identify missing objectives
-
-**Finding highest-priority objectives to implement**
-1. Click the **Priorities** tab
-2. Review P1 objectives first
-3. Check which P1 objectives have low scores (0-2)
-4. Click on those objectives to understand implementation requirements
-5. Implement preventions for those objectives
-
-**Identifying security gaps by category**
-1. Click the **Categories** tab
-2. Review scores for each category
-3. Identify categories with lower scores
-4. Click low-scoring categories to see specific objectives
-5. Prioritize implementing preventions in weak categories
-
-**Searching for a specific objective**
-1. Use the **Objectives** tab
-2. Enter keywords in the search box (e.g., "RDS", "encryption", "MFA")
-3. Review matching objectives
-4. Click any objective to see detailed information and account coverage
-
-## Objective Scores
-
-Prevention scores range from 0 to 5 and indicate how well an objective is being met across your environment:
-
-- **5**: Full coverage—objective is met across all applicable accounts
-- **4**: Strong coverage—objective is met in most accounts
-- **3**: Moderate coverage—objective is partially met
-- **2**: Limited coverage—objective is met in few accounts
-- **0-1**: No or minimal coverage—objective is not being met
-
-Low scores indicate opportunities to improve security posture by implementing the preventions associated with that objective.
+What matters most is the trend and the context. If your score is improving over time, you're making progress. If a P1 objective has a score of 2, that's urgent. If a P4 objective has a score of 2, it's lower priority.
 
 ## Next Steps
 
-- Click into any [benchmark](./benchmark-detail.md) to see its grouped objectives
-- Click into any [objective](./objective-detail.md) to see which accounts meet it and which preventions achieve it
-- Review [Recommendations](../recommendations/index.md) for prioritized implementation guidance
-- Return to [Accounts](../accounts/index.md) to see prevention scores by account
+- Click into any [benchmark](/guardrails/docs/prevention/objectives/benchmark-detail) to see its grouped objectives
+- Click into any [objective](/guardrails/docs/prevention/objectives/objective-detail) to see which accounts meet it and which preventions achieve it
+- Review [Recommendations](/guardrails/docs/prevention/recommendations) for prioritized implementation guidance
+- Return to [Accounts](/guardrails/docs/prevention/accounts) to see prevention scores by account

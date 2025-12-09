@@ -11,165 +11,47 @@ The Account Detail page provides an in-depth view of prevention coverage for a s
 
 ## Accessing Account Details
 
-To view an account's prevention details:
+Click any account name from the Accounts page, then click the Prevention tab. The page header shows the account name and ID, prevention score (0-5), which folder or OU it belongs to, alert count, and resource type (AWS Account, Azure Subscription, GCP Project, or GitHub Repository).
 
-1. Navigate to the [Accounts](./index.md) page
-2. Click on any account name in the list
-3. Click the **Prevention** tab
-
-The page header shows:
-- **Account name** and ID
-- **Prevention score** (0-5)
-- **Folder or organizational unit** the account belongs to
-- **Alert count** (click to view alert details)
-- **Resource type** (AWS Account, Azure Subscription, GCP Project, or GitHub Repository)
-
-## Overall Maturity
-
-The Overall Maturity section provides a high-level summary:
-
-- **Prevention score** (0-5): Displayed as a shield icon with the numeric score
-- **Total objectives**: Number of prevention objectives applicable to this account
-- **Total preventions**: Number of individual preventions evaluated
-
-Click the objective/prevention counts to explore detailed prevention coverage in the Prevention Explore view.
+The Overall Maturity section at the top displays your prevention score as a shield icon with the number, plus total objectives and preventions evaluated. This gives you a quick sense of how well-protected this account is. You can click the objective/prevention counts to explore detailed coverage.
 
 ## Benchmarks
 
-The Benchmarks section shows how this account scores against industry compliance frameworks and best practice benchmarks.
+The Benchmarks section shows how this account scores against compliance frameworks—AWS CIS v6.0.0, Azure CIS v5.0.0, GCP CIS v3.0.0, GitHub CIS v1.1.0, and P1 Preventions benchmarks for each cloud. Each benchmark card shows the name, version, brief description, and score (0-5) for this specific account.
 
-Common benchmarks include:
-- **AWS CIS v6.0.0**: CIS Amazon Web Services Foundations Benchmark
-- **AWS P1 Preventions**: Fundamental preventative controls for AWS
-- **Azure CIS v5.0.0**: CIS Azure Foundations Benchmark
-- **Azure P1 Preventions**: Fundamental preventative controls for Azure
-- **GCP CIS v3.0.0**: CIS Google Cloud Platform Foundation Benchmark
-- **GitHub CIS v1.1.0**: CIS GitHub Benchmark
-
-Each benchmark card displays:
-- Benchmark name and version
-- Brief description of what the benchmark covers
-- Score (0-5) for this specific account
-
-**Interpreting benchmark scores:**
-- **5**: Full compliance—all benchmark objectives are met
-- **3-4**: Partial compliance—most objectives met, some gaps remain
-- **0-2**: Limited compliance—significant gaps in meeting benchmark requirements
-
-A score of 0 typically indicates the benchmark doesn't apply to this account type (e.g., Azure benchmarks will score 0 on AWS accounts).
-
-Click **View All** to see the complete list of benchmarks and their detailed requirements.
+A score of 5 means full compliance—all benchmark objectives are met. Scores of 3-4 indicate partial compliance with some gaps remaining. Scores of 0-2 signal significant gaps or that the benchmark doesn't apply to this account type (Azure benchmarks will score 0 on AWS accounts). Click View All to see the complete list and drill into specific requirements.
 
 ## Recommendations
 
-The Recommendations section provides actionable guidance for improving prevention coverage.
+The Recommendations section provides actionable guidance for improving this account's protection. Each card shows what needs to be implemented, its priority level (P1 through P4), and the impact you'll get. Recommendations are prioritized by security impact, compliance requirements, and implementation complexity—so the highest-value, most important work surfaces first.
 
-Each recommendation card shows:
-- **Prevention title**: What needs to be implemented
-- **Priority level**: P1 (highest), P2 (high), P3 (medium), or P4 (low)
-- **Impact description**: What will happen when this prevention is implemented
-
-Recommendations are prioritized based on:
-- **Security impact**: How significantly the prevention reduces risk
-- **Compliance requirements**: Whether the prevention is required by compliance frameworks
-- **Implementation complexity**: How difficult the prevention is to implement
-
-Click on any recommendation to view detailed implementation guidance including:
-- Step-by-step instructions for implementing the prevention
-- Cloud provider-specific configuration examples
-- Service Control Policy (SCP) templates for AWS
-- Azure Policy definitions for Azure
-- Organization Policy constraints for GCP
-
-Click **View All** to see the complete list of recommendations for this account.
+Click any recommendation to see detailed implementation guidance including step-by-step instructions, cloud provider-specific configuration examples, and policy templates (SCPs for AWS, Azure Policy definitions, GCP Organization Policy constraints). Click View All to see the complete list for this account.
 
 ## Categories
 
-The Categories section organizes preventions by their security purpose.
+The Categories section organizes preventions by security domain—Identity & Access (MFA, root account restrictions, credential management), Data Governance (encryption, public access controls, data lifecycle), Trust & Sharing (external access prevention, cross-account controls), Network Perimeter (connectivity restrictions, secure protocols), Core Infrastructure (foundational protections, governance capabilities), Audit & Logging (audit trail protection, log integrity), and Feature Restrictions (disabling risky service features).
 
-**Identity & Access**
-Controls that restrict privileged access to highly sensitive account capabilities and enforce strong authentication requirements. Includes root account restrictions, MFA enforcement, credential management, and permission boundary controls.
-
-**Feature Restrictions**
-Controls that disable or restrict specific service features or capabilities that pose security risks. Includes limiting remote access, restricting service usage to approved regions, and disabling features that increase attack surface.
-
-**Trust & Sharing**
-Controls that prevent external or anonymous access to cloud resources based on identity boundaries and trust relationships. Includes blocking public access, controlling cross-account sharing, and managing external identity federation.
-
-**Data Governance**
-Controls related to data protection, encryption, residency, and lifecycle management. Includes enforcing encryption at rest and in transit, controlling data location, and ensuring compliance with data protection regulations.
-
-**Network Perimeter**
-Controls that restrict network connectivity and traffic patterns to prevent unauthorized network access. Includes controlling remote access methods, enforcing VPC endpoints, and ensuring secure communication channels.
-
-**Core Infrastructure**
-Controls that protect foundational infrastructure and control plane resources. Includes protecting resources created by centralized management platforms and safeguarding infrastructure components that provide governance capabilities.
-
-**Audit & Logging**
-Controls that protect the integrity, availability, and confidentiality of audit trails and logging infrastructure. Includes preventing deletion or modification of audit services, ensuring log encryption, and maintaining log integrity.
-
-Each category card displays:
-- Category name and description
-- Number of objectives in this category
-- Prevention score (0-5) for this category
-
-Click on any category to explore the specific objectives and preventions within that category.
+Each category card shows the category name, how many objectives it includes, and the prevention score (0-5) for this specific account in that domain. This helps you spot imbalances—if Identity & Access scores 4.5 but Data Governance scores 1.5, you know where to focus improvement efforts. Click any category to explore specific objectives and preventions within it.
 
 ## Layers
 
-The Layers section shows prevention coverage across different enforcement layers.
+The Layers section shows coverage across different enforcement timing—Build (stop risky configurations before deployment during IaC), Access (control who can access resources and what actions they can perform via policies), Config (enforce required configurations on deployed resources like encryption and network settings), and Runtime (detect and respond to risky behavior during operation via monitoring and remediation).
 
-**Build**
-Preventions enforced during resource creation and infrastructure-as-code deployment. These preventions stop risky configurations before resources are deployed.
+Each layer card shows the layer name, number of objectives at that layer, and prevention score (0-5). The layered approach ensures defense-in-depth—even if a risky resource gets deployed, preventions at other layers can limit the damage. Aim for balanced coverage with scores of 3+ across all applicable layers rather than perfect coverage at just one layer.
 
-**Access**
-Preventions that control who can access resources and what actions they can perform. Includes identity-based policies, resource-based policies, and permission boundaries.
+## Common Use Cases
 
-**Config**
-Preventions that enforce required configurations on deployed resources. Includes encryption requirements, network settings, and compliance configurations.
+To improve an account's prevention score, check the Overall Maturity score to understand current state, then review Recommendations for prioritized actions. Start with P1 recommendations and implement them using the detailed guidance provided. Return to this page after implementation to verify the score improves.
 
-**Runtime**
-Preventions that detect and respond to risky behavior during resource operation. Includes monitoring, threat detection, and automated remediation.
+When preparing for compliance audits, review the Benchmarks section to see compliance status, click the relevant benchmark (like AWS CIS v6.0.0), identify which objectives aren't met, and implement missing preventions following the recommendations. Verify the benchmark score reaches your target level (typically 4 or 5 for certification).
 
-Each layer card displays:
-- Layer name
-- Number of objectives at this layer
-- Prevention score (0-5) for this layer
+To understand prevention gaps by category, scroll to the Categories section and identify categories with low scores (0-2). Click any low-scoring category to see specific objectives and review which ones aren't met. Prioritize implementing missing preventions based on risk and compliance needs.
 
-The layered approach ensures defense-in-depth: even if a risky resource is deployed, preventions at other layers can limit the damage.
-
-## Common Workflows
-
-**Improving an account's prevention score**
-1. Review the Overall Maturity score to understand current state
-2. Check Recommendations for prioritized actions to take
-3. Start with P1 (highest priority) recommendations
-4. Implement preventions using the detailed guidance provided
-5. Return to this page to verify the score improves
-
-**Preparing for a compliance audit**
-1. Review the Benchmarks section to see compliance status
-2. Click on the relevant benchmark (e.g., AWS CIS v6.0.0)
-3. Identify which objectives are not being met
-4. Implement missing preventions following the recommendations
-5. Verify benchmark score reaches target level (typically 4 or 5)
-
-**Understanding prevention gaps by category**
-1. Scroll to the Categories section
-2. Identify categories with low scores (0-2)
-3. Click on the low-scoring category to see specific objectives
-4. Review which objectives are not being met
-5. Prioritize implementing missing preventions based on risk and compliance needs
-
-**Analyzing defense-in-depth coverage**
-1. Review the Layers section
-2. Ensure coverage across multiple layers (not just Access or just Config)
-3. If one layer has a significantly lower score, focus remediation there
-4. Aim for balanced coverage: a score of 3+ across all applicable layers
+For analyzing defense-in-depth coverage, review the Layers section and ensure coverage across multiple layers—not just Access or just Config. If one layer has a significantly lower score, focus remediation there. Balanced coverage across layers provides better protection than perfect coverage at a single layer.
 
 ## Next Steps
 
-- Return to [Accounts](./index.md) to view prevention scores across all accounts
-- Visit [Objectives](../objectives/index.md) to understand prevention objectives in detail
-- Use [Recommendations](../recommendations/index.md) to see prioritized prevention guidance
-- Try the [Simulator](../simulator/index.md) to test Service Control Policies before deployment
+- Return to [Accounts](/guardrails/docs/prevention/accounts) to view prevention scores across all accounts
+- Visit [Objectives](/guardrails/docs/prevention/objectives) to understand prevention objectives in detail
+- Use [Recommendations](/guardrails/docs/prevention/recommendations) to see prioritized prevention guidance
+- Try the [Simulator](/guardrails/docs/prevention/simulator) to test Service Control Policies before deployment

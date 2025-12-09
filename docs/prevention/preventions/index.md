@@ -5,245 +5,71 @@ sidebar_label: Preventions
 
 # Preventions
 
-The Preventions page displays all active prevention controls implemented across your cloud environment. This page helps you understand which preventative controls are in place, what they protect, and how they're configured across different accounts and resources.
+The Preventions page shows all the security controls actively protecting your cloud environment. Think of this as your inventory of preventive measures—every Service Control Policy, Azure Policy, account setting, and other control that's stopping risky configurations before they can cause problems.
 
 ![Preventions List](./preventions-list.png)
 
-## Understanding Preventions
+## What You're Looking At
 
-Preventions are technical controls that enforce security and compliance requirements in your cloud environment. Each prevention represents a specific security rule or policy that has been implemented to achieve one or more prevention objectives.
+Each card represents a prevention that's actually implemented in your environment. For example, you might see "Block Public ACLs on AWS S3 Buckets" or "Require encryption for Azure Storage accounts." These aren't just recommendations or desired states—these are active controls that Guardrails has discovered in your cloud accounts.
 
-**Common prevention types:**
-- **Service Control Policies (SCPs)**: AWS Organization-level controls that restrict API actions
-- **Azure Policies**: Azure subscription-level controls that enforce compliance
-- **GCP Organization Policies**: GCP-level constraints that limit resource configurations
-- **Guardrails Controls**: Fine-grained Turbot Guardrails policies that enforce specific behaviors
-- **Branch/Tag Rulesets**: GitHub repository protection rules
-- **Account Settings**: Cloud provider account-level security configurations
+The preventions come from different sources depending on your cloud provider and security approach. AWS preventions might include Service Control Policies that deny dangerous API actions organization-wide, or account-level settings like S3 Block Public Access. Azure preventions are typically Azure Policies enforcing compliance rules. You'll also see GitHub branch protection rules, GCP Organization Policies, and Guardrails controls if you're using those platforms.
 
-## Page Layout
+What makes this view useful is seeing everything in one place. Instead of checking the AWS Organizations console, then Azure Policy, then your Guardrails workspace, you can see all your preventive controls together—filtered, sorted, and mapped to the objectives they achieve.
 
-The Preventions page displays:
+## Different Ways to View Your Preventions
 
-### Header Section
+The Preventions section gives you four different perspectives on the same set of controls, each useful for different tasks:
 
-- **Page title**: "Preventions - View prevention rules with their types, status, and resources"
-- **Search box**: Find preventions by name or description
-- **Filter button**: Filter by layer, type, account, or status
-- **Sort options**: Order by title, type, layer, or status
+The **[Preventions tab](/guardrails/docs/prevention/preventions/preventions)** shows the flat list of everything—useful when you're looking for a specific control or want to see all preventions applied to a particular account. The **[Examples tab](/guardrails/docs/prevention/preventions/examples)** provides policy templates and code samples, which is helpful when you need to implement a new prevention and want a working example to start from.
 
-### Navigation Tabs
+The **[Types tab](/guardrails/docs/prevention/preventions/types)** groups preventions by their technical mechanism (SCPs, Azure Policies, account settings, etc.). This view helps when you're working with a specific technology—maybe you're reviewing all your SCPs or standardizing on Azure Policies for certain use cases.
 
-The Preventions section offers four tabs:
+The **[Layers tab](/guardrails/docs/prevention/preventions/layers)** organizes by enforcement timing—Build, Access, Config, or Runtime. This perspective matters for defense-in-depth: critical objectives should have preventions at multiple layers, so if one fails, others provide backup protection.
 
-**[Preventions Tab](./preventions.md)** (default view)
-Lists all active preventions with their details and implementation status.
+## How to Use This Information
 
-**[Examples Tab](./examples.md)**
-Provides code samples, policy templates, and implementation examples for common preventions.
+The most common task is figuring out "do we have this control in place?" You can search for a service or objective (like "S3" or "encryption"), filter to a specific account, and see what preventions are active. This is much faster than manually checking each cloud provider's console.
 
-**[Types Tab](./types.md)**
-Groups preventions by their technical implementation type (SCP, Azure Policy, Guardrails control, etc.).
+When you're planning to implement a new prevention, start with the Examples tab. You'll find tested policy templates you can adapt rather than writing from scratch. The examples include not just the policy code, but also notes about testing, common pitfalls, and exception handling.
 
-**[Layers Tab](./layers.md)**
-Organizes preventions by enforcement layer (Build, Access, Config, Runtime).
-
-## Using the Preventions Tabs
-
-Each tab provides a different view of your preventions:
-
-### Preventions Tab
-
-The [Preventions](./preventions.md) tab shows a filterable, searchable list of all active prevention controls. Each prevention card displays its title, layer, type, scope, and description. Use this view to:
-- Find all preventions for a specific service or account
-- Audit prevention coverage across accounts
-- Identify which accounts have specific preventions
-
-Learn more: [Preventions Tab](./preventions.md)
-
-### Examples Tab
-
-The [Examples](./examples.md) tab provides concrete implementation guidance including policy templates, code samples, and configuration examples. Use this view to:
-- Find ready-to-use SCP, Azure Policy, and GCP Organization Policy templates
-- Access Terraform/IaC examples for automated deployment
-- See step-by-step guides for manual implementation
-- Learn best practices and testing approaches
-
-Learn more: [Examples Tab](./examples.md)
-
-### Types Tab
-
-The [Types](./types.md) tab groups preventions by their technical implementation mechanism (SCP, Azure Policy, GitHub Branch Ruleset, Account Setting, etc.). Use this view to:
-- Understand different prevention mechanisms
-- See which types are most used in your environment
-- Compare prevention types for specific use cases
-- Standardize on preferred types
-
-Learn more: [Types Tab](./types.md)
-
-### Layers Tab
-
-The [Layers](./layers.md) tab organizes preventions by enforcement layer (Build, Access, Config, Runtime). Use this view to:
-- Assess defense-in-depth coverage
-- Identify gaps in specific layers
-- Understand when different preventions are enforced
-- Plan layer-specific initiatives
-
-Learn more: [Layers Tab](./layers.md)
+The Types and Layers views become important for strategic planning. If you notice you're heavily relying on one type of prevention (maybe 90% of your controls are SCPs), the Types view helps you identify opportunities to diversify. If you have strong Access layer coverage but weak Config layer coverage, the Layers view makes that gap visible.
 
 ## Understanding Prevention Layers
 
-Preventions are categorized by enforcement layer:
+Preventions work at different points in time, which we call "layers." Build layer preventions catch problems in your Infrastructure as Code before deployment—like a Terraform policy that rejects templates defining public S3 buckets. Access layer preventions block dangerous API calls at the organization level—like a Service Control Policy that prevents anyone from disabling CloudTrail, even if their IAM permissions would otherwise allow it.
 
-**Build Layer**
-Preventions enforced during resource creation and infrastructure-as-code deployment. These controls stop risky configurations before resources are deployed.
+Config layer preventions enforce settings on resources that already exist—like account-level S3 Block Public Access settings that prevent buckets from being made public regardless of individual bucket policies. Runtime layer preventions respond to issues in real-time—like a Guardrails control that automatically remediates a misconfigured security group within seconds of detection.
 
-**Example**: Terraform policies that prevent public S3 buckets from being defined in IaC templates.
-
-**Access Layer**
-Preventions that control who can access resources and what actions they can perform. Includes identity-based policies, resource-based policies, and permission boundaries.
-
-**Example**: Service Control Policies that deny the ability to disable CloudTrail.
-
-**Config Layer**
-Preventions that enforce required configurations on deployed resources. Includes encryption requirements, network settings, and compliance configurations.
-
-**Example**: Azure Policies that require storage accounts to have encryption enabled.
-
-**Runtime Layer**
-Preventions that detect and respond to risky behavior during resource operation. Includes monitoring, threat detection, and automated remediation.
-
-**Example**: Guardrails controls that automatically remediate misconfigured security groups.
+The layer matters because it affects both when problems are caught and how difficult they are to bypass. Build layer controls catch issues earliest but only apply to IaC-managed resources. Access layer controls are hardest to bypass but can be complex to implement. Config layer controls handle configuration drift. Runtime controls catch everything else but respond after the fact.
 
 ## Understanding Prevention Types
 
-Prevention types represent the technical mechanism used to enforce the control:
+The "type" describes how a prevention is technically implemented. Service Control Policies are AWS Organization-level restrictions that deny API actions—they're powerful because they can't be bypassed by account administrators, but they're also blunt instruments that affect entire accounts or OUs. Azure Policies are more flexible, with options to audit, deny, or automatically modify resources, but they require more sophisticated configuration.
 
-**Service Control Policies (SCPs)**
-AWS Organization-level policies that set permission guardrails for all accounts in an organization. SCPs never grant permissions—they only restrict what actions can be performed.
+Account settings like S3 Block Public Access or EC2 default encryption are the simplest—just toggle a setting in the console or via API, and it applies to all resources in that account. Guardrails controls offer the most flexibility for complex logic and automated remediation but require the Guardrails platform. GitHub branch protection rules are specific to code repositories but essential for preventing direct pushes to production branches or tag manipulation.
 
-**Azure Policies**
-Azure subscription-level policies that enforce compliance rules and effects over resources. Can audit, deny, or modify resource properties.
+Each type has tradeoffs in implementation complexity, flexibility, and operational overhead. Understanding these tradeoffs helps you choose the right tool for each security objective.
 
-**GCP Organization Policies**
-Google Cloud Platform organization-level constraints that limit how resources can be configured across projects.
 
-**Guardrails Controls**
-Turbot Guardrails fine-grained policies that provide continuous governance, compliance, and security automation across multi-cloud environments.
+## Common Tasks
 
-**Branch/Tag Rulesets**
-GitHub repository protection rules that control how code can be modified, pushed, or deleted.
+When you need to verify whether a specific control is in place—say, "do we block public S3 buckets?"—search for "S3" or "public" and you'll see all related preventions. Each prevention shows which accounts it applies to, so you can quickly identify coverage gaps.
 
-**Account Settings**
-Cloud provider account-level security configurations that apply to all resources in an account.
+If you're auditing a specific account's security posture, filter to that account and review its prevention list. You can compare this against a benchmark like CIS to see what's missing. When you find gaps, the Examples tab provides templates to implement the missing controls.
 
-## Examples Tab
+Planning layer-specific improvements works best through the Layers tab. If you're adding Access layer preventions (like SCPs), viewing them grouped by layer helps ensure you're covering the right objectives without duplicating Config layer controls.
 
-The Examples tab provides concrete implementation guidance:
+## Understanding Status and Scope
 
-**What you'll find:**
-- **Policy templates**: Ready-to-use SCP, Azure Policy, and GCP Organization Policy definitions
-- **Code samples**: Terraform/IaC examples for automated prevention deployment
-- **Configuration examples**: Screenshots and step-by-step guides for manual implementation
-- **Best practices**: Recommended configurations and common patterns
+Preventions show different statuses. "Active" means the control is live and enforcing—resources are actually protected. "Available" typically means the prevention is defined but may be in audit mode rather than enforcement. "Recommended" indicates a gap—the prevention would help but isn't implemented yet.
 
-Use examples to accelerate implementation by adapting tested, production-ready policies for your environment.
-
-## Types Tab
-
-The Types tab groups preventions by their technical implementation:
-
-**Common types include:**
-- **AWS Service Control Policies**: Organization-wide AWS controls
-- **AWS S3 Account Settings**: S3 block public access configurations
-- **AWS EC2 Account Attributes**: EC2 default behaviors and restrictions
-- **Azure Policy Definitions**: Subscription-level Azure controls
-- **GCP Organization Policy Constraints**: Organization-level GCP controls
-- **GitHub Branch Ruleset Settings**: Repository branch protection rules
-- **Guardrails Controls**: Multi-cloud governance policies
-
-Click on any type to see all preventions implemented using that mechanism.
-
-## Layers Tab
-
-The Layers tab organizes preventions by enforcement layer:
-
-**Build**: Controls applied during resource creation
-**Access**: Controls governing who can perform actions
-**Config**: Controls enforcing resource configurations
-**Runtime**: Controls detecting and responding to behavior
-
-Use this view to ensure defense-in-depth: balanced coverage across all layers provides stronger security than relying on a single layer.
-
-## Common Workflows
-
-**Finding all preventions for a specific service**
-1. Use the search box to enter the service name (e.g., "S3", "RDS")
-2. Review the list of preventions related to that service
-3. Click on individual preventions to see detailed configuration
-4. Identify which accounts have each prevention implemented
-
-**Understanding which accounts have a specific prevention**
-1. Search for or filter to find the specific prevention
-2. Note that the same prevention may appear multiple times with different account scopes
-3. Each entry shows which account or resource the prevention is applied to
-4. Click the prevention to see full coverage details
-
-**Reviewing all preventions at a specific layer**
-1. Click the **Layers** tab
-2. Select the layer you want to review (Build, Access, Config, or Runtime)
-3. See all preventions operating at that layer
-4. Identify gaps where additional preventions may be needed
-
-**Finding implementation examples for a prevention**
-1. Search for the prevention in the Preventions tab
-2. Click on the prevention to view its detail page
-3. Navigate to the Examples section to see policy templates
-4. Use the templates to implement the prevention in your environment
-
-**Auditing prevention coverage across accounts**
-1. Use the Filter button to select a specific account
-2. Review all preventions applied to that account
-3. Compare against target benchmarks (e.g., CIS, NIST)
-4. Identify missing preventions by comparing to the full list
-
-**Planning new prevention implementations**
-1. Review the full list of available preventions
-2. Filter by priority (P1, P2) to focus on high-impact controls
-3. Check which preventions are "recommended" but not yet "active"
-4. Use the Examples tab to get implementation guidance
-5. Track deployment progress by monitoring prevention status
-
-## Prevention Status
-
-Preventions can have different implementation statuses:
-
-**Active**
-The prevention is currently implemented and enforcing controls. Resources are protected by this prevention.
-
-**Available**
-The prevention has been defined and configured but may not be actively enforcing. This status might indicate the prevention is in audit mode or pending activation.
-
-**Recommended**
-The prevention is suggested based on objectives, benchmarks, or best practices but has not yet been implemented. These are opportunities to improve security posture.
-
-## Interpreting Prevention Scope
-
-Prevention scope indicates where the control is applied:
-
-**Organization-wide**
-Applied to all accounts in an AWS Organization, Azure Management Group, or GCP Organization. These preventions provide consistent protection across the entire environment.
-
-**Account/Subscription-specific**
-Applied to individual AWS accounts, Azure subscriptions, or GCP projects. These preventions allow for account-specific configurations.
-
-**Resource-specific**
-Applied to specific resources or resource groups. These preventions provide fine-grained control over individual workloads.
+Scope tells you how broadly a prevention applies. Organization-wide preventions (like SCPs attached to your AWS Organization root) protect everything. Account-specific preventions (like S3 Block Public Access set on one account) protect only that account. Understanding scope matters when you're evaluating coverage—an organization-wide prevention counts for all accounts, while an account-specific prevention might need to be replicated elsewhere.
 
 ## Next Steps
 
-- Click into any [prevention detail page](./detail.md) to see configuration details and coverage
-- Review [Objectives](../objectives/index.md) to understand which objectives each prevention achieves
-- Use [Recommendations](../recommendations/index.md) to prioritize new prevention implementations
-- Check [Accounts](../accounts/index.md) to see prevention coverage by account
-- Try the [Simulator](../simulator/index.md) to test Service Control Policies before deployment
+- Click into any [prevention detail page](/guardrails/docs/prevention/preventions/detail) to see configuration details and coverage
+- Review [Objectives](/guardrails/docs/prevention/objectives) to understand which objectives each prevention achieves
+- Use [Recommendations](/guardrails/docs/prevention/recommendations) to prioritize new prevention implementations
+- Check [Accounts](/guardrails/docs/prevention/accounts) to see prevention coverage by account
+- Try the [Simulator](/guardrails/docs/prevention/simulator) to test Service Control Policies before deployment

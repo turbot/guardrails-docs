@@ -5,123 +5,51 @@ sidebar_label: Explore
 
 # Explore
 
-The Explore tab provides a flexible, interactive interface for analyzing your prevention scores with customizable grouping, filtering, and sorting options. Use Explore to investigate your prevention posture from multiple perspectives and drill down into specific areas of interest.
+The Explore tab lets you analyze prevention scores from multiple perspectives using custom grouping, filtering, and sorting. Think of it as a pivot table for your prevention data—you can arrange it by benchmark, account, category, layer, or priority, filter to specific subsets, and sort to find what matters most.
 
 ![Prevention Explore](./prevention-explore-default.png)
 
 ## Understanding the Explore View
 
-The Explore view displays prevention data in a hierarchical table where scores aggregate at each level. By default, it groups by **Benchmark > Objective > Account**, but you can reorganize the data to support different analysis needs.
-
-Each row shows:
-- The name and description of the item
-- The prevention score (color-coded: green = strong, orange = partial, red = gaps, gray = not applicable)
-- The number of child items
-- An expandable arrow to drill into details
+The view displays prevention data in a hierarchical table where scores aggregate at each level. By default, it groups by Benchmark > Objective > Account, but you can reorganize this however makes sense for your analysis. Each row shows the name and description, prevention score (color-coded: green = strong, orange = partial, red = gaps, gray = not applicable), number of child items, and an expandable arrow to drill into details.
 
 ## Grouping Data
 
-Organize your prevention data hierarchically using up to four levels. Choose from:
+Organize your prevention data hierarchically using up to four levels from these options: Benchmark (compliance frameworks), Objective (prevention goals), Account (cloud accounts), Category (security domains), Layer (enforcement stages), and Priority (P1-P5 importance levels). Drag and drop grouping handles in the Filter & Group panel to reorder levels.
 
-- **Benchmark**: Compliance frameworks (AWS CIS, NIST 800-53, etc.)
-- **Objective**: Individual prevention goals
-- **Account**: Your cloud accounts (AWS, Azure, GCP, GitHub)
-- **Category**: Security domains (Data Governance, Identity & Access, etc.)
-- **Layer**: Enforcement stages (Build, Access, Config, Runtime)
-- **Priority**: Importance levels (P1-P5)
 
-You can reorder the grouping levels by dragging and dropping the grouping handles in the Filter & Group panel to customize your view
+## Filtering and Sorting
 
-### Common Grouping Patterns
+Filter to narrow data—by layer (specific enforcement stages), account (specific accounts), objective (search by name/keywords), category (security domains), or priority (P1-P5 levels). This lets you focus on areas of responsibility or concern without noise from irrelevant data.
 
-**Benchmark > Objective > Account** (default)
-See how you're scoring against compliance frameworks, with each objective's score broken down by account.
+Sort controls how items order within each group level. Score (Asc) shows lowest scores first—useful for finding gaps needing attention. Score (Desc) shows highest scores first—good for identifying your strongest areas. Name (A-Z) provides alphabetical order for systematic reviews. Priority (High to Low) puts critical objectives first for prioritization work.
 
-**Account > Category > Objective**
-Analyze each account's security posture by category.
+## What to Look For
 
-**Category > Layer > Objective**
-Understand your defense-in-depth strategy by seeing which objectives are addressed at which enforcement layers.
+Low scores indicate gaps in prevention coverage—opportunities to add SCPs, policies, or account settings to improve posture. Inconsistent scores across accounts (some score well, others don't) suggest inconsistent policy application—consider organization-wide policies. Missing layers (objectives covered at only one layer) signal opportunities for defense-in-depth by adding controls at additional layers. High-priority gaps (low scores on P1 or P2 objectives) represent the most critical risks and should be prioritized for remediation.
 
-**Priority > Category > Objective**
-Focus on the most critical objectives first by grouping by priority level.
+## Common Use Cases
 
-**Layer > Account > Objective**
-See how enforcement is distributed across layers for each account.
-
-## Filtering Data
-
-Narrow the data to specific subsets by filtering:
-
-- **Layer**: Show only objectives at specific enforcement layers
-- **Account**: Limit view to specific accounts
-- **Objective**: Search for objectives by name or keywords
-- **Category**: Show only objectives from specific security domains
-- **Priority**: Filter to objectives of specific priority levels (P1-P5)
-
-## Sorting Results
-
-Control how items are ordered within each group level:
-
-- **Score (Desc)**: Highest scores first—identify your strongest areas
-- **Score (Asc)**: Lowest scores first—find gaps needing attention
-- **Name (A-Z)**: Alphabetical order—systematic reviews
-- **Priority (High to Low)**: Critical objectives first—prioritization
-
-## Analyzing Prevention Scores
-
-Look for patterns such as:
-
-### Low Scores
-Gaps in prevention coverage. Opportunities to add preventions (SCPs, policies, account settings) to improve security posture.
-
-### Inconsistent Scores Across Accounts
-When some accounts score well while others don't, suggests inconsistent policy application. Consider applying policies organization-wide.
-
-### Missing Layers
-If objectives show coverage at only one layer, consider adding defense-in-depth by implementing controls at additional layers.
-
-### High-Priority Gaps
-Low scores on P1 or P2 objectives represent the most critical risks. Prioritize these for remediation.
-
-## Example Analysis Workflows
-
-**Compliance audit preparation**
-1. Group by Benchmark > Objective > Account
-2. Filter to the specific compliance framework
-3. Sort by Score (Asc) to identify failing objectives
-4. Expand each low-scoring objective to see which accounts need remediation
+For compliance audit preparation, group by Benchmark > Objective > Account, filter to the specific compliance framework, sort by Score (Asc) to identify failing objectives, then expand each low-scoring objective to see which accounts need remediation.
 
 ![Compliance Audit Preparation](./prevention-explore-compliance-audit.png)
 
-**Account security review**
-1. Group by Account > Category > Objective
-2. Filter to the specific account
-3. Review scores across all categories
-4. Identify objectives with low scores and review what preventions exist
+For account security reviews, group by Account > Category > Objective, filter to the specific account, review scores across all categories, and identify objectives with low scores to understand what preventions exist (or don't).
 
 ![Account Security Review](./prevention-explore-account-security-review.png)
 
-**Priority-driven remediation**
-1. Group by Priority > Category > Objective
-2. Filter to P1 and P2 priorities
-3. Sort by Score (Asc)
-4. Focus remediation on the lowest-scoring P1/P2 objectives
+For priority-driven remediation, group by Priority > Category > Objective, filter to P1 and P2 priorities, sort by Score (Asc), and focus remediation on the lowest-scoring critical objectives first.
 
 ![Priority-Driven Remediation](./prevention-explore-priority-remediation.png)
 
-**Layer coverage analysis**
-1. Group by Layer > Objective
-2. Review distribution of objectives across layers
-3. Identify objectives with coverage at only one layer
-4. Plan additional controls at other layers for defense-in-depth
+For layer coverage analysis, group by Layer > Objective, review distribution of objectives across layers, identify objectives with coverage at only one layer, and plan additional controls at other layers for defense-in-depth.
 
 ![Layer Coverage Analysis](./prevention-explore-layer-coverage.png)
 
 ## Next Steps
 
-- Experiment with different grouping combinations to find views that match your analysis needs
-- Use filters to focus on specific areas of concern or responsibility
-- Bookmark useful views by copying the URL (filters and groupings are included in URL parameters)
+- Experiment with different grouping combinations to find views matching your analysis needs
+- Use filters to focus on areas of concern or responsibility
+- Bookmark useful views by copying the URL—filters and groupings are included in URL parameters
 - Export or screenshot key views for security reports and presentations
-- Click through to individual objectives to see detailed information about preventions and recommendations
+- Click through to individual objectives to see detailed prevention and recommendation information

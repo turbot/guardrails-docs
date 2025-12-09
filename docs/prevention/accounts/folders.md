@@ -11,81 +11,27 @@ The Folders view displays accounts organized by Turbot Guardrails folders—logi
 
 ## Understanding the Folders View
 
-Folders in Turbot Guardrails allow you to:
+Folders are custom groupings you define in Turbot Guardrails to organize resources however makes sense for your organization—by team, environment, compliance scope, or any other criteria. Unlike the Organizations view (which shows cloud-native AWS/Azure/GCP hierarchy), Folders let you group resources from multiple cloud providers together. You can put AWS accounts, Azure subscriptions, and GCP projects in the same folder if they all belong to the same team or serve the same purpose.
 
-- **Group resources logically**: Organize accounts by team, project, environment, or any custom criteria
-- **Cross-cloud organization**: Group AWS accounts, Azure subscriptions, GCP projects, and GitHub repositories together
-- **Policy inheritance**: Apply Guardrails policies at the folder level to affect all nested resources
-- **Aggregated prevention scores**: See rollup prevention scores for entire groups of accounts
+Each folder card shows the folder name, total alerts across all accounts in the folder, and how many accounts/subscriptions/repositories it contains. Click a folder to expand and see all nested accounts with their IDs, folder paths, alert counts, and control counts. This makes it easy to see everything belonging to a specific team or environment at a glance.
 
-Each folder card displays:
-- **Folder Name**: The custom name you've assigned
-- **Alert Count**: Total alerts across all accounts in the folder
-- **Item Count**: Number of accounts, subscriptions, and repositories in the folder
-
-## Viewing Folder Contents
-
-Click on any folder card to expand and view all accounts nested within it:
-
-![Folders Expanded](./folders-expanded.png)
-
-When expanded, each account shows:
-- **Account Name**: The friendly name of the account or subscription
-- **Account ID**: The unique identifier (account number, subscription ID, etc.)
-- **Folder Path**: The nested folder structure showing the account's location
-- **Sub-folder** (if applicable): Additional organizational grouping within the parent folder
-- **Alert Count**: Number of active alerts for the account
-- **Controls Count**: Number of controls running on the account
+Folders also support policy inheritance—you can apply Guardrails policies at the folder level and they affect all nested resources. This is powerful for ensuring consistent controls across accounts that share characteristics even if they're in different cloud providers or different parts of the cloud-native hierarchy.
 
 ## Common Use Cases
 
-### Organizing by Team or Business Unit
+Many organizations create folders by team or business unit—an Engineering folder with dev/test/prod accounts, a Data Science folder with analytics accounts, a Security folder with audit and logging accounts. This helps track prevention coverage by organizational ownership and makes it clear which team is responsible for each account.
 
-Create folders for each team or business unit to track prevention coverage by organizational ownership:
-- Engineering folder with dev/test/prod accounts
-- Data Science folder with analytics accounts
-- Security folder with audit and logging accounts
+Others organize by environment—a Production folder with all prod accounts across AWS, Azure, and GCP, a Non-Production folder with dev/test/staging, and a Sandbox folder for experimental work. This supports applying stricter preventions to production (enforcing encryption, blocking public access) while allowing more flexibility in non-production environments.
 
-### Organizing by Environment
-
-Group accounts by environment to ensure consistent prevention policies:
-- Production folder with all prod accounts across clouds
-- Non-Production folder with dev, test, and staging accounts
-- Sandbox folder with experimental or training accounts
-
-### Organizing by Compliance Scope
-
-Create folders based on compliance requirements:
-- PCI-DSS folder for accounts handling payment data
-- HIPAA folder for healthcare-related accounts
-- Public folder for accounts with publicly accessible resources
-
-## Filtering and Sorting
-
-Use the Filter and Sort controls to manage large numbers of folders:
-
-- **Search**: Quickly find folders by name
-- **Filter by Folder**: Show only specific nested folders
-- **Sort options**: Order folders alphabetically or by other criteria
+Compliance-driven organizations might create folders based on regulatory scope—a PCI-DSS folder for accounts handling payment data, a HIPAA folder for healthcare-related accounts, or a Public folder for accounts with publicly accessible resources. This makes it easy to ensure accounts subject to specific regulations have the required preventive controls.
 
 ## Folders vs Organizations
 
-Understanding the difference:
-
-**Organizations View**
-- Shows cloud-native hierarchy (AWS Organizations, Azure Management Groups, GCP Org)
-- Reflects how accounts are structured in the cloud provider
-- Useful for understanding cloud-native policy inheritance (SCPs, org policies)
-
-**Folders View**
-- Shows Turbot Guardrails custom groupings
-- Can include resources from multiple cloud providers in one folder
-- Useful for organizing resources by your internal organizational structure
-- Supports Guardrails policy inheritance
+The Organizations view shows cloud-native hierarchy (AWS Organizations, Azure Management Groups, GCP Org) as structured in the cloud provider—useful for understanding cloud-native policy inheritance like SCPs. The Folders view shows your custom Guardrails groupings, can include resources from multiple cloud providers in one folder, and supports Guardrails policy inheritance. Use Organizations when you need to understand cloud-native structure; use Folders when you need to organize by your internal organizational model.
 
 ## Next Steps
 
-- Return to the [Accounts](./index.md) view for a flat list of all accounts
-- Use the [Organizations](./organizations.md) view to see cloud-native hierarchy
-- Use the [Visualize](./visualize.md) view for a graphical representation
+- Return to the [Accounts](/guardrails/docs/prevention/accounts) view for a flat list of all accounts
+- Use the [Organizations](/guardrails/docs/prevention/accounts/organizations) view to see cloud-native hierarchy
+- Use the [Visualize](/guardrails/docs/prevention/accounts/visualize) view for a graphical representation
 - Click into any account to view detailed prevention scores by objective

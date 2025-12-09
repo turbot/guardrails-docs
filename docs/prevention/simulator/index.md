@@ -5,254 +5,61 @@ sidebar_label: Simulator
 
 # SCP Simulator
 
-The SCP Simulator allows you to visualize and test Service Control Policy (SCP) effects against your AWS Organizations and CloudTrail events before deploying them to production. This tool helps you understand how SCPs will impact your environment, identify unintended consequences, and validate that policies work as expected.
+The SCP Simulator lets you test Service Control Policies before deploying them to production. Service Control Policies are powerful—they can deny API actions across your entire AWS Organization—but that power makes them risky to deploy without testing. The simulator helps you understand how an SCP will affect your environment, catch unintended consequences, and validate that policies work as expected.
 
 ![SCP Simulator](./simulator.png)
 
-## Understanding the SCP Simulator
+## Why Testing SCPs Matters
 
-Service Control Policies (SCPs) are AWS Organization-level policies that set permission guardrails for all accounts in an organization. SCPs never grant permissions—they only restrict what actions can be performed, even if IAM policies would otherwise allow those actions.
+Service Control Policies are unusual among AWS controls because they're so broad and so permanent. An SCP attached at your organization root affects every account, every principal, every API call. An SCP deny can't be overridden by an IAM allow—it's absolute. If you deploy an SCP that accidentally denies a critical operation, you've just broken that operation across your entire organization.
 
-The simulator helps you:
-- **Test SCP policies before deployment** to avoid accidentally blocking critical operations
-- **Visualize policy effects** across your AWS Organization hierarchy
-- **Validate policy syntax** to catch errors before they cause problems
-- **Understand combined policy effects** when multiple SCPs apply
-- **Test against real CloudTrail events** to see how policies would have affected actual API calls
+The simulator prevents these mistakes. You can paste an SCP, test it against recent CloudTrail events from your accounts, see what would be blocked, refine the policy, and test again—all without touching production. By the time you deploy, you're confident the SCP does what you intend and nothing more.
 
-## Why Use the Simulator
+## How to Use It
 
-**Prevent production outages**
-SCPs are powerful controls that can block API actions across entire AWS Organizations. Testing before deployment prevents accidentally blocking critical operations like CloudFormation deployments, CI/CD pipelines, or administrative tasks.
+Start by selecting your AWS Organization from the available organizations imported into Guardrails. Each organization shows its management account details so you can confirm you're testing against the right environment.
 
-**Understand inheritance**
-SCPs are inherited down the organization tree. The simulator helps visualize how policies attached at the organization root, organizational units, and account levels combine to affect specific accounts.
+Once you've selected an organization, you have several testing options. You can paste an SCP policy document to validate its syntax and see what it would block. You can test against CloudTrail events—either upload CloudTrail logs or specify individual API calls—to see if they'd be allowed or denied. You can visualize how the policy would apply across your organization hierarchy, seeing which accounts and OUs would be affected.
 
-**Validate deny statements**
-SCP deny statements are permanent—there's no way to override them with IAM allow statements. The simulator helps ensure your denies are scoped correctly.
+The simulator shows you exactly what would happen: which actions would be allowed, which would be denied, and which policy in the hierarchy caused each deny. This is particularly valuable when multiple SCPs apply to an account (from the organization root, from OUs, and from the account itself), because understanding the combined effect can be challenging.
 
-**Test complex policies**
-When multiple SCPs apply (some with explicit denies, some with implicit denies due to lack of allows), understanding the combined effect can be challenging. The simulator shows the net result.
+## Common Use Cases
 
-**Reduce trial and error**
-Rather than deploying policies to production and observing what breaks, use the simulator to test iteratively in a safe environment.
+The most common use case is testing a new SCP before deployment. You draft a policy meant to block dangerous actions or enforce regional restrictions, paste it into the simulator, test it against recent CloudTrail events from accounts that will be affected, and see what would be blocked. If the simulator shows you're about to deny legitimate CloudFormation deployments or CI/CD operations, you refine the policy to add exceptions before any damage is done.
 
-## Getting Started
+Another valuable use case is diagnosing why something's being blocked. If developers report that an API call is being denied and you suspect an SCP is responsible, you can recreate the API call in the simulator and see exactly which SCP policy is causing the deny. This helps you understand if the block is intentional (working as designed) or if the policy needs adjustment.
 
-### Step 1: Select an AWS Organization
+The simulator is also useful for training. SCPs are conceptually different from IAM policies—they only restrict, they inherit down the organization tree, explicit denies can't be overridden—and the simulator provides a safe environment to demonstrate these behaviors and let team members experiment.
 
-The simulator page displays available AWS Organizations that have been imported into Turbot Guardrails.
+## Understanding SCP Behavior
 
-Each organization card shows:
-- **Organization name**: Friendly identifier (e.g., "GFB - AWS Organization")
-- **Organization ID**: AWS organization identifier (e.g., "o-quusfh5fd9")
-- **Management account ID**: The root account of the organization
-- **Management account email**: Contact email for the management account
+SCPs inherit down the organization tree. If you attach an SCP at the organization root, it affects every account. If you attach an SCP to an OU, it affects that OU and all accounts and child OUs beneath it. If any SCP in the hierarchy denies an action, the action is denied—there's no way to override an explicit deny.
 
-Click "Select" on the organization you want to test policies against.
+The effective permissions for any API call are the intersection of all SCPs in the hierarchy and the IAM policies. Even if IAM policies allow an action, an SCP can deny it. But SCPs don't grant permissions—they only restrict what IAM policies can grant.
 
-### Step 2: Choose a Testing Method
+Most organizations use one of two SCP patterns. The allowlist pattern explicitly allows specific services (like S3, EC2, RDS) and implicitly denies everything else—useful for restricting which AWS services can be used. The denylist pattern explicitly denies specific dangerous actions (like deleting IAM roles or stopping CloudTrail) while allowing everything else—useful for preventing specific risky operations.
 
-The simulator offers multiple ways to test SCP policies:
-
-**Test against organization structure**
-Visualize how policies apply across the organization hierarchy (root, OUs, accounts).
-
-**Test against CloudTrail events**
-Upload CloudTrail logs or specify events to see if they would be allowed or denied by the SCP.
-
-**Test custom policy JSON**
-Paste an SCP policy document to validate syntax and see its effects.
-
-### Step 3: Analyze Results
-
-The simulator shows:
-- **Allowed actions**: API calls that would be permitted
-- **Denied actions**: API calls that would be blocked
-- **Which policy caused the deny**: Identifying which SCP in the hierarchy blocked the action
-- **Visual representation**: Graphical view of policy effects across the organization
-
-## Use Cases
-
-**Testing a new SCP before deployment**
-1. Select your organization in the simulator
-2. Paste the SCP policy JSON you want to deploy
-3. Test against recent CloudTrail events from accounts that will be affected
-4. Identify any critical operations that would be blocked
-5. Refine the policy to add exceptions if needed
-6. Re-test until confident
-7. Deploy to production with minimal risk
-
-**Understanding why an API call was denied**
-1. Select the organization
-2. Enter the CloudTrail event details (principal, action, resource, conditions)
-3. Simulate the API call
-4. See which SCP policy denied it
-5. Trace the policy through the organization hierarchy
-6. Determine if the deny was intentional or if the policy needs adjustment
-
-**Validating compliance controls**
-1. Create or obtain an SCP that enforces a compliance requirement (e.g., "Deny all S3:PutObject calls without server-side encryption")
-2. Test the policy against sample API calls:
-   - S3:PutObject with SSE-S3 (should allow)
-   - S3:PutObject without encryption (should deny)
-   - S3:GetObject (should allow)
-3. Verify the policy behaves as expected
-4. Test edge cases to ensure no unintended side effects
-
-**Planning organization restructuring**
-1. Simulate how moving accounts between OUs would change their effective permissions
-2. Test whether existing workloads would continue to function after the move
-3. Identify policies that would need to be adjusted
-4. Plan the migration with confidence
-
-**Training and education**
-1. Use the simulator to demonstrate how SCPs work to team members
-2. Show the difference between IAM policies and SCPs
-3. Illustrate policy inheritance and precedence
-4. Provide hands-on experience with SCP syntax and effects
-
-## SCP Policy Concepts
-
-**Effect**
-SCPs support only "Deny" or "Allow" effects. Most organizations use deny-based SCPs with implicit denies (by not allowing everything, unspecified actions are denied).
-
-**Action**
-The AWS API actions to allow or deny (e.g., "s3:PutObject", "ec2:RunInstances").
-
-**Resource**
-The AWS resources the policy applies to (often "*" for organization-wide controls).
-
-**Condition**
-Optional conditions that must be met for the policy to apply (e.g., require MFA, restrict to specific regions).
-
-**Inheritance and precedence**
-- SCPs are inherited from parent OUs to child OUs and accounts
-- If any SCP in the hierarchy denies an action, the action is denied
-- Explicit denies cannot be overridden by allows
-- The effective permissions are the intersection of all SCPs and IAM policies
-
-## Common SCP Patterns
-
-**Deny all actions except explicitly allowed (allowlist)**
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:*",
-        "ec2:*",
-        "rds:*"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
-This pattern allows only specified services. All other services are implicitly denied.
-
-**Deny specific actions (denylist)**
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Deny",
-      "Action": [
-        "iam:DeleteRole",
-        "s3:DeleteBucket",
-        "ec2:TerminateInstances"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
-This pattern blocks specific dangerous actions while allowing everything else.
-
-**Require conditions**
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Deny",
-      "Action": "*",
-      "Resource": "*",
-      "Condition": {
-        "StringNotEquals": {
-          "aws:RequestedRegion": ["us-east-1", "us-west-2"]
-        }
-      }
-    }
-  ]
-}
-```
-This pattern denies all actions outside specified regions.
+The simulator helps you test both patterns and understand their effects before deployment. You can see which services would be blocked by an allowlist, or which operations would be denied by a denylist, and refine the policy until it matches your intent.
 
 ## Best Practices
 
-**Test thoroughly before deploying**
-Always use the simulator to test new or modified SCPs before applying them to production accounts.
+Always test with real CloudTrail data from your environment. Theoretical testing is valuable, but testing against actual API calls from your workloads catches real-world issues. Export recent CloudTrail logs from accounts that will be affected by the SCP, upload them to the simulator, and verify nothing critical gets blocked.
 
-**Start with audit mode**
-Consider implementing detective controls (CloudWatch alarms, GuardDuty) to monitor for unwanted actions before deploying preventive SCPs.
+Start conservatively. Your first SCP should be narrowly scoped—maybe just restricting regions, or just blocking one specific dangerous action. Test thoroughly. Deploy. Monitor for issues. Once you're confident in your process, you can deploy broader policies.
 
-**Test with real CloudTrail data**
-Use recent CloudTrail events from your environment to test policies against actual workloads.
+Store SCP policies in version control alongside your Infrastructure as Code. This provides an audit trail of changes, makes it easy to roll back if needed, and allows for code review before deployment.
 
-**Exclude break-glass accounts**
-Consider excluding specific OUs or accounts from SCPs to maintain emergency access paths.
-
-**Document policy intent**
-Add clear descriptions to SCP policies explaining what they're meant to prevent and why.
-
-**Version control**
-Store SCP policies in version control (Git) alongside Infrastructure-as-Code to track changes over time.
-
-**Review regularly**
-Periodically review SCPs to ensure they still align with organizational needs and don't block legitimate new use cases.
-
-**Coordinate with IAM**
-Ensure SCP restrictions align with IAM policies. SCPs restrict what IAM policies can grant, but they don't grant permissions themselves.
+Document why each SCP exists. An SCP that denies certain actions might be obvious today, but six months from now when requirements change, having a clear explanation of the intent helps determine if the policy should be modified or if the new requirement should be implemented differently.
 
 ## Limitations
 
-**AWS Organizations only**
-The simulator currently supports only AWS Service Control Policies. Azure Policies and GCP Organization Policies have separate testing mechanisms in their respective cloud consoles.
+The simulator currently supports only AWS Service Control Policies. Azure Policies and GCP Organization Policies have their own testing mechanisms in their respective cloud consoles. If you're using Guardrails controls, those can be tested in non-production accounts before enabling enforcement.
 
-**CloudTrail event requirements**
-To test against CloudTrail events, you need to provide or upload CloudTrail logs in the correct format.
-
-**Simulation vs. production**
-The simulator provides a close approximation of policy effects, but edge cases involving complex conditions or service-specific behaviors may differ slightly from production.
-
-**No runtime testing**
-The simulator tests policy syntax and logic but cannot test the actual impact on running workloads. Always plan a gradual rollout and monitoring strategy.
-
-## Troubleshooting
-
-**Policy syntax errors**
-If the simulator reports syntax errors, validate your JSON formatting and ensure all required fields (Version, Statement, Effect, Action) are present.
-
-**Unexpected denies**
-If the simulator shows an action is denied when you expected it to be allowed:
-1. Check all SCPs in the hierarchy (root, OU, account)
-2. Remember that any explicit deny cannot be overridden
-3. Verify condition keys are correctly specified
-4. Ensure IAM action names match AWS service actions exactly
-
-**Unexpected allows**
-If the simulator shows an action is allowed when you expected it to be denied:
-1. Verify your SCP uses "Deny" effect, not "Allow"
-2. Check if a parent OU has an allow policy that grants the action
-3. Remember SCPs only restrict—they don't see IAM policies that might also deny
+The simulator provides a close approximation of policy effects, but complex conditions or service-specific behaviors might differ slightly from production. Always plan for gradual rollout—deploy to a test OU first, monitor for issues, then expand to production OUs.
 
 ## Next Steps
 
-- Return to [Recommendations](../recommendations/index.md) to find SCP policies recommended for your environment
-- Review [Preventions](../preventions/index.md) to see which SCPs are currently deployed
-- Check [Objectives](../objectives/index.md) to understand security goals that SCPs can achieve
-- Visit [Accounts](../accounts/index.md) to see prevention coverage across your organization
+- Return to [Preventions](/guardrails/docs/prevention/preventions) to see which SCPs are currently deployed
+- Check [Examples](/guardrails/docs/prevention/preventions/examples) for tested SCP templates you can adapt
+- Review [Objectives](/guardrails/docs/prevention/objectives) to understand which security goals SCPs can achieve
+- Visit [Recommendations](/guardrails/docs/prevention/recommendations) to find SCP policies recommended for your environment

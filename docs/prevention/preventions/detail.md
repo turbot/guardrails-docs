@@ -193,8 +193,8 @@ This pattern provides defense-in-depth: if one control fails or is misconfigured
 
 ## Next Steps
 
-- Return to [Preventions](./index.md) to browse other prevention controls
-- Review [Objectives](../objectives/index.md) to see all security objectives
-- Check [Accounts](../accounts/index.md) to see prevention coverage by account
-- Use [Recommendations](../recommendations/index.md) to prioritize new implementations
-- Try the [Simulator](../simulator/index.md) to test Service Control Policies before deployment
+- Return to [Preventions](/guardrails/docs/prevention/preventions) to browse other prevention controls
+- Review [Objectives](/guardrails/docs/prevention/objectives) to see all security objectives
+- Check [Accounts](/guardrails/docs/prevention/accounts) to see prevention coverage by account
+- Use [Recommendations](/guardrails/docs/prevention/recommendations) to prioritize new implementations
+- Try the [Simulator](/guardrails/docs/prevention/simulator) to test Service Control Policies before deployment

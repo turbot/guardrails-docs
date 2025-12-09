@@ -5,181 +5,44 @@ sidebar_label: Benchmarks
 
 # Benchmarks
 
-The Benchmarks tab displays compliance frameworks and industry standards that define prevention objectives. This page helps you track your compliance posture across multiple frameworks and understand which objectives you need to implement to meet specific compliance requirements.
+Benchmarks are compliance frameworks that define what good security looks like for a specific cloud provider or technology. When you need to prove compliance with AWS CIS, meet NIST 800-53 requirements, or follow Azure security best practices, this is where you track your progress.
 
 ![Benchmarks View](./benchmarks-list.png)
 
-## Understanding Benchmarks
+## What You're Looking At
 
-Benchmarks are collections of security objectives organized by compliance frameworks and industry standards. Each benchmark provides prescriptive guidance for securing your cloud environment according to established best practices.
+Each card represents a compliance framework. AWS CIS v6.0.0 is the Center for Internet Security's benchmark for AWS—a collection of security objectives that, when implemented, represent industry best practice. NIST 800-53 Rev 5 is the federal government's security control framework. The "P1 Preventions" benchmarks are Turbot's own frameworks focusing on the most critical preventive controls for each cloud provider.
 
-**Common benchmarks:**
-- **AWS CIS v6.0.0**: CIS Amazon Web Services Foundations Benchmark
-- **AWS NIST 800-53 Rev 5**: NIST security controls for federal information systems
-- **AWS P1 Preventions**: Fundamental preventative controls for AWS
-- **Azure CIS v5.0.0**: CIS Azure Foundations Benchmark
-- **Azure P1 Preventions**: Fundamental preventative controls for Azure
-- **GCP CIS v3.0.0**: CIS Google Cloud Platform Foundation Benchmark
-- **GitHub CIS v1.1.0**: CIS GitHub Benchmark for repository security
+The score next to each benchmark tells you how well you're meeting that framework's requirements across all your accounts. A score of 5 means you're fully compliant—every objective in the benchmark is being met. A score of 2 means you're missing most of the requirements. This isn't a pass/fail—it's a maturity indicator showing where you are and how much work remains.
 
-## Page Layout
+What makes this view valuable is seeing all your frameworks in one place. Instead of tracking AWS CIS compliance separately from NIST 800-53 compliance, you can see both scores immediately and prioritize based on which certifications matter most to your organization.
 
-### Header Section
+## How Benchmarks Are Organized
 
-- **Page title**: "Benchmarks - Browse compliance frameworks and standards with their prevention objectives"
-- **Navigation tabs**: Benchmarks, Objectives, Recommendations, Priorities, Categories
-- **Search box**: Find benchmarks by name or description
-- **Filter button**: Filter by benchmark type or account
-- **Sort dropdown**: Order by title, type, or score
+Benchmarks aren't flat lists—they're hierarchical. Click into AWS CIS v6.0.0 and you'll see it's organized into sections like "Identity and Access Management," "Storage," and "Logging." Each section contains related objectives. For example, the IAM section might include "Require MFA for root user" and "Eliminate use of root user for administrative and daily tasks."
 
-### Benchmark Cards
+This structure mirrors how the frameworks themselves are published, making it easier to map audit requirements to your implementation. When an auditor asks about CIS section 1.5, you can navigate directly to that section and see your current state.
 
-Each benchmark card displays:
-- **Benchmark name and version**: e.g., "AWS CIS v6.0.0"
-- **Description**: What the benchmark covers and its purpose
-- **Prevention score**: Current score (0-5) indicating compliance across all accounts
-- **Icon**: Visual indicator of the framework type
+## Using Benchmarks for Compliance
 
-**Example benchmark card:**
-```
-AWS CIS v6.0.0
-The CIS Amazon Web Services Foundations Benchmark provides prescriptive guidance
-for configuring security options for a subset of Amazon Web Services with an
-emphasis on foundational, testable, and architecture agnostic settings.
+If you're pursuing AWS CIS certification, click into that benchmark and review the sections. Sections with low scores need attention—click through to see which specific objectives aren't being met. From there, you can identify what preventions you need to implement.
 
-Score: 3
-```
+The search and sort functions help when you're dealing with multiple frameworks. Sort by score to see which benchmarks need the most work. Search for "CIS" to see all your CIS frameworks across different cloud providers at once.
 
-## Search and Filter
+One common pattern: use the P1 Preventions benchmarks as your baseline. These represent Turbot's view of the most critical controls for each cloud. Once you have strong P1 coverage, layer on compliance frameworks like CIS or NIST as needed for certification.
 
-**Search functionality:**
-Use the search box to find benchmarks by:
-- Benchmark name (e.g., "CIS", "NIST", "PCI")
-- Cloud provider (e.g., "AWS", "Azure", "GCP")
-- Framework version (e.g., "v6.0.0", "Rev 5")
+## Working With Benchmark Scores
 
-**Filter options:**
-Click the Filter button to narrow the list:
-- **By Benchmark Type**: CIS, NIST, P1 Preventions, custom benchmarks
-- **By Account**: Show only benchmarks that apply to specific accounts
-- **By Cloud Provider**: AWS, Azure, GCP, GitHub, or multi-cloud
+Don't fixate on achieving a perfect 5.0 score immediately. Compliance is a journey—going from 2.0 to 3.5 might take months of work, and that's meaningful progress. Focus on section-level scores to identify weak areas. If your overall CIS score is 3.2 but the Logging section scores 1.5, you know where to focus.
 
-**Sort options:**
-Order benchmarks by:
-- **Title (A to Z)**: Alphabetical order (default)
-- **Title (Z to A)**: Reverse alphabetical
-- **Score (High to Low)**: Show best-performing benchmarks first
-- **Score (Low to High)**: Show benchmarks needing the most work
+Some benchmarks overlap significantly. Many controls that satisfy AWS CIS also satisfy NIST 800-53. This means implementing one prevention can improve multiple benchmark scores simultaneously. The system tracks this automatically, so you don't need to manually map controls to frameworks.
 
-## Understanding Benchmark Scores
-
-Benchmark scores range from 0 to 5 and indicate your overall compliance level:
-
-- **5**: Full compliance—all benchmark objectives are met across all accounts
-- **4**: Strong compliance—most objectives are met, minor gaps exist
-- **3**: Moderate compliance—significant objectives are met, some work needed
-- **2**: Limited compliance—many objectives are not yet met
-- **0-1**: Minimal compliance—benchmark requirements are largely unmet
-
-The score is calculated based on how many of the benchmark's objectives have been achieved across all applicable accounts in your environment.
-
-## Benchmark Structure
-
-Benchmarks are organized hierarchically:
-
-**Sections**
-Each benchmark is divided into logical sections (e.g., "Identity and Access Management", "Storage", "Logging").
-
-**Objectives**
-Each section contains multiple prevention objectives that define specific security goals.
-
-**Recommendations**
-Each objective can be satisfied by implementing one or more preventions (SCPs, Azure Policies, etc.).
-
-## Common Workflows
-
-**Reviewing compliance for a specific framework**
-1. Find your target benchmark (e.g., AWS CIS v6.0.0) in the list
-2. Note the current score across all accounts
-3. Click the benchmark card to view its detail page
-4. Review sections to identify which areas have lower scores
-5. Drill into low-scoring sections to see specific objectives that need work
-
-**Tracking compliance progress over time**
-1. Note the current score for your target benchmark
-2. Implement preventions for low-scoring objectives
-3. Return to the benchmarks page regularly to monitor score improvements
-4. Focus on P1 and P2 objectives first for maximum impact
-
-**Comparing frameworks**
-1. Review scores across multiple benchmarks
-2. Identify which frameworks you're closest to achieving
-3. Note common objectives across frameworks
-4. Prioritize implementing preventions that satisfy multiple frameworks
-
-**Planning compliance initiatives**
-1. Select the benchmark you need to achieve (e.g., for audit requirements)
-2. Click the benchmark to see all its objectives
-3. Filter by priority to focus on critical requirements first
-4. Use the Recommendations tab to get implementation guidance
-5. Track progress by monitoring the benchmark score
-
-**Understanding framework requirements**
-1. Click on a benchmark to view its detail page
-2. Review the benchmark description to understand its scope
-3. Examine the section structure to see how objectives are organized
-4. Click into individual sections to see detailed objectives
-5. Note the priority levels assigned to each objective
-
-## Benchmark Types
-
-**Industry Standards**
-- CIS Benchmarks: Community-developed security configuration standards
-- NIST Frameworks: US government security frameworks (800-53, CSF)
-- PCI DSS: Payment Card Industry Data Security Standard
-- ISO 27001: International information security management standard
-
-**Cloud Provider Best Practices**
-- AWS Well-Architected Framework Security Pillar
-- Azure Security Benchmark
-- Google Cloud Security Best Practices
-
-**Turbot Prevention Frameworks**
-- P1 Preventions: Most fundamental preventative controls
-- P2 Preventions: Important high-impact preventions
-- Industry-Specific: Healthcare (HIPAA), Finance (SOX), Government (FedRAMP)
-
-**Custom Benchmarks**
-Organizations can create custom benchmarks tailored to:
-- Internal security policies
-- Regulatory requirements
-- Client or partner obligations
-- Industry-specific needs
-
-## Best Practices
-
-**Focus on one benchmark at a time**
-Rather than trying to achieve multiple benchmarks simultaneously, focus efforts on completing one framework to build momentum and demonstrate measurable progress.
-
-**Start with P1 objectives**
-Within any benchmark, prioritize critical (P1) objectives that provide foundational security before moving to P2 and P3.
-
-**Implement preventions that satisfy multiple benchmarks**
-Many security controls are common across frameworks. Prioritize preventions that help you achieve compliance with multiple benchmarks simultaneously.
-
-**Use benchmarks to drive remediation priorities**
-When executives ask "what should we work on next?", use benchmark scores to provide data-driven guidance.
-
-**Track and celebrate progress**
-Monitor benchmark scores over time and celebrate incremental improvements to maintain team motivation.
-
-**Align benchmarks with business objectives**
-Choose benchmarks that align with your organization's compliance obligations, customer requirements, and security maturity goals.
+A practical approach: start with P1 Preventions to build your foundation, then pursue compliance frameworks as business needs dictate. If you're selling to government customers, prioritize NIST 800-53. If you're in healthcare, prioritize frameworks that align with HIPAA requirements. Focus on one benchmark at a time rather than spreading effort across multiple frameworks—complete one, then move to the next.
 
 ## Next Steps
 
-- Click into any [benchmark detail page](./benchmark-detail.md) to see its grouped objectives
-- Review [Objectives](./objectives.md) to see all individual objectives across all benchmarks
-- Check [Priorities](./priorities.md) to focus on critical objectives first
-- View [Categories](./categories.md) to ensure balanced security coverage
-- Visit [Recommendations](../recommendations/index.md) for implementation guidance
+- Click into any [benchmark detail page](/guardrails/docs/prevention/objectives/benchmark-detail) to see its grouped objectives
+- Review [Objectives](/guardrails/docs/prevention/objectives/objectives) to see all individual objectives across all benchmarks
+- Check [Priorities](/guardrails/docs/prevention/objectives/priorities) to focus on critical objectives first
+- View [Categories](/guardrails/docs/prevention/objectives/categories) to ensure balanced security coverage
+- Visit [Recommendations](/guardrails/docs/prevention/recommendations) for implementation guidance

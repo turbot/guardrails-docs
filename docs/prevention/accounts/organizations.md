@@ -11,63 +11,22 @@ The Organizations view displays cloud accounts organized by their native cloud p
 
 ## Understanding the Organizations View
 
-The Organizations view respects the native hierarchy of each cloud provider:
+The Organizations view shows your cloud accounts in their native hierarchy—AWS Organizations with OUs and accounts, Azure Management Groups with subscriptions, or GCP Organization with folders and projects. Each level displays prevention scores, making it easy to see which branches of your organization have strong or weak coverage.
 
-### AWS Organizations
+This view is particularly useful for understanding prevention inheritance. Many preventions—especially Service Control Policies and Azure Policies—apply at the OU or management group level and affect all child accounts. Seeing the hierarchy helps you understand why certain accounts have specific preventions in place and where gaps might exist because a parent-level policy wasn't applied.
 
-For AWS accounts, the view displays:
-- **Organization Root**: The top-level container for all AWS accounts
-- **Organizational Units (OUs)**: Hierarchical groupings that organize accounts by business function, environment, or other criteria
-- **AWS Accounts**: Individual accounts nested within OUs
+If you see "No Organizational Units found," it means no cloud-native organizational structures have been imported yet. This view only appears when accounts belong to AWS Organizations, Azure Management Groups, or GCP Organization hierarchies. Standalone accounts without organizational context won't appear here—use the Accounts tab instead.
 
-Each level shows prevention scores, allowing you to quickly identify which parts of your organization have strong or weak prevention coverage.
+## What Makes This Useful
 
-### Azure Management Groups
+Expand organizational units to see which branches have lower prevention scores, helping you target remediation to specific business units or environments. If the Production OU scores 4.5 but the Development OU scores 2.0, you know where to focus effort—or you might decide that's acceptable risk tolerance for non-production environments.
 
-For Azure subscriptions, the view displays:
-- **Root Management Group**: The top-level container for all Azure subscriptions
-- **Management Groups**: Hierarchical groupings that organize subscriptions
-- **Subscriptions**: Individual Azure subscriptions nested within management groups
+When different teams own different OUs, you can quickly compare their prevention maturity. If Team A's OU consistently scores higher than Team B's, that suggests Team A has better implemented preventive controls. This isn't about blame—it's about identifying where teams might need additional support, guidance, or resources to improve their security posture.
 
-### GCP Organization Hierarchy
-
-For GCP projects, the view displays:
-- **Organization**: The top-level container for all GCP resources
-- **Folders**: Hierarchical groupings that organize projects
-- **Projects**: Individual GCP projects nested within folders
-
-## When Organizations View is Empty
-
-If you see "No Organizational Units found," this indicates:
-
-- No AWS Organizations have been imported yet
-- No Azure Management Groups have been configured
-- No GCP Organization hierarchy exists in the imported accounts
-
-The Organizations view only appears when accounts are part of a cloud-native organizational structure. Standalone accounts or accounts without organizational context will not appear in this view.
-
-## Using the Organizations View
-
-When organizational units are present, this view helps you:
-
-**Identify coverage gaps by organizational unit**
-Expand organizational units to see which branches of your organization have lower prevention scores. This helps target remediation efforts to specific business units or environments.
-
-**Understand prevention inheritance**
-Many preventions (especially SCPs and organizational policies) apply at the OU or management group level and affect all child accounts. This view makes it easy to see which preventions apply at which organizational level.
-
-**Compare prevention across business units**
-When different teams or business units own different OUs, you can quickly compare their prevention maturity and identify which teams may need additional support or guidance.
-
-## Filtering and Sorting
-
-Use the Filter and Sort controls to narrow the view:
-
-- **Filter by Account Type**: Show only AWS Organizations, Azure Management Groups, or GCP hierarchies
-- **Sort options**: Order organizational units alphabetically, by prevention score, or by creation date
+The hierarchical view also clarifies why accounts have certain preventions. If an SCP is attached at the organization root, every account inherits it. If an Azure Policy applies at a management group, all subscriptions beneath it are affected. Understanding this inheritance helps you avoid accidentally removing protective controls or understand why an account can't perform certain actions.
 
 ## Next Steps
 
-- Return to the [Accounts](./index.md) view for a flat list of all accounts
-- Use the [Folders](./folders.md) view to see Turbot Guardrails logical groupings
+- Return to the [Accounts](/guardrails/docs/prevention/accounts) view for a flat list of all accounts
+- Use the [Folders](/guardrails/docs/prevention/accounts/folders) view to see Turbot Guardrails logical groupings
 - Click into any organizational unit or account to view detailed prevention scores

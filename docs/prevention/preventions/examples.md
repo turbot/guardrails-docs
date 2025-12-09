@@ -516,8 +516,8 @@ Monitor CloudTrail, Activity Logs, and audit logs to see if preventions are trig
 
 ## Next Steps
 
-- Return to [Preventions](./preventions.md) to see all active preventions
-- Review [Types](./types.md) to understand different prevention mechanisms
-- Check [Layers](./layers.md) to see preventions organized by enforcement layer
-- Visit [Recommendations](../recommendations/index.md) to prioritize which preventions to implement
-- Try the [Simulator](../simulator/index.md) to test Service Control Policies before deployment
+- Return to [Preventions](/guardrails/docs/prevention/preventions/preventions) to see all active preventions
+- Review [Types](/guardrails/docs/prevention/preventions/types) to understand different prevention mechanisms
+- Check [Layers](/guardrails/docs/prevention/preventions/layers) to see preventions organized by enforcement layer
+- Visit [Recommendations](/guardrails/docs/prevention/recommendations) to prioritize which preventions to implement
+- Try the [Simulator](/guardrails/docs/prevention/simulator) to test Service Control Policies before deployment

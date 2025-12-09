@@ -28,22 +28,10 @@ This graphical representation makes it easy to:
 - See account groupings within specific OUs
 - Navigate complex multi-level organizational structures
 
-## When Visualize is Not Available
-
-If you see "No organization data available," this means:
-
-- No AWS Organizations have been imported into Turbot Guardrails
-- The imported AWS accounts are standalone and not part of an organization
-- The organization data has not yet been synchronized
-
-To use the Visualize view:
-1. Import an AWS Organization root account into Turbot Guardrails
-2. Ensure the account has permissions to read organization structure
-3. Wait for Guardrails to discover and map the organization hierarchy
 
 ## Using the Visualization
 
-When organization data is available, the visualization provides interactive controls and features:
+The visualization provides interactive controls and features:
 
 ### Interactive Navigation
 
@@ -86,11 +74,6 @@ Use the **Export** button to save the organization visualization in various form
 - **Export Viewport**: Export only the current visible viewport as PNG, useful for capturing a specific portion of the tree
 - **Export as JSON**: Download the graph data structure (nodes and edges) in JSON format, useful for programmatic analysis or integration with other tools
 
-**When to use each format:**
-- Use **PNG** for embedding in documents, presentations, or dashboards
-- Use **SVG** when you need to resize the image without quality loss or edit it in vector graphics software
-- Use **Viewport** to quickly capture what you're currently viewing without exporting the entire tree
-- Use **JSON** to analyze the organization structure programmatically or import into other visualization tools
 
 ## Use Cases
 
@@ -112,15 +95,10 @@ Use the visualization when planning to:
 - Restructure the organization hierarchy
 - Add or remove organizational units
 
-## Limitations
-
-The Visualize view currently supports:
-- **AWS Organizations only**: Azure and GCP hierarchies are not yet supported
-- **Read-only visualization**: Changes must be made in the AWS Console or via IaC
 
 ## Next Steps
 
-- Return to the [Accounts](./index.md) view for a list of all accounts
-- Use the [Organizations](./organizations.md) view for a table-based hierarchy view
-- Use the [Folders](./folders.md) view to see Turbot Guardrails logical groupings
+- Return to the [Accounts](/guardrails/docs/prevention/accounts) view for a list of all accounts
+- Use the [Organizations](/guardrails/docs/prevention/accounts/organizations) view for a table-based hierarchy view
+- Use the [Folders](/guardrails/docs/prevention/accounts/folders) view to see Turbot Guardrails logical groupings
 - Click into any account to view detailed prevention scores by objective

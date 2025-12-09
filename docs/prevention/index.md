@@ -17,102 +17,47 @@ Turbot Guardrails enables prevention-first cloud security, stopping misconfigura
 
 ## Understanding Prevention-First Security
 
-Unlike traditional security tools that detect problems after they exist, prevention-first security stops misconfigurations and vulnerabilities from reaching production. Turbot Guardrails discovers preventions across your cloud environment, maps them to security objectives, and scores how well you're preventing issues before they can occur.
+Most security tools tell you what's wrong after something's already deployed—a public S3 bucket, an unencrypted database, a security group open to the world. Prevention-first security stops these issues before they reach production. Guardrails discovers the preventive controls already in your environment (Service Control Policies, Azure Policies, account settings, etc.), maps them to security objectives, and scores how well you're preventing issues before they can occur.
 
 ## Key Concepts
 
 ### Objectives
 
-**Objectives** are prevention goals—the things you're trying to accomplish. For example:
-- Restrict AWS resources to allowed regions
-- Require encryption at rest for AWS EBS volumes
-- Prohibit public access to S3 buckets
+Objectives are security goals—the outcomes you're trying to achieve. "Restrict AWS resources to allowed regions" is an objective. "Require encryption at rest for AWS EBS volumes" is another. "Prohibit public access to S3 buckets" is a third. These aren't technical controls; they're the security requirements you need to meet.
 
-Each objective has:
-- A **category** (logical grouping like Data Governance or Identity & Access)
-- A **priority** (P1-P5, with P1 being highest priority)
-- One or more target resource types
+Each objective has a category (like Data Governance or Identity & Access) that groups related goals, and a priority (P1 through P5) indicating how critical it is. P1 objectives are foundational controls that should be implemented everywhere. P4-P5 objectives are nice-to-haves.
 
 ### Preventions
 
-**Preventions** are the actual controls discovered in your environment that achieve objectives. While objectives describe **what** you're trying to accomplish, preventions define **how** it's being achieved.
+Preventions are the actual technical controls implementing your objectives. While objectives describe what you're trying to accomplish, preventions are how you're accomplishing it. To achieve "require encryption at rest for AWS EBS volumes," you might have an SCP denying unencrypted volume creation, an EC2 account setting enabling default encryption, and a Guardrails control remediating any unencrypted volumes. All three preventions contribute to the same objective.
 
-For example, to accomplish "Require encryption at rest for AWS EBS volumes," you might have:
-- An SCP statement denying `ec2:CreateVolume` unless encryption is specified
-- An EC2 declarative policy setting default EBS encryption
-- A Guardrails control enforcing encryption at runtime
-
-Each prevention has a **prevention type** (e.g., AWS SCP Deny Statement, Azure Policy, Guardrails Control) that determines its characteristics and scoring behavior.
+Each prevention has a type (Service Control Policy, Azure Policy, account setting, etc.) that determines how it works and a layer (Build, Access, Config, or Runtime) that indicates when it operates in the resource lifecycle.
 
 ### Layers
 
-Preventions operate at different **layers** in the deployment lifecycle, representing when and where controls are enforced:
+Preventions operate at different points in time, which we call layers. Build layer controls catch problems in Infrastructure as Code before deployment. Access layer controls block dangerous API calls at the organization level. Config layer controls enforce settings on existing resources. Runtime layer controls detect and respond to issues during operation.
 
-- **Build**: IaC scanning and CI/CD pipeline controls (weighted 0.75)
-- **Access**: Organization-level policies like SCPs, RCPs, Azure Policy deny, GCP Org Policies (weighted 0.95)
-- **Config**: Account and service settings that enforce secure defaults (weighted 0.85)
-- **Runtime**: Real-time remediation and enforcement (weighted 0.85)
-
-Layer weights affect scoring—controls at the Access layer have the highest impact because they prevent issues before they can be created.
+The layer affects both timing and defensive strength. Access layer controls (weighted 0.95) score highest because they're hardest to bypass and apply most broadly. Build layer controls (weighted 0.75) score slightly lower because they only apply to IaC-managed resources. Defense-in-depth means having controls at multiple layers—if one fails, others provide backup.
 
 ### Categories
 
-Objectives are organized into seven security **categories**:
-
-- **Audit & Logging**: Protect audit trails and logging infrastructure
-- **Network Perimeter**: Restrict network connectivity and traffic patterns
-- **Trust & Sharing**: Prevent external or anonymous access based on identity boundaries
-- **Core Infrastructure**: Protect foundational governance infrastructure and control plane resources
-- **Data Governance**: Enforce data protection, encryption, residency, and lifecycle management
-- **Identity & Access**: Restrict privileged access to sensitive account capabilities
-- **Feature Restrictions**: Disable or limit risky service features and capabilities
+Categories organize objectives by security domain—Identity & Access, Data Governance, Trust & Sharing, Network Perimeter, Core Infrastructure, Audit & Logging, and Feature Restrictions. This organization helps ensure balanced security coverage. You might have excellent identity controls but weak data protection, or strong network defenses but poor audit logging. The category view makes these imbalances visible.
 
 ### Priorities
 
-Each objective has a **priority** (P1-P5) indicating its relative importance:
+Priorities indicate how critical each objective is. P1 objectives are foundational controls that should be implemented immediately—things like restricting resources to allowed regions, requiring MFA for root accounts, and blocking public databases. P2 objectives provide strong security improvements. P3 objectives enhance posture through defense-in-depth. P4-P5 objectives are optimizations and hygiene.
 
-- **P1**: Essential foundational settings (e.g., allowed services, allowed regions)
-- **P2**: Direct path to data breach or service compromise
-- **P3**: Significant security or compliance risk
-- **P4**: Best practice violations with moderate risk
-- **P5**: Optimization and hygiene issues
-
-Priorities are weighted using a reverse Fibonacci sequence when calculating scores:
-- P1: weight 8
-- P2: weight 5
-- P3: weight 3
-- P4: weight 2
-- P5: weight 1
+Priority weighting uses a reverse Fibonacci sequence: P1 objectives have 8x the weight of P5 objectives. This means improving a single P1 objective has more impact on your score than improving multiple lower-priority objectives—reflecting the reality that fixing critical gaps matters more than polishing edge cases.
 
 ### Benchmarks
 
-**Benchmarks** are hierarchical frameworks that organize objectives according to compliance standards or security baselines. Examples include:
-- [AWS CIS v6.0.0](https://www.cisecurity.org/benchmark/amazon_web_services)
-- [AWS NIST 800-53 Rev 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
-- AWS P1 Preventions (Turbot's fundamental preventative controls)
-- Azure CIS v5.0.0
-- GitHub CIS v1.1.0
-
-Each benchmark shows your prevention score for that framework, helping you measure compliance and security posture against industry standards.
+Benchmarks are compliance frameworks that organize objectives—AWS CIS v6.0.0, NIST 800-53 Rev 5, Azure CIS v5.0.0, and so on. Each benchmark shows your prevention score for that framework, helping you track progress toward compliance certification. Many objectives appear in multiple benchmarks, so implementing one prevention can improve multiple framework scores simultaneously.
 
 ### Recommendations
 
-**Recommendations** are AI-generated suggestions for specific actions to improve your prevention posture. Each recommendation:
-- Targets a specific objective with coverage gaps
-- Includes the priority level (P1-P5)
-- Explains what will be accomplished when implemented
-- Provides concrete implementation guidance based on your environment
-
-Recommendations are prioritized by potential impact on your prevention score and the priority of the objective being addressed.
+Recommendations are prioritized suggestions for what to implement next. They target specific objectives where you have coverage gaps, explain the security impact, and provide implementation guidance. Recommendations are ordered by potential risk reduction, considering both the objective's priority and your current coverage level.
 
 ### Prevention Scores
 
-Your **prevention maturity score** (0-5 scale) measures how well you prevent security issues before they occur. Scores are calculated by evaluating:
-
-- **Coverage**: Which objectives have preventions in place
-- **Quality**: How well those preventions meet each objective's requirements
-- **Priority weighting**: Higher-priority objectives (P1, P2) have more impact
-- **Layer weighting**: Preventions at different layers are weighted differently
-
-Scores aggregate at every level—by objective, account, category, layer, priority, and benchmark—allowing you to analyze your prevention posture from multiple perspectives.
+Your prevention score (0-5 scale) measures how well you're preventing security issues before they occur. The score considers which objectives have preventions in place, how strong those preventions are (layer weighting), and how important the objectives are (priority weighting). Scores aggregate at every level—by objective, account, category, benchmark—so you can analyze your posture from multiple perspectives and identify where to focus improvement efforts.
 

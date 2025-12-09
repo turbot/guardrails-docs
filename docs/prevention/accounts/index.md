@@ -11,102 +11,37 @@ The Accounts page provides a centralized view of all cloud accounts, subscriptio
 
 ## Understanding the Accounts View
 
-The Accounts page displays all cloud resources organized by account type:
+The Accounts page shows all your cloud accounts, subscriptions, and repositories in one place—AWS accounts (12-digit numbers), Azure subscriptions, GCP projects, and GitHub repositories. Each row shows the account name and ID, which organizational folder or OU it belongs to, its prevention score (0-5 indicating how well it's protected), active alerts, and how many controls are running.
 
-- **AWS Accounts**: Identified by 12-digit account numbers
-- **Azure Subscriptions**: Identified by subscription IDs
-- **GCP Projects**: Identified by project IDs
-- **GitHub Repositories**: Identified by organization/repository name
+This is your starting point for understanding prevention coverage across your environment. You can quickly spot accounts with weak protection by sorting by score, filter to specific cloud providers to check consistency, or search for specific accounts you're investigating. The view adapts to how you work—whether you're hunting for gaps, tracking compliance across accounts, or responding to alerts.
 
-Each account row displays:
+## Navigating Multiple Views
 
-- **Account Name**: The friendly name of the account or subscription
-- **Account ID**: The unique identifier (account number, subscription ID, or repository path)
-- **Folder/OU**: The organizational folder or organizational unit the account belongs to
-- **Prevention Score**: A 0-5 score indicating prevention coverage strength
-- **Alerts**: Number of active alerts for the account (click to view alert details)
-- **Controls**: Number of controls running on the account
+The Accounts section has four tabs—Accounts (flat list with search and sorting), Organizations (hierarchical view of cloud organization structures), Folders (grouping by Turbot Guardrails folders), and Visualize (graphical representation). Each view shows the same data from a different perspective. Use the flat list when you're looking for specific accounts or sorting by score. Use Organizations when you need to understand the AWS/Azure/GCP hierarchy. Use Visualize when you want to see how Service Control Policies or Azure Policies apply across the organization tree.
 
-## Navigating Between Views
+## Finding What You Need
 
-The Accounts section offers multiple ways to visualize your cloud accounts:
+Search filters results in real-time as you type—useful when you know the account name or ID. Filtering lets you narrow to specific cloud providers (AWS, Azure, GCP, GitHub), Turbot Guardrails folders, or resource tags. Sorting changes how accounts are ordered—alphabetically by default, but you can sort by score to find gaps (Low to High shows weakest protection first), by newest/oldest to see recently added accounts, or by updated recently to see where changes happened.
 
-- **Accounts**: List view of all accounts with filtering and sorting (default)
-- **Organizations**: Hierarchical view of cloud organization structures
-- **Folders**: Logical grouping by Turbot Guardrails folders
-- **Visualize**: Graphical representation of account relationships
-
-Switch between views using the tabs at the top of the page.
-
-## Searching and Filtering
-
-### Search
-
-Use the search box to quickly find accounts by name or identifier. The search filters results in real-time as you type.
-
-### Filter Panel
-
-Click the **Filter** button to open the filter panel and narrow your view:
-
-![Filter Panel](./accounts-filter-panel.png)
-
-Available filters:
-
-- **Account Type**: Filter by AWS, Azure, GCP, or GitHub accounts
-- **Folder**: Show only accounts within specific Turbot Guardrails folders
-- **Tags**: Filter by resource tags
-
-## Sorting Accounts
-
-Click the **Sort** dropdown to change how accounts are ordered:
-
-![Sort Options](./accounts-sort-options.png)
-
-Available sort options:
-
-- **Title (A to Z)**: Alphabetical by account name (default)
-- **Title (Z to A)**: Reverse alphabetical order
-- **Trunk Title**: Sort by organizational hierarchy path
-- **Newest**: Most recently created accounts first
-- **Oldest**: Longest-standing accounts first
-- **Updated Recently**: Accounts with recent changes first
-- **Score (High to Low)**: Best prevention scores first
-- **Score (Low to High)**: Lowest prevention scores first—useful for finding gaps
+The Sort dropdown includes "Score (Low to High)" which is particularly useful for finding accounts needing attention. Accounts with scores below 3 often have significant gaps in prevention coverage.
 
 ## Understanding Prevention Scores
 
-Prevention scores range from 0 to 5 and indicate how well an account is protected by preventions:
+Prevention scores run from 0 (minimal or no preventive controls) to 5 (comprehensive prevention across multiple layers). A score of 3 means moderate coverage with noticeable gaps. A score of 4 indicates solid implementation. Scores above 4 reflect strong, defense-in-depth protection. Low scores signal opportunities to implement additional preventions—SCPs, policies, account settings, or Guardrails controls—to reduce risk.
 
-- **0**: No prevention coverage—account has minimal or no preventive controls
-- **3**: Moderate coverage—some preventions in place but gaps exist
-- **4**: Good coverage—solid prevention implementation
-- **6-7**: Strong coverage—comprehensive prevention across multiple layers
+These scores aggregate all prevention objectives weighted by priority, so a low score might mean you're missing critical P1 controls or simply lack coverage across many objectives. Click into an account to see which specific objectives aren't being met and what recommendations exist to improve the score.
 
-Low scores indicate opportunities to improve security posture by implementing additional preventions (SCPs, policies, account settings, or Guardrails controls).
+## Common Use Cases
 
-## Common Workflows
+To find accounts with weak prevention coverage, sort by Score (Low to High) and review accounts below 3. Click into each one to see which objectives aren't met and implement the recommended preventions. This is especially important for production accounts where gaps represent real risk.
 
-**Finding accounts with weak prevention coverage**
-1. Sort by Score (Low to High)
-2. Review accounts with scores below 4
-3. Click into each account to see which objectives are not being met
-4. Implement recommended preventions to improve the score
+When reviewing accounts by cloud provider, filter to AWS, Azure, or GCP and scan the prevention scores. If some accounts score 4.5 but others score 2.0, you have inconsistent protection—likely because preventions were implemented in some accounts but not others. This inconsistency often happens when accounts were created at different times or by different teams without standardized baselines.
 
-**Reviewing accounts by cloud provider**
-1. Open the Filter panel
-2. Filter by Account Type (e.g., AWS, Azure, GCP)
-3. Review prevention scores across all accounts of that type
-4. Identify inconsistencies where some accounts have stronger coverage than others
-
-**Investigating accounts with alerts**
-1. Look for accounts with non-zero alert counts in the Alerts column
-2. Click the alert count to view alert details in a new tab
-3. Review which controls are in alarm state
-4. Take corrective action based on alert severity
+If you see non-zero alert counts, click the alert number to view details. Alerts indicate controls in alarm state—configurations that violate policies or drift from desired state. Taking corrective action based on alert severity keeps your environment compliant with the preventive controls you've defined.
 
 ## Next Steps
 
 - Click on any account name to view detailed prevention scores by objective
-- Use the [Organizations](./organizations.md) view to see account hierarchy
-- Use the [Folders](./folders.md) view to analyze accounts by logical grouping
-- Use the [Visualize](./visualize.md) view for a graphical representation
+- Use the [Organizations](/guardrails/docs/prevention/accounts/organizations) view to see account hierarchy
+- Use the [Folders](/guardrails/docs/prevention/accounts/folders) view to analyze accounts by logical grouping
+- Use the [Visualize](/guardrails/docs/prevention/accounts/visualize) view for a graphical representation
