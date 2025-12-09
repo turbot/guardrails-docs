@@ -103,6 +103,53 @@
       "getting-started/faq"
     ]
   },
+
+
+ {
+    "type": "category",
+    "id": "prevention",
+    "link": "prevention",
+    "items": [
+      {
+        "type": "category",
+        "id": "prevention/dashboard",
+        "link": "prevention/dashboard",
+        "items": [
+          "prevention/dashboard/explore",
+          "prevention/dashboard/reports"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "prevention/accounts",
+        "link": "prevention/accounts",
+        "items": [
+        ]
+      },
+      {
+        "type": "category",
+        "id": "prevention/objectives",
+        "link": "prevention/objectives",
+        "items": [
+        ]
+      },
+      {
+        "type": "category",
+        "id": "prevention/preventions",
+        "link": "prevention/preventions",
+        "items": [
+        ]
+      },
+      {
+        "type": "category",
+        "id": "prevention/simulator",
+        "link": "prevention/simulator",
+        "items": [
+        ]
+      }
+    ]
+  },
+
   {
     "type": "category",
     "id": "concepts",
