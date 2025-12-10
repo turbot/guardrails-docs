@@ -136,11 +136,12 @@
         "link": "prevention/objectives",
         "items": [
           "prevention/objectives/benchmarks",
+          "prevention/objectives/benchmark-detail",
           "prevention/objectives/objectives",
+          "prevention/objectives/objective-detail",
           "prevention/objectives/priorities",
           "prevention/objectives/categories",
-          "prevention/objectives/benchmark-detail",
-          "prevention/objectives/objective-detail"
+          "prevention/objectives/recommendations"
         ]
       },
       {
@@ -149,13 +150,12 @@
         "link": "prevention/preventions",
         "items": [
           "prevention/preventions/preventions",
+          "prevention/preventions/detail",
           "prevention/preventions/examples",
           "prevention/preventions/types",
-          "prevention/preventions/layers",
-          "prevention/preventions/detail"
+          "prevention/preventions/layers"
         ]
       },
-      "prevention/recommendations",
       {
         "type": "category",
         "id": "prevention/simulator",

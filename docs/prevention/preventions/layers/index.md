@@ -7,6 +7,8 @@ sidebar_label: Layers
 
 Preventions operate at different points in time—some catch problems in your Infrastructure as Code before deployment, others block dangerous API calls, some enforce settings on existing resources, and others respond to threats in real-time. This view organizes your preventions by when they operate, helping you identify whether you have defense-in-depth or are relying too heavily on one approach.
 
+![Prevention layers showing controls grouped by enforcement timing](./layers-view.png)
+
 ## Why Layers Matter
 
 The layer matters because it affects both when problems are caught and how difficult they are to bypass. A Terraform policy that rejects templates defining public S3 buckets (Build layer) catches the issue before anything reaches AWS. An SCP that denies MakeBucketPublic API calls (Access layer) stops the action even if someone tries it manually in the console. An S3 Block Public Access account setting (Config layer) enforces the rule on all buckets regardless of how they were created. A Guardrails control that remediates public buckets (Runtime layer) fixes the problem after it happens.

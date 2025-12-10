@@ -7,6 +7,8 @@ sidebar_label: Categories
 
 Categories organize objectives by security domain—Identity & Access, Data Governance, Trust & Sharing, and so on. This view helps you spot blind spots. You might have excellent identity controls but weak data protection, or strong network perimeter defenses but poor audit logging. Balanced coverage across categories generally means stronger overall security.
 
+![Categories view showing objectives grouped by security domain](./categories-view.png)
+
 ## Why Categories Matter
 
 Security isn't just one thing—it's protecting data, managing identities, controlling network access, maintaining audit trails, and more. Focusing too heavily on one category while neglecting others creates vulnerabilities. Attackers don't need to break through your strongest defenses; they'll exploit your weakest area.

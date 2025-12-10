@@ -7,6 +7,8 @@ sidebar_label: Priorities
 
 This view groups objectives by their risk level—P1 for critical controls that should be in place everywhere, down to P4 for nice-to-haves. When you're planning security work and need to focus on what matters most, start here.
 
+![Priorities view showing objectives grouped by priority level](./priorities-view.png)
+
 ## Why Priorities Matter
 
 Not all security objectives are equally important. "Restrict AWS resources to allowed regions" (P1) is foundational—it enforces data residency and prevents resources from being created in regions you can't monitor or protect. "Require soft delete for Azure File Shares" (P3) is valuable for recovery but not critical to preventing breaches. Priorities help you allocate limited time and resources to the work that reduces the most risk.

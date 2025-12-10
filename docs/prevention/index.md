@@ -4,6 +4,8 @@ title: Prevention
 
 # Prevention
 
+
+
 Turbot Guardrails enables prevention-first cloud security, stopping misconfigurations, policy violations, and risky deployments before they reach production.
 
 

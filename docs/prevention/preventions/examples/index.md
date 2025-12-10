@@ -7,6 +7,8 @@ sidebar_label: Examples
 
 The Examples tab provides concrete implementation guidance including policy templates, code samples, and configuration examples for common preventions. This page accelerates implementation by offering tested, production-ready policies you can adapt for your environment.
 
+![Prevention examples showing policy templates and code samples](./examples-view.png)
+
 ## Understanding the Examples Tab
 
 Prevention examples are organized by prevention type and provide ready-to-use templates that demonstrate best practices for implementing security controls.

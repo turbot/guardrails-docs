@@ -7,7 +7,7 @@ sidebar_label: Simulator
 
 The SCP Simulator lets you test Service Control Policies before deploying them to production. Service Control Policies are powerful—they can deny API actions across your entire AWS Organization—but that power makes them risky to deploy without testing. The simulator helps you understand how an SCP will affect your environment, catch unintended consequences, and validate that policies work as expected.
 
-![SCP Simulator](./simulator.png)
+![SCP Simulator interface showing organization hierarchy, SCPs, and CloudTrail events](./simulator-overview.png)
 
 ## Why Testing SCPs Matters
 
@@ -15,13 +15,77 @@ Service Control Policies are unusual among AWS controls because they're so broad
 
 The simulator prevents these mistakes. You can paste an SCP, test it against recent CloudTrail events from your accounts, see what would be blocked, refine the policy, and test again—all without touching production. By the time you deploy, you're confident the SCP does what you intend and nothing more.
 
-## How to Use It
+## How to Use the Simulator
 
-Start by selecting your AWS Organization from the available organizations imported into Guardrails. Each organization shows its management account details so you can confirm you're testing against the right environment.
+The simulator interface has three main sections that work together to help you test SCPs:
 
-Once you've selected an organization, you have several testing options. You can paste an SCP policy document to validate its syntax and see what it would block. You can test against CloudTrail events—either upload CloudTrail logs or specify individual API calls—to see if they'd be allowed or denied. You can visualize how the policy would apply across your organization hierarchy, seeing which accounts and OUs would be affected.
+### Organization Hierarchy Visualization
 
-The simulator shows you exactly what would happen: which actions would be allowed, which would be denied, and which policy in the hierarchy caused each deny. This is particularly valuable when multiple SCPs apply to an account (from the organization root, from OUs, and from the account itself), because understanding the combined effect can be challenging.
+The left panel shows your AWS Organization structure as an interactive graph. You'll see:
+- The organization root at the top
+- Organizational Units (OUs) organized by hierarchy
+- Individual AWS accounts grouped under their respective OUs
+- Visual connections showing how SCPs flow down through the hierarchy
+- SCP attachment points indicated by connecting lines
+
+![Simulator showing organization hierarchy with SCP attachments](./simulator-main-view.png)
+
+You can interact with the graph using the zoom controls (+/-), fit view (⊡), and reset layout (↻) buttons in the bottom left. Use the search bar at the top to quickly find specific accounts or OUs.
+
+### Service Control Policies Panel
+
+The middle panel lists all SCPs currently attached to your organization. For each SCP, you can:
+
+**View SCP Details**: Click "Expand details" on any SCP to see:
+- Attachment ID and target (which OU or account it's attached to)
+- Status (Active or Disabled)
+- Policy statistics: total statements, allow vs. deny statements, whether conditions are present
+- Full policy JSON document
+
+![Expanded SCP showing attachment details and policy statistics](./scp-details-expanded.png)
+
+![Full SCP policy JSON displayed in the simulator](./scp-policy-view.png)
+
+**Actions on existing SCPs**:
+- **Disable SCP**: Temporarily disable an SCP to see how it affects your evaluation results
+- **Duplicate SCP**: Create a copy to modify and test variations
+- **Copy JSON**: Copy the policy document to your clipboard
+- **View Full Policy**: Expand to see the complete JSON policy document
+
+**Add Draft SCPs**: The "Add Draft" button lets you create temporary SCPs to test what-if scenarios. You don't need to deploy these to your actual organization—they exist only in the simulator for testing.
+
+![Dialog for adding a custom draft SCP with target selection](./add-draft-scp.png)
+
+When adding a draft SCP, you can:
+- Name your policy for easy identification
+- Choose the target type: Root, Organizational Unit, or Account
+- Select the specific target from a dropdown
+- Write or paste your policy JSON
+- Use pre-built templates for common scenarios
+
+![SCP templates including Full Access, Deny Root Access, and Deny Region](./scp-templates.png)
+
+Available templates include:
+- **Full Access**: Allow all actions on all resources (useful as a baseline)
+- **Deny Root Access**: Prevent root user from performing actions
+- **Deny Region**: Block actions in specific AWS regions
+
+### CloudTrail Events Panel
+
+The right panel is where you test SCPs against actual or simulated CloudTrail events. This is how you verify whether API calls would be allowed or denied under your SCP configuration.
+
+**Adding Events**: Click "Add Event" to manually specify CloudTrail events you want to test. You can either:
+- Paste CloudTrail event JSON from actual logs
+- Manually construct API call scenarios
+- Upload CloudTrail log files containing multiple events
+
+**Evaluation Results**: When you select an event, the simulator evaluates it against all active SCPs and shows:
+- Whether the action would be **Allowed** or **Denied**
+- Which SCP caused the denial (if applicable)
+- The effective permissions chain through the organization hierarchy
+- Detailed reasoning for the evaluation decision
+
+This is particularly valuable when multiple SCPs apply to an account (from the organization root, from parent OUs, and from the account itself), because understanding the combined effect can be challenging.
 
 ## Common Use Cases
 

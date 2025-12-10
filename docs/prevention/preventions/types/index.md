@@ -7,6 +7,8 @@ sidebar_label: Types
 
 Types describe how preventions are technically implemented—Service Control Policies, Azure Policies, account settings, GitHub rulesets, and so on. Each type has different characteristics, tradeoffs, and appropriate use cases. Understanding these helps you choose the right tool for each security objective.
 
+![Prevention types showing controls grouped by implementation mechanism](./types-view.png)
+
 ## Why Types Matter
 
 You could achieve "require encryption for S3 buckets" through an SCP that denies unencrypted uploads, an S3 Bucket Key setting enforcing encryption, or a Guardrails control that remediates non-encrypted buckets. All three accomplish the same objective, but they work differently and have different tradeoffs in complexity, flexibility, and operational characteristics.

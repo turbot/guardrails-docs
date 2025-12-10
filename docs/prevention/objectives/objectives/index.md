@@ -1,6 +1,6 @@
 ---
 title: Objectives
-sidebar_label: Objectives List
+sidebar_label: Objectives
 ---
 
 # Objectives

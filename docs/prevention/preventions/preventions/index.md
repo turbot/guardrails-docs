@@ -1,6 +1,6 @@
 ---
-title: Preventions List
-sidebar_label: Preventions List
+title: Preventions
+sidebar_label: Preventions
 ---
 
 # Preventions
