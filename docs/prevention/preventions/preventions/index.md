@@ -41,9 +41,34 @@ When planning to implement a new control, search for similar existing controls f
 
 When onboarding a new account, filter to organization-wide preventions to see what protections automatically apply. Then compare against your target state to identify which account-specific preventions need to be replicated.
 
+## Prevention Detail View
+
+Clicking any prevention opens the Prevention Detail page, which provides comprehensive information about that single prevention control—showing what it does, which objectives it achieves, what accounts it applies to, and the specific configuration details.
+
+![Prevention Detail Page showing configuration and matched objectives](../detail/prevention-detail.png)
+
+The Prevention Detail page shows:
+
+**Summary Section** - Provides a clear explanation of what the prevention does, the specific behavior being prevented or enforced, the scope of where this prevention applies, and the resource or account context. For example: "Prevents branches from being deleted to protect important code. Applies to all branches in organization-level ruleset '[Integrated Demo 2025] Branch Ruleset'."
+
+**Matched Objectives** - Shows which prevention objectives this control achieves. Each objective card displays the objective title, type badge, priority level (P1-P4), and current score. This helps you understand the security value this prevention provides and which compliance requirements it satisfies.
+
+**Configuration Details** - Displays the complete policy definition or configuration—the full JSON for SCPs, policy rules for Azure Policies, constraint configurations for GCP Organization Policies, or control settings for Guardrails controls. You can copy these directly for replication or auditing purposes.
+
+**Scope and Coverage** - Identifies which accounts or resources are protected by this prevention. Organization-wide preventions show their complete reach across all accounts, while account-specific preventions show exactly which account they protect.
+
+**Implementation Mechanism** - Shows the prevention type (SCP, Azure Policy, account setting, etc.) and the layer it operates at (Build, Access, Config, Runtime), helping you understand how this control fits into your overall defense-in-depth strategy.
+
+### Using the Detail View
+
+When investigating why something was blocked, open the prevention detail to see the exact configuration. The policy definition shows you precisely which actions are denied, under what conditions, and with what exceptions.
+
+When implementing a similar control, use the detail view to see how existing preventions are configured. Copy the policy JSON or configuration settings and adapt them for your new use case, ensuring consistency across your security architecture.
+
+When auditing prevention coverage, check the Matched Objectives section to understand what security goals this prevention achieves. If you're preparing for compliance audits, this helps you map technical controls to compliance requirements.
+
 ## Next Steps
 
-- Click into any [prevention detail page](/guardrails/docs/prevention/preventions/detail) to see complete configuration and which objectives it achieves
 - Review [Examples](/guardrails/docs/prevention/preventions/examples) for implementation templates when adding new preventions
 - Check [Types](/guardrails/docs/prevention/preventions/types) to understand different prevention mechanisms
 - Visit [Layers](/guardrails/docs/prevention/preventions/layers) to assess defense-in-depth coverage

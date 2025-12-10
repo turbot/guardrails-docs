@@ -39,10 +39,35 @@ Some benchmarks overlap significantly. Many controls that satisfy AWS CIS also s
 
 A practical approach: start with P1 Preventions to build your foundation, then pursue compliance frameworks as business needs dictate. If you're selling to government customers, prioritize NIST 800-53. If you're in healthcare, prioritize frameworks that align with HIPAA requirements. Focus on one benchmark at a time rather than spreading effort across multiple frameworks—complete one, then move to the next.
 
+## Benchmark Detail View
+
+Clicking any benchmark opens the Benchmark Detail page, which provides a comprehensive view of that compliance framework, showing how your organization scores against each section of the benchmark and which specific objectives need attention.
+
+![Benchmark Detail Page showing sections and scores](../benchmark-detail/benchmark-detail.png)
+
+The Benchmark Detail page shows:
+
+**Hierarchical Sections** - Benchmarks organize into collapsible sections representing logical groupings. AWS CIS v6.0.0, for example, has sections like Identity and Access Management (21 items), Storage (3 items), Logging (9 items), Monitoring (16 items), and Networking (7 items). Each section shows its description, item count, and prevention score (0-5).
+
+**Section Scores** - Show compliance within each grouping. High-scoring sections indicate strong coverage in that domain while low-scoring sections highlight areas needing attention. Section scores matter because some compliance frameworks require minimum scores in specific sections.
+
+**Individual Objectives** - Click any section to expand and view individual objectives with their titles, descriptions, priority levels (P1-P4), current scores, and categories. This hierarchical view helps you identify which sections have lower scores and focus remediation on specific benchmark areas.
+
+### Using the Detail View
+
+To assess compliance against a benchmark, review the overall score in the header, scan section scores to identify weak areas, expand low-scoring sections to see specific objectives, and note which objectives score below your target threshold.
+
+When planning remediation work, identify sections with the lowest scores, expand those sections to see individual objectives, click on each objective to understand why it's important and what preventions are needed, create a remediation plan prioritizing P1 and P2 objectives, and track progress by monitoring section scores over time.
+
+For comparing compliance across frameworks, open multiple benchmark detail pages, compare overall scores, identify common objectives that appear in multiple benchmarks, and focus on implementing objectives that satisfy multiple frameworks.
+
+### Custom Benchmarks
+
+You can create custom benchmarks to track organization-specific security requirements—when you have requirements beyond industry standards, need to track internal security policies, want to measure progress toward organizational security goals, or need to demonstrate compliance with customer-specific requirements.
+
 ## Next Steps
 
-- Click into any [benchmark detail page](/guardrails/docs/prevention/objectives/benchmark-detail) to see its grouped objectives
 - Review [Objectives](/guardrails/docs/prevention/objectives/objectives) to see all individual objectives across all benchmarks
 - Check [Priorities](/guardrails/docs/prevention/objectives/priorities) to focus on critical objectives first
 - View [Categories](/guardrails/docs/prevention/objectives/categories) to ensure balanced security coverage
-- Visit [Recommendations](/guardrails/docs/prevention/recommendations) for implementation guidance
+- Visit [Recommendations](/guardrails/docs/prevention/objectives/recommendations) for implementation guidance

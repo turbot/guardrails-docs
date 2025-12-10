@@ -37,10 +37,35 @@ When planning security improvements, filter to P1 and sort by score to find your
 
 When comparing your posture across categories, note which categories have consistently low scores. If your Data Governance objectives average 2.5 but your Identity & Access objectives average 4.5, you know where to focus.
 
+## Objective Detail View
+
+Clicking any objective opens the Objective Detail page, which provides in-depth information about that single prevention objective—which accounts meet it, which preventions achieve it, implementation recommendations, policy examples, and CNAPP findings.
+
+![Objective Detail Page showing tabs and account coverage](../objective-detail/objective-detail.png)
+
+The Objective Detail page includes:
+
+**Overview Tab** - Shows a summary explaining what this objective prevents or enforces, why it matters, what risks it mitigates, and how many active preventions achieve this objective. The Account Coverage table shows all accounts and their prevention scores (0-5) for this specific objective, helping you identify which accounts need attention.
+
+**Preventions Tab** - Lists all preventions achieving this objective. Each entry shows the prevention name, prevention type (SCP, Azure Policy, GCP Organization Policy, or Guardrails control), layer (Build, Access, Config, or Runtime), and implementation status.
+
+**Recommendations Tab** - Provides actionable guidance including step-by-step implementation instructions, cloud provider-specific configurations, prerequisites and dependencies, and testing guidance. Recommendations are prioritized by security impact, compliance requirements, and implementation complexity.
+
+**Examples Tab** - Provides concrete policy templates and code samples—SCP templates for AWS, Azure Policy definitions, Organization Policy constraints for GCP, and Terraform/IaC examples for automated deployment. These are tested, production-ready policies you can adapt for your environment.
+
+**Findings Tab** - Shows detections from CNAPP and security scanning tools—which resources currently fail this objective, severity and risk level of each finding, and remediation guidance. Use findings to validate that preventions work as expected and identify resources created before preventions were enabled.
+
+**Advanced Tab** - Provides technical information for API integration and automation—objective ID and metadata, API endpoints for querying objective status, and GraphQL examples. This tab is primarily for developers integrating prevention data into external systems.
+
+### Using the Detail View
+
+To determine why an account has a low score, find the account in the Account Coverage table, check the Preventions tab to see which controls achieve this objective, verify whether those preventions are implemented for that account, and review the Recommendations tab for implementation guidance.
+
+When implementing an objective across all accounts, review the Summary to understand what it protects, check the Preventions tab for available options, grab policy templates from the Examples tab, use the Recommendations tab for step-by-step implementation, and monitor the Account Coverage table to track rollout progress.
+
 ## Next Steps
 
-- Click into any objective detail page to see which accounts meet it and which preventions achieve it
 - Review [Priorities](/guardrails/docs/prevention/objectives/priorities) to see objectives grouped by risk level
 - Check [Categories](/guardrails/docs/prevention/objectives/categories) to see objectives organized by security domain
 - View [Benchmarks](/guardrails/docs/prevention/objectives/benchmarks) to see how objectives map to compliance frameworks
-- Visit [Recommendations](/guardrails/docs/prevention/recommendations) for prioritized implementation guidance
+- Visit [Recommendations](/guardrails/docs/prevention/objectives/recommendations) for prioritized implementation guidance
