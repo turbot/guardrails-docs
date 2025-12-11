@@ -4,10 +4,16 @@ title: Prevention
 
 # Prevention
 
-
+<div style="display: flex; justify-content: center; align-items: center; margin: 2rem 0;">
+  <object
+     style="width: 100%; height: auto;"
+     data="/images/prevention/vector-graphics/hero-motion.svg"
+     type="image/svg+xml"
+     aria-label="Prevention Security Flow Diagram">
+  </object>
+</div>
 
 Turbot Guardrails enables prevention-first cloud security, stopping misconfigurations, policy violations, and risky deployments before they reach production.
-
 
 ## Understanding Prevention-First Security
 
@@ -54,4 +60,3 @@ Recommendations are prioritized suggestions for what to implement next. They tar
 ### Prevention Scores
 
 Your prevention score (0-5 scale) measures how well you're preventing security issues before they occur. The score considers which objectives have preventions in place, how strong those preventions are (layer weighting), and how important the objectives are (priority weighting). Scores aggregate at every level—by objective, account, category, benchmark—so you can analyze your posture from multiple perspectives and identify where to focus improvement efforts.
-
