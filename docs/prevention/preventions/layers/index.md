@@ -45,13 +45,11 @@ Runtime layer preventions respond to threats and misconfigurations during resour
 
 These preventions catch everything the other layers miss—insider threats, compromised credentials, configuration changes that bypass other preventions, zero-day attack patterns. The limitation is they're reactive rather than preventive—the issue already occurred before the prevention responds.
 
-Most organizations have the least Runtime coverage because it requires monitoring infrastructure and automated response capabilities. It's often easier to prevent issues at earlier layers than to build sophisticated detection and remediation automation.
-
 ## Assessing Your Coverage
 
 Review the prevention counts for each layer. If you have 50 Access layer preventions but only 2 Config layer preventions, you're heavily reliant on one approach. For critical objectives (P1), aim for preventions at multiple layers. If "prohibit public S3 buckets" is P1, you might want an Access layer SCP denying MakeBucketPublic, Config layer S3 Block Public Access settings, and Runtime layer remediation as backup.
 
-[Layer weights](/guardrails/docs/prevention#prevention-scores) in scoring reflect their defensive strength—Access layer preventions score higher (0.95) than Build (0.75) or Runtime (0.85) because they're hardest to bypass and apply most broadly. But don't just optimize for score—a single Access layer SCP with a poorly managed exception can fail, so having Config and Runtime backup preventions provides real security value even if they score slightly lower.
+[Layer weights](/guardrails/docs/prevention#prevention-scores) in scoring reflect their defensive strength—Access layer preventions score highest because they're hardest to bypass and apply most broadly, followed by Config, Runtime, and Build. But don't just optimize for score—a single Access layer SCP with a poorly managed exception can fail, so having Config and Runtime backup preventions provides real security value even if they score slightly lower.
 
 ## Common Use Cases
 

@@ -5,11 +5,11 @@ sidebar_label: Types
 
 # Prevention Types
 
-Types describe how preventions are technically implemented—Service Control Policies, Azure Policies, account settings, GitHub rulesets, and so on. Each type has different characteristics, tradeoffs, and appropriate use cases. Understanding these helps you choose the right tool for each security objective.
+Prevention types describe how preventions are technically implemented—Service Control Policies, Azure Policies, account settings, GitHub rulesets, and so on. Each prevention type has different characteristics, tradeoffs, and appropriate use cases. Understanding these helps you choose the right tool for each security objective.
 
 ![Prevention types showing controls grouped by implementation mechanism](./types-view.png)
 
-## Why Types Matter
+## Why Prevention Types Matter
 
 You could achieve "require encryption for S3 buckets" through an SCP that denies unencrypted uploads, an S3 Bucket Key setting enforcing encryption, or a Guardrails control that remediates non-encrypted buckets. All three accomplish the same objective, but they work differently and have different tradeoffs in complexity, flexibility, and operational characteristics.
 
@@ -63,23 +63,22 @@ Guardrails controls offer the most flexibility—they support complex conditiona
 
 Use Guardrails controls when you need logic that cloud-native controls can't express, when you need continuous remediation rather than one-time prevention, or when you want consistent controls across AWS, Azure, and GCP in a single platform.
 
-## Choosing the Right Type
+## Prevention in Depth
 
-Start with the simplest type that meets your needs. If an account setting does what you need, use that. If you need organization-wide API restrictions, use SCPs or Azure Policies. If you need continuous remediation or complex logic, use Guardrails controls.
+Defense-in-depth means implementing multiple prevention types at different layers so if one fails or has gaps, others provide backup protection. For critical objectives, relying on a single prevention type leaves you vulnerable if that prevention has an exception, misconfiguration, or bypass.
 
-Consistency matters more than perfection. If you've standardized on Azure Policies for most controls, keep using them even when another type might be theoretically superior. A consistent approach that your team understands beats a theoretically optimal mix of different types that's confusing to maintain.
+Consider an objective like "prohibit public S3 buckets." You might implement:
+- An SCP denying public bucket policies (Access layer) - blocks API calls organization-wide
+- S3 Block Public Access account settings (Config layer) - enforces settings regardless of bucket policies
+- Guardrails remediation controls (Runtime layer) - continuously detects and fixes any buckets that become public
 
-For critical objectives (P1), consider implementing multiple types at different layers for defense-in-depth. An SCP denying public bucket creation (Access layer) plus S3 Block Public Access settings (Config layer) plus Guardrails remediation (Runtime layer) provides multiple backup layers.
+If the SCP has an exception for a specific OU, the account settings still protect those accounts. If someone disables the account setting, the Guardrails control remediates it. Multiple prevention types at multiple layers create redundancy that significantly reduces risk.
 
-## Analyzing Your Type Distribution
-
-Review how many preventions you have of each type. If you have 50 SCPs but zero account settings, you might be using a complex tool (SCPs) for problems that have simpler solutions (account settings). If you have 100 Guardrails controls but no cloud-native controls, you might be over-investing in custom logic when standard controls would work.
-
-A typical mature AWS environment might have: 10-20 SCPs for foundational restrictions, 20-30 account settings for service-specific protections, and 20-40 Guardrails controls for custom logic and remediation. Azure environments lean more heavily on Azure Policies. GCP environments use Organization Policies as the primary mechanism.
+Different prevention types naturally operate at different layers. SCPs and Azure Policies typically operate at the Access layer. Account settings operate at the Config layer. Guardrails controls typically operate at the Runtime layer. This natural alignment makes it easier to build defense-in-depth—implement the objective using prevention types from different layers.
 
 ## Next Steps
 
-- Return to [Preventions](/guardrails/docs/prevention/preventions/preventions) to see all your controls regardless of type
-- Check [Layers](/guardrails/docs/prevention/preventions/layers) to understand when each type typically operates
-- Visit [Objectives](/guardrails/docs/prevention/objectives) to see which objectives each type helps achieve
+- Return to [Preventions](/guardrails/docs/prevention/preventions/preventions) to see all your controls regardless of prevention type
+- Check [Layers](/guardrails/docs/prevention/preventions/layers) to understand when each prevention type typically operates
+- Visit [Objectives](/guardrails/docs/prevention/objectives) to see which objectives each prevention type helps achieve
 - Review [Recommendations](/guardrails/docs/prevention/objectives/recommendations) for implementation guidance

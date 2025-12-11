@@ -11,27 +11,11 @@ The Visualize page provides a graphical, interactive representation of your AWS 
 
 ## Understanding the Visualize View
 
-The Visualize view displays AWS Organizations as an interactive tree diagram showing:
+The Visualize view displays AWS Organizations as an interactive tree diagram showing your organization structure from top to bottom: the organization root, organizational units (OUs), and individual accounts. Lines connect the hierarchy to show relationships, and folded nodes (e.g., "3 Accounts") indicate collapsed groups that can be expanded. When the "Show SCPs" filter is enabled, visual indicators show where Service Control Policies are applied.
 
-- **Organization Root**: The top-level node of the AWS Organization (e.g., "GFB - AWS Organization")
-- **Root Container**: The organization root container node
-- **Organizational Units (OUs)**: Hierarchical containers for organizing accounts (e.g., "Workloads", "Infrastructure", "Payments")
-- **AWS Accounts**: Individual accounts represented as leaf nodes (e.g., "goliath-payments-prod")
-- **Folded Nodes**: Nodes showing "3 Accounts" or "4 Accounts" indicate collapsed groups that can be expanded
-- **Service Control Policies**: When enabled via filter, visual indicators of SCPs applied at each level
-- **Relationships**: Lines (edges) connecting the hierarchy from organization → root → OUs → accounts
-
-This graphical representation makes it easy to:
-- See the entire organization structure at a glance
-- Understand which accounts belong to which organizational units
-- Identify the depth and breadth of your organization structure
-- See account groupings within specific OUs
-- Navigate complex multi-level organizational structures
-
+This graphical representation makes it easy to see the entire organization structure at a glance, understand which accounts belong to which organizational units, and navigate complex multi-level organizational structures.
 
 ## Interactive Features
-
-The visualization provides interactive controls and features:
 
 ### Navigation
 
@@ -41,17 +25,6 @@ The visualization provides interactive controls and features:
 - **Reset Layout**: Click the `↻` button to reset the tree to its default layout
 - **Node Selection**: Click on any organizational unit or account node to navigate to its detail page
 - **Search**: Use the "Search graph..." box to quickly find and highlight specific OUs or accounts by name
-
-### Node Types
-
-Different node types appear in the visualization:
-
-- **Organization Root**: The top-level container (typically one per organization), displayed at the very top
-- **Root Container**: The AWS Organization root, immediately below the organization node
-- **Organizational Units**: Intermediate nodes grouping accounts and other OUs in a hierarchical structure
-- **AWS Accounts**: Leaf nodes representing individual accounts, shown at the bottom of their OU branch
-- **Folded Nodes**: Nodes displaying a count (e.g., "3 Accounts") indicate collapsed account groups - click to expand
-- **Policy Attachments**: When "Show SCPs" filter is enabled, visual indicators showing where SCPs are applied
 
 ### Filtering
 

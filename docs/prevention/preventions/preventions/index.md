@@ -13,19 +13,13 @@ This is your inventory of active preventions—every Service Control Policy, Azu
 
 Each card represents a live prevention. "Block Public ACLs on AWS S3 Buckets for account goliath-commbank-dev" is a specific prevention applied to a specific account. "Block Force Pushes to Branches" is a GitHub branch protection rule active on your repositories. These aren't aspirational—these are real preventions Guardrails has discovered in your cloud accounts.
 
-The layer badge (Build, Access, Config, or Runtime) tells you when the prevention operates. The type tells you the technical implementation—an AWS SCP, an Azure Policy, a GitHub ruleset, or an account-level setting. The scope shows where it applies—maybe organization-wide, maybe just one account, maybe a specific set of resources.
+The layer badge (Build, Access, Config, or Runtime) tells you when the prevention operates. The type tells you the technical implementation—an AWS SCP, an Azure Policy, a GitHub ruleset, or an account-level setting.
 
 ## Finding Specific Preventions
 
 Search is the fastest way to navigate when you have dozens or hundreds of preventions. Search for "S3" to see all S3-related preventions. Search for an account name to see everything protecting that account. Search for "public" to find all preventions preventing public access.
 
 Filtering becomes useful when you want to see preventions of a specific type or layer. Filter to "AWS S3 Account Setting" to see just those simple account-level toggles. Filter to "Access" layer to see all your SCPs and deny policies. Filter to a specific account when auditing that account's protection.
-
-## Understanding Scope
-
-Scope matters because it tells you how broadly a prevention applies. An SCP attached at your AWS Organization root applies to every account—that's organization-wide scope. An S3 Block Public Access setting on one specific account only protects that account—that's account-specific scope.
-
-When you're evaluating coverage, organization-wide preventions give you complete protection instantly. Account-specific preventions might need to be replicated to new accounts as they're created. The scope information helps you understand whether a prevention scales automatically or requires ongoing management.
 
 ## Common Use Cases
 

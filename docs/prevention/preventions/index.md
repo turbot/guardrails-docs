@@ -9,6 +9,12 @@ The Preventions section provides multiple views of your active preventions, help
 
 ![Preventions List](./preventions-list.png)
 
+## Understanding Preventions
+
+Preventions are the actual preventive mechanisms implementing your security objectives. While objectives describe what you're trying to achieve (like "prohibit public S3 buckets"), preventions are how you're achieving it—an SCP denying public bucket policies, an S3 Block Public Access account setting, and a Guardrails control remediating public buckets.
+
+Each prevention has a type (how it's implemented) and a layer (when it operates). Understanding these characteristics helps you choose the right tool for each security objective and build defense-in-depth.
+
 ## Available Views
 
 The Preventions section provides three different ways to view and analyze your preventions:
@@ -30,12 +36,6 @@ Use this view when you're working with a specific technology, reviewing implemen
 The [Layers tab](/guardrails/docs/prevention/preventions/layers) organizes preventions by when they operate in the resource lifecycle—Build, Access, Config, or Runtime. This perspective matters for defense-in-depth: critical objectives should have preventions at multiple layers so if one fails, others provide backup.
 
 Use this view when you're assessing defense-in-depth coverage, planning layer-specific improvements, or identifying objectives that need multi-layer protection.
-
-## Understanding Preventions
-
-Preventions are the actual preventive mechanisms implementing your security objectives. While objectives describe what you're trying to achieve (like "prohibit public S3 buckets"), preventions are how you're achieving it—an SCP denying MakeBucketPublic API calls, an S3 Block Public Access account setting, and a Guardrails control remediating public buckets.
-
-Each prevention has a type (how it's implemented) and a layer (when it operates). Understanding these characteristics helps you choose the right tool for each security objective and build defense-in-depth.
 
 ## Next Steps
 

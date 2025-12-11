@@ -39,15 +39,15 @@ Clicking any account name opens the Account Detail page, which provides an in-de
 
 The Account Detail page shows:
 
-**Overall Maturity** - Your prevention score as a shield icon with the number, plus total objectives and preventions evaluated. This gives you a quick sense of how well-protected this account is.
+**[Overall Maturity](/guardrails/docs/prevention#prevention-scores)** - Your prevention score as a shield icon with the number, plus total objectives and preventions evaluated. This gives you a quick sense of how well-protected this account is.
 
-**Benchmarks** - How this account scores against compliance frameworks—AWS CIS v6.0.0, Azure CIS v5.0.0, GCP CIS v3.0.0, GitHub CIS v1.1.0, and P1 Preventions benchmarks. A score of 5 means full compliance while scores of 0-2 signal significant gaps.
+**[Benchmarks](/guardrails/docs/prevention/objectives/benchmarks)** - How this account scores against compliance frameworks—AWS CIS v6.0.0, Azure CIS v5.0.0, GCP CIS v3.0.0, GitHub CIS v1.1.0, and P1 Preventions benchmarks. A score of 5 means full compliance while scores of 0-2 signal significant gaps.
 
-**Recommendations** - Actionable guidance for improving this account's protection. Each recommendation shows what needs to be implemented, its priority level (P1 through P4), and the security impact you'll get. Click any recommendation to see detailed implementation guidance including step-by-step instructions and policy templates.
+**[Recommendations](/guardrails/docs/prevention/recommendations)** - Actionable guidance for improving this account's protection. Each recommendation shows what needs to be implemented, its priority level (P1 through P4), and the security impact you'll get. Click any recommendation to see detailed implementation guidance including step-by-step instructions and policy templates.
 
-**Categories** - Preventions organized by security domain—Identity & Access, Data Governance, Trust & Sharing, Network Perimeter, Core Infrastructure, Audit & Logging, and Feature Restrictions. This helps you spot imbalances—if Identity & Access scores 4.5 but Data Governance scores 1.5, you know where to focus improvement efforts.
+**[Categories](/guardrails/docs/prevention/objectives/categories)** - Preventions organized by security domain—Identity & Access, Data Governance, Trust & Sharing, Network Perimeter, Core Infrastructure, Audit & Logging, and Feature Restrictions. This helps you spot imbalances—if Identity & Access scores 4.5 but Data Governance scores 1.5, you know where to focus improvement efforts.
 
-**Layers** - Coverage across different enforcement timing—Build (stop risky configurations before deployment), Access (control who can access resources), Config (enforce required configurations), and Runtime (detect and respond to risky behavior). Balanced coverage across layers provides better protection than perfect coverage at a single layer.
+**[Layers](/guardrails/docs/prevention/preventions/layers)** - Coverage across different enforcement timing—Build (stop risky configurations before deployment), Access (control who can access resources), Config (enforce required configurations), and Runtime (detect and respond to risky behavior). Balanced coverage across layers provides better protection than perfect coverage at a single layer.
 
 ## Common Use Cases
 

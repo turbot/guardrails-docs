@@ -13,7 +13,7 @@ This view groups objectives by their risk level—P1 for critical controls that 
 
 Not all security objectives are equally important. "Restrict AWS resources to allowed regions" (P1) is foundational—it enforces data residency and prevents resources from being created in regions you can't monitor or protect. "Require soft delete for Azure File Shares" (P3) is valuable for recovery but not critical to preventing breaches. Priorities help you allocate limited time and resources to the work that reduces the most risk.
 
-The priority levels are based on several factors: likelihood and severity of the threat being prevented, prevalence in compliance frameworks, and whether the control is a prerequisite for other controls. P1 objectives typically appear in every major framework (CIS, NIST, PCI) because they're fundamental. P4 objectives might be specific to certain industries or operational models.
+Priority levels reflect the severity of security risk. P1 objectives prevent direct paths to data breaches or service compromise. P2 objectives address significant security or compliance risks. P3 objectives mitigate best practice violations with moderate risk. P4 objectives handle optimization and hygiene issues.
 
 ## The Four Priority Levels
 

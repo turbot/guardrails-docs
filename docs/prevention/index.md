@@ -80,25 +80,33 @@ Three factors determine prevention scores:
 **Coverage** - Which objectives have preventions in place. An objective with no preventions scores 0. An objective with preventions in some accounts but not others scores in the middle range. An objective with preventions across all applicable accounts scores higher.
 
 **Layer Weighting** - How strong those preventions are based on when they operate. Preventions at different layers have different defensive strength:
-- **Access layer** (0.95 weight) - Hardest to bypass, applies most broadly, blocks API calls at organization level
-- **Config layer** (0.90 weight) - Enforces settings on existing resources, applies regardless of how resources were created
-- **Runtime layer** (0.85 weight) - Detects and responds during operation, provides continuous monitoring
-- **Build layer** (0.75 weight) - Catches problems in IaC before deployment, but only applies to IaC-managed resources
+- **Access layer** (0.95 weight) - Control who can do what (API-level authorization)
+- **Config layer** (0.85 weight) - Enforce secure defaults everywhere
+- **Runtime layer** (0.75 weight) - Auto-fix in real time
+- **Build layer** (0.55 weight) - Catch problems before launch (lowest weight - less runtime guarantee)
 
 An objective protected by an Access layer SCP scores higher than the same objective protected only by a Runtime remediation control.
 
-**Priority Weighting** - How important the objective is. Priority weighting uses a reverse Fibonacci sequence:
-- **P1** (weight 13) - Critical, foundational preventions
-- **P2** (weight 8) - Important security improvements
-- **P3** (weight 5) - Defense-in-depth enhancements
-- **P4** (weight 3) - Optimizations and hygiene
-- **P5** (weight 2) - Nice-to-have improvements
+**Priority Weighting** - How important the objective is. Priorities indicate the severity of security objectives:
+- **P1** (weight 8) - Direct path to data breach or service compromise
+- **P2** (weight 5) - Significant security or compliance risk
+- **P3** (weight 3) - Best practice violations with moderate risk
+- **P4** (weight 2) - Optimization and hygiene issues
+- **P5** (weight 1) - Low-priority items
 
-This means P1 objectives have 6.5x the weight of P5 objectives (13 vs 2). Improving a single P1 objective impacts your overall score more than improving multiple lower-priority objectives—reflecting the reality that fixing critical gaps matters more than polishing edge cases.
+This means P1 objectives have 8x the weight of P5 objectives. At the account level, priority weighting is applied as: `account_score = 100 × Σ(coverage × priority_weight) / Σ(priority_weight)`. This gives higher-priority objectives more influence on the overall account score, reflecting the reality that fixing critical gaps matters more than polishing edge cases.
 
 #### Score Aggregation
 
-Scores aggregate at every level of your environment:
+Scores aggregate at every level of your environment using a three-level calculation pattern:
+
+**1. Atomic Level** - Individual rule evaluation where `effective_coverage = quality × layer_weight`. This is where layer weight is applied, and it's never re-applied in higher rollups.
+
+**2. Within-Account (same objective, multiple rules)** - Uses probabilistic OR to model defense-in-depth redundancy: `combined = 1 - Π(1 - effective_coverage_i)`. When multiple preventions protect the same objective in the same account, they provide redundant layers of defense.
+
+**3. Cross-Account (same objective, multiple accounts)** - Uses simple average: `score = Σ(coverage) / count(accounts)`. Accounts are independent security boundaries, not redundant defenses, so their scores are averaged.
+
+These calculations produce the following aggregated views:
 
 **Objective scores** - How well a specific objective (like "prohibit public S3 buckets") is met across all applicable accounts. Considers coverage, layer weighting, and the preventions in place.
 
