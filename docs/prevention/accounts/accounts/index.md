@@ -27,15 +27,15 @@ The Sort dropdown includes "Score (Low to High)" which is particularly useful fo
 
 ## Understanding Prevention Scores
 
-Prevention scores run from 0 (minimal or no preventive controls) to 5 (comprehensive prevention across multiple layers). A score of 3 means moderate coverage with noticeable gaps. A score of 4 indicates solid implementation. Scores above 4 reflect strong, defense-in-depth protection. Low scores signal opportunities to implement additional preventions—SCPs, policies, account settings, or Guardrails controls—to reduce risk.
+[Prevention scores](/guardrails/docs/prevention#prevention-scores) run from 0 to 5. Low scores (0-2) indicate minimal prevention coverage with significant gaps. Moderate scores (3) show basic protections but noticeable gaps. Good scores (4) reflect solid implementation. High scores (5) demonstrate comprehensive, defense-in-depth protection.
 
-These scores aggregate all prevention objectives weighted by priority, so a low score might mean you're missing critical P1 controls or simply lack coverage across many objectives. Click into an account to see which specific objectives aren't being met and what recommendations exist to improve the score.
+Account scores aggregate all prevention objectives weighted by priority. A low score might mean missing critical P1 controls or lack of coverage across many objectives. Click into an account to see which specific objectives aren't being met and what recommendations exist to improve the score.
 
 ## Account Detail View
 
 Clicking any account name opens the Account Detail page, which provides an in-depth view of prevention coverage for that single cloud account, subscription, or repository. This page breaks down the overall prevention score into specific categories, benchmarks, and recommendations, helping you understand exactly which preventions are implemented and which gaps need to be addressed.
 
-![Account Prevention Detail Page showing scores and recommendations](../detail/account-detail-prevention.png)
+![Account Prevention Detail Page showing scores and recommendations](./account-detail-prevention.png)
 
 The Account Detail page shows:
 

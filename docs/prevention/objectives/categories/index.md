@@ -75,7 +75,7 @@ Common gaps are leaving unused service features enabled, not restricting which r
 
 ## Using Categories to Assess Balance
 
-Review the average score for each category. If most categories score 3.5-4.5 but one scores 1.5-2.5, that's your weak domain. Even if you have excellent overall coverage, the weak category represents a vulnerability attackers can exploit.
+Review the average [score](/guardrails/docs/prevention#prevention-scores) for each category. If most categories score 3.5-4.5 but one scores 1.5-2.5, that's your weak domain. Even if you have excellent overall coverage, the weak category represents a vulnerability attackers can exploit.
 
 A balanced security program typically has reasonably consistent scores across categories—maybe 3.5-4.5 across the board. Highly unbalanced programs—like 5.0 for Identity & Access but 1.5 for Data Governance—indicate resource allocation problems or strategic gaps.
 

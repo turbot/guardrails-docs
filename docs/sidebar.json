@@ -103,9 +103,7 @@
       "getting-started/faq"
     ]
   },
-
-
- {
+  {
     "type": "category",
     "id": "prevention",
     "link": "prevention",
@@ -157,12 +155,10 @@
         "type": "category",
         "id": "prevention/simulator",
         "link": "prevention/simulator",
-        "items": [
-        ]
+        "items": []
       }
     ]
   },
-
   {
     "type": "category",
     "id": "concepts",
@@ -316,7 +312,9 @@
             "type": "category",
             "id": "firehose",
             "link": "guides/configuring-guardrails/firehose",
-            "items": ["guides/configuring-guardrails/firehose/pipelines"]
+            "items": [
+              "guides/configuring-guardrails/firehose/pipelines"
+            ]
           },
           {
             "type": "category",
@@ -337,7 +335,6 @@
               "guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource"
             ]
           },
-
           "guides/configuring-guardrails/regions",
           {
             "type": "category",
@@ -493,7 +490,6 @@
             ]
           },
           "guides/hosting-guardrails/FAQ",
-
           {
             "type": "category",
             "id": "troubleshooting",
@@ -554,7 +550,9 @@
         "type": "category",
         "id": "faq/workspace-faq",
         "link": "faq/workspace-faq",
-        "items": ["faq/workspace-faq/key_rotation"]
+        "items": [
+          "faq/workspace-faq/key_rotation"
+        ]
       },
       "faq/guardrails-and-aws-scps"
     ]
@@ -607,7 +605,9 @@
         "type": "category",
         "id": "reference/terraform",
         "link": "reference/terraform",
-        "items": ["reference/terraform/setup"]
+        "items": [
+          "reference/terraform/setup"
+        ]
       },
       {
         "type": "category",

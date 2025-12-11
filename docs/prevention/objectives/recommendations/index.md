@@ -91,17 +91,13 @@ You can search to find recommendations for specific services ("S3", "Lambda", "A
 
 ## Recommendation Priorities
 
-P1 recommendations are foundational controls you should implement immediately. These prevent common, high-severity attacks—things like restricting resources to allowed regions (data residency and compliance), requiring MFA for root accounts (prevents account takeover), or blocking public database access (prevents data breaches). Most P1 controls are straightforward to implement—a simple SCP or account setting—but provide massive risk reduction. If you have P1 recommendations with low scores, that's your most urgent work.
+Recommendations are organized by [priority](/guardrails/docs/prevention/objectives/priorities) (P1 through P4) indicating how critical they are. P1 recommendations are foundational controls that prevent common, high-severity attacks and should be implemented immediately. P2 recommendations provide strong security improvements for sensitive data and common attack vectors. P3 recommendations enhance posture through defense-in-depth and operational resilience. P4 recommendations are optimization and hygiene controls that provide incremental improvements.
 
-P2 recommendations provide strong security improvements for sensitive data and common attack vectors. Examples include requiring encryption at rest, enforcing customer-managed keys, blocking public Lambda functions, or requiring HTTPS for load balancers. These are worth implementing once your P1 foundation is solid. The implementation might be more complex than P1—requiring key management infrastructure or application changes—but the security value is substantial. Most organizations should aim for strong P2 coverage within 90 days of establishing P1 baselines.
-
-P3 recommendations enhance your posture through defense-in-depth and operational resilience—things like soft delete for recovery, private endpoints to eliminate public exposure entirely, or diagnostic settings for forensics. These are valuable but not urgent. They're the difference between "well-protected" and "comprehensively secure." Some organizations implement P3 broadly, others focus P3 effort on critical workloads and accept residual risk elsewhere.
-
-P4 recommendations are often optimization or hygiene controls that provide incremental improvements. Many organizations never implement all P4 recommendations, and that's okay—security is about managing risk to acceptable levels, not achieving perfection.
+Focus on P1 recommendations first—these are often straightforward to implement (a simple SCP or account setting) but provide massive risk reduction. Once your P1 foundation is solid, move to P2. Most organizations should aim for strong P2 coverage within 90 days of establishing P1 baselines.
 
 ## Recommendation Categories
 
-Recommendations organize by security domain so you can tackle related controls together or identify imbalanced coverage. Core Infrastructure recommendations protect foundational controls like restricting which services or regions can be used. Data Governance focuses on encryption, public access prevention, and data lifecycle. Identity & Access covers MFA, credential management, and privileged access. Trust & Sharing prevents external sharing and cross-account access. Network Perimeter restricts connectivity and enforces secure protocols. Audit & Logging protects your ability to investigate incidents. Feature Restrictions disables risky service capabilities you don't need.
+Recommendations organize by [security domain](/guardrails/docs/prevention/objectives/categories) so you can tackle related controls together or identify imbalanced coverage. The seven categories are Core Infrastructure, Data Governance, Identity & Access, Trust & Sharing, Network Perimeter, Audit & Logging, and Feature Restrictions.
 
 Filtering to a single category helps when you want to focus effort. Implementing all Data Governance recommendations together often requires similar expertise and tooling, making it more efficient than jumping between unrelated controls. The category view also reveals blind spots—if you have ten P1 Identity & Access recommendations but only two P1 Data Governance recommendations, you might be over-focusing on one domain while neglecting another.
 
@@ -113,7 +109,7 @@ This means a P1 control protecting 50 unprotected accounts typically ranks above
 
 ## Common Use Cases
 
-If you're starting a prevention initiative, review the default Opportunity sort and focus on P1 recommendations first. Click into each one to understand what objective it achieves, which accounts need it, and how to implement it. Most recommendations include policy examples and configuration guidance. Build an implementation plan prioritizing high-opportunity P1 and P2 recommendations, then track progress by watching recommendations disappear as you implement them.
+If you're starting a prevention initiative, review the default Opportunity sort and focus on P1 recommendations first. Click into each one to understand what objective it achieves, which accounts need it, and how to implement it. Recommendations include policy templates and configuration guidance. Build an implementation plan prioritizing high-opportunity P1 and P2 recommendations, then track progress by watching recommendations disappear as you implement them.
 
 For compliance certification, search for your target framework ("CIS", "NIST", "PCI") and filter to P1 and P2 recommendations. Each recommendation shows which compliance objectives it satisfies, so you can implement controls systematically by benchmark section and track overall compliance progress in the Benchmarks view.
 
@@ -133,7 +129,7 @@ Each recommendation includes an impact statement explaining what will be prevent
 
 Start with P1 recommendations—critical preventions provide the most security value and are often prerequisites for P2 and P3 controls. For important objectives, implement preventions at multiple layers (Build, Access, Config, Runtime) for defense-in-depth. Consider focusing on one category at a time since implementing all Data Governance recommendations together often requires similar expertise and tooling.
 
-Use the policy templates provided in the Examples tab—ready-to-use SCPs, Azure Policies, and other controls accelerate implementation. Always test before deploying broadly—start with a test account, verify the prevention works as expected, then roll out to production. Document any recommendations you choose not to implement, noting why (conflicts with business requirements, alternative control in place, etc.).
+Use the policy templates provided in recommendations—ready-to-use SCPs, Azure Policies, and other controls accelerate implementation. Always test before deploying broadly—start with a test account, verify the prevention works as expected, then roll out to production. Document any recommendations you choose not to implement, noting why (conflicts with business requirements, alternative control in place, etc.).
 
 Automate deployment using Infrastructure-as-Code so preventions are consistently applied across accounts and can be version controlled. Return to the Recommendations page regularly—as your environment evolves with new accounts and services, new recommendations will appear, and addressing them promptly prevents security drift.
 

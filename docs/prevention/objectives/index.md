@@ -39,17 +39,15 @@ The Categories tab helps prevent blind spots. You might have excellent Identity 
 
 For day-to-day work, the Objectives tab with search is fastest. If someone asks "do we enforce MFA?" you can search for "MFA," see the relevant objectives, check the scores, and answer immediately.
 
-## Understanding Scores
+## Understanding Objective Scores
 
-Objective scores range from 0 to 5. A score of 5 means the objective is fully met across all your accounts—you have strong preventions in place everywhere. A score of 0-1 means you're not meeting the objective, either because preventions are missing entirely or because they're weak or narrowly scoped.
+[Objective scores](/guardrails/docs/prevention#prevention-scores) range from 0 to 5, measuring how well a specific security goal is met across all your accounts. A score of 5 means the objective is fully met everywhere with strong preventions. A score of 0-1 means you're not meeting the objective—preventions are missing, weak, or narrowly scoped.
 
-The score calculation considers several factors: how many accounts have preventions for this objective, how strong those preventions are (Access layer preventions score higher than Runtime preventions), and the objective's priority weighting. A low score on a P1 objective is a bigger problem than a low score on a P4 objective.
-
-What matters most is the trend and the context. If your score is improving over time, you're making progress. If a P1 objective has a score of 2, that's urgent. If a P4 objective has a score of 2, it's lower priority.
+The score considers coverage (how many accounts have preventions), layer weighting (Access layer preventions score higher than Runtime), and priority (a low score on a P1 objective is more urgent than on a P4 objective). Trends matter—if your score is improving, you're making progress.
 
 ## Next Steps
 
-- Click into any [benchmark](/guardrails/docs/prevention/objectives/benchmark-detail) to see its grouped objectives
-- Click into any [objective](/guardrails/docs/prevention/objectives/objective-detail) to see which accounts meet it and which preventions achieve it
+- Click into any [benchmark](/guardrails/docs/prevention/objectives/benchmarks#benchmark-detail-view) to see its grouped objectives
+- Click into any [objective](/guardrails/docs/prevention/objectives/objectives#objective-detail-view) to see which accounts meet it and which preventions achieve it
 - Review [Recommendations](/guardrails/docs/prevention/recommendations) for prioritized implementation guidance
 - Return to [Accounts](/guardrails/docs/prevention/accounts) to see prevention scores by account

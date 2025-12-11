@@ -23,40 +23,103 @@ Most security tools tell you what's wrong after something's already deployed—a
 
 ### Objectives
 
-Objectives are security goals—the outcomes you're trying to achieve. "Restrict AWS resources to allowed regions" is an objective. "Require encryption at rest for AWS EBS volumes" is another. "Prohibit public access to S3 buckets" is a third. These aren't technical controls; they're the security requirements you need to meet.
+[Objectives](/guardrails/docs/prevention/objectives) are security goals—the outcomes you're trying to achieve. "Restrict AWS resources to allowed regions" is an objective. "Require encryption at rest for AWS EBS volumes" is another. "Prohibit public access to S3 buckets" is a third. These aren't technical controls; they're the security requirements you need to meet.
 
 Each objective has a category (like Data Governance or Identity & Access) that groups related goals, and a priority (P1 through P5) indicating how critical it is. P1 objectives are foundational controls that should be implemented everywhere. P4-P5 objectives are nice-to-haves.
 
 ### Preventions
 
-Preventions are the actual technical controls implementing your objectives. While objectives describe what you're trying to accomplish, preventions are how you're accomplishing it. To achieve "require encryption at rest for AWS EBS volumes," you might have an SCP denying unencrypted volume creation, an EC2 account setting enabling default encryption, and a Guardrails control remediating any unencrypted volumes. All three preventions contribute to the same objective.
+[Preventions](/guardrails/docs/prevention/preventions) are the actual technical controls implementing your objectives. While objectives describe what you're trying to accomplish, preventions are how you're accomplishing it. To achieve "require encryption at rest for AWS EBS volumes," you might have an SCP denying unencrypted volume creation, an EC2 account setting enabling default encryption, and a Guardrails control remediating any unencrypted volumes. All three preventions contribute to the same objective.
 
-Each prevention has a type (Service Control Policy, Azure Policy, account setting, etc.) that determines how it works and a layer (Build, Access, Config, or Runtime) that indicates when it operates in the resource lifecycle.
+Each prevention has a [type](/guardrails/docs/prevention/preventions/types) (Service Control Policy, Azure Policy, account setting, etc.) that determines how it works and a layer (Build, Access, Config, or Runtime) that indicates when it operates in the resource lifecycle.
 
 ### Layers
 
-Preventions operate at different points in time, which we call layers. Build layer controls catch problems in Infrastructure as Code before deployment. Access layer controls block dangerous API calls at the organization level. Config layer controls enforce settings on existing resources. Runtime layer controls detect and respond to issues during operation.
+Preventions operate at different points in time, which we call [layers](/guardrails/docs/prevention/preventions/layers). Build layer controls catch problems in Infrastructure as Code before deployment. Access layer controls block dangerous API calls at the organization level. Config layer controls enforce settings on existing resources. Runtime layer controls detect and respond to issues during operation.
 
 The layer affects both timing and defensive strength. Access layer controls (weighted 0.95) score highest because they're hardest to bypass and apply most broadly. Build layer controls (weighted 0.75) score slightly lower because they only apply to IaC-managed resources. Defense-in-depth means having controls at multiple layers—if one fails, others provide backup.
 
 ### Categories
 
-Categories organize objectives by security domain—Identity & Access, Data Governance, Trust & Sharing, Network Perimeter, Core Infrastructure, Audit & Logging, and Feature Restrictions. This organization helps ensure balanced security coverage. You might have excellent identity controls but weak data protection, or strong network defenses but poor audit logging. The category view makes these imbalances visible.
+[Categories](/guardrails/docs/prevention/objectives/categories) organize objectives by security domain—Identity & Access, Data Governance, Trust & Sharing, Network Perimeter, Core Infrastructure, Audit & Logging, and Feature Restrictions. This organization helps ensure balanced security coverage. You might have excellent identity controls but weak data protection, or strong network defenses but poor audit logging. The category view makes these imbalances visible.
 
 ### Priorities
 
-Priorities indicate how critical each objective is. P1 objectives are foundational controls that should be implemented immediately—things like restricting resources to allowed regions, requiring MFA for root accounts, and blocking public databases. P2 objectives provide strong security improvements. P3 objectives enhance posture through defense-in-depth. P4-P5 objectives are optimizations and hygiene.
+[Priorities](/guardrails/docs/prevention/objectives/priorities) indicate how critical each objective is. P1 objectives are foundational controls that should be implemented immediately—things like restricting resources to allowed regions, requiring MFA for root accounts, and blocking public databases. P2 objectives provide strong security improvements. P3 objectives enhance posture through defense-in-depth. P4-P5 objectives are optimizations and hygiene.
 
 Priority weighting uses a reverse Fibonacci sequence: P1 objectives have 8x the weight of P5 objectives. This means improving a single P1 objective has more impact on your score than improving multiple lower-priority objectives—reflecting the reality that fixing critical gaps matters more than polishing edge cases.
 
 ### Benchmarks
 
-Benchmarks are compliance frameworks that organize objectives—AWS CIS v6.0.0, NIST 800-53 Rev 5, Azure CIS v5.0.0, and so on. Each benchmark shows your prevention score for that framework, helping you track progress toward compliance certification. Many objectives appear in multiple benchmarks, so implementing one prevention can improve multiple framework scores simultaneously.
+[Benchmarks](/guardrails/docs/prevention/objectives/benchmarks) are compliance frameworks that organize objectives—AWS CIS v6.0.0, NIST 800-53 Rev 5, Azure CIS v5.0.0, and so on. Each benchmark shows your prevention score for that framework, helping you track progress toward compliance certification. Many objectives appear in multiple benchmarks, so implementing one prevention can improve multiple framework scores simultaneously.
 
 ### Recommendations
 
-Recommendations are prioritized suggestions for what to implement next. They target specific objectives where you have coverage gaps, explain the security impact, and provide implementation guidance. Recommendations are ordered by potential risk reduction, considering both the objective's priority and your current coverage level.
+[Recommendations](/guardrails/docs/prevention/objectives/recommendations) are prioritized suggestions for what to implement next. They target specific objectives where you have coverage gaps, explain the security impact, and provide implementation guidance. Recommendations are ordered by potential risk reduction, considering both the objective's priority and your current coverage level.
 
-### Prevention Scores
+## Prevention Scores
 
-Your prevention score (0-5 scale) measures how well you're preventing security issues before they occur. The score considers which objectives have preventions in place, how strong those preventions are (layer weighting), and how important the objectives are (priority weighting). Scores aggregate at every level—by objective, account, category, benchmark—so you can analyze your posture from multiple perspectives and identify where to focus improvement efforts.
+Prevention scores measure how well you're preventing security issues before they occur. Understanding how scores are calculated helps you interpret what they mean and where to focus improvement efforts.
+
+#### The Scale
+
+Prevention scores range from 0 to 5:
+
+- **0-1**: Minimal or no preventive controls—significant security gaps exist
+- **2**: Limited prevention coverage—some controls in place but major gaps remain
+- **3**: Moderate coverage with noticeable gaps—basic protections exist but not comprehensive
+- **4**: Solid prevention implementation—good coverage across most areas
+- **5**: Comprehensive prevention across multiple layers—strong defense-in-depth
+
+Scores aren't pass/fail thresholds—they're maturity indicators showing where you are and how much work remains. Going from 2.0 to 3.5 represents meaningful progress even if you haven't reached 5.0.
+
+#### What Goes Into a Score
+
+Three factors determine prevention scores:
+
+**Coverage** - Which objectives have preventions in place. An objective with no preventions scores 0. An objective with preventions in some accounts but not others scores in the middle range. An objective with preventions across all applicable accounts scores higher.
+
+**Layer Weighting** - How strong those preventions are based on when they operate. Preventions at different layers have different defensive strength:
+- **Access layer** (0.95 weight) - Hardest to bypass, applies most broadly, blocks API calls at organization level
+- **Config layer** (0.90 weight) - Enforces settings on existing resources, applies regardless of how resources were created
+- **Runtime layer** (0.85 weight) - Detects and responds during operation, provides continuous monitoring
+- **Build layer** (0.75 weight) - Catches problems in IaC before deployment, but only applies to IaC-managed resources
+
+An objective protected by an Access layer SCP scores higher than the same objective protected only by a Runtime remediation control.
+
+**Priority Weighting** - How important the objective is. Priority weighting uses a reverse Fibonacci sequence:
+- **P1** (weight 13) - Critical, foundational controls
+- **P2** (weight 8) - Important security improvements
+- **P3** (weight 5) - Defense-in-depth enhancements
+- **P4** (weight 3) - Optimizations and hygiene
+- **P5** (weight 2) - Nice-to-have improvements
+
+This means P1 objectives have 6.5x the weight of P5 objectives (13 vs 2). Improving a single P1 objective impacts your overall score more than improving multiple lower-priority objectives—reflecting the reality that fixing critical gaps matters more than polishing edge cases.
+
+#### Score Aggregation
+
+Scores aggregate at every level of your environment:
+
+**Objective scores** - How well a specific objective (like "prohibit public S3 buckets") is met across all applicable accounts. Considers coverage, layer weighting, and the preventions in place.
+
+**Account scores** - How well a specific account is protected across all objectives. Aggregates all objective scores for that account, weighted by priority.
+
+**Category scores** - How well a security domain (like Data Governance or Identity & Access) is covered. Aggregates objective scores within that category, weighted by priority.
+
+**Benchmark scores** - How well you meet a compliance framework (like AWS CIS or NIST 800-53). Aggregates scores for all objectives in that benchmark, weighted by priority.
+
+**Overall score** - Your total prevention posture across all objectives and accounts, weighted by priority.
+
+This aggregation lets you analyze security from multiple perspectives—by account, by objective, by category, by compliance framework—and identify exactly where to focus improvement efforts.
+
+#### Context Matters
+
+Don't interpret scores in isolation:
+
+**Trends matter more than snapshots** - If your score is improving over time, you're making progress. A score stuck at 2.5 for six months indicates stagnation.
+
+**Priority creates urgency** - A P1 objective scoring 2 is urgent—it's a critical control with major gaps. A P4 objective scoring 2 is lower priority—it's nice to fix but not critical.
+
+**Balance matters** - A balanced security program typically has reasonably consistent scores across categories (maybe 3.5-4.5 across the board). Highly unbalanced programs (5.0 for Identity & Access but 1.5 for Data Governance) indicate resource allocation problems.
+
+**Perfect scores aren't always the goal** - Some organizations set practical targets: "All P1 objectives must score 4+ in production accounts. P2 objectives should score 3+. P3-P5 are discretionary." This creates clear expectations and measurable goals without demanding perfection everywhere.

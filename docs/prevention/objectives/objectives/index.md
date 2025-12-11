@@ -13,7 +13,7 @@ This tab shows every prevention objective individually—all the security goals 
 
 Each card is a specific security goal. "Prohibit public access to AWS RDS DB instances" is an objective. "Require MFA for AWS root user authentication" is another. The score tells you how well that objective is being met across your environment—a 5 means excellent coverage, a 0-1 means it's not really being addressed.
 
-The priority badge (P1, P2, P3, or P4) indicates how critical the objective is. P1 objectives are foundational controls that should be in place everywhere. P4 objectives are nice-to-haves that improve security but aren't critical. The category badge tells you which security domain it belongs to—Identity & Access, Data Governance, Trust & Sharing, and so on.
+The [priority](/guardrails/docs/prevention/objectives/priorities) badge (P1, P2, P3, or P4) indicates how critical the objective is. P1 objectives are foundational controls that should be in place everywhere. P4 objectives are nice-to-haves that improve security but aren't critical. The [category](/guardrails/docs/prevention/objectives/categories) badge tells you which security domain it belongs to—Identity & Access, Data Governance, Trust & Sharing, and so on.
 
 This flat view is particularly useful when you know what you're looking for but don't want to navigate through benchmark hierarchies. Search for "encryption" and you'll immediately see all encryption-related objectives with their scores.
 
@@ -25,7 +25,7 @@ You can also filter by account to answer questions like "what objectives are we 
 
 ## Understanding Scores
 
-Objective scores reflect how well you're preventing that specific issue across all applicable accounts. A score of 5 means you have strong preventions in place everywhere. A score of 2-3 means you have partial coverage—maybe some accounts are protected but others aren't, or the preventions you have are weaker than ideal.
+[Objective scores](/guardrails/docs/prevention#prevention-scores) reflect how well you're preventing that specific issue across all applicable accounts. A score of 5 means you have strong preventions in place everywhere. A score of 2-3 means you have partial coverage—maybe some accounts are protected but others aren't, or the preventions you have are weaker than ideal.
 
 The score takes into account the strength of your preventions (Access layer SCPs score higher than Runtime remediations) and the breadth of coverage (organization-wide preventions count more than account-specific ones). Clicking into an objective shows exactly which preventions are contributing to the score and which accounts still need coverage.
 
@@ -39,7 +39,7 @@ When comparing your posture across categories, note which categories have consis
 
 ## Objective Detail View
 
-Clicking any objective opens the Objective Detail page, which provides in-depth information about that single prevention objective—which accounts meet it, which preventions achieve it, implementation recommendations, policy examples, and CNAPP findings.
+Clicking any objective opens the Objective Detail page, which provides in-depth information about that single prevention objective—which accounts meet it, which preventions achieve it, implementation recommendations, and CNAPP findings.
 
 ![Objective Detail Page showing tabs and account coverage](../objective-detail/objective-detail.png)
 
@@ -49,9 +49,7 @@ The Objective Detail page includes:
 
 **Preventions Tab** - Lists all preventions achieving this objective. Each entry shows the prevention name, prevention type (SCP, Azure Policy, GCP Organization Policy, or Guardrails control), layer (Build, Access, Config, or Runtime), and implementation status.
 
-**Recommendations Tab** - Provides actionable guidance including step-by-step implementation instructions, cloud provider-specific configurations, prerequisites and dependencies, and testing guidance. Recommendations are prioritized by security impact, compliance requirements, and implementation complexity.
-
-**Examples Tab** - Provides concrete policy templates and code samples—SCP templates for AWS, Azure Policy definitions, Organization Policy constraints for GCP, and Terraform/IaC examples for automated deployment. These are tested, production-ready policies you can adapt for your environment.
+**Recommendations Tab** - Provides actionable guidance including step-by-step implementation instructions, policy templates, cloud provider-specific configurations, prerequisites and dependencies, and testing guidance. Recommendations are prioritized by security impact, compliance requirements, and implementation complexity.
 
 **Findings Tab** - Shows detections from CNAPP and security scanning tools—which resources currently fail this objective, severity and risk level of each finding, and remediation guidance. Use findings to validate that preventions work as expected and identify resources created before preventions were enabled.
 
@@ -61,7 +59,7 @@ The Objective Detail page includes:
 
 To determine why an account has a low score, find the account in the Account Coverage table, check the Preventions tab to see which controls achieve this objective, verify whether those preventions are implemented for that account, and review the Recommendations tab for implementation guidance.
 
-When implementing an objective across all accounts, review the Summary to understand what it protects, check the Preventions tab for available options, grab policy templates from the Examples tab, use the Recommendations tab for step-by-step implementation, and monitor the Account Coverage table to track rollout progress.
+When implementing an objective across all accounts, review the Summary to understand what it protects, check the Preventions tab for available options, use the Recommendations tab for step-by-step implementation and policy templates, and monitor the Account Coverage table to track rollout progress.
 
 ## Next Steps
 

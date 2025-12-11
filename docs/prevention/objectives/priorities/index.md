@@ -57,7 +57,7 @@ When executives ask "what should we work on next?", this view provides data-driv
 
 ## Balancing Coverage Across Priorities
 
-Your prevention score weights priorities using a reverse Fibonacci sequence—P1 objectives have 8x the weight of P4 objectives. This means improving a single P1 objective improves your overall score more than improving multiple P4 objectives. The scoring reflects security reality: fixing critical gaps matters more than polishing edge cases.
+[Prevention scores](/guardrails/docs/prevention#prevention-scores) weight priorities using a reverse Fibonacci sequence—P1 objectives have significantly more weight than P4 objectives. This means improving a single P1 objective improves your overall score more than improving multiple lower-priority objectives. The scoring reflects security reality: fixing critical gaps matters more than polishing edge cases.
 
 Watch for situations where you have strong P3-P4 coverage but weak P1-P2 coverage. This suggests resources are being spent on less important work while fundamental risks remain unaddressed. Rebalance effort toward higher-priority objectives.
 

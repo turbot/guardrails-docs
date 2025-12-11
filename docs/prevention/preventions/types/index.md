@@ -81,5 +81,5 @@ A typical mature AWS environment might have: 10-20 SCPs for foundational restric
 
 - Return to [Preventions](/guardrails/docs/prevention/preventions/preventions) to see all your controls regardless of type
 - Check [Layers](/guardrails/docs/prevention/preventions/layers) to understand when each type typically operates
-- Review [Examples](/guardrails/docs/prevention/preventions/examples) for templates and implementation guidance for each type
 - Visit [Objectives](/guardrails/docs/prevention/objectives) to see which objectives each type helps achieve
+- Review [Recommendations](/guardrails/docs/prevention/objectives/recommendations) for implementation guidance

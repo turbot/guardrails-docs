@@ -45,7 +45,7 @@ When onboarding a new account, filter to organization-wide preventions to see wh
 
 Clicking any prevention opens the Prevention Detail page, which provides comprehensive information about that single prevention control—showing what it does, which objectives it achieves, what accounts it applies to, and the specific configuration details.
 
-![Prevention Detail Page showing configuration and matched objectives](../detail/prevention-detail.png)
+![Prevention Detail Page showing configuration and matched objectives](./prevention-detail.png)
 
 The Prevention Detail page shows:
 
@@ -69,7 +69,7 @@ When auditing prevention coverage, check the Matched Objectives section to under
 
 ## Next Steps
 
-- Review [Examples](/guardrails/docs/prevention/preventions/examples) for implementation templates when adding new preventions
 - Check [Types](/guardrails/docs/prevention/preventions/types) to understand different prevention mechanisms
 - Visit [Layers](/guardrails/docs/prevention/preventions/layers) to assess defense-in-depth coverage
 - See [Objectives](/guardrails/docs/prevention/objectives) to understand which security goals these preventions achieve
+- Review [Recommendations](/guardrails/docs/prevention/objectives/recommendations) for implementation guidance

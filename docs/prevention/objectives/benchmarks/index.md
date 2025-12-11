@@ -33,7 +33,7 @@ One common pattern: use the P1 Preventions benchmarks as your baseline. These re
 
 ## Working With Benchmark Scores
 
-Don't fixate on achieving a perfect 5.0 score immediately. Compliance is a journey—going from 2.0 to 3.5 might take months of work, and that's meaningful progress. Focus on section-level scores to identify weak areas. If your overall CIS score is 3.2 but the Logging section scores 1.5, you know where to focus.
+[Benchmark scores](/guardrails/docs/prevention#prevention-scores) measure compliance framework coverage on a 0-5 scale. Don't fixate on achieving perfect 5.0 scores immediately—compliance is a journey. Going from 2.0 to 3.5 represents months of work and meaningful progress. Focus on section-level scores to identify weak areas. If your overall CIS score is 3.2 but the Logging section scores 1.5, you know where to focus.
 
 Some benchmarks overlap significantly. Many controls that satisfy AWS CIS also satisfy NIST 800-53. This means implementing one prevention can improve multiple benchmark scores simultaneously. The system tracks this automatically, so you don't need to manually map controls to frameworks.
 

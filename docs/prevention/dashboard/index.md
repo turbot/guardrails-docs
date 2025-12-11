@@ -11,7 +11,7 @@ The Prevention Dashboard gives you a single-page view of your preventive securit
 
 ## Overall Maturity
 
-Your prevention score (0-5 scale) appears at the top, reflecting how effectively your preventions meet security objectives across all accounts. The score considers coverage (how many objectives have preventions), quality (how strong those preventions are through layer weighting), and importance (priority weighting). Below the score you'll see total objectives being tracked and total preventions discovered in your environment. Click this section to explore detailed scores by account and objective.
+Your [prevention score](/guardrails/docs/prevention#prevention-scores) (0-5 scale) appears at the top, reflecting how effectively your preventions meet security objectives across all accounts. The score considers coverage (how many objectives have preventions), quality (how strong those preventions are through layer weighting), and importance (priority weighting). Below the score you'll see total objectives being tracked and total preventions discovered in your environment. Click this section to explore detailed scores by account and objective.
 
 ## Benchmarks
 

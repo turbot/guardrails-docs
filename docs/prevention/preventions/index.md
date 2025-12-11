@@ -19,9 +19,9 @@ What makes this view useful is seeing everything in one place. Instead of checki
 
 ## Different Ways to View Your Preventions
 
-The Preventions section gives you four different perspectives on the same set of controls, each useful for different tasks:
+The Preventions section gives you three different perspectives on the same set of controls, each useful for different tasks:
 
-The **[Preventions tab](/guardrails/docs/prevention/preventions/preventions)** shows the flat list of everything—useful when you're looking for a specific control or want to see all preventions applied to a particular account. The **[Examples tab](/guardrails/docs/prevention/preventions/examples)** provides policy templates and code samples, which is helpful when you need to implement a new prevention and want a working example to start from.
+The **[Preventions tab](/guardrails/docs/prevention/preventions/preventions)** shows the flat list of everything—useful when you're looking for a specific control or want to see all preventions applied to a particular account.
 
 The **[Types tab](/guardrails/docs/prevention/preventions/types)** groups preventions by their technical mechanism (SCPs, Azure Policies, account settings, etc.). This view helps when you're working with a specific technology—maybe you're reviewing all your SCPs or standardizing on Azure Policies for certain use cases.
 
@@ -30,8 +30,6 @@ The **[Layers tab](/guardrails/docs/prevention/preventions/layers)** organizes b
 ## How to Use This Information
 
 The most common task is figuring out "do we have this control in place?" You can search for a service or objective (like "S3" or "encryption"), filter to a specific account, and see what preventions are active. This is much faster than manually checking each cloud provider's console.
-
-When you're planning to implement a new prevention, start with the Examples tab. You'll find tested policy templates you can adapt rather than writing from scratch. The examples include not just the policy code, but also notes about testing, common pitfalls, and exception handling.
 
 The Types and Layers views become important for strategic planning. If you notice you're heavily relying on one type of prevention (maybe 90% of your controls are SCPs), the Types view helps you identify opportunities to diversify. If you have strong Access layer coverage but weak Config layer coverage, the Layers view makes that gap visible.
 
@@ -56,7 +54,7 @@ Each type has tradeoffs in implementation complexity, flexibility, and operation
 
 When you need to verify whether a specific control is in place—say, "do we block public S3 buckets?"—search for "S3" or "public" and you'll see all related preventions. Each prevention shows which accounts it applies to, so you can quickly identify coverage gaps.
 
-If you're auditing a specific account's security posture, filter to that account and review its prevention list. You can compare this against a benchmark like CIS to see what's missing. When you find gaps, the Examples tab provides templates to implement the missing controls.
+If you're auditing a specific account's security posture, filter to that account and review its prevention list. You can compare this against a benchmark like CIS to see what's missing.
 
 Planning layer-specific improvements works best through the Layers tab. If you're adding Access layer preventions (like SCPs), viewing them grouped by layer helps ensure you're covering the right objectives without duplicating Config layer controls.
 
@@ -68,7 +66,7 @@ Scope tells you how broadly a prevention applies. Organization-wide preventions 
 
 ## Next Steps
 
-- Click into any [prevention detail page](/guardrails/docs/prevention/preventions/detail) to see configuration details and coverage
+- Click into any [prevention detail page](/guardrails/docs/prevention/preventions/preventions#prevention-detail-view) to see configuration details and coverage
 - Review [Objectives](/guardrails/docs/prevention/objectives) to understand which objectives each prevention achieves
 - Use [Recommendations](/guardrails/docs/prevention/recommendations) to prioritize new prevention implementations
 - Check [Accounts](/guardrails/docs/prevention/accounts) to see prevention coverage by account
