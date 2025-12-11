@@ -5,7 +5,7 @@ sidebar_label: Objectives
 
 # Objectives
 
-The Objectives page shows what you're trying to accomplish with your preventive controls. While the Preventions page shows the technical controls you've implemented, the Objectives page focuses on the security goals those controls achieve—things like "require encryption at rest" or "prohibit public access to databases."
+The Objectives page shows what you're trying to accomplish with your preventions. While the Preventions page shows the preventive mechanisms you've implemented, the Objectives page focuses on the security goals those preventions achieve—things like "require encryption at rest" or "prohibit public access to databases."
 
 ## What Objectives Represent
 
@@ -25,7 +25,7 @@ The **[Objectives tab](/guardrails/docs/prevention/objectives/objectives)** list
 
 The **[Recommendations tab](/guardrails/docs/prevention/recommendations)** flips the view to show what you should do next. Instead of browsing objectives yourself, it presents prioritized actions based on your coverage gaps, focusing on high-impact improvements.
 
-The **[Priorities tab](/guardrails/docs/prevention/objectives/priorities)** groups objectives by their risk level—P1 objectives are fundamental controls that should be implemented everywhere, while P4 objectives are nice-to-haves. This view helps you focus on what matters most first.
+The **[Priorities tab](/guardrails/docs/prevention/objectives/priorities)** groups objectives by their risk level—P1 objectives are fundamental preventions that should be implemented everywhere, while P4 objectives are nice-to-haves. This view helps you focus on what matters most first.
 
 The **[Categories tab](/guardrails/docs/prevention/objectives/categories)** organizes by security domain—Identity & Access, Data Governance, Trust & Sharing, and so on. This ensures you're not over-invested in one area while neglecting another. Balanced coverage across categories generally means stronger overall security.
 
@@ -33,7 +33,7 @@ The **[Categories tab](/guardrails/docs/prevention/objectives/categories)** orga
 
 When you're working toward compliance certification, start with the Benchmarks tab. Find your target framework (like AWS CIS v6.0.0), check your current score, and drill into the lowest-scoring sections. Each section shows which objectives you're not meeting, and from there you can click through to see what preventions would help.
 
-If you're prioritizing security work without a specific compliance target, the Priorities tab is more useful. Start with P1 objectives that have low scores—these are fundamental controls that should be in place everywhere. Once P1 coverage is solid, move to P2, and so on.
+If you're prioritizing security work without a specific compliance target, the Priorities tab is more useful. Start with P1 objectives that have low scores—these are fundamental preventions that should be in place everywhere. Once P1 coverage is solid, move to P2, and so on.
 
 The Categories tab helps prevent blind spots. You might have excellent Identity & Access coverage but weak Data Governance. The category view makes these imbalances visible so you can address them before they become problems.
 
