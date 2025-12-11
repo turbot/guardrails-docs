@@ -73,13 +73,13 @@ These controls reduce attack surface by removing capabilities that aren't needed
 
 Common gaps are leaving unused service features enabled, not restricting which resources or configurations are permitted, and allowing risky features without compensating controls.
 
-## Using Categories to Assess Balance
+## Common Use Cases
 
-Review the average [score](/guardrails/docs/prevention#prevention-scores) for each category. If most categories score 3.5-4.5 but one scores 1.5-2.5, that's your weak domain. Even if you have excellent overall coverage, the weak category represents a vulnerability attackers can exploit.
+- **To identify security blind spots** - Review the average [score](/guardrails/docs/prevention#prevention-scores) for each category. If most categories score 3.5-4.5 but one scores 1.5-2.5, that's your weak domain. Even if you have excellent overall coverage, the weak category represents a vulnerability attackers can exploit.
 
-A balanced security program typically has reasonably consistent scores across categories—maybe 3.5-4.5 across the board. Highly unbalanced programs—like 5.0 for Identity & Access but 1.5 for Data Governance—indicate resource allocation problems or strategic gaps.
+- **To assess balanced coverage** - A balanced security program typically has reasonably consistent scores across categories—maybe 3.5-4.5 across the board. Highly unbalanced programs—like 5.0 for Identity & Access but 1.5 for Data Governance—indicate resource allocation problems or strategic gaps.
 
-Some imbalance is normal based on your environment. If you're primarily using serverless architectures, Network Perimeter might be less relevant than Data Governance. If you're heavily IaC-driven, Core Infrastructure (region restrictions, service restrictions) might score higher naturally.
+- **Understanding environment-specific imbalances** - Some imbalance is normal based on your environment. If you're primarily using serverless architectures, Network Perimeter might be less relevant than Data Governance. If you're heavily IaC-driven, Core Infrastructure (region restrictions, service restrictions) might score higher naturally.
 
 ## Next Steps
 

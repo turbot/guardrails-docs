@@ -19,11 +19,11 @@ Folders also support policy inheritance—you can apply Guardrails policies at t
 
 ## Common Use Cases
 
-Many organizations create folders by team or business unit—an Engineering folder with dev/test/prod accounts, a Data Science folder with analytics accounts, a Security folder with audit and logging accounts. This helps track prevention coverage by organizational ownership and makes it clear which team is responsible for each account.
+- **When organizing by team or business unit** - Create folders like Engineering (with dev/test/prod accounts), Data Science (with analytics accounts), or Security (with audit and logging accounts). This helps track prevention coverage by organizational ownership and makes it clear which team is responsible for each account.
 
-Others organize by environment—a Production folder with all prod accounts across AWS, Azure, and GCP, a Non-Production folder with dev/test/staging, and a Sandbox folder for experimental work. This supports applying stricter preventions to production (enforcing encryption, blocking public access) while allowing more flexibility in non-production environments.
+- **When organizing by environment** - Create a Production folder with all prod accounts across AWS, Azure, and GCP, a Non-Production folder with dev/test/staging, and a Sandbox folder for experimental work. This supports applying stricter preventions to production (enforcing encryption, blocking public access) while allowing more flexibility in non-production environments.
 
-Compliance-driven organizations might create folders based on regulatory scope—a PCI-DSS folder for accounts handling payment data, a HIPAA folder for healthcare-related accounts, or a Public folder for accounts with publicly accessible resources. This makes it easy to ensure accounts subject to specific regulations have the required preventive controls.
+- **When organizing for compliance** - Create folders based on regulatory scope—a PCI-DSS folder for accounts handling payment data, a HIPAA folder for healthcare-related accounts, or a Public folder for accounts with publicly accessible resources. This makes it easy to ensure accounts subject to specific regulations have the required preventive controls.
 
 ## Folders vs Organizations
 

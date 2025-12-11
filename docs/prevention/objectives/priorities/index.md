@@ -47,13 +47,13 @@ P4 objectives are often optimization, hygiene, or industry-specific controls. Th
 
 P4 objectives make sense when you have mature P1-P3 coverage and are looking for additional hardening, or when they align with specific compliance requirements unique to your industry.
 
-## Using Priorities to Plan Work
+## Common Use Cases
 
-Start by filtering to P1 and sorting by score. Any P1 objective with a score below 3 is a critical gap—prioritize those first. Once P1 objectives consistently score 4-5, move to P2. Once P2 is strong, consider P3 selectively based on your environment's needs.
+- **When planning security work** - Start by filtering to P1 and sorting by score. Any P1 objective with a score below 3 is a critical gap—prioritize those first. Once P1 objectives consistently score 4-5, move to P2. Once P2 is strong, consider P3 selectively based on your environment's needs.
 
-This approach prevents the common mistake of implementing scattered P2 and P3 controls while leaving P1 gaps. A comprehensive set of P3 controls doesn't help if attackers can exploit fundamental P1 weaknesses.
+- **To avoid scattered implementation** - This approach prevents the common mistake of implementing scattered P2 and P3 controls while leaving P1 gaps. A comprehensive set of P3 controls doesn't help if attackers can exploit fundamental P1 weaknesses.
 
-When executives ask "what should we work on next?", this view provides data-driven answers. Show them the P1 objectives with low scores, explain the risks, and the work becomes an obvious priority.
+- **When executives ask "what should we work on next?"** - This view provides data-driven answers. Show them the P1 objectives with low scores, explain the risks, and the work becomes an obvious priority.
 
 ## Balancing Coverage Across Priorities
 

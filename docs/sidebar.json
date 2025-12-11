@@ -146,7 +146,6 @@
         "link": "prevention/preventions",
         "items": [
           "prevention/preventions/preventions",
-          "prevention/preventions/examples",
           "prevention/preventions/types",
           "prevention/preventions/layers"
         ]

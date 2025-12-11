@@ -27,19 +27,13 @@ Scope matters because it tells you how broadly a prevention applies. An SCP atta
 
 When you're evaluating coverage, organization-wide preventions give you complete protection instantly. Account-specific preventions might need to be replicated to new accounts as they're created. The scope information helps you understand whether a prevention scales automatically or requires ongoing management.
 
-## Working with Status
+## Common Use Cases
 
-Most preventions show as "Active," meaning they're live and enforcing. "Available" usually means the prevention is defined but might be in audit-only mode—detecting issues but not blocking them. "Recommended" indicates a gap—this prevention would help but isn't implemented yet.
+- **When investigating why something was blocked** - Search for the service or resource type. If a developer's S3 bucket creation was denied, search for "S3" and review which preventions might have blocked it—maybe an SCP restricting regions, or an account setting blocking public ACLs.
 
-When you see "Recommended" preventions, those are opportunities. The system has identified that implementing this prevention would improve your security posture or help meet a compliance objective you care about.
+- **When planning to implement a new control** - Search for similar existing controls first. If you want to add RDS encryption requirements, search for "encryption" to see how you've implemented similar controls for other services. This consistency makes your security architecture easier to understand and maintain.
 
-## Common Tasks
-
-When investigating why something was blocked, search for the service or resource type. If a developer's S3 bucket creation was denied, search for "S3" and review which preventions might have blocked it—maybe an SCP restricting regions, or an account setting blocking public ACLs.
-
-When planning to implement a new control, search for similar existing controls first. If you want to add RDS encryption requirements, search for "encryption" to see how you've implemented similar controls for other services. This consistency makes your security architecture easier to understand and maintain.
-
-When onboarding a new account, filter to organization-wide preventions to see what protections automatically apply. Then compare against your target state to identify which account-specific preventions need to be replicated.
+- **When onboarding a new account** - Filter to organization-wide preventions to see what protections automatically apply. Then compare against your target state to identify which account-specific preventions need to be replicated.
 
 ## Prevention Detail View
 

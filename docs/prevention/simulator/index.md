@@ -89,11 +89,11 @@ This is particularly valuable when multiple SCPs apply to an account (from the o
 
 ## Common Use Cases
 
-The most common use case is testing a new SCP before deployment. You draft a policy meant to block dangerous actions or enforce regional restrictions, paste it into the simulator, test it against recent CloudTrail events from accounts that will be affected, and see what would be blocked. If the simulator shows you're about to deny legitimate CloudFormation deployments or CI/CD operations, you refine the policy to add exceptions before any damage is done.
+- **When testing a new SCP before deployment** - Draft a policy meant to block dangerous actions or enforce regional restrictions, paste it into the simulator, test it against recent CloudTrail events from accounts that will be affected, and see what would be blocked. If the simulator shows you're about to deny legitimate CloudFormation deployments or CI/CD operations, you refine the policy to add exceptions before any damage is done.
 
-Another valuable use case is diagnosing why something's being blocked. If developers report that an API call is being denied and you suspect an SCP is responsible, you can recreate the API call in the simulator and see exactly which SCP policy is causing the deny. This helps you understand if the block is intentional (working as designed) or if the policy needs adjustment.
+- **When diagnosing why something's being blocked** - If developers report that an API call is being denied and you suspect an SCP is responsible, recreate the API call in the simulator and see exactly which SCP policy is causing the deny. This helps you understand if the block is intentional (working as designed) or if the policy needs adjustment.
 
-The simulator is also useful for training. SCPs are conceptually different from IAM policies—they only restrict, they inherit down the organization tree, explicit denies can't be overridden—and the simulator provides a safe environment to demonstrate these behaviors and let team members experiment.
+- **When training team members on SCPs** - SCPs are conceptually different from IAM policies—they only restrict, they inherit down the organization tree, explicit denies can't be overridden. The simulator provides a safe environment to demonstrate these behaviors and let team members experiment without affecting production.
 
 ## Understanding SCP Behavior
 

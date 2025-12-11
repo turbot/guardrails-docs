@@ -29,11 +29,11 @@ This graphical representation makes it easy to:
 - Navigate complex multi-level organizational structures
 
 
-## Using the Visualization
+## Interactive Features
 
 The visualization provides interactive controls and features:
 
-### Interactive Navigation
+### Navigation
 
 - **Zoom In/Out**: Use the `+` and `−` buttons in the bottom-right corner, or use mouse wheel/touch gestures
 - **Pan**: Click and drag on the background to move around the visualization
@@ -42,7 +42,7 @@ The visualization provides interactive controls and features:
 - **Node Selection**: Click on any organizational unit or account node to navigate to its detail page
 - **Search**: Use the "Search graph..." box to quickly find and highlight specific OUs or accounts by name
 
-### Understanding Node Types
+### Node Types
 
 Different node types appear in the visualization:
 
@@ -53,7 +53,7 @@ Different node types appear in the visualization:
 - **Folded Nodes**: Nodes displaying a count (e.g., "3 Accounts") indicate collapsed account groups - click to expand
 - **Policy Attachments**: When "Show SCPs" filter is enabled, visual indicators showing where SCPs are applied
 
-### Filtering the View
+### Filtering
 
 ![Visualize Filter Options](./visualize-filter.png)
 
@@ -63,7 +63,7 @@ Use the **Filter** button to control what's displayed in the visualization:
 
 The filter panel can be collapsed by clicking the Filter button again or by clicking outside the panel.
 
-### Exporting the Visualization
+### Exporting
 
 ![Visualize Export Options](./visualize-export.png)
 
@@ -75,25 +75,15 @@ Use the **Export** button to save the organization visualization in various form
 - **Export as JSON**: Download the graph data structure (nodes and edges) in JSON format, useful for programmatic analysis or integration with other tools
 
 
-## Use Cases
+## Common Use Cases
 
-**Understanding organization structure**
-Quickly grasp how your AWS environment is organized, especially useful for:
-- Onboarding new team members
-- Documenting architecture
-- Planning organizational changes
+- **When onboarding new team members or documenting architecture** - Use the visualization to quickly show how your AWS environment is organized. The graphical tree makes it easy to explain which accounts belong to which organizational units, how deep the hierarchy goes, and where specific accounts sit in the structure. Export as PNG or SVG for documentation.
 
-**SCP impact analysis**
-See which accounts are affected by Service Control Policies:
-- Trace SCP inheritance from root through OUs to accounts
-- Identify accounts that may be missing required preventions
-- Understand the blast radius of policy changes
+- **When analyzing SCP impact and inheritance** - Enable the "Show SCPs" filter to see which accounts are affected by Service Control Policies. Trace SCP inheritance from the organization root through OUs to individual accounts. This helps you understand the blast radius of policy changes and identify accounts that may be missing required preventions.
 
-**Planning reorganization**
-Use the visualization when planning to:
-- Move accounts between organizational units
-- Restructure the organization hierarchy
-- Add or remove organizational units
+- **When planning organizational restructuring** - Use the visualization to evaluate your current structure before making changes. See which accounts would be affected if you move them between OUs, identify OUs that might need consolidation or splitting, and understand dependencies before restructuring the organization hierarchy.
+
+- **When troubleshooting access or policy issues** - Search for a specific account experiencing issues, then trace upward through its OU hierarchy to see all inherited SCPs. This helps identify which policy at which level might be blocking an action or causing unexpected behavior.
 
 
 ## Next Steps

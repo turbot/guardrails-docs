@@ -109,15 +109,15 @@ This means a P1 control protecting 50 unprotected accounts typically ranks above
 
 ## Common Use Cases
 
-If you're starting a prevention initiative, review the default Opportunity sort and focus on P1 recommendations first. Click into each one to understand what objective it achieves, which accounts need it, and how to implement it. Recommendations include policy templates and configuration guidance. Build an implementation plan prioritizing high-opportunity P1 and P2 recommendations, then track progress by watching recommendations disappear as you implement them.
+- **When starting a prevention initiative** - Review the default Opportunity sort and focus on P1 recommendations first. Click into each one to understand what objective it achieves, which accounts need it, and how to implement it. Recommendations include policy templates and configuration guidance. Build an implementation plan prioritizing high-opportunity P1 and P2 recommendations, then track progress by watching recommendations disappear as you implement them.
 
-For compliance certification, search for your target framework ("CIS", "NIST", "PCI") and filter to P1 and P2 recommendations. Each recommendation shows which compliance objectives it satisfies, so you can implement controls systematically by benchmark section and track overall compliance progress in the Benchmarks view.
+- **When pursuing compliance certification** - Search for your target framework ("CIS", "NIST", "PCI") and filter to P1 and P2 recommendations. Each recommendation shows which compliance objectives it satisfies, so you can implement controls systematically by benchmark section and track overall compliance progress in the Benchmarks view.
 
-When securing a specific account, filter to that account and sort by priority. Knock out P1 recommendations first, then move to P2. Return to the account detail page to see your prevention score improve as you implement controls.
+- **When securing a specific account** - Filter to that account and sort by priority. Knock out P1 recommendations first, then move to P2. Return to the account detail page to see your prevention score improve as you implement controls.
 
-For category-focused work, filter to a domain like Data Governance or Identity & Access, review all recommendations, and identify patterns. If you see many encryption-related gaps, that's your theme. Implementing category-specific controls together is often more efficient than jumping between unrelated domains since you're using similar expertise and tooling.
+- **When doing category-focused work** - Filter to a domain like Data Governance or Identity & Access, review all recommendations, and identify patterns. If you see many encryption-related gaps, that's your theme. Implementing category-specific controls together is often more efficient than jumping between unrelated domains since you're using similar expertise and tooling.
 
-Some teams set monthly security improvement goals—maybe implementing 5-10 recommendations per sprint. Focus on highest-opportunity recommendations each month, balance across categories to maintain broad coverage, and track progress by watching total recommendations decrease and prevention scores increase.
+- **When setting monthly security improvement goals** - Implement 5-10 recommendations per sprint, focusing on highest-opportunity recommendations each month. Balance across categories to maintain broad coverage, and track progress by watching total recommendations decrease and prevention scores increase.
 
 ## Tracking Implementation Progress
 

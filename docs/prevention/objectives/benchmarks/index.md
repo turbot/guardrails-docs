@@ -23,13 +23,13 @@ Benchmarks aren't flat lists—they're hierarchical. Click into AWS CIS v6.0.0 a
 
 This structure mirrors how the frameworks themselves are published, making it easier to map audit requirements to your implementation. When an auditor asks about CIS section 1.5, you can navigate directly to that section and see your current state.
 
-## Using Benchmarks for Compliance
+## Common Use Cases
 
-If you're pursuing AWS CIS certification, click into that benchmark and review the sections. Sections with low scores need attention—click through to see which specific objectives aren't being met. From there, you can identify what preventions you need to implement.
+- **When pursuing compliance certification** - Click into your target benchmark (like AWS CIS) and review the sections. Sections with low scores need attention—click through to see which specific objectives aren't being met. From there, you can identify what preventions you need to implement.
 
-The search and sort functions help when you're dealing with multiple frameworks. Sort by score to see which benchmarks need the most work. Search for "CIS" to see all your CIS frameworks across different cloud providers at once.
+- **When managing multiple frameworks** - Sort by score to see which benchmarks need the most work. Search for "CIS" to see all your CIS frameworks across different cloud providers at once. This helps you prioritize where to focus compliance efforts.
 
-One common pattern: use the P1 Preventions benchmarks as your baseline. These represent Turbot's view of the most critical controls for each cloud. Once you have strong P1 coverage, layer on compliance frameworks like CIS or NIST as needed for certification.
+- **For establishing security baselines** - Start with the P1 Preventions benchmarks as your baseline. These represent Turbot's view of the most critical controls for each cloud. Once you have strong P1 coverage, layer on compliance frameworks like CIS or NIST as needed for certification.
 
 ## Working With Benchmark Scores
 

@@ -53,13 +53,13 @@ Review the prevention counts for each layer. If you have 50 Access layer prevent
 
 [Layer weights](/guardrails/docs/prevention#prevention-scores) in scoring reflect their defensive strength—Access layer preventions score higher (0.95) than Build (0.75) or Runtime (0.85) because they're hardest to bypass and apply most broadly. But don't just optimize for score—a single Access layer SCP with a poorly managed exception can fail, so having Config and Runtime backup layers provides real security value even if they score slightly lower.
 
-## Common Patterns
+## Common Use Cases
 
-Start with Access and Config layers—these provide broad protection with reasonable implementation effort. Add Build layer controls as you mature your IaC practices. Add Runtime layer controls for critical assets where additional monitoring and response capabilities provide meaningful risk reduction.
+- **When building a security program** - Start with Access and Config layers—these provide broad protection with reasonable implementation effort. Add Build layer controls as you mature your IaC practices. Add Runtime layer controls for critical assets where additional monitoring and response capabilities provide meaningful risk reduction.
 
-For new accounts, ensure organization-wide Access layer controls (like SCPs) automatically apply, and replicate key Config layer settings (like S3 Block Public Access) during account provisioning. This gives you baseline protection immediately rather than relying solely on retrofitting Runtime controls.
+- **When onboarding new accounts** - Ensure organization-wide Access layer controls (like SCPs) automatically apply, and replicate key Config layer settings (like S3 Block Public Access) during account provisioning. This gives you baseline protection immediately rather than relying solely on retrofitting Runtime controls.
 
-When you identify a security gap, consider which layer makes the most sense. If the issue is developers deploying non-compliant IaC, add Build layer controls. If the issue is manual console changes, add Config layer controls. If the issue is detecting and responding to sophisticated attacks, add Runtime controls.
+- **When addressing a security gap** - Consider which layer makes the most sense. If the issue is developers deploying non-compliant IaC, add Build layer controls. If the issue is manual console changes, add Config layer controls. If the issue is detecting and responding to sophisticated attacks, add Runtime controls.
 
 ## Next Steps
 

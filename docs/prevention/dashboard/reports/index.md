@@ -37,10 +37,13 @@ Service and region boundaries are calculated by evaluating deny statements in SC
 
 ## Common Use Cases
 
-- **When onboarding new accounts**, review service and region boundary reports to understand what will be available based on organizational SCPs
-- **When troubleshooting deployment failures**, check the service boundary report if deployments fail with access denied errors
-- **For compliance reporting**, use region boundary reports to demonstrate resources cannot be created in non-compliant regions
-- **After implementing new preventions**, review boundary reports to validate they produce intended effects
+- **When onboarding new accounts** - Review service and region boundary reports to understand what will be available based on organizational SCPs. This helps set expectations with teams about which services and regions they can use before they start deploying workloads.
+
+- **When troubleshooting deployment failures** - Check the service boundary report if deployments fail with access denied errors. The report shows which services are actually blocked, helping you identify if an SCP is causing the issue and which account or OU needs an exception.
+
+- **For compliance reporting** - Use region boundary reports to demonstrate resources cannot be created in non-compliant regions. These reports provide clear evidence that your preventions enforce data residency requirements, which auditors often request.
+
+- **After implementing new preventions** - Review boundary reports to validate they produce intended effects. If you just deployed an SCP to block a specific service, check the service boundary report to confirm the service now shows as denied for the expected accounts.
 
 ## Next Steps
 
