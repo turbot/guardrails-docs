@@ -247,3 +247,42 @@ Detail pages may have subsections like:
 - "[Feature] Detail View" for drilling into specifics
 - "Using the [Feature]" for interaction guidance
 - "Best Practices" for recommendations
+
+### Organizing Documentation by UI Flow
+
+When documenting features with multiple options or methods, organize content in the order users encounter them in the interface, not by importance or frequency of use.
+
+**Why**: This reduces cognitive load - users can follow along with the documentation while looking at the actual interface without having to mentally reorder information.
+
+**Example**: When documenting a dialog with tabs (File Upload, Mock Events, Manual Entry), document them in that left-to-right tab order even if Mock Events is the most commonly used option.
+
+### Interactive Feature Documentation
+
+When documenting interactive features (dialogs, forms, wizards), use a three-part screenshot approach:
+
+1. **Overview screenshot** - Show the feature in use with data/results visible
+2. **Interaction screenshots** - Show how to use the feature (opening dialogs, selecting options, filling forms)
+3. **Result screenshots** - Show outcomes and what happens after interaction
+
+**Example structure**:
+```markdown
+### Feature Name
+
+Feature does X and Y.
+
+![Feature with results visible](./feature-overview.png)
+
+#### Using the Feature
+
+Click "Action" to open the dialog...
+
+![Dialog showing options](./feature-dialog.png)
+
+Select an option to...
+
+![Selected option with populated fields](./feature-selected.png)
+
+After completing the action, results appear in...
+```
+
+This pattern helps users understand both what the feature does (overview) and how to use it (step-by-step), making documentation more actionable.
