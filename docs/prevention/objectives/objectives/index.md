@@ -41,7 +41,7 @@ The score takes into account the strength of your preventions (Access layer SCPs
 
 Clicking any objective opens the Objective Detail page, which provides in-depth information about that single prevention objective—which accounts meet it, which preventions achieve it, implementation recommendations, and CNAPP findings.
 
-![Objective Detail Page showing tabs and account coverage](../objective-detail/objective-detail.png)
+![Objective Detail Page showing tabs and account coverage](./objective-detail.png)
 
 The Objective Detail page includes:
 

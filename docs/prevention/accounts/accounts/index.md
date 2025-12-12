@@ -17,13 +17,13 @@ This is your starting point for understanding prevention coverage across your en
 
 ## Finding What You Need
 
-Search filters results in real-time as you type—useful when you know the account name or ID. Filtering lets you narrow to specific cloud providers (AWS, Azure, GCP, GitHub), Turbot Guardrails folders, or resource tags. Sorting changes how accounts are ordered—alphabetically by default, but you can sort by score to find gaps (Low to High shows weakest protection first), by newest/oldest to see recently added accounts, or by updated recently to see where changes happened.
+Use the **Search** box to filter results with plain text search.  Enter a search string and press Enter. 
+
+Click the **Filter** button to show and hide the Filter panel.  Filtering lets you narrow to specific cloud providers (AWS, Azure, GCP, GitHub), Turbot Guardrails folders, or resource tags. Sorting changes how accounts are ordered—alphabetically by default, but you can sort by score to find gaps (Low to High shows weakest protection first), by newest/oldest to see recently added accounts, or by updated recently to see where changes happened.
 
 ![Filter panel showing cloud provider and folder options](./accounts-filter-panel.png)
 
 The Sort dropdown includes "Score (Low to High)" which is particularly useful for finding accounts needing attention. Accounts with scores below 3 often have significant gaps in prevention coverage.
-
-![Sort options including score, name, and date](./accounts-sort-options.png)
 
 ## Understanding Prevention Scores
 

@@ -43,7 +43,7 @@ A practical approach: start with P1 Preventions to build your foundation, then p
 
 Clicking any benchmark opens the Benchmark Detail page, which provides a comprehensive view of that compliance framework, showing how your organization scores against each section of the benchmark and which specific objectives need attention.
 
-![Benchmark Detail Page showing sections and scores](../benchmark-detail/benchmark-detail.png)
+![Benchmark Detail Page showing sections and scores](./benchmark-detail.png)
 
 The Benchmark Detail page shows:
 
@@ -55,15 +55,25 @@ The Benchmark Detail page shows:
 
 ### Using the Detail View
 
-To assess compliance against a benchmark, review the overall score in the header, scan section scores to identify weak areas, expand low-scoring sections to see specific objectives, and note which objectives score below your target threshold.
+![Benchmark Detail with expanded sections showing objectives](./benchmark-detail-expanded.png)
 
-When planning remediation work, identify sections with the lowest scores, expand those sections to see individual objectives, click on each objective to understand why it's important and what preventions are needed, create a remediation plan prioritizing P1 and P2 objectives, and track progress by monitoring section scores over time.
+The benchmark detail view is interactive—click any section header to expand or collapse it. Collapsed sections show just the section name, item count, and score. Expanded sections reveal the individual objectives within that section, each with its own score, priority level, and description.
 
-For comparing compliance across frameworks, open multiple benchmark detail pages, compare overall scores, identify common objectives that appear in multiple benchmarks, and focus on implementing objectives that satisfy multiple frameworks.
+Each section displays its score (0-5) on the right side. These section scores help you quickly identify which areas of the benchmark need the most attention. For example, if "Storage" scores 4 but "Identity and Access Management" scores 2, you know IAM controls need work.
 
-### Custom Benchmarks
+When you expand a section, you'll see subsections (if the benchmark has nested structure) or individual objectives. Each objective card shows:
+- The objective title and description
+- Priority level (P1-P4) indicating criticality
+- Category badge (Data Governance, Identity & Access, etc.)
+- Current score (0-5) showing how well you're meeting this objective
 
-You can create custom benchmarks to track organization-specific security requirements—when you have requirements beyond industry standards, need to track internal security policies, want to measure progress toward organizational security goals, or need to demonstrate compliance with customer-specific requirements.
+Click any objective to open its detail page, where you can see which accounts meet the objective, what preventions achieve it, and implementation recommendations.
+
+**To assess compliance against a benchmark**: Review the overall score in the header, scan section scores to identify weak areas, expand low-scoring sections to see specific objectives, and note which objectives score below your target threshold.
+
+**When planning remediation work**: Identify sections with the lowest scores, expand those sections to see individual objectives, click on each objective to understand why it's important and what preventions are needed, create a remediation plan prioritizing P1 and P2 objectives, and track progress by monitoring section scores over time.
+
+**For comparing compliance across frameworks**: Open multiple benchmark detail pages, compare overall scores, identify common objectives that appear in multiple benchmarks, and focus on implementing objectives that satisfy multiple frameworks.
 
 ## Next Steps
 

@@ -33,6 +33,7 @@ This graphical representation makes it easy to see the entire organization struc
 Use the **Filter** button to control what's displayed in the visualization:
 
 - **Show SCPs**: Toggle this switch to display or hide Service Control Policy attachments on the organization tree. When enabled, SCPs attached to the organization, root, OUs, or accounts will be visually indicated on the graph.
+- **Show FullAWSAccess**: Toggle this switch to display or hide the FullAWSAccess SCP that AWS automatically attaches to every OU and account. Since these policies allow all actions and are present everywhere by default, hiding them can reduce visual clutter.
 
 The filter panel can be collapsed by clicking the Filter button again or by clicking outside the panel.
 

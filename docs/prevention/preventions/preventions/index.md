@@ -21,6 +21,10 @@ Search is the fastest way to navigate when you have dozens or hundreds of preven
 
 Filtering becomes useful when you want to see preventions of a specific type or layer. Filter to "AWS S3 Account Setting" to see just those simple account-level toggles. Filter to "Access" layer to see all your SCPs and deny policies. Filter to a specific account when auditing that account's protection.
 
+![Preventions filtered by S3 search and Access layer](./preventions-search-filter.png)
+
+You can combine search and filtering for more targeted results. For example, searching for "S3" and filtering to the "Access" layer shows only Access layer preventions (like SCPs) that affect S3 resources, helping you quickly identify which organization-wide policies control S3 operations.
+
 ## Common Use Cases
 
 - **When investigating why something was blocked** - Search for the service or resource type. If a developer's S3 bucket creation was denied, search for "S3" and review which preventions might have blocked it—maybe an SCP restricting regions, or an account setting blocking public ACLs.
@@ -37,7 +41,7 @@ Clicking any prevention opens the Prevention Detail page, which provides compreh
 
 The Prevention Detail page shows:
 
-**Summary Section** - Provides a clear explanation of what the prevention does, the specific behavior being prevented or enforced, the scope of where this prevention applies, and the resource or account context. For example: "Prevents branches from being deleted to protect important code. Applies to all branches in organization-level ruleset '[Integrated Demo 2025] Branch Ruleset'."
+**Summary Section** - Provides a clear explanation of what the prevention does, the specific behavior being prevented or enforced, the scope of where this prevention applies, and the resource or account context. For example: "This policy enforces encryption for RDS instance and cluster creation operations. It denies the ability to create or restore RDS instances and clusters without encryption, ensuring data protection."
 
 **Matched Objectives** - Shows which prevention objectives this prevention achieves. Each objective card displays the objective title, type badge, priority level (P1-P4), and current score. This helps you understand the security value this prevention provides and which compliance requirements it satisfies.
 
