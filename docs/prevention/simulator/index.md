@@ -169,6 +169,5 @@ This visual representation makes it immediately clear which policy is blocking a
 ## Next Steps
 
 - Return to [Preventions](/guardrails/docs/prevention/preventions) to see which SCPs are currently deployed
-- Check [Examples](/guardrails/docs/prevention/preventions/examples) for tested SCP templates you can adapt
 - Review [Objectives](/guardrails/docs/prevention/objectives) to understand which security goals SCPs can achieve
-- Visit [Recommendations](/guardrails/docs/prevention/recommendations) to find SCP policies recommended for your environment
+- Visit [Recommendations](/guardrails/docs/prevention/objectives/recommendations) to find SCP policies recommended for your environment

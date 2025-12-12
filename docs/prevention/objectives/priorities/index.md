@@ -68,4 +68,4 @@ Some organizations set coverage targets: "All P1 objectives must score 4+ across
 - Click into any objective to see which preventions implement it and which accounts need coverage
 - Review [Benchmarks](/guardrails/docs/prevention/objectives/benchmarks) to see how priorities map to compliance frameworks
 - Check [Categories](/guardrails/docs/prevention/objectives/categories) to ensure high-priority objectives are covered across all security domains
-- Visit [Recommendations](/guardrails/docs/prevention/recommendations) to get specific guidance on implementing high-priority objectives
+- Visit [Recommendations](/guardrails/docs/prevention/objectives/recommendations) to get specific guidance on implementing high-priority objectives

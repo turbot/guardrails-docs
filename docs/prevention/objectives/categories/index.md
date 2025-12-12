@@ -78,4 +78,4 @@ Common gaps are leaving unused service features enabled, not restricting which r
 - Click into any category to see all its objectives and current scores
 - Review [Priorities](/guardrails/docs/prevention/objectives/priorities) to ensure high-priority objectives are addressed across all categories
 - Check [Benchmarks](/guardrails/docs/prevention/objectives/benchmarks) to see how categories map to compliance frameworks
-- Visit [Recommendations](/guardrails/docs/prevention/recommendations) to get guidance on improving weak categories
+- Visit [Recommendations](/guardrails/docs/prevention/objectives/recommendations) to get guidance on improving weak categories

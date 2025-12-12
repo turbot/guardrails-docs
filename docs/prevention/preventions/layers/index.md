@@ -63,5 +63,4 @@ Review the prevention counts for each layer. If you have 50 Access layer prevent
 
 - Return to [Preventions](/guardrails/docs/prevention/preventions/preventions) to see all your preventions in one flat list
 - Review [Types](/guardrails/docs/prevention/preventions/types) to understand the technical mechanisms at each layer
-- Check [Examples](/guardrails/docs/prevention/preventions/examples) for templates to implement preventions at each layer
 - Visit [Objectives](/guardrails/docs/prevention/objectives) to see which objectives need multi-layer coverage

@@ -23,7 +23,7 @@ The **[Benchmarks tab](/guardrails/docs/prevention/objectives/benchmarks)** orga
 
 The **[Objectives tab](/guardrails/docs/prevention/objectives/objectives)** lists every objective individually with its current score and priority. This is useful when you're looking for a specific objective or want to see everything at once. You can search for "encryption" or "MFA" and immediately see all related objectives and how well you're meeting them.
 
-The **[Recommendations tab](/guardrails/docs/prevention/recommendations)** flips the view to show what you should do next. Instead of browsing objectives yourself, it presents prioritized actions based on your coverage gaps, focusing on high-impact improvements.
+The **[Recommendations tab](/guardrails/docs/prevention/objectives/recommendations)** flips the view to show what you should do next. Instead of browsing objectives yourself, it presents prioritized actions based on your coverage gaps, focusing on high-impact improvements.
 
 The **[Priorities tab](/guardrails/docs/prevention/objectives/priorities)** groups objectives by their risk level—P1 objectives are fundamental preventions that should be implemented everywhere, while P4 objectives are nice-to-haves. This view helps you focus on what matters most first.
 
@@ -49,5 +49,5 @@ The score considers coverage (how many accounts have preventions), layer weighti
 
 - Click into any [benchmark](/guardrails/docs/prevention/objectives/benchmarks#benchmark-detail-view) to see its grouped objectives
 - Click into any [objective](/guardrails/docs/prevention/objectives/objectives#objective-detail-view) to see which accounts meet it and which preventions achieve it
-- Review [Recommendations](/guardrails/docs/prevention/recommendations) for prioritized implementation guidance
+- Review [Recommendations](/guardrails/docs/prevention/objectives/recommendations) for prioritized implementation guidance
 - Return to [Accounts](/guardrails/docs/prevention/accounts) to see prevention scores by account
