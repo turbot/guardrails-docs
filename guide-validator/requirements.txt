@@ -1,0 +1,9 @@
+# Guide Format Validator Requirements
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+pyyaml>=6.0              # For configuration file parsing
+pathlib2>=2.3.7; python_version < "3.4"  # For older Python versions
+
+# Optional LLM dependencies (only needed if using LLM validation)
+anthropic>=0.7.0         # For Anthropic Claude API

@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# Guide Format Validator - Prompt Helper
+# =====================================
+#
+# Simple wrapper script to access validation prompts and rules
+# without running the full Python validation.
+#
+# Usage:
+#   ./validate-prompt                    # List all sections
+#   ./validate-prompt overview           # Show overview validation info
+#   ./validate-prompt steps --rules      # Show only rules for steps
+#   ./validate-prompt troubleshooting --prompt  # Show only LLM prompt
+#
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Run the Python prompt helper
+python3 "$SCRIPT_DIR/scripts/prompt_helper.py" "$@"

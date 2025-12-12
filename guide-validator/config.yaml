@@ -1,0 +1,30 @@
+# Guide Format Validator Configuration
+# This file allows you to customize the validation behavior
+
+# Validator settings - enable/disable specific validators
+validators:
+  overview: true # Check overview section format
+  prerequisites: true # Check prerequisites section
+  steps: true # Check steps section format and numbering
+  troubleshooting: true # Check troubleshooting section
+  callouts: true # Check callout formatting
+
+# LLM validation settings
+llm:
+  enabled: false # Set to true to enable LLM validation
+  provider: "anthropic" # Currently only Anthropic is supported
+  model: "claude-3-opus-20240229" # Claude model to use
+  max_tokens: 2048 # Maximum tokens for LLM response
+  temperature: 0 # Temperature for LLM (0 = deterministic)
+
+# Output settings
+output:
+  format: "markdown" # Output format (markdown, json, text)
+  show_warnings: true # Show warnings in output
+  show_issues: true # Show issues/errors in output
+  verbose: false # Show detailed validation information
+
+# File patterns to include/exclude (for batch validation)
+patterns:
+  include: ["*.md"] # File patterns to include
+  exclude: ["README.md", "CHANGELOG.md"] # File patterns to exclude
