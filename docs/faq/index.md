@@ -10,16 +10,16 @@ specific questions relating to infrastructure and deployment, refer to our
 
 **Provider Specific FAQ**
 
-|                                                          |
-| -------------------------------------------------------- | ----------------------------------------------------- |
-| [AWS FAQ](faq/aws-faq)                                   | FAQ regarding AWS and Guardrails.                     |
-| [Guardrails and AWS SCPs](faq/guardrails-and-aws-scps)   | General information regarding Guardrails and AWS SCPs |
-| [Azure FAQ](faq/azure-faq)                               | FAQ regarding Azure and Guardrails                    |
-| [GCP FAQ](faq/gcp-faq)                                   | FAQ regarding GCP and Guardrails                      |
+|                                                        |                                                       |
+| ------------------------------------------------------ | ----------------------------------------------------- |
+| [AWS FAQ](faq/aws-faq)                                 | FAQ regarding AWS and Guardrails.                     |
+| [Guardrails and AWS SCPs](faq/guardrails-and-aws-scps) | General information regarding Guardrails and AWS SCPs |
+| [Azure FAQ](faq/azure-faq)                             | FAQ regarding Azure and Guardrails                    |
+| [GCP FAQ](faq/gcp-faq)                                 | FAQ regarding GCP and Guardrails                      |
 
 **General FAQ**
 
-|                                                         |
+|                                                         |                                                                                         |
 | ------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | [Guardrails FAQ](faq/general-faq)                       | FAQ regarding the Turbot Guardrails application and company.                            |
 | [Guardrails Enterprise](enterprise/FAQ)                 | Questions about Turbot Guardrails Enterprise, the standalone installation of Guardrails |
