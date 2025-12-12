@@ -459,7 +459,8 @@
               "guides/hosting-guardrails/monitoring/workspace-health-check",
               "guides/hosting-guardrails/monitoring/monitoring-alarms",
               "guides/hosting-guardrails/monitoring/investigate-lambda-invocation",
-              "guides/hosting-guardrails/monitoring/check-maintenance-container"
+              "guides/hosting-guardrails/monitoring/check-maintenance-container",
+              "guides/hosting-guardrails/monitoring/monitoring-using-ai-integration"
             ]
           },
           {
