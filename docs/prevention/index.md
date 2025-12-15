@@ -94,17 +94,17 @@ An objective protected by an Access layer SCP scores higher than the same object
 - **P4** (weight 2) - Optimization and hygiene issues
 - **P5** (weight 1) - Low-priority items
 
-This means P1 objectives have 8x the weight of P5 objectives. At the account level, priority weighting is applied as: `account_score = 100 × Σ(coverage × priority_weight) / Σ(priority_weight)`. This gives higher-priority objectives more influence on the overall account score, reflecting the reality that fixing critical gaps matters more than polishing edge cases.
+This means P1 objectives have 8x the weight of P5 objectives. At the account level, priority weighting gives higher-priority objectives more influence on the overall account score, reflecting the reality that fixing critical gaps matters more than polishing edge cases.
 
 #### Score Aggregation
 
 Scores aggregate at every level of your environment using a three-level calculation pattern:
 
-**1. Atomic Level** - Individual rule evaluation where `effective_coverage = quality × layer_weight`. This is where layer weight is applied, and it's never re-applied in higher rollups.
+**1. Atomic Level** - Individual rule evaluation combines coverage quality with layer weight. This is where layer weight is applied, and it's never re-applied in higher rollups.
 
-**2. Within-Account (same objective, multiple rules)** - Uses probabilistic OR to model defense-in-depth redundancy: `combined = 1 - Π(1 - effective_coverage_i)`. When multiple preventions protect the same objective in the same account, they provide redundant layers of defense.
+**2. Within-Account (same objective, multiple rules)** - Uses probabilistic OR to model defense-in-depth redundancy. When multiple preventions protect the same objective in the same account, they provide redundant layers of defense—the combined protection is stronger than any single prevention alone.
 
-**3. Cross-Account (same objective, multiple accounts)** - Uses simple average: `score = Σ(coverage) / count(accounts)`. Accounts are independent security boundaries, not redundant defenses, so their scores are averaged.
+**3. Cross-Account (same objective, multiple accounts)** - Uses simple averaging. Accounts are independent security boundaries, not redundant defenses, so their scores are averaged to show overall coverage across your organization.
 
 These calculations produce the following aggregated views:
 
