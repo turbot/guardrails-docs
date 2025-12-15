@@ -25,9 +25,9 @@ This structure mirrors how the frameworks themselves are published, making it ea
 
 ## Common Use Cases
 
-- **When pursuing compliance certification** - Click into your target benchmark (like AWS CIS) and review the sections. Sections with low scores need attention—click through to see which specific objectives aren't being met. From there, you can identify what preventions you need to implement.
+- **When pursuing compliance certification**: Click into your target benchmark (like AWS CIS) and review the sections. Sections with low scores need attention—click through to see which specific objectives aren't being met. From there, you can identify what preventions you need to implement.
 
-- **When managing multiple frameworks** - Sort by score to see which benchmarks need the most work. Search for "CIS" to see all your CIS frameworks across different cloud providers at once. This helps you prioritize where to focus compliance efforts.
+- **When managing multiple frameworks**: Sort by score to see which benchmarks need the most work. Search for "CIS" to see all your CIS frameworks across different cloud providers at once. This helps you prioritize where to focus compliance efforts.
 
 - **For establishing security baselines** - Start with the P1 Preventions benchmarks as your baseline. These represent Turbot's view of the most critical controls for each cloud. Once you have strong P1 coverage, layer on compliance frameworks like CIS or NIST as needed for certification.
 

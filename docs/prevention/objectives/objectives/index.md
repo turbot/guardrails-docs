@@ -33,7 +33,7 @@ The score takes into account the strength of your preventions (Access layer SCPs
 
 - **To verify if you're preventing something** - Search for the relevant term, find the objective, check the score. If it's 4 or 5, yes, you're handling it well. If it's 0-2, no, there's a gap.
 
-- **When planning security improvements** - Filter to P1 and sort by score to find your highest-priority gaps. These are the critical objectives you're not meeting—your most urgent work.
+- **When planning security improvements**: Filter to P1 and sort by score to find your highest-priority gaps. These are the critical objectives you're not meeting—your most urgent work.
 
 - **To identify category imbalances** - Compare average scores across categories. If your Data Governance objectives average 2.5 but your Identity & Access objectives average 4.5, you know where to focus.
 

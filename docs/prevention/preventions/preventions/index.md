@@ -27,11 +27,11 @@ You can combine search and filtering for more targeted results. For example, sea
 
 ## Common Use Cases
 
-- **When investigating why something was blocked** - Search for the service or resource type. If a developer's S3 bucket creation was denied, search for "S3" and review which preventions might have blocked it—maybe an SCP restricting regions, or an account setting blocking public ACLs.
+- **When investigating why something was blocked**: Search for the service or resource type. If a developer's S3 bucket creation was denied, search for "S3" and review which preventions might have blocked it—maybe an SCP restricting regions, or an account setting blocking public ACLs.
 
-- **When planning to implement a new prevention** - Search for similar existing preventions first. If you want to add RDS encryption requirements, search for "encryption" to see how you've implemented similar preventions for other services. This consistency makes your security architecture easier to understand and maintain.
+- **When planning to implement a new prevention**: Search for similar existing preventions first. If you want to add RDS encryption requirements, search for "encryption" to see how you've implemented similar preventions for other services. This consistency makes your security architecture easier to understand and maintain.
 
-- **When onboarding a new account** - Filter to organization-wide preventions to see what protections automatically apply. Then compare against your target state to identify which account-specific preventions need to be replicated.
+- **When onboarding a new account**: Filter to organization-wide preventions to see what protections automatically apply. Then compare against your target state to identify which account-specific preventions need to be replicated.
 
 ## Prevention Detail View
 

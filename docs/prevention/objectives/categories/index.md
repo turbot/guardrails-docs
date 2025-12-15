@@ -5,13 +5,13 @@ sidebar_label: Categories
 
 # Categories
 
-Categories organize objectives by security domain—Identity & Access, Data Governance, Trust & Sharing, and so on. This view helps you spot blind spots. You might have excellent identity preventions but weak data protection, or strong network perimeter defenses but poor audit logging. Balanced coverage across categories generally means stronger overall security.
+Categories organize objectives by security domain, such as Identity & Access, Data Governance, and Trust & Sharing. This view helps you spot blind spots. You might have excellent identity preventions but weak data protection, or strong network perimeter defenses but poor audit logging. Balanced coverage across categories generally means stronger overall security.
 
 ![Categories view showing objectives grouped by security domain](./categories-view.png)
 
 ## Why Categories Matter
 
-Security isn't just one thing—it's protecting data, managing identities, controlling network access, maintaining audit trails, and more. Focusing too heavily on one category while neglecting others creates vulnerabilities. Attackers don't need to break through your strongest defenses; they'll exploit your weakest area.
+Security isn't just one thing. It's protecting data, managing identities, controlling network access, maintaining audit trails, and more. Focusing too heavily on one category while neglecting others creates vulnerabilities. Attackers don't need to break through your strongest defenses; they'll exploit your weakest area.
 
 The category view makes these imbalances visible. If your Identity & Access objectives score 4.5 on average but your Data Governance objectives score 2.1, you have a problem. You might prevent unauthorized access perfectly, but once someone gets in (insider threat, compromised credential), your data isn't protected.
 
@@ -19,7 +19,7 @@ The category view makes these imbalances visible. If your Identity & Access obje
 
 ### Core Infrastructure
 
-Core Infrastructure objectives protect the foundational preventions and governance capabilities that make everything else work. This includes restricting resources to allowed regions (so you can actually monitor and protect them), limiting which cloud services can be used (reducing attack surface), and protecting the infrastructure that provides governance—like AWS Config, IAM Access Analyzer, or Azure landing zones.
+Core Infrastructure objectives protect the foundational preventions and governance capabilities that make everything else work. This includes restricting resources to allowed regions (so you can actually monitor and protect them), limiting which cloud services can be used (reducing attack surface), and protecting the infrastructure that provides governance, like AWS Config, IAM Access Analyzer, or Azure landing zones.
 
 If you don't restrict resources to allowed regions, you might have workloads running in regions where your security tools don't operate. If you don't enforce IMDSv2 on EC2 instances, metadata service exploits remain possible.
 
@@ -39,13 +39,13 @@ Common gaps include root access keys still existing, no MFA on root accounts, ov
 
 ### Trust & Sharing
 
-Trust & Sharing objectives prevent external or anonymous access. This includes blocking public S3 buckets, preventing public databases, restricting cross-account access, and controlling external sharing of resources. The category is about defining and enforcing trust boundaries—who should have access and who shouldn't.
+Trust & Sharing objectives prevent external or anonymous access. This includes blocking public S3 buckets, preventing public databases, restricting cross-account access, and controlling external sharing of resources. The category is about defining and enforcing trust boundaries, determining who should have access and who shouldn't.
 
 Common gaps include permitting public resource creation, not controlling cross-account IAM trust relationships, allowing anonymous access to cloud resources, and permitting overly broad resource sharing via service-specific mechanisms.
 
 ### Network Perimeter
 
-Network Perimeter objectives restrict network connectivity—VPC configurations, security group rules, network ACLs, and traffic patterns. These preventions control how network traffic flows between resources, from internet to cloud, and between cloud environments.
+Network Perimeter objectives restrict network connectivity, including VPC configurations, security group rules, network ACLs, and traffic patterns. These preventions control how network traffic flows between resources, from internet to cloud, and between cloud environments.
 
 Common gaps are allowing unrestricted inbound SSH or RDP (opening every instance to brute force attacks), not using private endpoints for sensitive services, overly permissive security groups, and lack of network segmentation between environments.
 
@@ -59,7 +59,7 @@ Common gaps include not enabling CloudTrail in all regions, not protecting Cloud
 
 ### Feature Restrictions
 
-Feature Restrictions objectives disable or limit risky service features—things like disabling EC2 serial console access, restricting Lambda function URLs, or controlling which AMIs can be launched.
+Feature Restrictions objectives disable or limit risky service features, like disabling EC2 serial console access, restricting Lambda function URLs, or controlling which AMIs can be launched.
 
 These preventions reduce attack surface by removing capabilities that aren't needed. If you don't use Lambda function URLs, disabling them eliminates that attack vector. If you only use specific AMIs, restricting others prevents launching untrusted images.
 
@@ -67,11 +67,11 @@ Common gaps are leaving unused service features enabled, not restricting which r
 
 ## Common Use Cases
 
-- **To identify security blind spots** - Review the average [score](/guardrails/docs/prevention#prevention-scores) for each category. If most categories score 3.5-4.5 but one scores 1.5-2.5, that's your weak domain. Even if you have excellent overall coverage, the weak category represents a vulnerability attackers can exploit.
+- **To identify security blind spots**: Review the average [score](/guardrails/docs/prevention#prevention-scores) for each category. If most categories score 3.5-4.5 but one scores 1.5-2.5, that's your weak domain. Even if you have excellent overall coverage, the weak category represents a vulnerability attackers can exploit.
 
-- **To assess balanced coverage** - A balanced security program typically has reasonably consistent scores across categories—maybe 3.5-4.5 across the board. Highly unbalanced programs—like 5.0 for Identity & Access but 1.5 for Data Governance—indicate resource allocation problems or strategic gaps.
+- **To assess balanced coverage**: A balanced security program typically has reasonably consistent scores across categories (maybe 3.5-4.5 across the board). Highly unbalanced programs (like 5.0 for Identity & Access but 1.5 for Data Governance) indicate resource allocation problems or strategic gaps.
 
-- **Understanding environment-specific imbalances** - Some imbalance is normal based on your environment. If you're primarily using serverless architectures, Network Perimeter might be less relevant than Data Governance. If you're heavily IaC-driven, Core Infrastructure (region restrictions, service restrictions) might score higher naturally.
+- **Understanding environment-specific imbalances**: Some imbalance is normal based on your environment. If you're primarily using serverless architectures, Network Perimeter might be less relevant than Data Governance. If you're heavily IaC-driven, Core Infrastructure (region restrictions, service restrictions) might score higher naturally.
 
 ## Next Steps
 

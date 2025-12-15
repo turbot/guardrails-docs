@@ -51,13 +51,13 @@ Use the **Export** button to save the organization visualization in various form
 
 ## Common Use Cases
 
-- **When onboarding new team members or documenting architecture** - Use the visualization to quickly show how your AWS environment is organized. The graphical tree makes it easy to explain which accounts belong to which organizational units, how deep the hierarchy goes, and where specific accounts sit in the structure. Export as PNG or SVG for documentation.
+- **When onboarding new team members or documenting architecture**: Use the visualization to quickly show how your AWS environment is organized. The graphical tree makes it easy to explain which accounts belong to which organizational units, how deep the hierarchy goes, and where specific accounts sit in the structure. Export as PNG or SVG for documentation.
 
-- **When analyzing SCP impact and inheritance** - Enable the "Show SCPs" filter to see which accounts are affected by Service Control Policies. Trace SCP inheritance from the organization root through OUs to individual accounts. This helps you understand the blast radius of policy changes and identify accounts that may be missing required preventions.
+- **When analyzing SCP impact and inheritance**: Enable the "Show SCPs" filter to see which accounts are affected by Service Control Policies. Trace SCP inheritance from the organization root through OUs to individual accounts. This helps you understand the blast radius of policy changes and identify accounts that may be missing required preventions.
 
-- **When planning organizational restructuring** - Use the visualization to evaluate your current structure before making changes. See which accounts would be affected if you move them between OUs, identify OUs that might need consolidation or splitting, and understand dependencies before restructuring the organization hierarchy.
+- **When planning organizational restructuring**: Use the visualization to evaluate your current structure before making changes. See which accounts would be affected if you move them between OUs, identify OUs that might need consolidation or splitting, and understand dependencies before restructuring the organization hierarchy.
 
-- **When troubleshooting access or policy issues** - Search for a specific account experiencing issues, then trace upward through its OU hierarchy to see all inherited SCPs. This helps identify which policy at which level might be blocking an action or causing unexpected behavior.
+- **When troubleshooting access or policy issues**: Search for a specific account experiencing issues, then trace upward through its OU hierarchy to see all inherited SCPs. This helps identify which policy at which level might be blocking an action or causing unexpected behavior.
 
 
 ## Next Steps
