@@ -5,7 +5,7 @@ sidebar_label: Objectives
 
 # Objectives
 
-This tab shows every prevention objective individually—all the security goals you're working toward, listed in one place with their current scores and priorities. While the Benchmarks tab organizes objectives by compliance framework, this view lets you see everything flat and search for exactly what you need.
+This tab shows every prevention objective individually. All the security goals you're working toward are listed in one place with their current scores and priorities. While the Benchmarks tab organizes objectives by compliance framework, this view lets you see everything flat and search for exactly what you need.
 
 ![Objectives View](./objectives-list.png)
 
@@ -13,7 +13,7 @@ This tab shows every prevention objective individually—all the security goals 
 
 Each card is a specific security goal. "Prohibit public access to AWS RDS DB instances" is an objective. "Require MFA for AWS root user authentication" is another. The score tells you how well that objective is being met across your environment—a 5 means excellent coverage, a 0-1 means it's not really being addressed.
 
-The [priority](/guardrails/docs/prevention/objectives/priorities) badge (P1, P2, P3, or P4) indicates how critical the objective is. P1 objectives are foundational controls that should be in place everywhere. P4 objectives are nice-to-haves that improve security but aren't critical. The [category](/guardrails/docs/prevention/objectives/categories) badge tells you which security domain it belongs to—Identity & Access, Data Governance, Trust & Sharing, and so on.
+The [priority](/guardrails/docs/prevention/objectives/priorities) badge (P1, P2, P3, or P4) indicates how critical the objective is. P1 objectives are foundational controls that should be in place everywhere. P4 objectives are nice-to-haves that improve security but aren't critical. The [category](/guardrails/docs/prevention/objectives/categories) badge tells you which security domain it belongs to (Identity & Access, Data Governance, Trust & Sharing, and so on).
 
 This flat view is particularly useful when you know what you're looking for but don't want to navigate through benchmark hierarchies. Search for "encryption" and you'll immediately see all encryption-related objectives with their scores.
 
@@ -33,7 +33,7 @@ The score takes into account the strength of your preventions (Access layer SCPs
 
 - **To verify if you're preventing something** - Search for the relevant term, find the objective, check the score. If it's 4 or 5, yes, you're handling it well. If it's 0-2, no, there's a gap.
 
-- **When planning security improvements**: Filter to P1 and sort by score to find your highest-priority gaps. These are the critical objectives you're not meeting—your most urgent work.
+- **When planning security improvements**: Filter to P1 and sort by score to find your highest-priority gaps. These are the critical objectives you're not meeting, representing your most urgent work.
 
 - **To identify category imbalances** - Compare average scores across categories. If your Data Governance objectives average 2.5 but your Identity & Access objectives average 4.5, you know where to focus.
 
@@ -51,7 +51,7 @@ The Objective Detail page includes:
 
 **Recommendations Tab** - Provides actionable guidance including step-by-step implementation instructions, policy templates, cloud provider-specific configurations, prerequisites and dependencies, and testing guidance. Recommendations are prioritized by security impact, compliance requirements, and implementation complexity.
 
-**Findings Tab** - Shows detections from CNAPP and security scanning tools—which resources currently fail this objective, severity and risk level of each finding, and remediation guidance. Use findings to validate that preventions work as expected and identify resources created before preventions were enabled.
+**Findings Tab** - Shows detections from CNAPP and security scanning tools, including which resources currently fail this objective, severity and risk level of each finding, and remediation guidance. Use findings to validate that preventions work as expected and identify resources created before preventions were enabled.
 
 **Advanced Tab** - Provides technical information for API integration and automation—objective ID and metadata, API endpoints for querying objective status, and GraphQL examples. This tab is primarily for developers integrating prevention data into external systems.
 

@@ -5,7 +5,7 @@ sidebar_label: Accounts
 
 # Accounts
 
-The Accounts section provides multiple views of your cloud accounts, subscriptions, and repositories, helping you monitor prevention coverage across your multi-cloud environment. Each view offers a different perspective on the same data—choose the view that best fits your current task.
+The Accounts section provides multiple views of your cloud accounts, subscriptions, and repositories, helping you monitor prevention coverage across your multi-cloud environment. Each view offers a different perspective on the same data. Choose the view that best fits your current task.
 
 ![Accounts List](./accounts-list-loaded.png)
 

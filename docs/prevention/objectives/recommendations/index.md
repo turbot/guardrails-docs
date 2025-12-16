@@ -13,7 +13,7 @@ The Recommendations page provides prioritized, actionable guidance for implement
 
 Recommendations are your prioritized to-do list for improving cloud security. Each one tells you a specific prevention to implement, explains why it matters, and shows you the security impact you'll get. Unlike the Objectives page (which shows what's possible) or the Preventions page (which shows what's already active), Recommendations focuses on what you should do next based on your current gaps.
 
-Every recommendation has a priority level (P1 through P4) indicating how critical it is, belongs to a security category (like Data Governance or Identity & Access), and includes implementation guidance so you can actually deploy it. The page sorts recommendations by opportunity—considering both the security impact and how many resources currently lack the control—so the most valuable work surfaces first.
+Every recommendation has a priority level (P1 through P4) indicating how critical it is, belongs to a security category (like Data Governance or Identity & Access), and includes implementation guidance so you can actually deploy it. The page sorts recommendations by opportunity, considering both the security impact and how many resources currently lack the control, so the most valuable work surfaces first.
 
 ## What Makes This Useful
 

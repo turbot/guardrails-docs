@@ -27,13 +27,13 @@ Common gaps include allowing resources in too many regions, not restricting risk
 
 ### Data Governance
 
-Data Governance covers everything related to protecting the data itself—encryption at rest, encryption in transit, public access controls, data classification, lifecycle management, and secret scanning. This category often has the most objectives because data protection touches so many services and configurations.
+Data Governance covers everything related to protecting the data itself, including encryption at rest, encryption in transit, public access controls, data classification, lifecycle management, and secret scanning. This category often has the most objectives because data protection touches so many services and configurations.
 
 Common gaps include unencrypted data stores, missing soft delete capabilities, lack of data classification tags, and no secret scanning in source code repositories. Many organizations implement strong perimeter and identity preventions but leave data itself poorly protected.
 
 ### Identity & Access
 
-Identity & Access objectives restrict privileged access—root account usage, administrative permissions, MFA requirements, credential management. These preventions prevent account takeover, privilege escalation, and unauthorized access to sensitive capabilities.
+Identity & Access objectives restrict privileged access, including root account usage, administrative permissions, MFA requirements, and credential management. These preventions prevent account takeover, privilege escalation, and unauthorized access to sensitive capabilities.
 
 Common gaps include root access keys still existing, no MFA on root accounts, overly permissive IAM policies granting wildcard permissions, and too many users with administrative access. These gaps are often remnants of early-stage fast development that were never cleaned up.
 

@@ -29,7 +29,7 @@ Most organizations have limited Build layer coverage because it requires integra
 
 Access layer preventions block dangerous API calls before they execute. Service Control Policies are the classic example. An SCP that denies `cloudtrail:StopLogging` prevents anyone from stopping CloudTrail, even if their IAM permissions would otherwise allow it. An SCP that restricts `ec2:RunInstances` to specific regions prevents launching EC2 instances in unauthorized regions.
 
-These preventions are powerful because they cannot be bypassed by account administrators and apply to all principals—users, roles, service accounts, everything. They work whether you're using IaC, the console, CLI, or API. The challenge is they're organization-wide policies that affect everyone, so they require careful testing and exception management.
+These preventions are powerful because they cannot be bypassed by account administrators and apply to all principals: users, roles, service accounts, everything. They work whether you're using IaC, the console, CLI, or API. The challenge is they're organization-wide policies that affect everyone, so they require careful testing and exception management.
 
 Access layer typically has the highest prevention count in most environments because SCPs, Azure Policies with Deny effect, and GCP Organization Policies are widely adopted and relatively straightforward to implement.
 

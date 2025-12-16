@@ -5,7 +5,7 @@ sidebar_label: Objectives
 
 # Objectives
 
-The Objectives page shows what you're trying to accomplish with your preventions. While the Preventions page shows the preventive mechanisms you've implemented, the Objectives page focuses on the security goals those preventions achieve—things like "require encryption at rest" or "prohibit public access to databases."
+The Objectives page shows what you're trying to accomplish with your preventions. While the Preventions page shows the preventive mechanisms you've implemented, the Objectives page focuses on the security goals those preventions achieve, things like "require encryption at rest" or "prohibit public access to databases."
 
 ## What Objectives Represent
 

@@ -5,7 +5,7 @@ sidebar_label: Reports
 
 # Reports
 
-The Reports tab shows the effective security boundaries in your cloud environment—answers to practical questions like "Which AWS services can my developers use?" or "What regions are blocked across my organization?" These reports aggregate prevention data to show net effects rather than individual policies, making them particularly valuable for troubleshooting (understanding why operations are blocked), compliance auditing (verifying boundaries match policies), change validation (confirming preventions work as intended), and communication (explaining boundaries to development teams).
+The Reports tab shows the effective security boundaries in your cloud environment. It answers practical questions like "Which AWS services can my developers use?" or "What regions are blocked across my organization?" These reports aggregate prevention data to show net effects rather than individual policies, making them particularly valuable for troubleshooting (understanding why operations are blocked), compliance auditing (verifying boundaries match policies), change validation (confirming preventions work as intended), and communication (explaining boundaries to development teams).
 
 ![Prevention Reports](./prevention-reports-overview.png)
 
@@ -13,13 +13,13 @@ The Reports tab shows the effective security boundaries in your cloud environmen
 
 ### AWS Region Boundary
 
-Shows which AWS regions are allowed or denied for each account in a matrix table. This aggregates all preventions (SCPs, RCPs, access policies) to show actual usable regions—helpful for identifying which regions are available in each account, spotting inconsistencies in region policies across accounts, verifying compliance with data residency requirements, and understanding effective region boundaries.
+Shows which AWS regions are allowed or denied for each account in a matrix table. This aggregates all preventions (SCPs, RCPs, access policies) to show actual usable regions. This is helpful for identifying which regions are available in each account, spotting inconsistencies in region policies across accounts, verifying compliance with data residency requirements, and understanding effective region boundaries.
 
 ![AWS Region Boundary Report](./prevention-report-aws-region-boundary.png)
 
 ### AWS Service Boundary
 
-Shows which AWS services are allowed or denied for each account in a matrix table. This aggregates all preventions to show which services are available after all policies are evaluated—useful for seeing which AWS services can be provisioned in each account, identifying service restrictions that may block legitimate workloads, verifying high-risk services are properly restricted, and understanding your allowed service catalog.
+Shows which AWS services are allowed or denied for each account in a matrix table. This aggregates all preventions to show which services are available after all policies are evaluated. This is useful for seeing which AWS services can be provisioned in each account, identifying service restrictions that may block legitimate workloads, verifying high-risk services are properly restricted, and understanding your allowed service catalog.
 
 ![AWS Service Boundary Report](./prevention-report-aws-service-boundary.png)
 
@@ -31,9 +31,9 @@ Identifies regions allowed by preventions (SCPs, RCPs) but NOT listed in the `Gu
 
 ## How Reports Work
 
-Reports are derived from prevention facts—information extracted from your preventions. When Guardrails discovers an SCP deny statement blocking EC2 in us-west-1, it creates a fact recording that region as blocked. Reports aggregate these facts across accounts to show the complete picture.
+Reports are derived from prevention facts, which are information extracted from your preventions. When Guardrails discovers an SCP deny statement blocking EC2 in us-west-1, it creates a fact recording that region as blocked. Reports aggregate these facts across accounts to show the complete picture.
 
-Service and region boundaries are calculated by evaluating deny statements in SCPs and RCPs that block services or regions, allow boundaries defined by SCP allow statements (when using allow lists), service control settings like enabled/disabled services, and inheritance of policies from parent organizational units. Reports show the effective boundary—what is actually accessible after all policies are applied.
+Service and region boundaries are calculated by evaluating deny statements in SCPs and RCPs that block services or regions, allow boundaries defined by SCP allow statements (when using allow lists), service control settings like enabled/disabled services, and inheritance of policies from parent organizational units. Reports show the effective boundary, which is what is actually accessible after all policies are applied.
 
 ## Common Use Cases
 
