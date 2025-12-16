@@ -105,6 +105,61 @@
   },
   {
     "type": "category",
+    "id": "prevention",
+    "link": "prevention",
+    "items": [
+      {
+        "type": "category",
+        "id": "prevention/dashboard",
+        "link": "prevention/dashboard",
+        "items": [
+          "prevention/dashboard/explore",
+          "prevention/dashboard/reports"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "prevention/accounts",
+        "link": "prevention/accounts",
+        "items": [
+          "prevention/accounts/accounts",
+          "prevention/accounts/organizations",
+          "prevention/accounts/folders",
+          "prevention/accounts/visualize"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "prevention/objectives",
+        "link": "prevention/objectives",
+        "items": [
+          "prevention/objectives/benchmarks",
+          "prevention/objectives/objectives",
+          "prevention/objectives/priorities",
+          "prevention/objectives/categories",
+          "prevention/objectives/recommendations"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "prevention/preventions",
+        "link": "prevention/preventions",
+        "items": [
+          "prevention/preventions/preventions",
+          "prevention/preventions/types",
+          "prevention/preventions/layers"
+        ]
+      },
+      {
+        "type": "category",
+        "id": "prevention/simulator",
+        "link": "prevention/simulator",
+        "items": []
+      }
+    ]
+  },
+  {
+    "type": "category",
     "id": "concepts",
     "link": "concepts",
     "items": [
@@ -256,7 +311,9 @@
             "type": "category",
             "id": "firehose",
             "link": "guides/configuring-guardrails/firehose",
-            "items": ["guides/configuring-guardrails/firehose/pipelines"]
+            "items": [
+              "guides/configuring-guardrails/firehose/pipelines"
+            ]
           },
           {
             "type": "category",
@@ -277,7 +334,6 @@
               "guides/configuring-guardrails/policy-packs/attach-policy-pack-to-resource"
             ]
           },
-
           "guides/configuring-guardrails/regions",
           {
             "type": "category",
@@ -433,7 +489,6 @@
             ]
           },
           "guides/hosting-guardrails/FAQ",
-
           {
             "type": "category",
             "id": "troubleshooting",
@@ -494,7 +549,9 @@
         "type": "category",
         "id": "faq/workspace-faq",
         "link": "faq/workspace-faq",
-        "items": ["faq/workspace-faq/key_rotation"]
+        "items": [
+          "faq/workspace-faq/key_rotation"
+        ]
       },
       "faq/guardrails-and-aws-scps"
     ]
@@ -547,7 +604,9 @@
         "type": "category",
         "id": "reference/terraform",
         "link": "reference/terraform",
-        "items": ["reference/terraform/setup"]
+        "items": [
+          "reference/terraform/setup"
+        ]
       },
       {
         "type": "category",

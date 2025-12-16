@@ -1,8 +1,8 @@
 ---
-title: Concepts
+title: Guardrails
 ---
 
-# Concepts
+# Guardrails Concepts
 
 Turbot Guardrails provides enterprise guardrails for infrastructure platforms, including Amazon Web Services, Microsoft Azure, and Google Cloud.
 
