@@ -220,13 +220,3 @@ This approach prevents false positives during configuration, as enabling the con
    ```
    Enforce: Stop if region not allowed
    ```
-
-## Controls Not Changed
-
-Some resource governance patterns remain unchanged:
-
-- **Active controls** - Still evaluate resource lifecycle holistically
-- **Trusted Access controls** - Require evaluating all policies together
-- **Tags controls** - Must consider all tag rules together
-- **Security Group Rules > Approved** - List-based approvals evaluated together
-- **CIS controls** - Read-only reporting controls
