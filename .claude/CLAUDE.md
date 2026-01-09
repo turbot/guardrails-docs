@@ -286,3 +286,144 @@ After completing the action, results appear in...
 ```
 
 This pattern helps users understand both what the feature does (overview) and how to use it (step-by-step), making documentation more actionable.
+
+## Writing Guardrails Guides
+
+Procedural guides follow a specific structure with strict validation rules. Each guide must contain these sections in order:
+
+### Guide Structure
+
+1. **Overview** (no header)
+2. **Prerequisites**
+3. **Steps** (Step 1, Step 2, ... Step n)
+4. **Review**
+5. **Next Steps**
+6. **Troubleshooting**
+
+### Overview Section Rules
+
+- Appears immediately after the H1 title (no `## Overview` header)
+- Must start with: `In this guide, you will:`
+- Use second person ("you"/"your")
+- Should contain at least one hyperlink to related documentation
+- Can be a bulleted list or paragraph format
+
+**Example:**
+```markdown
+# Install Turbot Enterprise
+
+In this guide, you will:
+- Deploy the Turbot Enterprise stack to your AWS account
+- Configure the initial settings
+- Verify the installation
+
+This guide walks you through installing [Turbot Enterprise](link) in your environment.
+```
+
+### Prerequisites Section Rules
+
+- Header: `## Prerequisites`
+- Must come after the overview
+- Format: Bulleted list
+- Use second person ("you"/"your")
+- Simple items: no trailing periods
+- Sentences/fragments: end with periods
+
+**Example:**
+```markdown
+## Prerequisites
+
+- Access to the AWS Console with administrator permissions
+- A valid Turbot license key
+- Familiarity with CloudFormation
+```
+
+### Steps Section Rules
+
+- Header format: `## Step {n}: Verb Title` (Title Case)
+- First word after colon must be a verb (Access, Create, Configure, Navigate, etc.)
+- Sequential numbering: no gaps, no duplicates
+- Each step must have content below the header
+- Use second person ("you"/"your")
+- May include images and callouts
+
+**Example:**
+```markdown
+## Step 1: Access AWS Console
+
+Navigate to the AWS Console and sign in with your administrator credentials.
+
+## Step 2: Launch CloudFormation
+
+Select **CloudFormation** from the services menu.
+
+## Step 3: Create Stack
+
+Click **Create stack** and select **With new resources**.
+```
+
+### Review Section Rules
+
+- Header: Exactly `## Review` (NOT `## Step Review` or `## Step n: Review`)
+- Summarize what was accomplished
+- Include a checklist of items to verify
+
+**Example:**
+```markdown
+## Review
+
+You have successfully installed Turbot Enterprise. Verify the following:
+
+- [ ] Stack status shows `CREATE_COMPLETE`
+- [ ] Console URL is accessible
+- [ ] Initial login works with provided credentials
+```
+
+### Next Steps Section Rules
+
+- Header: `## Next Steps`
+- Provide links to related guides or documentation
+
+### Troubleshooting Section Rules
+
+- Header: `## Troubleshooting`
+- Format: Markdown table with columns: Issue | Description | Guide
+- Last row must mention "Further Assistance" with support ticket link
+
+**Example:**
+```markdown
+## Troubleshooting
+
+| Issue | Description | Guide |
+|-------|-------------|-------|
+| Permission Issues | If you lack permissions to create resources | [Permissions Guide](link) |
+| Stack Failures | If CloudFormation stack fails to create | [Stack Troubleshooting](link) |
+| Further Assistance | If you continue to encounter issues, please open a ticket | [Open Support Ticket](https://support.turbot.com) |
+```
+
+### Callout Formatting
+
+Use GitHub-style blockquote callouts only:
+
+```markdown
+> [!NOTE]
+> Information worth highlighting.
+
+> [!TIP]
+> Helpful advice or best practices.
+
+> [!IMPORTANT]
+> Critical information users should not overlook.
+
+> [!WARNING]
+> Urgent issues or actions that may cause problems.
+
+> [!CAUTION]
+> Potential risks or negative outcomes.
+```
+
+**Do NOT use old callout formats:**
+- ❌ `**Note:**`
+- ❌ `:warning:`
+- ❌ `**Caution:**`
+- ❌ `**Important:**`

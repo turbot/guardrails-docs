@@ -5,6 +5,9 @@ sidebar_label: Approved
 
 # Approved Guardrails
 
+> [!IMPORTANT]
+> The Approved guardrails are deprecated and will be removed in a future major version. New implementations should use the [Allowed](concepts/guardrails/allowed) guardrails, which provide the same functionality with more granular, independent controls.
+
 ## Overview
 
 The Approved guardrail is used to verify whether a particular resource is
