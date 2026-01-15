@@ -85,7 +85,72 @@ mcp__chrome-devtools__resize_page:
 - Wait for animations/loading (`wait_for` tool)
 - Ensure meaningful content is visible (not empty states)
 
-### 5. Take the Screenshot
+### 5. Mask Sensitive Data
+
+**ALWAYS mask real IDs, emails, and other sensitive data before taking screenshots.**
+
+Use `evaluate_script` to replace sensitive values with realistic-looking placeholders:
+
+```javascript
+mcp__chrome-devtools__evaluate_script:
+  function: |
+    () => {
+      function replaceTextInNode(node, replacements) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          let text = node.textContent;
+          for (const [search, replace] of Object.entries(replacements)) {
+            text = text.split(search).join(replace);
+          }
+          node.textContent = text;
+        } else {
+          for (const child of node.childNodes) {
+            replaceTextInNode(child, replacements);
+          }
+        }
+      }
+
+      function replaceInputValues(replacements) {
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+          let value = input.value;
+          for (const [search, replace] of Object.entries(replacements)) {
+            value = value.split(search).join(replace);
+          }
+          input.value = value;
+        });
+      }
+
+      const replacements = {
+        // Add your replacements here
+      };
+
+      replaceTextInNode(document.body, replacements);
+      replaceInputValues(replacements);
+      return 'Done';
+    }
+```
+
+**Replacement guidelines - use realistic-looking values:**
+
+| Data Type | Real Example | Realistic Placeholder |
+|-----------|--------------|----------------------|
+| AWS Account ID | `589731614672` | `123456789012` |
+| AWS OU ID | `ou-9m4x-mhf3jk4s` | `ou-ab12-prodteam1` |
+| Azure Subscription | `a1b2c3d4-...` | `12345678-abcd-1234-efgh-123456789012` |
+| GCP Project ID | `my-real-project` | `acme-corp-prod-001` |
+| Email | `john.doe@company.com` | `admin@acme-corp.example` |
+| External ID | `turbot:123456:abcd` | `turbot:123456789012345:a1b2c3d4-e5f6-7890-abcd-ef1234567890` |
+| Account names | `John's Test` | `Development`, `Staging`, `Production` |
+| OU names | `venu_sandbox` | `Non-Production`, `Infrastructure` |
+
+**Best practices:**
+- Use sequential IDs (123456789012, 234567890123, etc.) for related accounts
+- Use professional business names (Development, Staging, QA, Production)
+- Use `example` or `acme-corp.example` for email domains
+- Keep the same format as real data (12-digit AWS IDs, UUID formats, etc.)
+- Make the org structure look like a real company
+
+### 6. Take the Screenshot
 
 ```
 mcp__chrome-devtools__take_screenshot:
@@ -97,7 +162,7 @@ mcp__chrome-devtools__take_screenshot:
 - `/Users/jsmyth/src/guardrails-docs/docs/prevention/dashboard/dashboard-overview.png`
 - `/Users/jsmyth/src/guardrails-docs/docs/prevention/objectives/benchmarks/benchmarks-list.png`
 
-### 6. Add to Documentation
+### 7. Add to Documentation
 
 Insert the image in the markdown file using relative path:
 
@@ -110,19 +175,22 @@ Insert the image in the markdown file using relative path:
 - Not: "Screenshot" or "Image of dashboard"
 - Be specific and helpful for screen readers
 
-### 7. Repeat for Additional Screenshots
+### 8. Repeat for Additional Screenshots
 
 For each new screenshot:
 1. Navigate/scroll to new view
 2. **Resize viewport again** (width: 1280, appropriate height)
-3. Take screenshot
-4. Add to documentation
+3. **Mask sensitive data again** (masking is lost on navigation)
+4. Take screenshot
+5. Add to documentation
 
-### 8. Verify
+### 9. Verify
 
 Check:
 - [ ] All screenshots are 1280px wide
 - [ ] Screenshots show meaningful content
+- [ ] **No real account IDs, emails, or sensitive data visible**
+- [ ] **Placeholder data looks realistic** (proper formats, professional names)
 - [ ] Saved in same directory as markdown file
 - [ ] Use relative paths `./image.png`
 - [ ] Use markdown syntax `![alt](./image.png)`
