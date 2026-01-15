@@ -8,6 +8,19 @@ Review `../context/style.md` for screenshot requirements and Chrome DevTools MCP
 
 ## Critical Requirements
 
+**MUST use only `mcp__chrome-devtools__*` tools for ALL browser operations:**
+- `navigate_page` - navigation
+- `take_snapshot` - read page structure/elements
+- `click` - interact with elements
+- `fill` - input text into forms
+- `evaluate_script` - run JavaScript (e.g., for masking sensitive data)
+- `take_screenshot` - capture screenshots
+- `resize_page` - resize viewport
+- `wait_for` - wait for content
+- `list_pages` / `select_page` - manage browser tabs
+
+**NEVER mix `mcp__claude-in-chrome__*` tools with `mcp__chrome-devtools__*` tools** - they control DIFFERENT browser instances and will cause inconsistent results.
+
 **MUST follow these rules:**
 
 1. **Resize viewport FIRST** - Before taking ANY screenshot:
