@@ -7,7 +7,7 @@ sidebar_label: Self-Hosted Workspace
 
 In this guide, you will:
 
-- Learn how to import an entire Google Cloud Platform (GCP) Organization into Turbot Guardrails. This process allows Guardrails to discover and manage resources across all projects and folders under a single GCP Organization.
+- Learn how to import an entire Google Cloud Platform (GCP) Organization into self-hosted Turbot Guardrails. This process allows Guardrails to discover and manage resources across all projects and folders under a single GCP Organization.
 - Monitor and troubleshoot the process.
 
 Importing a [GCP Organization](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) into Guardrails involves these key steps:
