@@ -14,51 +14,60 @@ This is the second guide in the *Getting started with AWS* series.
 - Completed the previous guide: **Prepare an AWS Account for import to Guardrails**.
 - Access to the Turbot Guardrails console with admin privilege.
 
-## Step 1: Select import location
+## Step 1: Return to Guardrails console
 
-Switch back to the Guardrails console **Account Import** browser tab you opened in the previous guide. Use the **Parent Resource** dropdown to select the **Sandbox** folder as the location to import the account.
+Switch back to the Guardrails console browser tab you opened in the previous guide. You should still be on the account configuration step where you downloaded the CloudFormation template.
 
-> **Note:** If the **Sandbox** folder does not exist in your workspace, you’ll need to create one.  
-> This folder is commonly used for testing, isolation, or non-production accounts.  
-> Refer to the [Create Folder Guide](/guardrails/docs/guides/configuring-guardrails/working-with-folders/create) for steps on how to create a folder in Guardrails.
+> **Note:** If you closed the tab, you'll need to start over: Navigate to **Accounts** in the left sidebar, click **Actions** > **Connect Account**, select **AWS**, then **AWS Account**, choose your folder, and configure the role settings again.
 
-<p><img alt="set-parent-resource" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-parent-resource.png"/></p>
+## Step 2: Enter the Role ARN
 
-## Step 2: Update account details
+Paste the **Role ARN** you obtained from the CloudFormation stack outputs (Step 7 in the previous guide) into the **IAM Role ARN** field.
 
-Paste the role ARN you obtained from step 7 in the previous guide into the **IAM Role ARN** field and enter the AWS account ID into the **Account ID** field.
+![Role ARN field with value entered](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-role-arn.png)
 
-<p><img alt="ready-to-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/ready-to-connect.png"/></p>
+## Step 3: Test the connection
 
-## Step 3: Import the account
+Click the **Test Connection** button to verify Guardrails can access your AWS account using the IAM role you created.
 
-Triple-check that the **IAM Role External ID** matches the value from the CloudFormation template. If not, overwrite the current value with the one from the Cloudformation output. Select **Connect** to import your account.
+![Test Connection button](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-test-connection.png)
 
-<p><img alt="finish-and-connect" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/finish-and-connect.png"/></p>
+If successful, you'll see a confirmation message indicating Guardrails can connect to your account.
 
-## Step 4: Observe progress
+> **Troubleshooting:** If the test fails, verify:
+> - The CloudFormation stack completed successfully
+> - The Role ARN matches exactly (copy from CloudFormation outputs)
+> - The External ID in Guardrails matches the one used in the CloudFormation template
+
+## Step 4: Connect the account
+
+Click **Connect** to import your account into Guardrails.
+
+![Connect button](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-connect-button.png)
+
+## Step 5: Observe progress
 
 Wait for the progress bar to complete. The time this takes will depend on how many resources are in the account; it is normal for the progress bar to fluctuate in size as new types of resources are discovered.
 
-<p><img alt="aws-progress-bar" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-progress-bar.png"/></p>
+![Import progress bar](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-discovery-progress.png)
 
-## Step 5: View Controls by state
+## Step 6: View Controls by state
 
 Select **Reports** from the top navigation menu. Type `controls` into the **Search reports…** field to show only reports with the word "controls" in their name. Select the **Controls by State** report from the list.
 
 <p><img alt="search-for-controls-reports" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/search-for-controls-reports.png"/></p>
 
-## Step 6: Configure report filters
+## Step 7: Configure report filters
 
 From the filter bar, expand the **Type** dropdown. Then select the checkbox next to **AWS** to limit the report to only show AWS controls.
 
-Bookmark the **Controls by State** report, you’ll need it in subsequent guides.
+Bookmark the **Controls by State** report, you'll need it in subsequent guides.
 
 <p><img alt="set-type-filter" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/set-type-filter.png"/></p>
 
-## Step 7: View the report
+## Step 8: View the report
 
-Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account.
+Review the status of your controls for AWS. `Alarm`, `OK`, `Skipped`, and `TBD` are all common and normal states to see in your account.
 
 > [!IMPORTANT]
 > The controls in `Error` or `Invalid` states must be cleared before moving further into these guides.
@@ -66,7 +75,7 @@ Review the status of your controls for AWS.  `Alarm`, `OK`, `Skipped`, and `TBD`
 
 <p><img alt="aws-controls-by-state" src="/images/docs/guardrails/getting-started/getting-started-aws/connect-an-account/aws-controls-by-state.png"/></p>
 
-## Step 8: Review
+## Step 9: Review
 
 In this guide you successfully imported an AWS account into Guardrails.
 
