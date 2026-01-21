@@ -172,6 +172,7 @@
         "items": [
           "concepts/guardrails/access-logging",
           "concepts/guardrails/active",
+          "concepts/guardrails/allowed",
           "concepts/guardrails/approved",
           "concepts/guardrails/audit-logging",
           "concepts/guardrails/budget",
