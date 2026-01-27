@@ -83,6 +83,7 @@ few policy settings are required. For example:
 
 The above policy settings are then applied directly to the bucket (if the
 policies were set at the bucket resource level) as a value or are inherited as a
-value (the typical situation). In this case, we are telling Guardrails to
-`Enforce: Delete if new & empty` if either encryption is not configured to be
-`AWS: SSE or higher` OR the bucket is created in a region outside of the US.
+value (the typical situation). In this example, we are configuring two independent controls:
+the `Approved` control will delete new (i.e., created in the last 60 minutes) and empty buckets created outside of US regions,
+while the `Encryption at Rest` control will separately enforce that buckets have
+AWS SSE encryption or higher.
