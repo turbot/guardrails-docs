@@ -129,7 +129,7 @@ Navigate to the **GCP Service Account Private Key SSM Parameter** section and up
 
 ---
 
-## Part B: Setup Organization Service Account
+## Part B: Set Up Organization Service Account
 
 ## Step 5: Enable Required APIs
 
