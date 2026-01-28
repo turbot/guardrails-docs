@@ -76,7 +76,7 @@ The Turbot Master Service Account impersonates the Organization Service Account 
 
 ---
 
-## Part A: Setup Turbot Master Service Account
+## Part A: Set Up Turbot Master Service Account
 
 ## Step 1: Create Turbot Master Service Account
 
