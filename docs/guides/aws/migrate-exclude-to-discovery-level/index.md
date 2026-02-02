@@ -21,7 +21,7 @@ The Exclude policy offered simple binary exclusion using a YAML list. The Discov
 | Level | UI Option | Description |
 |-------|-----------|-------------|
 | `none` | **None** | Account/OU is completely excluded from Guardrails |
-| `account` | **Account only** | Account is visible in Guardrails but policies and controls are not materialized |
+| `account` | **Account only** | Account is visible in Guardrails but no child resources are discovered |
 | `resource` | **All resources** | Full management with all policies and controls materialized (default) |
 
 ### Key Benefits of Discovery Level
@@ -107,7 +107,7 @@ Both policies work together during the transition period. The Exclude policy tak
 2. Click the **Settings** tab in the top navigation bar
 3. The **Discovery Level Settings** page displays your organization hierarchy
 
-![Discovery Level Settings](discovery-level-settings.png)
+![Discovery Level Settings](/images/docs/guardrails/guides/aws/migrate-exclude-to-discovery-level/discovery-level-settings.png)
 
 The page shows:
 - **Tree view**: Visual hierarchy of your organization with OUs and accounts
