@@ -9,7 +9,7 @@ In this guide, you will:
 
 - Understand the differences between the deprecated Exclude policy and the new Discovery Level policy
 - Configure discovery levels for your accounts and OUs
-- Verify your configuration and remove the deprecated Exclude policy
+- Remove the deprecated Exclude policy and verify your configuration
 
 ## Overview
 
@@ -89,18 +89,25 @@ Accounts that are already connected to Guardrails are marked with a note: *"This
 
 For OUs, the setting applies to all child accounts that don't have their own individual setting. For example, setting an OU to **None** excludes all accounts under it.
 
-## Step 4: Verify and Remove the Exclude Policy
+## Step 4: Remove the Exclude Policy and Verify
 
-Navigate to your organization in the Guardrails console and look at the accounts you just configured:
+Since the Exclude policy takes precedence, you can't verify Discovery Level settings while accounts are still in the Exclude list. Remove the Exclude entries first, then verify that Discovery Level is controlling the accounts correctly.
 
-- **Accounts set to None**: Should not appear under your organization in the resource hierarchy.
-- **Accounts set to Account only**: Should still appear in the hierarchy, but should have no child resources (e.g., no S3 buckets, EC2 instances, etc.) and no controls running against them.
+1. Click **Policies** in the left navigation bar
+2. Search for `AWS > Organization > CMDB > Exclude` and click on the policy setting for your organization
+3. Remove the entries for the accounts you just configured in Discovery Level Settings, and save the policy (or delete the policy setting entirely if all entries have been migrated)
+
+### Verify
+
+Click **Accounts** in the left navigation bar, then under **Organizations** click on your AWS Organization. Check the accounts you migrated:
+
+![Verify Accounts Under Org](/images/docs/guardrails/guides/aws/migrate-exclude-to-discovery-level/verify-accounts-under-org.png)
+
+- **Accounts set to None**: Should not appear under your organization.
+- **Accounts set to Account only**: Should still appear, but with no child resources (e.g., no S3 buckets, EC2 instances) and no controls running against them.
 - **Accounts set to All resources**: Should have full resource discovery and all controls running as normal.
 
-Once verified, remove the Exclude policy:
-
-1. Navigate to **Policies**, find `AWS > Organization > CMDB > Exclude`, and delete the policy setting or set it to an empty array `[]`
-2. Re-check the accounts — their behavior should remain the same because Discovery Level is now controlling them
+If an account isn't behaving as expected, add it back to the Exclude policy to immediately re-exclude it, then review your Discovery Level settings.
 
 ## Troubleshooting
 
