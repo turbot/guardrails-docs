@@ -69,7 +69,7 @@ If your Exclude policy uses **wildcard patterns** (e.g., `*production`, `sandbox
 
 The Discovery Level Settings page displays your organization hierarchy:
 
-![Discovery Level Settings](discovery-level-settings.png)
+![Discovery Level Settings](/images/docs/guardrails/guides/aws/migrate-exclude-to-discovery-level/discovery-level-settings.png)
 
 The page has two tabs:
 
