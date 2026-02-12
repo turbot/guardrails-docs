@@ -64,7 +64,7 @@ The permissions you grant to the service account depend on your organization’s
 
 Refer to the example below for guidance:
 
-![Generate Service Account Impersonation](/images/docs/guardrails/guides/gcp/import-gcp-organization/generate-service-account-impersonation.png)
+![Generate Service Account Impersonation](/images/docs/guardrails/guides/gcp/import-gcp-organization/saas-workspace/generate-service-account-impersonation.png)
 
 
 <details>
@@ -137,17 +137,17 @@ The GCP organization import feature requires [TED](/guardrails/docs/reference/gl
 
 Log in to the Guardrails primary AWS account and navigate to the `AWS Systems Manager` service.
 
-![Create Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/create-paramater.png)
+![Create Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/create-paramater.png)
 
 Create a `Secure String` with the `Tier` set to `Standard`.
 
-![Paste JSON Credential](/images/docs/guardrails/guides/gcp/import-gcp-organization/create-secure-standard-string.png)
+![Paste JSON Credential](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/create-secure-standard-string.png)
 
 See [here](#using-json-credential-file) how to download JSON credential file.
 
 Paste the JSON credential content into the **Value** field and select **Create parameter**.
 
-![Paste JSON Value](/images/docs/guardrails/guides/gcp/import-gcp-organization/add-parameter-value-in-console.png)
+![Paste JSON Value](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/add-parameter-value-in-console.png)
 
 For more details, refer to the AWS guide on [Creating a Parameter Store parameter using the console](https://docs.aws.amazon.com/systems-manager/latest/userguide/create-parameter-in-console.html).
 
@@ -158,4 +158,4 @@ Follow the steps in [Update Turbot Guardrails Enterprise Database (TED)](/guardr
 
 Navigate to the `GCP Service Account Private Key SSM Parameter` section of the TED stack (near the end) and update the manually created SSM parameter name as shown below. Select **Update** to proceed.
 
-![Update TED Stack Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/update-ted-stack-parameter.png)
+![Update TED Stack Parameter](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/update-ted-stack-parameter.png)
