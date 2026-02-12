@@ -25,11 +25,42 @@ Before proceeding, ensure the following:
 
 ## Step 1: Create EventBridge IAM Role
 
-The EventBridge IAM role is required for forwarding events from secondary regions to the primary region.
+The EventBridge IAM role allows events to be forwarded from secondary regions to the primary region.
 
-### 1.1 Create Assume Role Policy
+### 1.1 Create IAM Permissions Policy
 
-This policy allows the EventBridge service to assume the IAM role.
+First, create a policy that grants permission to forward events to the default event bus in the primary region.
+
+1. Go to **IAM > Policies > Create policy** in the AWS Management Console.
+2. Select the **JSON** tab and paste the following policy:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["events:PutEvents"],
+      "Resource": "arn:<PARTITION>:events:<PRIMARY_REGION>:<ACCOUNT_ID>:event-bus/default"
+    }
+  ]
+}
+```
+
+Replace the placeholder values:
+- `<PARTITION>` - Use `aws`, or `aws-gov` for GovCloud, or `aws-cn` for China regions
+- `<PRIMARY_REGION>` - Your GEH primary region (default is `us-east-1`)
+- `<ACCOUNT_ID>` - The 12-digit AWS account ID where you are creating this role
+
+3. Click **Next**.
+4. Name the policy (e.g., `turbot_guardrails_geh_eventbridge_policy`).
+5. Click **Create policy**.
+
+### 1.2 Create IAM Role with Custom Trust Policy
+
+1. Go to **IAM > Roles > Create role**.
+2. Select **Custom trust policy** as the trusted entity type.
+3. Replace the default JSON with the following trust policy:
 
 ```json
 {
@@ -46,36 +77,18 @@ This policy allows the EventBridge service to assume the IAM role.
 }
 ```
 
-### 1.2 Attach IAM Policy
+4. Click **Next**.
+5. Search for and select the policy you created in step 1.1 (e.g., `turbot_guardrails_geh_eventbridge_policy`).
+6. Click **Next**.
+7. Name the role (e.g., `turbot_guardrails_geh_eventbridge_role`).
+8. Click **Create role**.
 
-The following IAM policy grants permissions for forwarding events to the default event bus in the primary region:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": ["events:PutEvents"],
-      "Resource": "arn:{PARTITION}:events:{GLOBAL_EVENTS_PRIMARY_REGION}:{AWS_ACCOUNT_ID}:event-bus/default"
-    }
-  ]
-}
-```
-
-### 1.3 Create IAM Role
-
-- Go to **IAM > Roles > Create Role** in the AWS Management Console.
-- Select **AWS Service > EventBridge**.
-- Attach the **Assume Role Policy** and **IAM Policy** created above.
-- Name the role (e.g. turbot_guardrails_geh_eventbridge_role).
-
-Terraform Example for the same.
+### 1.3 Terraform Example
 
 ```hcl
 resource "aws_iam_role" "event_handlers_global_role" {
-  name = "${var.event_handlers_global_role_name}"
-  path = "${var.service_roles_path}"
+  name = var.event_handlers_global_role_name
+  path = var.service_roles_path
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
@@ -89,7 +102,7 @@ resource "aws_iam_role" "event_handlers_global_role" {
 }
 
 resource "aws_iam_policy" "turbot_guardrails_geh_eventbridge_policy" {
-  name = "${var.event_handlers_global_policy_name}"
+  name = var.event_handlers_global_policy_name
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -115,10 +128,35 @@ You need to set the IAM Role ARN for cross-region forwarding in Guardrails. This
 
 ### Option 1: Configure in Guardrails
 
-1. Navigate to the AWS Account in Turbot Guardrails Console.
-2. Click on the Policies tab of the Account resource in the Turbot Console.
-3. Search for the policy `AWS > Turbot > Event Handlers [Global] > Events > Target > IAM Role ARN`.
-4. Set the policy to the ARN of the manually created role (e.g. `arn:{PARTITION}:iam::{AWS_ACCOUNT_ID}:role/turbot_guardrails_geh_eventbridge_role`).
+1. Navigate to the AWS Account (or applicable folder in the hierarchy) in Turbot Guardrails Console.
+2. Click on the **Policies** tab and select **New Policy Setting**.
+3. In the Policy Type dropdown, search for and select `AWS > Turbot > Event Handlers [Global] > Events > Target > IAM Role ARN`.
+4. Click the **Enable calculated mode** link.
+5. Click **+ Add** in the Input query field.
+6. Paste the following into the Input field under Step 2. The account ID for the current AWS account should appear in the Output field to the right.
+
+   ```graphql
+   {
+     account {
+       Id
+     }
+   }
+   ```
+
+7. Paste the following into the Template field in Step 3:
+
+   ```nunjucks
+   {%- if $.account.Id -%}
+   "arn:<PARTITION>:iam::{{ $.account.Id }}:role/<ROLE_NAME>"
+   {%- endif -%}
+   ```
+
+   Replace the placeholder values:
+   - `<PARTITION>` - Your AWS partition (`aws`, `aws-gov`, or `aws-cn`)
+   - `<ROLE_NAME>` - The name of the role you created in step 1.2 (e.g., `turbot_guardrails_geh_eventbridge_role`)
+
+8. The calculated IAM Role ARN should appear in the Result field in Step 4.
+9. Click **Create**.
 
 ### Option 2: Configure Using Terraform
 
@@ -133,7 +171,7 @@ resource "turbot_policy_setting" "aws_event_handlers_global_events_target_iam_ro
   account
   {
     # Look for the name of the EventBridge IAM role.
-    event_bridge_role: children(filter:"$.RoleName:${var.EVENTBRIDGE_IAM_ROLE} resourceTypeId:tmod:@turbot/aws-iam#/resource/types/role level:self"){
+    event_bridge_role: children(filter:"$.RoleName:${var.eventbridge_iam_role_name} resourceTypeId:tmod:@turbot/aws-iam#/resource/types/role level:self"){
       role:items
       {
         akas
@@ -160,7 +198,7 @@ Once the IAM Role is configured, enable and deploy Global Event Handlers.
 1. In the Guardrails console navigate to the **Policies** and search for `AWS > Turbot > Event Handlers [Global]` policy. Select **New Policy Setting**
 2. Choose Resource as `Turbot` and Setting as `Enforce: Configured`
 3. Validate the deployment using the Global Event Handler Report link
-   `https://{workspace}/apollo/reports/controls-by-state?filter=controlTypeId%3A%27tmod%3A%40turbot%2Faws%23%2Fcontrol%2Ftypes%2FeventHandlersGlobal%27`
+   `https://<WORKSPACE>/apollo/reports/controls-by-state?filter=controlTypeId%3A%27tmod%3A%40turbot%2Faws%23%2Fcontrol%2Ftypes%2FeventHandlersGlobal%27`
 4. Ensure all GEH controls are in the ok state with the message "All required resources exist".
 
 ## Step 4: Verify Events
