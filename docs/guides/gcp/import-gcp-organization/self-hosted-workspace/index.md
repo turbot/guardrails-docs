@@ -379,7 +379,7 @@ Click **Connect** to begin the import process.
 
 Guardrails will create and execute discovery controls for your GCP Organization, scanning each folder, project and resources under it.
 
-![Check Discovery process](/images/docs/guardrails/guides/gcp/import-gcp-organization/check-discovery-process.png)
+![Check Discovery process](/images/docs/guardrails/guides/gcp/import-gcp-organization/self-hosted-workspace/check-discovery-process.png)
 
 <!-- ## (Optional) Ensure Billing is Enabled
 

@@ -147,7 +147,7 @@ The TEF provisioned product should be in the **Under Change** status.
 
 Select the TEF Provisioned Product, select **Outputs** tab, and use the `CloudFormationStackARN` **Value** link to navigate to the respective CloudFormation stack.
 
-![Navigate to CloudFormation Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-into-existing-vpc/service-catalog-install-tef-navigate-to-cfn.png)
+![Navigate to CloudFormation Stack](/images/docs/guardrails/guides/hosting-guardrails/installation/install-tef/install-tef-into-new-vpc/service-catalog-install-tef-navigate-to-cfn.png)
 
 Select the TEF stack. The description of the correct stack should say **Turbot Guardrails Enterprise Foundation &lt;version&gt;**.
 

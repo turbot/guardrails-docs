@@ -51,7 +51,7 @@ Select **View more in CloudFormation** to navigate to CloudFormation stack. This
 
 - [ ] Navigate to the DB Instance **Summary** and check for `Status`
 
-![RDS Status](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/update-ted/database-instance-not-in-available-state/rds-backing-up.png)
+![RDS Status](/images/docs/guardrails/guides/hosting-guardrails/troubleshooting/database-instance-not-in-available-state/rds-backing-up.png)
 
 ## Step 4: Wait for Database Availability
 
