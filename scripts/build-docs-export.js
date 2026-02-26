@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 /**
- * Build docs export JSON for the Turbot Registry.
+ * Build docs export tarball for the Turbot Registry.
  *
  * Reads all markdown files from docs/, parses frontmatter,
- * resolves the sidebar navigation, and outputs a single
- * guardrails-docs.json file.
+ * resolves the sidebar navigation, and produces a tarball
+ * containing guardrails-docs.json + original image files.
  *
  * Usage:
  *   node scripts/build-docs-export.js \
@@ -13,17 +13,26 @@
  *     --commit-sha "abc123" \
  *     --branch "main" \
  *     [--include-images]
+ *
+ * Output:
+ *   dist/guardrails-docs.tar.gz
+ *     ├── guardrails-docs.json
+ *     └── images/          (if --include-images)
+ *         ├── foo.png
+ *         └── ...
  */
 
 const fs = require("fs");
 const path = require("path");
+const { execSync } = require("child_process");
 const matter = require("gray-matter");
 const { glob } = require("glob");
 
 const DOCS_DIR = path.resolve(__dirname, "../docs");
 const IMAGES_DIR = path.resolve(__dirname, "../images");
 const OUTPUT_DIR = path.resolve(__dirname, "../dist");
-const OUTPUT_FILE = path.join(OUTPUT_DIR, "guardrails-docs.json");
+const STAGING_DIR = path.join(OUTPUT_DIR, "staging");
+const OUTPUT_TARBALL = path.join(OUTPUT_DIR, "guardrails-docs.tar.gz");
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -137,10 +146,10 @@ async function processPages() {
 }
 
 /**
- * Collect image references from page content and optionally
- * base64-encode them.
+ * Collect image references from page content.
+ * Returns the set of image paths found in the repo.
  */
-function collectImages(pages, includeBase64) {
+function collectImages(pages) {
   const imageRefs = new Set();
 
   for (const page of pages) {
@@ -158,7 +167,7 @@ function collectImages(pages, includeBase64) {
     }
   }
 
-  const images = [];
+  const found = [];
   const repoRoot = path.resolve(__dirname, "..");
 
   for (const ref of [...imageRefs].sort()) {
@@ -167,38 +176,32 @@ function collectImages(pages, includeBase64) {
       console.warn(`Warning: referenced image not found: ${ref}`);
       continue;
     }
-
-    const stat = fs.statSync(filePath);
-    const ext = path.extname(filePath).toLowerCase();
-    const contentTypeMap = {
-      ".png": "image/png",
-      ".jpg": "image/jpeg",
-      ".jpeg": "image/jpeg",
-      ".gif": "image/gif",
-      ".svg": "image/svg+xml",
-      ".webp": "image/webp",
-    };
-
-    const image = {
-      path: ref,
-      contentType: contentTypeMap[ext] || "application/octet-stream",
-      sizeBytes: stat.size,
-    };
-
-    if (includeBase64) {
-      image.base64 = fs.readFileSync(filePath).toString("base64");
-    }
-
-    images.push(image);
+    found.push({ ref, filePath });
   }
 
-  return images;
+  return found;
+}
+
+/**
+ * Copy images into the staging directory preserving their path structure.
+ */
+function stageImages(images) {
+  for (const { ref, filePath } of images) {
+    // ref is like /images/foo/bar.png → stage as images/foo/bar.png
+    const dest = path.join(STAGING_DIR, ref.replace(/^\//, ""));
+    fs.mkdirSync(path.dirname(dest), { recursive: true });
+    fs.copyFileSync(filePath, dest);
+  }
 }
 
 async function main() {
   const opts = parseArgs();
 
   console.log(`Building docs export v${opts.version}...`);
+
+  // Clean staging directory
+  fs.rmSync(STAGING_DIR, { recursive: true, force: true });
+  fs.mkdirSync(STAGING_DIR, { recursive: true });
 
   // Resolve sidebar
   const sidebarPath = path.join(DOCS_DIR, "sidebar.json");
@@ -211,13 +214,11 @@ async function main() {
   console.log(`  Found ${pages.length} pages`);
 
   // Collect images
-  console.log(
-    `Collecting images (include base64: ${opts.includeImages})...`
-  );
-  const images = collectImages(pages, opts.includeImages);
-  console.log(`  Found ${images.length} image references`);
+  console.log("Collecting images...");
+  const images = collectImages(pages);
+  console.log(`  Found ${images.length} images in repo`);
 
-  // Assemble output
+  // Assemble JSON
   const output = {
     metadata: {
       exportedAt: new Date().toISOString(),
@@ -225,32 +226,40 @@ async function main() {
       branch: opts.branch,
       version: opts.version,
       pageCount: pages.length,
-      imageCount: images.length,
+      imageCount: opts.includeImages ? images.length : 0,
     },
     sidebar,
     pages,
   };
 
-  // Include images array only if there are entries
-  if (images.length > 0) {
-    if (opts.includeImages) {
-      output.images = images;
-    } else {
-      output.imageManifest = images;
-    }
+  // Write JSON to staging
+  const jsonPath = path.join(STAGING_DIR, "guardrails-docs.json");
+  const json = JSON.stringify(output, null, 2);
+  fs.writeFileSync(jsonPath, json);
+
+  // Copy images to staging if requested
+  if (opts.includeImages && images.length > 0) {
+    console.log("Staging images...");
+    stageImages(images);
   }
 
-  // Write output
-  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  const json = JSON.stringify(output, null, 2);
-  fs.writeFileSync(OUTPUT_FILE, json);
+  // Create tarball
+  console.log("Creating tarball...");
+  execSync(`tar -czf "${OUTPUT_TARBALL}" -C "${STAGING_DIR}" .`, {
+    stdio: "inherit",
+  });
 
-  const sizeMB = (Buffer.byteLength(json) / 1024 / 1024).toFixed(2);
+  // Clean up staging
+  fs.rmSync(STAGING_DIR, { recursive: true, force: true });
+
+  const tarballSize = fs.statSync(OUTPUT_TARBALL).size;
+  const jsonSize = Buffer.byteLength(json);
   console.log(`\nExport complete:`);
-  console.log(`  Output: ${OUTPUT_FILE}`);
-  console.log(`  Size: ${sizeMB} MB`);
+  console.log(`  Output: ${OUTPUT_TARBALL}`);
+  console.log(`  JSON size: ${(jsonSize / 1024 / 1024).toFixed(2)} MB`);
+  console.log(`  Tarball size: ${(tarballSize / 1024 / 1024).toFixed(2)} MB`);
   console.log(`  Pages: ${pages.length}`);
-  console.log(`  Images: ${images.length}`);
+  console.log(`  Images: ${opts.includeImages ? images.length : 0} (${opts.includeImages ? "included" : "excluded"})`);
   console.log(`  Version: ${opts.version}`);
 }
 

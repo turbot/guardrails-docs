@@ -1,3 +1,4 @@
+run-name: "Export docs to registry (${{ inputs.environment }}) - ${{ inputs.version || github.run_id }}"
 name: Export docs to registry
 
 on:
@@ -19,7 +20,7 @@ on:
         description: "Include base64-encoded images in export"
         required: false
         type: boolean
-        default: false
+        default: true
 
 permissions:
   id-token: write
@@ -61,9 +62,6 @@ jobs:
             --branch "${{ github.ref_name }}" \
             ${{ inputs.include_images == true && '--include-images' || '' }}
 
-      - name: Compress output
-        run: gzip -k dist/guardrails-docs.json
-
       - name: Report build summary
         run: |
           echo "## Docs Export Summary" >> "$GITHUB_STEP_SUMMARY"
@@ -75,13 +73,8 @@ jobs:
           echo "| Commit | \`${{ github.sha }}\` |" >> "$GITHUB_STEP_SUMMARY"
           echo "| Images included | \`${{ inputs.include_images }}\` |" >> "$GITHUB_STEP_SUMMARY"
 
-          UNCOMPRESSED=$(stat -c%s dist/guardrails-docs.json 2>/dev/null || stat -f%z dist/guardrails-docs.json)
-          COMPRESSED=$(stat -c%s dist/guardrails-docs.json.gz 2>/dev/null || stat -f%z dist/guardrails-docs.json.gz)
-          PAGE_COUNT=$(node -e "const d=require('./dist/guardrails-docs.json'); console.log(d.metadata.pageCount)")
-
-          echo "| Pages | ${PAGE_COUNT} |" >> "$GITHUB_STEP_SUMMARY"
-          echo "| Size (uncompressed) | $(numfmt --to=iec ${UNCOMPRESSED} 2>/dev/null || echo "${UNCOMPRESSED} bytes") |" >> "$GITHUB_STEP_SUMMARY"
-          echo "| Size (gzipped) | $(numfmt --to=iec ${COMPRESSED} 2>/dev/null || echo "${COMPRESSED} bytes") |" >> "$GITHUB_STEP_SUMMARY"
+          TARBALL_SIZE=$(stat -c%s dist/guardrails-docs.tar.gz 2>/dev/null || stat -f%z dist/guardrails-docs.tar.gz)
+          echo "| Tarball size | $(numfmt --to=iec ${TARBALL_SIZE} 2>/dev/null || echo "${TARBALL_SIZE} bytes") |" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Select role ARN
         id: role
@@ -103,19 +96,15 @@ jobs:
           BUCKET: turbot-mod-repository-${{ inputs.environment }}
           VERSION: ${{ steps.version.outputs.version }}
         run: |
-          aws s3 cp dist/guardrails-docs.json.gz \
-            "s3://${BUCKET}/docs/${VERSION}/guardrails-docs.json.gz" \
-            --content-type "application/json" \
-            --content-encoding "gzip"
+          aws s3 cp dist/guardrails-docs.tar.gz \
+            "s3://${BUCKET}/docs/${VERSION}/guardrails-docs.tar.gz"
 
       - name: Upload to S3 (latest)
         env:
           BUCKET: turbot-mod-repository-${{ inputs.environment }}
         run: |
-          aws s3 cp dist/guardrails-docs.json.gz \
-            "s3://${BUCKET}/docs/latest/guardrails-docs.json.gz" \
-            --content-type "application/json" \
-            --content-encoding "gzip"
+          aws s3 cp dist/guardrails-docs.tar.gz \
+            "s3://${BUCKET}/docs/latest/guardrails-docs.tar.gz"
 
       - name: Prune old versions (keep last 5)
         env:
@@ -144,7 +133,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: guardrails-docs-${{ steps.version.outputs.version }}
-          path: |
-            dist/guardrails-docs.json
-            dist/guardrails-docs.json.gz
+          path: dist/guardrails-docs.tar.gz
           retention-days: 30
