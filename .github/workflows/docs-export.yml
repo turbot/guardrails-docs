@@ -36,7 +36,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install dependencies
+      - name: Install system dependencies
+        run: sudo apt-get install -y --no-install-recommends webp
+
+      - name: Install node dependencies
         run: npm install gray-matter glob
 
       - name: Set version

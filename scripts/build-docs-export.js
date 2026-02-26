@@ -141,51 +141,87 @@ async function processPages() {
 }
 
 /**
- * Collect image references from page content.
- * Returns the set of image paths found in the repo.
+ * Collect all images: co-located images next to markdown files in docs/,
+ * and images from the top-level images/ directory.
  */
-function collectImages(pages) {
-  const imageRefs = new Set();
+async function collectImages() {
+  const found = [];
 
-  for (const page of pages) {
-    // Match <img src="/images/..." /> patterns
-    const imgTagRegex = /src="(\/images\/[^"]+)"/g;
-    let match;
-    while ((match = imgTagRegex.exec(page.content)) !== null) {
-      imageRefs.add(match[1]);
-    }
-
-    // Match ![alt](/images/...) markdown patterns
-    const mdImgRegex = /!\[[^\]]*\]\((\/images\/[^)]+)\)/g;
-    while ((match = mdImgRegex.exec(page.content)) !== null) {
-      imageRefs.add(match[1]);
-    }
+  // 1. Co-located images inside docs/ (e.g., docs/foo/bar/screenshot.png)
+  const docsImages = await glob("**/*.{png,jpg,jpeg,gif,svg,webp}", {
+    cwd: DOCS_DIR,
+  });
+  for (const file of docsImages.sort()) {
+    found.push({
+      stagePath: path.join("docs", file),
+      filePath: path.join(DOCS_DIR, file),
+    });
   }
 
-  const found = [];
-  const repoRoot = path.resolve(__dirname, "..");
-
-  for (const ref of [...imageRefs].sort()) {
-    const filePath = path.join(repoRoot, ref);
-    if (!fs.existsSync(filePath)) {
-      console.warn(`Warning: referenced image not found: ${ref}`);
-      continue;
+  // 2. Top-level images/ directory
+  if (fs.existsSync(IMAGES_DIR)) {
+    const topImages = await glob("**/*.{png,jpg,jpeg,gif,svg,webp}", {
+      cwd: IMAGES_DIR,
+    });
+    for (const file of topImages.sort()) {
+      found.push({
+        stagePath: path.join("images", file),
+        filePath: path.join(IMAGES_DIR, file),
+      });
     }
-    found.push({ ref, filePath });
   }
 
   return found;
 }
 
 /**
- * Copy images into the staging directory preserving their path structure.
+ * Check if cwebp is available for PNG→WebP conversion.
+ */
+function hasCwebp() {
+  try {
+    execSync("cwebp -version", { stdio: "ignore" });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Copy images into the staging directory, converting PNGs to WebP
+ * when cwebp is available.
  */
 function stageImages(images) {
-  for (const { ref, filePath } of images) {
-    // ref is like /images/foo/bar.png → stage as images/foo/bar.png
-    const dest = path.join(STAGING_DIR, ref.replace(/^\//, ""));
+  const canConvert = hasCwebp();
+  if (canConvert) {
+    console.log("  cwebp found — converting PNGs to WebP");
+  } else {
+    console.log("  cwebp not found — copying PNGs as-is (install webp package for smaller output)");
+  }
+
+  let converted = 0;
+  for (const { stagePath, filePath } of images) {
+    const ext = path.extname(filePath).toLowerCase();
+
+    if (canConvert && ext === ".png") {
+      const webpStagePath = stagePath.replace(/\.png$/i, ".webp");
+      const dest = path.join(STAGING_DIR, webpStagePath);
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      try {
+        execSync(`cwebp -q 80 "${filePath}" -o "${dest}"`, { stdio: "ignore" });
+        converted++;
+        continue;
+      } catch {
+        // Fall through to copy original on conversion failure
+      }
+    }
+
+    const dest = path.join(STAGING_DIR, stagePath);
     fs.mkdirSync(path.dirname(dest), { recursive: true });
     fs.copyFileSync(filePath, dest);
+  }
+
+  if (converted > 0) {
+    console.log(`  Converted ${converted} PNGs to WebP`);
   }
 }
 
@@ -210,8 +246,8 @@ async function main() {
 
   // Collect and stage images
   console.log("Collecting images...");
-  const images = collectImages(pages);
-  console.log(`  Found ${images.length} images in repo`);
+  const images = await collectImages();
+  console.log(`  Found ${images.length} images`);
 
   if (images.length > 0) {
     console.log("Staging images...");
