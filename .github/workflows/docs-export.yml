@@ -13,7 +13,7 @@ on:
           - staging
           - production
       version:
-        description: "Version tag (default: date-based YYYY.MM.DD)"
+        description: "Version tag (default: date-based YYYY.MM.DD.HHMMSS)"
         required: false
         type: string
       include_images:
@@ -50,7 +50,7 @@ jobs:
           if [ -n "${{ inputs.version }}" ]; then
             echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
           else
-            echo "version=$(date +%Y.%m.%d)" >> "$GITHUB_OUTPUT"
+            echo "version=$(date +%Y.%m.%d.%H%M%S)" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Build docs export
