@@ -12,26 +12,21 @@ on:
           - development
           - staging
           - production
+          - all
       version:
         description: "Version tag (default: date-based YYYY.MM.DD.HHMMSS)"
         required: false
         type: string
-      include_images:
-        description: "Include base64-encoded images in export"
-        required: false
-        type: boolean
-        default: true
 
 permissions:
   id-token: write
   contents: read
 
 jobs:
-  export-docs:
+  build:
     runs-on: ubuntu-latest
     env:
       NODE_VERSION: "20"
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -54,13 +49,12 @@ jobs:
           fi
 
       - name: Build docs export
-        id: build
         run: |
           node scripts/build-docs-export.js \
             --version "${{ steps.version.outputs.version }}" \
             --commit-sha "${{ github.sha }}" \
             --branch "${{ github.ref_name }}" \
-            ${{ inputs.include_images == true && '--include-images' || '' }}
+            --include-images
 
       - name: Report build summary
         run: |
@@ -71,15 +65,39 @@ jobs:
           echo "| Environment | \`${{ inputs.environment }}\` |" >> "$GITHUB_STEP_SUMMARY"
           echo "| Version | \`${{ steps.version.outputs.version }}\` |" >> "$GITHUB_STEP_SUMMARY"
           echo "| Commit | \`${{ github.sha }}\` |" >> "$GITHUB_STEP_SUMMARY"
-          echo "| Images included | \`${{ inputs.include_images }}\` |" >> "$GITHUB_STEP_SUMMARY"
 
           TARBALL_SIZE=$(stat -c%s dist/guardrails-docs.tar.gz 2>/dev/null || stat -f%z dist/guardrails-docs.tar.gz)
           echo "| Tarball size | $(numfmt --to=iec ${TARBALL_SIZE} 2>/dev/null || echo "${TARBALL_SIZE} bytes") |" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: guardrails-docs-${{ steps.version.outputs.version }}
+          path: dist/guardrails-docs.tar.gz
+          retention-days: 30
+
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target: ${{ fromJson(
+          inputs.environment == 'all' && '["development","staging","production"]' ||
+          format('["{0}"]', inputs.environment)
+          ) }}
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: guardrails-docs-${{ needs.build.outputs.version }}
+
       - name: Select role ARN
         id: role
         run: |
-          case "${{ inputs.environment }}" in
+          case "${{ matrix.target }}" in
             production)  echo "arn=${{ secrets.AWS_ROLE_ARN_PROD }}" >> "$GITHUB_OUTPUT" ;;
             staging)     echo "arn=${{ secrets.AWS_ROLE_ARN_STG }}"  >> "$GITHUB_OUTPUT" ;;
             development) echo "arn=${{ secrets.AWS_ROLE_ARN_DEV }}"  >> "$GITHUB_OUTPUT" ;;
@@ -93,22 +111,22 @@ jobs:
 
       - name: Upload to S3 (versioned)
         env:
-          BUCKET: turbot-mod-repository-${{ inputs.environment }}
-          VERSION: ${{ steps.version.outputs.version }}
+          BUCKET: turbot-mod-repository-${{ matrix.target }}
+          VERSION: ${{ needs.build.outputs.version }}
         run: |
-          aws s3 cp dist/guardrails-docs.tar.gz \
+          aws s3 cp guardrails-docs.tar.gz \
             "s3://${BUCKET}/docs/${VERSION}/guardrails-docs.tar.gz"
 
       - name: Upload to S3 (latest)
         env:
-          BUCKET: turbot-mod-repository-${{ inputs.environment }}
+          BUCKET: turbot-mod-repository-${{ matrix.target }}
         run: |
-          aws s3 cp dist/guardrails-docs.tar.gz \
+          aws s3 cp guardrails-docs.tar.gz \
             "s3://${BUCKET}/docs/latest/guardrails-docs.tar.gz"
 
       - name: Prune old versions (keep last 5)
         env:
-          BUCKET: turbot-mod-repository-${{ inputs.environment }}
+          BUCKET: turbot-mod-repository-${{ matrix.target }}
         run: |
           # List all version prefixes under docs/, excluding "latest/"
           VERSIONS=$(aws s3api list-objects-v2 \
@@ -128,10 +146,3 @@ jobs:
           done
 
           echo "Kept $([ ${COUNT} -le 5 ] && echo ${COUNT} || echo 5) versions, deleted $([ ${COUNT} -gt 5 ] && echo $((COUNT - 5)) || echo 0)"
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: guardrails-docs-${{ steps.version.outputs.version }}
-          path: dist/guardrails-docs.tar.gz
-          retention-days: 30

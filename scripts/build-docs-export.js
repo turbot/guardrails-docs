@@ -11,13 +11,12 @@
  *   node scripts/build-docs-export.js \
  *     --version "2026.02.26" \
  *     --commit-sha "abc123" \
- *     --branch "main" \
- *     [--include-images]
+ *     --branch "main"
  *
  * Output:
  *   dist/guardrails-docs.tar.gz
  *     ├── guardrails-docs.json
- *     └── images/          (if --include-images)
+ *     └── images/
  *         ├── foo.png
  *         └── ...
  */
@@ -40,7 +39,6 @@ function parseArgs() {
     version: null,
     commitSha: null,
     branch: null,
-    includeImages: false,
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -53,9 +51,6 @@ function parseArgs() {
         break;
       case "--branch":
         opts.branch = args[++i];
-        break;
-      case "--include-images":
-        opts.includeImages = true;
         break;
     }
   }
@@ -213,10 +208,15 @@ async function main() {
   const pages = await processPages();
   console.log(`  Found ${pages.length} pages`);
 
-  // Collect images
+  // Collect and stage images
   console.log("Collecting images...");
   const images = collectImages(pages);
   console.log(`  Found ${images.length} images in repo`);
+
+  if (images.length > 0) {
+    console.log("Staging images...");
+    stageImages(images);
+  }
 
   // Assemble JSON
   const output = {
@@ -226,7 +226,7 @@ async function main() {
       branch: opts.branch,
       version: opts.version,
       pageCount: pages.length,
-      imageCount: opts.includeImages ? images.length : 0,
+      imageCount: images.length,
     },
     sidebar,
     pages,
@@ -236,12 +236,6 @@ async function main() {
   const jsonPath = path.join(STAGING_DIR, "guardrails-docs.json");
   const json = JSON.stringify(output, null, 2);
   fs.writeFileSync(jsonPath, json);
-
-  // Copy images to staging if requested
-  if (opts.includeImages && images.length > 0) {
-    console.log("Staging images...");
-    stageImages(images);
-  }
 
   // Create tarball
   console.log("Creating tarball...");
@@ -259,7 +253,7 @@ async function main() {
   console.log(`  JSON size: ${(jsonSize / 1024 / 1024).toFixed(2)} MB`);
   console.log(`  Tarball size: ${(tarballSize / 1024 / 1024).toFixed(2)} MB`);
   console.log(`  Pages: ${pages.length}`);
-  console.log(`  Images: ${opts.includeImages ? images.length : 0} (${opts.includeImages ? "included" : "excluded"})`);
+  console.log(`  Images: ${images.length}`);
   console.log(`  Version: ${opts.version}`);
 }
 
