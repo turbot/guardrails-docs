@@ -21,6 +21,86 @@ For your docs to appear in the sidebar, you need to edit `docs/sidebar.json`. Th
 
 Any images required by docs must be placed in `/images/docs/...` and must be referenced by the tag `<img src="/images/docs/..." />`.
 
+# Docs Export
+
+The documentation can be exported as a tarball for consumption by the Turbot Registry and other downstream systems.
+
+## Export Format
+
+The export produces a `guardrails-docs.tar.gz` containing:
+
+```
+guardrails-docs.tar.gz
+├── guardrails-docs.json          # All pages, sidebar, and metadata
+├── docs/                         # Co-located images from docs/
+│   ├── getting-started/
+│   │   └── *.webp
+│   ├── prevention/
+│   │   └── *.webp
+│   └── ...
+└── images/                       # Top-level images
+    └── *.webp
+```
+
+PNGs are converted to WebP during export for smaller file sizes.
+
+## guardrails-docs.json Schema
+
+```json
+{
+  "metadata": {
+    "exportedAt": "2026-02-26T12:00:00Z",
+    "commitSha": "abc123def",
+    "branch": "main",
+    "version": "2026.02.26.143052",
+    "pageCount": 369,
+    "imageCount": 1496
+  },
+  "sidebar": [
+    {
+      "type": "category",
+      "id": "getting-started",
+      "link": "getting-started",
+      "items": ["getting-started/7-minute-labs/set-policy", "..."]
+    }
+  ],
+  "pages": [
+    {
+      "id": "getting-started/7-minute-labs/set-policy",
+      "path": "getting-started/7-minute-labs/set-policy/index.md",
+      "title": "Set a Policy",
+      "sidebar_label": "Set a Policy",
+      "slug": null,
+      "content": "Markdown content without frontmatter..."
+    }
+  ]
+}
+```
+
+### Fields
+
+**metadata**
+- `exportedAt` — ISO 8601 timestamp of the export
+- `commitSha` — Git commit SHA the export was built from
+- `branch` — Source branch name
+- `version` — Version tag (date-based `YYYY.MM.DD.HHMMSS` by default)
+- `pageCount` — Total number of markdown pages
+- `imageCount` — Total number of images included in the tarball
+
+**sidebar** — Fully resolved navigation tree. All `placeholder` entries are expanded inline. Entry types are `category` (with nested `items`), `external` (with `link` and `label`), or bare strings (page IDs).
+
+**pages** — Array of all documentation pages. Each page has:
+- `id` — Unique identifier derived from file path (e.g., `getting-started/7-minute-labs/set-policy`)
+- `path` — Original file path relative to `docs/` (e.g., `getting-started/7-minute-labs/set-policy/index.md`)
+- `title` — From YAML frontmatter
+- `sidebar_label` — From YAML frontmatter
+- `slug` — From YAML frontmatter (null for most pages, `/` for the index)
+- `content` — Raw markdown body (frontmatter stripped)
+
+## Running the Export
+
+See [scripts/README.md](scripts/README.md) for local usage, GitHub Actions workflow, and infrastructure setup.
+
 # Guidelines for contribution
 
 <!-- Thank you for your interest in contributing to Guardrails documentation! We greatly value feedback and contributions from our community. -->

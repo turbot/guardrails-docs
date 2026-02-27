@@ -15,16 +15,6 @@ Parameters:
     Default: guardrails-docs
     Description: GitHub repository name
 
-  GitHubOrg2:
-    Type: String
-    Default: turbotio
-    Description: Second GitHub organization name
-
-  GitHubRepo2:
-    Type: String
-    Default: turbot.com
-    Description: Second GitHub repository name
-
   S3BucketName:
     Type: String
     AllowedValues:
@@ -78,9 +68,7 @@ Resources:
               StringEquals:
                 token.actions.githubusercontent.com:aud: sts.amazonaws.com
               StringLike:
-                token.actions.githubusercontent.com:sub:
-                  - !Sub repo:${GitHubOrg}/${GitHubRepo}:*
-                  - !Sub repo:${GitHubOrg2}/${GitHubRepo2}:*
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOrg}/${GitHubRepo}:*
       Policies:
         - PolicyName: docs-export-s3-write
           PolicyDocument:
@@ -93,7 +81,6 @@ Resources:
                   - s3:DeleteObject
                 Resource:
                   - !Sub arn:aws:s3:::${S3BucketName}/docs/*
-                  - !Sub arn:aws:s3:::${S3BucketName}/policy-packs/*
               - Effect: Allow
                 Action:
                   - s3:ListBucket
@@ -101,9 +88,7 @@ Resources:
                   - !Sub arn:aws:s3:::${S3BucketName}
                 Condition:
                   StringLike:
-                    s3:prefix:
-                      - "docs/*"
-                      - "policy-packs/*"
+                    s3:prefix: "docs/*"
 
 Outputs:
   RoleArn:
@@ -113,7 +98,7 @@ Outputs:
   GitHubSecretName:
     Description: Store the RoleArn under this GitHub secret name
     Value: !If
-      - IsDev
+      - IsDevH
       - AWS_ROLE_ARN_DEV
       - !If
         - IsStg

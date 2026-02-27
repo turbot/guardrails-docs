@@ -1,29 +1,37 @@
 #!/usr/bin/env node
 
 /**
- * Build docs export JSON for the Turbot Registry.
+ * Build docs export tarball for the Turbot Registry.
  *
  * Reads all markdown files from docs/, parses frontmatter,
- * resolves the sidebar navigation, and outputs a single
- * guardrails-docs.json file.
+ * resolves the sidebar navigation, and produces a tarball
+ * containing guardrails-docs.json + original image files.
  *
  * Usage:
  *   node scripts/build-docs-export.js \
  *     --version "2026.02.26" \
  *     --commit-sha "abc123" \
- *     --branch "main" \
- *     [--include-images]
+ *     --branch "main"
+ *
+ * Output:
+ *   dist/guardrails-docs.tar.gz
+ *     ├── guardrails-docs.json
+ *     └── images/
+ *         ├── foo.png
+ *         └── ...
  */
 
 const fs = require("fs");
 const path = require("path");
+const { execSync } = require("child_process");
 const matter = require("gray-matter");
 const { glob } = require("glob");
 
 const DOCS_DIR = path.resolve(__dirname, "../docs");
 const IMAGES_DIR = path.resolve(__dirname, "../images");
 const OUTPUT_DIR = path.resolve(__dirname, "../dist");
-const OUTPUT_FILE = path.join(OUTPUT_DIR, "guardrails-docs.json");
+const STAGING_DIR = path.join(OUTPUT_DIR, "staging");
+const OUTPUT_TARBALL = path.join(OUTPUT_DIR, "guardrails-docs.tar.gz");
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -31,7 +39,6 @@ function parseArgs() {
     version: null,
     commitSha: null,
     branch: null,
-    includeImages: false,
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -45,15 +52,12 @@ function parseArgs() {
       case "--branch":
         opts.branch = args[++i];
         break;
-      case "--include-images":
-        opts.includeImages = true;
-        break;
     }
   }
 
   if (!opts.version) {
     const now = new Date();
-    opts.version = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, "0")}.${String(now.getDate()).padStart(2, "0")}`;
+    opts.version = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, "0")}.${String(now.getDate()).padStart(2, "0")}.${String(now.getHours()).padStart(2, "0")}${String(now.getMinutes()).padStart(2, "0")}${String(now.getSeconds()).padStart(2, "0")}`;
   }
 
   return opts;
@@ -137,68 +141,98 @@ async function processPages() {
 }
 
 /**
- * Collect image references from page content and optionally
- * base64-encode them.
+ * Collect all images: co-located images next to markdown files in docs/,
+ * and images from the top-level images/ directory.
  */
-function collectImages(pages, includeBase64) {
-  const imageRefs = new Set();
+async function collectImages() {
+  const found = [];
 
-  for (const page of pages) {
-    // Match <img src="/images/..." /> patterns
-    const imgTagRegex = /src="(\/images\/[^"]+)"/g;
-    let match;
-    while ((match = imgTagRegex.exec(page.content)) !== null) {
-      imageRefs.add(match[1]);
-    }
+  // 1. Co-located images inside docs/ (e.g., docs/foo/bar/screenshot.png)
+  const docsImages = await glob("**/*.{png,jpg,jpeg,gif,svg,webp}", {
+    cwd: DOCS_DIR,
+  });
+  for (const file of docsImages.sort()) {
+    found.push({
+      stagePath: path.join("docs", file),
+      filePath: path.join(DOCS_DIR, file),
+    });
+  }
 
-    // Match ![alt](/images/...) markdown patterns
-    const mdImgRegex = /!\[[^\]]*\]\((\/images\/[^)]+)\)/g;
-    while ((match = mdImgRegex.exec(page.content)) !== null) {
-      imageRefs.add(match[1]);
+  // 2. Top-level images/ directory
+  if (fs.existsSync(IMAGES_DIR)) {
+    const topImages = await glob("**/*.{png,jpg,jpeg,gif,svg,webp}", {
+      cwd: IMAGES_DIR,
+    });
+    for (const file of topImages.sort()) {
+      found.push({
+        stagePath: path.join("images", file),
+        filePath: path.join(IMAGES_DIR, file),
+      });
     }
   }
 
-  const images = [];
-  const repoRoot = path.resolve(__dirname, "..");
+  return found;
+}
 
-  for (const ref of [...imageRefs].sort()) {
-    const filePath = path.join(repoRoot, ref);
-    if (!fs.existsSync(filePath)) {
-      console.warn(`Warning: referenced image not found: ${ref}`);
-      continue;
-    }
+/**
+ * Check if cwebp is available for PNG→WebP conversion.
+ */
+function hasCwebp() {
+  try {
+    execSync("cwebp -version", { stdio: "ignore" });
+    return true;
+  } catch {
+    return false;
+  }
+}
 
-    const stat = fs.statSync(filePath);
+/**
+ * Copy images into the staging directory, converting PNGs to WebP
+ * when cwebp is available.
+ */
+function stageImages(images) {
+  const canConvert = hasCwebp();
+  if (canConvert) {
+    console.log("  cwebp found — converting PNGs to WebP");
+  } else {
+    console.log("  cwebp not found — copying PNGs as-is (install webp package for smaller output)");
+  }
+
+  let converted = 0;
+  for (const { stagePath, filePath } of images) {
     const ext = path.extname(filePath).toLowerCase();
-    const contentTypeMap = {
-      ".png": "image/png",
-      ".jpg": "image/jpeg",
-      ".jpeg": "image/jpeg",
-      ".gif": "image/gif",
-      ".svg": "image/svg+xml",
-      ".webp": "image/webp",
-    };
 
-    const image = {
-      path: ref,
-      contentType: contentTypeMap[ext] || "application/octet-stream",
-      sizeBytes: stat.size,
-    };
-
-    if (includeBase64) {
-      image.base64 = fs.readFileSync(filePath).toString("base64");
+    if (canConvert && ext === ".png") {
+      const webpStagePath = stagePath.replace(/\.png$/i, ".webp");
+      const dest = path.join(STAGING_DIR, webpStagePath);
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      try {
+        execSync(`cwebp -q 80 "${filePath}" -o "${dest}"`, { stdio: "ignore" });
+        converted++;
+        continue;
+      } catch {
+        // Fall through to copy original on conversion failure
+      }
     }
 
-    images.push(image);
+    const dest = path.join(STAGING_DIR, stagePath);
+    fs.mkdirSync(path.dirname(dest), { recursive: true });
+    fs.copyFileSync(filePath, dest);
   }
 
-  return images;
+  if (converted > 0) {
+    console.log(`  Converted ${converted} PNGs to WebP`);
+  }
 }
 
 async function main() {
   const opts = parseArgs();
 
   console.log(`Building docs export v${opts.version}...`);
+
+  // Clean staging directory
+  fs.rmSync(STAGING_DIR, { recursive: true, force: true });
+  fs.mkdirSync(STAGING_DIR, { recursive: true });
 
   // Resolve sidebar
   const sidebarPath = path.join(DOCS_DIR, "sidebar.json");
@@ -210,14 +244,17 @@ async function main() {
   const pages = await processPages();
   console.log(`  Found ${pages.length} pages`);
 
-  // Collect images
-  console.log(
-    `Collecting images (include base64: ${opts.includeImages})...`
-  );
-  const images = collectImages(pages, opts.includeImages);
-  console.log(`  Found ${images.length} image references`);
+  // Collect and stage images
+  console.log("Collecting images...");
+  const images = await collectImages();
+  console.log(`  Found ${images.length} images`);
 
-  // Assemble output
+  if (images.length > 0) {
+    console.log("Staging images...");
+    stageImages(images);
+  }
+
+  // Assemble JSON
   const output = {
     metadata: {
       exportedAt: new Date().toISOString(),
@@ -231,24 +268,26 @@ async function main() {
     pages,
   };
 
-  // Include images array only if there are entries
-  if (images.length > 0) {
-    if (opts.includeImages) {
-      output.images = images;
-    } else {
-      output.imageManifest = images;
-    }
-  }
-
-  // Write output
-  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  // Write JSON to staging
+  const jsonPath = path.join(STAGING_DIR, "guardrails-docs.json");
   const json = JSON.stringify(output, null, 2);
-  fs.writeFileSync(OUTPUT_FILE, json);
+  fs.writeFileSync(jsonPath, json);
 
-  const sizeMB = (Buffer.byteLength(json) / 1024 / 1024).toFixed(2);
+  // Create tarball
+  console.log("Creating tarball...");
+  execSync(`tar -czf "${OUTPUT_TARBALL}" -C "${STAGING_DIR}" .`, {
+    stdio: "inherit",
+  });
+
+  // Clean up staging
+  fs.rmSync(STAGING_DIR, { recursive: true, force: true });
+
+  const tarballSize = fs.statSync(OUTPUT_TARBALL).size;
+  const jsonSize = Buffer.byteLength(json);
   console.log(`\nExport complete:`);
-  console.log(`  Output: ${OUTPUT_FILE}`);
-  console.log(`  Size: ${sizeMB} MB`);
+  console.log(`  Output: ${OUTPUT_TARBALL}`);
+  console.log(`  JSON size: ${(jsonSize / 1024 / 1024).toFixed(2)} MB`);
+  console.log(`  Tarball size: ${(tarballSize / 1024 / 1024).toFixed(2)} MB`);
   console.log(`  Pages: ${pages.length}`);
   console.log(`  Images: ${images.length}`);
   console.log(`  Version: ${opts.version}`);
