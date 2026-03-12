@@ -20,52 +20,77 @@ Guardrails won't be able to get very far with Discovery!
 
 ## Guardrails Console
 
-![Guardrails Import](/images/docs/guardrails/turbot_import_tile.png)
+To import an account, navigate to **Accounts** in the left sidebar, then click the **Actions** dropdown and select **Connect Account**.
 
-Pick a cloud resource to import
+![Accounts page with Actions dropdown showing Connect Account option](/images/docs/guardrails/connect-account/connect-account-action.png)
 
-![Guardrails Account Type](/images/docs/guardrails/turbot_account_type.png)
+Select your cloud provider:
+
+![Cloud provider selection (AWS, Azure, GCP)](/images/docs/guardrails/connect-account/service-selection.png)
 
 ### AWS
 
-This is the information required to import an AWS Account.
+AWS supports importing individual accounts or entire AWS Organizations.
 
-![New AWS Account](/images/docs/guardrails/turbot_new_account.png)
+**AWS Account**: Import a single AWS account with cross-account IAM role access.
+
+**AWS Organization**: Import your entire AWS Organization hierarchy, including all OUs and member accounts. Organizations import includes:
+- **Discovery Levels**: Configure which OUs and accounts to import at the resource level (full import), account level (metadata only), or exclude entirely.
+- **Test Discovery**: Validate your organization structure before committing to import.
+- **Test Connection**: Verify member account role access before import.
+
+For detailed instructions, see:
+- [Import AWS Account](guides/aws/import-aws-account)
+- [Import AWS Organization](guides/aws/import-aws-organization)
+
+![AWS account type selection showing Account and Organization options](/images/docs/guardrails/connect-account/connect-aws/aws-account-type-selection.png)
 
 ### Azure
 
+Azure supports importing subscriptions, tenants, management groups, and Active Directory.
+
 #### Subscription
 
-This is the information required to import an Azure Subscription.
+Import an individual Azure Subscription.
 
 ![New Azure Subscription](/images/docs/guardrails/turbot_new_subscription.png)
 
 #### Tenant
 
-This is the information required to import an Azure Tenant.
+Import an Azure Tenant to manage multiple subscriptions.
 
 ![New Azure Tenant](/images/docs/guardrails/turbot_new_tenant.png)
 
 #### Management Group
 
-This is the information required to import an Azure Management Group.
+Import an Azure Management Group hierarchy.
 
 ![New Azure Management Group](/images/docs/guardrails/turbot_new_management_group.png)
 
 #### Active Directory
 
-This is the information required to import an Azure Subscription.
+Import Azure Active Directory for identity governance.
 
 ![New Azure Subscription](/images/docs/guardrails/turbot_new_subscription.png)
 
+For detailed instructions, see [Import Azure Resources](guides/azure/import).
+
 ### GCP
 
-This is the information required to import an GCP Project.
+GCP supports importing individual projects or entire organizations.
 
 #### Simple import
+
+Import a GCP Project with basic configuration.
 
 ![New GCP Project Simple](/images/docs/guardrails/turbot_new_project_simple.png)
 
 #### Advanced import
 
+Import a GCP Project with advanced options.
+
 ![New GCP Project Advanced](/images/docs/guardrails/turbot_new_project_advanced.png)
+
+For detailed instructions, see:
+- [Import GCP Project](guides/gcp/import-gcp-project)
+- [Import GCP Organization](guides/gcp/import-gcp-organization)

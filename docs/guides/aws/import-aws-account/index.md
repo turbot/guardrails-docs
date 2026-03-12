@@ -557,23 +557,49 @@ management over importing directly under the Turbot level. Define a
 ### Importing Account via Guardrails Console
 
 1. At the main Guardrails console after logging in with `Turbot/Admin` permissions,
-   click the purple **IMPORT** card in the top right.
+   navigate to **Accounts** in the left sidebar, then click the **Actions** dropdown
+   and select **Connect Account**.
+  ![Accounts page with Actions dropdown showing Connect Account option](/images/docs/guardrails/connect-account/connect-account-action.png)
 
-2. Select **AWS Account** on the left.
 
-3. Use the **Parent Resource** dropdown menu to select the folder where the AWS account
-   will be imported.
+2. Select **AWS** as the cloud provider.
+  ![Cloud provider selection](/images/docs/guardrails/connect-account/service-selection.png)
 
-4. Enter the **Account ID** in the field.
 
-5. Copy the **IAM Role ARN** that was created earlier and paste into the field. The IAM role must be in the account to
-   be imported.  Do the same with the **IAM Role External ID**.
+3. Select **AWS Account** as the account type.
+  ![AWS account type selection showing Account and Organization options](/images/docs/guardrails/connect-account/connect-aws/aws-account-type-selection.png)
 
-6. Click import!
 
-7. CMDB and Discovery controls are enabled by default and Guardrails will begin
-   discovering the resources in your AWS account. Resources will start appearing
-   right away, and resource discovery will continue to run in the background.
+4. Use the **Choose your folder** dropdown to select the folder where the AWS account
+   will be imported. Click **Next**.
+  ![AWS account folder selection](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-folder-selection.png)
+
+
+5. Configure the account access settings:
+   - Select the **Environment** (Commercial Cloud, US Government, or China Cloud).
+   - Enter the **Role Name** for the IAM role you created.
+   - Enter the **External ID** (use the auto-generated value or provide your own).
+  ![AWS account access settings](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-connectivity-form.png)
+
+
+6. Click the **Download CloudFormation Template** button to download the IAM role template
+   pre-configured with your settings. Deploy this template in your AWS account if you
+   haven't already created the IAM role.
+
+7. Enter the **IAM Role ARN** of the role you created in the AWS account.
+  ![Role ARN field with value entered](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-role-arn.png)
+
+
+8. Click **Test Connection** to verify Guardrails can access your AWS account.
+  ![Test Connection button](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-test-connection.png)
+
+9. Click **Connect** to import the account.
+  ![Connect button](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-connect-button.png)
+
+10. CMDB and Discovery controls are enabled by default and Guardrails will begin
+    discovering the resources in your AWS account. Resources will start appearing
+    right away, and resource discovery will continue to run in the background.
+  ![Import progress bar](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-discovery-progress.png)
 
 ### Importing Account via Terraform
 

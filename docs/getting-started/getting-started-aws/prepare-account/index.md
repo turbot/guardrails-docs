@@ -20,21 +20,36 @@ This is the first guide in the *Getting started with AWS* series.
 
 ## Step 1: Login to Guardrails
 
-Login to your Guardrails console and select the **CONNECT** option from the home page.
+Login to your Guardrails console and navigate to **Accounts** in the left sidebar. Click the **Actions** dropdown and select **Connect Account**.
 
-<p><img alt="locate-top-level-connect" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/locate-top-level-connect.png"/></p>
+![Accounts page with Actions dropdown showing Connect Account option](/images/docs/guardrails/connect-account/connect-account-action.png)
 
-Select **AWS**.
+Select **AWS** as the cloud provider.
 
-<p><img alt="locate-top-level-connect" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/initial-connect-screen.png"/></p>
+![Cloud provider selection](/images/docs/guardrails/connect-account/service-selection.png)
 
 ## Step 2: Download the CloudFormation template
 
 Guardrails needs an IAM role that grants permission to discover [resources](/guardrails/docs/reference/glossary#resource) in your account and to monitor changes via event handlers. The CloudFormation template downloaded in this step has the minimum permissions necessary to create that role.
 
-Select **AWS Account** from the left navigation and then click the blue **Download CloudFormation Template** button to download the CloudFormation template you will use to create the required IAM role in your AWS account.
+1. Select **AWS Account** as the account type.
 
-<p><img alt="initial-connect-screen" src=" /images/docs/guardrails/getting-started/getting-started-aws/prepare-account/download-cloudformation-template.png"/></p>
+![AWS account type selection options](/images/docs/guardrails/connect-account/connect-aws/aws-account-type-selection.png)
+
+2. Select a destination folder using the **Choose your folder** dropdown, then click **Next**.
+
+![AWS account folder selection](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-folder-selection.png)
+
+3. Configure the role settings:
+   - Select the **Environment** (Commercial Cloud is the default).
+   - Enter a **Role Name** (or use the default).
+   - Note the **External ID** that will be used for the IAM role trust policy.
+
+![AWS account role configuration](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-connectivity-settings.png)
+
+4. Click the **Download CloudFormation Template** button to download the template pre-configured with your settings.
+
+![Download CloudFormation Template button](/images/docs/guardrails/connect-account/connect-aws/connect-aws-account/aws-account-connectivity-download-cfn-template.png)
 
 > [!IMPORTANT]
 > Leave this browser tab open while we do the next steps in a different tab. Closing and reopening this page will cause a new random ExternalID to be generated.
