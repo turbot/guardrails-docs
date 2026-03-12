@@ -107,6 +107,50 @@ function resolveItems(items, baseDir) {
 }
 
 /**
+ * Build a slug→label map from processed pages.
+ * Priority: title > sidebar_label > slug-derived.
+ */
+function buildLabelMap(pages) {
+  const map = {};
+  for (const page of pages) {
+    const label = page.title || page.sidebar_label || slugToLabel(page.id);
+    if (label) map[page.id] = label;
+  }
+  return map;
+}
+
+function slugToLabel(slug) {
+  const segment = slug.split("/").pop() || slug;
+  return segment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/**
+ * Enrich a resolved sidebar tree with labels from page frontmatter.
+ * - Leaf strings become { slug, label }
+ * - Categories get label set from frontmatter if missing
+ * - Recurses into children
+ */
+function enrichSidebarLabels(labelMap, items) {
+  if (!Array.isArray(items)) return items;
+  return items.map((item) => {
+    if (typeof item === "string") {
+      const label = labelMap[item];
+      return label ? { slug: item, label } : item;
+    }
+    if (typeof item === "object" && item !== null) {
+      const link = item.link || item.id || "";
+      if (!item.label && link && labelMap[link]) {
+        item.label = labelMap[link];
+      }
+      if (Array.isArray(item.items)) {
+        item.items = enrichSidebarLabels(labelMap, item.items);
+      }
+    }
+    return item;
+  });
+}
+
+/**
  * Process all markdown files in docs/.
  */
 async function processPages() {
@@ -234,15 +278,20 @@ async function main() {
   fs.rmSync(STAGING_DIR, { recursive: true, force: true });
   fs.mkdirSync(STAGING_DIR, { recursive: true });
 
-  // Resolve sidebar
+  // Resolve sidebar (expand placeholders)
   const sidebarPath = path.join(DOCS_DIR, "sidebar.json");
   console.log("Resolving sidebar...");
-  const sidebar = resolveSidebar(sidebarPath);
+  const resolvedSidebar = resolveSidebar(sidebarPath);
 
   // Process pages
   console.log("Processing pages...");
   const pages = await processPages();
   console.log(`  Found ${pages.length} pages`);
+
+  // Enrich sidebar with labels from page frontmatter
+  console.log("Enriching sidebar labels...");
+  const labelMap = buildLabelMap(pages);
+  const sidebar = enrichSidebarLabels(labelMap, resolvedSidebar);
 
   // Collect and stage images
   console.log("Collecting images...");
