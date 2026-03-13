@@ -195,45 +195,104 @@ async function processPages() {
 function collectReferencedImages(pages) {
   const found = new Map(); // filePath → { stagePath, filePath }
 
+  // Build basename→filePath index for images/ and docs/ directories (for fallback lookup)
+  const basenameIndex = {};
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isDirectory()) {
+        walk(path.join(dir, entry.name));
+      } else if (/\.(png|jpg|jpeg|gif|svg|webp)$/i.test(entry.name)) {
+        basenameIndex[entry.name] = path.join(dir, entry.name);
+      }
+    }
+  };
+  if (fs.existsSync(IMAGES_DIR)) walk(IMAGES_DIR);
+  walk(DOCS_DIR);
+
   // Regex patterns for image references
   const htmlImgRe = /src="\s*(\/images\/[^"]+\S)"/g;
   const mdImgRe = /!\[[^\]]*\]\((\.[^)]+)\)/g;
 
-  for (const page of pages) {
-    const raw = page.content;
-    const pageDir = path.dirname(page.path); // relative dir within docs/
-
-    // 1. HTML-style: src="/images/docs/foo.png"
-    let match;
-    while ((match = htmlImgRe.exec(raw)) !== null) {
-      // match[1] is e.g. "/images/docs/foo.png" — strip leading slash
-      const relPath = match[1].replace(/^\//, "");
-      const filePath = path.resolve(__dirname, "..", relPath);
-      if (!found.has(filePath) && fs.existsSync(filePath)) {
-        found.set(filePath, {
-          stagePath: relPath,
-          filePath,
-        });
+  // Resolve an HTML image ref to { filePath, stagePath } or null
+  function resolveHtmlRef(ref) {
+    // Try /images/docs/guardrails/... → docs/...
+    const guardrailsPrefix = "/images/docs/guardrails/";
+    if (ref.startsWith(guardrailsPrefix)) {
+      const docsRelPath = ref.slice(guardrailsPrefix.length);
+      const fp = path.join(DOCS_DIR, docsRelPath);
+      if (fs.existsSync(fp)) {
+        return { filePath: fp, stagePath: path.join("docs", docsRelPath) };
       }
     }
 
-    // 2. Markdown-style: ![alt](./screenshot.png)
+    // Try literal path: /images/... → images/...
+    const relPath = ref.replace(/^\//, "");
+    const fp = path.resolve(__dirname, "..", relPath);
+    if (fs.existsSync(fp)) {
+      return { filePath: fp, stagePath: relPath };
+    }
+
+    // Fallback: basename lookup
+    const bn = path.basename(relPath);
+    const actual = basenameIndex[bn];
+    if (actual) {
+      return {
+        filePath: actual,
+        stagePath: path.relative(path.resolve(__dirname, ".."), actual),
+      };
+    }
+
+    return null;
+  }
+
+  // Resolve a markdown image ref to { filePath, stagePath } or null
+  function resolveMdRef(ref, pageDir) {
+    const resolved = path.resolve(DOCS_DIR, pageDir, ref);
+    if (fs.existsSync(resolved)) {
+      const relInDocs = path.relative(DOCS_DIR, resolved);
+      return { filePath: resolved, stagePath: path.join("docs", relInDocs) };
+    }
+
+    // Fallback: basename lookup
+    const bn = path.basename(ref);
+    const actual = basenameIndex[bn];
+    if (actual) {
+      return {
+        filePath: actual,
+        stagePath: path.relative(path.resolve(__dirname, ".."), actual),
+      };
+    }
+
+    return null;
+  }
+
+  for (const page of pages) {
+    const raw = page.content;
+    const pageDir = path.dirname(page.path);
+
+    let match;
+    while ((match = htmlImgRe.exec(raw)) !== null) {
+      const result = resolveHtmlRef(match[1]);
+      if (result && !found.has(result.filePath)) {
+        found.set(result.filePath, result);
+      }
+    }
+
     while ((match = mdImgRe.exec(raw)) !== null) {
-      const ref = match[1]; // e.g. "./screenshot.png"
-      const resolvedInDocs = path.resolve(DOCS_DIR, pageDir, ref);
-      const relInDocs = path.relative(DOCS_DIR, resolvedInDocs);
-      if (!found.has(resolvedInDocs) && fs.existsSync(resolvedInDocs)) {
-        found.set(resolvedInDocs, {
-          stagePath: path.join("docs", relInDocs),
-          filePath: resolvedInDocs,
-        });
+      const result = resolveMdRef(match[1], pageDir);
+      if (result && !found.has(result.filePath)) {
+        found.set(result.filePath, result);
       }
     }
   }
 
-  return Array.from(found.values()).sort((a, b) =>
-    a.stagePath.localeCompare(b.stagePath)
-  );
+  return {
+    images: Array.from(found.values()).sort((a, b) =>
+      a.stagePath.localeCompare(b.stagePath)
+    ),
+    resolveHtmlRef,
+    resolveMdRef,
+  };
 }
 
 /**
@@ -290,48 +349,54 @@ function stageImages(images) {
 }
 
 /**
- * Rewrite .png references to .webp in page content for images that were converted.
+ * Rewrite image references in page content to use archive-relative paths.
+ *
+ * Transforms virtual/relative refs into the actual stagePath within the archive,
+ * and updates .png → .webp for images that were converted.
+ *
+ * Examples:
+ *   src="/images/docs/guardrails/foo/bar.png"  → src="docs/foo/bar.webp"
+ *   ![alt](./screenshot.png)                    → ![alt](docs/page-dir/screenshot.webp)
+ *   src="/images/servicenow/foo.png"            → src="images/servicenow/foo.webp"
  */
-function rewriteImageRefs(pages, convertedPaths) {
+function rewriteImageRefs(pages, convertedPaths, resolveHtmlRef, resolveMdRef) {
   let totalRewrites = 0;
 
   for (const page of pages) {
-    const pageDir = path.dirname(page.path); // relative dir within docs/
+    const pageDir = path.dirname(page.path);
 
-    // 1. HTML-style: src="/images/docs/foo.png"
+    // 1. HTML-style: src="/images/..."
     page.content = page.content.replace(
-      /(src="[^"]*?)\.png(")/gi,
-      (match, before, after) => {
-        // Extract the path, strip leading /
-        const refPath = before.replace(/^src="/, "").replace(/^\//, "");
-        if (convertedPaths.has(refPath + ".png")) {
-          totalRewrites++;
-          return before + ".webp" + after;
+      /src="(\s*\/images\/[^"]+\S)"/g,
+      (match, ref) => {
+        const result = resolveHtmlRef(ref);
+        if (!result) return match;
+        let newPath = result.stagePath;
+        if (convertedPaths.has(newPath)) {
+          newPath = newPath.replace(/\.png$/i, ".webp");
         }
-        return match;
+        totalRewrites++;
+        return `src="${newPath}"`;
       }
     );
 
-    // 2. Markdown-style: ![alt](./screenshot.png)
+    // 2. Markdown-style: ![alt](./...)
     page.content = page.content.replace(
-      /(!\[[^\]]*\]\([^)]*?)\.png(\))/gi,
-      (match, before, after) => {
-        // Extract the relative ref, e.g. "./screenshot.png"
-        const ref = before.replace(/^!\[[^\]]*\]\(/, "") + ".png";
-        // Resolve to stagePath: docs/<resolved relative path>
-        const resolved = path.resolve(DOCS_DIR, pageDir, ref);
-        const relInDocs = path.relative(DOCS_DIR, resolved);
-        const stagePath = path.join("docs", relInDocs);
-        if (convertedPaths.has(stagePath)) {
-          totalRewrites++;
-          return before + ".webp" + after;
+      /(!\[[^\]]*\]\()(\.[^)]+)(\))/g,
+      (match, prefix, ref, suffix) => {
+        const result = resolveMdRef(ref, pageDir);
+        if (!result) return match;
+        let newPath = result.stagePath;
+        if (convertedPaths.has(newPath)) {
+          newPath = newPath.replace(/\.png$/i, ".webp");
         }
-        return match;
+        totalRewrites++;
+        return prefix + newPath + suffix;
       }
     );
   }
 
-  console.log(`  Rewrote ${totalRewrites} .png references to .webp`);
+  console.log(`  Rewrote ${totalRewrites} image references to archive paths`);
 }
 
 async function main() {
@@ -360,7 +425,8 @@ async function main() {
 
   // Collect only images referenced by markdown content
   console.log("Collecting referenced images...");
-  const images = collectReferencedImages(pages);
+  const { images, resolveHtmlRef, resolveMdRef } =
+    collectReferencedImages(pages);
   console.log(`  Found ${images.length} referenced images`);
 
   let convertedPaths = new Set();
@@ -369,11 +435,9 @@ async function main() {
     convertedPaths = stageImages(images);
   }
 
-  // Rewrite .png → .webp refs in page content for converted images
-  if (convertedPaths.size > 0) {
-    console.log("Rewriting image references...");
-    rewriteImageRefs(pages, convertedPaths);
-  }
+  // Rewrite image refs in page content to use archive-relative paths
+  console.log("Rewriting image references...");
+  rewriteImageRefs(pages, convertedPaths, resolveHtmlRef, resolveMdRef);
 
   // Assemble JSON
   const output = {
