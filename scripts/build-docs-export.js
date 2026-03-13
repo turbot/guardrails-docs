@@ -260,7 +260,7 @@ function stageImages(images) {
     console.log("  cwebp not found — copying PNGs as-is (install webp package for smaller output)");
   }
 
-  let converted = 0;
+  const convertedPaths = new Set();
   for (const { stagePath, filePath } of images) {
     const ext = path.extname(filePath).toLowerCase();
 
@@ -270,7 +270,7 @@ function stageImages(images) {
       fs.mkdirSync(path.dirname(dest), { recursive: true });
       try {
         execSync(`cwebp -q 80 "${filePath}" -o "${dest}"`, { stdio: "ignore" });
-        converted++;
+        convertedPaths.add(stagePath);
         continue;
       } catch {
         // Fall through to copy original on conversion failure
@@ -282,9 +282,56 @@ function stageImages(images) {
     fs.copyFileSync(filePath, dest);
   }
 
-  if (converted > 0) {
-    console.log(`  Converted ${converted} PNGs to WebP`);
+  if (convertedPaths.size > 0) {
+    console.log(`  Converted ${convertedPaths.size} PNGs to WebP`);
   }
+
+  return convertedPaths;
+}
+
+/**
+ * Rewrite .png references to .webp in page content for images that were converted.
+ */
+function rewriteImageRefs(pages, convertedPaths) {
+  let totalRewrites = 0;
+
+  for (const page of pages) {
+    const pageDir = path.dirname(page.path); // relative dir within docs/
+
+    // 1. HTML-style: src="/images/docs/foo.png"
+    page.content = page.content.replace(
+      /(src="[^"]*?)\.png(")/gi,
+      (match, before, after) => {
+        // Extract the path, strip leading /
+        const refPath = before.replace(/^src="/, "").replace(/^\//, "");
+        if (convertedPaths.has(refPath + ".png")) {
+          totalRewrites++;
+          return before + ".webp" + after;
+        }
+        return match;
+      }
+    );
+
+    // 2. Markdown-style: ![alt](./screenshot.png)
+    page.content = page.content.replace(
+      /(!\[[^\]]*\]\([^)]*?)\.png(\))/gi,
+      (match, before, after) => {
+        // Extract the relative ref, e.g. "./screenshot.png"
+        const ref = before.replace(/^!\[[^\]]*\]\(/, "") + ".png";
+        // Resolve to stagePath: docs/<resolved relative path>
+        const resolved = path.resolve(DOCS_DIR, pageDir, ref);
+        const relInDocs = path.relative(DOCS_DIR, resolved);
+        const stagePath = path.join("docs", relInDocs);
+        if (convertedPaths.has(stagePath)) {
+          totalRewrites++;
+          return before + ".webp" + after;
+        }
+        return match;
+      }
+    );
+  }
+
+  console.log(`  Rewrote ${totalRewrites} .png references to .webp`);
 }
 
 async function main() {
@@ -316,9 +363,16 @@ async function main() {
   const images = collectReferencedImages(pages);
   console.log(`  Found ${images.length} referenced images`);
 
+  let convertedPaths = new Set();
   if (images.length > 0) {
     console.log("Staging images...");
-    stageImages(images);
+    convertedPaths = stageImages(images);
+  }
+
+  // Rewrite .png → .webp refs in page content for converted images
+  if (convertedPaths.size > 0) {
+    console.log("Rewriting image references...");
+    rewriteImageRefs(pages, convertedPaths);
   }
 
   // Assemble JSON
