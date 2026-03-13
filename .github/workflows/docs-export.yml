@@ -2,10 +2,6 @@ run-name: "Export docs to registry (${{ inputs.environment || 'development' }}) 
 name: Export docs to registry
 
 on:
-  push:
-    branches:
-      - main
-      - 'v[0-9]*_[0-9]*_x'
   workflow_dispatch:
     inputs:
       environment:
