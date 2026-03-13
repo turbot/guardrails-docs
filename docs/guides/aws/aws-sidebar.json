@@ -10,6 +10,7 @@
       "items": ["guides/aws/import-aws-account/gov-cloud"]
     },
     "guides/aws/import-aws-organization",
+    "guides/aws/migrate-exclude-to-discovery-level",
     {
       "type": "category",
       "id": "event-handlers",
