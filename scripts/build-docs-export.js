@@ -185,37 +185,55 @@ async function processPages() {
 }
 
 /**
- * Collect all images: co-located images next to markdown files in docs/,
- * and images from the top-level images/ directory.
+ * Scan all pages for image references and return only the images
+ * that are actually used in the markdown content.
+ *
+ * Handles two reference styles:
+ *   1. HTML: src="/images/foo/bar.png"  → top-level images/ directory
+ *   2. Markdown: ![alt](./screenshot.png) → co-located relative to the .md file
  */
-async function collectImages() {
-  const found = [];
+function collectReferencedImages(pages) {
+  const found = new Map(); // filePath → { stagePath, filePath }
 
-  // 1. Co-located images inside docs/ (e.g., docs/foo/bar/screenshot.png)
-  const docsImages = await glob("**/*.{png,jpg,jpeg,gif,svg,webp}", {
-    cwd: DOCS_DIR,
-  });
-  for (const file of docsImages.sort()) {
-    found.push({
-      stagePath: path.join("docs", file),
-      filePath: path.join(DOCS_DIR, file),
-    });
-  }
+  // Regex patterns for image references
+  const htmlImgRe = /src="\s*(\/images\/[^"]+\S)"/g;
+  const mdImgRe = /!\[[^\]]*\]\((\.[^)]+)\)/g;
 
-  // 2. Top-level images/ directory
-  if (fs.existsSync(IMAGES_DIR)) {
-    const topImages = await glob("**/*.{png,jpg,jpeg,gif,svg,webp}", {
-      cwd: IMAGES_DIR,
-    });
-    for (const file of topImages.sort()) {
-      found.push({
-        stagePath: path.join("images", file),
-        filePath: path.join(IMAGES_DIR, file),
-      });
+  for (const page of pages) {
+    const raw = page.content;
+    const pageDir = path.dirname(page.path); // relative dir within docs/
+
+    // 1. HTML-style: src="/images/docs/foo.png"
+    let match;
+    while ((match = htmlImgRe.exec(raw)) !== null) {
+      // match[1] is e.g. "/images/docs/foo.png" — strip leading slash
+      const relPath = match[1].replace(/^\//, "");
+      const filePath = path.resolve(__dirname, "..", relPath);
+      if (!found.has(filePath) && fs.existsSync(filePath)) {
+        found.set(filePath, {
+          stagePath: relPath,
+          filePath,
+        });
+      }
+    }
+
+    // 2. Markdown-style: ![alt](./screenshot.png)
+    while ((match = mdImgRe.exec(raw)) !== null) {
+      const ref = match[1]; // e.g. "./screenshot.png"
+      const resolvedInDocs = path.resolve(DOCS_DIR, pageDir, ref);
+      const relInDocs = path.relative(DOCS_DIR, resolvedInDocs);
+      if (!found.has(resolvedInDocs) && fs.existsSync(resolvedInDocs)) {
+        found.set(resolvedInDocs, {
+          stagePath: path.join("docs", relInDocs),
+          filePath: resolvedInDocs,
+        });
+      }
     }
   }
 
-  return found;
+  return Array.from(found.values()).sort((a, b) =>
+    a.stagePath.localeCompare(b.stagePath)
+  );
 }
 
 /**
@@ -293,10 +311,10 @@ async function main() {
   const labelMap = buildLabelMap(pages);
   const sidebar = enrichSidebarLabels(labelMap, resolvedSidebar);
 
-  // Collect and stage images
-  console.log("Collecting images...");
-  const images = await collectImages();
-  console.log(`  Found ${images.length} images`);
+  // Collect only images referenced by markdown content
+  console.log("Collecting referenced images...");
+  const images = collectReferencedImages(pages);
+  console.log(`  Found ${images.length} referenced images`);
 
   if (images.length > 0) {
     console.log("Staging images...");
