@@ -5,25 +5,30 @@ Description: >
   Deploy this stack in each registry account (dev, staging, production).
 
 Parameters:
-  GitHubOrg:
+  Repo1:
     Type: String
-    Default: turbot
-    Description: GitHub organization name
+    Default: turbot/guardrails-docs
+    Description: "GitHub org/repo (e.g. turbot/guardrails-docs)"
 
-  GitHubRepo:
+  Repo2:
     Type: String
-    Default: guardrails-docs
-    Description: GitHub repository name
+    Default: turbot/support-kb
+    Description: "GitHub org/repo (leave empty to skip)"
 
-  GitHubOrg2:
+  Repo3:
     Type: String
-    Default: turbotio
-    Description: Second GitHub organization name
+    Default: turbotio/turbot.com
+    Description: "GitHub org/repo (leave empty to skip)"
 
-  GitHubRepo2:
+  Repo4:
     Type: String
-    Default: turbot.com
-    Description: Second GitHub repository name
+    Default: ""
+    Description: "GitHub org/repo (leave empty to skip)"
+
+  Repo5:
+    Type: String
+    Default: ""
+    Description: "GitHub org/repo (leave empty to skip)"
 
   S3BucketName:
     Type: String
@@ -79,8 +84,11 @@ Resources:
                 token.actions.githubusercontent.com:aud: sts.amazonaws.com
               StringLike:
                 token.actions.githubusercontent.com:sub:
-                  - !Sub repo:${GitHubOrg}/${GitHubRepo}:*
-                  - !Sub repo:${GitHubOrg2}/${GitHubRepo2}:*
+                  - !Sub "repo:${Repo1}:*"
+                  - !Sub "repo:${Repo2}:*"
+                  - !Sub "repo:${Repo3}:*"
+                  - !Sub "repo:${Repo4}:*"
+                  - !Sub "repo:${Repo5}:*"
       Policies:
         - PolicyName: docs-export-s3-write
           PolicyDocument:

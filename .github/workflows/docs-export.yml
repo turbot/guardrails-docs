@@ -1,7 +1,11 @@
-run-name: "Export docs to registry (${{ inputs.environment }}) - ${{ inputs.version || github.run_id }}"
+run-name: "Export docs to registry (${{ inputs.environment || 'development' }}) - ${{ inputs.version || github.run_id }}"
 name: Export docs to registry
 
 on:
+  push:
+    branches:
+      - main
+      - 'v[0-9]*_[0-9]*_x'
   workflow_dispatch:
     inputs:
       environment:
@@ -14,13 +18,13 @@ on:
           - production
           - all
       version:
-        description: "Version tag (default: date-based YYYY.MM.DD.HHMMSS)"
+        description: "Version override (default: auto from branch + tags)"
         required: false
         type: string
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -30,6 +34,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -42,14 +48,37 @@ jobs:
       - name: Install node dependencies
         run: npm install gray-matter glob
 
-      - name: Set version
+      - name: Resolve version
         id: version
         run: |
+          # Use manual override if provided
           if [ -n "${{ inputs.version }}" ]; then
             echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          BRANCH="${{ github.ref_name }}"
+
+          # Derive major.minor from branch name
+          if [ "$BRANCH" = "main" ]; then
+            MAJOR_MINOR="5.57"
+          elif echo "$BRANCH" | grep -qE '^v[0-9]+_[0-9]+_x$'; then
+            MAJOR_MINOR=$(echo "$BRANCH" | sed 's/^v//;s/_x$//;s/_/./')
           else
             echo "version=$(date +%Y.%m.%d.%H%M%S)" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
+
+          # Find latest patch tag for this major.minor and increment
+          LATEST=$(git tag -l "v${MAJOR_MINOR}.*" --sort=-v:refname | head -1)
+          if [ -z "$LATEST" ]; then
+            PATCH=0
+          else
+            PATCH=$(echo "$LATEST" | sed "s/^v${MAJOR_MINOR}\.//")
+            PATCH=$((PATCH + 1))
+          fi
+
+          echo "version=${MAJOR_MINOR}.${PATCH}" >> "$GITHUB_OUTPUT"
 
       - name: Build docs export
         run: |
@@ -72,6 +101,17 @@ jobs:
           TARBALL_SIZE=$(stat -c%s dist/guardrails-docs.tar.gz 2>/dev/null || stat -f%z dist/guardrails-docs.tar.gz)
           echo "| Tarball size | $(numfmt --to=iec ${TARBALL_SIZE} 2>/dev/null || echo "${TARBALL_SIZE} bytes") |" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Tag release
+        run: |
+          TAG="v${{ steps.version.outputs.version }}"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists, skipping"
+          else
+            git tag "$TAG"
+            git push origin "$TAG"
+            echo "Created tag $TAG"
+          fi
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
@@ -89,7 +129,8 @@ jobs:
       matrix:
         target: ${{ fromJson(
           inputs.environment == 'all' && '["development","staging","production"]' ||
-          format('["{0}"]', inputs.environment)
+          inputs.environment && format('["{0}"]', inputs.environment) ||
+          '["development"]'
           ) }}
     steps:
       - name: Download build artifact
